@@ -1,0 +1,52 @@
+.middle-navigation {
+  @include media("<=576px") {
+    display: none;
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__logo-link {
+    margin-right: auto;
+  }
+
+  &__logo-img {
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+  }
+
+  &__profile-img-wrapper {
+    margin-right: 13px;
+  }
+
+  &__profile-img {
+    min-width: 63px;
+    min-height: 63px;
+    border-radius: 50%;
+    border: 2px solid #323941;
+  }
+
+  &__profile-items {
+    text-align: left;
+  }
+
+  &__profile-name {
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 119.3%;
+  }
+
+  &__profile-link {
+    display: block;
+    color: #009eff;
+    font-size: 13px;
+  }
+}

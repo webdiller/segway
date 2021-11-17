@@ -1,0 +1,27 @@
+.kick-scooter-overview {
+  &__container {
+    margin-top: 50px;
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+  }
+
+  &__desktop {
+    @include media("<=991px") {
+      display: none;
+    }
+  }
+  &__mobile {
+    display: none;
+    @include media("<=991px") {
+      display: inline-block;
+    }
+  }
+
+  &__img-wrapper {
+  }
+  &__img {
+  }
+}
