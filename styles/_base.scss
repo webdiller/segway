@@ -93,7 +93,7 @@ img {
   &_white {
     color: #fff;
   }
-  
+
   &_grey {
     color: #6c6c6c;
   }
@@ -101,14 +101,22 @@ img {
   &_uppercase {
     text-transform: uppercase;
   }
-  
+
   &_grey2 {
     color: #999999;
+  }
+
+  &_bold {
+    font-weight: 600;
   }
 
   &_13 {
     font-size: 13px;
     line-height: 16px;
+    @include media("<=576px") {
+      font-size: 12px;
+      line-height: 14px;
+    }
   }
 
   &_16 {

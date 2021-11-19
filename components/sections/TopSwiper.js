@@ -87,15 +87,15 @@ export default function TopSwiper({ isMobile }) {
   const swiper = useRef(null);
 
   const initSwiperFoo = () => {
-    swiper.current = new Swiper(".swiper-container", {
+    swiper.current = new Swiper(".top-swiper .swiper-container", {
       modules: [Navigation],
       slidesPerView: 4,
       draggable: true,
       navigation: {
         prevEl:
-          ".swiper-container + .top-swiper__navigation .top-swiper__nav_prev",
+          ".top-swiper .swiper-container + .top-swiper__navigation .top-swiper__nav_prev",
         nextEl:
-          ".swiper-container + .top-swiper__navigation .top-swiper__nav_next",
+          ".top-swiper .swiper-container + .top-swiper__navigation .top-swiper__nav_next",
       },
     });
   };

@@ -10,16 +10,21 @@ export default function SmartBattery() {
           alt="shine-circle"
           width={479}
           height={547}
+          placeholder="blur"
+          blurDataURL="/shine-circle.png"
         />
       </div>
 
       <div className="smart-battery__img-wrapper">
         <Image
           className="smart-battery__img"
-          src="/smart-battery.png"
+          src="/smart-battery-desktop.png"
           alt="Smart battery Management system (Smart-BMS)"
           width={720}
           height={547}
+          placeholder="blur"
+          objectFit="contain"
+          blurDataURL="/smart-battery-desktop.png"
         />
       </div>
 

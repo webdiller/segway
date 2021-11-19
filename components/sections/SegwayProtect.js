@@ -10,8 +10,6 @@ export default function SegwayProtect() {
               className="segway-protect__img"
               src="/segway-protect.png"
               alt="Segway Protective Gear Set as a gift"
-              width={278}
-              height={201}
               layout="fill"
               objectFit="contain"
               placeholder="blur"

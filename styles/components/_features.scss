@@ -15,6 +15,10 @@
     }
   }
 
+  &__main-img-wrapper {
+  }
+  &__main-img {}
+
   &__items {
     display: grid;
     grid-template-columns: repeat(4, 140px);

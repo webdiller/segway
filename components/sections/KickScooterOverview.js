@@ -17,26 +17,31 @@ export default function KickScooterOverview({ isMobile }) {
 
         {isMobile ? (
           <div className="kick-scooter-overview__img-wrapper">
+          <Image
+            className="kick-scooter-overview__img"
+            src="/kick-scooter-overview-mobile.jpg"
+            alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX"
+            width={450}
+            height={480}
+            quality={100}
+            objectFit="contain"
+            placeholder="blur"
+            blurDataURL="/kick-scooter-overview-mobile.jpg"
+          />
+        </div>
+          
+        ) : (
+          <div className="kick-scooter-overview__img-wrapper">
             <Image
               className="kick-scooter-overview__img"
               src="/kick-scooter-overview-desktop.jpg"
               alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX"
               width={958}
               height={672}
-              quality={50}
+              quality={100}
               objectFit="contain"
-            />
-          </div>
-        ) : (
-          <div className="kick-scooter-overview__img-wrapper">
-            <Image
-              className="kick-scooter-overview__img"
-              src="/kick-scooter-overview-mobile.jpg"
-              alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX"
-              width={450}
-              height={480}
-              quality={50}
-              objectFit="contain"
+              placeholder="blur"
+              blurDataURL="/kick-scooter-overview-desktop.jpg"
             />
           </div>
         )}

@@ -28,8 +28,6 @@ export default function Reviews() {
                 slidesPerView: 3,
               },
             }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
           >
             <SwiperSlide className="reviews__item">
               <div className="reviews__img-wrapper">

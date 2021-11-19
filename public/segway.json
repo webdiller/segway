@@ -1,0 +1,77 @@
+[
+  {
+    "id": "001",
+    "type": "kickscooter",
+    "name": "Ninebot Kickscooter E22",
+    "shortName": "E22",
+    "Price": "$599.99",
+    "Maxspeed": "Approx. 12.4 mph (20km/h)",
+    "RangeByMiles": "Approx. 13.7 miles (22km)",
+    "BatteryCapacity": "5100 mAh",
+    "NetWeight": "Approx. 29.8 lbs (13.5 kg)",
+    "Payload": "55-220 lbs(25kg -100kg)",
+    "CharginTime": "Approx. 3.5 h",
+    "NumberOfBatteries": "1 Build-in",
+    "MotorPpower": "Nominal 300W",
+    "PowerOutput": "71 W (0.071kW)",
+    "MaxIncline": "15%",
+    "ShockAbsorption": "N/A",
+    "Safety": "LED rear light",
+    "AtmosphereLight": "N/A",
+    "imgPath": "/segway-ninebot-kickscooter-e22.png",
+    "links": [
+      "https://www.segway.com/ninebot-kickscooter-e22/",
+      "https://store.segway.com/segway-ninebot-kickscooter-e22"
+    ]
+  },
+  {
+    "id": "002",
+    "type": "kickscooter",
+    "name": "Ninebot Kickscooter E22",
+    "shortName": "E22",
+    "Price": "$599.99",
+    "Maxspeed": "Approx. 12.4 mph (20km/h)",
+    "RangeByMiles": "Approx. 13.7 miles (22km)",
+    "BatteryCapacity": "5100 mAh",
+    "NetWeight": "Approx. 29.8 lbs (13.5 kg)",
+    "Payload": "55-220 lbs(25kg -100kg)",
+    "CharginTime": "Approx. 3.5 h",
+    "NumberOfBatteries": "1 Build-in",
+    "MotorPpower": "Nominal 300W",
+    "PowerOutput": "71 W (0.071kW)",
+    "MaxIncline": "15%",
+    "ShockAbsorption": "N/A",
+    "Safety": "LED rear light",
+    "AtmosphereLight": "N/A",
+    "imgPath": "/segway-ninebot-kickscooter-e22.png",
+    "links": [
+      "https://www.segway.com/ninebot-kickscooter-e22/",
+      "https://store.segway.com/segway-ninebot-kickscooter-e22"
+    ]
+  },
+  {
+    "id": "003",
+    "type": "kickscooter",
+    "name": "Ninebot Kickscooter E22",
+    "shortName": "E22",
+    "Price": "$599.99",
+    "Maxspeed": "Approx. 12.4 mph (20km/h)",
+    "RangeByMiles": "Approx. 13.7 miles (22km)",
+    "BatteryCapacity": "5100 mAh",
+    "NetWeight": "Approx. 29.8 lbs (13.5 kg)",
+    "Payload": "55-220 lbs(25kg -100kg)",
+    "CharginTime": "Approx. 3.5 h",
+    "NumberOfBatteries": "1 Build-in",
+    "MotorPpower": "Nominal 300W",
+    "PowerOutput": "71 W (0.071kW)",
+    "MaxIncline": "15%",
+    "ShockAbsorption": "N/A",
+    "Safety": "LED rear light",
+    "AtmosphereLight": "N/A",
+    "imgPath": "/segway-ninebot-kickscooter-e22.png",
+    "links": [
+      "https://www.segway.com/ninebot-kickscooter-e22/",
+      "https://store.segway.com/segway-ninebot-kickscooter-e22"
+    ]
+  }
+]

@@ -7,6 +7,33 @@ import UiLink from "../ui/UiLink";
 import "swiper/css";
 import "swiper/css/navigation";
 
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
+
+const initSwiperFoo = (ref) => {
+  ref.current = new Swiper(".accessories .swiper-container", {
+    slidesPerView: 2.2,
+    spaceBetween: 20,
+    draggable: true,
+    loop: false,
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+      },
+    },
+  });
+};
+
 /** Свайпер в шапке с самокатами */
 export default function Accessories({ isMobile }) {
   const [items, setItems] = useState([
@@ -84,20 +111,11 @@ export default function Accessories({ isMobile }) {
       imgPath: "/accessory-9.png",
     },
   ]);
-
+  const [width, height] = useWindowSize();
   const swiper = useRef(null);
 
-  const initSwiperFoo = () => {
-    swiper.current = new Swiper(".accessories .swiper-container", {
-      slidesPerView: 2,
-      spaceBetween: 20,
-      draggable: true,
-      loop: false,
-    });
-  };
-
   useEffect(() => {
-    isMobile ? initSwiperFoo() : null;
+    isMobile ? initSwiperFoo(swiper) : null;
   }, [isMobile]);
 
   return (
@@ -106,46 +124,55 @@ export default function Accessories({ isMobile }) {
         <p className="title title_1 accessories__title">Accessories</p>
 
         <div className="accessories__swiper">
-          <div className="swiper-container">
-            <div
-              className={
-                isMobile
-                  ? "swiper-wrapper"
-                  : "swiper-wrapper swiper-wrapper_desktop"
-              }
-            >
-              {items.map(({ id, name, description, price, imgPath }) => (
-                <div key={id} className="swiper-slide accessories__item">
-                  <Link href="#">
-                    <a className="accessories__link">
-                      <div className="accessories__img-wrapper">
-                        <Image
-                          objectFit="contain"
-                          className="accessories__img"
-                          src={imgPath}
-                          alt={name}
-                          width={160}
-                          height={160}
-                          quality={100}
-                          layout="fixed"
-                          placeholder="blur"
-                          blurDataURL={imgPath}
-                        />
-                      </div>
-                      <p className="text text_25 accessories__name">{name}</p>
-                      <p className="text text_13 text_grey2 accessories__description">
-                        {description}
-                      </p>
-                      <p className="text text_uppercase accessories__price">
-                        {price}
-                      </p>
-                    </a>
-                  </Link>
-                  <button className="ui-btn ui-btn_outline accessories__add-cart">
-                    ADD TO CART
-                  </button>
-                </div>
-              ))}
+          <div className="accessories__swiper-container">
+            <div className="swiper-container">
+              <div
+                className={
+                  isMobile
+                    ? "swiper-wrapper"
+                    : "swiper-wrapper swiper-wrapper_desktop"
+                }
+              >
+                {items.map(({ id, name, description, price, imgPath }) => (
+                  <div key={id} className="swiper-slide accessories__item">
+                    <div className="accessories__item-wrapper">
+                      <Link href="#">
+                        <a className="accessories__link">
+                          <div className="accessories__img-wrapper">
+                            <Image
+                              objectFit="contain"
+                              className="accessories__img"
+                              src={imgPath}
+                              alt={name}
+                              quality={100}
+                              layout="fill"
+                              placeholder="blur"
+                              blurDataURL={imgPath}
+                            />
+                          </div>
+                          <p className="text text_25 accessories__name">
+                            {name}
+                          </p>
+                          <p className="text text_13 text_grey2 accessories__description">
+                            {description}
+                          </p>
+                          <div className="accessories__price">
+                            <p className="text text_16 accessories__price-key">
+                              Price:{" "}
+                            </p>
+                            <p className="text text_uppercase accessories__price-value">
+                              {price}
+                            </p>
+                          </div>
+                        </a>
+                      </Link>
+                      <button className="ui-btn ui-btn_outline accessories__add-cart">
+                        ADD TO CART
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
