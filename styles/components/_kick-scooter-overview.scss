@@ -1,11 +1,24 @@
 .kick-scooter-overview {
   &__container {
     margin-top: 50px;
+    text-align: center;
   }
 
   &__title {
     display: block;
     text-align: center;
+  }
+
+  &__subtitle {
+    display: none;
+    margin-bottom: 21px;
+    @include media("<=991px") {
+      display: block;
+      color: #009eff;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 119.3%;
+    }
   }
 
   &__desktop {

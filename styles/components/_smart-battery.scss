@@ -1,6 +1,18 @@
 .smart-battery {
   position: relative;
   background-color: #0e0e16;
+
+  &__circle-img-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -240px;
+    left: 0;
+  }
+
+  &__circle-img {
+  }
+
   &__img-wrapper {
     position: absolute;
     top: 0;

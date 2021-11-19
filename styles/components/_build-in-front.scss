@@ -1,0 +1,47 @@
+.build-in-front {
+  position: relative;
+  background-color: #0e0e16;
+
+  &__circle-img-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -240px;
+    left: 0;
+  }
+
+  &__circle-img {
+  }
+
+  &__img-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__img {
+  }
+  
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 547px;
+  }
+
+  &__content {
+    max-width: 553px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    margin-bottom: 18px;
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 11px;
+    }
+  }
+}

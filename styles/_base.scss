@@ -57,18 +57,26 @@ img {
   }
 }
 
-.title-1 {
+.title {
   font-weight: bold;
   font-size: 50px;
   line-height: 60px;
   text-transform: uppercase;
   color: #323941;
+
   &_white {
     color: #fff;
   }
   @include media("<=991px") {
     font-size: 28px;
     line-height: 32px;
+  }
+
+  &_1 {
+    @include media("<=991px") {
+      font-size: 20px;
+      line-height: 24px;
+    }
   }
 }
 
@@ -77,7 +85,115 @@ img {
   line-height: 22px;
   color: #323941;
 
+  @include media("<=991px") {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
   &_white {
     color: #fff;
+  }
+  
+  &_grey {
+    color: #6c6c6c;
+  }
+
+  &_uppercase {
+    text-transform: uppercase;
+  }
+  
+  &_grey2 {
+    color: #999999;
+  }
+
+  &_13 {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  &_16 {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &_25 {
+    font-size: 25px;
+    line-height: 23px;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include media("<=991px") {
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+}
+
+.ui-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding-right: 40px;
+  padding-left: 40px;
+
+  font-size: 18px;
+
+  background-color: #009eff;
+  text-decoration: none;
+  color: #fff;
+
+  &_bold {
+  }
+
+  &_uppercase {
+  }
+
+  &_type-1 {
+    min-height: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+  }
+}
+
+.ui-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #009eff;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 42px;
+
+  font-weight: 600;
+  font-size: 13px;
+  color: #fff;
+  border: 1px solid #009eff;
+  outline: none;
+
+  transition: all 0.3s ease;
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: #c6c6c6;
+    border-color: #c6c6c6;
+    cursor: pointer;
+  }
+  &_outline {
+    border: 1px solid #c6c6c6;
+    background-color: transparent;
+    color: #c6c6c6;
+    &:hover,
+    &:focus {
+      background-color: #009eff;
+      color: #fff;
+      border-color: #009eff;
+      cursor: pointer;
+    }
   }
 }

@@ -4,17 +4,49 @@ import KickScooterOverview from "../components/sections/KickScooterOverview";
 import TopStock from "../components/sections/TopStock";
 import SmartBattery from "../components/sections/SmartBattery";
 import DualBraking from "../components/sections/DualBraking";
+import BuildInFront from "../components/sections/BuildInFront";
+import OneStep from "../components/sections/OneStep";
+import DownloadManual from "../components/sections/DownloadManual";
+import Reviews from "../components/sections/Reviews";
+import TopSwiper from "../components/sections/TopSwiper";
+import SegwayProtect from "../components/sections/SegwayProtect";
+import Accessories from "../components/sections/Accessories";
 
-export default function Home() {
+export default function Home({ isMobile }) {
   return (
     <div>
-      <DefaultLayout title="segway">
-        <TopStock/>
-        <Features />
+      <DefaultLayout description="segway description" title="segway index">
+        <TopSwiper isMobile={isMobile} />
+        <TopStock />
+        <Accessories isMobile={isMobile} />
+        <Features isMobile={isMobile} />
         <KickScooterOverview />
         <SmartBattery />
         <DualBraking />
+        <BuildInFront />
+        <OneStep />
+        <DownloadManual isMobile={isMobile} />
+        <SegwayProtect />
+        <Reviews />
       </DefaultLayout>
     </div>
   );
 }
+
+export const getServerSideProps = ({ req }) => {
+  let userAgent;
+  if (req) {
+    // if you are on the server and you get a 'req' property from your context
+    userAgent = req.headers["user-agent"]; // get the user-agent from the headers
+  } else {
+    userAgent = navigator.userAgent; // if you are on the client you can access the navigator from the window object
+  }
+
+  let isMobile = Boolean(
+    userAgent.match(
+      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+    )
+  );
+
+  return { props: { isMobile } };
+};

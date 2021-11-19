@@ -1,0 +1,22 @@
+.one-step {
+  position: relative;
+
+  &__container {
+    position: relative;
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    margin-bottom: 24px;
+  }
+  &__img-wrapper {
+  }
+  &__img {
+  }
+}

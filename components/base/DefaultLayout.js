@@ -1,5 +1,5 @@
 
-import CustomHead from ".//CustomHead";
+import CustomHead from "./CustomHead";
 import Footer from "../sections/Footer";
 
 /** Дефолтное расположение эементов */
@@ -10,7 +10,7 @@ export default function DefaultLayout({
 } = {}) {
   return (
     <>
-      <CustomHead />
+      <CustomHead description={description} title={title} />
       {children}
       <Footer />
     </>

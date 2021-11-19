@@ -3,6 +3,16 @@ import Image from "next/image";
 export default function SmartBattery() {
   return (
     <div className="smart-battery">
+      <div className="smart-battery__circle-img-wrapper">
+        <Image
+          className="smart-battery__circle-img"
+          src="/shine-circle.png"
+          alt="shine-circle"
+          width={479}
+          height={547}
+        />
+      </div>
+
       <div className="smart-battery__img-wrapper">
         <Image
           className="smart-battery__img"
@@ -15,7 +25,7 @@ export default function SmartBattery() {
 
       <div className="container smart-battery__container">
         <div className="smart-battery__content">
-          <p className="title-1 title-1_white smart-battery__title">
+          <p className="title title_white smart-battery__title">
             Smart battery Management system (Smart-BMS)
           </p>
           <p className="text text_white smart-battery__text">
