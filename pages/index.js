@@ -11,6 +11,7 @@ import Reviews from "../components/sections/Reviews";
 import TopSwiper from "../components/sections/TopSwiper";
 import SegwayProtect from "../components/sections/SegwayProtect";
 import Accessories from "../components/sections/Accessories";
+import CompareSpecifications from "../components/sections/CompareSpecifications";
 
 export default function Home({ isMobile }) {
   return (
@@ -26,6 +27,7 @@ export default function Home({ isMobile }) {
         <BuildInFront />
         <OneStep />
         <DownloadManual isMobile={isMobile} />
+        <CompareSpecifications />
         <SegwayProtect />
         <Reviews />
       </DefaultLayout>

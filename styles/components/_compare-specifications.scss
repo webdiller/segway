@@ -1,0 +1,308 @@
+.compare-specfications {
+  &__container {
+    margin-top: 90px;
+    margin-bottom: 120px;
+    @include media("<=991px") {
+      margin-top: 50px;
+      margin-bottom: 40px;
+    }
+    @include media("<=576px") {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    text-align: center;
+    @include media("<=991px") {
+        margin-bottom: 9px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin-bottom: 75px;
+    @include media("<=991px") {
+      font-size: 15px;
+      line-height: 18px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 90%;
+      background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.8)
+      );
+      z-index: 10;
+      @include media("<=576px") {
+        display: none;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 90%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.8)
+      );
+      z-index: 10;
+      @include media("<=576px") {
+        width: 50px;
+      }
+    }
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+    }
+  }
+  &__slide {
+    &:hover {
+    }
+  }
+  &__img-wrapper {
+    margin-bottom: 15px;
+    @include media("<=991px") {
+      margin-bottom: 10px;
+    }
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+      width: 120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__img {
+    transition: all 0.3s ease;
+  }
+
+  &__name {
+    padding-left: 15px;
+    margin-bottom: 30px;
+    text-align: left;
+    white-space: nowrap;
+    @include media("<=991px") {
+      text-align: center;
+      margin-bottom: 15px;
+      padding-left: 0;
+      font-size: 18px;
+      line-height: 23px;
+    }
+    @include media("<=576px") {
+      padding-left: 15px;
+      padding-right: 15px;
+      height: 46px;
+      white-space: inherit;
+    }
+  }
+
+  &__items {
+    margin-bottom: 60px;
+    padding-left: 15px;
+    @include media("<=991px") {
+    }
+    @include media("<=768px") {
+    }
+    @include media("<=576px") {
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media("<=576px") {
+        margin-bottom: 0;
+      }
+    }
+    &:nth-child(odd) {
+      @include media("<=576px") {
+        background-color: #f5f5f5;
+      }
+    }
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+      padding-top: 14px;
+      padding-bottom: 14px;
+      padding-left: 15px;
+    }
+  }
+
+  &__item-key {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #009eff;
+    font-size: 18px;
+    padding-bottom: 9px;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -15px;
+      width: calc(100% + 15px);
+      height: 1px;
+      background-color: #ececec;
+      @include media("<=576px") {
+        display: none;
+      }
+    }
+    @include media("<=991px") {
+    }
+
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__item-icon {
+    font-size: 18px;
+    color: #009eff;
+    margin-right: 8px;
+    @include media("<=991px") {
+    }
+
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+    }
+  }
+
+  &__item-value {
+    padding-top: 5px;
+    @include media("<=991px") {
+    }
+
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+      padding-top: 0;
+    }
+  }
+
+  &__price {
+    text-align: center;
+    margin-bottom: 15px;
+    @include media("<=991px") {
+      font-size: 20px;
+      line-height: 23px;
+    }
+
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+      text-align: left;
+      padding-left: 15px;
+    }
+  }
+
+  &__buy-btn {
+    display: block;
+    width: 100%;
+    max-width: 187px;
+    margin: 0 auto;
+    @include media("<=991px") {
+    }
+
+    @include media("<=768px") {
+    }
+
+    @include media("<=576px") {
+      max-width: 130px;
+      margin: 0 auto 0 15px;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+
+    width: 120%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    height: 0;
+
+    @include media("<=1200px") {
+      width: 105%;
+    }
+
+    @include media("<=991px") {
+      display: none;
+    }
+  }
+
+  &__nav {
+    width: 70px;
+    height: 70px;
+    border: 3px solid #009eff;
+    background-color: #fff;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: #fff;
+    }
+    &_prev {
+    }
+
+    &_next {
+    }
+
+    @include media("<=768px") {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__icon {
+    font-size: 40px;
+    color: #009eff;
+    @include media("<=768px") {
+      font-size: 22px;
+    }
+  }
+
+  .swiper-slide {
+    transition: all 0.3s ease;
+  }
+}

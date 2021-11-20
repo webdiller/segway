@@ -144,7 +144,6 @@ export default function Accessories({ isMobile }) {
                               className="accessories__img"
                               src={imgPath}
                               alt={name}
-                              quality={100}
                               layout="fill"
                               placeholder="blur"
                               blurDataURL={imgPath}

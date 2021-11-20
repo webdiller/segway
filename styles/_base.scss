@@ -67,13 +67,13 @@ img {
   &_white {
     color: #fff;
   }
-  @include media("<=991px") {
+  @include media("<=768px") {
     font-size: 28px;
     line-height: 32px;
   }
 
   &_1 {
-    @include media("<=991px") {
+    @include media("<=768px") {
       font-size: 20px;
       line-height: 24px;
     }
@@ -85,7 +85,7 @@ img {
   line-height: 22px;
   color: #323941;
 
-  @include media("<=991px") {
+  @include media("<=768px") {
     font-size: 14px;
     line-height: 17px;
   }
@@ -113,7 +113,7 @@ img {
   &_13 {
     font-size: 13px;
     line-height: 16px;
-    @include media("<=576px") {
+    @include media("<=768px") {
       font-size: 12px;
       line-height: 14px;
     }
@@ -129,7 +129,7 @@ img {
     line-height: 23px;
     font-weight: bold;
     text-transform: uppercase;
-    @include media("<=991px") {
+    @include media("<=768px") {
       font-size: 18px;
       line-height: 23px;
     }

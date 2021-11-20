@@ -2,6 +2,16 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { FcPrevious, FcNext } from "react-icons/fc";
+import { MdSpeed } from "react-icons/md";
+import { FaRoad } from "react-icons/fa";
+import data from "../../public/segway.json";
+// MdSpeed,
+// FaRoad
+// BsBatteryCharging
+// GiWeight
+// BsDownload
+// BiTimeFive
+// MdFormatListNumbered
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -18,7 +28,7 @@ export default function CompareSpecifications() {
         <div className="compare-specfications__swiper">
           <Swiper
             modules={[Navigation]}
-            spaceBetween={13}
+            spaceBetween={0}
             slidesPerView={2}
             loop={true}
             draggable={true}
@@ -28,35 +38,37 @@ export default function CompareSpecifications() {
             }}
             breakpoints={{
               768: {
-                spaceBetween: 15,
                 slidesPerView: 3,
+              },
+              1200: {
+                slidesPerView: 4,
               },
             }}
           >
-            {items.map(
+            {data.map(
               ({
                 id,
                 type,
                 name,
                 shortName,
-                Price,
-                Maxspeed,
-                RangeByMiles,
-                BatteryCapacity,
-                NetWeight,
-                Payload,
-                CharginTime,
-                NumberOfBatteries,
-                MotorPpower,
-                PowerOutput,
-                MaxIncline,
-                ShockAbsorption,
-                Safety,
-                AtmosphereLight,
+                price,
+                maxSpeed,
+                rangeByMiles,
+                batteryCapacity,
+                netWeight,
+                payload,
+                charginTime,
+                numberOfBatteries,
+                motorPpower,
+                powerOutput,
+                maxIncline,
+                shockAbsorption,
+                safety,
+                atmosphereLight,
                 imgPath,
                 links,
               }) => (
-                <SwiperSlide key={id} className="compare-specfications__item">
+                <SwiperSlide key={id} className="compare-specfications__slide">
                   <div className="compare-specfications__img-wrapper">
                     <Image
                       objectFit="contain"
@@ -71,17 +83,91 @@ export default function CompareSpecifications() {
                       blurDataURL={imgPath}
                     />
                   </div>
-                  <p className="text text_bold compare-specfications__name">{name}</p>
+                  <p className="text text_bold compare-specfications__name">
+                    {name}
+                  </p>
+
                   <div className="compare-specfications__items">
                     <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Max. speed</div>
-                      <div className="compare-specfications__item-value"></div>
+                      <div className="compare-specfications__item-key">
+                        <MdSpeed className="compare-specfications__item-icon" />
+                        Max. speed
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
                     </div>
                     <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Range (miles)</div>
-                      <div className="compare-specfications__item-value"></div>
+                      <div className="compare-specfications__item-key">
+                        <MdSpeed className="compare-specfications__item-icon" />
+                        Max. speed
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <MdSpeed className="compare-specfications__item-icon" />
+                        Max. speed
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <MdSpeed className="compare-specfications__item-icon" />
+                        Max. speed
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <MdSpeed className="compare-specfications__item-icon" />
+                        Max. speed
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <MdSpeed className="compare-specfications__item-icon" />
+                        Max. speed
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <MdSpeed className="compare-specfications__item-icon" />
+                        Max. speed
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <FaRoad className="compare-specfications__item-icon" />
+                        Range (miles)
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {rangeByMiles}
+                      </div>
                     </div>
                   </div>
+
+                  <p className="text text_25 compare-specfications__price">
+                    {price}
+                  </p>
+                  <button className="ui-btn compare-specfications__buy-btn">
+                    BUY IT NOW
+                  </button>
                 </SwiperSlide>
               )
             )}
