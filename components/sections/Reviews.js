@@ -17,7 +17,6 @@ export default function Reviews() {
             spaceBetween={13}
             slidesPerView={2}
             loop={true}
-            draggable={true}
             navigation={{
               prevEl: ".reviews__nav_prev",
               nextEl: ".reviews__nav_next",

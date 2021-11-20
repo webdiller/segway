@@ -1,18 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BsCart2, BsTelephone } from "react-icons/bs";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import { AiOutlineInstagram, AiOutlineMenu } from "react-icons/ai";
+import { useState } from "react";
 
 /** Верхняя навигация */
 export default function TopNavigation() {
+  const [isActiveMenu, setIsActiveMenu] = useState(false);
+  const handleSetIsActiveMenu = () => {
+    setIsActiveMenu((prev) => !prev);
+  };
   return (
     <div className="top-nav">
       <div className="container top-nav__container">
-        <button className="top-nav__btn-menu">
-          <AiOutlineMenu />
+        <button onClick={handleSetIsActiveMenu} className="top-nav__btn-menu">
+          {isActiveMenu ? (
+            <IoIosCloseCircleOutline className="top-nav__btn-icon" />
+          ) : (
+            <AiOutlineMenu className="top-nav__btn-icon" />
+          )}
         </button>
 
-        <nav className="top-nav__items">
+        <nav className={isActiveMenu ? "top-nav__items active" : "top-nav__items"}>
           <Link href="#">
             <a className="top-nav__item">REVIEWS</a>
           </Link>

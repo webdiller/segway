@@ -16,7 +16,7 @@
     margin-bottom: 18px;
     text-align: center;
     @include media("<=991px") {
-        margin-bottom: 9px;
+      margin-bottom: 9px;
     }
   }
 
@@ -196,6 +196,7 @@
 
   &__item-value {
     padding-top: 5px;
+    font-size: 18px;
     @include media("<=991px") {
     }
 

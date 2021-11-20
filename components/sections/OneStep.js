@@ -4,7 +4,6 @@ export default function OneStep() {
   return (
     <div className="one-step">
       <div className="container one-step__container">
-          
         <p className="title one-step__title">One-step Folding Mechanism</p>
         <p className="text one-step__text">
           Ninebot KickScooter MAX can be easily folded and carried around in 3
@@ -18,6 +17,9 @@ export default function OneStep() {
             alt="One-step Folding Mechanism"
             width={840}
             height={388}
+            placeholder="blur"
+            blurDataURL="/one-step.png"
+            layout="responsive"
           />
         </div>
       </div>

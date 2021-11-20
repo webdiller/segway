@@ -1,41 +1,13 @@
-import Swiper from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import UiLink from "../ui/UiLink";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-function useWindowSize() {
-  const [size, setSize] = useState([0, 0]);
-  useEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener("resize", updateSize);
-    updateSize();
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-  return size;
-}
-
-const initSwiperFoo = (ref) => {
-  ref.current = new Swiper(".accessories .swiper-container", {
-    slidesPerView: 2.2,
-    spaceBetween: 20,
-    draggable: true,
-    loop: false,
-    breakpoints: {
-      576: {
-        slidesPerView: 2,
-      },
-    },
-  });
-};
-
-/** Свайпер в шапке с самокатами */
-export default function Accessories({ isMobile }) {
+export default function Accessories() {
   const [items, setItems] = useState([
     {
       id: "001",
@@ -111,71 +83,62 @@ export default function Accessories({ isMobile }) {
       imgPath: "/accessory-9.png",
     },
   ]);
-  const [width, height] = useWindowSize();
-  const swiper = useRef(null);
-
-  useEffect(() => {
-    isMobile ? initSwiperFoo(swiper) : null;
-  }, [isMobile]);
 
   return (
     <div className="accessories">
       <div className="container accessories__container">
         <p className="title title_1 accessories__title">Accessories</p>
-
         <div className="accessories__swiper">
-          <div className="accessories__swiper-container">
-            <div className="swiper-container">
-              <div
-                className={
-                  isMobile
-                    ? "swiper-wrapper"
-                    : "swiper-wrapper swiper-wrapper_desktop"
-                }
-              >
-                {items.map(({ id, name, description, price, imgPath }) => (
-                  <div key={id} className="swiper-slide accessories__item">
-                    <div className="accessories__item-wrapper">
-                      <Link href="#">
-                        <a className="accessories__link">
-                          <div className="accessories__img-wrapper">
-                            <Image
-                              objectFit="contain"
-                              className="accessories__img"
-                              src={imgPath}
-                              alt={name}
-                              layout="fill"
-                              placeholder="blur"
-                              blurDataURL={imgPath}
-                            />
-                          </div>
-                          <p className="text text_25 accessories__name">
-                            {name}
-                          </p>
-                          <p className="text text_13 text_grey2 accessories__description">
-                            {description}
-                          </p>
-                          <div className="accessories__price">
-                            <p className="text text_16 accessories__price-key">
-                              Price:{" "}
-                            </p>
-                            <p className="text text_uppercase accessories__price-value">
-                              {price}
-                            </p>
-                          </div>
-                        </a>
-                      </Link>
-                      <button className="ui-btn ui-btn_outline accessories__add-cart">
-                        ADD TO CART
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <Swiper
+            slidesPerView={2.2}
+            spaceBetween={20}
+            loop={false}
+            breakpoints={{
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 0,
+                allowTouchMove: false,
+              },
+            }}
+          >
+            {items.map(({ id, name, description, price, imgPath }) => (
+              <SwiperSlide key={id} className="swiper-slide accessories__item">
+                <div className="accessories__item-wrapper">
+                  <Link href="#">
+                    <a className="accessories__link">
+                      <div className="accessories__img-wrapper">
+                        <Image
+                          objectFit="contain"
+                          className="accessories__img"
+                          src={imgPath}
+                          alt={name}
+                          layout="fill"
+                          placeholder="blur"
+                          blurDataURL={imgPath}
+                        />
+                      </div>
+                      <p className="text text_25 accessories__name">{name}</p>
+                      <p className="text text_13 text_grey2 accessories__description">
+                        {description}
+                      </p>
+                      <div className="accessories__price">
+                        <p className="text text_16 accessories__price-key">
+                          Price:
+                        </p>
+                        <p className="text text_uppercase accessories__price-value">
+                          {price}
+                        </p>
+                      </div>
+                    </a>
+                  </Link>
+                  <button className="ui-btn ui-btn_outline accessories__add-cart">
+                    ADD TO CART
+                  </button>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-
         <div className="accessories__bottom">
           <UiLink
             href="#"

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
 export default function SmartBattery() {
@@ -15,18 +16,25 @@ export default function SmartBattery() {
         />
       </div>
 
-      <div className="smart-battery__img-wrapper">
-        <Image
-          className="smart-battery__img"
-          src="/smart-battery-desktop.png"
-          alt="Smart battery Management system (Smart-BMS)"
-          width={720}
-          height={547}
-          placeholder="blur"
-          objectFit="contain"
-          blurDataURL="/smart-battery-desktop.png"
+      <picture className="smart-battery__picture">
+        <source
+          srcSet="/smart-battery-desktop.webp"
+          media="(min-width: 768px)"
         />
-      </div>
+        <source
+          srcSet="/smart-battery-desktop.png"
+          media="(min-width: 768px)"
+        />
+        <source srcSet="/smart-battery-mobile.webp" />
+        <img
+          width="720"
+          height="547"
+          className="smart-battery__img"
+          src="/smart-battery-mobile.png"
+          alt="Smart battery Management system (Smart-BMS)"
+          loading="lazy"
+        />
+      </picture>
 
       <div className="container smart-battery__container">
         <div className="smart-battery__content">

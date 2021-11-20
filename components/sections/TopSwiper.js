@@ -1,15 +1,14 @@
-import Swiper, { Navigation } from "swiper";
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
 /** Свайпер в шапке с самокатами */
-export default function TopSwiper({ isMobile }) {
-  const [windowWidth, setWindowWidth] = useState();
+export default function TopSwiper() {
   const [items, setItems] = useState([
     {
       id: "001",
@@ -84,73 +83,54 @@ export default function TopSwiper({ isMobile }) {
     },
   ]);
 
-  const swiper = useRef(null);
-
-  const initSwiperFoo = () => {
-    swiper.current = new Swiper(".top-swiper .swiper-container", {
-      modules: [Navigation],
-      slidesPerView: 4,
-      draggable: true,
-      navigation: {
-        prevEl:
-          ".top-swiper .swiper-container + .top-swiper__navigation .top-swiper__nav_prev",
-        nextEl:
-          ".top-swiper .swiper-container + .top-swiper__navigation .top-swiper__nav_next",
-      },
-    });
-  };
-
-  useEffect(() => {
-    isMobile ? initSwiperFoo() : null;
-  }, [isMobile]);
-
-
   return (
     <div className="top-swiper">
       <div className="container top-swiper__container">
         <div className="top-swiper__swiper">
-          <div className="swiper-container">
-            <div
-              className={
-                isMobile
-                  ? "swiper-wrapper"
-                  : "swiper-wrapper swiper-wrapper_desktop"
-              }
-            >
-              {items.map(({ id, name, imgPath }) => (
-                <Link key={id} href="#">
-                  <a className="swiper-slide top-swiper__item">
-                    <div className="top-swiper__img-wrapper">
-                      <Image
-                        objectFit="contain"
-                        className="top-swiper__img"
-                        src={imgPath}
-                        alt={name}
-                        width={80}
-                        height={80}
-                        quality={100}
-                        layout="fixed"
-                        placeholder="blur"
-                        blurDataURL="/segway-placeholder.png"
-                      />
-                    </div>
-                    <p className="top-swiper__name">{name}</p>
-                  </a>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={0}
+            slidesPerView={4}
+            loop={false}
+            navigation={{
+              prevEl: ".top-swiper__nav_prev",
+              nextEl: ".top-swiper__nav_next",
+            }}
+            breakpoints={{
+              768: {
+                allowTouchMove: false,
+              },
+            }}
+          >
+            {items.map(({ id, name, imgPath }) => (
+              <SwiperSlide key={id} className="top-swiper__item">
+                <div className="top-swiper__img-wrapper">
+                  <Image
+                    objectFit="contain"
+                    className="top-swiper__img"
+                    src={imgPath}
+                    alt={name}
+                    width={80}
+                    height={80}
+                    quality={100}
+                    layout="fixed"
+                    placeholder="blur"
+                    blurDataURL="/segway-placeholder.png"
+                  />
+                </div>
+                <p className="top-swiper__name">{name}</p>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-          {isMobile && (
-            <div className="top-swiper__navigation">
-              <button className="top-swiper__nav top-swiper__nav_prev">
-                <BsChevronCompactLeft className="top-swiper__icon" />
-              </button>
-              <button className="top-swiper__nav top-swiper__nav_next">
-                <BsChevronCompactRight className="top-swiper__icon" />
-              </button>
-            </div>
-          )}
+          <div className="top-swiper__navigation">
+            <button className="top-swiper__nav top-swiper__nav_prev">
+              <BsChevronCompactLeft className="top-swiper__icon" />
+            </button>
+            <button className="top-swiper__nav top-swiper__nav_next">
+              <BsChevronCompactRight className="top-swiper__icon" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

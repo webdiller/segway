@@ -1,0 +1,70 @@
+.packing-list {
+  background: linear-gradient(to top, #efefef, rgba(255, 255, 255, 0.8));
+  &__container {
+    position: relative;
+    display: flex;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    @include media("<=991px") {
+      padding-top: 50px;
+      padding-bottom: 25px;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @include media("<=768px") {
+      font-size: 26px;
+      line-height: 32px;
+    }
+    &_desktop {
+      margin-bottom: 30px;
+      @include media("<=991px") {
+        display: none;
+      }
+    }
+    &_mobile {
+      display: none;
+      order: -1;
+      margin-bottom: 25px;
+      @include media("<=991px") {
+        display: block;
+      }
+    }
+  }
+
+  &__video-wrapper {
+    flex: 0 1 40%;
+    width: 40%;
+    align-self: center;
+    margin-right: 20px;
+    @include media("<=991px") {
+      margin-right: 0;
+      width: 100%;
+      flex: 0 1 auto;
+    }
+  }
+
+  &__video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__img-wrapper {
+    position: relative;
+    width: auto;
+    width: 56%;
+    flex: 1 1 56%;
+    @include media("<=991px") {
+      order: -1;
+      width: 100%;
+      max-width: 300px;
+      flex: 1 1 auto;
+      margin: 0 auto 20px auto;
+    }
+  }
+
+  &__img {
+  }
+}

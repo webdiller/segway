@@ -1,41 +1,33 @@
-import Image from "next/image";
-import Link from "next/link";
+/* eslint-disable @next/next/no-img-element */
 import { VscFilePdf } from "react-icons/vsc";
 import UiLink from "../ui/UiLink";
 
-export default function DownloadManual({ isMobile }) {
+export default function DownloadManual() {
   return (
     <div className="download-manual">
       <div className="container download-manual__container">
         <div className="download-manual__cart">
-          {isMobile ? (
-            <div className="download-manual__img-wrapper">
-              <Image
-                className="download-manual__img"
-                src="/download-manual-mobile.png"
-                alt="download-manual"
-                width={762}
-                height={465}
-                objectFit="contain"
-                quality={75}
-              />
-            </div>
-          ) : (
-            <div className="download-manual__img-wrapper">
-              <Image
-                className="download-manual__img"
-                src="/download-manual-desktop.png"
-                alt="download-manual"
-                width={592}
-                height={472}
-                objectFit="contain"
-                quality={75}
-              />
-            </div>
-          )}
-
+          <picture className="download-manual__picture">
+            <source
+              srcSet="/download-manual-desktop.webp"
+              media="(min-width: 425px)"
+            />
+            <source
+              srcSet="/download-manual-desktop.png"
+              media="(min-width: 425px)"
+            />
+            <source srcSet="/download-manual-mobile.webp" />
+            <img
+              width="762"
+              height="465"
+              className="download-manual__img"
+              src="/download-manual-mobile.png"
+              alt="DOWNLOAD manual"
+              loading="lazy"
+            />
+          </picture>
           <div className="download-manual__content">
-            <p className="title download-manual__title">DOWNLOAD manual</p>
+            <p className="title title_1 download-manual__title">DOWNLOAD manual</p>
 
             <div className="download-manual__items">
               <div className="download-manual__item">
@@ -78,7 +70,8 @@ export default function DownloadManual({ isMobile }) {
               href="/download-manual.pdf"
               classNameLink="ui-link ui-link_type-1 download-manual__link"
               innerText="Download manual"
-              icon={<VscFilePdf className="download-manual__link-icon" />}/>
+              icon={<VscFilePdf className="download-manual__link-icon" />}
+            />
           </div>
         </div>
       </div>

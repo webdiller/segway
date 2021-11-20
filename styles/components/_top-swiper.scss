@@ -10,14 +10,16 @@
 
   .swiper-slide {
     transition: all 0.3s ease;
+    flex: 0 1 calc(100% / 7);
+    @include media("<=768px") {
+      flex: 0 0 auto;
+    }
   }
 
   .swiper-wrapper {
-    &_desktop {
-      flex-wrap: wrap;
-      .swiper-slide {
-        flex: 0 1 calc(100% / 7);
-      }
+    flex-wrap: wrap;
+    @include media("<=768px") {
+      flex-wrap: nowrap;
     }
   }
 
@@ -28,6 +30,9 @@
     &:hover,
     &:focus {
       background-color: #009eff;
+      .swiper-slide {
+        background-color: #009eff;
+      }
       .top-swiper__name {
         color: #fff;
       }
@@ -59,11 +64,15 @@
 
     width: 100%;
 
-    display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 10;
     height: 0;
+
+    display: none;
+    @include media("<=768px") {
+      display: flex;
+    }
   }
 
   &__nav {

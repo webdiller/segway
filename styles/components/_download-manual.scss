@@ -15,11 +15,14 @@
     padding: 32px 50px 32px 32px;
     min-height: 322px;
     @include media("<=991px") {
-      padding-top: 160px;
+      padding-top: 225px;
+    }
+    @include media("<=768px") {
+      padding: 225px 10px 10px 10px;
     }
   }
 
-  &__img-wrapper {
+  &__picture {
     position: absolute;
     top: -30%;
     right: 29%;
@@ -28,10 +31,25 @@
     @include media("<=991px") {
       width: 398px;
       height: 236px;
+      top: -40%;
+    }
+    @include media("<=768px") {
+      right: 23%;
+    }
+    @include media("<=668px") {
+      right: 16%;
+    }
+    @include media("<=568px") {
+      right: 11%;
+    }
+    @include media("<=425px") {
+      right: 0;
+      width: 100%;
     }
   }
 
   &__img {
+    object-fit: contain;
   }
 
   &__content {
@@ -52,6 +70,8 @@
     margin-bottom: 17px;
     @include media("<=991px") {
       margin-bottom: 24px;
+      text-align: center;
+      white-space: nowrap;
     }
   }
 
@@ -60,35 +80,50 @@
     justify-content: space-between;
     margin-bottom: 25px;
     @include media("<=991px") {
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
   }
 
   &__item {
     display: flex;
     align-items: center;
-    @include media("<=991px") {
-    }
     &:not(:last-child) {
       margin-right: 12px;
       @include media("<=991px") {
       }
     }
+    @include media("<=991px") {
+    }
+    @include media("<=576px") {
+      display: block;
+      text-align: center;
+      flex-basis: 33.33%;
+    }
   }
 
   &__icon {
-    margin-right: 7px;
+    margin-right: 10px;
     @include media("<=991px") {
+    }
+    @include media("<=576px") {
+      margin: 0 auto 15px auto;
     }
   }
 
   &__item-description {
     @include media("<=991px") {
     }
+    @include media("<=576px") {
+      margin-right: 0;
+      font-size: 14px;
+    }
   }
 
   &__link {
     @include media("<=991px") {
+    }
+    @include media("<=576px") {
+      width: 100%;
     }
   }
 

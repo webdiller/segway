@@ -19,6 +19,9 @@ export default function BuildInFront() {
           alt="Smart battery Management system (Smart-BMS)"
           width={720}
           height={547}
+          placeholder="blur"
+          blurDataURL="/build-in-front.png"
+          layout="responsive"
         />
       </div>
 
@@ -33,7 +36,7 @@ export default function BuildInFront() {
             others around you.
           </p>
 
-          <p className="text text_grey build-in-front__text">
+          <p className="text text_grey build-in-front__text build-in-front__text_last">
             *Disclaimer: for your safety, please try not to ride at night
           </p>
         </div>

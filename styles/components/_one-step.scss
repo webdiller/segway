@@ -6,6 +6,10 @@
     text-align: center;
     padding-top: 75px;
     padding-bottom: 75px;
+    @include media("<=768px") {
+      padding-top: 35px;
+      padding-bottom: 15px;
+    }
   }
 
   &__title {

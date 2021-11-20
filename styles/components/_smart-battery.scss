@@ -6,7 +6,6 @@
   @include media("<=991px") {
     background-color: #05080c;
   }
-  
 
   &__container {
     position: relative;
@@ -30,16 +29,22 @@
   &__circle-img {
   }
 
-  &__img-wrapper {
+  &__picture {
     position: absolute;
-    bottom: -10px;
+    bottom: 0;
     right: 0;
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      bottom: unset;
+      top: 0;
     }
   }
   &__img {
+    @include media("<=768px") {
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__content {
