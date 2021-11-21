@@ -15,6 +15,7 @@ import CompareSpecifications from "../components/sections/CompareSpecifications"
 import PackingList from "../components/sections/PackingList";
 import OtherModels from "../components/sections/OtherModels";
 
+
 export default function Home({ isMobile }) {
   return (
     <div>
