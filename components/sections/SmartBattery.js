@@ -4,17 +4,6 @@ import Image from "next/image";
 export default function SmartBattery() {
   return (
     <div className="smart-battery">
-      <div className="smart-battery__circle-img-wrapper">
-        <Image
-          className="smart-battery__circle-img"
-          src="/shine-circle.png"
-          alt="shine-circle"
-          width={479}
-          height={547}
-          placeholder="blur"
-          blurDataURL="/shine-circle.png"
-        />
-      </div>
 
       <picture className="smart-battery__picture">
         <source

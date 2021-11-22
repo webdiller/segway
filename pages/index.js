@@ -14,6 +14,7 @@ import Accessories from "../components/sections/Accessories";
 import CompareSpecifications from "../components/sections/CompareSpecifications";
 import PackingList from "../components/sections/PackingList";
 import OtherModels from "../components/sections/OtherModels";
+import Regenerative from "../components/sections/Regenerative";
 
 
 export default function Home({ isMobile }) {
@@ -30,6 +31,7 @@ export default function Home({ isMobile }) {
         <DualBraking />
         <BuildInFront />
         <OneStep />
+        <Regenerative />
         <DownloadManual />
         <CompareSpecifications />
         <SegwayProtect />

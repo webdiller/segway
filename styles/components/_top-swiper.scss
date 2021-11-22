@@ -1,6 +1,10 @@
 .top-swiper {
   background-color: #323941;
   &__container {
+    min-height: 256px;
+    @include media("<=768px") {
+      min-height: 128px;
+    }
   }
 
   &__swiper {

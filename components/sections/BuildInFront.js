@@ -3,15 +3,6 @@ import Image from "next/image";
 export default function BuildInFront() {
   return (
     <div className="build-in-front">
-      <div className="build-in-front__circle-img-wrapper">
-        <Image
-          className="build-in-front__circle-img"
-          src="/shine-circle.png"
-          alt="shine-circle"
-          width={479}
-          height={547}
-        />
-      </div>
       <div className="build-in-front__img-wrapper">
         <Image
           className="build-in-front__img"
