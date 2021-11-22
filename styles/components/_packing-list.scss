@@ -73,8 +73,8 @@
       background-color: #9b9b9b;
 
       font-weight: bold;
-      font-size: 50px;
-      line-height: 60px;
+      font-size: 20px;
+      line-height: 24px;
       text-transform: uppercase;
       color: #323941;
 
@@ -82,11 +82,13 @@
       visibility: visible;
       z-index: 10;
 
+      cursor: pointer;
       transition: all 0.3s ease;
-
-      @include media("<=991px") {
-        font-size: 20px;
-        line-height: 24px;
+    }
+    &:hover {
+      &:before {
+        color: #fff; 
+        background-color: #dfdfdf;
       }
     }
   }

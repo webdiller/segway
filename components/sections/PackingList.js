@@ -42,7 +42,6 @@ export default function PackingList() {
               className="packing-list__video"
               controls
               preload="none"
-              poster="example-video-placeholder.png"
             >
               <source src={videoSrc} type="video/mp4" />
             </video>

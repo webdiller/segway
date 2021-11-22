@@ -14,7 +14,7 @@ export default function TopNavigation() {
   return (
     <div className="top-nav">
       <div className="container top-nav__container">
-        <button onClick={handleSetIsActiveMenu} className="top-nav__btn-menu">
+        <button onClick={handleSetIsActiveMenu} className={isActiveMenu ? 'top-nav__btn-menu active' : 'top-nav__btn-menu'}>
           {isActiveMenu ? (
             <IoIosCloseCircleOutline className="top-nav__btn-icon" />
           ) : (

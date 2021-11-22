@@ -8,9 +8,10 @@
   &__container {
     display: flex;
     align-items: center;
-    min-height: 48px;
+    height: 48px;
     @include media("<=991px") {
-      min-height: 50px;
+      height: 50px;
+      padding-left: 0;
     }
   }
 
@@ -19,22 +20,38 @@
     position: relative;
     display: none;
     font-size: 24px;
+    transition: all 0.3s ease;
     @include media("<=991px") {
       z-index: 200;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-right: auto;
+      height: 50px;
+      width: 50px;
+      flex: 0 0 50px;
+      &.active {
+        background-color: #009eff;
+        .top-nav__btn-icon {
+          color: #fff;
+        }
+      }
     }
   }
 
   &__btn-icon {
+    transition: all 0.3s ease;
+    @include media("<=991px") {
+      position: relative;
+      left: -2px;
+    }
   }
 
   &__items {
     display: flex;
     align-items: center;
     margin-right: auto;
+    height: 100%;
 
     @include media("<=991px") {
       flex-direction: column;
@@ -55,16 +72,23 @@
       z-index: 100;
       opacity: 1;
       visibility: visible;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
   }
 
   &__item {
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
     text-decoration: none;
     color: #fff;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
+    height: 100%;
     white-space: nowrap;
 
     display: flex;
