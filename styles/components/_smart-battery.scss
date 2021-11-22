@@ -33,7 +33,6 @@
   }
 
   &__container {
-    position: relative;
     display: flex;
     align-items: center;
     min-height: 547px;
@@ -62,10 +61,12 @@
   }
 
   &__content {
+    position: relative;
     max-width: 553px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 10;
     @include media("<=991px") {
       margin-top: auto;
       margin-bottom: 45px;

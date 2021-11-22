@@ -15,7 +15,9 @@ import CompareSpecifications from "../components/sections/CompareSpecifications"
 import PackingList from "../components/sections/PackingList";
 import OtherModels from "../components/sections/OtherModels";
 import Regenerative from "../components/sections/Regenerative";
-
+import EasyOneCord from "../components/sections/EasyOneCOrd";
+import RidingModes from "../components/sections/RidingModes";
+import ControllFromSmartphone from "../components/sections/ControllFromSmartphone";
 
 export default function Home({ isMobile }) {
   return (
@@ -32,10 +34,13 @@ export default function Home({ isMobile }) {
         <BuildInFront />
         <OneStep />
         <Regenerative />
+        <EasyOneCord />
+        <RidingModes />
         <DownloadManual />
         <CompareSpecifications />
         <SegwayProtect />
         <Reviews />
+        <ControllFromSmartphone />
         <OtherModels />
       </DefaultLayout>
     </div>

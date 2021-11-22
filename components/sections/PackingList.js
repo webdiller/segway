@@ -14,8 +14,8 @@ export default function PackingList() {
         setOverlay((prev) => !prev);
       }, 1000);
     }
+      
   };
-  
   return (
     <div className="packing-list">
       <div className="container packing-list__container">
@@ -42,6 +42,7 @@ export default function PackingList() {
               className="packing-list__video"
               controls
               preload="none"
+              poster="example-video-placeholder.png"
             >
               <source src={videoSrc} type="video/mp4" />
             </video>

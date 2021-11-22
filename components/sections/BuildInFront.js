@@ -15,7 +15,6 @@ export default function BuildInFront() {
           layout="responsive"
         />
       </div>
-
       <div className="container build-in-front__container">
         <div className="build-in-front__content">
           <p className="title title_white build-in-front__title">

@@ -1,7 +1,11 @@
-.build-in-front {
+.riding-model {
   position: relative;
-  background-color: #0e0e16;
+  background-color: #12151e;
   overflow: hidden;
+
+  @include media("<=768px") {
+    background: radial-gradient(70.94% 47% at 50% 100%, #253979 0%, #000000 100%);
+  }
 
   &::before {
     content: "";
@@ -10,48 +14,33 @@
     transform: translateY(-50%);
     right: 0;
     width: 100%;
-    height: 500%;
-    background: radial-gradient(ellipse at center left, #202e57 0%, #04060A 30%, #04060A 100%);
+    height: 1200%;
+    background: radial-gradient(
+      ellipse at center left,
+      #131a2e 0%,
+      #04060a 10%,
+      rgb(15, 24, 44) 100%
+    );
     @include media("<=768px") {
-      content: "";
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200vw;
-      height: 100%;
-      background: radial-gradient(
-        ellipse at center bottom,
-        #4b5a89 0%,
-        #04060a 62%,
-        #04060a 100%
-      );
+      display: none;
     }
   }
 
   &__img-wrapper {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
     width: 720px;
-    height: 747px;
+    height: 100%;
+    z-index: 100;
+    @include media("<=991px") {
+      width: 50%;
+      height: auto;
+    }
     @include media("<=768px") {
       position: relative;
       width: 100%;
       height: auto;
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          to top,
-          rgba(14, 14, 22, 1),
-          rgba(0, 0, 0, 0.1)
-        );
-        z-index: 100;
-      }
     }
   }
   &__img {
@@ -63,6 +52,7 @@
     min-height: 547px;
     @include media("<=768px") {
       min-height: auto;
+      align-items: flex-start;
     }
   }
 
@@ -72,9 +62,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 10;
+    z-index: 100;
     @include media("<=768px") {
-      margin-bottom: 40px;
+      margin-top: 40px;
     }
   }
 

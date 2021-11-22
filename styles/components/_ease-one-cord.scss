@@ -1,0 +1,90 @@
+.easy-one-cord {
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 547px;
+    @include media("<=768px") {
+      min-height: unset;
+      height: 430px;
+    }
+    @include media("<=576px") {
+      align-items: flex-start;
+      height: 440px;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 720px;
+    @include media("<=1200px") {
+      max-width: unset;
+    }
+    @include media("<=991px") {
+      left: -250px;
+    }
+    @include media("<=768px") {
+      height: 100%;
+    }
+    @include media("<=576px") {
+      width: 100%;
+      height: auto;
+      left: 0;
+      right: 0;
+    }
+  }
+  &__img {
+    object-fit: contain;
+    @include media("<=768px") {
+      width: auto;
+      height: 100%;
+    }
+    @include media("<=576px") {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    text-align: left;
+    z-index: 10;
+
+    @include media("<=768px") {
+      padding-left: 100px;
+    }
+    @include media("<=576px") {
+      max-width: unset;
+      padding-top: 30px;
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    @include media("<=576px") {
+      margin-bottom: 7px;
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 11px;
+    }
+    @include media("<=576px") {
+      font-weight: 300;
+    }
+  }
+}
