@@ -18,10 +18,10 @@ export default function MiddleNavigation() {
           </a>
         </Link>
 
-        <div className="middle-navigation__profile">
-          <div className="middle-navigation__profile-img-wrapper">
+        <div className="middle-navigation__director">
+          <div className="middle-navigation__director-img-wrapper">
             <Image
-              className="middle-navigation__profile-img"
+              className="middle-navigation__director-img"
               src="/profile-img.png"
               alt="JOHN SMITH"
               width={67}
@@ -29,10 +29,10 @@ export default function MiddleNavigation() {
             />
           </div>
 
-          <div className="middle-navigation__profile-items">
-            <span className="middle-navigation__profile-name">JOHN SMITH</span>
+          <div className="middle-navigation__director-items">
+            <span className="middle-navigation__director-name">JOHN SMITH</span>
             <Link href="#">
-              <a className="middle-navigation__profile-link">
+              <a className="middle-navigation__director-link">
                 Ask a question <br /> to the director
               </a>
             </Link>

@@ -16,27 +16,27 @@
   &__logo-img {
   }
 
-  &__profile {
+  &__director {
     display: flex;
     align-items: center;
   }
 
-  &__profile-img-wrapper {
+  &__director-img-wrapper {
     margin-right: 13px;
   }
 
-  &__profile-img {
+  &__director-img {
     min-width: 63px;
     min-height: 63px;
     border-radius: 50%;
     border: 2px solid #323941;
   }
 
-  &__profile-items {
+  &__director-items {
     text-align: left;
   }
 
-  &__profile-name {
+  &__director-name {
     display: block;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -44,7 +44,7 @@
     line-height: 119.3%;
   }
 
-  &__profile-link {
+  &__director-link {
     display: block;
     color: #009eff;
     font-size: 13px;
