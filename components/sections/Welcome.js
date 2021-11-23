@@ -6,6 +6,7 @@ import { FcPrevious, FcNext } from "react-icons/fc";
 import PaymentsMethods from "../blocks/PaymentsMethods";
 import FormWithWarrancy from "../blocks/FormWithWarrancy";
 import "swiper/css/pagination";
+import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
 
 export default function Welcome() {
   return (
@@ -24,6 +25,9 @@ export default function Welcome() {
               SEGWAY Ninebot Kickscooter MAX
             </p>
           </div>
+
+          {/* area name: protect */}
+          <SegwayProtectMobile customClass="welcome__protect-wrapper"/>
 
           {/* area name: form */}
           <div className="welcome__form-wrapper">

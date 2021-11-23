@@ -34,6 +34,16 @@
         "form"
         "payments";
     }
+    @include media("<576px") {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "stock"
+        "title"
+        "swiper"
+        "protect"
+        "form"
+        "payments";
+    }
   }
 
   &__stock-wrapper {
@@ -74,6 +84,16 @@
       text-align: center;
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+  
+  
+  &__protect-wrapper {
+    grid-area: protect;
+    display: none;
+    margin-bottom: 15px;
+    @include media("<=576px") {
+      display: block;
     }
   }
 
