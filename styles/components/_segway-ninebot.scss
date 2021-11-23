@@ -1,16 +1,7 @@
-.welcome {
-  @include media("<=991px") {
-  }
+.segway-ninebot {
+  position: relative;
+  overflow: hidden;
   &__container {
-    padding-top: 20px;
-    padding-bottom: 40px;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__top {
     display: grid;
     column-gap: 20px;
     grid-template-columns: 1fr 400px;
@@ -19,7 +10,8 @@
       "title swiper"
       "form swiper"
       "payments swiper";
-
+    margin-top: 60px;
+    margin-bottom: 120px;
     @include media("<=1200px") {
       grid-template-columns: 1fr 300px;
     }
@@ -33,6 +25,8 @@
         "swiper"
         "form"
         "payments";
+      margin-bottom: 40px;
+      padding-bottom: 45px;
     }
     @include media("<576px") {
       grid-template-columns: 1fr;
@@ -43,10 +37,13 @@
         "protect"
         "form"
         "payments";
+      background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
     }
   }
 
   &__stock-wrapper {
+    position: relative;
+    z-index: 10;
     grid-area: stock;
     @include media("<768px") {
       text-align: center;
@@ -76,6 +73,8 @@
   }
 
   &__title-wrapper {
+    position: relative;
+    z-index: 10;
     grid-area: title;
     @include media("<=991px") {
     }
@@ -86,9 +85,10 @@
       margin-right: auto;
     }
   }
-  
-  
+
   &__protect-wrapper {
+    position: relative;
+    z-index: 10;
     grid-area: protect;
     display: none;
     margin-bottom: 15px;
@@ -102,10 +102,13 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      margin-bottom: 250px;
     }
   }
 
   &__form-wrapper {
+    position: relative;
+    z-index: 10;
     grid-area: form;
     @include media("<=991px") {
     }
@@ -122,6 +125,8 @@
   }
 
   &__payments-wrapper {
+    position: relative;
+    z-index: 10;
     grid-area: payments;
     @include media("<=991px") {
     }
@@ -129,126 +134,28 @@
     }
   }
 
-  &__top-right {
-  }
-
-  &__swiper-wrapper {
-    grid-area: swiper;
-    overflow: hidden;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-  &__swiper {
-    position: relative;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-      margin-bottom: 45px;
-    }
-  }
-
-  &__swiper-item {
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__swiper-img-wrapper {
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-      max-width: 200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    @include media("<=576px") {
-      max-width: 150px;
-    }
-  }
-
-  &__swiper-img {
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__swiper-navigation {
+  &__bg-wrapper {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    right: 0;
-
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10;
-    height: 0;
-    display: none;
+    width: 830px;
+    height: 420px;
+    bottom: 80px;
+    right: -180px;
+    @include media("<=1400px") {
+      bottom: 100px;
+      width: 40%;
+    }
+    @include media("<=1200px") {
+      width: 50%;
+    }
     @include media("<=991px") {
+      width: 60%;
     }
     @include media("<=768px") {
-      display: flex;
-      margin: 0 auto;
-      width: calc(100% - 20px);
-    }
-  }
-
-  &__swiper-pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__swiper-nav {
-    @include reset-btn();
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover,
-    &:focus {
-      .welcome__swiper-icon {
-        font-size: 30px;
-      }
-    }
-    &_prev {
-    }
-
-    &_next {
-    }
-
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__swiper-icon {
-    font-size: 40px;
-    color: #009eff;
-    transition: all 0.3s ease;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-    @include media("<=768px") {
-      font-size: 22px;
+      bottom: unset;
+      width: 400px;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

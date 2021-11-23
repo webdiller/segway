@@ -1,11 +1,9 @@
 .other-models {
   background-color: #fff;
   &__container {
-    padding-top: 60px;
-    padding-bottom: 80px;
+    margin-bottom: 40px;
     @include media("<=991px") {
-      padding-top: 50px;
-      padding-bottom: 50px;
+      margin-bottom: 30px;
     }
     @include media("<=768px") {
       padding-right: 0;

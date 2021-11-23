@@ -21,6 +21,7 @@
     }
     &_mobile {
       display: none;
+      margin-bottom: 0;
       @include media("<=768px") {
         display: flex;
         align-items: center;

@@ -19,8 +19,17 @@ import EasyOneCord from "../components/sections/EasyOneCord";
 import RidingModes from "../components/sections/RidingModes";
 import ControllFromSmartphone from "../components/sections/ControllFromSmartphone";
 import Welcome from "../components/sections/Welcome";
+import { useEffect } from "react";
+import SegwayNinebot from "../components/sections/SegwayNinebot";
 
 export default function Home({ isMobile }) {
+
+  useEffect(() => {
+    console.info('Code author: Eugene Butkov');
+    console.info('github: https://github.com/webdiller');
+    console.info('telegram: webdillerru');
+  }, [])
+
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
@@ -43,6 +52,7 @@ export default function Home({ isMobile }) {
         <SegwayProtect />
         <Reviews />
         <ControllFromSmartphone />
+        <SegwayNinebot />
         <OtherModels />
       </DefaultLayout>
     </div>

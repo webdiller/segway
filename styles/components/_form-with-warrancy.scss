@@ -2,10 +2,12 @@
   &__wrapper {
     padding: 20px;
     border: 2px solid #dddddd;
+    background-color: #fff;
     @include media("<=991px") {
     }
     @include media("<=768px") {
       padding: 10px;
+      background-color: transparent;
     }
     @include media("<=576px") {
     }

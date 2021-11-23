@@ -2,18 +2,17 @@
 import Image from "next/image";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FcPrevious, FcNext } from "react-icons/fc";
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import PaymentsMethods from "../blocks/PaymentsMethods";
 import FormWithWarrancy from "../blocks/FormWithWarrancy";
-import "swiper/css/pagination";
 import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
+import "swiper/css/pagination";
 
 export default function Welcome() {
   return (
     <div className="welcome">
       <div className="container welcome__container">
         <div className="welcome__top">
-          
           {/* area name: stock */}
           <div className="welcome__stock-wrapper">
             <p className="welcome__stock">In stock</p>
@@ -27,7 +26,7 @@ export default function Welcome() {
           </div>
 
           {/* area name: protect */}
-          <SegwayProtectMobile customClass="welcome__protect-wrapper"/>
+          <SegwayProtectMobile customClass="welcome__protect-wrapper" />
 
           {/* area name: form */}
           <div className="welcome__form-wrapper">
@@ -120,10 +119,10 @@ export default function Welcome() {
 
               <div className="welcome__swiper-navigation">
                 <button className="welcome__swiper-nav welcome__swiper-nav_prev">
-                  <FcPrevious className="welcome__swiper-icon" />
+                  <BsChevronCompactLeft className="welcome__swiper-icon" />
                 </button>
                 <button className="welcome__swiper-nav welcome__swiper-nav_next">
-                  <FcNext className="welcome__swiper-icon" />
+                  <BsChevronCompactRight className="welcome__swiper-icon" />
                 </button>
               </div>
               <div className="welcome__swiper-pagination"></div>
