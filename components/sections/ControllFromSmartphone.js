@@ -12,7 +12,7 @@ export default function ControllFromSmartphone() {
     <div className="controll-from-smartphone">
       <div className="container controll-from-smartphone__container">
         <div className="controll-from-smartphone__top">
-          <p className="title title_1 controll-from-smartphone__title">
+          <p className="title title_fz-20 controll-from-smartphone__title">
             Control from your smartphone
           </p>
           <p className="text controll-from-smartphone__text">

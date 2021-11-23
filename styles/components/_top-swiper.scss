@@ -28,17 +28,24 @@
   }
 
   &__item {
-    text-align: center;
+  }
+
+  &__link {
+    display: block;
     padding: 10px 0;
+    text-align: center;
     text-decoration: none;
+    transition: all 0.3s ease;
     &:hover,
     &:focus {
+      outline: none;
+      border: 0;
       background-color: #009eff;
-      .swiper-slide {
-        background-color: #009eff;
-      }
       .top-swiper__name {
         color: #fff;
+      }
+      img {
+        transform: scale(1.1);
       }
     }
   }
@@ -54,6 +61,12 @@
 
   &__img-wrapper {
     height: 80px;
+    span {
+      overflow: visible !important;
+    }
+    img {
+      transition: all 0.3s ease;
+    }
   }
 
   &__img {

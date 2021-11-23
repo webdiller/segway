@@ -27,7 +27,7 @@ export default function DownloadManual() {
             />
           </picture>
           <div className="download-manual__content">
-            <p className="title title_1 download-manual__title">DOWNLOAD manual</p>
+            <p className="title title_fz-20 download-manual__title">DOWNLOAD manual</p>
 
             <div className="download-manual__items">
               <div className="download-manual__item">

@@ -20,7 +20,7 @@ export default function CompareSpecifications() {
   return (
     <div className="compare-specfications">
       <div className="container compare-specfications__container">
-        <p className="title title_1 compare-specfications__title">
+        <p className="title title_fz-20 compare-specfications__title">
           compare specifications
         </p>
         <p className="text compare-specfications__text">Add model to compare</p>

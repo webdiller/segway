@@ -87,7 +87,7 @@ export default function OtherModels() {
   return (
     <div className="other-models">
       <div className="container other-models__container">
-        <p className="title title_1 other-models__title">OTHER MODELS</p>
+        <p className="title title_fz-20 other-models__title">OTHER MODELS</p>
         <div className="other-models__subtitle">
           Check out the entire line of Segway scooters
         </div>

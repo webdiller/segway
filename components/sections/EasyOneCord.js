@@ -24,7 +24,7 @@ export default function EasyOneCord() {
         </picture>
 
         <div className="easy-one-cord__content">
-          <p className="title title_1 easy-one-cord__title">
+          <p className="title title_fz-20 easy-one-cord__title">
             Easy One Cord Fast Charging
           </p>
           <p className="text easy-one-cord__text">

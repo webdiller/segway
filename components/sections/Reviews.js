@@ -3,14 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { FcPrevious, FcNext } from "react-icons/fc";
 
-import "swiper/css";
-import "swiper/css/navigation";
-
 export default function Reviews() {
   return (
     <div className="reviews">
       <div className="container reviews__container">
-        <p className="title title_1 reviews__title">Reviews</p>
+        <p className="title title_fz-20 reviews__title">Reviews</p>
         <div className="reviews__swiper">
           <Swiper
             modules={[Navigation]}

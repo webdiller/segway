@@ -72,10 +72,34 @@ img {
     line-height: 32px;
   }
 
-  &_1 {
+  &_fz-20 {
     @include media("<=768px") {
       font-size: 20px;
       line-height: 24px;
+    }
+  }
+  &_fz-80 {
+    font-size: 80px;
+    line-height: 70px;
+    @include media("<=1200px") {
+      font-size: 37px;
+      line-height: 34px;
+    }
+  }
+  &_fz-94 {
+    font-size: 108px;
+    line-height: 94px;
+    @include media("<=1200px") {
+      font-size: 37px;
+      line-height: 34px;
+    }
+  }
+  &_fz-108 {
+    font-size: 108px;
+    line-height: 94px;
+    @include media("<=1200px") {
+      font-size: 41px;
+      line-height: 38px;
     }
   }
 }
@@ -203,5 +227,10 @@ img {
       border-color: #009eff;
       cursor: pointer;
     }
+  }
+  &_lg {
+    min-height: 48px;
+    font-weight: bold;
+    font-size: 18px;
   }
 }

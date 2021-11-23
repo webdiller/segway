@@ -1,6 +1,7 @@
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
@@ -104,21 +105,25 @@ export default function TopSwiper() {
           >
             {items.map(({ id, name, imgPath }) => (
               <SwiperSlide key={id} className="top-swiper__item">
-                <div className="top-swiper__img-wrapper">
-                  <Image
-                    objectFit="contain"
-                    className="top-swiper__img"
-                    src={imgPath}
-                    alt={name}
-                    width={80}
-                    height={80}
-                    quality={100}
-                    layout="fixed"
-                    placeholder="blur"
-                    blurDataURL="/segway-placeholder.png"
-                  />
-                </div>
-                <p className="top-swiper__name">{name}</p>
+                <Link href="#">
+                  <a className="top-swiper__link">
+                    <div className="top-swiper__img-wrapper">
+                      <Image
+                        objectFit="contain"
+                        className="top-swiper__img"
+                        src={imgPath}
+                        alt={name}
+                        width={80}
+                        height={80}
+                        quality={100}
+                        layout="fixed"
+                        placeholder="blur"
+                        blurDataURL="/segway-placeholder.png"
+                      />
+                    </div>
+                    <p className="top-swiper__name">{name}</p>
+                  </a>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

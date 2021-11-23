@@ -18,6 +18,7 @@ import Regenerative from "../components/sections/Regenerative";
 import EasyOneCord from "../components/sections/EasyOneCord";
 import RidingModes from "../components/sections/RidingModes";
 import ControllFromSmartphone from "../components/sections/ControllFromSmartphone";
+import Welcome from "../components/sections/Welcome";
 
 export default function Home({ isMobile }) {
   return (
@@ -25,6 +26,7 @@ export default function Home({ isMobile }) {
       <DefaultLayout description="segway description" title="segway index">
         <TopSwiper />
         <TopStock />
+        <Welcome />
         <PackingList />
         <Accessories />
         <Features />

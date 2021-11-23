@@ -87,7 +87,7 @@ export default function Accessories() {
   return (
     <div className="accessories">
       <div className="container accessories__container">
-        <p className="title title_1 accessories__title">Accessories</p>
+        <p className="title title_fz-20 accessories__title">Accessories</p>
         <div className="accessories__swiper">
           <Swiper
             slidesPerView={2.2}
