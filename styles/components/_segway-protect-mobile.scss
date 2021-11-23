@@ -1,0 +1,60 @@
+.segway-protect {
+  &__container {
+    @include media("<=991px") {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__cart {
+    display: flex;
+    padding: 25px 60px 25px 45px;
+    border: 5px solid #009eff;
+    @include media("<=768px") {
+      flex-direction: row-reverse;
+      padding: 10px 15px 10px 15px;
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+    margin-right: 40px;
+    width: 278px;
+    flex: 0 0 278px;
+    @include media("<=768px") {
+      margin-right: 0;
+      transform: rotate(90deg);
+      flex: 0 0 140px;
+      width: 140px;
+      height: 140px;
+    }
+    @include media("<=576px") {
+      flex: 0 0 120px;
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &__img {
+  }
+
+  &__content {
+    @include media("<=768px") {
+      margin-right: 15px;
+    }
+
+    @include media("<=576px") {
+      margin-right: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 9px;
+    @include media("<=768px") {
+      padding-top: 10px;
+    }
+  }
+
+  &__description {
+  }
+}

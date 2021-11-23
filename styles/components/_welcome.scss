@@ -112,80 +112,6 @@
     }
   }
 
-  &__payments {
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__payments-title {
-    margin-bottom: 8px;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__payments-item {
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-    &_1 {
-      margin-right: 3px;
-      font-size: 18px;
-      line-height: 22px;
-      color: #999999;
-    }
-
-    &_2 {
-      margin-right: 3px;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 22px;
-      color: #009eff;
-    }
-
-    &_3 {
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 22px;
-      color: #6acd68;
-    }
-  }
-
-  &__payments-methods {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(27px, 27px));
-    gap: 5px;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__payments-method {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 18px;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
-  &__payments-method-icon {
-    height: 70%;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-    }
-  }
-
   &__top-right {
     background-color: #eeeeee;
   }
@@ -196,9 +122,6 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
-      max-width: 260px;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
   &__swiper {
@@ -221,6 +144,12 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      max-width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include media("<=576px") {
+      max-width: 150px;
     }
   }
 

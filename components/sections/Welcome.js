@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
 import { FcPrevious, FcNext } from "react-icons/fc";
+import PaymentsMethods from "../blocks/PaymentsMethods";
 import FormWithWarrancy from "../blocks/FormWithWarrancy";
 import "swiper/css/pagination";
 
@@ -30,135 +31,7 @@ export default function Welcome() {
           </div>
 
           {/* area name: payments */}
-          <div className="welcome__payments-wrapper">
-            <div className="welcome__payments">
-              <p className="welcome__payments-title">
-                <span className="welcome__payments-item welcome__payments-item_1">
-                  Payment Methods:
-                </span>
-                <span className="welcome__payments-item welcome__payments-item_2">
-                  Starting at $55/mo with.
-                </span>
-                <span className="welcome__payments-item welcome__payments-item_3">
-                  Prequalify now
-                </span>
-              </p>
-              <div className="welcome__payments-methods">
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-amex.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-apple.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-btc.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-btc-alt.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-crypto-d.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-crypto-o.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-discover.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-crypto-d-alt.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-crypto-triangle.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-jcb.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-l.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-mastercard.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-paypel.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-dollar.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-v.svg"
-                    alt="payment icon"
-                  />
-                </div>
-                <div className="welcome__payments-method">
-                  <img
-                    className="welcome__payments-method-icon"
-                    src="./icon-payment-visa.svg"
-                    alt="payment icon"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          <PaymentsMethods customClass="welcome__payments-wrapper" />
 
           {/* area name: swiper */}
           <div className="welcome__swiper-wrapper">

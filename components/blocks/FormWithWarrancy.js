@@ -4,11 +4,7 @@ export default function FormWithWarrancy({
   customClass = "form-with-warrancy",
 }) {
   return (
-    <div
-      className={
-        customClass ? `form-with-warrancy ${customClass}` : "form-with-warrancy"
-      }
-    >
+    <div className={customClass ? `form-with-warrancy ${customClass}` : "form-with-warrancy" }>
       <div className="form-with-warrancy__wrapper">
         <p className="form-with-warrancy__form-title">
           Add an extended warranty from <span>Extend</span>
