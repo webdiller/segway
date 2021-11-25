@@ -17,7 +17,8 @@
 
   &__main-img-wrapper {
   }
-  &__main-img {}
+  &__main-img {
+  }
 
   &__items {
     display: grid;
@@ -39,6 +40,53 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    &_tires {
+      @include media("<=768px") {
+        order: 1;
+      }
+    }
+
+    &_led {
+      @include media("<=768px") {
+        order: 2;
+      }
+    }
+
+    &_speed {
+      @include media("<=768px") {
+        order: 3;
+      }
+    }
+
+    &_range {
+      @include media("<=768px") {
+        order: 5;
+      }
+    }
+
+    &_grade {
+      @include media("<=768px") {
+        order: 4;
+      }
+    }
+
+    &_water {
+      @include media("<=768px") {
+        order: 7;
+      }
+    }
+
+    &_charge {
+      @include media("<=768px") {
+        order: 6;
+      }
+    }
+
+    &_battery {
+      @include media("<=768px") {
+        order: 8;
+      }
+    }
   }
 
   &__item-img-wrapper {

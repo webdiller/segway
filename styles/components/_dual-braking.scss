@@ -21,7 +21,7 @@
   }
   &__img {
   }
-  
+
   &__container {
     display: flex;
     align-items: center;
@@ -52,6 +52,9 @@
 
   &__title {
     margin-bottom: 18px;
+    @include media("<=991px") {
+      margin-bottom: 8px;
+    }
   }
 
   &__text {

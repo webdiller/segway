@@ -4,6 +4,7 @@
     border: 2px solid #dddddd;
     background-color: #fff;
     @include media("<=991px") {
+      border-width: 5px;
     }
     @include media("<=768px") {
       padding: 10px;
@@ -26,6 +27,9 @@
       }
     }
     @include media("<=576px") {
+      max-width: 190px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -136,7 +140,7 @@
     }
     @include media("<=768px") {
     }
-    @include media("<=576px") {
+    @include media("<=768px") {
       font-weight: 300;
       font-size: 22px;
       line-height: 27px;

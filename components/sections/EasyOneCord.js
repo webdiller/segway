@@ -27,7 +27,7 @@ export default function EasyOneCord() {
           <p className="title title_fz-20 easy-one-cord__title">
             Easy One Cord Fast Charging
           </p>
-          <p className="text easy-one-cord__text">
+          <p className="text text_300-on-mobile easy-one-cord__text">
             The built-in charger lets riders recharge it easily when on the go
             without having to carry along a bulky charging adapter. 3A fast
             charge will give Ninebot KickScooter MAX a full charge in 6 hours.

@@ -25,10 +25,10 @@ export default function SmartBattery() {
         </picture>
 
         <div className="smart-battery__content">
-          <p className="title title_white smart-battery__title">
+          <p className="title title_fz-20 title_white smart-battery__title">
             Smart battery Management system (Smart-BMS)
           </p>
-          <p className="text text_white smart-battery__text">
+          <p className="text text_300-on-mobile text_white smart-battery__text">
             The Smart-BMS closely monitors the battery status with multiple
             protection mechanisms to ensure the battery durability
           </p>

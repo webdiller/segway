@@ -83,7 +83,7 @@
     &:not(:last-child) {
       margin-bottom: 11px;
     }
-    @include media("<=576px") {
+    @include media("<=768px") {
       font-weight: 300;
     }
   }

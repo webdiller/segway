@@ -158,6 +158,12 @@ img {
       line-height: 23px;
     }
   }
+
+  &_300-on-mobile {
+    @include media("<=768px") {
+      font-weight: 300;
+    }
+  }
 }
 
 .ui-link {

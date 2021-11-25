@@ -90,6 +90,13 @@
     @include media("<=768px") {
       display: flex;
     }
+    &.disabled {
+      .top-swiper__nav_prev {
+        opacity: 0;
+        z-index: -1;
+        visibility: hidden;
+      }
+    }
   }
 
   &__nav {
@@ -97,6 +104,7 @@
     border: 0;
     outline: none;
     cursor: pointer;
+    transition: all .3s ease;
     &_prev {
     }
 

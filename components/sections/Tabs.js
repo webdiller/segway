@@ -91,9 +91,9 @@ export default function Tabs() {
         >
           <div className="tabs__presentation-content">
             <p className="text text_25 tabs__presentation-title">
-              <span className="hide-768">One year manufacturers warranty</span>
+              <span className="hide-768">One year manufacturer′s warranty</span>
               <span className="show-block-768">
-                One year manufacturers warranty
+                One year <br /> manufacturer′s warranty
               </span>
             </p>
             <p className="text tabs__presentation-description">
@@ -103,7 +103,7 @@ export default function Tabs() {
               </span>
               <span className="show-block-768">
                 The basic warranty is 1 year. <br />
-                You can also extend the warranty up to 4 years.
+                You can also extend the warranty <br /> up to 4 years.
               </span>
             </p>
           </div>
@@ -169,10 +169,9 @@ export default function Tabs() {
               </span>
             </p>
             <p className="text tabs__presentation-description">
-                With a range of up to 40 miles, the longest range on the market,
-                and a 20˚uphill climbing angle, the KickScooter MAX allows you
-                to ride from San Francisco Bay Area to Palo Alto on a single
-                charge.
+              With a range of up to 40 miles, the longest range on the market,
+              and a 20˚uphill climbing angle, the KickScooter MAX allows you to
+              ride from San Francisco Bay Area to Palo Alto on a single charge.
             </p>
           </div>
 

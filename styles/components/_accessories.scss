@@ -20,7 +20,6 @@
 
   &__swiper {
     position: relative;
-    margin-bottom: 50px;
     @include media("<=768px") {
       margin-bottom: 0;
       padding-left: 16px;
@@ -192,6 +191,8 @@
   &__bottom-link {
     padding-left: 70px;
     padding-right: 70px;
+    font-size: 18px;
+    font-weight: 600;
     @include media("<=768px") {
     }
   }

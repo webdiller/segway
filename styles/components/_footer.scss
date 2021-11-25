@@ -32,6 +32,10 @@
     @include media("<=991px") {
       flex-direction: column-reverse;
     }
+    @include media("<=576px") {
+      max-width: 210px;
+      margin: 0 auto;
+    }
   }
 
   &__item {

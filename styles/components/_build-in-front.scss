@@ -80,11 +80,13 @@
 
   &__title {
     margin-bottom: 18px;
+    @include media("<=991px") {
+      margin-bottom: 8px;
+    }
   }
 
   &__text {
     @include media("<=768px") {
-      font-weight: 300;
       font-size: 15px;
       line-height: 18px;
     }
@@ -95,6 +97,7 @@
       @include media("<=768px") {
         font-size: 13px;
         line-height: 15px;
+        color: #fff;
       }
     }
   }

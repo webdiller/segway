@@ -31,6 +31,7 @@
   }
 
   &__payments-item {
+    background-color: #fff;
     @include media("<=991px") {
     }
     @include media("<=768px") {
@@ -69,6 +70,9 @@
     @include media("<=768px") {
       justify-content: center;
       margin-bottom: 15px;
+    }
+    @include media("<=576px") {
+      grid-template-columns: repeat(8, 1fr);
     }
   }
 

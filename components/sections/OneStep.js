@@ -4,8 +4,8 @@ export default function OneStep() {
   return (
     <div className="one-step">
       <div className="container one-step__container">
-        <p className="title one-step__title">One-step Folding Mechanism</p>
-        <p className="text one-step__text">
+        <p className="title title_fz-20 one-step__title">One-step Folding Mechanism</p>
+        <p className="text text_300-on-mobile one-step__text">
           Ninebot KickScooter MAX can be easily folded and carried around in 3
           seconds.
         </p>

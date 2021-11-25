@@ -234,6 +234,8 @@
     width: 100%;
     max-width: 187px;
     margin: 0 auto;
+    font-size: 18px;
+    font-weight: bold;
     @include media("<=991px") {
     }
 
@@ -241,6 +243,8 @@
     }
 
     @include media("<=576px") {
+      font-size: 16px;
+      white-space: nowrap;
       max-width: 130px;
       margin: 0 auto 0 15px;
     }

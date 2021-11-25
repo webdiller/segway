@@ -4,7 +4,11 @@
   overflow: hidden;
 
   @include media("<=768px") {
-    background: radial-gradient(70.94% 47% at 50% 100%, #253979 0%, #000000 100%);
+    background: radial-gradient(
+      70.94% 47% at 50% 100%,
+      #253979 0%,
+      #000000 100%
+    );
   }
 
   &::before {
@@ -70,6 +74,9 @@
 
   &__title {
     margin-bottom: 18px;
+    @include media("<=991px") {
+      margin-bottom: 8px;
+    }
   }
 
   &__text {

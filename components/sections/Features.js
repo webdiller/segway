@@ -21,7 +21,7 @@ export default function Features() {
 
         <div className="features__items">
           {/* 1 */}
-          <div className="features__item">
+          <div className="features__item features__item_tires">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"
@@ -36,7 +36,7 @@ export default function Features() {
           </div>
 
           {/* 2 */}
-          <div className="features__item">
+          <div className="features__item features__item_led">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"
@@ -51,7 +51,7 @@ export default function Features() {
           </div>
 
           {/* 3 */}
-          <div className="features__item">
+          <div className="features__item features__item_speed">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"
@@ -66,7 +66,7 @@ export default function Features() {
           </div>
 
           {/* 4 */}
-          <div className="features__item">
+          <div className="features__item features__item_range">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"
@@ -81,7 +81,7 @@ export default function Features() {
           </div>
 
           {/* 5 */}
-          <div className="features__item">
+          <div className="features__item features__item_grade">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"
@@ -96,7 +96,7 @@ export default function Features() {
           </div>
 
           {/* 6 */}
-          <div className="features__item">
+          <div className="features__item features__item_water">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"
@@ -111,7 +111,7 @@ export default function Features() {
           </div>
 
           {/* 7 */}
-          <div className="features__item">
+          <div className="features__item features__item_charge">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"
@@ -126,7 +126,7 @@ export default function Features() {
           </div>
 
           {/* 8 */}
-          <div className="features__item">
+          <div className="features__item features__item_battery">
             <div className="features__item-img-wrapper">
               <Image
                 objectFit="contain"

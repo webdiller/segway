@@ -17,10 +17,10 @@ export default function Regenerative() {
         </div>
 
         <div className="regenerative__content">
-          <p className="title title_white regenerative__title">
+          <p className="title title_fz-20 title_white regenerative__title">
             Regenerative Brake for Power Recycle
           </p>
-          <p className="text text_white regenerative__text">
+          <p className="text text_300-on-mobile text_white regenerative__text">
             The innovative regenerative brake system turns Ninebot KickScooter
             MAX into an electric vehicle powered by electricity and recycled
             energy from riding. Energy will be collected from regenerative
