@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import segwayPlaceholder from "../../public/segway-placeholder.png";
 import UiLink from "../ui/UiLink";
 
 import "swiper/css";
@@ -117,7 +118,7 @@ export default function OtherModels() {
                           alt={name}
                           layout="fill"
                           placeholder="blur"
-                          blurDataURL={imgPath}
+                          blurDataURL={segwayPlaceholder}
                         />
                       </div>
                       <p className="text text_25 other-models__name">{name}</p>

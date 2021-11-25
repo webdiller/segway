@@ -5,6 +5,7 @@ import { FcPrevious, FcNext } from "react-icons/fc";
 import { MdSpeed } from "react-icons/md";
 import { FaRoad } from "react-icons/fa";
 import data from "../../public/segway.json";
+import segwayPlaceholder from "../../public/segway-placeholder.png";
 // MdSpeed,
 // FaRoad
 // BsBatteryCharging
@@ -80,7 +81,7 @@ export default function CompareSpecifications() {
                       quality={90}
                       layout="responsive"
                       placeholder="blur"
-                      blurDataURL={imgPath}
+                      blurDataURL={segwayPlaceholder}
                     />
                   </div>
                   <p className="text text_bold compare-specfications__name">

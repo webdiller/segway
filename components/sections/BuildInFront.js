@@ -10,8 +10,6 @@ export default function BuildInFront() {
           alt="Smart battery Management system (Smart-BMS)"
           width={720}
           height={547}
-          placeholder="blur"
-          blurDataURL="/build-in-front.png"
           layout="responsive"
         />
       </div>

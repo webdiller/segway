@@ -22,8 +22,6 @@ export default function RidingModes() {
           alt="3 Riding Modes"
           width={720}
           height={547}
-          placeholder="blur"
-          blurDataURL="/riding-model.png"
           layout="responsive"
         />
       </div>

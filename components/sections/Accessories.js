@@ -113,8 +113,6 @@ export default function Accessories() {
                           src={imgPath}
                           alt={name}
                           layout="fill"
-                          placeholder="blur"
-                          blurDataURL={imgPath}
                         />
                       </div>
                       <p className="text text_25 accessories__name">{name}</p>

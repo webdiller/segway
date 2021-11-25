@@ -23,8 +23,6 @@ export default function SegwayProtectMobile({customClass}) {
               objectFit="contain"
               width={87}
               height={120}
-              placeholder="blur"
-              blurDataURL="/segway-protect-mobile.png"
             />
           </div>
         </div>

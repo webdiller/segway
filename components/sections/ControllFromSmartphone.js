@@ -144,8 +144,6 @@ export default function ControllFromSmartphone() {
                 alt="Smart battery Management system (Smart-BMS)"
                 width={844}
                 height={123}
-                placeholder="blur"
-                blurDataURL="/controll-from-smartphone-payments.png"
                 layout="responsive"
               />
             </div>

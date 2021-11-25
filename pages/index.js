@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import DefaultLayout from "../components/base/DefaultLayout";
 import Features from "../components/sections/Features";
 import KickScooterOverview from "../components/sections/KickScooterOverview";
@@ -19,7 +20,7 @@ import EasyOneCord from "../components/sections/EasyOneCord";
 import RidingModes from "../components/sections/RidingModes";
 import ControllFromSmartphone from "../components/sections/ControllFromSmartphone";
 import Welcome from "../components/sections/Welcome";
-import { useEffect } from "react";
+import Tabs from "../components/sections/Tabs";
 import SegwayNinebot from "../components/sections/SegwayNinebot";
 
 export default function Home({ isMobile }) {
@@ -36,10 +37,11 @@ export default function Home({ isMobile }) {
         <TopSwiper />
         <TopStock />
         <Welcome />
+        <Tabs />
         <PackingList />
         <Accessories />
         <Features />
-        <KickScooterOverview isMobile={isMobile} />
+        <KickScooterOverview />
         <SmartBattery />
         <DualBraking />
         <BuildInFront />
@@ -58,21 +60,3 @@ export default function Home({ isMobile }) {
     </div>
   );
 }
-
-export const getServerSideProps = ({ req }) => {
-  let userAgent;
-  if (req) {
-    // if you are on the server and you get a 'req' property from your context
-    userAgent = req.headers["user-agent"]; // get the user-agent from the headers
-  } else {
-    userAgent = navigator.userAgent; // if you are on the client you can access the navigator from the window object
-  }
-
-  let isMobile = Boolean(
-    userAgent.match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-    )
-  );
-
-  return { props: { isMobile } };
-};

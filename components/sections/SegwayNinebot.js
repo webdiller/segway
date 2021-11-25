@@ -36,8 +36,6 @@ export default function SegwayNinebot() {
             alt="Segway Protective Gear Set as a gift"
             layout="fill"
             objectFit="contain"
-            placeholder="blur"
-            blurDataURL="/segway-ninebot-background-placeholder.png"
           />
         </div>
       </div>

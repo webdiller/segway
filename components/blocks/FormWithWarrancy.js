@@ -42,8 +42,6 @@ export default function FormWithWarrancy({
               alt="Segway Protective Gear Set as a gift"
               layout="fill"
               objectFit="contain"
-              placeholder="blur"
-              blurDataURL="/segway-protect-placeholder.png"
             />
           </div>
         </div>

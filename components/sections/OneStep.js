@@ -17,8 +17,6 @@ export default function OneStep() {
             alt="One-step Folding Mechanism"
             width={840}
             height={388}
-            placeholder="blur"
-            blurDataURL="/one-step.png"
             layout="responsive"
           />
         </div>

@@ -4,9 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-
-import "swiper/css";
-import "swiper/css/navigation";
+import segwayPlaceholder from "../../public/segway-placeholder.png";
 
 /** Свайпер в шапке с самокатами */
 export default function TopSwiper() {
@@ -118,7 +116,7 @@ export default function TopSwiper() {
                         quality={100}
                         layout="fixed"
                         placeholder="blur"
-                        blurDataURL="/segway-placeholder.png"
+                        blurDataURL={segwayPlaceholder}
                       />
                     </div>
                     <p className="top-swiper__name">{name}</p>

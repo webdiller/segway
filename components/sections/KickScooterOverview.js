@@ -1,6 +1,6 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 
-export default function KickScooterOverview({ isMobile }) {
+export default function KickScooterOverview() {
   return (
     <div className="kick-scooter-overview">
       <div className="container kick-scooter-overview__container">
@@ -15,36 +15,26 @@ export default function KickScooterOverview({ isMobile }) {
         </p>
         <p className="kick-scooter-overview__subtitle">SEGWAY Ninebot Kickscooter MAX </p>
 
-        {isMobile ? (
-          <div className="kick-scooter-overview__img-wrapper">
-          <Image
+        <picture className="kick-scooter-overview__picture">
+          <source
+            srcSet="/kick-scooter-overview-desktop.webp"
+            media="(min-width: 768px)"
+          />
+          <source
+            srcSet="/kick-scooter-overview-desktop.jpg"
+            media="(min-width: 768px)"
+          />
+          <source srcSet="/kick-scooter-overview-mobile.webp" />
+          <img
+            width="1916"
+            height="1122"
             className="kick-scooter-overview__img"
             src="/kick-scooter-overview-mobile.jpg"
             alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX"
-            width={450}
-            height={480}
-            quality={100}
-            objectFit="contain"
-            placeholder="blur"
-            blurDataURL="/kick-scooter-overview-mobile.jpg"
+            loading="lazy"
           />
-        </div>
-          
-        ) : (
-          <div className="kick-scooter-overview__img-wrapper">
-            <Image
-              className="kick-scooter-overview__img"
-              src="/kick-scooter-overview-desktop.jpg"
-              alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX"
-              width={958}
-              height={672}
-              quality={100}
-              objectFit="contain"
-              placeholder="blur"
-              blurDataURL="/kick-scooter-overview-desktop.jpg"
-            />
-          </div>
-        )}
+        </picture>
+
       </div>
     </div>
   );

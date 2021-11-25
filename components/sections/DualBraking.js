@@ -10,8 +10,6 @@ export default function DualBraking() {
           alt="Dual Braking System"
           width={720}
           height={547}
-          placeholder="blur"
-          blurDataURL="/dual-braking.png"
           layout="responsive"
         />
       </div>

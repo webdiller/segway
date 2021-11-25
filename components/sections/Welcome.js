@@ -6,6 +6,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import PaymentsMethods from "../blocks/PaymentsMethods";
 import FormWithWarrancy from "../blocks/FormWithWarrancy";
 import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
+import segwayPlaceholder from "../../public/segway-placeholder.png";
 import "swiper/css/pagination";
 
 export default function Welcome() {
@@ -70,6 +71,8 @@ export default function Welcome() {
                       height={685}
                       quality={50}
                       layout="responsive"
+                      placeholder="blur"
+                      blurDataURL={segwayPlaceholder}
                     />
                   </div>
                 </SwiperSlide>

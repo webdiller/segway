@@ -9,8 +9,6 @@ export default function Regenerative() {
             className="regenerative__img"
             src="/regenerative-desktop.png"
             alt="Regenerative Brake for Power Recycle"
-            placeholder="blur"
-            blurDataURL="/regenerative-desktop.png"
             layout="responsive"
             width="895"
             height="547"

@@ -12,8 +12,6 @@ export default function Features() {
           width={1376}
           height={724}
           quality={50}
-          placeholder="blur"
-          blurDataURL="/features__main-img-desktop-placeholder.jpg"
           layout="responsive"
         />
       </div>
