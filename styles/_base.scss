@@ -242,8 +242,25 @@ img {
 }
 
 .hide-768 {
-  display: none;
+  @include media("<=768px") {
+    display: none;
+  }
 }
 .show-block-768 {
-  display: block;
+  display: none;
+  @include media("<=768px") {
+    display: block;
+  }
+}
+
+.hide-576 {
+  @include media("<=576px") {
+    display: none;
+  }
+}
+.show-block-576 {
+  display: none;
+  @include media("<=576px") {
+    display: block;
+  }
 }

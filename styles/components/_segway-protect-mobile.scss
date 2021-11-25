@@ -11,9 +11,10 @@
 
   &__img-wrapper {
     position: relative;
-    flex: 0 0 87px;
-    width: 87px;
+    flex: 0 0 77px;
+    width: 77px;
     height: auto;
+    margin-right: 10px;
   }
 
   &__img {
@@ -21,6 +22,10 @@
 
   &__content {
     margin-right: 20px;
+    @include media("<=768px") {
+      margin-right: auto;
+      min-width: 210px;
+    }
   }
 
   &__title {

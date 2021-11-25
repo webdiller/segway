@@ -13,7 +13,8 @@ export default function ControllFromSmartphone() {
       <div className="container controll-from-smartphone__container">
         <div className="controll-from-smartphone__top">
           <p className="title title_fz-20 controll-from-smartphone__title">
-            Control from your smartphone
+            <span className="hide-768">Control from your smartphone</span>
+            <span className="show-block-768">Control from <br /> your smartphone</span>
           </p>
           <p className="text controll-from-smartphone__text">
             You can easily control your Segway electric scooter with your
