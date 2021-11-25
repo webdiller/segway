@@ -1,23 +1,20 @@
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { FcPrevious, FcNext } from "react-icons/fc";
-import { MdSpeed } from "react-icons/md";
-import { FaRoad } from "react-icons/fa";
 import data from "../../public/segway.json";
 import segwayPlaceholder from "../../public/segway-placeholder.png";
-// MdSpeed,
-// FaRoad
-// BsBatteryCharging
-// GiWeight
-// BsDownload
-// BiTimeFive
-// MdFormatListNumbered
-
-import "swiper/css";
+import { FcPrevious, FcNext } from "react-icons/fc";
+import { MdSpeed, MdFormatListNumbered, MdOutlineLightMode } from "react-icons/md";
+import { FaRoad } from "react-icons/fa";
+import { GiWeight, GiSpring } from "react-icons/gi";
+import { BsDownload, BsBatteryCharging } from "react-icons/bs";
+import { BiTimeFive, BiShapeTriangle } from "react-icons/bi";
+import { AiOutlineThunderbolt,AiOutlineSafety } from "react-icons/ai";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 import "swiper/css/navigation";
 
 export default function CompareSpecifications() {
+
   return (
     <div className="compare-specfications">
       <div className="container compare-specfications__container">
@@ -89,6 +86,7 @@ export default function CompareSpecifications() {
                   </p>
 
                   <div className="compare-specfications__items">
+                    {/* Max. speed */}
                     <div className="compare-specfications__item">
                       <div className="compare-specfications__item-key">
                         <MdSpeed className="compare-specfications__item-icon" />
@@ -98,64 +96,133 @@ export default function CompareSpecifications() {
                         {maxSpeed}
                       </div>
                     </div>
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">
-                        <MdSpeed className="compare-specfications__item-icon" />
-                        Max. speed
-                      </div>
-                      <div className="compare-specfications__item-value">
-                        {maxSpeed}
-                      </div>
-                    </div>
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">
-                        <MdSpeed className="compare-specfications__item-icon" />
-                        Max. speed
-                      </div>
-                      <div className="compare-specfications__item-value">
-                        {maxSpeed}
-                      </div>
-                    </div>
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">
-                        <MdSpeed className="compare-specfications__item-icon" />
-                        Max. speed
-                      </div>
-                      <div className="compare-specfications__item-value">
-                        {maxSpeed}
-                      </div>
-                    </div>
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">
-                        <MdSpeed className="compare-specfications__item-icon" />
-                        Max. speed
-                      </div>
-                      <div className="compare-specfications__item-value">
-                        {maxSpeed}
-                      </div>
-                    </div>
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">
-                        <MdSpeed className="compare-specfications__item-icon" />
-                        Max. speed
-                      </div>
-                      <div className="compare-specfications__item-value">
-                        {maxSpeed}
-                      </div>
-                    </div>
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">
-                        <MdSpeed className="compare-specfications__item-icon" />
-                        Max. speed
-                      </div>
-                      <div className="compare-specfications__item-value">
-                        {maxSpeed}
-                      </div>
-                    </div>
+
+                    {/* Range (miles) */}
                     <div className="compare-specfications__item">
                       <div className="compare-specfications__item-key">
                         <FaRoad className="compare-specfications__item-icon" />
                         Range (miles)
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+
+                    {/* Battery Capacity */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <BsBatteryCharging className="compare-specfications__item-icon" />
+                        Battery Capacity
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+
+                    {/* Net Weight */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <GiWeight className="compare-specfications__item-icon" />
+                        Net Weight
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+
+                    {/* Payload */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <BsDownload className="compare-specfications__item-icon" />
+                        Payload
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+
+                    {/* Chargin Time */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <BiTimeFive className="compare-specfications__item-icon" />
+                        Chargin Time
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+
+                    {/* Number of Batteries */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <MdFormatListNumbered className="compare-specfications__item-icon" />
+                        Number of Batteries
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {maxSpeed}
+                      </div>
+                    </div>
+
+                    {/* Motor power */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <AiOutlineThunderbolt className="compare-specfications__item-icon" />
+                        Motor power
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {rangeByMiles}
+                      </div>
+                    </div>
+
+                    {/* Power Output */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <RiLogoutCircleRLine className="compare-specfications__item-icon" />
+                        Power Output
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {rangeByMiles}
+                      </div>
+                    </div>
+
+                    {/* Max. Incline */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <BiShapeTriangle className="compare-specfications__item-icon" />
+                        Max. Incline
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {rangeByMiles}
+                      </div>
+                    </div>
+
+                    {/* Shock Absorption */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <GiSpring className="compare-specfications__item-icon" />
+                        Shock Absorption
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {rangeByMiles}
+                      </div>
+                    </div>
+
+                    {/* Safety */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <AiOutlineSafety className="compare-specfications__item-icon" />
+                        Safety
+                      </div>
+                      <div className="compare-specfications__item-value">
+                        {rangeByMiles}
+                      </div>
+                    </div>
+
+                    {/* Atmosphere Light */}
+                    <div className="compare-specfications__item">
+                      <div className="compare-specfications__item-key">
+                        <MdOutlineLightMode className="compare-specfications__item-icon" />
+                        Atmosphere Light
                       </div>
                       <div className="compare-specfications__item-value">
                         {rangeByMiles}

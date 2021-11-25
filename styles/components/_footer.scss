@@ -53,5 +53,9 @@
         margin-bottom: 11px;
       }
     }
+    @include media("<=768px") {
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 }

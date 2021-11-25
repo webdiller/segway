@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import UiLink from "../ui/UiLink";
+import circlePlaceholder from "../../public/circle-placeholder.svg";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -113,6 +114,8 @@ export default function Accessories() {
                           src={imgPath}
                           alt={name}
                           layout="fill"
+                          placeholder="blur"
+                          blurDataURL={circlePlaceholder}
                         />
                       </div>
                       <p className="text text_25 accessories__name">{name}</p>

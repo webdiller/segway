@@ -3,6 +3,8 @@
     @include media("<=768px") {
       display: flex;
       flex-direction: column-reverse;
+      background-color: #F7F7F7;
+      padding-bottom: 16px;
     }
   }
 
@@ -48,6 +50,7 @@
     }
     @include media("<=768px") {
       justify-content: center;
+      background-color: #fff;
     }
     @include media("<=576px") {
     }
@@ -109,6 +112,7 @@
     @include media("<=768px") {
       height: auto;
       padding: 15px;
+      background-color: transparent;
     }
 
     @include media("<=991px") {

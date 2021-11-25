@@ -102,8 +102,8 @@ export default function Tabs() {
                 up to 4 years.
               </span>
               <span className="show-block-768">
-                The basic warranty is 1 year. You can also extend the warranty
-                up to 4 years.
+                The basic warranty is 1 year. <br />
+                You can also extend the warranty up to 4 years.
               </span>
             </p>
           </div>
@@ -126,7 +126,10 @@ export default function Tabs() {
           <div className="tabs__presentation-content">
             <p className="text text_25 tabs__presentation-title">
               <span className="hide-768">After Sales Support</span>
-              <span className="show-block-768">After Sales Support</span>
+              <span className="show-block-768">
+                After Sales <br />
+                Support
+              </span>
             </p>
             <p className="text tabs__presentation-description">
               <span className="hide-768">
@@ -134,8 +137,8 @@ export default function Tabs() {
                 specialists will contact you within 15 minutes
               </span>
               <span className="show-block-768">
-                If you have any difficulties with your kickscooter, our
-                specialists will contact you within 15 minutes
+                If you have any difficulties with your <br /> kickscooter, our
+                specialists will contact you <br /> within 15 minutes
               </span>
             </p>
           </div>
@@ -161,22 +164,15 @@ export default function Tabs() {
                 Up to 40 miles of range on a single charge
               </span>
               <span className="show-block-768">
-                Up to 40 miles of range on a single charge
+                Up to 40 miles of range <br />
+                on a single charge
               </span>
             </p>
             <p className="text tabs__presentation-description">
-              <span className="hide-768">
                 With a range of up to 40 miles, the longest range on the market,
                 and a 20˚uphill climbing angle, the KickScooter MAX allows you
                 to ride from San Francisco Bay Area to Palo Alto on a single
                 charge.
-              </span>
-              <span className="show-block-768">
-                With a range of up to 40 miles, the longest range on the market,
-                and a 20˚uphill climbing angle, the KickScooter MAX allows you
-                to ride from San Francisco Bay Area to Palo Alto on a single
-                charge.
-              </span>
             </p>
           </div>
 
