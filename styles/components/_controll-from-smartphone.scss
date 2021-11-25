@@ -86,11 +86,15 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      position: relative;
+      top: -40px;
+      margin-bottom: -40px;
+      z-index: 10;
       margin-right: 0;
       flex: 1 1 auto;
       width: 100%;
       padding-bottom: 25px;
-      padding-top: 30px;
+      padding-top: 50px;
       background: linear-gradient(
         0deg,
         #f7f7f7 42.57%,

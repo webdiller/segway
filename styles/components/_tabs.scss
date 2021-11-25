@@ -35,15 +35,21 @@
     &:focus {
       background-color: #009eff;
       color: #fff;
-      svg {
-        fill: #fff;
+      .tabs__tab-icon-wrapper_color {
+        display: none;
+      }
+      .tabs__tab-icon-wrapper_white {
+        display: block;
       }
     }
     &.active {
       background-color: #009eff;
       color: #fff;
-      svg {
-        fill: #fff;
+      .tabs__tab-icon-wrapper_color {
+        display: none;
+      }
+      .tabs__tab-icon-wrapper_white {
+        display: block;
       }
     }
     @include media("<=991px") {
@@ -56,18 +62,24 @@
     }
   }
 
-  &__tab-icon {
+  &__tab-icon-wrapper {
     position: relative;
     margin-right: 19px;
-    fill: #999999;
-    font-size: 37px;
     transition: all 0.3s ease;
+    min-width: 37px;
     @include media("<=991px") {
     }
     @include media("<=768px") {
       margin-right: 0;
+      min-width: auto;
     }
     @include media("<=576px") {
+    }
+    &_color {
+
+    }
+    &_white {
+      display: none;
     }
   }
 

@@ -1,9 +1,15 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { FaBoxOpen, FaRoad } from "react-icons/fa";
-import { RiFileList3Line } from "react-icons/ri";
-import { MdOutlineSettingsSuggest } from "react-icons/md";
+import tabIcon1Color from "../../public/icon-tab-1-color.svg";
+import tabIcon2Color from "../../public/icon-tab-2-color.svg";
+import tabIcon3Color from "../../public/icon-tab-3-color.svg";
+import tabIcon4Color from "../../public/icon-tab-4-color.svg";
+
+import tabIcon1White from "../../public/icon-tab-1-white.svg";
+import tabIcon2White from "../../public/icon-tab-2-white.svg";
+import tabIcon3White from "../../public/icon-tab-3-white.svg";
+import tabIcon4White from "../../public/icon-tab-4-white.svg";
 
 import iconTabPresentationDelivery from "../../public/icon-tab-presentation-delivery.svg";
 import iconTabPresentationWarrancy from "../../public/icon-tab-presentation-warrancy.svg";
@@ -23,7 +29,12 @@ export default function Tabs() {
             onClick={() => setTabHandle(1)}
             className={tab === 1 ? "tabs__tab active" : "tabs__tab"}
           >
-            <FaBoxOpen className="tabs__tab-icon" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
+              <Image src={tabIcon1Color} alt="icon for tab" />
+            </div>
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
+              <Image src={tabIcon1White} alt="icon for tab" />
+            </div>
             <span className="tabs__tab-text">
               Delivery within 1 business day
             </span>
@@ -32,21 +43,36 @@ export default function Tabs() {
             onClick={() => setTabHandle(2)}
             className={tab === 2 ? "tabs__tab active" : "tabs__tab"}
           >
-            <RiFileList3Line className="tabs__tab-icon" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
+              <Image src={tabIcon2Color} alt="icon for tab" />
+            </div>
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
+              <Image src={tabIcon2White} alt="icon for tab" />
+            </div>
             <span className="tabs__tab-text">Basic 1 year warranty</span>
           </button>
           <button
             onClick={() => setTabHandle(3)}
             className={tab === 3 ? "tabs__tab active" : "tabs__tab"}
           >
-            <MdOutlineSettingsSuggest className="tabs__tab-icon" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
+              <Image src={tabIcon3Color} alt="icon for tab" />
+            </div>
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
+              <Image src={tabIcon3White} alt="icon for tab" />
+            </div>
             <span className="tabs__tab-text">After Sales Support</span>
           </button>
           <button
             onClick={() => setTabHandle(4)}
             className={tab === 4 ? "tabs__tab active" : "tabs__tab"}
           >
-            <FaRoad className="tabs__tab-icon" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
+              <Image src={tabIcon4Color} alt="icon for tab" />
+            </div>
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
+              <Image src={tabIcon4White} alt="icon for tab" />
+            </div>
             <span className="tabs__tab-text">Up to 40 miles per charge</span>
           </button>
         </div>
@@ -76,7 +102,7 @@ export default function Tabs() {
           </div>
           <div className="tabs__presentation-icon tabs__presentation-icon_large">
             <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationDelivery} alt="" />
+              <Image src={iconTabPresentationDelivery} alt="icon for tab" />
             </div>
           </div>
         </div>
@@ -109,7 +135,7 @@ export default function Tabs() {
           </div>
           <div className="tabs__presentation-icon">
             <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationWarrancy} alt="" />
+              <Image src={iconTabPresentationWarrancy} alt="icon for tab" />
             </div>
           </div>
         </div>
@@ -145,7 +171,7 @@ export default function Tabs() {
 
           <div className="tabs__presentation-icon">
             <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationSupport} alt="" />
+              <Image src={iconTabPresentationSupport} alt="icon for tab" />
             </div>
           </div>
         </div>
@@ -177,7 +203,7 @@ export default function Tabs() {
 
           <div className="tabs__presentation-icon">
             <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationRoad} alt="" />
+              <Image src={iconTabPresentationRoad} alt="icon for tab" />
             </div>
           </div>
           {/* icon for desktop */}

@@ -1,5 +1,14 @@
 import Image from "next/image";
 
+// import iconTires from "../../public/feature-1.svg";
+// import iconLed from "../../public/feature-2.svg";
+// import iconSpeed from "../../public/feature-3.svg";
+// import iconRange from "../../public/feature-4.svg";
+// import iconGrade from "../../public/feature-5.svg";
+// import iconWater from "../../public/feature-6.svg";
+// import iconCharge from "../../public/feature-7.svg";
+// import iconBattery from "../../public/feature-8.svg";
+
 export default function Features() {
   return (
     <div className="features">

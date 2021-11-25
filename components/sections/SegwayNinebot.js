@@ -15,7 +15,10 @@ export default function SegwayNinebot() {
         {/* area name: title */}
         <div className="segway-ninebot__title-wrapper">
           <p className="title title_fz-108 segway-ninebot__title">
-            SEGWAY Ninebot Kickscooter MAX
+            <span className="hide-576">SEGWAY Ninebot Kickscooter MAX</span>
+            <span className="show-block-576">
+              SEGWAY Ninebot <br /> Kickscooter <br /> MAX
+            </span>
           </p>
         </div>
 

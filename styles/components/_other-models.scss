@@ -1,8 +1,10 @@
 .other-models {
   background-color: #fff;
   &__container {
+    margin-top: 50px;
     margin-bottom: 40px;
     @include media("<=991px") {
+      margin-top: 0;
       margin-bottom: 30px;
     }
     @include media("<=768px") {
