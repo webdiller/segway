@@ -2,6 +2,7 @@ import Image from "next/image";
 import FormWithWarrancy from "../blocks/FormWithWarrancy";
 import PaymentsMethods from "../blocks/PaymentsMethods";
 import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
+import segwayBg from "../../public/segway-ninebot-background.png";
 
 export default function SegwayNinebot() {
   return (
@@ -35,10 +36,10 @@ export default function SegwayNinebot() {
 
         <div className="segway-ninebot__bg-wrapper">
           <Image
-            src="/segway-ninebot-background.png"
+            src={segwayBg}
             alt="Segway Protective Gear Set as a gift"
-            layout="fill"
-            objectFit="contain"
+            layout='fill'
+            objectFit='contain'
           />
         </div>
       </div>

@@ -6,8 +6,8 @@
     column-gap: 20px;
     grid-template-columns: 1fr 400px;
     grid-template-areas:
-      "stock swiper"
-      "title swiper"
+      "stock stock"
+      "title title"
       "form swiper"
       "payments swiper";
     margin-top: 60px;
@@ -28,7 +28,7 @@
         "payments";
       margin-top: 40px;
       padding-bottom: 45px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F5 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
       background-clip: padding-box;
     }
     @include media("<576px") {
@@ -36,7 +36,6 @@
       grid-template-areas:
         "stock"
         "title"
-        "swiper"
         "protect"
         "form"
         "payments";
@@ -75,20 +74,6 @@
     }
   }
 
-  &__title-wrapper {
-    position: relative;
-    z-index: 10;
-    grid-area: title;
-    @include media("<=991px") {
-    }
-    @include media("<=768px") {
-      max-width: 400px;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
   &__protect-wrapper {
     position: relative;
     z-index: 10;
@@ -100,15 +85,31 @@
     }
   }
 
+  &__title-wrapper {
+    position: relative;
+    z-index: 10;
+    grid-area: title;
+    @include media("<=991px") {
+    }
+    @include media("<=768px") {
+      max-width: 400px;
+      margin-bottom: 290px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include media("<=576px") {
+      margin-bottom: 260px;
+    }
+  }
+
   &__title {
     margin-bottom: 15px;
     @include media("<=991px") {
     }
     @include media("<=768px") {
-      margin-bottom: 290px;
     }
     @include media("<=576px") {
-      margin-bottom: 250px;
       font-size: 40px;
       white-space: nowrap;
     }
@@ -116,7 +117,6 @@
 
   &__form-wrapper {
     position: relative;
-    z-index: 10;
     grid-area: form;
     @include media("<=991px") {
     }
@@ -144,19 +144,28 @@
 
   &__bg-wrapper {
     position: absolute;
-    width: 830px;
-    height: 420px;
+    width: 1260px;
+    height: 650px;
     bottom: 80px;
     right: -180px;
+    @include media("<=2500px") {
+      width: 1060px;
+      height: 490px;
+    }
+    @include media("<=1920px") {
+      right: unset;
+      left: 55%;
+      bottom: 40px;
+    }
     @include media("<=1400px") {
-      bottom: 100px;
-      width: 40%;
+      height: 420px;
+      left: 45%;
+      bottom: 115px;
     }
     @include media("<=1200px") {
-      width: 50%;
+      left: 55%;
     }
     @include media("<=991px") {
-      width: 60%;
     }
     @include media("<=768px") {
       bottom: unset;
@@ -166,7 +175,11 @@
       transform: translateX(-50%);
     }
     @include media("<=576px") {
-      width: calc(100% - 30px);
+      top: 160px;
+      width: 350px;
+    }
+    @include media("<=480px") {
+      width: calc(100% - 50px);
     }
   }
 }
