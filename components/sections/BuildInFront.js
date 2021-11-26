@@ -1,18 +1,30 @@
-import Image from "next/image";
-
+/* eslint-disable @next/next/no-img-element */
 export default function BuildInFront() {
   return (
     <div className="build-in-front">
-      <div className="build-in-front__img-wrapper">
-        <Image
-          className="build-in-front__img"
-          src="/build-in-front.png"
-          alt="Smart battery Management system (Smart-BMS)"
-          width={720}
-          height={547}
-          layout="responsive"
+      <img
+        width="455"
+        height="455"
+        className="build-in-front__shine-left"
+        src="/build-in-front-shine.png"
+        alt="build-in-front-shine"
+        loading="lazy"
+      />
+
+      <picture className="build-in-front__picture">
+        <source
+          srcSet="/build-in-front-desktop.png"
+          media="(min-width: 768px)"
         />
-      </div>
+        <img
+          width="762"
+          height="465"
+          className="build-in-front__img"
+          src="/build-in-front-mobile.png"
+          alt="DOWNLOAD manual"
+          loading="lazy"
+        />
+      </picture>
       <div className="container build-in-front__container">
         <div className="build-in-front__content">
           <p className="title title_fz-20 title_white build-in-front__title">

@@ -8,15 +8,25 @@ export default function DownloadManual() {
       <div className="container download-manual__container">
         <div className="download-manual__cart">
           <picture className="download-manual__picture">
+            <source
+              srcSet="/download-manual-desktop.webp"
+              media="(min-width: 480px)"
+            />
+            <source
+              srcSet="/download-manual-desktop.png"
+              media="(min-width: 480px)"
+            />
+            <source srcSet="/download-manual-mobile.webp" />
             <img
               width="762"
               height="465"
               className="download-manual__img"
-              src="/example.png"
+              src="/download-manual-mobile.png"
               alt="DOWNLOAD manual"
               loading="lazy"
             />
           </picture>
+
           <div className="download-manual__content">
             <p className="title title_fz-20 download-manual__title">
               DOWNLOAD manual
