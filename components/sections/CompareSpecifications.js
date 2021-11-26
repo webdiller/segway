@@ -35,11 +35,11 @@ export default function CompareSpecifications() {
               nextEl: ".compare-specfications__nav_next",
             }}
             breakpoints={{
-              768: {
+              991: {
                 slidesPerView: 3,
               },
               1200: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               },
             }}
           >
@@ -57,7 +57,7 @@ export default function CompareSpecifications() {
                 payload,
                 charginTime,
                 numberOfBatteries,
-                motorPpower,
+                motorPower,
                 powerOutput,
                 maxIncline,
                 shockAbsorption,
@@ -104,7 +104,7 @@ export default function CompareSpecifications() {
                         Range (miles)
                       </div>
                       <div className="compare-specfications__item-value">
-                        {maxSpeed}
+                        {rangeByMiles}
                       </div>
                     </div>
 
@@ -115,7 +115,7 @@ export default function CompareSpecifications() {
                         Battery Capacity
                       </div>
                       <div className="compare-specfications__item-value">
-                        {maxSpeed}
+                        {batteryCapacity}
                       </div>
                     </div>
 
@@ -126,7 +126,7 @@ export default function CompareSpecifications() {
                         Net Weight
                       </div>
                       <div className="compare-specfications__item-value">
-                        {maxSpeed}
+                        {netWeight}
                       </div>
                     </div>
 
@@ -137,7 +137,7 @@ export default function CompareSpecifications() {
                         Payload
                       </div>
                       <div className="compare-specfications__item-value">
-                        {maxSpeed}
+                        {payload}
                       </div>
                     </div>
 
@@ -148,7 +148,7 @@ export default function CompareSpecifications() {
                         Chargin Time
                       </div>
                       <div className="compare-specfications__item-value">
-                        {maxSpeed}
+                        {charginTime}
                       </div>
                     </div>
 
@@ -159,7 +159,7 @@ export default function CompareSpecifications() {
                         Number of Batteries
                       </div>
                       <div className="compare-specfications__item-value">
-                        {maxSpeed}
+                        {numberOfBatteries}
                       </div>
                     </div>
 
@@ -170,7 +170,7 @@ export default function CompareSpecifications() {
                         Motor power
                       </div>
                       <div className="compare-specfications__item-value">
-                        {rangeByMiles}
+                        {motorPower}
                       </div>
                     </div>
 
@@ -181,7 +181,7 @@ export default function CompareSpecifications() {
                         Power Output
                       </div>
                       <div className="compare-specfications__item-value">
-                        {rangeByMiles}
+                        {powerOutput}
                       </div>
                     </div>
 
@@ -192,7 +192,7 @@ export default function CompareSpecifications() {
                         Max. Incline
                       </div>
                       <div className="compare-specfications__item-value">
-                        {rangeByMiles}
+                        {maxIncline}
                       </div>
                     </div>
 
@@ -203,7 +203,7 @@ export default function CompareSpecifications() {
                         Shock Absorption
                       </div>
                       <div className="compare-specfications__item-value">
-                        {rangeByMiles}
+                        {shockAbsorption}
                       </div>
                     </div>
 
@@ -214,7 +214,7 @@ export default function CompareSpecifications() {
                         Safety
                       </div>
                       <div className="compare-specfications__item-value">
-                        {rangeByMiles}
+                        {safety}
                       </div>
                     </div>
 
@@ -225,7 +225,7 @@ export default function CompareSpecifications() {
                         Atmosphere Light
                       </div>
                       <div className="compare-specfications__item-value">
-                        {rangeByMiles}
+                        {atmosphereLight}
                       </div>
                     </div>
                   </div>

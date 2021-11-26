@@ -1,0 +1,83 @@
+[
+  {
+    "id": "011",
+    "type": "kidsScooter",
+    "name": "NINEBOT EKICKSCOOTER ZING E8",
+    "shortName": "ZING E8",
+    "price": "$249.99",
+    "maxSpeed": "8.6 mph",
+    "rangeByMiles": "6.2 miles",
+    "batteryCapacity": "55.08 Wh",
+    "netWeight": "17.6 lbs",
+    "payload": "44 - 110 lbs",
+    "charginTime": "4 hrs",
+    "numberOfBatteries": "1 Build-in",
+    "powerOutput": "Nominal Power 150 W",
+    "maxIncline": "7°",
+    "ridingModes": "Turbo Mode, Cruise Mode and Safe Mode",
+    "safety": "Hand-operated brake + Foot brake + Regenerative brake",
+    "recommendedAge": "6-12 years",
+    "requiredHeight": "3’9”–4’9” (115–145 cm)",
+    "frameMaterial": "Alluminum-alloy",
+    "shockAbsorbtion": "Spring damper",
+    "imgPath": "/NINEBOT-EKICKSCOOTER-ZING-E8.png",
+    "links": [
+      "https://www.segway.com/ninebot-ekickscooter-zing-e8/",
+      "https://store.segway.com/segway-ninebot-kickscooter-zing-e8"
+    ]
+  },
+  {
+    "id": "012",
+    "type": "kidsScooter",
+    "name": "NINEBOT EKICKSCOOTER ZING E10",
+    "shortName": "ZING E10",
+    "price": "$259.99",
+    "maxSpeed": "10 mph",
+    "rangeByMiles": "6.2 miles",
+    "batteryCapacity": "55.08 Wh",
+    "netWeight": "18.7 lbs",
+    "payload": "44 - 132 lbs",
+    "charginTime": "4 hrs",
+    "numberOfBatteries": "1 Build-in",
+    "powerOutput": "Nominal Power 150 W",
+    "maxIncline": "7°",
+    "ridingModes": "Turbo Mode, Cruise Mode and Safe Mode",
+    "safety": "Hand-operated brake + Foot brake + Regenerative brake",
+    "recommendedAge": "8-14 years",
+    "requiredHeight": "4'3 - 5'3 (130-160 cm)",
+    "frameMaterial": "Alluminum-alloy",
+    "shockAbsorbtion": "Spring damper",
+    "imgPath": "/NINEBOT-EKICKSCOOTER-ZING-E10.png",
+    "links": [
+      "https://www.segway.com/ninebot-ekickscooter-zing-e10/",
+      "https://store.segway.com/segway-ninebot-kickscooter-zing-e10"
+    ]
+  },
+  {
+    "id": "013",
+    "type": "kidsScooter",
+    "name": "NINEBOT EKICKSCOOTER ZING E12",
+    "shortName": "ZING E12",
+    "price": "$259.99",
+    "maxSpeed": "11.2 mph",
+    "rangeByMiles": "6.2 miles",
+    "batteryCapacity": "55.08 Wh",
+    "netWeight": "18.7 lbs",
+    "payload": "44 - 132 lbs",
+    "charginTime": "4 hrs",
+    "numberOfBatteries": "1 Build-in",
+    "powerOutput": "Nominal Power 150 W",
+    "maxIncline": "7°",
+    "ridingModes": "Turbo Mode, Cruise Mode and Safe Mode",
+    "safety": "Hand-operated brake + Foot brake + Regenerative brake",
+    "recommendedAge": "8–14 years",
+    "requiredHeight": "4’3”–5’3” (130–160 cm)",
+    "frameMaterial": "Alluminum-alloy",
+    "shockAbsorbtion": "Spring damper",
+    "imgPath": "/NINEBOT-EKICKSCOOTER-ZING-E12.png",
+    "links": [
+      "https://www.segway.com/ninebot-ekickscooter-zing-e12/",
+      "https://store.segway.com/segway-ninebot-kickscooter-zing-e12"
+    ]
+  }
+]
