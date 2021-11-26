@@ -58,6 +58,9 @@
     line-height: 22px;
     color: #53595f;
     font-weight: 600;
+    @include media("<=576px") {
+      font-size: 12px;
+    }
   }
 
   &__img-wrapper {
