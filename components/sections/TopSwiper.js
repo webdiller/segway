@@ -51,7 +51,6 @@ export default function TopSwiper() {
                         alt={name}
                         width={80}
                         height={80}
-                        quality={100}
                         layout="responsive"
                         placeholder="blur"
                         blurDataURL={segwayPlaceholder}
