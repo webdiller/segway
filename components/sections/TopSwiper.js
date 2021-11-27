@@ -5,10 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import segwayPlaceholder from "../../public/segway-placeholder.png";
-import data from "../../public/top-swiper.json";
 
 /** Свайпер в шапке с самокатами */
-export default function TopSwiper() {
+export default function TopSwiper({data}) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="top-swiper">

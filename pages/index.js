@@ -22,19 +22,19 @@ import ControllFromSmartphone from "../components/sections/ControllFromSmartphon
 import Welcome from "../components/sections/Welcome";
 import Tabs from "../components/sections/Tabs";
 import SegwayNinebot from "../components/sections/SegwayNinebot";
+import { topSwiperData } from "../public/data";
 
-export default function Home({ isMobile }) {
-
+export default function Home({ data }) {
   useEffect(() => {
-    console.info('Code author: Eugene Butkov');
-    console.info('github: https://github.com/webdiller');
-    console.info('telegram: webdillerru');
-  }, [])
+    console.info("Code author: Eugene Butkov");
+    console.info("github: https://github.com/webdiller");
+    console.info("telegram: webdillerru");
+  }, []);
 
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
-        <TopSwiper />
+        <TopSwiper data={data} />
         <TopStock />
         <Welcome />
         <Tabs />
@@ -59,4 +59,12 @@ export default function Home({ isMobile }) {
       </DefaultLayout>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      data: topSwiperData
+    }, // will be passed to the page component as props
+  };
 }
