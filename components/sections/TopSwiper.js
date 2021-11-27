@@ -9,9 +9,7 @@ import data from "../../public/top-swiper.json";
 
 /** Свайпер в шапке с самокатами */
 export default function TopSwiper() {
-
   const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <div className="top-swiper">
       <div className="container top-swiper__container">
@@ -34,8 +32,15 @@ export default function TopSwiper() {
               setActiveIndex(el.activeIndex);
             }}
           >
-            {data.map(({ id, name, imgPath }) => (
-              <SwiperSlide key={id} className="top-swiper__item">
+            {data.map(({ id, name, imgPath, ...props }) => (
+              <SwiperSlide
+                key={id}
+                className={
+                  props?.accent === true
+                    ? "top-swiper__item accent"
+                    : "top-swiper__item"
+                }
+              >
                 <Link href="#">
                   <a className="top-swiper__link">
                     <div className="top-swiper__img-wrapper">
@@ -47,7 +52,7 @@ export default function TopSwiper() {
                         width={80}
                         height={80}
                         quality={100}
-                        layout="fixed"
+                        layout="responsive"
                         placeholder="blur"
                         blurDataURL={segwayPlaceholder}
                       />
@@ -59,7 +64,13 @@ export default function TopSwiper() {
             ))}
           </Swiper>
 
-          <div className={activeIndex !== 0 ? "top-swiper__navigation" : "top-swiper__navigation disabled"}>
+          <div
+            className={
+              activeIndex !== 0
+                ? "top-swiper__navigation"
+                : "top-swiper__navigation disabled"
+            }
+          >
             <button className="top-swiper__nav top-swiper__nav_prev">
               <BsChevronCompactLeft className="top-swiper__icon" />
             </button>

@@ -66,18 +66,18 @@
       z-index: -1;
       opacity: 0;
       visibility: hidden;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
     }
     &.active {
       z-index: 100;
       opacity: 1;
       visibility: visible;
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
     }
   }
 
   &__item {
-
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -93,14 +93,15 @@
 
     display: flex;
     align-items: center;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 
     @include media("<=991px") {
       color: #323941;
       padding: 16px 32px;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: #f3f3f3;
       @include media("<=991px") {
         background-color: #009eff;
@@ -122,7 +123,9 @@
       top: 50%;
       right: 50%;
       transform: translate(50%, -50%);
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
@@ -157,7 +160,7 @@
     white-space: nowrap;
     @include media("<=991px") {
       color: #323941;
-      font-size: 18px;
+      font-size: 19px;
     }
     &:not(:last-child) {
       @include media("<=991px") {
@@ -173,6 +176,9 @@
     }
     &_insta {
       margin-right: 16px;
+      @include media("<=991px") {
+        font-size: 21px;
+      }
     }
     &_phone {
       font-size: 18px;

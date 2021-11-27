@@ -78,7 +78,7 @@ export default function TopNavigation() {
             </a>
           </Link>
           <Link href="#">
-            <a className="top-nav__action">
+            <a className="top-nav__action top-nav__action_insta">
               <AiOutlineInstagram />
             </a>
           </Link>

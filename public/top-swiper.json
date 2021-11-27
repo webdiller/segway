@@ -38,6 +38,7 @@
   {
     "id": "007",
     "name": "KS MAX",
+    "accent": true,
     "alt": "segway-image",
     "imgPath": "/segway-7.png"
   },

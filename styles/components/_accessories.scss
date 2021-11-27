@@ -168,12 +168,10 @@
   }
   &__add-cart {
     @include media("<=768px") {
-      border-radius: 4px;
       padding-left: 23px;
       padding-right: 23px;
       background-color: #009eff;
       color: #fff;
-      border: 0;
     }
     @include media("<=576px") {
       width: 100%;

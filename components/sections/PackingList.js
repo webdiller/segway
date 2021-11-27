@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
+import packingList from "../../public/packing-list.png";
 
 export default function PackingList() {
   const [videoSrc, setVideoSrc] = useState("");
@@ -11,7 +12,7 @@ export default function PackingList() {
       setVideoSrc("/example-video.mp4");
       videoRef.current.load();
       setTimeout(() => {
-        setOverlay((prev) => !prev);
+        setOverlay(false);
       }, 1000);
     }
       
@@ -31,8 +32,8 @@ export default function PackingList() {
             onClick={removeOverlayForVideo}
             className={
               overlay
-                ? "packing-list__video-wrapper"
-                : "packing-list__video-wrapper disabled"
+                ? "packing-list__video-wrapper disabled"
+                : "packing-list__video-wrapper"
             }
           >
             <video
@@ -50,13 +51,8 @@ export default function PackingList() {
         <div className="packing-list__img-wrapper">
           <Image
             objectFit="contain"
-            className="packing-list__img"
-            src="/packing-list.png"
+            src={packingList}
             alt="Packing List"
-            width={453}
-            height={453}
-            quality={100}
-            layout="responsive"
           />
         </div>
       </div>

@@ -3,6 +3,7 @@
   &__container {
     position: relative;
     display: flex;
+    justify-content: space-between;
     padding-top: 60px;
     padding-bottom: 40px;
     @include media("<=991px") {
@@ -35,8 +36,8 @@
   }
 
   &__media {
-    flex: 0 1 40%;
-    width: 40%;
+    max-width: 488px;
+    flex: 1 1 40%;
     align-self: center;
     margin-right: 20px;
     @include media("<=991px") {
@@ -49,13 +50,8 @@
   &__video-wrapper {
     position: relative;
     transition: all 0.3s ease;
-    &.disabled {
-      &::before {
-        opacity: 0;
-        visibility: hidden;
-        z-index: -1;
-      }
-    }
+    height: auto;
+
     &::before {
       content: "Tap to play the video";
       position: absolute;
@@ -78,17 +74,26 @@
       text-transform: uppercase;
       color: #323941;
 
-      opacity: 1;
-      visibility: visible;
-      z-index: 10;
-
       cursor: pointer;
       transition: all 0.3s ease;
+
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1;
     }
-    &:hover {
-      &:before {
-        color: #fff; 
-        background-color: #dfdfdf;
+
+    &.disabled {
+      height: 288px;
+      &:hover {
+        &::before {
+          color: #fff;
+          background-color: #dfdfdf;
+        }
+      }
+      &::before {
+        opacity: 1;
+        visibility: visible;
+        z-index: 10;
       }
     }
   }
@@ -102,8 +107,8 @@
   &__img-wrapper {
     position: relative;
     width: auto;
-    width: 56%;
-    flex: 1 1 56%;
+    width: 417px;
+    flex: 0 1 417px;
     @include media("<=991px") {
       order: -1;
       width: 100%;
