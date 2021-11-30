@@ -40,6 +40,9 @@
       font-size: 18px;
       line-height: 22px;
       color: #999999;
+      @include media("<=575px") {
+        color: #323941;
+      }
     }
 
     &_2 {
@@ -62,16 +65,16 @@
 
   &__payments-methods {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24px, 25px));
-    gap: 5px;
-    @include media("<=991px") {
-      grid-template-columns: repeat(8, 1fr);
-    }
+    grid-template-columns: repeat(auto-fill, minmax(24px, 25px));
+    column-gap: 6px;
     @include media("<=768px") {
       justify-content: center;
       margin-bottom: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(24px, 25px));
     }
-    @include media("<=576px") {
+    @include media("<=575px") {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 3px;
     }
   }
 
@@ -82,18 +85,8 @@
     border: 1px solid #e5e5e5;
     border-radius: 4px;
     background-color: #fff;
-    @include media("<=991px") {
-      padding: 0 5px;
-      height: 23px;
-    }
-    @include media("<=768px") {
-      height: 30px;
-    }
-    @include media("<=576px") {
-      padding: 0;
-      height: 23px;
-    }
-    @include media("<=480px") {
+    @include media("<=575px") {
+      height: 25px;
     }
   }
 

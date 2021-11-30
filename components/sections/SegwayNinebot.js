@@ -8,6 +8,7 @@ export default function SegwayNinebot() {
   return (
     <div className="segway-ninebot">
       <div className="container segway-ninebot__container">
+
         {/* area name: stock */}
         <div className="segway-ninebot__stock-wrapper">
           <p className="segway-ninebot__stock">In stock</p>
@@ -23,6 +24,16 @@ export default function SegwayNinebot() {
           </p>
         </div>
 
+        {/* area name: bgimage */}
+        <div className="segway-ninebot__bg-wrapper">
+          <Image
+            src={segwayBg}
+            alt="Segway Protective Gear Set as a gift"
+            layout='fill'
+            objectFit='contain'
+          />
+        </div>
+
         {/* area name: protect */}
         <SegwayProtectMobile customClass="segway-ninebot__protect-wrapper" />
 
@@ -34,14 +45,6 @@ export default function SegwayNinebot() {
         {/* area name: payments */}
         <PaymentsMethods customClass="segway-ninebot__payments-wrapper" />
 
-        <div className="segway-ninebot__bg-wrapper">
-          <Image
-            src={segwayBg}
-            alt="Segway Protective Gear Set as a gift"
-            layout='fill'
-            objectFit='contain'
-          />
-        </div>
       </div>
     </div>
   );

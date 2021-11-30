@@ -167,6 +167,7 @@
     }
   }
   &__add-cart {
+    border: 0;
     @include media("<=768px") {
       padding-left: 23px;
       padding-right: 23px;

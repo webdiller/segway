@@ -7,7 +7,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import segwayPlaceholder from "../../public/segway-placeholder.png";
 
 /** Свайпер в шапке с самокатами */
-export default function TopSwiper({data}) {
+export default function TopSwiper({smallScootersData}) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="top-swiper">
@@ -31,7 +31,7 @@ export default function TopSwiper({data}) {
               setActiveIndex(el.activeIndex);
             }}
           >
-            {data.map(({ id, name, imgPath, ...props }) => (
+            {smallScootersData.map(({ id, name, imgPath, ...props }) => (
               <SwiperSlide
                 key={id}
                 className={
