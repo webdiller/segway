@@ -22,8 +22,28 @@ export default function CompareSpecifications({
   allSegwaysData,
   kickscooterMaxData,
 }) {
+  // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Все модели
+  const [allModels, setAllModels] = useState(allSegwaysData);
+
+  // Если есть модель, то отобразить данные, иначе показать прочерк
   const [selectedModel, setSelectedModel] = useState(null);
+
+  // Показать модкалку, или нет?
+  const [modalActive, setModalActive] = useState(false);
+
+  // Активировать чекбокс, или нет?
+  const [confirmSelection, setConfirmSelection] = useState(false);
+
+  const setodalActiveHandle = () => setModalActive((prev) => !prev);
+  const setConfirmSelectionHandle = () => setConfirmSelection((prev) => !prev);
+
+  const setSelectedModelHandle = (id) => {
+    const filtered = allModels.filter((model) => model.id == id);
+    setSelectedModel(...filtered);
+  };
 
   return (
     <div className="compare-specfications">
@@ -31,10 +51,10 @@ export default function CompareSpecifications({
         <p className="title title_fz-20 compare-specfications__title">
           compare specifications
         </p>
+
         <p className="text compare-specfications__text">Add model to compare</p>
 
         <div className="compare-specfications__main-slide-with-swiper">
-
           <div className="main-slide compare-specfications__main-slide">
             <div className="main-slide__wrapper">
               <div className="main-slide__img-wrapper">
@@ -186,9 +206,7 @@ export default function CompareSpecifications({
               </div>
 
               <p className="text text_25 main-slide__price">$949.99</p>
-              <button className="ui-btn main-slide__buy-btn">
-                BUY IT NOW
-              </button>
+              <button className="ui-btn main-slide__buy-btn">BUY IT NOW</button>
             </div>
           </div>
 
@@ -196,14 +214,27 @@ export default function CompareSpecifications({
             Show for mobile devices
             Показываем для мобильных устройств
            */}
-          <div className={!selectedModel ? "main-slide main-slide_second compare-specfications__second-slide empty" : "main-slide main-slide_second compare-specfications__second-slide"}>
+          <div
+            className={
+              !selectedModel
+                ? "main-slide main-slide_second compare-specfications__second-slide empty"
+                : "main-slide main-slide_second compare-specfications__second-slide"
+            }
+          >
             <div className="main-slide__wrapper">
-              <div className="main-slide__img-compare-wrapper">
-                <img width="104" height="104" src="./icon-compare.svg" alt="icon-compare" className="main-slide__img-compare" />
+              <div
+                onClick={setodalActiveHandle}
+                className="main-slide__img-compare-wrapper"
+              >
+                <img
+                  width="104"
+                  height="104"
+                  src={!selectedModel ? "./icon-compare.svg": `${selectedModel.imgPath}`}
+                  alt="icon-compare"
+                  className={!selectedModel ? "main-slide__img-compare" : "main-slide__img-compare selected"}
+                />
               </div>
-              <p className="text text_bold main-slide__name">
-               Add model
-              </p>
+              <p className="text text_bold main-slide__name">{!selectedModel ?  "Add model" : selectedModel.name} </p>
               <div className="main-slide__items">
                 <div className="main-slide__item">
                   <div className="main-slide__item-key">
@@ -211,7 +242,7 @@ export default function CompareSpecifications({
                     Max. speed
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.maxSpeed }
+                    {!selectedModel ? "--" : selectedModel.maxSpeed}
                   </div>
                 </div>
 
@@ -221,7 +252,7 @@ export default function CompareSpecifications({
                     Range (miles)
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.rangeByMiles }
+                    {!selectedModel ? "--" : selectedModel.rangeByMiles}
                   </div>
                 </div>
 
@@ -231,7 +262,7 @@ export default function CompareSpecifications({
                     Battery Capacity
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.batteryCapacity }
+                    {!selectedModel ? "--" : selectedModel.batteryCapacity}
                   </div>
                 </div>
 
@@ -241,7 +272,7 @@ export default function CompareSpecifications({
                     Net Weight
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.netWeight }
+                    {!selectedModel ? "--" : selectedModel.netWeight}
                   </div>
                 </div>
 
@@ -251,7 +282,7 @@ export default function CompareSpecifications({
                     Payload
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.payload }
+                    {!selectedModel ? "--" : selectedModel.payload}
                   </div>
                 </div>
 
@@ -261,7 +292,7 @@ export default function CompareSpecifications({
                     Chargin Time
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.charginTime }
+                    {!selectedModel ? "--" : selectedModel.charginTime}
                   </div>
                 </div>
 
@@ -271,7 +302,7 @@ export default function CompareSpecifications({
                     Number of Batteries
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.numberOfBatteries }
+                    {!selectedModel ? "--" : selectedModel.numberOfBatteries}
                   </div>
                 </div>
 
@@ -281,7 +312,7 @@ export default function CompareSpecifications({
                     Motor power
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.motorPower }
+                    {!selectedModel ? "--" : selectedModel.motorPower}
                   </div>
                 </div>
 
@@ -291,7 +322,7 @@ export default function CompareSpecifications({
                     Power Output
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.powerOutput }
+                    {!selectedModel ? "--" : selectedModel.powerOutput}
                   </div>
                 </div>
 
@@ -301,7 +332,7 @@ export default function CompareSpecifications({
                     Max. Incline
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.maxIncline }
+                    {!selectedModel ? "--" : selectedModel.maxIncline}
                   </div>
                 </div>
 
@@ -311,7 +342,7 @@ export default function CompareSpecifications({
                     Shock Absorption
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.shockAbsorption }
+                    {!selectedModel ? "--" : selectedModel.shockAbsorption}
                   </div>
                 </div>
 
@@ -321,7 +352,7 @@ export default function CompareSpecifications({
                     Safety
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.safety }
+                    {!selectedModel ? "--" : selectedModel.safety}
                   </div>
                 </div>
 
@@ -331,15 +362,17 @@ export default function CompareSpecifications({
                     Atmosphere Light
                   </div>
                   <div className="main-slide__item-value">
-                    {!selectedModel ? ('--') : selectedModel.atmosphereLight }
+                    {!selectedModel ? "--" : selectedModel.atmosphereLight}
                   </div>
                 </div>
               </div>
 
-              <p className="text text_25 main-slide__price">$949.99</p>
-              <button className="ui-btn main-slide__buy-btn">
-                BUY IT NOW
-              </button>
+              {!selectedModel ? "" : (
+                <>
+                  <p className="text text_25 main-slide__price">{selectedModel.price}</p>
+                  <button className="ui-btn main-slide__buy-btn">BUY IT NOW</button>
+                </>
+              )}
             </div>
           </div>
 
@@ -558,6 +591,66 @@ export default function CompareSpecifications({
             <button className="compare-specfications__nav compare-specfications__nav_next">
               <FcNext className="compare-specfications__icon" />
             </button>
+          </div>
+        </div>
+
+        <div className={modalActive ? "compare-modal active" : "compare-modal"}>
+          <div className="compare-modal__wrapper">
+            <p className="title compare-modal__title">
+              select a model to compare
+            </p>
+            <img
+              onClick={setodalActiveHandle}
+              className="compare-modal__icon-close"
+              src="./icon-close.svg"
+              alt="icon-close"
+              width="34"
+              height="34"
+            />
+            <div className="compare-modal__items">
+              {allSegwaysData.map(({ id, name, imgPath }) => (
+                <button
+                  // onClick={setConfirmSelectionHandle}
+                  onClick={() => {
+                    setSelectedModelHandle(id)
+                    setModalActive(false)
+                  }}
+                  key={id}
+                  className="compare-modal__item"
+                >
+                  <div className="compare-modal__img-wrapper">
+                    <Image
+                      objectFit="contain"
+                      src={imgPath}
+                      alt={name}
+                      width={52}
+                      height={58}
+                      quality={90}
+                      layout="responsive"
+                      placeholder="blur"
+                      blurDataURL={segwayPlaceholder}
+                    />
+                  </div>
+                  <p className="compare-modal__name">{name}</p>
+
+                  {/* check-wrapper start */}
+                  <div className="compare-modal__item-check">
+                    <img
+                      onClick={setodalActiveHandle}
+                      className="compare-modal__item-check-icon"
+                      src="./icon-check.svg"
+                      alt="icon-check"
+                      width="40"
+                      height="28"
+                    />
+                    <span className="compare-modal__item-check-text">
+                      Confirm?
+                    </span>
+                  </div>
+                  {/* check-wrapper end */}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

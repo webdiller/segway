@@ -1,3 +1,4 @@
+// Для карусели
 export const smallScooters = [
   {
     id: "001",
@@ -87,6 +88,7 @@ export const smallScooters = [
   },
 ];
 
+// Один скейт
 export const kickscooterMax = {
   id: "006",
   type: "kickscooter",
@@ -134,6 +136,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "N/A",
     imgPath: "/segway-ninebot-kickscooter-e22.png",
+    imgSmallPath: "/segway-1.png",
     links: [
       "https://www.segway.com/ninebot-kickscooter-e22/",
       "https://store.segway.com/segway-ninebot-kickscooter-e22",
@@ -159,6 +162,7 @@ export const adultSegways = [
     safety: "N/A",
     atmosphereLight: "N/A",
     imgPath: "/ninebot-kickscooter-es1l.png",
+    imgSmallPath: "/segway-2.png",
     links: [
       "https://www.segway.com/ninebot-kickscooter-es1l",
       "https://store.segway.com/ninebot-kickscooter-es1l",
@@ -184,6 +188,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "N/A",
     imgPath: "/ninebot-kickscooter-air-t15.png",
+    imgSmallPath: "/segway-3.png",
     links: [
       "https://www.segway.com/ninebot-kickscooter-air-t15/",
       "https://store.segway.com/ninebot-kickscooter-air-t15",
@@ -209,6 +214,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "N/A",
     imgPath: "/ninebot-ekickscooter-f30.png",
+    imgSmallPath: "/segway-4.png",
     links: [
       "https://www.segway.com/ninebot-kickscooter-f30/",
       "https://store.segway.com/ninebot-ekickscooter-f-series",
@@ -234,6 +240,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "Customizable color",
     imgPath: "/ninebot-kickscooter-e45.png",
+    imgSmallPath: "/segway-5.png",
     links: [
       "https://www.segway.com/ninebot-kickscooter-e45/",
       "https://store.segway.com/segway-ninebot-kickscooter-e45",
@@ -259,6 +266,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "N/A",
     imgPath: "/ninebot-kickscooter-max-006.png",
+    imgSmallPath: "/segway-6.png",
     links: [
       "https://www.segway.com/ninebot-kickscooter-max/",
       "https://store.segway.com/ninebot-kickscooter-max",
@@ -284,6 +292,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "N/A",
     imgPath: "/ninebot-kickscooter-max-007.png",
+    imgSmallPath: "/segway-7.png",
     links: ["https://www.segway.com/ninebot-kickscooter-g30lp/"],
   },
   {
@@ -306,6 +315,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "Customizable color",
     imgPath: "/ninebot-kickscooter-es2.png",
+    imgSmallPath: "/segway-8.png",
     links: [
       "https://www.segway.com/kickscooter-es2/",
       "https://store.segway.com/segway-ninebot-kickscooter-es2-grey",
@@ -331,6 +341,7 @@ export const adultSegways = [
     safety: "LED headlight, side and rear reflector",
     atmosphereLight: "N/A",
     imgPath: "/ninebot-kickscooter-es3.png",
+    imgSmallPath: "/segway-9.png",
     links: [
       "https://www.segway.com/kickscooter-es3/",
       "https://store.segway.com/segway-ninebot-kickscooter-es3",
@@ -356,6 +367,7 @@ export const adultSegways = [
     safety: "LED rear light",
     atmosphereLight: "Customizable color",
     imgPath: "/ninebot-kickscooter-es4.png",
+    imgSmallPath: "/segway-13.png",
     links: [
       "https://www.segway.com/kickscooter-es4/",
       "https://store.segway.com/segway-ninebot-kickscooter-es4",

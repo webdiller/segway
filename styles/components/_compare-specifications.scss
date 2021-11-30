@@ -413,13 +413,19 @@
 
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
 
     width: 116px;
     height: 126px;
 
-    margin-bottom: 10px;
+    cursor: pointer;
   }
   &__img-compare {
+    &.selected {
+      width: 116px;
+      height: 126px;
+      object-fit: contain;
+    }
   }
 
   &__name {
@@ -606,5 +612,128 @@
         }
       }
     }
+  }
+}
+
+.compare-modal {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  transition: all 0.3s ease;
+
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+
+  overflow-y: scroll;
+
+  &.active {
+    z-index: 10000;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__wrapper {
+    position: relative;
+    padding: 22px 17px 25px 17px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  &__title {
+    max-width: 180px;
+    margin: 0 auto 35px auto;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  &__icon-close {
+    position: absolute;
+    top: 22px;
+    right: 17px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(102px, 1fr));
+  }
+
+  &__item {
+    @include reset-btn();
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 13px;
+    border: 1px solid #f5f5f5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover,
+    &:focus {
+      .compare-modal__name {
+        color: #fff;
+      }
+      background: #009eff;
+      border: 1px solid #f5f5f5;
+    }
+
+    &.active {
+    }
+  }
+
+  &__img-wrapper {
+    width: 52px;
+    margin-bottom: 7px;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 119.3%;
+    color: #323941;
+  }
+
+  &__item-check {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 30px 10px 13px 10px;
+    background-color: #009eff;
+    transition: all 0.3s ease;
+
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+  &__item-check-icon {
+    margin-bottom: 24px;
+  }
+  &__item-check-text {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 119.3%;
+    color: #ffffff;
   }
 }
