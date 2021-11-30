@@ -1,4 +1,5 @@
 .welcome {
+  overflow-x: hidden;
   @include media("<=991px") {
   }
   &__container {
@@ -247,7 +248,7 @@
     @include media("<=768px") {
     }
     @include media("<=768px") {
-      font-size: 22px;
+      font-size: 44px;
     }
   }
 }
