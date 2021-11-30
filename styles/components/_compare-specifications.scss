@@ -691,12 +691,18 @@
     }
 
     &.active {
+      .compare-modal__item-check {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+      }
     }
   }
 
   &__img-wrapper {
     width: 52px;
     margin-bottom: 7px;
+    pointer-events: none;
   }
 
   &__name {
@@ -704,6 +710,7 @@
     font-size: 15px;
     line-height: 119.3%;
     color: #323941;
+    pointer-events: none;
   }
 
   &__item-check {

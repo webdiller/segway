@@ -38,7 +38,13 @@ export default function CompareSpecifications({
   const [confirmSelection, setConfirmSelection] = useState(false);
 
   const setodalActiveHandle = () => setModalActive((prev) => !prev);
-  const setConfirmSelectionHandle = () => setConfirmSelection((prev) => !prev);
+  const setConfirmSelectionHandle = (e) => {
+    // TODO: Заменить костыль
+    document
+      .querySelectorAll(".compare-modal__item")
+      .forEach((el) => el.classList.remove("active"));
+    e.target.classList.add("active");
+  };
 
   const setSelectedModelHandle = (id) => {
     const filtered = allModels.filter((model) => model.id == id);
@@ -229,12 +235,22 @@ export default function CompareSpecifications({
                 <img
                   width="104"
                   height="104"
-                  src={!selectedModel ? "./icon-compare.svg": `${selectedModel.imgPath}`}
+                  src={
+                    !selectedModel
+                      ? "./icon-compare.svg"
+                      : `${selectedModel.imgPath}`
+                  }
                   alt="icon-compare"
-                  className={!selectedModel ? "main-slide__img-compare" : "main-slide__img-compare selected"}
+                  className={
+                    !selectedModel
+                      ? "main-slide__img-compare"
+                      : "main-slide__img-compare selected"
+                  }
                 />
               </div>
-              <p className="text text_bold main-slide__name">{!selectedModel ?  "Add model" : selectedModel.name} </p>
+              <p className="text text_bold main-slide__name">
+                {!selectedModel ? "Add model" : selectedModel.name}{" "}
+              </p>
               <div className="main-slide__items">
                 <div className="main-slide__item">
                   <div className="main-slide__item-key">
@@ -367,10 +383,16 @@ export default function CompareSpecifications({
                 </div>
               </div>
 
-              {!selectedModel ? "" : (
+              {!selectedModel ? (
+                ""
+              ) : (
                 <>
-                  <p className="text text_25 main-slide__price">{selectedModel.price}</p>
-                  <button className="ui-btn main-slide__buy-btn">BUY IT NOW</button>
+                  <p className="text text_25 main-slide__price">
+                    {selectedModel.price}
+                  </p>
+                  <button className="ui-btn main-slide__buy-btn">
+                    BUY IT NOW
+                  </button>
                 </>
               )}
             </div>
@@ -610,10 +632,8 @@ export default function CompareSpecifications({
             <div className="compare-modal__items">
               {allSegwaysData.map(({ id, name, imgPath }) => (
                 <button
-                  // onClick={setConfirmSelectionHandle}
-                  onClick={() => {
-                    setSelectedModelHandle(id)
-                    setModalActive(false)
+                  onClick={(e) => {
+                    setConfirmSelectionHandle(e);
                   }}
                   key={id}
                   className="compare-modal__item"
@@ -634,9 +654,14 @@ export default function CompareSpecifications({
                   <p className="compare-modal__name">{name}</p>
 
                   {/* check-wrapper start */}
-                  <div className="compare-modal__item-check">
+                  <div
+                    onClick={() => {
+                      setSelectedModelHandle(id);
+                      setModalActive(false);
+                    }}
+                    className="compare-modal__item-check"
+                  >
                     <img
-                      onClick={setodalActiveHandle}
                       className="compare-modal__item-check-icon"
                       src="./icon-check.svg"
                       alt="icon-check"
