@@ -33,7 +33,6 @@
       padding-left: 16px;
       &::before {
         @include media("<=768px") {
-          // TODO: Тень мешала пролистыванию
           content: "";
           position: absolute;
           top: 0;
