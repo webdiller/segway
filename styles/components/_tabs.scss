@@ -76,7 +76,6 @@
     @include media("<=576px") {
     }
     &_color {
-
     }
     &_white {
       display: none;
@@ -125,6 +124,7 @@
       height: auto;
       padding: 15px 0;
       background-color: transparent;
+      height: 370px;
     }
 
     @include media("<=991px") {
@@ -191,6 +191,27 @@
     @include media("<=768px") {
     }
     @include media("<=576px") {
+    }
+  }
+
+  &__presentation-icon-wrapper {
+    display: flex;
+    position: relative;
+    @include media("<=768px") {
+      height: 200px;
+      width: 200px;
+      margin-bottom: 20px;
+    }
+    &_large {
+      @include media("<=768px") {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &_range {
+      @include media("<=460px") {
+        top: 17px;
+      }
     }
   }
 

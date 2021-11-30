@@ -101,8 +101,8 @@ export default function Tabs() {
             </p>
           </div>
           <div className="tabs__presentation-icon tabs__presentation-icon_large">
-            <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationDelivery} alt="icon for tab" />
+            <div className="tabs__presentation-icon-wrapper tabs__presentation-icon-wrapper_large">
+              <Image objectFit="contain" position="relative" src={iconTabPresentationDelivery} alt="icon for tab" />
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function Tabs() {
           </div>
           <div className="tabs__presentation-icon">
             <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationWarrancy} alt="icon for tab" />
+              <Image objectFit="contain" position="relative" src={iconTabPresentationWarrancy} alt="icon for tab" />
             </div>
           </div>
         </div>
@@ -171,7 +171,7 @@ export default function Tabs() {
 
           <div className="tabs__presentation-icon">
             <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationSupport} alt="icon for tab" />
+              <Image objectFit="contain" position="relative" src={iconTabPresentationSupport} alt="icon for tab" />
             </div>
           </div>
         </div>
@@ -202,8 +202,8 @@ export default function Tabs() {
           </div>
 
           <div className="tabs__presentation-icon">
-            <div className="tabs__presentation-icon-wrapper">
-              <Image src={iconTabPresentationRoad} alt="icon for tab" />
+            <div className="tabs__presentation-icon-wrapper tabs__presentation-icon-wrapper_range">
+              <Image objectFit="contain" position="relative" src={iconTabPresentationRoad} alt="icon for tab" />
             </div>
           </div>
           {/* icon for desktop */}
