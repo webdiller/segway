@@ -8,83 +8,7 @@ import UiLink from "../ui/UiLink";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function OtherModels() {
-  const [items, setItems] = useState([
-    {
-      id: "001",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-1.png",
-    },
-    {
-      id: "002",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-2.png",
-    },
-    {
-      id: "003",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-3.png",
-    },
-    {
-      id: "004",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-4.png",
-    },
-    {
-      id: "005",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-5.png",
-    },
-    {
-      id: "006",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-6.png",
-    },
-    {
-      id: "007",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-7.png",
-    },
-    {
-      id: "008",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-8.png",
-    },
-
-    {
-      id: "009",
-      name: "NineboT Engine Speaker",
-      description:
-        "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "29$",
-      imgPath: "/accessory-9.png",
-    },
-  ]);
-
+export default function OtherModels({ otherModelsData }) {
   return (
     <div className="other-models">
       <div className="container other-models__container">
@@ -105,7 +29,7 @@ export default function OtherModels() {
               },
             }}
           >
-            {items.map(({ id, name, price, imgPath }) => (
+            {otherModelsData.map(({ id, name, price, imgPath }) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
                 <div className="other-models__item-wrapper">
                   <Link href="#">
@@ -130,13 +54,30 @@ export default function OtherModels() {
                     </a>
                   </Link>
                   <Link href="#">
-                    <a className="ui-btn ui-btn_outline other-models__add-cart">
+                    <a className="ui-btn ui-btn_outline other-models__see-more">
                       SEE MORE
                     </a>
                   </Link>
                 </div>
               </SwiperSlide>
             ))}
+
+            <SwiperSlide className="swiper-slide swiper-slide_form other-models__form">
+              <p className="other-models__form-title">DIDNT FIND A MODEL?</p>
+              <p className="text other-models__form-text">
+                Leave your contact details and we will help you with the choice
+              </p>
+              <input
+                placeholder="+7 (___) ___-__-__"
+                type="text"
+                className="other-models__form-input"
+              />
+              <Link href="#">
+                <a className="ui-btn ui-btn_outline other-models__see-more">
+                  SEE MORE
+                </a>
+              </Link>
+            </SwiperSlide>
           </Swiper>
         </div>
       </div>

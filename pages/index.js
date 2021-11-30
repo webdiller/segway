@@ -22,9 +22,21 @@ import ControllFromSmartphone from "../components/sections/ControllFromSmartphon
 import Welcome from "../components/sections/Welcome";
 import Tabs from "../components/sections/Tabs";
 import SegwayNinebot from "../components/sections/SegwayNinebot";
-import { smallScooters, adultSegways, kickscooterMax } from "../public/data";
+import {
+  smallScooters,
+  adultSegways,
+  kickscooterMax,
+  accessoeries,
+  otherModels,
+} from "../public/data";
 
-export default function Home({ smallScootersData, allSegwaysData, kickscooterMaxData }) {
+export default function Home({
+  smallScootersData,
+  allSegwaysData,
+  kickscooterMaxData,
+  accessoeriesData,
+  otherModelsData,
+}) {
   useEffect(() => {
     console.info("Code author: Eugene Butkov");
     console.info("github: https://github.com/webdiller");
@@ -39,7 +51,7 @@ export default function Home({ smallScootersData, allSegwaysData, kickscooterMax
         <Welcome />
         <Tabs />
         <PackingList />
-        <Accessories />
+        <Accessories accessoeriesData={accessoeriesData} />
         <Features />
         <KickScooterOverview />
         <SmartBattery />
@@ -58,7 +70,7 @@ export default function Home({ smallScootersData, allSegwaysData, kickscooterMax
         <Reviews />
         <ControllFromSmartphone />
         <SegwayNinebot />
-        <OtherModels />
+        <OtherModels otherModelsData={otherModelsData} />
       </DefaultLayout>
     </div>
   );
@@ -69,7 +81,9 @@ export async function getStaticProps() {
     props: {
       smallScootersData: smallScooters,
       allSegwaysData: adultSegways,
-      kickscooterMaxData: kickscooterMax
+      kickscooterMaxData: kickscooterMax,
+      accessoeriesData: accessoeries,
+      otherModelsData: otherModels,
     },
   };
 }
