@@ -148,6 +148,9 @@
     @include media("<=768px") {
       margin-bottom: 8px;
     }
+    @include media("<=576px") {
+      font-size: 14px;
+    }
   }
 
   &__price {
@@ -221,7 +224,6 @@
       font-size: 20px;
       line-height: 24px;
     }
-    
   }
   &__form-text {
     margin-bottom: 14px;
@@ -248,5 +250,4 @@
   }
   &__form-input {
   }
-  
 }

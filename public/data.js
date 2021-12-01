@@ -702,7 +702,7 @@ export const accessoeries = [
   },
   {
     id: "009",
-    name: "Segway Phone Holder",
+    name: "Segway Scooter Seat",
     description: "This scooter seat is designed to work with the MAX. It offers high quality, comfort and safety that is in line with the MAX KickScooter.",
     price: "$119.99",
     imgPath: "/accessory-9.png",

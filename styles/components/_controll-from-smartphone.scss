@@ -148,6 +148,10 @@
     @include media("<=768px") {
     }
     @include media("<=576px") {
+      margin-bottom: 0;
+    }
+    &_color {
+      display: none;
     }
   }
 
