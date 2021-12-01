@@ -65,7 +65,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item.png"
+                      src="/example-item-1.png"
                       alt="welcome swiper"
                       width={395}
                       height={685}
@@ -81,7 +81,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item.png"
+                      src="/example-item-1.png"
                       alt="welcome swiper"
                       width={395}
                       height={685}
@@ -95,7 +95,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item.png"
+                      src="/example-item-1.png"
                       alt="welcome swiper"
                       width={395}
                       height={685}
@@ -109,7 +109,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item.png"
+                      src="/example-item-1.png"
                       alt="welcome swiper"
                       width={395}
                       height={685}
