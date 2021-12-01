@@ -1,0 +1,46 @@
+.fixed-modal {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  z-index: 300;
+  @include media("<=576px") {
+    display: block;
+  }
+  &__wrapper {
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+    padding: 0 35px;
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    background-color: #009EFF;
+  }
+
+  &__title-name {
+  }
+
+  &__title-price {
+  }
+
+  &__description {
+    height: 33px;
+    font-size: 16px;
+    line-height: 33px;
+    text-align: center;
+    color: #323941;
+    background-color: #fff;
+  }
+}

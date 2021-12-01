@@ -1,26 +1,56 @@
 import Image from "next/image";
+import { useState } from "react";
 
 export default function FormWithWarrancy({
   customClass = "form-with-warrancy",
 }) {
+  const [activeTab, setActiveTab] = useState(3);
+
+  const setACtiveTabHandled = (id) => setActiveTab(id);
+
   return (
-    <div className={customClass ? `form-with-warrancy ${customClass}` : "form-with-warrancy" }>
+    <div
+      className={
+        customClass ? `form-with-warrancy ${customClass}` : "form-with-warrancy"
+      }
+    >
       <div className="form-with-warrancy__wrapper">
         <p className="form-with-warrancy__form-title">
           Add an extended warranty from <span>Extend</span>
         </p>
         <div className="form-with-warrancy__form-buttons">
-          <button className="form-with-warrancy__form-button">
+          <button
+            onClick={() => setACtiveTabHandled(1)}
+            className={
+              activeTab === 1
+                ? "form-with-warrancy__form-button active"
+                : "form-with-warrancy__form-button"
+            }
+          >
             1 Year
             <span className="form-with-warrancy__form-button-separator">-</span>
             <span className="form-with-warrancy__form-button-price">$139</span>
           </button>
-          <button className="form-with-warrancy__form-button">
+          <button
+            onClick={() => setACtiveTabHandled(2)}
+            className={
+              activeTab === 2
+                ? "form-with-warrancy__form-button active"
+                : "form-with-warrancy__form-button"
+            }
+          >
             2 Year
             <span className="form-with-warrancy__form-button-separator">-</span>
             <span className="form-with-warrancy__form-button-price">$209</span>
           </button>
-          <button className="form-with-warrancy__form-button">
+          <button
+            onClick={() => setACtiveTabHandled(3)}
+            className={
+              activeTab === 3
+                ? "form-with-warrancy__form-button active"
+                : "form-with-warrancy__form-button"
+            }
+          >
             3 Year
             <span className="form-with-warrancy__form-button-separator">-</span>
             <span className="form-with-warrancy__form-button-price">$279</span>
@@ -29,8 +59,22 @@ export default function FormWithWarrancy({
 
         <div className="form-with-warrancy__form-prices-subtitle-image">
           <div className="form-with-warrancy__form-prices">
-            <p className="form-with-warrancy__form-price-old">$1049.99</p>
-            <p className="form-with-warrancy__form-price-new">$949.99</p>
+            {activeTab === 1 ? (
+              <>
+                <p className="form-with-warrancy__form-price-old">$449.99</p>
+                <p className="form-with-warrancy__form-price-new">$349.99</p>
+              </>
+            ) : activeTab === 2 ? (
+              <>
+                <p className="form-with-warrancy__form-price-old">$649.99</p>
+                <p className="form-with-warrancy__form-price-new">$549.99</p>
+              </>
+            ) : activeTab === 3 ? (
+              <>
+                <p className="form-with-warrancy__form-price-old">$1049.99</p>
+                <p className="form-with-warrancy__form-price-new">$949.99</p>
+              </>
+            ) : null}
           </div>
           <p className="form-with-warrancy__form-subtitle">
             Segway Protective Gear Set as a gift

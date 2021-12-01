@@ -29,6 +29,7 @@ import {
   accessoeries,
   otherModels,
 } from "../public/data";
+import FixedModal from "../components/blocks/FixedModal";
 
 export default function Home({
   smallScootersData,
@@ -71,6 +72,7 @@ export default function Home({
         <ControllFromSmartphone />
         <SegwayNinebot />
         <OtherModels otherModelsData={otherModelsData} />
+        <FixedModal />
       </DefaultLayout>
     </div>
   );
