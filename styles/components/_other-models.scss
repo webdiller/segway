@@ -12,6 +12,9 @@
       padding-left: 0;
       margin-bottom: 50px;
     }
+    @include media("<=576px") {
+      margin-bottom: 30px;
+    }
   }
 
   &__title {
@@ -49,6 +52,10 @@
         }
       }
     }
+    
+    @include media("<=576px") {
+      margin-right: 20px;
+    }
   }
 
   &__swiper-container {
@@ -72,8 +79,18 @@
     }
     &_form {
       padding: 30px 15px 37px 15px;
-      @include media("<=576px") {
-        display: none;
+
+      .other-models__see-more {
+        margin-top: 55px;
+        @include media("<=991px") {
+          margin-top: 50px;
+        }
+        @include media("<=768px") {
+          margin-top: 0;
+        }
+        @include media("<=576px") {
+          margin-top: auto;
+        }
       }
     }
   }
@@ -145,11 +162,16 @@
 
   &__name {
     margin-bottom: 15px;
+    @include media("<=991px") {
+      max-width: 220px;
+    }
     @include media("<=768px") {
+      max-width: 200px;
       margin-bottom: 8px;
     }
     @include media("<=576px") {
       font-size: 14px;
+      max-width: 180px;
     }
   }
 
@@ -220,15 +242,23 @@
     text-align: center;
     text-transform: uppercase;
     color: #323941;
-    @include media("<=576px") {
+    @include media("<=768px") {
       font-size: 20px;
       line-height: 24px;
+    }
+    @include media("<=576px") {
+      font-size: 18px;
+      margin-bottom: 10px;
     }
   }
   &__form-text {
     margin-bottom: 14px;
     font-size: 16px;
     line-height: 19px;
+    @include media("<=768px") {
+      font-size: 14px;
+      text-align: center;
+    }
   }
   &__form-input {
     font-size: 16px;
@@ -246,6 +276,15 @@
       line-height: 19px;
       text-align: center;
       color: #c4c4c4;
+      @include media("<=576px") {
+        font-size: 14px;
+      }
+    }
+    @include media("<=576px") {
+      font-size: 14px;
+    }
+    @include media("<=466px") {
+      margin-bottom: 41px;
     }
   }
   &__form-input {

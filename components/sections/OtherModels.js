@@ -18,12 +18,25 @@ export default function OtherModels({ otherModelsData }) {
         </div>
         <div className="other-models__swiper">
           <Swiper
-            slidesPerView={2.2}
+            slidesPerView={1.7}
             spaceBetween={20}
             loop={false}
+            allowTouchMove={true}
             breakpoints={{
-              768: {
+              480: {
+                loop: false,
+                slidesPerView: 2.2,
+                spaceBetween: 10,
+                allowTouchMove: true
+              },
+              576: {
+                loop: false,
                 slidesPerView: 3,
+                spaceBetween: 10,
+                allowTouchMove: true
+              },
+              768: {
+                loop: false,
                 spaceBetween: 0,
                 allowTouchMove: false,
               },
@@ -63,7 +76,7 @@ export default function OtherModels({ otherModelsData }) {
             ))}
 
             <SwiperSlide className="swiper-slide swiper-slide_form other-models__form">
-              <p className="other-models__form-title">DIDNT FIND A MODEL?</p>
+              <p className="other-models__form-title">DIDN’T FIND A MODEL?</p>
               <p className="text other-models__form-text">
                 Leave your contact details and we will help you with the choice
               </p>

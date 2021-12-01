@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function FormWithWarrancy({
   customClass = "form-with-warrancy",
 }) {
-  const [activeTab, setActiveTab] = useState(3);
+  const [activeTab, setActiveTab] = useState(null);
 
   const setACtiveTabHandled = (id) => setActiveTab(id);
 
@@ -74,7 +74,12 @@ export default function FormWithWarrancy({
                 <p className="form-with-warrancy__form-price-old">$1049.99</p>
                 <p className="form-with-warrancy__form-price-new">$949.99</p>
               </>
-            ) : null}
+            ) : (
+              <>
+                <p className="form-with-warrancy__form-price-old">$949.99</p>
+                <p className="form-with-warrancy__form-price-new">$849.99</p>
+              </>
+            )}
           </div>
           <p className="form-with-warrancy__form-subtitle">
             Segway Protective Gear Set as a gift
