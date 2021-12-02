@@ -2,11 +2,12 @@
 import Image from "next/image";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import PaymentsMethods from "../blocks/PaymentsMethods";
 import FormWithWarrancy from "../blocks/FormWithWarrancy";
 import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
 import segwayPlaceholder from "../../public/segway-placeholder.png";
+import arrowLeft from "../../public/icon-arrow-left.svg";
+import arrowRight from "../../public/icon-arrow-right.svg";
 import "swiper/css/pagination";
 
 export default function Welcome() {
@@ -122,10 +123,14 @@ export default function Welcome() {
 
               <div className="welcome__swiper-navigation">
                 <button className="welcome__swiper-nav welcome__swiper-nav_prev">
-                  <BsChevronCompactLeft className="welcome__swiper-icon" />
+                  <div className="welcome__swiper-icon-wrapper welcome__swiper-icon-wrapper_left">
+                    <Image src={arrowLeft} alt="icon" />
+                  </div>
                 </button>
                 <button className="welcome__swiper-nav welcome__swiper-nav_next">
-                  <BsChevronCompactRight className="welcome__swiper-icon" />
+                  <div className="welcome__swiper-icon-wrapper welcome__swiper-icon-wrapper_right">
+                    <Image src={arrowRight} alt="icon" />
+                  </div>
                 </button>
               </div>
               <div className="welcome__swiper-pagination"></div>

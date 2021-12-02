@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { BsCart2, BsTelephone } from "react-icons/bs";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { AiOutlineInstagram, AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
 
 /** Верхняя навигация */
@@ -59,11 +59,6 @@ export default function TopNavigation() {
               <span className="top-nav__action-counter">1</span>
             </a>
           </Link>
-          <Link href="#">
-            <a className="top-nav__action top-nav__action_insta">
-              <AiOutlineInstagram />
-            </a>
-          </Link>
           <Link href="tel:+18888888888">
             <a className="top-nav__action top-nav__action_phone">
               +1 (888) 888-88-88
@@ -75,11 +70,6 @@ export default function TopNavigation() {
           <Link href="#">
             <a className="top-nav__action">
               <BsTelephone />
-            </a>
-          </Link>
-          <Link href="#">
-            <a className="top-nav__action top-nav__action_insta">
-              <AiOutlineInstagram />
             </a>
           </Link>
           <Link href="#">

@@ -141,19 +141,31 @@
       }
     }
     &_delivery {
-      @include media("<=768px") {
+      @include media("<=576px") {
+        .tabs__presentation-content {
+          bottom: 32px;
+        }
       }
     }
-    &_warranty {
-      @include media("<=768px") {
+    &_warrancy {
+      @include media("<=576px") {
+        .tabs__presentation-content {
+          bottom: 16px;
+        }
       }
     }
     &_support {
-      @include media("<=768px") {
+      @include media("<=576px") {
+        .tabs__presentation-content {
+          bottom: 16px;
+        }
       }
     }
     &_road {
-      @include media("<=768px") {
+      @include media("<=576px") {
+        .tabs__presentation-content {
+          
+        }
       }
     }
   }
@@ -170,6 +182,7 @@
       text-align: center;
     }
     @include media("<=576px") {
+      position: relative;
     }
   }
 

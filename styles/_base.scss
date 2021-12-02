@@ -213,8 +213,8 @@ img {
   color: #fff;
   border: 1px solid #009eff;
   outline: none;
-
   transition: all 0.3s ease;
+
   &:hover,
   &:focus {
     background-color: transparent;
@@ -222,6 +222,7 @@ img {
     border-color: #c6c6c6;
     cursor: pointer;
   }
+
   &_outline {
     border: 1px solid #c6c6c6;
     background-color: transparent;
@@ -234,6 +235,7 @@ img {
       cursor: pointer;
     }
   }
+
   &_lg {
     min-height: 48px;
     font-weight: bold;

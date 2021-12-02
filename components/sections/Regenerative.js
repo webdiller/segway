@@ -1,20 +1,30 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+
 
 export default function Regenerative() {
   return (
     <div className="regenerative">
       <div className="container regenerative__container">
-        <div className="regenerative__img-wrapper">
-          <Image
-            className="regenerative__img"
-            src="/regenerative-desktop.png"
-            alt="Regenerative Brake for Power Recycle"
-            layout="responsive"
-            width="895"
-            height="547"
-            objectFit="contain"
+
+        <picture className="regenerative__picture">
+          <source
+            srcSet="/regenerative-desktop.webp"
+            media="(min-width: 991px)"
           />
-        </div>
+          <source
+            srcSet="/regenerative-desktop.png"
+            media="(min-width: 991px)"
+          />
+          <source srcSet="/regenerative-mobile.webp" />
+          <img
+            width="720"
+            height="547"
+            className="regenerative__img"
+            src="/regenerative-mobile.png"
+            alt="Regenerative Brake for Power Recycle"
+            loading="lazy"
+          />
+        </picture>
 
         <div className="regenerative__content">
           <p className="title title_fz-20 title_white regenerative__title">

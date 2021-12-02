@@ -33,14 +33,22 @@ export default function DownloadManual() {
             </p>
 
             <div className="download-manual__items">
-              <div className="download-manual__item">
+              <div className="download-manual__item download-manual__item_1">
                 <img
                   src="/download-manual-item-1.svg"
                   alt="Assembly and preparation for the trip"
                   className="download-manual__icon"
                 />
                 <p className="text text_16 download-manual__item-description">
-                  Assembly and preparation for the trip
+                  <span className="hide-576">
+                    Assembly and  <br /> preparation for the trip
+                  </span>
+                  <span className="show-block-576">
+                    Assembly and <br />
+                    preparation
+                    <br />
+                    for the trip
+                  </span>
                 </p>
               </div>
 
@@ -51,7 +59,7 @@ export default function DownloadManual() {
                   className="download-manual__icon"
                 />
                 <p className="text text_16 download-manual__item-description">
-                  How to charge a scooter
+                  How to charge <br /> a scooter
                 </p>
               </div>
 
@@ -62,7 +70,7 @@ export default function DownloadManual() {
                   className="download-manual__icon"
                 />
                 <p className="text text_16 download-manual__item-description">
-                  How to ride properly
+                  How to ride <br /> properly
                 </p>
               </div>
             </div>

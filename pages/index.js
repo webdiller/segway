@@ -8,7 +8,6 @@ import DualBraking from "../components/sections/DualBraking";
 import BuildInFront from "../components/sections/BuildInFront";
 import OneStep from "../components/sections/OneStep";
 import DownloadManual from "../components/sections/DownloadManual";
-import Reviews from "../components/sections/Reviews";
 import TopSwiper from "../components/sections/TopSwiper";
 import SegwayProtect from "../components/sections/SegwayProtect";
 import Accessories from "../components/sections/Accessories";
@@ -68,7 +67,6 @@ export default function Home({
           kickscooterMaxData={kickscooterMaxData}
         />
         <SegwayProtect />
-        <Reviews />
         <ControllFromSmartphone />
         <SegwayNinebot />
         <OtherModels otherModelsData={otherModelsData} />

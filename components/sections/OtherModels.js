@@ -67,7 +67,7 @@ export default function OtherModels({ otherModelsData }) {
                     </a>
                   </Link>
                   <Link href="#">
-                    <a className="ui-btn ui-btn_outline other-models__see-more">
+                    <a className="ui-btn other-models__see-more">
                       SEE MORE
                     </a>
                   </Link>

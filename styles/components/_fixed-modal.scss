@@ -6,7 +6,7 @@
   width: 100%;
   display: none;
   z-index: 300;
-  @include media("<=576px") {
+  @include media("<=768px") {
     display: block;
   }
   &__wrapper {
@@ -30,6 +30,7 @@
   }
 
   &__title-name {
+    text-transform: uppercase;
   }
 
   &__title-price {

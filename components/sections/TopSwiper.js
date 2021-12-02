@@ -30,6 +30,17 @@ export default function TopSwiper({smallScootersData}) {
             onSlideChange={(el) => {
               setActiveIndex(el.activeIndex);
             }}
+            onInit={(el)=>{
+              try {
+                if (window.innerWidth <= 768) {
+                  setTimeout(() => {
+                    el.slideNext()
+                  }, 2000)
+                }
+              } catch (error) {
+                
+              }
+            }}
           >
             {smallScootersData.map(({ id, name, imgPath, ...props }) => (
               <SwiperSlide

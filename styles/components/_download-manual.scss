@@ -52,7 +52,7 @@
       width: 350px;
       height: auto;
       left: 48%;
-      top: -20%;
+      top: -15%;
     }
   }
 
@@ -81,7 +81,6 @@
 
   &__items {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 25px;
     @include media("<=991px") {
       margin-bottom: 15px;
@@ -101,16 +100,17 @@
     @include media("<=576px") {
       display: block;
       text-align: center;
-      flex-basis: 33.33%;
     }
   }
 
   &__icon {
     margin-right: 10px;
+    height: 30px;
     @include media("<=991px") {
     }
     @include media("<=576px") {
       margin: 0 auto 15px auto;
+      height: 40px;
     }
   }
 
@@ -120,6 +120,7 @@
     @include media("<=576px") {
       margin-right: 0;
       font-size: 14px;
+      font-weight: 300;
     }
   }
 

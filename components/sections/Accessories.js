@@ -55,7 +55,7 @@ export default function Accessories({ accessoeriesData }) {
                     $149.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -87,7 +87,7 @@ export default function Accessories({ accessoeriesData }) {
                     $29.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -121,7 +121,7 @@ export default function Accessories({ accessoeriesData }) {
                     $29.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -154,7 +154,7 @@ export default function Accessories({ accessoeriesData }) {
                     $69.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -188,7 +188,7 @@ export default function Accessories({ accessoeriesData }) {
                     $249.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -222,7 +222,7 @@ export default function Accessories({ accessoeriesData }) {
                     $79.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -257,7 +257,7 @@ export default function Accessories({ accessoeriesData }) {
                     $49.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -291,7 +291,7 @@ export default function Accessories({ accessoeriesData }) {
                     $29.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>
@@ -324,7 +324,7 @@ export default function Accessories({ accessoeriesData }) {
                     $119.99
                   </p>
                 </div>
-                <button className="ui-btn ui-btn_outline accessories__add-cart">
+                <button className="ui-btn accessories__add-cart">
                   ADD TO CART
                 </button>
               </div>

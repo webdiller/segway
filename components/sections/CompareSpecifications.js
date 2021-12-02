@@ -16,6 +16,7 @@ import { BiTimeFive, BiShapeTriangle } from "react-icons/bi";
 import { AiOutlineThunderbolt, AiOutlineSafety } from "react-icons/ai";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { useState } from "react";
+import Swipe from "react-easy-swipe";
 import "swiper/css/navigation";
 
 export default function CompareSpecifications({
@@ -34,21 +35,20 @@ export default function CompareSpecifications({
   // Показать модкалку, или нет?
   const [modalActive, setModalActive] = useState(false);
 
-  // Активировать чекбокс, или нет?
-  const [confirmSelection, setConfirmSelection] = useState(false);
-
   const setodalActiveHandle = () => setModalActive((prev) => !prev);
-  const setConfirmSelectionHandle = (e) => {
-    // TODO: Заменить костыль
-    document
-      .querySelectorAll(".compare-modal__item")
-      .forEach((el) => el.classList.remove("active"));
-    e.target.classList.add("active");
-  };
 
   const setSelectedModelHandle = (id) => {
     const filtered = allModels.filter((model) => model.id == id);
     setSelectedModel(...filtered);
+    setModalActive(false);
+  };
+
+  const onSwipeUp = () => {
+    setModalActive(false)
+  };
+
+  const onSwipeDown = () => {
+    setModalActive(false)
   };
 
   return (
@@ -617,66 +617,50 @@ export default function CompareSpecifications({
         </div>
 
         <div className={modalActive ? "compare-modal active" : "compare-modal"}>
-          <div className="compare-modal__wrapper">
-            <p className="title compare-modal__title">
-              select a model to compare
-            </p>
-            <img
-              onClick={setodalActiveHandle}
-              className="compare-modal__icon-close"
-              src="./icon-close.svg"
-              alt="icon-close"
-              width="34"
-              height="34"
-            />
-            <div className="compare-modal__items">
-              {allSegwaysData.map(({ id, name, imgPath }) => (
-                <button
-                  onClick={(e) => {
-                    setConfirmSelectionHandle(e);
-                  }}
-                  key={id}
-                  className="compare-modal__item"
-                >
-                  <div className="compare-modal__img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      src={imgPath}
-                      alt={name}
-                      width={52}
-                      height={58}
-                      quality={90}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                  <p className="compare-modal__name">{name}</p>
-
-                  {/* check-wrapper start */}
-                  <div
+          <Swipe
+            onSwipeUp={onSwipeUp}
+            onSwipeDown={onSwipeDown}
+          >
+            <div className="compare-modal__wrapper">
+              <p className="title compare-modal__title">
+                select a model to compare
+              </p>
+              <img
+                onClick={setodalActiveHandle}
+                className="compare-modal__icon-close"
+                src="./icon-close.svg"
+                alt="icon-close"
+                width="34"
+                height="34"
+              />
+              <div className="compare-modal__items">
+                {allSegwaysData.map(({ id, name, imgPath }) => (
+                  <button
                     onClick={() => {
                       setSelectedModelHandle(id);
-                      setModalActive(false);
                     }}
-                    className="compare-modal__item-check"
+                    key={id}
+                    className="compare-modal__item"
                   >
-                    <img
-                      className="compare-modal__item-check-icon"
-                      src="./icon-check.svg"
-                      alt="icon-check"
-                      width="40"
-                      height="28"
-                    />
-                    <span className="compare-modal__item-check-text">
-                      Confirm?
-                    </span>
-                  </div>
-                  {/* check-wrapper end */}
-                </button>
-              ))}
+                    <div className="compare-modal__img-wrapper">
+                      <Image
+                        objectFit="contain"
+                        src={imgPath}
+                        alt={name}
+                        width={52}
+                        height={58}
+                        quality={90}
+                        layout="responsive"
+                        placeholder="blur"
+                        blurDataURL={segwayPlaceholder}
+                      />
+                    </div>
+                    <p className="compare-modal__name">{name}</p>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          </Swipe>
         </div>
       </div>
     </div>

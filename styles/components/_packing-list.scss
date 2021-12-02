@@ -66,7 +66,7 @@
       text-align: center;
       padding: 0 15px;
 
-      background-color: #9b9b9b;
+      background-color: #C4C4C4;
 
       font-weight: bold;
       font-size: 20px;
@@ -84,6 +84,9 @@
 
     &.disabled {
       height: 288px;
+      @include media("<=375px") {
+        height: 195px;
+      }
       &:hover {
         &::before {
           color: #fff;
