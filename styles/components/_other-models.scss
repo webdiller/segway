@@ -200,18 +200,22 @@
   &__see-more {
     margin-top: auto;
     text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    width: 130px;
     @include media("<=768px") {
       padding-left: 23px;
       padding-right: 23px;
       background-color: #009eff;
       color: #fff;
       border: 0;
+      width: 150px;
+      font-weight: 400;
+      font-size: 16px;
     }
     @include media("<=576px") {
       width: 100%;
-      font-size: 16px;
-      line-height: 19px;
-      font-weight: 400;
+      max-width: 150px;
     }
   }
 

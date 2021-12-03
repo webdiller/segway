@@ -179,6 +179,11 @@ img {
   border: 0;
   text-decoration: none;
   transition: all 0.5s ease;
+  
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
 
   &::before {
     content: "";
@@ -246,12 +251,14 @@ img {
   span {
     position: relative;
     z-index: 10;
-    font-weight: 600;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #fff;
+    font-size: inherit;
     transition: all 0.3s ease;
     pointer-events: none;
+    
+    font-weight: inherit;
+    font-size: inherit;
+    text-transform: inherit;
+    color: inherit;
     @include media("<=576px") {
       font-size: 16px;
     }
@@ -277,10 +284,10 @@ img {
   }
 
   &_with-icon {
+    font-weight: 400;
     span {
       display: flex;
       align-items: center;
-      font-weight: 400;
     }
     svg {
       margin-left: 44px;

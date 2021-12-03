@@ -3,16 +3,19 @@ import { useRef, useState } from "react";
 import packingList from "../../public/packing-list.png";
 
 export default function PackingList() {
+  const [videoSrc, setVideoSrc] = useState("");
   const [overlay, setOverlay] = useState(true);
   const videoRef = useRef(null);
 
   const removeOverlayForVideo = () => {
     if (overlay) {
+      setVideoSrc("/example-video.mp4");
       videoRef.current.load();
       setTimeout(() => {
         setOverlay(false);
       }, 1000);
     }
+      
   };
 
   return (
@@ -42,7 +45,7 @@ export default function PackingList() {
               controls
               preload="none"
             >
-              <source src="/example-video.mp4" type="video/mp4" />
+              <source src={videoSrc} type="video/mp4" />
             </video>
           </div>
         </div>
