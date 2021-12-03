@@ -1,14 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import circlePlaceholder from "../../public/circle-placeholder.svg";
-import UiLink from "../ui/UiLink";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
 export default function OtherModels({ otherModelsData }) {
+  const swiperRef = useRef(null)
   return (
     <div className="other-models">
       <div className="container other-models__container">
@@ -16,30 +16,43 @@ export default function OtherModels({ otherModelsData }) {
         <div className="other-models__subtitle">
           Check out the entire line of Segway scooters
         </div>
-        <div className="other-models__swiper">
+        <div ref={swiperRef} className="other-models__swiper">
           <Swiper
-            slidesPerView={1.7}
-            spaceBetween={20}
+            slidesPerView={1.8}
+            spaceBetween={10}
             loop={false}
+            centeredSlides={true}
             allowTouchMove={true}
+            onReachEnd={(e) => {
+              // TODO: доделать
+              // swiperRef.current.classList.add('reached')
+            }}
             breakpoints={{
               480: {
                 loop: false,
                 slidesPerView: 2.2,
                 spaceBetween: 10,
-                allowTouchMove: true
+                allowTouchMove: true,
               },
               576: {
                 loop: false,
                 slidesPerView: 3,
                 spaceBetween: 10,
-                allowTouchMove: true
+                allowTouchMove: true,
               },
               768: {
                 loop: false,
                 spaceBetween: 0,
                 allowTouchMove: false,
               },
+            }}
+            onInit={(el)=>{
+              try {
+                if (window.innerWidth <= 768) {
+                  el.slideNext()
+                }
+              } catch (error) {
+              }
             }}
           >
             {otherModelsData.map(({ id, name, price, imgPath }) => (
@@ -67,9 +80,7 @@ export default function OtherModels({ otherModelsData }) {
                     </a>
                   </Link>
                   <Link href="#">
-                    <a className="ui-btn other-models__see-more">
-                      SEE MORE
-                    </a>
+                    <a className="ui-btn other-models__see-more">SEE MORE</a>
                   </Link>
                 </div>
               </SwiperSlide>

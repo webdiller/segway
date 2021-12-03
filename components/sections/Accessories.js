@@ -56,7 +56,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -88,7 +88,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -122,7 +122,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -155,7 +155,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -189,7 +189,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -223,7 +223,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -258,7 +258,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -292,7 +292,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>
@@ -325,7 +325,7 @@ export default function Accessories({ accessoeriesData }) {
                   </p>
                 </div>
                 <button className="ui-btn accessories__add-cart">
-                  ADD TO CART
+                  <span>ADD TO CART</span>
                 </button>
               </div>
             </SwiperSlide>

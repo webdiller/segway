@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-// import iconTires from "../../public/feature-1.svg";
-// import iconLed from "../../public/feature-2.svg";
-// import iconSpeed from "../../public/feature-3.svg";
-// import iconRange from "../../public/feature-4.svg";
-// import iconGrade from "../../public/feature-5.svg";
-// import iconWater from "../../public/feature-6.svg";
-// import iconCharge from "../../public/feature-7.svg";
-// import iconBattery from "../../public/feature-8.svg";
+import feature_1 from "../../public/feature-1.svg";
+import feature_2 from "../../public/feature-2.svg";
+import feature_3 from "../../public/feature-3.svg";
+import feature_4 from "../../public/feature-4.svg";
+import feature_5 from "../../public/feature-5.svg";
+import feature_6 from "../../public/feature-6.svg";
+import feature_7 from "../../public/feature-7.svg";
+import feature_8 from "../../public/feature-8.svg";
 
 export default function Features() {
   return (
@@ -35,7 +35,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-1.png"
+                src={feature_1}
                 alt="feature"
                 layout="fill"
               />
@@ -50,7 +50,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-2.png"
+                src={feature_2}
                 alt="feature"
                 layout="fill"
               />
@@ -65,7 +65,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-3.png"
+                src={feature_3}
                 alt="feature"
                 layout="fill"
               />
@@ -80,7 +80,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-4.png"
+                src={feature_4}
                 alt="feature"
                 layout="fill"
               />
@@ -95,7 +95,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-5.png"
+                src={feature_5}
                 alt="feature"
                 layout="fill"
               />
@@ -110,7 +110,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-6.png"
+                src={feature_6}
                 alt="feature"
                 layout="fill"
               />
@@ -125,7 +125,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-7.png"
+                src={feature_7}
                 alt="feature"
                 layout="fill"
               />
@@ -140,7 +140,7 @@ export default function Features() {
               <Image
                 objectFit="contain"
                 className="features__item-img"
-                src="/feature-8.png"
+                src={feature_8}
                 alt="feature"
                 layout="fill"
               />

@@ -19,6 +19,7 @@
     font-size: 18px;
     line-height: 22px;
     color: #323941;
+    pointer-events: none;
     @include media("<=991px") {
       span {
         font-weight: 700;
@@ -106,6 +107,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    pointer-events: none;
     @include media("<=991px") {
       margin-bottom: 20px;
     }

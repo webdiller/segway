@@ -212,7 +212,7 @@ export default function CompareSpecifications({
               </div>
 
               <p className="text text_25 main-slide__price">$949.99</p>
-              <button className="ui-btn main-slide__buy-btn">BUY IT NOW</button>
+              <button className="ui-btn main-slide__buy-btn"><span>BUY IT NOW</span></button>
             </div>
           </div>
 
@@ -390,9 +390,7 @@ export default function CompareSpecifications({
                   <p className="text text_25 main-slide__price">
                     {selectedModel.price}
                   </p>
-                  <button className="ui-btn main-slide__buy-btn">
-                    BUY IT NOW
-                  </button>
+                  <button className="ui-btn main-slide__buy-btn"><span>BUY IT NOW</span></button>
                 </>
               )}
             </div>
@@ -598,9 +596,7 @@ export default function CompareSpecifications({
                   <p className="text text_25 compare-specfications__price">
                     {price}
                   </p>
-                  <button className="ui-btn compare-specfications__buy-btn">
-                    BUY IT NOW
-                  </button>
+                  <button className="ui-btn compare-specfications__buy-btn"><span>BUY IT NOW</span></button>
                 </SwiperSlide>
               )
             )}

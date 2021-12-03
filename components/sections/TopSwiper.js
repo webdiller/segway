@@ -38,7 +38,6 @@ export default function TopSwiper({smallScootersData}) {
                   }, 2000)
                 }
               } catch (error) {
-                
               }
             }}
           >

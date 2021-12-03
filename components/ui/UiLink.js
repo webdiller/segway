@@ -10,8 +10,8 @@ export default function UiLink({
 } = {}) {
   return (
     <Link href={href}>
-      <a target={target} download={download} className={`ui-link ${classNameLink}`}>
-        {innerText} {icon}
+      <a target={target} download={download} className={`ui-btn ${classNameLink}`}>
+        <span>{innerText} {icon}</span>
       </a>
     </Link>
   );

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function FormWithWarrancy({
   customClass = "form-with-warrancy",
@@ -7,6 +7,7 @@ export default function FormWithWarrancy({
   const [activeTab, setActiveTab] = useState(null);
 
   const setACtiveTabHandled = (id) => setActiveTab(id);
+  const tabWrapper = useRef(null);
 
   return (
     <div
@@ -14,7 +15,13 @@ export default function FormWithWarrancy({
         customClass ? `form-with-warrancy ${customClass}` : "form-with-warrancy"
       }
     >
-      <div className="form-with-warrancy__wrapper">
+      <div
+        ref={tabWrapper}
+        onClick={(e) => {
+          if (e.target === tabWrapper.current) setActiveTab(null)
+        }}
+        className="form-with-warrancy__wrapper"
+      >
         <p className="form-with-warrancy__form-title">
           Add an extended warranty from <span>Extend</span>
         </p>
@@ -97,10 +104,10 @@ export default function FormWithWarrancy({
 
         <div className="form-with-warrancy__form-actions">
           <button className="ui-btn ui-btn_lg form-with-warrancy__form-action">
-            BUY IT Now
+            <span>BUY IT Now</span>
           </button>
           <button className="ui-btn ui-btn_lg form-with-warrancy__form-action">
-            ADD TO CART
+            <span> ADD TO CART</span>
           </button>
         </div>
       </div>

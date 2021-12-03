@@ -52,9 +52,7 @@
         }
       }
     }
-    
-    @include media("<=576px") {
-      margin-right: 20px;
+    &.reached {
     }
   }
 

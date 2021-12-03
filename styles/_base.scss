@@ -166,61 +166,95 @@ img {
   }
 }
 
-.ui-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 48px;
-  padding-right: 40px;
-  padding-left: 40px;
-
-  font-size: 18px;
-
-  background-color: #009eff;
-  text-decoration: none;
-  color: #fff;
-
-  &_bold {
-  }
-
-  &_uppercase {
-  }
-
-  &_type-1 {
-    min-height: 48px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    font-size: 16px;
-    line-height: 19px;
-    text-transform: uppercase;
-  }
-}
-
 .ui-btn {
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   background-color: #009eff;
   padding-left: 20px;
   padding-right: 20px;
-  min-height: 42px;
-
-  font-weight: 600;
-  font-size: 13px;
-  color: #fff;
-  border: 1px solid #009eff;
+  min-height: 48px;
   outline: none;
-  transition: all 0.3s ease;
+  border: 0;
+  text-decoration: none;
+  transition: all 0.5s ease;
 
-  &:hover,
-  &:focus {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #009eff 0%, #007bcd 100%);
+    opacity: 0;
+    transition: all 0.7s ease;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #009eff;
     background-color: transparent;
-    color: #c6c6c6;
-    border-color: #c6c6c6;
+    opacity: 0;
+    z-index: 10;
+    transition: all 0.7s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
     cursor: pointer;
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    background-color: #fff;
+    span {
+      color: #009eff;
+    }
+    &::before {
+      opacity: 0;
+    }
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    background-color: #fff;
+    span {
+      color: #009eff;
+    }
+    &::before {
+      opacity: 0;
+    }
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  span {
+    position: relative;
+    z-index: 10;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    @include media("<=576px") {
+      font-size: 16px;
+    }
   }
 
   &_outline {
@@ -240,6 +274,18 @@ img {
     min-height: 48px;
     font-weight: bold;
     font-size: 18px;
+  }
+  
+  &_with-icon {
+    span {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+    }
+    svg {
+      margin-left: 44px;
+      font-size: 25px;
+    }
   }
 }
 

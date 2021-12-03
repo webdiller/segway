@@ -79,7 +79,7 @@ export default function DownloadManual() {
               target="_blank"
               download
               href="/download-manual.pdf"
-              classNameLink="ui-link ui-link_type-1 download-manual__link"
+              classNameLink="ui-btn ui-btn_with-icon download-manual__link"
               innerText="Download manual"
               icon={<VscFilePdf className="download-manual__link-icon" />}
             />
