@@ -8,7 +8,10 @@ export default function PackingList() {
 
   const removeOverlayForVideo = () => {
     if (overlay) {
-      setOverlay(false);
+      videoRef.current.load();
+      setTimeout(() => {
+        setOverlay(false);
+      }, 1000);
     }
   };
 
