@@ -68,23 +68,23 @@ export default function FormWithWarrancy({
           <div className="form-with-warrancy__form-prices">
             {activeTab === 1 ? (
               <>
-                <p className="form-with-warrancy__form-price-old">$449.99</p>
-                <p className="form-with-warrancy__form-price-new">$349.99</p>
+                <p className="form-with-warrancy__form-price-old">$1188</p>
+                <p className="form-with-warrancy__form-price-new">$1088</p>
               </>
             ) : activeTab === 2 ? (
               <>
-                <p className="form-with-warrancy__form-price-old">$649.99</p>
-                <p className="form-with-warrancy__form-price-new">$549.99</p>
+                <p className="form-with-warrancy__form-price-old">$1258</p>
+                <p className="form-with-warrancy__form-price-new">$1158</p>
               </>
             ) : activeTab === 3 ? (
               <>
-                <p className="form-with-warrancy__form-price-old">$1049.99</p>
-                <p className="form-with-warrancy__form-price-new">$949.99</p>
+                <p className="form-with-warrancy__form-price-old">$1328</p>
+                <p className="form-with-warrancy__form-price-new">$1437</p>
               </>
             ) : (
               <>
-                <p className="form-with-warrancy__form-price-old">$949.99</p>
-                <p className="form-with-warrancy__form-price-new">$849.99</p>
+                <p className="form-with-warrancy__form-price-old">$1049</p>
+                <p className="form-with-warrancy__form-price-new">$949</p>
               </>
             )}
           </div>
