@@ -29,6 +29,7 @@ import {
   otherModels,
 } from "../public/data";
 import FixedModal from "../components/blocks/FixedModal";
+import DidntFind from "../components/blocks/DidntFind";
 
 export default function Home({
   smallScootersData,
@@ -71,6 +72,7 @@ export default function Home({
         <SegwayNinebot />
         <OtherModels otherModelsData={otherModelsData} />
         <FixedModal />
+        <DidntFind />
       </DefaultLayout>
     </div>
   );

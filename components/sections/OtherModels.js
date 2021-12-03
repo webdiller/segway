@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 export default function OtherModels({ otherModelsData }) {
-  const swiperRef = useRef(null)
+  const swiperRef = useRef(null);
   return (
     <div className="other-models">
       <div className="container other-models__container">
@@ -44,15 +44,15 @@ export default function OtherModels({ otherModelsData }) {
                 loop: false,
                 spaceBetween: 0,
                 allowTouchMove: false,
+                centeredSlides: false,
               },
             }}
-            onInit={(el)=>{
+            onInit={(el) => {
               try {
                 if (window.innerWidth <= 768) {
-                  el.slideNext()
+                  el.slideNext();
                 }
-              } catch (error) {
-              }
+              } catch (error) {}
             }}
           >
             {otherModelsData.map(({ id, name, price, imgPath }) => (
@@ -80,7 +80,9 @@ export default function OtherModels({ otherModelsData }) {
                     </a>
                   </Link>
                   <Link href="#">
-                    <a className="ui-btn other-models__see-more">SEE MORE</a>
+                    <a className="ui-btn other-models__see-more">
+                      <span>SEE MORE</span>
+                    </a>
                   </Link>
                 </div>
               </SwiperSlide>
@@ -97,8 +99,8 @@ export default function OtherModels({ otherModelsData }) {
                 className="other-models__form-input"
               />
               <Link href="#">
-                <a className="ui-btn ui-btn_outline other-models__see-more">
-                  SEE MORE
+                <a className="ui-btn other-models__see-more">
+                  <span>SEE MORE</span>
                 </a>
               </Link>
             </SwiperSlide>

@@ -275,7 +275,7 @@ img {
     font-weight: bold;
     font-size: 18px;
   }
-  
+
   &_with-icon {
     span {
       display: flex;
@@ -286,6 +286,30 @@ img {
       margin-left: 44px;
       font-size: 25px;
     }
+  }
+}
+
+.ui-input {
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #c4c4c4;
+  padding-bottom: 15px;
+  border: 0;
+  border-bottom: 1px solid #c4c4c4;
+  outline: none;
+  background-color: transparent;
+  &::placeholder {
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #c4c4c4;
+    @include media("<=576px") {
+      font-size: 14px;
+    }
+  }
+  @include media("<=576px") {
+    font-size: 14px;
   }
 }
 
