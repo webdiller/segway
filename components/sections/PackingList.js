@@ -37,6 +37,7 @@ export default function PackingList() {
               muted
               className="packing-list__video"
               controls
+              preload="none"
             >
               <source src="/example-video.mp4" type="video/mp4" />
             </video>
