@@ -79,11 +79,11 @@ export default function Home({
 
         {/* MODALS */}
         <FixedModal />
-        {/* <DidntFindModal />
+        <DidntFindModal />
         <DiscountModal />
         <RemainTimeModal />
         <RemainTimeModalTimer />
-        <ProductAddedModal /> */}
+        <ProductAddedModal />
       </DefaultLayout>
     </div>
   );

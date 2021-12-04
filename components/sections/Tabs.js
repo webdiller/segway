@@ -25,7 +25,7 @@ export default function Tabs() {
     <div className="tabs">
       <div className="container tabs__container">
         <div className="tabs__tabs">
-          <button
+          <div
             onClick={() => setTabHandle(1)}
             className={tab === 1 ? "tabs__tab active" : "tabs__tab"}
           >
@@ -38,8 +38,8 @@ export default function Tabs() {
             <span className="tabs__tab-text">
               Delivery within 1 business day
             </span>
-          </button>
-          <button
+          </div>
+          <div
             onClick={() => setTabHandle(2)}
             className={tab === 2 ? "tabs__tab active" : "tabs__tab"}
           >
@@ -50,8 +50,8 @@ export default function Tabs() {
               <Image src={tabIcon2White} alt="icon for tab" />
             </div>
             <span className="tabs__tab-text">Basic 1 year warranty</span>
-          </button>
-          <button
+          </div>
+          <div
             onClick={() => setTabHandle(3)}
             className={tab === 3 ? "tabs__tab active" : "tabs__tab"}
           >
@@ -62,8 +62,8 @@ export default function Tabs() {
               <Image src={tabIcon3White} alt="icon for tab" />
             </div>
             <span className="tabs__tab-text">After Sales Support</span>
-          </button>
-          <button
+          </div>
+          <div
             onClick={() => setTabHandle(4)}
             className={tab === 4 ? "tabs__tab active" : "tabs__tab"}
           >
@@ -74,7 +74,7 @@ export default function Tabs() {
               <Image src={tabIcon4White} alt="icon for tab" />
             </div>
             <span className="tabs__tab-text">Up to 40 miles per charge</span>
-          </button>
+          </div>
         </div>
 
         <div

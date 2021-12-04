@@ -123,16 +123,16 @@ export default function Welcome() {
               </Swiper>
 
               <div className="welcome__swiper-navigation">
-                <button className="welcome__swiper-nav welcome__swiper-nav_prev">
+                <div className="welcome__swiper-nav welcome__swiper-nav_prev">
                   <div className="welcome__swiper-icon-wrapper welcome__swiper-icon-wrapper_left">
                     <Image src={arrowLeft} alt="icon" />
                   </div>
-                </button>
-                <button className="welcome__swiper-nav welcome__swiper-nav_next">
+                </div>
+                <div className="welcome__swiper-nav welcome__swiper-nav_next">
                   <div className="welcome__swiper-icon-wrapper welcome__swiper-icon-wrapper_right">
                     <Image src={arrowRight} alt="icon" />
                   </div>
-                </button>
+                </div>
               </div>
               <div className="welcome__swiper-pagination"></div>
             </div>

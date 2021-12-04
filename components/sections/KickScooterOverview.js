@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import kickScooterOverview from "../../public/kick-scooter-overview-mobile.jpg";
 
 export default function KickScooterOverview() {
   return (
@@ -30,7 +29,7 @@ export default function KickScooterOverview() {
             width="1916"
             height="1122"
             className="kick-scooter-overview__img"
-            src={kickScooterOverview}
+            src="./kick-scooter-overview-mobile.jpg"
             alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX"
             loading="lazy"
           />

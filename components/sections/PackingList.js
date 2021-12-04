@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import packingList from "../../public/packing-list.png";
 
 export default function PackingList() {
-  const [overlay, setOverlay] = useState(true);
+  const [overlay, setOverlay] = useState(false);
 
   const removeOverlayForVideo = () => {
     if (overlay) {
@@ -25,7 +25,7 @@ export default function PackingList() {
             Packing List
           </p>
 
-          {/* <div onClick={removeOverlayForVideo} className={overlay ? "packing-list__video-wrapper disabled" : "packing-list__video-wrapper"}>
+          <div onClick={removeOverlayForVideo} className={overlay ? "packing-list__video-wrapper disabled" : "packing-list__video-wrapper"}>
             <iframe
             className="packing-list__iframe"
               width="560"
@@ -35,8 +35,9 @@ export default function PackingList() {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              loading="lazy"
             ></iframe>
-          </div> */}
+          </div>
         </div>
         <div className="packing-list__img-wrapper">
           <Image objectFit="contain" src={packingList} alt="Packing List" />
