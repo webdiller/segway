@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 export default function DiscountModal() {
-  const [activeModal, setActiveModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(true);
   const setActiveModalHandler = () => setActiveModal((prev) => !prev);
   return (
     <div className={activeModal ? "discount-modal active" : "discount-modal"}>

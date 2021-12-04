@@ -30,11 +30,6 @@ import {
 } from "../public/data";
 
 import FixedModal from "../components/modals/FixedModal/FixedModal";
-import DidntFindModal from "../components/modals/DidntFindModal/DidntFindModal";
-import DiscountModal from "../components/modals/DiscountModal/DiscountModal";
-import RemainTimeModal from "../components/modals/RemainTimeModal/RemainTimeModal";
-import RemainTimeModalTimer from "../components/modals/RemainTimeModal/RemainTimeModalTimer";
-import ProductAddedModal from "../components/modals/ProductAddedModal/ProductAddedModal";
 
 export default function Home({
   smallScootersData,
@@ -79,11 +74,6 @@ export default function Home({
 
         {/* MODALS */}
         <FixedModal />
-        <DidntFindModal />
-        <DiscountModal />
-        <RemainTimeModal />
-        <RemainTimeModalTimer />
-        <ProductAddedModal />
       </DefaultLayout>
     </div>
   );

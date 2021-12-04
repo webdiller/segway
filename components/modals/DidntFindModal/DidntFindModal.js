@@ -5,7 +5,7 @@ import bgImageDark from "../../../public/didnt-find-img-dark.png";
 import UiInput from "../../ui/UiInput";
 
 export default function DidntFindModal({ isWhiteMode = true }) {
-  const [activeModal, setActiveModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(true);
   const [whiteModeState, setWhiteModeState] = useState(isWhiteMode);
   const setActiveModalHandler = () => setActiveModal((prev) => !prev);
 

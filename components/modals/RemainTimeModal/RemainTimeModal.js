@@ -4,7 +4,7 @@ import Image from "next/image";
 import bgImage from "../../../public/remain-time-modal-img.png";
 
 export default function RemainTimeModal() {
-  const [activeModal, setActiveModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(true);
   const setActiveModalHandler = () => setActiveModal((prev) => !prev);
 
   return (

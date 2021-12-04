@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import packingList from "../../public/packing-list.png";
 
 export default function PackingList() {
-  const [overlay, setOverlay] = useState(false);
+  const [overlay, setOverlay] = useState(true);
 
   const removeOverlayForVideo = () => {
     if (overlay) {

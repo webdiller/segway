@@ -5,7 +5,7 @@ import useToggle from "../../hooks/useToggle";
 
 export default function ProductAddedModal() {
   
-  const {active: activeModal, setActiveHandler: setActiveModal} = useToggle(false);
+  const {active: activeModal, setActiveHandler: setActiveModal} = useToggle(true);
   const {active: activeAlert, setActiveHandler: setActiveAlert} = useToggle(true);
 
   return (
