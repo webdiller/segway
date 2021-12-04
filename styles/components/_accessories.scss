@@ -69,6 +69,19 @@
     }
   }
 
+  &__swiper-scrollbar {
+    display: none;
+    margin: 0 16px;
+    height: 5px;
+    margin-top: 20px;
+    background-color: #ebebeb;
+    @include media("<=768px") {
+      display: block;
+      overflow-x: hidden;
+      border-radius: 10px;
+    }
+  }
+
   &__item {
   }
 

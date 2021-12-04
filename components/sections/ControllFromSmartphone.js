@@ -1,11 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
-import { GiSiren } from "react-icons/gi";
-import { AiOutlineDashboard } from "react-icons/ai";
-import { MdManageSearch } from "react-icons/md";
-import { FiSettings, FiDownloadCloud } from "react-icons/fi";
-import { FaGraduationCap } from "react-icons/fa";
+import smartphoneDesktop from "../../public/controll-from-smartphone-payments.png";
 
 import ControllFromSmartphoneIcon_1_white from "../../public/controll-from-smartphone-1-white.svg";
 import ControllFromSmartphoneIcon_2_white from "../../public/controll-from-smartphone-2-white.svg";
@@ -122,7 +118,7 @@ export default function ControllFromSmartphone() {
             <div className="controll-from-smartphone__payments-img-wrapper">
               <Image
                 className="controll-from-smartphone__payments-img"
-                src="/controll-from-smartphone-payments.png"
+                src={smartphoneDesktop}
                 alt="Smart battery Management system (Smart-BMS)"
                 width={844}
                 height={123}

@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import featureImg from "../../public/features__main-img-desktop.jpg";
+
 import feature_1 from "../../public/feature-1.svg";
 import feature_2 from "../../public/feature-2.svg";
 import feature_3 from "../../public/feature-3.svg";
@@ -16,7 +18,7 @@ export default function Features() {
         <Image
           objectFit="contain"
           className="features__main-img"
-          src="/features__main-img-desktop.jpg"
+          src={featureImg}
           alt="feature"
           width={1376}
           height={724}

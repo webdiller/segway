@@ -28,8 +28,13 @@ import {
   accessoeries,
   otherModels,
 } from "../public/data";
-import FixedModal from "../components/blocks/FixedModal";
-import DidntFind from "../components/blocks/DidntFind";
+
+import FixedModal from "../components/modals/FixedModal/FixedModal";
+import DidntFindModal from "../components/modals/DidntFindModal/DidntFindModal";
+import DiscountModal from "../components/modals/DiscountModal/DiscountModal";
+import RemainTimeModal from "../components/modals/RemainTimeModal/RemainTimeModal";
+import RemainTimeModalTimer from "../components/modals/RemainTimeModal/RemainTimeModalTimer";
+import ProductAddedModal from "../components/modals/ProductAddedModal/ProductAddedModal";
 
 export default function Home({
   smallScootersData,
@@ -71,8 +76,14 @@ export default function Home({
         <ControllFromSmartphone />
         <SegwayNinebot />
         <OtherModels otherModelsData={otherModelsData} />
+
+        {/* MODALS */}
         <FixedModal />
-        <DidntFind />
+        <DidntFindModal />
+        <DiscountModal />
+        <RemainTimeModal />
+        <RemainTimeModalTimer />
+        <ProductAddedModal />
       </DefaultLayout>
     </div>
   );

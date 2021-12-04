@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import footerLogo from "../../public/logo-black-footer.svg";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -9,7 +11,7 @@ export default function Footer() {
           <a className="footer__logo-link">
             <Image
               className="footer__logo-img"
-              src="/logo-black-footer.svg"
+              src={footerLogo}
               alt="segway"
               width={174}
               height={50}

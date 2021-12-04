@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import logo from "../../public/logo-black-large.svg";
+import profileImg from "../../public/profile-img.png";
+
 /** Навигация с логотипом и профилем */
 export default function MiddleNavigation() {
   return (
@@ -10,7 +13,7 @@ export default function MiddleNavigation() {
           <a className="middle-navigation__logo-link">
             <Image
               className="middle-navigation__logo-img"
-              src="/logo-black-large.svg"
+              src={logo}
               alt="segway"
               width={216}
               height={63}
@@ -22,7 +25,7 @@ export default function MiddleNavigation() {
           <div className="middle-navigation__director-img-wrapper">
             <Image
               className="middle-navigation__director-img"
-              src="/profile-img.png"
+              src={profileImg}
               alt="JOHN SMITH"
               width={67}
               height={67}

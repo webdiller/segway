@@ -1,4 +1,5 @@
 import Image from "next/image";
+import dualBraking from "../../public/dual-braking.png";
 
 export default function DualBraking() {
   return (
@@ -6,7 +7,7 @@ export default function DualBraking() {
       <div className="dual-braking__picture">
         <Image
           className="dual-braking__img"
-          src="/dual-braking.png"
+          src={dualBraking}
           alt="Dual Braking System"
           width={720}
           height={547}

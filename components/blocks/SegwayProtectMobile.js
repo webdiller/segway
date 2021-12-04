@@ -1,4 +1,5 @@
 import Image from "next/image";
+import segwayProtectMobile from "../../public/segway-protect-mobile.png";
 
 export default function SegwayProtectMobile({ customClass }) {
   return (
@@ -34,7 +35,7 @@ export default function SegwayProtectMobile({ customClass }) {
           <div className="segway-protect-mobile__img-wrapper">
             <Image
               className="segway-protect-mobile__img"
-              src="/segway-protect-mobile.png"
+              src={segwayProtectMobile}
               alt="Segway Protective Gear Set as a gift"
               layout="responsive"
               objectFit="contain"

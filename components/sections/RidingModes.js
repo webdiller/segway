@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ridingModesImg from "../../public/riding-model.png";
 
 export default function RidingModes() {
   return (
@@ -18,7 +19,7 @@ export default function RidingModes() {
       <div className="riding-model__img-wrapper">
         <Image
           className="riding-model__img"
-          src="/riding-model.png"
+          src={ridingModesImg}
           alt="3 Riding Modes"
           width={720}
           height={547}

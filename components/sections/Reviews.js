@@ -2,6 +2,7 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { FcPrevious, FcNext } from "react-icons/fc";
+import reviewImg from "../../public/review-1.jpg";
 
 export default function Reviews() {
   return (
@@ -30,7 +31,7 @@ export default function Reviews() {
                 <Image
                   objectFit="contain"
                   className="reviews__img"
-                  src="/review-1.jpg"
+                  src={reviewImg}
                   alt="feature"
                   width={257}
                   height={380}
@@ -44,7 +45,7 @@ export default function Reviews() {
                 <Image
                   objectFit="contain"
                   className="reviews__img"
-                  src="/review-2.jpg"
+                  src={reviewImg}
                   alt="feature"
                   width={257}
                   height={380}
@@ -58,7 +59,7 @@ export default function Reviews() {
                 <Image
                   objectFit="contain"
                   className="reviews__img"
-                  src="/review-3.jpg"
+                  src={reviewImg}
                   alt="feature"
                   width={257}
                   height={380}

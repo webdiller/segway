@@ -8,6 +8,7 @@ import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
 import segwayPlaceholder from "../../public/segway-placeholder.png";
 import arrowLeft from "../../public/icon-arrow-left.svg";
 import arrowRight from "../../public/icon-arrow-right.svg";
+import exampleItem from "../../public/example-item-1.png";
 import "swiper/css/pagination";
 
 export default function Welcome() {
@@ -66,7 +67,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item-1.png"
+                      src={exampleItem}
                       alt="welcome swiper"
                       width={395}
                       height={685}
@@ -82,7 +83,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item-1.png"
+                      src={exampleItem}
                       alt="welcome swiper"
                       width={395}
                       height={685}
@@ -96,7 +97,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item-1.png"
+                      src={exampleItem}
                       alt="welcome swiper"
                       width={395}
                       height={685}
@@ -110,7 +111,7 @@ export default function Welcome() {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src="/example-item-1.png"
+                      src={exampleItem}
                       alt="welcome swiper"
                       width={395}
                       height={685}

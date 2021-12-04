@@ -4,6 +4,7 @@ import { BsCart2, BsTelephone } from "react-icons/bs";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
+import logoBlack from "../../public/logo-black.svg";
 
 /** Верхняя навигация */
 export default function TopNavigation() {
@@ -44,7 +45,7 @@ export default function TopNavigation() {
           <a className="top-nav__logo-link">
             <Image
               className="top-nav__logo-img"
-              src="/logo-black.svg"
+              src={logoBlack}
               alt="segway"
               width={94}
               height={28}

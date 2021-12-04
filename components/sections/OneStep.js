@@ -1,4 +1,5 @@
 import Image from "next/image";
+import oneStepImg from "../../public/one-step.png";
 
 export default function OneStep() {
   return (
@@ -13,7 +14,7 @@ export default function OneStep() {
         <div className="one-step__img-wrapper">
           <Image
             className="one-step__img"
-            src="/one-step.png"
+            src={oneStepImg}
             alt="One-step Folding Mechanism"
             width={840}
             height={388}

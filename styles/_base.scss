@@ -184,6 +184,10 @@ img {
   font-size: 18px;
   text-transform: uppercase;
   color: #fff;
+  
+  @include media("<=576px") {
+    font-size: 16px;
+  }
 
   &::before {
     content: "";
@@ -222,9 +226,7 @@ img {
 
   &:active {
     background-color: #fff;
-    span {
-      color: #009eff;
-    }
+    color: #009eff;
     &::before {
       opacity: 0;
     }
@@ -237,9 +239,7 @@ img {
     outline: none;
     border: none;
     background-color: #fff;
-    span {
-      color: #009eff;
-    }
+    color: #009eff;
     &::before {
       opacity: 0;
     }
@@ -252,16 +252,12 @@ img {
     position: relative;
     z-index: 10;
     font-size: inherit;
-    transition: all 0.3s ease;
     pointer-events: none;
     
     font-weight: inherit;
     font-size: inherit;
     text-transform: inherit;
     color: inherit;
-    @include media("<=576px") {
-      font-size: 16px;
-    }
   }
 
   &_outline {
@@ -292,6 +288,19 @@ img {
     svg {
       margin-left: 44px;
       font-size: 25px;
+    }
+  }
+
+  &_fill-grey {
+    background-color: #323941;
+    &::before {
+      background: linear-gradient(180deg, #323941 0%, #171b1f 100%);
+    }
+    &::after {
+      border: 3px solid #323941;
+    }
+    &:active, &:focus {
+      color: #323941;
     }
   }
 }

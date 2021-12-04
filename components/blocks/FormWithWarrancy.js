@@ -1,12 +1,27 @@
+import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import segwayProtect from "../../public/segway-protect.png";
 
 export default function FormWithWarrancy({
   customClass = "form-with-warrancy",
 }) {
-  const [activeTab, setActiveTab] = useState(null);
+  const [tabs, setTabs] = useState({
+    tab1: false,
+    tab2: false,
+    tab3: false,
+  });
 
-  const setACtiveTabHandled = (id) => setActiveTab(id);
+  const setActiveTabHandled = (name) => {
+    setTabs({
+      tab1: false,
+      tab2: false,
+      tab3: false,
+      [name]: tabs[name] === true ? false : true,
+    });
+  };
+
+  const { tab1, tab2, tab3 } = tabs;
   const tabWrapper = useRef(null);
 
   return (
@@ -15,21 +30,15 @@ export default function FormWithWarrancy({
         customClass ? `form-with-warrancy ${customClass}` : "form-with-warrancy"
       }
     >
-      <div
-        ref={tabWrapper}
-        onClick={(e) => {
-          if (e.target === tabWrapper.current) setActiveTab(null)
-        }}
-        className="form-with-warrancy__wrapper"
-      >
+      <div ref={tabWrapper} className="form-with-warrancy__wrapper">
         <p className="form-with-warrancy__form-title">
           Add an extended warranty from <span>Extend</span>
         </p>
         <div className="form-with-warrancy__form-buttons">
           <button
-            onClick={() => setACtiveTabHandled(1)}
+            onClick={() => setActiveTabHandled("tab1")}
             className={
-              activeTab === 1
+              tab1
                 ? "form-with-warrancy__form-button active"
                 : "form-with-warrancy__form-button"
             }
@@ -39,9 +48,9 @@ export default function FormWithWarrancy({
             <span className="form-with-warrancy__form-button-price">$139</span>
           </button>
           <button
-            onClick={() => setACtiveTabHandled(2)}
+            onClick={() => setActiveTabHandled("tab2")}
             className={
-              activeTab === 2
+              tab2
                 ? "form-with-warrancy__form-button active"
                 : "form-with-warrancy__form-button"
             }
@@ -51,9 +60,9 @@ export default function FormWithWarrancy({
             <span className="form-with-warrancy__form-button-price">$209</span>
           </button>
           <button
-            onClick={() => setACtiveTabHandled(3)}
+            onClick={() => setActiveTabHandled("tab3")}
             className={
-              activeTab === 3
+              tab3
                 ? "form-with-warrancy__form-button active"
                 : "form-with-warrancy__form-button"
             }
@@ -66,17 +75,17 @@ export default function FormWithWarrancy({
 
         <div className="form-with-warrancy__form-prices-subtitle-image">
           <div className="form-with-warrancy__form-prices">
-            {activeTab === 1 ? (
+            {tab1 ? (
               <>
                 <p className="form-with-warrancy__form-price-old">$1188</p>
                 <p className="form-with-warrancy__form-price-new">$1088</p>
               </>
-            ) : activeTab === 2 ? (
+            ) : tab2 ? (
               <>
                 <p className="form-with-warrancy__form-price-old">$1258</p>
                 <p className="form-with-warrancy__form-price-new">$1158</p>
               </>
-            ) : activeTab === 3 ? (
+            ) : tab3 ? (
               <>
                 <p className="form-with-warrancy__form-price-old">$1328</p>
                 <p className="form-with-warrancy__form-price-new">$1437</p>
@@ -94,7 +103,7 @@ export default function FormWithWarrancy({
           <div className="form-with-warrancy__form-img-wrapper">
             <Image
               className="form-with-warrancy__form-img"
-              src="/segway-protect.png"
+              src={segwayProtect}
               alt="Segway Protective Gear Set as a gift"
               layout="fill"
               objectFit="contain"
@@ -106,7 +115,9 @@ export default function FormWithWarrancy({
           <button className="ui-btn ui-btn_lg form-with-warrancy__form-action">
             <span>BUY IT Now</span>
           </button>
-          <button className="ui-btn ui-btn_lg form-with-warrancy__form-action">
+          <button
+            className="ui-btn ui-btn_lg form-with-warrancy__form-action"
+          >
             <span> ADD TO CART</span>
           </button>
         </div>

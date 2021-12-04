@@ -1,3 +1,4 @@
+import { Scrollbar, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { useRef } from "react";
@@ -6,6 +7,7 @@ import circlePlaceholder from "../../public/circle-placeholder.svg";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 
 export default function OtherModels({ otherModelsData }) {
   const swiperRef = useRef(null);
@@ -18,11 +20,16 @@ export default function OtherModels({ otherModelsData }) {
         </div>
         <div ref={swiperRef} className="other-models__swiper">
           <Swiper
+            modules={[Scrollbar, FreeMode]}
             slidesPerView={1.8}
             spaceBetween={10}
             loop={false}
             centeredSlides={true}
             allowTouchMove={true}
+            scrollbar={{
+              el: ".other-models__swiper-scrollbar",
+              draggable: true,
+            }}
             onReachEnd={(e) => {
               // TODO: доделать
               // swiperRef.current.classList.add('reached')
@@ -106,6 +113,7 @@ export default function OtherModels({ otherModelsData }) {
             </SwiperSlide>
           </Swiper>
         </div>
+        <div className="other-models__swiper-scrollbar"></div>
       </div>
     </div>
   );

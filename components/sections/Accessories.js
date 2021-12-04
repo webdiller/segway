@@ -1,22 +1,44 @@
+import { Scrollbar, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import Link from "next/link";
 import UiLink from "../ui/UiLink";
 import circlePlaceholder from "../../public/circle-placeholder.svg";
 
-import "swiper/css";
-import "swiper/css/navigation";
+import accessory_1 from "../../public/accessory-1.png";
+import accessory_2 from "../../public/accessory-2.png";
+import accessory_3 from "../../public/accessory-3.png";
+import accessory_4 from "../../public/accessory-4.png";
+import accessory_5 from "../../public/accessory-5.png";
+import accessory_6 from "../../public/accessory-6.png";
+import accessory_7 from "../../public/accessory-7.png";
+import accessory_8 from "../../public/accessory-8.png";
+import accessory_9 from "../../public/accessory-9.png";
 
-export default function Accessories({ accessoeriesData }) {
+import "swiper/css";
+import "swiper/css/scrollbar";
+
+export default function Accessories() {
   return (
     <div className="accessories">
       <div className="container accessories__container">
         <p className="title accessories__title">Accessories</p>
         <div className="accessories__swiper">
+          {/* Выводим слайды вручную, т.к. для верстки требуются переносы
+          текста, хоть это и грабли. Лучше я думаю сделать доп. поле в файле с
+          версткой имени. */}
           <Swiper
+            modules={[Scrollbar, FreeMode]}
             slidesPerView={2.2}
             spaceBetween={20}
             loop={false}
+            freeMode={{
+              enabled: true,
+              sticky: true,
+            }}
+            scrollbar={{
+              el: ".accessories__swiper-scrollbar",
+              draggable: true,
+            }}
             breakpoints={{
               768: {
                 slidesPerView: 3,
@@ -32,7 +54,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-1.png"
+                    src={accessory_1}
                     alt="NineboT Engine Speaker"
                     layout="fill"
                     placeholder="blur"
@@ -68,14 +90,16 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-2.png"
+                    src={accessory_2}
                     alt="Extension Rod"
                     layout="fill"
                     placeholder="blur"
                     blurDataURL={circlePlaceholder}
                   />
                 </div>
-                <p className="text text_25 accessories__name">Extension <br /> Rod</p>
+                <p className="text text_25 accessories__name">
+                  Extension <br /> Rod
+                </p>
                 <p className="text text_13 text_grey2 accessories__description">
                   The Extension Rod helps you to easily maneuver your scooter,
                   so you no longer need to bend over and push it, making it
@@ -100,7 +124,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-3.png"
+                    src={accessory_3}
                     alt="Segway Protective Gear Set"
                     layout="fill"
                     placeholder="blur"
@@ -134,7 +158,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-4.png"
+                    src={accessory_4}
                     alt="Segway Leisure Backpack"
                     layout="fill"
                     placeholder="blur"
@@ -167,7 +191,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-5.png"
+                    src={accessory_5}
                     alt="Segway External Battery"
                     layout="fill"
                     placeholder="blur"
@@ -201,7 +225,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-6.png"
+                    src={accessory_6}
                     alt="Segway Charger"
                     layout="fill"
                     placeholder="blur"
@@ -235,7 +259,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-7.png"
+                    src={accessory_7}
                     alt="Segway Scooter Bag"
                     layout="fill"
                     placeholder="blur"
@@ -270,7 +294,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-8.png"
+                    src={accessory_8}
                     alt="Segway Phone Holder"
                     layout="fill"
                     placeholder="blur"
@@ -303,7 +327,7 @@ export default function Accessories({ accessoeriesData }) {
                   <Image
                     objectFit="contain"
                     className="accessories__img"
-                    src="/accessory-9.png"
+                    src={accessory_9}
                     alt="Segway Scooter Seat"
                     layout="fill"
                     placeholder="blur"
@@ -331,6 +355,7 @@ export default function Accessories({ accessoeriesData }) {
             </SwiperSlide>
           </Swiper>
         </div>
+        <div className="accessories__swiper-scrollbar"></div>
         <div className="accessories__bottom">
           <UiLink
             href="#"

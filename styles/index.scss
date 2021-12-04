@@ -3,6 +3,7 @@
 @import './fonts';
 @import './base';
 
+/** COMPONETNS */
 @import './components/top-navigation';
 @import './components/top-swiper';
 @import './components/middle-navigation';
@@ -31,5 +32,10 @@
 @import './components/controll-from-smartphone';
 @import './components/segway-ninebot';
 @import './components/footer';
-@import './components/fixed-modal';
-@import './components/didnt-find';
+
+/** MODALS */
+@import '../components/modals/FixedModal/FixedModal';
+@import '../components/modals/DidntFindModal/DidntFindModal';
+@import '../components/modals/DiscountModal/DiscountModal';
+@import '../components/modals/ProductAddedModal/ProductAddedModal';
+@import '../components/modals/RemainTimeModal/RemainTimeModal';
