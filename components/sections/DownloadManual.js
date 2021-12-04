@@ -38,6 +38,7 @@ export default function DownloadManual() {
                   src="/download-manual-item-1.svg"
                   alt="Assembly and preparation for the trip"
                   className="download-manual__icon"
+                  loading="lazy"
                 />
                 <p className="text text_16 download-manual__item-description">
                   <span className="hide-576">
@@ -57,6 +58,7 @@ export default function DownloadManual() {
                   src="/download-manual-item-2.svg"
                   alt="How to charge a scooter"
                   className="download-manual__icon"
+                  loading="lazy"
                 />
                 <p className="text text_16 download-manual__item-description">
                   How to charge <br /> a scooter
@@ -68,6 +70,7 @@ export default function DownloadManual() {
                   src="/download-manual-item-3.svg"
                   alt="How to ride properly"
                   className="download-manual__icon"
+                  loading="lazy"
                 />
                 <p className="text text_16 download-manual__item-description">
                   How to ride <br /> properly

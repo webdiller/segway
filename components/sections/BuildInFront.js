@@ -13,8 +13,15 @@ export default function BuildInFront() {
 
       <picture className="build-in-front__picture">
         <source
-          srcSet="/build-in-front-desktop.png"
+          srcSet="/build-in-front.webp"
           media="(min-width: 768px)"
+        />
+        <source
+          srcSet="/build-in-front.png"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcSet="/build-in-front-mobile.webp"
         />
         <img
           width="762"

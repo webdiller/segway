@@ -628,6 +628,7 @@ export default function CompareSpecifications({
                 alt="icon-close"
                 width="34"
                 height="34"
+                loading="lazy"
               />
               <div className="compare-modal__items">
                 {allSegwaysData.map(({ id, name, imgPath }) => (

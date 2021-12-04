@@ -32,6 +32,7 @@ export default function DidntFindModal({ isWhiteMode = true }) {
             alt="icon-close"
             width="34"
             height="34"
+            loading="lazy"
           />
           
           <img
@@ -40,6 +41,7 @@ export default function DidntFindModal({ isWhiteMode = true }) {
             alt="icon-close"
             width="34"
             height="34"
+            loading="lazy"
           />
         </button>
         <div className="didnt-find-modal__bg-wrapper">
@@ -55,6 +57,7 @@ export default function DidntFindModal({ isWhiteMode = true }) {
           alt="icon-question"
           width="178"
           height="266"
+          loading="lazy"
         />
         <div className="didnt-find-modal__content">
           <p className="title didnt-find-modal__title">Didn’t find a model?</p>

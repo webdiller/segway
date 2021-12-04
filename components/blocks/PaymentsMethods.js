@@ -19,6 +19,7 @@ export default function PaymentsMethods({
               className="payments-methods__a-icon"
               src="./icon-payment-a.svg"
               alt="payment icon"
+              loading="lazy"
             />
             .
           </span>
@@ -32,6 +33,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-amex.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -39,6 +41,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-apple.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -46,6 +49,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-btc.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -53,6 +57,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-btc-alt.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -60,6 +65,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-crypto-d.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -67,6 +73,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-crypto-o.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -74,6 +81,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-discover.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -81,6 +89,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-crypto-d-alt.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -88,6 +97,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-crypto-triangle.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -95,6 +105,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-jcb.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -102,6 +113,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-l.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -109,6 +121,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-mastercard.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -116,6 +129,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-paypel.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -123,6 +137,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-dollar.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -130,6 +145,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-v.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
           <div className="payments-methods__payments-method">
@@ -137,6 +153,7 @@ export default function PaymentsMethods({
               className="payments-methods__payments-method-icon"
               src="./icon-payment-visa.svg"
               alt="payment icon"
+              loading="lazy"
             />
           </div>
         </div>

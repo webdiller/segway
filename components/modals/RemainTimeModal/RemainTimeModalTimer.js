@@ -22,6 +22,7 @@ export default function RemainTimeModalTimer() {
             alt="icon-close"
             width="34"
             height="34"
+            loading="lazy"
           />
           <img
             className="remain-time-modal__close-btn-icon remain-time-modal__close-btn-icon_mobile"
@@ -29,6 +30,7 @@ export default function RemainTimeModalTimer() {
             alt="icon-close"
             width="34"
             height="34"
+            loading="lazy"
           />
         </button>
         <div className="remain-time-modal__bg-wrapper">

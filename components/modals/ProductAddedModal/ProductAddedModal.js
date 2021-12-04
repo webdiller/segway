@@ -20,6 +20,7 @@ export default function ProductAddedModal() {
             alt="icon-close"
             width="34"
             height="34"
+            loading="lazy"
           />
         </button>
 
@@ -34,6 +35,7 @@ export default function ProductAddedModal() {
             className="product-added-modal__img"
             src="./example-item-1.png"
             alt="Lorem ipsum dolor sit amet."
+            loading="lazy"
           />
 
           <div className="product-added-modal__content">

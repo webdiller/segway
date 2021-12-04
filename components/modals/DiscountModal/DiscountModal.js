@@ -17,6 +17,7 @@ export default function DiscountModal() {
             alt="icon-close"
             width="34"
             height="34"
+            loading="lazy"
           />
           <img
             className="discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile"
@@ -24,6 +25,7 @@ export default function DiscountModal() {
             alt="icon-close"
             width="34"
             height="34"
+            loading="lazy"
           />
         </button>
         <p className="discount-modal__title">5%</p>
