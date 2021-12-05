@@ -1,9 +1,10 @@
+/** RULES */
 @import './reset';
 @import './mixins';
 @import './fonts';
 @import './base';
 
-/** sections */
+/** SECTIONS */
 @import '@/sections/TopNavigation';
 @import '@/sections/TopSwiper';
 @import '@/sections/MiddleNavigation';
@@ -30,6 +31,7 @@
 @import '@/sections/SegwayNinebot';
 @import '@/sections/Footer';
 
+/** BLOCKS */
 @import '@/blocks/FormWithWarrancy';
 @import '@/blocks/PaymentsMethods';
 @import '@/blocks/SegwayProtectMobile';

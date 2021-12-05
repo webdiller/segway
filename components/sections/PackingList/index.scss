@@ -52,59 +52,10 @@
     position: relative;
     transition: all 0.3s ease;
     height: auto;
-    padding-bottom: 56.25%; //padding-top:25px;height:0;
-
-    &::before {
-      content: "Tap to play the video";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 15px;
-
-      background-color: #C4C4C4;
-
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 24px;
-      text-transform: uppercase;
-      color: #323941;
-
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      opacity: 0;
-      visibility: hidden;
-      z-index: -1;
-    }
-
-    &.disabled {
-      height: 288px;
-      @include media("<=375px") {
-        height: 195px;
-      }
-      &:hover {
-        &::before {
-          color: #fff;
-          background-color: #dfdfdf;
-        }
-      }
-      &::before {
-        opacity: 1;
-        visibility: visible;
-        z-index: 10;
-      }
-    }
-
+    padding-bottom: 56.25%;
   }
 
-  &__iframe {
+  &__video-iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -112,10 +63,57 @@
     height: 100%;
   }
 
-  &__video {
-    max-width: 100%;
-    height: auto;
+  &__video-poster {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    object-fit: cover;
     transition: all 0.3s ease;
+    &.disabled {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  &__video-button {
+    @include reset-btn();
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+
+    width: 60px;
+    &:hover, &:focus {
+      .packing-list__video-icon-main {
+        fill: black;
+      }
+      .packing-list__video-icon-shape {
+        fill: #fff;
+      }
+    }
+    &.disabled {
+      opacity: 0;
+      z-index: -1;
+      visibility: hidden;
+    }
+  }
+
+  &__video-icon {
+    font-size: 60px;
+    &-main {
+      transition: all 0.3s ease;
+    }
+    &-shape {
+      transition: all 0.3s ease;
+    }
   }
 
   &__img-wrapper {
