@@ -1,5 +1,5 @@
-import DefaultLayout from "../components/base/DefaultLayout";
-import ProductAddedModal from "../components/modals/ProductAddedModal/ProductAddedModal";
+import DefaultLayout from "@/basic/DefaultLayout";
+import ProductAddedModal from "@/modals/ProductAddedModal/ProductAddedModal";
 
 export default function Home() {
   return (

@@ -1,18 +1,18 @@
 import { Scrollbar, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import UiLink from "../ui/UiLink";
-import circlePlaceholder from "../../public/circle-placeholder.svg";
+import UiLink from "@/ui/UiLink";
+import circlePlaceholder from "@/base/circle-placeholder.svg";
 
-import accessory_1 from "../../public/accessory-1.png";
-import accessory_2 from "../../public/accessory-2.png";
-import accessory_3 from "../../public/accessory-3.png";
-import accessory_4 from "../../public/accessory-4.png";
-import accessory_5 from "../../public/accessory-5.png";
-import accessory_6 from "../../public/accessory-6.png";
-import accessory_7 from "../../public/accessory-7.png";
-import accessory_8 from "../../public/accessory-8.png";
-import accessory_9 from "../../public/accessory-9.png";
+import accessory_1 from "@/base/accessory-1.png";
+import accessory_2 from "@/base/accessory-2.png";
+import accessory_3 from "@/base/accessory-3.png";
+import accessory_4 from "@/base/accessory-4.png";
+import accessory_5 from "@/base/accessory-5.png";
+import accessory_6 from "@/base/accessory-6.png";
+import accessory_7 from "@/base/accessory-7.png";
+import accessory_8 from "@/base/accessory-8.png";
+import accessory_9 from "@/base/accessory-9.png";
 
 import "swiper/css";
 import "swiper/css/scrollbar";

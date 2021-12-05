@@ -2,7 +2,7 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { FcPrevious, FcNext } from "react-icons/fc";
-import reviewImg from "../../public/review-1.jpg";
+import reviewImg from "@/base/review-1.jpg";
 
 export default function Reviews() {
   return (

@@ -1,35 +1,35 @@
 import { useEffect } from "react";
-import DefaultLayout from "../components/base/DefaultLayout";
-import Features from "../components/sections/Features";
-import KickScooterOverview from "../components/sections/KickScooterOverview";
-import TopStock from "../components/sections/TopStock";
-import SmartBattery from "../components/sections/SmartBattery";
-import DualBraking from "../components/sections/DualBraking";
-import BuildInFront from "../components/sections/BuildInFront";
-import OneStep from "../components/sections/OneStep";
-import DownloadManual from "../components/sections/DownloadManual";
-import TopSwiper from "../components/sections/TopSwiper";
-import SegwayProtect from "../components/sections/SegwayProtect";
-import Accessories from "../components/sections/Accessories";
-import CompareSpecifications from "../components/sections/CompareSpecifications";
-import PackingList from "../components/sections/PackingList";
-import OtherModels from "../components/sections/OtherModels";
-import Regenerative from "../components/sections/Regenerative";
-import EasyOneCord from "../components/sections/EasyOneCord";
-import RidingModes from "../components/sections/RidingModes";
-import ControllFromSmartphone from "../components/sections/ControllFromSmartphone";
-import Welcome from "../components/sections/Welcome";
-import Tabs from "../components/sections/Tabs";
-import SegwayNinebot from "../components/sections/SegwayNinebot";
+import DefaultLayout from "@/basic/DefaultLayout";
+import Features from "@/sections/Features";
+import KickScooterOverview from "@/sections/KickScooterOverview";
+import TopStock from "@/sections/TopStock";
+import SmartBattery from "@/sections/SmartBattery";
+import DualBraking from "@/sections/DualBraking";
+import BuildInFront from "@/sections/BuildInFront";
+import OneStep from "@/sections/OneStep";
+import DownloadManual from "@/sections/DownloadManual";
+import TopSwiper from "@/sections/TopSwiper";
+import SegwayProtect from "@/sections/SegwayProtect";
+import Accessories from "@/sections/Accessories";
+import CompareSpecifications from "@/sections/CompareSpecifications";
+import PackingList from "@/sections/PackingList";
+import OtherModels from "@/sections/OtherModels";
+import Regenerative from "@/sections/Regenerative";
+import EasyOneCord from "@/sections/EasyOneCord";
+import RidingModes from "@/sections/RidingModes";
+import ControllFromSmartphone from "@/sections/ControllFromSmartphone";
+import Welcome from "@/sections/Welcome";
+import Tabs from "@/sections/Tabs";
+import SegwayNinebot from "@/sections/SegwayNinebot";
 import {
   smallScooters,
   adultSegways,
   kickscooterMax,
   accessoeries,
   otherModels,
-} from "../public/data";
+} from "@/base/data";
 
-import FixedModal from "../components/modals/FixedModal/FixedModal";
+import FixedModal from "@/modals/FixedModal/FixedModal";
 
 export default function Home({
   smallScootersData,

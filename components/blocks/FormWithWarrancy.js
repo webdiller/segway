@@ -1,7 +1,6 @@
-import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import segwayProtect from "../../public/segway-protect.png";
+import segwayProtect from "@/base/segway-protect.png";
 
 export default function FormWithWarrancy({
   customClass = "form-with-warrancy",

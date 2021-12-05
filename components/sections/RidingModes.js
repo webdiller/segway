@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ridingModesImg from "../../public/riding-model.png";
+import ridingModesImg from "@/base/riding-model.png";
 
 export default function RidingModes() {
   return (

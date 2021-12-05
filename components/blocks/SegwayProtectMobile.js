@@ -1,5 +1,5 @@
 import Image from "next/image";
-import segwayProtectMobile from "../../public/segway-protect-mobile.png";
+import segwayProtectMobile from "@/base/segway-protect-mobile.png";
 
 export default function SegwayProtectMobile({ customClass }) {
   return (

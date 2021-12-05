@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import segwayPlaceholder from "../../public/segway-placeholder.png";
+import segwayPlaceholder from "@/base/segway-placeholder.png";
 
 /** Свайпер в шапке с самокатами */
 export default function TopSwiper({smallScootersData}) {

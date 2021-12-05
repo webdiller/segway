@@ -1,5 +1,5 @@
-import RemainTimeModalTimer from "../components/modals/RemainTimeModal/RemainTimeModalTimer";
-import DefaultLayout from "../components/base/DefaultLayout";
+import DefaultLayout from "@/basic/DefaultLayout";
+import RemainTimeModalTimer from "@/modals/RemainTimeModal/RemainTimeModalTimer";
 
 export default function Home() {
   return (

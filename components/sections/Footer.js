@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import footerLogo from "../../public/logo-black-footer.svg";
+import footerLogo from "@/base/logo-black-footer.svg";
 
 export default function Footer() {
   return (

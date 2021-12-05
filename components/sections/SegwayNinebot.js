@@ -1,8 +1,8 @@
 import Image from "next/image";
-import FormWithWarrancy from "../blocks/FormWithWarrancy";
-import PaymentsMethods from "../blocks/PaymentsMethods";
-import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
-import segwayBg from "../../public/segway-ninebot-background.png";
+import FormWithWarrancy from '@/blocks/FormWithWarrancy'
+import PaymentsMethods from '@/blocks/PaymentsMethods'
+import SegwayProtectMobile from '@/blocks/SegwayProtectMobile'
+import segwayBg from "@/base/segway-ninebot-background.png";
 
 export default function SegwayNinebot() {
   return (

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import segwayProtectImg from "../../public/segway-protect.png";
+import segwayProtectImg from "@/base/segway-protect.png";
 
 export default function SegwayProtect() {
   return (

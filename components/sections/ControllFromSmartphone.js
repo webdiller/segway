@@ -1,21 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
-import smartphoneDesktop from "../../public/controll-from-smartphone-payments.png";
+import smartphoneDesktop from "@/base/controll-from-smartphone-payments.png";
 
-import ControllFromSmartphoneIcon_1_white from "../../public/controll-from-smartphone-1-white.svg";
-import ControllFromSmartphoneIcon_2_white from "../../public/controll-from-smartphone-2-white.svg";
-import ControllFromSmartphoneIcon_3_white from "../../public/controll-from-smartphone-3-white.svg";
-import ControllFromSmartphoneIcon_4_white from "../../public/controll-from-smartphone-4-white.svg";
-import ControllFromSmartphoneIcon_5_white from "../../public/controll-from-smartphone-5-white.svg";
-import ControllFromSmartphoneIcon_6_white from "../../public/controll-from-smartphone-6-white.svg";
+import ControllFromSmartphoneIcon_1_white from "@/base/controll-from-smartphone-1-white.svg";
+import ControllFromSmartphoneIcon_2_white from "@/base/controll-from-smartphone-2-white.svg";
+import ControllFromSmartphoneIcon_3_white from "@/base/controll-from-smartphone-3-white.svg";
+import ControllFromSmartphoneIcon_4_white from "@/base/controll-from-smartphone-4-white.svg";
+import ControllFromSmartphoneIcon_5_white from "@/base/controll-from-smartphone-5-white.svg";
+import ControllFromSmartphoneIcon_6_white from "@/base/controll-from-smartphone-6-white.svg";
 
-import ControllFromSmartphoneIcon_1_color from "../../public/controll-from-smartphone-1-color.svg";
-import ControllFromSmartphoneIcon_2_color from "../../public/controll-from-smartphone-2-color.svg";
-import ControllFromSmartphoneIcon_3_color from "../../public/controll-from-smartphone-3-color.svg";
-import ControllFromSmartphoneIcon_4_color from "../../public/controll-from-smartphone-4-color.svg";
-import ControllFromSmartphoneIcon_5_color from "../../public/controll-from-smartphone-5-color.svg";
-import ControllFromSmartphoneIcon_6_color from "../../public/controll-from-smartphone-6-color.svg";
+import ControllFromSmartphoneIcon_1_color from "@/base/controll-from-smartphone-1-color.svg";
+import ControllFromSmartphoneIcon_2_color from "@/base/controll-from-smartphone-2-color.svg";
+import ControllFromSmartphoneIcon_3_color from "@/base/controll-from-smartphone-3-color.svg";
+import ControllFromSmartphoneIcon_4_color from "@/base/controll-from-smartphone-4-color.svg";
+import ControllFromSmartphoneIcon_5_color from "@/base/controll-from-smartphone-5-color.svg";
+import ControllFromSmartphoneIcon_6_color from "@/base/controll-from-smartphone-6-color.svg";
 
 export default function ControllFromSmartphone() {
   return (

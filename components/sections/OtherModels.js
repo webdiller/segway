@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { useRef } from "react";
 import Link from "next/link";
-import circlePlaceholder from "../../public/circle-placeholder.svg";
+import circlePlaceholder from "@/base/circle-placeholder.svg";
 
 import "swiper/css";
 import "swiper/css/navigation";

@@ -34,8 +34,8 @@
 @import './components/footer';
 
 /** MODALS */
-@import '../components/modals/FixedModal/FixedModal';
-@import '../components/modals/DidntFindModal/DidntFindModal';
-@import '../components/modals/DiscountModal/DiscountModal';
-@import '../components/modals/ProductAddedModal/ProductAddedModal';
-@import '../components/modals/RemainTimeModal/RemainTimeModal';
+@import '@/modals/FixedModal/FixedModal';
+@import '@/modals/DidntFindModal/DidntFindModal';
+@import '@/modals/DiscountModal/DiscountModal';
+@import '@/modals/ProductAddedModal/ProductAddedModal';
+@import '@/modals/RemainTimeModal/RemainTimeModal';

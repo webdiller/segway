@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import Image from "next/image";
-import bgImageDark from "../../../public/didnt-find-img-dark.png";
-import UiInput from "../../ui/UiInput";
+import bgImageDark from "@/base/didnt-find-img-dark.png";
+import UiInput from "@/ui/UiInput";
 
 export default function DidntFindModal({ isWhiteMode = true }) {
   const [activeModal, setActiveModal] = useState(true);

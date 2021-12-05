@@ -4,7 +4,7 @@ import { BsCart2, BsTelephone } from "react-icons/bs";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
-import logoBlack from "../../public/logo-black.svg";
+import logoBlack from "@/base/logo-black.svg";
 
 /** Верхняя навигация */
 export default function TopNavigation() {

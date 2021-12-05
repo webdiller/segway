@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import logo from "../../public/logo-black-large.svg";
-import profileImg from "../../public/profile-img.png";
+import logo from "@/base/logo-black-large.svg";
+import profileImg from "@/base/profile-img.png";
 
 /** Навигация с логотипом и профилем */
 export default function MiddleNavigation() {

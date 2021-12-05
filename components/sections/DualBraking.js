@@ -1,5 +1,5 @@
 import Image from "next/image";
-import dualBraking from "../../public/dual-braking.png";
+import dualBraking from "@/base/dual-braking.png";
 
 export default function DualBraking() {
   return (

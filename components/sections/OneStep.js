@@ -1,5 +1,5 @@
 import Image from "next/image";
-import oneStepImg from "../../public/one-step.png";
+import oneStepImg from "@/base/one-step.png";
 
 export default function OneStep() {
   return (

@@ -1,20 +1,20 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import tabIcon1Color from "../../public/icon-tab-1-color.svg";
-import tabIcon2Color from "../../public/icon-tab-2-color.svg";
-import tabIcon3Color from "../../public/icon-tab-3-color.svg";
-import tabIcon4Color from "../../public/icon-tab-4-color.svg";
+import tabIcon1Color from "@/base/icon-tab-1-color.svg";
+import tabIcon2Color from "@/base/icon-tab-2-color.svg";
+import tabIcon3Color from "@/base/icon-tab-3-color.svg";
+import tabIcon4Color from "@/base/icon-tab-4-color.svg";
 
-import tabIcon1White from "../../public/icon-tab-1-white.svg";
-import tabIcon2White from "../../public/icon-tab-2-white.svg";
-import tabIcon3White from "../../public/icon-tab-3-white.svg";
-import tabIcon4White from "../../public/icon-tab-4-white.svg";
+import tabIcon1White from "@/base/icon-tab-1-white.svg";
+import tabIcon2White from "@/base/icon-tab-2-white.svg";
+import tabIcon3White from "@/base/icon-tab-3-white.svg";
+import tabIcon4White from "@/base/icon-tab-4-white.svg";
 
-import iconTabPresentationDelivery from "../../public/icon-tab-presentation-delivery.svg";
-import iconTabPresentationWarrancy from "../../public/icon-tab-presentation-warrancy.svg";
-import iconTabPresentationSupport from "../../public/icon-tab-presentation-support.svg";
-import iconTabPresentationRoad from "../../public/icon-tab-presentation-road.svg";
+import iconTabPresentationDelivery from "@/base/icon-tab-presentation-delivery.svg";
+import iconTabPresentationWarrancy from "@/base/icon-tab-presentation-warrancy.svg";
+import iconTabPresentationSupport from "@/base/icon-tab-presentation-support.svg";
+import iconTabPresentationRoad from "@/base/icon-tab-presentation-road.svg";
 
 export default function Tabs() {
   const [tab, setTab] = useState(4);

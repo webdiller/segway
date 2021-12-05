@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
-import packingList from "../../public/packing-list.png";
+import packingList from "@/base/packing-list.png";
 
 export default function PackingList() {
   const [overlay, setOverlay] = useState(true);

@@ -2,13 +2,13 @@
 import Image from "next/image";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import PaymentsMethods from "../blocks/PaymentsMethods";
-import FormWithWarrancy from "../blocks/FormWithWarrancy";
-import SegwayProtectMobile from "../blocks/SegwayProtectMobile";
-import segwayPlaceholder from "../../public/segway-placeholder.png";
-import arrowLeft from "../../public/icon-arrow-left.svg";
-import arrowRight from "../../public/icon-arrow-right.svg";
-import exampleItem from "../../public/example-item-1.png";
+import PaymentsMethods from '@/blocks/PaymentsMethods'
+import FormWithWarrancy from '@/blocks/FormWithWarrancy'
+import SegwayProtectMobile from '@/blocks/SegwayProtectMobile'
+import segwayPlaceholder from "@/base/segway-placeholder.png";
+import arrowLeft from "@/base/icon-arrow-left.svg";
+import arrowRight from "@/base/icon-arrow-right.svg";
+import exampleItem from "@/base/example-item-1.png";
 import "swiper/css/pagination";
 
 export default function Welcome() {

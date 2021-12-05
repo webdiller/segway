@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import Image from "next/image";
-import bgImage from "../../../public/remain-time-modal-img.png";
+import bgImage from "@/base/remain-time-modal-img.png";
 
 export default function RemainTimeModal() {
   const [activeModal, setActiveModal] = useState(true);

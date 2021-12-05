@@ -1,15 +1,15 @@
 import Image from "next/image";
 
-import featureImg from "../../public/features__main-img-desktop.jpg";
+import featureImg from "@/base/features__main-img-desktop.jpg";
 
-import feature_1 from "../../public/feature-1.svg";
-import feature_2 from "../../public/feature-2.svg";
-import feature_3 from "../../public/feature-3.svg";
-import feature_4 from "../../public/feature-4.svg";
-import feature_5 from "../../public/feature-5.svg";
-import feature_6 from "../../public/feature-6.svg";
-import feature_7 from "../../public/feature-7.svg";
-import feature_8 from "../../public/feature-8.svg";
+import feature_1 from "@/base/feature-1.svg";
+import feature_2 from "@/base/feature-2.svg";
+import feature_3 from "@/base/feature-3.svg";
+import feature_4 from "@/base/feature-4.svg";
+import feature_5 from "@/base/feature-5.svg";
+import feature_6 from "@/base/feature-6.svg";
+import feature_7 from "@/base/feature-7.svg";
+import feature_8 from "@/base/feature-8.svg";
 
 export default function Features() {
   return (

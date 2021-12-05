@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { BsCheckCircle } from "react-icons/bs";
 import { VscClose } from "react-icons/vsc";
-import useToggle from "../../hooks/useToggle";
+import useToggle from "@/hooks/useToggle";
 
 export default function ProductAddedModal() {
   

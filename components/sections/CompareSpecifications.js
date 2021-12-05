@@ -2,7 +2,7 @@
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import segwayPlaceholder from "../../public/segway-placeholder.png";
+import segwayPlaceholder from "@/base/segway-placeholder.png";
 import { FcPrevious, FcNext } from "react-icons/fc";
 import {
   MdSpeed,

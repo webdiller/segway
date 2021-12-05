@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import MiddleNavigation from '../sections/MiddleNavigation';
-import TopNavigation from '../sections/TopNavigation';
+import MiddleNavigation from '@/sections/MiddleNavigation';
+import TopNavigation from '@/sections/TopNavigation';
 
 /** Кастомный head для страницы с СЕО */
 export default function CustomHead({
