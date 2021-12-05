@@ -6,14 +6,6 @@ import TopSwiper from "@/sections/TopSwiper";
 import SegwayProtect from "@/sections/SegwayProtect";
 import Welcome from "@/sections/Welcome";
 import Tabs from "@/sections/Tabs";
-import {
-  smallScooters,
-  adultSegways,
-  kickscooterMax,
-  accessoeries,
-  otherModels,
-} from "@/base/data";
-
 import FixedModal from "@/modals/FixedModal";
 
 const AccessoriesDinamic = dynamic(() => import('@/sections/Accessories'),{ loading: () => <p>AccessoriesDinamic...</p> })
@@ -32,6 +24,14 @@ const EasyOneCordDinamic = dynamic(() => import('@/sections/EasyOneCord'),{ load
 const RidingModesDinamic = dynamic(() => import('@/sections/RidingModes'),{ loading: () => <p>RidingModes...</p> })
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'),{ loading: () => <p>ControllFromSmartphone...</p> })
 const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'),{ loading: () => <p>SegwayNinebot...</p> })
+
+import {
+  smallScooters,
+  adultSegways,
+  kickscooterMax,
+  accessoeries,
+  otherModels,
+} from "@/base/data";
 
 export default function Home({
   smallScootersData,
