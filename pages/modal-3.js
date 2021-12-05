@@ -1,5 +1,5 @@
 import DefaultLayout from "@/basic/DefaultLayout";
-import RemainTimeModal from "@/modals/RemainTimeModal/RemainTimeModal";
+import RemainTimeModal from "@/modals/RemainTimeModal";
 
 export default function Home() {
   return (

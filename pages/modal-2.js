@@ -1,5 +1,5 @@
 import DefaultLayout from "@/basic/DefaultLayout";
-import DiscountModal from "@/modals/DiscountModal/DiscountModal";
+import DiscountModal from "@/modals/DiscountModal";
 
 export default function Home() {
   return (

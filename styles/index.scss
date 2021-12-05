@@ -10,8 +10,6 @@
 @import './components/top-stock';
 @import './components/welcome';
 @import './components/tabs';
-@import './components/form-with-warrancy';
-@import './components/payments-methods';
 @import './components/kick-scooter-overview';
 @import './components/features';
 @import './components/smart-battery';
@@ -21,7 +19,6 @@
 @import './components/download-manual';
 @import './components/reviews';
 @import './components/segway-protect';
-@import './components/segway-protect-mobile';
 @import './components/accessories';
 @import './components/compare-specifications';
 @import './components/packing-list';
@@ -33,9 +30,13 @@
 @import './components/segway-ninebot';
 @import './components/footer';
 
+@import '@/blocks/FormWithWarrancy';
+@import '@/blocks/PaymentsMethods';
+@import '@/blocks/SegwayProtectMobile';
+
 /** MODALS */
-@import '@/modals/FixedModal/FixedModal';
-@import '@/modals/DidntFindModal/DidntFindModal';
-@import '@/modals/DiscountModal/DiscountModal';
-@import '@/modals/ProductAddedModal/ProductAddedModal';
-@import '@/modals/RemainTimeModal/RemainTimeModal';
+@import '@/modals/FixedModal';
+@import '@/modals/DidntFindModal';
+@import '@/modals/DiscountModal';
+@import '@/modals/ProductAddedModal';
+@import '@/modals/RemainTimeModal';

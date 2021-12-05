@@ -41,7 +41,7 @@ export default function TopNavigation() {
           </Link>
         </nav>
 
-        <Link href="#">
+        <Link href="/">
           <a className="top-nav__logo-link">
             <Image
               className="top-nav__logo-img"

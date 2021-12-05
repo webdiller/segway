@@ -1,26 +1,11 @@
+import dynamic from 'next/dynamic';
 import { useEffect } from "react";
 import DefaultLayout from "@/basic/DefaultLayout";
-import Features from "@/sections/Features";
-import KickScooterOverview from "@/sections/KickScooterOverview";
 import TopStock from "@/sections/TopStock";
-import SmartBattery from "@/sections/SmartBattery";
-import DualBraking from "@/sections/DualBraking";
-import BuildInFront from "@/sections/BuildInFront";
-import OneStep from "@/sections/OneStep";
-import DownloadManual from "@/sections/DownloadManual";
 import TopSwiper from "@/sections/TopSwiper";
 import SegwayProtect from "@/sections/SegwayProtect";
-import Accessories from "@/sections/Accessories";
-import CompareSpecifications from "@/sections/CompareSpecifications";
-import PackingList from "@/sections/PackingList";
-import OtherModels from "@/sections/OtherModels";
-import Regenerative from "@/sections/Regenerative";
-import EasyOneCord from "@/sections/EasyOneCord";
-import RidingModes from "@/sections/RidingModes";
-import ControllFromSmartphone from "@/sections/ControllFromSmartphone";
 import Welcome from "@/sections/Welcome";
 import Tabs from "@/sections/Tabs";
-import SegwayNinebot from "@/sections/SegwayNinebot";
 import {
   smallScooters,
   adultSegways,
@@ -29,7 +14,24 @@ import {
   otherModels,
 } from "@/base/data";
 
-import FixedModal from "@/modals/FixedModal/FixedModal";
+import FixedModal from "@/modals/FixedModal";
+
+const AccessoriesDinamic = dynamic(() => import('@/sections/Accessories'),{ loading: () => <p>AccessoriesDinamic...</p> })
+const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'),{ loading: () => <p>CompareSpecifications...</p> })
+const PackingListDinamic = dynamic(() => import('@/sections/PackingList'),{ loading: () => <p>PackingList...</p> })
+const FeaturesDinamic = dynamic(() => import('@/sections/Features'),{ loading: () => <p>Features...</p> })
+const BuildInFrontDinamic = dynamic(() => import('@/sections/BuildInFront'),{ loading: () => <p>BuildInFront...</p> })
+const OneStepDinamic = dynamic(() => import('@/sections/OneStep'),{ loading: () => <p>OneStep...</p> })
+const KickScooterOverviewDinamic = dynamic(() => import('@/sections/KickScooterOverview'),{ loading: () => <p>KickScooterOverview...</p> })
+const SmartBatteryDinamic = dynamic(() => import('@/sections/SmartBattery'),{ loading: () => <p>SmartBattery...</p> })
+const DualBrakingDinamic = dynamic(() => import('@/sections/DualBraking'),{ loading: () => <p>DualBraking...</p> })
+const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'),{ loading: () => <p>DownloadManual...</p> })
+const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'),{ loading: () => <p>OtherModels...</p> })
+const RegenerativeDinamic = dynamic(() => import('@/sections/Regenerative'),{ loading: () => <p>Regenerative...</p> })
+const EasyOneCordDinamic = dynamic(() => import('@/sections/EasyOneCord'),{ loading: () => <p>EasyOneCord...</p> })
+const RidingModesDinamic = dynamic(() => import('@/sections/RidingModes'),{ loading: () => <p>RidingModes...</p> })
+const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'),{ loading: () => <p>ControllFromSmartphone...</p> })
+const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'),{ loading: () => <p>SegwayNinebot...</p> })
 
 export default function Home({
   smallScootersData,
@@ -51,26 +53,26 @@ export default function Home({
         <TopStock />
         <Welcome />
         <Tabs />
-        <PackingList />
-        <Accessories accessoeriesData={accessoeriesData} />
-        <Features />
-        <KickScooterOverview />
-        <SmartBattery />
-        <DualBraking />
-        <BuildInFront />
-        <OneStep />
-        <Regenerative />
-        <EasyOneCord />
-        <RidingModes />
-        <DownloadManual />
-        <CompareSpecifications
+        <PackingListDinamic />
+        <AccessoriesDinamic accessoeriesData={accessoeriesData} />
+        <FeaturesDinamic />
+        <KickScooterOverviewDinamic />
+        <SmartBatteryDinamic />
+        <DualBrakingDinamic />
+        <BuildInFrontDinamic />
+        <OneStepDinamic />
+        <RegenerativeDinamic />
+        <EasyOneCordDinamic />
+        <RidingModesDinamic />
+        <DownloadManualDinamic />
+        <CompareSpecificationsDinamic
           allSegwaysData={allSegwaysData}
           kickscooterMaxData={kickscooterMaxData}
         />
         <SegwayProtect />
-        <ControllFromSmartphone />
-        <SegwayNinebot />
-        <OtherModels otherModelsData={otherModelsData} />
+        <ControllFromSmartphoneDinamic />
+        <SegwayNinebotDinamic />
+        <OtherModelsDinamic otherModelsData={otherModelsData} />
 
         {/* MODALS */}
         <FixedModal />

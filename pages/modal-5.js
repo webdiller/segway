@@ -1,5 +1,5 @@
 import DefaultLayout from "@/basic/DefaultLayout";
-import ProductAddedModal from "@/modals/ProductAddedModal/ProductAddedModal";
+import ProductAddedModal from "@/modals/ProductAddedModal";
 
 export default function Home() {
   return (

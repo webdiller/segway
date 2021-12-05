@@ -1,5 +1,5 @@
 import DefaultLayout from "@/basic/DefaultLayout";
-import DidntFindModal from "@/modals/DidntFindModal/DidntFindModal";
+import DidntFindModal from "@/modals/DidntFindModal";
 
 export default function Home() {
   return (
