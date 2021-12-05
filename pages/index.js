@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic';
 import {useEffect} from 'react';
 import DefaultLayout from '@/basic/DefaultLayout';
-import TopStock from '@/sections/TopStock';
-import TopSwiper from '@/sections/TopSwiper';
-import SegwayProtect from '@/sections/SegwayProtect';
-import Welcome from '@/sections/Welcome';
 
+const TopStockDinamic = dynamic(() => import('@/sections/TopStock'), {loading: () => <p>TopStockDinamic...</p>});
+const TopSwiperDinamic = dynamic(() => import('@/sections/TopSwiper'), {loading: () => <p>TopSwiperDinamic...</p>});
+const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'), {loading: () => <p>SegwayProtectDinamic...</p>});
+const WelcomeDinamic = dynamic(() => import('@/sections/Welcome'), {loading: () => <p>WelcomeDinamic...</p>});
 const TabsDinamic = dynamic(() => import('@/sections/Tabs'), {loading: () => <p>TabsDinamic...</p>});
 const AccessoriesDinamic = dynamic(() => import('@/sections/Accessories'), {loading: () => <p>AccessoriesDinamic...</p>});
 const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), {loading: () => <p>CompareSpecifications...</p>});
@@ -37,9 +37,9 @@ export default function Home({smallScootersData, allSegwaysData, kickscooterMaxD
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
-        <TopSwiper smallScootersData={smallScootersData} />
-        <TopStock />
-        <Welcome />
+        <TopSwiperDinamic smallScootersData={smallScootersData} />
+        <TopStockDinamic />
+        <WelcomeDinamic />
         <TabsDinamic />
         <PackingListDinamic />
         <AccessoriesDinamic accessoeriesData={accessoeriesData} />
@@ -54,7 +54,7 @@ export default function Home({smallScootersData, allSegwaysData, kickscooterMaxD
         <RidingModesDinamic />
         <DownloadManualDinamic />
         <CompareSpecificationsDinamic allSegwaysData={allSegwaysData} kickscooterMaxData={kickscooterMaxData} />
-        <SegwayProtect />
+        <SegwayProtectDinamic />
         <ControllFromSmartphoneDinamic />
         <SegwayNinebotDinamic />
         <OtherModelsDinamic otherModelsData={otherModelsData} />
