@@ -26,7 +26,7 @@ export default function RemainTimeModalTimer() {
           />
           <img
             className="remain-time-modal__close-btn-icon remain-time-modal__close-btn-icon_mobile"
-            src="./icon-close.svg"
+            src="./icon-close-black.svg"
             alt="icon-close"
             width="34"
             height="34"

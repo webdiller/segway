@@ -37,12 +37,13 @@ export default function DidntFindModal({ isWhiteMode = true }) {
           
           <img
             className="didnt-find-modal__close-btn-icon didnt-find-modal__close-btn-icon_mobile"
-            src={whiteModeState ? "./icon-close.svg" : "./icon-close-grey.svg"}
+            src={whiteModeState ? "./icon-close-black.svg" : "./icon-close-grey.svg"}
             alt="icon-close"
             width="34"
             height="34"
             loading="lazy"
           />
+          
         </button>
         <div className="didnt-find-modal__bg-wrapper">
           {/* TODO: Выгрузить картинку из макета и поменять путь до картинки */}

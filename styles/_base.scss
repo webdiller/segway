@@ -166,6 +166,23 @@ img {
   }
 }
 
+.bold {
+  font-size: 700;
+}
+
+.accent-color {
+  color: #009eff;
+}
+
+.accent-background {
+  background-color: #009eff;
+}
+
+.super-accent {
+  font-weight: 700;
+  color: #009eff;
+}
+
 .ui-btn {
   position: relative;
   display: inline-flex;

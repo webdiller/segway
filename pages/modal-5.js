@@ -1,11 +1,11 @@
 import DefaultLayout from "@/basic/DefaultLayout";
-import ProductAddedModal from "@/modals/ProductAddedModal";
+import { RemainTimeModalWithoutTimer } from "@/modals/RemainTimeModal";
 
 export default function Home() {
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
-        <ProductAddedModal />
+        <RemainTimeModalWithoutTimer />
       </DefaultLayout>
     </div>
   );

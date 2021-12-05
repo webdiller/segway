@@ -209,10 +209,34 @@
       width: 272px;
     }
   }
-  &_timer {
+  &_without-timer {
+    .remain-time-modal__wrapper {
+      @include media("<=768px") {
+        display: block;
+      }
+    }
     .remain-time-modal__bg-wrapper {
       margin-top: 51px;
       margin-bottom: 48px;
+      @include media("<=768px") {
+        margin-top: 56px;
+        margin-bottom: 23px;
+      }
+    }
+    .remain-time-modal__title {
+      @include media("<=768px") {
+        margin-bottom: 17px;
+      }
+    }
+    .remain-time-modal__description {
+      margin-bottom: 0;
+    }
+    .remain-time-modal__content {
+      padding-bottom: 76px;
+      @include media("<=768px") {
+        margin-top: 0;
+        padding-bottom: 50px;
+      }
     }
   }
 }

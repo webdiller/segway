@@ -1,11 +1,11 @@
 import DefaultLayout from "@/basic/DefaultLayout";
-import DiscountModal from "@/modals/DiscountModal";
+import DidntFindModal from "@/modals/DidntFindModal";
 
 export default function Home() {
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
-        <DiscountModal />
+        <DidntFindModal isWhiteMode={false} />
       </DefaultLayout>
     </div>
   );

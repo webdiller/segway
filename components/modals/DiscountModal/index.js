@@ -21,7 +21,7 @@ export default function DiscountModal() {
           />
           <img
             className="discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile"
-            src="./icon-close.svg"
+            src="./icon-close-black.svg"
             alt="icon-close"
             width="34"
             height="34"
