@@ -54,6 +54,7 @@
     width: 67px;
     height: 67px;
     background-color: #009eff;
+    z-index: 10;
     @include media("<=768px") {
       top: 19px;
       right: 19px;
