@@ -11,11 +11,14 @@
   "dependencies": {
     "@next/bundle-analyzer": "^12.0.7",
     "cross-env": "^7.0.3",
+    "inputmask": "^5.0.6",
     "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-easy-swipe": "0.0.22",
     "react-icons": "^4.3.1",
+    "react-input-mask": "^2.0.4",
+    "react-modal": "^3.14.4",
     "sass": "^1.43.4",
     "sharp": "^0.29.3",
     "swiper": "^7.2.0"

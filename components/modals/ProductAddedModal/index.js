@@ -1,20 +1,41 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
+import {useRouter} from 'next/dist/client/router';
 import {BsCheckCircle} from 'react-icons/bs';
 import {VscClose} from 'react-icons/vsc';
 import useToggle from '@/hooks/useToggle';
 import useMultipleToggle from '@/hooks/useMultipleToggle';
+import iconClose from '@/base/icon-close-white.svg';
+import {useEffect} from 'react';
 
-export default function ProductAddedModal({name = 'Ninebot kickscooter max', prices = {main: 949, oneYear: 139, twoYear: 209, threeYear: 279}, warrancyPrice = 279}={}) {
+export default function ProductAddedModal({name = 'Ninebot kickscooter max', prices = {main: 949, oneYear: 139, twoYear: 209, threeYear: 279}, warrancyPrice = 279} = {}) {
   const {active: activeModal, setActiveHandler: setActiveModal} = useToggle(true);
   const {active: activeAlert, setActiveHandler: setActiveAlert} = useToggle(true);
-  const {tabs: {tab1, tab2, tab3},setTabsHandler } = useMultipleToggle({tab1: false, tab2: false, tab3: false});
+  const {
+    tabs: {tab1, tab2, tab3},
+    setTabsHandler
+  } = useMultipleToggle({tab1: false, tab2: false, tab3: false});
+  const router = useRouter();
+  const {productId} = router.query;
+
+  useEffect(() => {
+    const scrollFoo = (e) => {
+      e.preventDefault();
+    };
+    document.addEventListener('touchmove', scrollFoo);
+    return () => document.removeEventListener('touchmove', scrollFoo);
+  }, []);
 
   return (
     <div className={activeModal ? 'product-added-modal active' : 'product-added-modal'}>
       <div className="product-added-modal__wrapper">
         <button onClick={setActiveModal} className="product-added-modal__close-btn">
-          <img className="product-added-modal__close-btn-icon" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+          <div className="product-added-modal__close-btn-icon">
+            <Image className="top-nav__logo-img" src={iconClose} alt="icon close" />
+          </div>
         </button>
+
+        <p className="product-added-modal__content-name product-added-modal__content-name_mobile">{name}</p>
 
         <div className={activeAlert ? 'product-added-modal__top active' : 'product-added-modal__top'}>
           <BsCheckCircle className="product-added-modal__top-icon-check" />
@@ -23,10 +44,10 @@ export default function ProductAddedModal({name = 'Ninebot kickscooter max', pri
         </div>
 
         <div className="product-added-modal__img-with-content">
-          <img className="product-added-modal__img" src="./example-item-1.png" alt="Lorem ipsum dolor sit amet." loading="lazy" />
+          <img className="product-added-modal__img" src="../example-item-1.png" alt="Lorem ipsum dolor sit amet." loading="lazy" />
 
           <div className="product-added-modal__content">
-            <p className="product-added-modal__content-name">{name}</p>
+            <p className="product-added-modal__content-name product-added-modal__content-name_desktop">{name}</p>
 
             <p className="product-added-modal__content-description">
               Add an extended warranty from Extend <b>Extend</b>
@@ -49,13 +70,29 @@ export default function ProductAddedModal({name = 'Ninebot kickscooter max', pri
 
             <div className="product-added-modal__total">
               <p className="product-added-modal__total-item">
-                {tab1 ? (<>1 x <b>$1088</b></>) : tab2 ? (<>2 x <b>$1158</b></>) : tab3 ? (<>3 x <b>$1228</b></>) : (<>1 x <b>$949</b></>)}
+                {tab1 ? (
+                  <>
+                    1 x <b>$1088</b>
+                  </>
+                ) : tab2 ? (
+                  <>
+                    2 x <b>$1158</b>
+                  </>
+                ) : tab3 ? (
+                  <>
+                    3 x <b>$1228</b>
+                  </>
+                ) : (
+                  <>
+                    1 x <b>$949</b>
+                  </>
+                )}
               </p>
               <p className="product-added-modal__total-item">
                 extended warranty x <b>$279.00</b>
               </p>
               <p className="product-added-modal__total-item">
-                Total item: <b className="super-accent">{tab1 ? (<>$1367</>) : tab2 ? (<>$1437</>) : tab3 ? (<>$1507</>) : (<>$1228</>)}</b>
+                Total item: <b className="super-accent">{tab1 ? <>$1367</> : tab2 ? <>$1437</> : tab3 ? <>$1507</> : <>$1228</>}</b>
               </p>
             </div>
           </div>

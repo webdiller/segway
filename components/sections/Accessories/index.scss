@@ -152,6 +152,7 @@
 
   &__name {
     margin-bottom: 15px;
+    white-space: pre-line;
     @include media("<=768px") {
       margin-bottom: 8px;
       text-align: center;

@@ -15,12 +15,12 @@
   z-index: -1;
   opacity: 0;
   visibility: hidden;
-  @include media("<=768px") {
+  @include media('<=768px') {
     transform: unset;
     top: 0;
     right: 0;
     align-items: flex-start;
-    padding: 51px 15px 90px 15px;
+    padding: 15px;
     overflow-y: scroll;
   }
   &.active {
@@ -36,7 +36,9 @@
     background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
     border: 10px solid #009eff;
     transition: all 0.3s ease;
-    @include media("<=768px") {
+    @include media('<=768px') {
+      display: flex;
+      flex-direction: column;
       padding: 11px;
       border-width: 5px;
     }
@@ -53,9 +55,15 @@
     width: 67px;
     height: 67px;
     background-color: #009eff;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: none;
     }
+  }
+
+  &__close-btn-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__top {
@@ -81,7 +89,8 @@
       visibility: visible;
       z-index: 2;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
+      order: 1;
       margin-bottom: 10px;
     }
   }
@@ -90,7 +99,7 @@
     color: #6acd68;
     font-size: 23px;
     margin-right: 9px;
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
@@ -99,7 +108,7 @@
     margin-left: auto;
     font-size: 20px;
     color: rgba(0, 0, 0, 0.2);
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: none;
     }
   }
@@ -109,7 +118,8 @@
     grid-template-columns: 1fr 1fr;
     margin-bottom: 10px;
     column-gap: 20px;
-    @include media("<=768px") {
+    @include media('<=768px') {
+      order: 3;
       display: block;
       margin-bottom: 19px;
     }
@@ -121,14 +131,14 @@
     &::selection {
       background-color: transparent;
     }
-    @include media("<=768px") {
-      max-height: 231px;
+    @include media('<=768px') {
+      max-height: 150px;
       margin: 0 auto 10px auto;
     }
   }
 
   &__content {
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
@@ -141,10 +151,23 @@
     align-items: center;
     text-transform: uppercase;
     color: #323941;
-    @include media("<=768px") {
+    @include media('<=768px') {
+      order: 2;
       text-align: center;
-      max-width: 280px;
+      max-width: 350px;
+      font-size: 30px;
+      margin-bottom: 15px;
       margin: 0 auto 18px auto;
+    }
+    &_desktop {
+      @include media('<=768px') {
+        display: none;
+      }
+    }
+    &_mobile {
+      @include media('<=768px') {
+        display: block;
+      }
     }
   }
 
@@ -156,10 +179,10 @@
     b {
       font-weight: 700;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin: 0 auto 8px auto;
       text-align: center;
-      max-width: 280px;
+      font-size: 15px;  
     }
   }
 
@@ -168,7 +191,7 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 8px;
     margin-bottom: 36px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       column-gap: 4px;
       max-width: 310px;
       margin: 0 auto 26px auto;
@@ -195,7 +218,7 @@
         color: #fff;
       }
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       height: 55px;
     }
   }
@@ -206,7 +229,7 @@
     align-items: center;
     text-align: center;
     color: #323941;
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 18px;
     }
   }
@@ -215,13 +238,13 @@
     font-weight: bold;
     font-size: 13px;
     color: #009eff;
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 18px;
     }
   }
 
   &__total {
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 18px;
       text-align: center;
     }
@@ -237,7 +260,7 @@
     b {
       font-weight: 700;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
@@ -245,16 +268,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
-    @include media("<=768px") {
+    @include media('<=768px') {
+      order: 4;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       grid-template-columns: 1fr;
       gap: 9px 0;
     }
   }
 
   &__action {
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 18px;
     }
   }
