@@ -1,17 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Swipe from 'react-easy-swipe';
+import noScroll from 'no-scroll';
 
 export default function DiscountModal() {
   const [activeModal, setActiveModal] = useState(true);
-  const setActiveModalHandler = () => setActiveModal((prev) => !prev);
+  const setActiveModalHandler = () => {
+    setActiveModal((prev) => !prev)
+    noScroll.toggle();
+  };
+
   const onSwipeUp = () => {
     setActiveModal(false);
+    noScroll.off();
   };
 
   const onSwipeDown = () => {
     setActiveModal(false);
-  };
+    noScroll.off();
+  };  
+
+  useEffect(() => {
+    noScroll.on();
+  }, [])
+
   return (
     <div className={activeModal ? 'discount-modal active' : 'discount-modal'}>
       <div className="discount-modal__wrapper">

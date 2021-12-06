@@ -1,22 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
 import bgImageDark from '@/base/didnt-find-img-dark.png';
 import UiInput from '@/ui/UiInput';
 import Swipe from 'react-easy-swipe';
+import noScroll from 'no-scroll';
 
 export default function DidntFindModal({isWhiteMode = true}) {
   const [activeModal, setActiveModal] = useState(true);
   const [whiteModeState, setWhiteModeState] = useState(isWhiteMode);
-  const setActiveModalHandler = () => setActiveModal((prev) => !prev);
+  const setActiveModalHandler = () => {
+    setActiveModal((prev) => !prev)
+    noScroll.toggle();
+  };
 
   const onSwipeUp = () => {
     setActiveModal(false);
+    noScroll.off();
   };
 
   const onSwipeDown = () => {
     setActiveModal(false);
+    noScroll.off();
   };
+  
+  useEffect(() => {
+    noScroll.on();
+  }, [])
 
   return (
     <div className={activeModal && !whiteModeState ? 'didnt-find-modal active' : activeModal && whiteModeState ? 'didnt-find-modal didnt-find-modal_white-mode active' : !activeModal && whiteModeState ? 'didnt-find-modal didnt-find-modal_white-mode' : 'didnt-find-modal'}>

@@ -3,6 +3,7 @@
   &__container {
     @include media("<=768px") {
       overflow: hidden;
+      max-height: 105px;
     }
   }
 

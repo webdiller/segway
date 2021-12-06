@@ -1,19 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
 import bgImage from '@/base/remain-time-modal-img.png';
 import Swipe from 'react-easy-swipe';
+import noScroll from 'no-scroll';
 
 export default function RemainTimeModal() {
   const [activeModal, setActiveModal] = useState(true);
-  const setActiveModalHandler = () => setActiveModal((prev) => !prev);
+  const setActiveModalHandler = () => {
+    setActiveModal((prev) => !prev);
+    noScroll.toggle();
+  };
+
   const onSwipeUp = () => {
     setActiveModal(false);
+    noScroll.off();
   };
 
   const onSwipeDown = () => {
     setActiveModal(false);
+    noScroll.off();
   };
+
+  useEffect(() => {
+    noScroll.on();
+  }, []);
+
   return (
     <div className={activeModal ? 'remain-time-modal remain-time-modal_without-timer active' : 'remain-time-modal remain-time-modal_without-timer'}>
       <div className="remain-time-modal__wrapper">

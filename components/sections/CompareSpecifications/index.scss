@@ -2,11 +2,11 @@
   &__container {
     margin-top: 90px;
     margin-bottom: 120px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-top: 50px;
       margin-bottom: 40px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 0;
       padding-right: 0;
     }
@@ -15,7 +15,7 @@
   &__title {
     margin-bottom: 18px;
     text-align: center;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 9px;
     }
   }
@@ -23,12 +23,12 @@
   &__text {
     text-align: center;
     margin-bottom: 75px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       font-size: 15px;
       line-height: 18px;
       margin-bottom: 45px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-weight: 300;
     }
   }
@@ -37,42 +37,34 @@
     position: relative;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100px;
       height: 90%;
-      background: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0.8)
-      );
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
       z-index: 10;
-      @include media("<=576px") {
+      @include media('<=576px') {
         display: none;
       }
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       right: 0;
       width: 100px;
       height: 90%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0.8)
-      );
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
       z-index: 10;
-      @include media("<=576px") {
+      @include media('<=576px') {
         width: 50px;
       }
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: flex;
     }
   }
@@ -82,13 +74,13 @@
 
   &__second-slide {
     display: none;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: block;
     }
   }
 
   &__swiper {
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: none;
     }
   }
@@ -109,13 +101,13 @@
     display: block;
     margin-bottom: 15px;
     width: 168px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 10px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
       width: 120px;
       margin-left: auto;
       margin-right: auto;
@@ -131,14 +123,14 @@
     margin-bottom: 30px;
     text-align: left;
     white-space: nowrap;
-    @include media("<=991px") {
+    @include media('<=991px') {
       text-align: left;
       margin-bottom: 15px;
       padding-left: 0;
       font-size: 18px;
       line-height: 23px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       padding-left: 15px;
       padding-right: 15px;
       height: 46px;
@@ -148,7 +140,7 @@
 
   &__items {
     margin-bottom: 60px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 0;
       margin-bottom: 25px;
     }
@@ -157,19 +149,19 @@
   &__item {
     &:not(:last-child) {
       margin-bottom: 20px;
-      @include media("<=768px") {
+      @include media('<=768px') {
         margin-bottom: 0;
       }
     }
     &:nth-child(odd) {
-      @include media("<=768px") {
+      @include media('<=768px') {
         background-color: #f5f5f5;
       }
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-top: 14px;
       padding-bottom: 14px;
       padding-left: 15px;
@@ -192,35 +184,35 @@
       background-color: transparent;
     }
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: -15px;
       width: calc(100% + 15px);
       height: 1px;
       background-color: #ececec;
-      @include media("<=768px") {
+      @include media('<=768px') {
         display: none;
       }
     }
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       font-size: 16px;
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
       padding-bottom: 16px;
       font-size: 16px;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       font-size: 14px;
       padding-bottom: 5px;
     }
-    @include media("<=420px") {
+    @include media('<=420px') {
       font-size: 12px;
     }
   }
@@ -229,13 +221,13 @@
     font-size: 18px;
     color: #009eff;
     margin-right: 8px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
       display: none;
     }
   }
@@ -247,23 +239,23 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       font-size: 16px;
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
       padding-top: 0;
       font-size: 14px;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       font-size: 14px;
     }
-    @include media("<=420px") {
+    @include media('<=420px') {
       font-size: 12px;
     }
   }
@@ -271,11 +263,11 @@
   &__price {
     text-align: left;
     margin: 0 0 15px 65px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       font-size: 20px;
       line-height: 23px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       text-align: left;
       margin-right: 0;
       margin-left: 15px;
@@ -289,12 +281,12 @@
     margin: 0 auto 0 20px;
     font-size: 18px;
     font-weight: bold;
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 16px;
       white-space: nowrap;
       margin: 0 auto 0 15px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       max-width: 160px;
     }
   }
@@ -314,15 +306,15 @@
     z-index: 20;
     height: 0;
 
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       width: 105%;
     }
 
-    @include media("<=1000px") {
+    @include media('<=1000px') {
       width: 100%;
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: none;
     }
   }
@@ -352,7 +344,7 @@
     &_next {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
       width: 40px;
       height: 40px;
     }
@@ -361,7 +353,7 @@
   &__icon {
     font-size: 40px;
     color: #009eff;
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 22px;
     }
   }
@@ -379,7 +371,7 @@
   height: 100%;
   z-index: 100;
 
-  @include media("<=768px") {
+  @include media('<=768px') {
     position: static;
     flex: 1;
   }
@@ -392,11 +384,11 @@
     display: block;
     margin-bottom: 15px;
     width: 168px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 10px;
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin-left: auto;
       margin-right: auto;
       width: 116px;
@@ -435,14 +427,14 @@
     margin-bottom: 30px;
     text-align: left;
     white-space: nowrap;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 15px;
       padding-left: 0;
       font-size: 18px;
       line-height: 23px;
       text-align: left;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 15px;
       padding-right: 15px;
       height: 46px;
@@ -456,7 +448,7 @@
   &__items {
     margin-bottom: 60px;
     padding-left: 15px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 0;
       margin-bottom: 25px;
     }
@@ -465,17 +457,17 @@
   &__item {
     &:not(:last-child) {
       margin-bottom: 20px;
-      @include media("<=768px") {
+      @include media('<=768px') {
         margin-bottom: 0;
       }
     }
     &:nth-child(odd) {
-      @include media("<=768px") {
+      @include media('<=768px') {
         background-color: #f5f5f5;
       }
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-top: 14px;
       padding-bottom: 14px;
       padding-left: 15px;
@@ -494,35 +486,35 @@
     overflow: hidden;
     white-space: nowrap;
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: -15px;
       width: calc(100% + 15px);
       height: 1px;
       background-color: #ececec;
-      @include media("<=768px") {
+      @include media('<=768px') {
         display: none;
       }
     }
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       font-size: 16px;
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
       padding-bottom: 16px;
       font-size: 16px;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       font-size: 14px;
       padding-bottom: 5px;
     }
-    @include media("<=420px") {
+    @include media('<=420px') {
       font-size: 12px;
     }
   }
@@ -531,13 +523,13 @@
     font-size: 18px;
     color: #009eff;
     margin-right: 8px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
       display: none;
     }
   }
@@ -549,23 +541,23 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       font-size: 16px;
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
 
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
       padding-top: 0;
       font-size: 14px;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       font-size: 14px;
     }
-    @include media("<=420px") {
+    @include media('<=420px') {
       font-size: 12px;
     }
   }
@@ -573,11 +565,11 @@
   &__price {
     text-align: left;
     margin: 0 0 15px 65px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       font-size: 20px;
       line-height: 23px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       text-align: left;
       margin-right: 0;
       margin-left: 15px;
@@ -591,12 +583,12 @@
     margin: 0 auto 0 20px;
     font-size: 18px;
     font-weight: bold;
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 16px;
       white-space: nowrap;
       margin: 0 auto 0 15px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       max-width: 160px;
     }
   }
@@ -611,7 +603,7 @@
       .main-slide__item-value {
         text-align: center;
         padding-right: 15px;
-        @include media("<=420px") {
+        @include media('<=420px') {
           padding-left: 10px;
         }
       }
@@ -645,6 +637,10 @@
     z-index: 10000;
     opacity: 1;
     visibility: visible;
+  }
+
+  @include media('<=576px') {
+    align-items: flex-start;
   }
 
   &__wrapper {
