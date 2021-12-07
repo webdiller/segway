@@ -28,8 +28,8 @@ export default function RemainTimeModal() {
 
   return (
     <div className={activeModal ? 'remain-time-modal remain-time-modal_without-timer active' : 'remain-time-modal remain-time-modal_without-timer'}>
-      <div className="remain-time-modal__wrapper">
-        <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
+      <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
+        <div className="remain-time-modal__wrapper">
           <button onClick={setActiveModalHandler} className="remain-time-modal__close-btn">
             <img className="remain-time-modal__close-btn-icon remain-time-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
             <img className="remain-time-modal__close-btn-icon remain-time-modal__close-btn-icon_mobile" src="./icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" />
@@ -44,8 +44,8 @@ export default function RemainTimeModal() {
           <button className="ui-btn remain-time-modal__btn">
             <span>Order now</span>
           </button>
-        </Swipe>
-      </div>
+        </div>
+      </Swipe>
     </div>
   );
 }

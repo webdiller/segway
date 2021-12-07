@@ -30,12 +30,15 @@
   &__wrapper {
     position: relative;
     width: 100%;
+    min-width: 404px;
     max-width: 404px;
     background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
     border: 10px solid #009eff;
     text-align: center;
     @include media("<=768px") {
       border-width: 5px;
+      min-width: 337px;
+      max-width: 337px;
     }
   }
 
@@ -85,6 +88,7 @@
     color: #009eff;
     @include media("<=768px") {
       margin-top: 24px;
+      line-height: 110%;
     }
   }
 
