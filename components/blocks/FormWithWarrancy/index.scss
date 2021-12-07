@@ -81,11 +81,11 @@
     }
 
     &:focus:not(.active) {
-      background-color: transparent;
-      border: 1px solid #999999;
-      color: #323941;
+      background-color: transparent !important;
+      border: 1px solid #999999 !important;
+      color: #323941 !important;
       .form-with-warrancy__form-button-price {
-        color: #009eff;
+        color: #009eff !important;
       }
     }
 
