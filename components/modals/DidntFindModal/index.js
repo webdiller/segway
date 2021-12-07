@@ -4,7 +4,7 @@ import Image from 'next/image';
 import bgImageDark from '@/base/didnt-find-img-dark.png';
 import UiInput from '@/ui/UiInput';
 import noScroll from 'no-scroll';
-import TinderCard from 'react-tinder-card';
+import Swipe from 'react-easy-swipe';
 
 export default function DidntFindModal({isWhiteMode = true}) {
   const [activeModal, setActiveModal] = useState(true);
@@ -15,15 +15,15 @@ export default function DidntFindModal({isWhiteMode = true}) {
     noScroll.toggle();
   };
 
-  const onSwipe = (direction) => {
-    console.log('You swiped: ' + direction);
-    setActiveModal((prev) => !prev);
-    noScroll.toggle();
+  const onSwipeUp = () => {
+    setActiveModal(false);
+    noScroll.off();
   };
 
-  const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + ' left the screen');
-  };
+  const onSwipeDown = () => {
+    setActiveModal(false);
+    noScroll.off();
+  };  
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -33,7 +33,7 @@ export default function DidntFindModal({isWhiteMode = true}) {
 
   return (
     <div className={activeModal && !whiteModeState ? 'didnt-find-modal active' : activeModal && whiteModeState ? 'didnt-find-modal didnt-find-modal_white-mode active' : !activeModal && whiteModeState ? 'didnt-find-modal didnt-find-modal_white-mode' : 'didnt-find-modal'}>
-      <TinderCard swipeThreshold={300} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
+      <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
         <div className="didnt-find-modal__wrapper">
           <button onTouchStart={setActiveModalHandler} className="didnt-find-modal__close-btn">
             <img className="didnt-find-modal__close-btn-icon didnt-find-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
@@ -53,7 +53,7 @@ export default function DidntFindModal({isWhiteMode = true}) {
             <span>SEND</span>
           </button>
         </div>
-      </TinderCard>
+      </Swipe>
     </div>
   );
 }
