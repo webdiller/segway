@@ -3,14 +3,14 @@
     padding: 20px;
     background-color: #fff;
     border: 2px solid #dddddd;
-    @include media("<=991px") {
+    @include media('<=991px') {
       border-width: 2px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding: 10px;
       background-color: transparent;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       border-color: #009eff;
       border-width: 5px;
     }
@@ -21,15 +21,15 @@
     line-height: 22px;
     color: #323941;
     pointer-events: none;
-    @include media("<=991px") {
+    @include media('<=991px') {
       span {
         font-weight: 700;
       }
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       text-align: center;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       max-width: 190px;
       margin-left: auto;
       margin-right: auto;
@@ -42,11 +42,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 9px;
     margin-bottom: 20px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
@@ -69,14 +69,23 @@
       color: #fff;
       border-color: #009eff;
       background-color: #009eff;
-      @include media("<=768px") {
+      @include media('<=768px') {
         .form-with-warrancy__form-button-price {
           color: #fff;
         }
       }
     }
 
-    @include media("<=768px") {
+    &:focus:not(.active) {
+      background-color: transparent;
+      border: 1px solid #999999;
+      color: #323941;
+      .form-with-warrancy__form-button-price {
+        color: #009eff;
+      }
+    }
+
+    @include media('<=768px') {
       flex-direction: column;
       min-height: 55px;
       padding-top: 5px;
@@ -88,12 +97,12 @@
 
   &__form-button-separator {
     margin: 0 5px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: none;
     }
   }
   &__form-button-price {
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-weight: 600;
       color: #009eff;
     }
@@ -105,15 +114,15 @@
     justify-content: space-between;
     margin-bottom: 10px;
     pointer-events: none;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 20px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       column-gap: 20px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       display: block;
     }
   }
@@ -121,14 +130,14 @@
   &__form-prices {
     min-width: 97px;
     max-width: 97px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       min-width: 93px;
       max-width: 93px;
       order: 1;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       min-width: auto;
       max-width: none;
 
@@ -145,11 +154,11 @@
     line-height: 22px;
     text-decoration-line: line-through;
     color: #323941;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-weight: 300;
       font-size: 22px;
       line-height: 27px;
@@ -162,11 +171,11 @@
     font-size: 35px;
     line-height: 43px;
     color: #323941;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       font-size: 38px;
       line-height: 46px;
     }
@@ -180,16 +189,16 @@
     align-items: center;
     color: #009eff;
     max-width: 160px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       order: 3;
       min-width: 137px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: block;
       margin: 0 auto;
       text-align: center;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       display: none;
     }
   }
@@ -199,26 +208,26 @@
     width: 120px;
     flex: 0 0 120px;
     height: 87px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       order: 2;
       margin-top: 10px;
       width: 100%;
       flex: 1 1 100%;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin-top: 0;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       display: none;
     }
   }
 
   &__form-img {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
@@ -226,23 +235,23 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 22px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       column-gap: 20px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       column-gap: 8px;
     }
   }
 
   &__form-action {
     text-transform: uppercase;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       padding: 0 5px;
     }
   }

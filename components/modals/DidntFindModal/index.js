@@ -3,38 +3,40 @@ import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
 import bgImageDark from '@/base/didnt-find-img-dark.png';
 import UiInput from '@/ui/UiInput';
-import Swipe from 'react-easy-swipe';
 import noScroll from 'no-scroll';
+import TinderCard from 'react-tinder-card';
 
 export default function DidntFindModal({isWhiteMode = true}) {
   const [activeModal, setActiveModal] = useState(true);
   const [whiteModeState, setWhiteModeState] = useState(isWhiteMode);
+
   const setActiveModalHandler = () => {
-    setActiveModal((prev) => !prev)
+    setActiveModal((prev) => !prev);
     noScroll.toggle();
   };
 
-  const onSwipeUp = () => {
-    setActiveModal(false);
-    noScroll.off();
+  const onSwipe = (direction) => {
+    console.log('You swiped: ' + direction);
+    setActiveModal((prev) => !prev);
+    noScroll.toggle();
   };
 
-  const onSwipeDown = () => {
-    setActiveModal(false);
-    noScroll.off();
+  const onCardLeftScreen = (myIdentifier) => {
+    console.log(myIdentifier + ' left the screen');
   };
-  
+
   useEffect(() => {
-    noScroll.on();
-  }, [])
+    if (typeof window !== 'undefined') {
+      noScroll.on();
+    }
+  }, []);
 
   return (
     <div className={activeModal && !whiteModeState ? 'didnt-find-modal active' : activeModal && whiteModeState ? 'didnt-find-modal didnt-find-modal_white-mode active' : !activeModal && whiteModeState ? 'didnt-find-modal didnt-find-modal_white-mode' : 'didnt-find-modal'}>
-      <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
+      <TinderCard swipeThreshold={300} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
         <div className="didnt-find-modal__wrapper">
-          <button onClick={setActiveModalHandler} className="didnt-find-modal__close-btn">
+          <button onTouchStart={setActiveModalHandler} className="didnt-find-modal__close-btn">
             <img className="didnt-find-modal__close-btn-icon didnt-find-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-
             <img className="didnt-find-modal__close-btn-icon didnt-find-modal__close-btn-icon_mobile" src={whiteModeState ? './icon-close-black.svg' : './icon-close-grey.svg'} alt="icon-close" width="34" height="34" loading="lazy" />
           </button>
           <div className="didnt-find-modal__bg-wrapper">
@@ -51,7 +53,7 @@ export default function DidntFindModal({isWhiteMode = true}) {
             <span>SEND</span>
           </button>
         </div>
-      </Swipe>
+      </TinderCard>
     </div>
   );
 }

@@ -3,11 +3,11 @@
   &__container {
     padding-top: 60px;
     padding-bottom: 80px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       padding-top: 50px;
       padding-bottom: 50px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-right: 0;
       padding-left: 0;
     }
@@ -20,22 +20,19 @@
 
   &__swiper {
     position: relative;
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin-bottom: 0;
       padding-left: 16px;
+      padding-right: 16px;
       &::before {
-        @include media("<=768px") {
-          content: "";
+        @include media('<=768px') {
+          content: '';
           position: absolute;
           top: 0;
           right: 0;
           width: 90px;
           height: 100%;
-          background: linear-gradient(
-            to right,
-            rgba(255, 255, 255, 0),
-            rgba(255, 255, 255, 0.8)
-          );
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
           z-index: 10;
           pointer-events: none;
         }
@@ -55,7 +52,7 @@
     flex: 0 1 33.33%;
     padding: 0 15px 50px 15px;
     height: auto;
-    @include media("<=768px") {
+    @include media('<=768px') {
       flex: 0 0 auto;
       padding: 0;
     }
@@ -63,7 +60,7 @@
 
   .swiper-wrapper {
     flex-wrap: wrap;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: flex;
       flex-wrap: nowrap;
     }
@@ -75,7 +72,7 @@
     height: 5px;
     margin-top: 20px;
     background-color: #ebebeb;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: block;
       overflow-x: hidden;
       border-radius: 10px;
@@ -103,15 +100,15 @@
         transform: scale(0.95);
       }
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 20px;
       padding-right: 20px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       padding-left: 0;
       padding-right: 0;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       align-items: flex-start;
     }
   }
@@ -123,7 +120,7 @@
     margin: 0 auto 20px auto;
     text-align: center;
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       left: 50%;
@@ -133,12 +130,12 @@
       background-color: #eeeeee;
       border-radius: 50%;
       transition: all 0.3s ease;
-      @include media("<=768px") {
+      @include media('<=768px') {
         width: 110px;
         height: 110px;
       }
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       width: 140px;
       height: 140px;
       margin-bottom: 10px;
@@ -153,57 +150,57 @@
   &__name {
     margin-bottom: 15px;
     white-space: pre-line;
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin-bottom: 8px;
       text-align: center;
       font-size: 16px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       font-size: 14px;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       text-align: left;
     }
   }
 
   &__description {
     margin-bottom: 15px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       text-align: center;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       text-align: left;
     }
   }
   &__price {
     margin-bottom: 14px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 17px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       justify-content: space-between;
       width: 100%;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       margin-top: auto;
       margin-bottom: 10px;
     }
     &-key {
       display: none;
       color: #999999;
-      @include media("<=768px") {
+      @include media('<=768px') {
         display: inline-block;
         margin-right: 10px;
       }
-      @include media("<=576px") {
+      @include media('<=576px') {
         margin-right: auto;
       }
     }
     &-value {
-      @include media("<=768px") {
+      @include media('<=768px') {
         font-size: 16px;
       }
     }
@@ -214,7 +211,7 @@
     margin-right: auto;
     max-width: 130px;
     font-size: 13px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       max-width: 150px;
       padding-left: 23px;
       padding-right: 23px;
@@ -222,19 +219,19 @@
       border-color: #009eff;
       color: #fff;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       width: 100%;
       font-size: 16px;
       line-height: 19px;
       font-weight: 400;
     }
-    @include media("<=480px") {
+    @include media('<=480px') {
       margin-top: 0;
     }
   }
   &__bottom {
     text-align: center;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: none;
     }
   }
@@ -243,7 +240,7 @@
     padding-right: 70px;
     font-size: 18px;
     font-weight: 600;
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 }

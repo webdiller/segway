@@ -20,13 +20,10 @@ export default function Accessories({accessoeriesData}) {
           версткой имени. */}
           <Swiper
             modules={[Scrollbar, FreeMode]}
-            slidesPerView={2.2}
-            spaceBetween={20}
+            slidesPerView={2.1}
+            spaceBetween={15}
             loop={false}
-            freeMode={{
-              enabled: true,
-              sticky: true
-            }}
+            freeMode={true}
             scrollbar={{
               el: '.accessories__swiper-scrollbar',
               draggable: true

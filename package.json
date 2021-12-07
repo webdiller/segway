@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.0.7",
+    "@use-gesture/react": "^10.2.2",
     "cross-env": "^7.0.3",
+    "framer-motion": "^5.4.1",
     "inputmask": "^5.0.6",
     "next": "12.0.4",
     "no-scroll": "^2.1.1",
@@ -20,6 +22,7 @@
     "react-icons": "^4.3.1",
     "react-input-mask": "^2.0.4",
     "react-modal": "^3.14.4",
+    "react-tinder-card": "^1.4.5",
     "sass": "^1.43.4",
     "sharp": "^0.29.3",
     "swiper": "^7.2.0"

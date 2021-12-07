@@ -1,4 +1,4 @@
-import { Navigation } from "swiper";
+import { Navigation, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,10 +14,11 @@ export default function TopSwiper({smallScootersData}) {
       <div className="container top-swiper__container">
         <div className="top-swiper__swiper">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, FreeMode]}
             spaceBetween={0}
             slidesPerView={4}
             loop={false}
+            freeMode={true}
             navigation={{
               prevEl: ".top-swiper__nav_prev",
               nextEl: ".top-swiper__nav_next",
