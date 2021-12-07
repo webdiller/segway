@@ -1,15 +1,22 @@
-
-import Link from "next/link";
+import Link from 'next/link';
 import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
+import useAddToCart from '@/hooks/useAddToCart';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import {useState} from 'react';
 
 export default function Accessories({accessoeriesData}) {
+  const {added, setAddedHandler} = useAddToCart();
+  const [activeButton, setActiveButton] = useState();
+  const onClickHandler = (id) => {
+    setAddedHandler;
+    setActiveButton(id);
+  };
   return (
     <div className="accessories">
       <div className="container accessories__container">
@@ -53,7 +60,7 @@ export default function Accessories({accessoeriesData}) {
                         <span>ADD TO CART</span>
                       </button>
                     </Link> */}
-                    <button className="ui-btn accessories__add-cart">
+                    <button onClick={() => onClickHandler(id)} className={(activeButton == id) ? "ui-btn ui-btn_added accessories__add-cart" : "ui-btn accessories__add-cart"}>
                       <span>ADD TO CART</span>
                     </button>
                   </div>

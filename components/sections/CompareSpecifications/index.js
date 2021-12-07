@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import {Navigation} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
@@ -172,9 +173,11 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
               </div>
 
               <p className="text text_25 main-slide__price">$949.99</p>
-              <button className="ui-btn main-slide__buy-btn">
-                <span>BUY IT NOW</span>
-              </button>
+              <Link href={`/order-product?productId=006`}>
+                <a className="ui-btn main-slide__buy-btn">
+                  <span>BUY IT NOW</span>
+                </a>
+              </Link>
             </div>
           </div>
 
@@ -299,9 +302,11 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
               ) : (
                 <>
                   <p className="text text_25 main-slide__price">{selectedModel.price}</p>
-                  <button className="ui-btn main-slide__buy-btn">
-                    <span>BUY IT NOW</span>
-                  </button>
+                  <Link href={`/order-product?productId=${selectedModel.id}`}>
+                    <a className="ui-btn main-slide__buy-btn">
+                      <span>BUY IT NOW</span>
+                    </a>
+                  </Link>
                 </>
               )}
             </div>
@@ -417,9 +422,11 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                 </div>
 
                 <p className="text text_25 compare-specfications__price">{price}</p>
-                <button className="ui-btn compare-specfications__buy-btn">
-                  <span>BUY IT NOW</span>
-                </button>
+                <Link href={`/order-product?productId=${id}`}>
+                  <a className="ui-btn compare-specfications__buy-btn">
+                    <span>BUY IT NOW</span>
+                  </a>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
