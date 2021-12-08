@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer__container">
-        <Link href="#">
+        <Link href="/">
           <a className="footer__logo-link">
             <Image
               className="footer__logo-img"

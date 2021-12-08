@@ -1,14 +1,19 @@
-import { Navigation, FreeMode } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import segwayPlaceholder from "@/base/segway-placeholder.png";
+import {Navigation, FreeMode} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import {useState} from 'react';
+import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
+import segwayPlaceholder from '@/base/segway-placeholder.png';
+import topSwiperAccessory from '@/base/top-swiper-accessory.png';
+
+import 'swiper/css';
+import 'swiper/css/scrollbar';
 
 /** Свайпер в шапке с самокатами */
-export default function TopSwiper({smallScootersData}) {
+export default function TopSwiper({items}) {
   const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div className="top-swiper">
       <div className="container top-swiper__container">
@@ -20,66 +25,63 @@ export default function TopSwiper({smallScootersData}) {
             loop={false}
             freeMode={true}
             navigation={{
-              prevEl: ".top-swiper__nav_prev",
-              nextEl: ".top-swiper__nav_next",
+              prevEl: '.top-swiper__nav_prev',
+              nextEl: '.top-swiper__nav_next'
             }}
             breakpoints={{
               768: {
-                allowTouchMove: false,
-              },
+                allowTouchMove: false
+              }
             }}
             onSlideChange={(el) => {
               setActiveIndex(el.activeIndex);
             }}
-            onInit={(el)=>{
+            onInit={(el) => {
               try {
                 if (window.innerWidth <= 768) {
                   setTimeout(() => {
-                    el.slideNext()
-                  }, 2000)
+                    el.slideNext();
+                  }, 2000);
                 }
-              } catch (error) {
-              }
-            }}
-          >
-            {smallScootersData.map(({ id, name, imgPath, ...props }) => (
-              <SwiperSlide
-                key={id}
-                className={
-                  props?.accent === true
-                    ? "top-swiper__item accent"
-                    : "top-swiper__item"
-                }
-              >
+              } catch (error) {}
+            }}>
+            {items.segways.adultSegways.map(({id, name, shortName, imgPath, ...props}) => (
+              <SwiperSlide key={id} className="top-swiper__item">
                 <Link href="#">
                   <a className="top-swiper__link">
                     <div className="top-swiper__img-wrapper">
-                      <Image
-                        objectFit="contain"
-                        className="top-swiper__img"
-                        src={imgPath}
-                        alt={name}
-                        width={80}
-                        height={80}
-                        layout="responsive"
-                        placeholder="blur"
-                        blurDataURL={segwayPlaceholder}
-                      />
+                      <Image objectFit="contain" className="top-swiper__img" src={imgPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                     </div>
-                    <p className="top-swiper__name">{name}</p>
+                    <p className="top-swiper__name">{shortName}</p>
                   </a>
                 </Link>
               </SwiperSlide>
             ))}
+            {items.segways.kidsSegways.map(({id, name, shortName, imgPath, ...props}) => (
+              <SwiperSlide key={id} className="top-swiper__item">
+                <Link href="#">
+                  <a className="top-swiper__link">
+                    <div className="top-swiper__img-wrapper">
+                      <Image objectFit="contain" className="top-swiper__img" src={imgPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                    </div>
+                    <p className="top-swiper__name">{shortName}</p>
+                  </a>
+                </Link>
+              </SwiperSlide>
+            ))}
+            <SwiperSlide key="99999" className="top-swiper__item">
+              <Link href="#">
+                <a className="top-swiper__link">
+                  <div className="top-swiper__img-wrapper">
+                    <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                  </div>
+                  <p className="top-swiper__name">Accessories</p>
+                </a>
+              </Link>
+            </SwiperSlide>
           </Swiper>
 
-          <div
-            className={
-              activeIndex !== 0
-                ? "top-swiper__navigation"
-                : "top-swiper__navigation disabled"
-            }
-          >
+          <div className={activeIndex !== 0 ? 'top-swiper__navigation' : 'top-swiper__navigation disabled'}>
             <button className="top-swiper__nav top-swiper__nav_prev">
               <BsChevronCompactLeft className="top-swiper__icon" />
             </button>

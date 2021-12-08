@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import {useState} from 'react';
 
-export default function Accessories({accessoeriesData}) {
+export default function Accessories({items}) {
   const {added, setAddedHandler} = useAddToCart();
   const [activeButton, setActiveButton] = useState();
   const onClickHandler = (id) => {
@@ -42,7 +42,7 @@ export default function Accessories({accessoeriesData}) {
                 allowTouchMove: false
               }
             }}>
-            {accessoeriesData.map(({id, name, nameWrap, description, price, imgPath}) => {
+            {items.map(({id, name, nameWrap, description, price, imgPath}) => {
               return (
                 <SwiperSlide key={id} className="swiper-slide accessories__item">
                   <div className="accessories__item-wrapper">

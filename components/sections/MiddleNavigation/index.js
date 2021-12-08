@@ -9,7 +9,7 @@ export default function MiddleNavigation() {
   return (
     <div className="middle-navigation">
       <div className="container middle-navigation__container">
-        <Link href="#">
+        <Link href="/">
           <a className="middle-navigation__logo-link">
             <Image
               className="middle-navigation__logo-img"

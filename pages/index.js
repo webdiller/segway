@@ -2,32 +2,32 @@ import dynamic from 'next/dynamic';
 import {useEffect} from 'react';
 import DefaultLayout from '@/basic/DefaultLayout';
 
-const TopStockDinamic = dynamic(() => import('@/sections/TopStock'));
 const TopSwiperDinamic = dynamic(() => import('@/sections/TopSwiper'));
-const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
+const TopStockDinamic = dynamic(() => import('@/sections/TopStock'));
 const WelcomeDinamic = dynamic(() => import('@/sections/Welcome'));
 const TabsDinamic = dynamic(() => import('@/sections/Tabs'));
-const AccessoriesDinamic = dynamic(() => import('@/sections/Accessories'));
-const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'));
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
+const AccessoriesDinamic = dynamic(() => import('@/sections/Accessories'));
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
-const BuildInFrontDinamic = dynamic(() => import('@/sections/BuildInFront'));
-const OneStepDinamic = dynamic(() => import('@/sections/OneStep'));
 const KickScooterOverviewDinamic = dynamic(() => import('@/sections/KickScooterOverview'));
 const SmartBatteryDinamic = dynamic(() => import('@/sections/SmartBattery'));
 const DualBrakingDinamic = dynamic(() => import('@/sections/DualBraking'));
-const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'));
-const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
+const BuildInFrontDinamic = dynamic(() => import('@/sections/BuildInFront'));
+const OneStepDinamic = dynamic(() => import('@/sections/OneStep'));
 const RegenerativeDinamic = dynamic(() => import('@/sections/Regenerative'));
 const EasyOneCordDinamic = dynamic(() => import('@/sections/EasyOneCord'));
 const RidingModesDinamic = dynamic(() => import('@/sections/RidingModes'));
+const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'));
+const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'));
+const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'));
+const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
 const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'));
 
-import {smallScooters, adultSegways, kickscooterMax, accessoeries, otherModels} from '@/base/data';
+import {data} from '@/base/data';
 
-export default function Home({smallScootersData, allSegwaysData, kickscooterMaxData, accessoeriesData, otherModelsData}) {
+export default function Home({allData}) {
   useEffect(() => {
     console.info('Code author: Eugene Butkov');
     console.info('github: https://github.com/webdiller');
@@ -37,12 +37,12 @@ export default function Home({smallScootersData, allSegwaysData, kickscooterMaxD
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
-        <TopSwiperDinamic smallScootersData={smallScootersData} />
+        <TopSwiperDinamic items={allData} />
         <TopStockDinamic />
         <WelcomeDinamic />
         <TabsDinamic />
         <PackingListDinamic />
-        <AccessoriesDinamic accessoeriesData={accessoeriesData} />
+        <AccessoriesDinamic items={allData.accessoeries} />
         <FeaturesDinamic />
         <KickScooterOverviewDinamic />
         <SmartBatteryDinamic />
@@ -53,13 +53,11 @@ export default function Home({smallScootersData, allSegwaysData, kickscooterMaxD
         <EasyOneCordDinamic />
         <RidingModesDinamic />
         <DownloadManualDinamic />
-        <CompareSpecificationsDinamic allSegwaysData={allSegwaysData} kickscooterMaxData={kickscooterMaxData} />
+        <CompareSpecificationsDinamic items={allData.segways} />
         <SegwayProtectDinamic />
         <ControllFromSmartphoneDinamic />
         <SegwayNinebotDinamic />
-        <OtherModelsDinamic otherModelsData={otherModelsData} />
-
-        {/* MODALS */}
+        <OtherModelsDinamic items={allData.segways.adultSegways} />
         <FixedModalDinamic />
       </DefaultLayout>
     </div>
@@ -69,11 +67,7 @@ export default function Home({smallScootersData, allSegwaysData, kickscooterMaxD
 export async function getStaticProps() {
   return {
     props: {
-      smallScootersData: smallScooters,
-      allSegwaysData: adultSegways,
-      kickscooterMaxData: kickscooterMax,
-      accessoeriesData: accessoeries,
-      otherModelsData: otherModels
+      allData: data
     }
   };
 }

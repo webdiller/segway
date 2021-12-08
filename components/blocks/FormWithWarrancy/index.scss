@@ -80,21 +80,14 @@
       }
     }
 
-    &:focus:not(.active) {
-      background-color: transparent !important;
-      border: 1px solid #999999 !important;
-      color: #323941 !important;
-      .form-with-warrancy__form-button-price {
-        color: #009eff !important;
-      }
-    }
-
-    &:active:not(.active) {
-      color: #fff;
-      border-color: #009eff;
-      background-color: #009eff;
-      .form-with-warrancy__form-button-price {
-        color: #fff;
+    @media (pointer: coarse) {
+      &:hover:not(.active) {
+        color: #323941;
+        border: 1px solid #999999;
+        background-color: transparent;
+        .form-with-warrancy__form-button-price {
+          color: #009eff;
+        }
       }
     }
 

@@ -9,8 +9,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
-export default function OtherModels({otherModelsData}) {
+export default function OtherModels({items}) {
   const swiperRef = useRef(null);
+  const filteredModels = [items[0], items[1], items[2], items[3], items[4], items[5], items[6]]
   return (
     <div className="other-models">
       <div className="container other-models__container">
@@ -59,7 +60,7 @@ export default function OtherModels({otherModelsData}) {
                 }
               } catch (error) {}
             }}>
-            {otherModelsData.map(({id, name, price, imgPath}) => (
+            {filteredModels.map(({id, name, price, imgPath}) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
                 <div className="other-models__item-wrapper">
                   <Link href="#">

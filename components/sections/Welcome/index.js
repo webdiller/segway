@@ -69,8 +69,6 @@ export default function Welcome() {
                       className="welcome__swiper-img"
                       src={exampleItem}
                       alt="welcome swiper"
-                      width={395}
-                      height={685}
                       quality={50}
                       layout="responsive"
                       placeholder="blur"
@@ -85,10 +83,10 @@ export default function Welcome() {
                       className="welcome__swiper-img"
                       src={exampleItem}
                       alt="welcome swiper"
-                      width={395}
-                      height={685}
                       quality={50}
                       layout="responsive"
+                      placeholder="blur"
+                      blurDataURL={segwayPlaceholder}
                     />
                   </div>
                 </SwiperSlide>
@@ -99,24 +97,10 @@ export default function Welcome() {
                       className="welcome__swiper-img"
                       src={exampleItem}
                       alt="welcome swiper"
-                      width={395}
-                      height={685}
                       quality={50}
                       layout="responsive"
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem}
-                      alt="welcome swiper"
-                      width={395}
-                      height={685}
-                      quality={50}
-                      layout="responsive"
+                      placeholder="blur"
+                      blurDataURL={segwayPlaceholder}
                     />
                   </div>
                 </SwiperSlide>

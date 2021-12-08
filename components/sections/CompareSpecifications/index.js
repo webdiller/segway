@@ -17,12 +17,12 @@ import Swipe from 'react-easy-swipe';
 import noScroll from 'no-scroll';
 import 'swiper/css/navigation';
 
-export default function CompareSpecifications({allSegwaysData, kickscooterMaxData}) {
+export default function CompareSpecifications({items}) {
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Все модели
-  const [allModels, setAllModels] = useState(allSegwaysData);
+  const [allModels, setAllModels] = useState(items.adultSegways);
 
   // Если есть модель, то отобразить данные, иначе показать прочерк
   const [selectedModel, setSelectedModel] = useState(null);
@@ -59,11 +59,12 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
 
         <p className="text compare-specfications__text">Add model to compare</p>
 
+        {/* START HERE */}
         <div className="compare-specfications__main-slide-with-swiper">
           <div className="main-slide compare-specfications__main-slide">
             <div className="main-slide__wrapper">
               <div className="main-slide__img-wrapper">
-                <Image objectFit="contain" src={kickscooterMaxData.imgPath} alt={kickscooterMaxData.name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                <Image objectFit="contain" src={allModels[7].imgPath} alt={allModels[7].name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
               </div>
               <p className="text text_bold main-slide__name">Ninebot Kickscooter MAX</p>
               <div className="main-slide__items">
@@ -72,7 +73,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <MdSpeed className="main-slide__item-icon" />
                     Max. speed
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.maxSpeed}</div>
+                  <div className="main-slide__item-value">{allModels[7].maxSpeed}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -80,7 +81,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <FaRoad className="main-slide__item-icon" />
                     Range (miles)
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.rangeByMiles}</div>
+                  <div className="main-slide__item-value">{allModels[7].rangeByMiles}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -88,7 +89,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <BsBatteryCharging className="main-slide__item-icon" />
                     Battery Capacity
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.batteryCapacity}</div>
+                  <div className="main-slide__item-value">{allModels[7].batteryCapacity}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -96,7 +97,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <GiWeight className="main-slide__item-icon" />
                     Net Weight
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.netWeight}</div>
+                  <div className="main-slide__item-value">{allModels[7].netWeight}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -104,7 +105,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <BsDownload className="main-slide__item-icon" />
                     Payload
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.payload}</div>
+                  <div className="main-slide__item-value">{allModels[7].payload}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -112,7 +113,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <BiTimeFive className="main-slide__item-icon" />
                     Chargin Time
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.charginTime}</div>
+                  <div className="main-slide__item-value">{allModels[7].charginTime}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -120,7 +121,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <MdFormatListNumbered className="main-slide__item-icon" />
                     Number of Batteries
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.numberOfBatteries}</div>
+                  <div className="main-slide__item-value">{allModels[7].numberOfBatteries}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -128,7 +129,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <AiOutlineThunderbolt className="main-slide__item-icon" />
                     Motor power
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.motorPower}</div>
+                  <div className="main-slide__item-value">{allModels[7].motorPower}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -136,7 +137,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <RiLogoutCircleRLine className="main-slide__item-icon" />
                     Power Output
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.powerOutput}</div>
+                  <div className="main-slide__item-value">{allModels[7].powerOutput}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -144,7 +145,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <BiShapeTriangle className="main-slide__item-icon" />
                     Max. Incline
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.maxIncline}</div>
+                  <div className="main-slide__item-value">{allModels[7].maxIncline}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -152,7 +153,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <GiSpring className="main-slide__item-icon" />
                     Shock Absorption
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.shockAbsorption}</div>
+                  <div className="main-slide__item-value">{allModels[7].shockAbsorption}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -160,7 +161,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <AiOutlineSafety className="main-slide__item-icon" />
                     Safety
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.safety}</div>
+                  <div className="main-slide__item-value">{allModels[7].safety}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -168,7 +169,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                     <MdOutlineLightMode className="main-slide__item-icon" />
                     Atmosphere Light
                   </div>
-                  <div className="main-slide__item-value">{kickscooterMaxData.atmosphereLight}</div>
+                  <div className="main-slide__item-value">{allModels[7].atmosphereLight}</div>
                 </div>
               </div>
 
@@ -334,7 +335,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
                 slidesPerView: 3
               }
             }}>
-            {allSegwaysData.map(({id, type, name, shortName, price, maxSpeed, rangeByMiles, batteryCapacity, netWeight, payload, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgPath, links}) => (
+            {allModels.map(({id, type, name, shortName, price, maxSpeed, rangeByMiles, batteryCapacity, netWeight, payload, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgPath, links}) => (
               <SwiperSlide key={id} className="compare-specfications__slide">
                 <div className="compare-specfications__img-wrapper">
                   <Image objectFit="contain" className="compare-specfications__img" src={imgPath} alt={name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
@@ -447,7 +448,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
               <p className="title compare-modal__title">select a model to compare</p>
               <img onClick={setModalActiveHandle} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
               <div className="compare-modal__items">
-                {allSegwaysData.map(({id, name, imgPath}) => (
+                {allModels.map(({id, name, imgPath}) => (
                   <button
                     onClick={() => {
                       setSelectedModelHandle(id);
@@ -464,6 +465,7 @@ export default function CompareSpecifications({allSegwaysData, kickscooterMaxDat
             </div>
           </Swipe>
         </div>
+        {/* END HERE */}
       </div>
     </div>
   );
