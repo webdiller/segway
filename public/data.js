@@ -5,7 +5,7 @@ export const data = {
       name: 'NineboT Engine Speaker',
       nameWrap: 'NineboT \n Engine Speaker',
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: '$149.99',
+      price: '149.99',
       imgPath: '/accessory-1.png'
     },
     {
@@ -13,7 +13,7 @@ export const data = {
       name: 'Extension Rod',
       nameWrap: 'Extension \n Rod',
       description: 'The Extension Rod helps you to easily maneuver your scooter, so you no longer need to bend over and push it, making it easier to take with you anywhere.',
-      price: '$29.99',
+      price: '29.99',
       imgPath: '/accessory-2.png'
     },
     {
@@ -21,7 +21,7 @@ export const data = {
       name: 'Segway Protective Gear Set',
       nameWrap: 'Segway Protective \n Gear Set',
       description: 'The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.',
-      price: '$29.99',
+      price: '29.99',
       imgPath: '/accessory-3.png'
     },
     {
@@ -29,7 +29,7 @@ export const data = {
       name: 'Ninebot Leisure Backpack',
       nameWrap: 'Ninebot Leisure \n Backpack',
       description: 'The Ninebot leisure backpack adopts a stylish gray-yellow color contrast, adding a trendy accessory to your wardrobe.',
-      price: '$69.99',
+      price: '69.99',
       imgPath: '/accessory-4.png'
     },
     {
@@ -37,7 +37,7 @@ export const data = {
       name: 'Segway External Battery',
       nameWrap: 'Segway External \n Battery',
       description: 'It is easy to install and increases the range of the ES1, ES2 & E22 to 27.9, 28 and 27 miles respectively and It also increases the speed',
-      price: '$249.99',
+      price: '249.99',
       imgPath: '/accessory-5.png'
     },
     {
@@ -45,7 +45,7 @@ export const data = {
       name: 'Segway Charger',
       nameWrap: 'Segway \n Charger',
       description: 'Whether at home, the office, or on your KickScooter journey, this Ninebot KickScooter by Segway Charger is designed to provide a safe and stable charge anytime, anywhere.',
-      price: '$79.99',
+      price: '79.99',
       imgPath: '/accessory-6.png'
     },
     {
@@ -53,7 +53,7 @@ export const data = {
       name: 'Segway Scooter Bag',
       nameWrap: 'Segway \n Scooter Bag',
       description: 'Tough EVA material, suitable for the entire Ninebot KickScooter by Segway line. 3L capacity gives you plenty of room to carry your phone, charger, bottled water, and other personal items.',
-      price: '$49.99',
+      price: '49.99',
       imgPath: '/accessory-7.png'
     },
     {
@@ -61,7 +61,7 @@ export const data = {
       name: 'Segway Phone Holder',
       nameWrap: 'Segway \n Phone Holder',
       description: 'The dual screw, non-slip design offers ultimate security and versatility. The phone holder is applicable to multiple vehicle series.',
-      price: '$29.99',
+      price: '29.99',
       imgPath: '/accessory-8.png'
     },
     {
@@ -69,7 +69,7 @@ export const data = {
       name: 'Segway Scooter Seat',
       nameWrap: 'Segway \n Scooter Seat',
       description: 'This scooter seat is designed to work with the MAX. It offers high quality, comfort and safety that is in line with the MAX KickScooter.',
-      price: '$119.99',
+      price: '119.99',
       imgPath: '/accessory-9.png'
     }
   ],
@@ -80,7 +80,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter E22',
         shortName: 'KS E22',
-        price: '$599.99',
+        price: '599.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
         rangeByMiles: 'Approx. 13.7 miles (22km)',
         batteryCapacity: '5100 mAh',
@@ -103,7 +103,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES1L',
         shortName: 'KS ES1L',
-        price: '$389.99',
+        price: '389.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
         rangeByMiles: 'Approx. 12.4 miles (20km)',
         batteryCapacity: '184 wh',
@@ -126,7 +126,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter Air T15',
         shortName: 'KS AIR T15',
-        price: '$819.99',
+        price: '819.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
         rangeByMiles: 'Approx. 7.5 miles (12km)',
         batteryCapacity: '4000 mAh',
@@ -149,7 +149,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot eKickScooter F30',
         shortName: 'KS F30',
-        price: '$649.99',
+        price: '649.99',
         maxSpeed: 'Approx. 15.5 mph (25 km/h)',
         rangeByMiles: 'Approx. 18.6 miles (30 km)',
         batteryCapacity: '7650 mAh',
@@ -172,7 +172,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter E45',
         shortName: 'KS E45',
-        price: '$859.99',
+        price: '859.99',
         maxSpeed: '18.6 mph (30 km/h)',
         rangeByMiles: '28.0 miles (45 km)',
         batteryCapacity: '10200 mAh',
@@ -191,11 +191,13 @@ export const data = {
         links: ['https://www.segway.com/ninebot-kickscooter-e45/', 'https://store.segway.com/segway-ninebot-kickscooter-e45']
       },
       {
+        _index: '5',
         id: '006',
         type: 'kickscooter',
+        accent: true,
         name: 'Ninebot Kickscooter MAX',
         shortName: 'KS MAX',
-        price: '$949.99',
+        price: '949.99',
         maxSpeed: '18.6 mph (30 km/h)',
         rangeByMiles: 'Approx. 40.4 miles (65 km)',
         batteryCapacity: '551 Wh',
@@ -218,7 +220,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter MAX',
         shortName: 'KS MAX',
-        price: '$949.99',
+        price: '949.99',
         maxSpeed: 'Approx. 18.6 mph (30 km/h)',
         rangeByMiles: 'Approx. 24.9 miles (40 km)',
         batteryCapacity: '10200mAh',
@@ -241,7 +243,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES2',
         shortName: 'KS ES2',
-        price: '$649.99',
+        price: '649.99',
         maxSpeed: '15.5 mph (25 km/h)',
         rangeByMiles: '15.5 miles (25 km)',
         batteryCapacity: '187 Wh',
@@ -264,7 +266,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES3',
         shortName: 'KS ES3',
-        price: '$699.99',
+        price: '699.99',
         maxSpeed: '15.5 mph (25 km/h)',
         rangeByMiles: '28.0 miles (45 km)',
         batteryCapacity: '374 Wh',
@@ -287,7 +289,7 @@ export const data = {
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES4',
         shortName: 'KS ES4',
-        price: '$799.99',
+        price: '799.99',
         maxSpeed: '18.6 mph (30 km/h)',
         rangeByMiles: '28.0 miles (45 km)',
         batteryCapacity: '374 Wh',
@@ -312,7 +314,7 @@ export const data = {
         type: 'kidsScooter',
         name: 'NINEBOT EKICKSCOOTER ZING E8',
         shortName: 'EKS ZING E8',
-        price: '$249.99',
+        price: '249.99',
         maxSpeed: '8.6 mph',
         rangeByMiles: '6.2 miles',
         batteryCapacity: '55.08 Wh',
@@ -336,7 +338,7 @@ export const data = {
         type: 'kidsScooter',
         name: 'NINEBOT EKICKSCOOTER ZING E10',
         shortName: 'EKS ZING E10',
-        price: '$259.99',
+        price: '259.99',
         maxSpeed: '10 mph',
         rangeByMiles: '6.2 miles',
         batteryCapacity: '55.08 Wh',

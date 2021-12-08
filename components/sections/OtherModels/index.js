@@ -8,6 +8,7 @@ import circlePlaceholder from '@/base/circle-placeholder.svg';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
+import UiInput from '@/ui/UiInput';
 
 export default function OtherModels({items}) {
   const swiperRef = useRef(null);
@@ -23,6 +24,7 @@ export default function OtherModels({items}) {
             slidesPerView={1.8}
             freeMode={true}
             spaceBetween={10}
+            centeredSlides={true}
             loop={false}
             allowTouchMove={true}
             scrollbar={{
@@ -70,7 +72,7 @@ export default function OtherModels({items}) {
                       </div>
                       <p className="text text_25 other-models__name">{name}</p>
                       <div className="other-models__price">
-                        <p className="text text_uppercase other-models__price-value">{price}</p>
+                        <p className="text text_uppercase other-models__price-value">${price}</p>
                       </div>
                     </a>
                   </Link>
@@ -86,7 +88,9 @@ export default function OtherModels({items}) {
             <SwiperSlide className="swiper-slide swiper-slide_form other-models__form">
               <p className="other-models__form-title">DIDN’T FIND A MODEL?</p>
               <p className="text other-models__form-text">Leave your contact details and we will help you with the choice</p>
-              <input placeholder="+7 (___) ___-__-__" type="text" className="other-models__form-input" />
+              
+              <UiInput forForm={false} customClass="other-models__form-input"/>
+
               <Link href="#">
                 <a className="ui-btn other-models__see-more">
                   <span>SEE MORE</span>
@@ -95,14 +99,14 @@ export default function OtherModels({items}) {
             </SwiperSlide>
 
             {/* Заглушки (чтобы отцентрировать слайд с формой) */}
-            <SwiperSlide className="swiper-slide other-models__item other-models__item_hide">
+            {/* <SwiperSlide className="swiper-slide other-models__item other-models__item_hide">
               <div className="other-models__item-wrapper">
                 <p className="text text_25 other-models__name"></p>
                 <div className="other-models__price">
                   <p className="text text_uppercase other-models__price-value"></p>
                 </div>
               </div>
-            </SwiperSlide>
+            </SwiperSlide> */}
           </Swiper>
         </div>
         <div className="other-models__swiper-scrollbar"></div>

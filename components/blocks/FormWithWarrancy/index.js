@@ -3,8 +3,9 @@ import Image from 'next/image';
 import {useRef, useState} from 'react';
 import segwayProtect from '@/base/segway-protect.png';
 import useAddToCart from '@/hooks/useAddToCart';
+import {useCart} from 'react-use-cart';
 
-export default function FormWithWarrancy({customClass = 'form-with-warrancy'}) {
+export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
   const {added, setAddedHandler} = useAddToCart();
   const [tabs, setTabs] = useState({
     tab1: false,
@@ -23,6 +24,8 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy'}) {
 
   const {tab1, tab2, tab3} = tabs;
   const tabWrapper = useRef(null);
+
+  const {addItem} = useCart();
 
   return (
     <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>
@@ -84,7 +87,12 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy'}) {
               <span>BUY IT Now</span>
             </a>
           </Link>
-          <button onClick={setAddedHandler} className={added ? 'ui-btn ui-btn_lg ui-btn_added form-with-warrancy__form-action' : 'ui-btn ui-btn_lg form-with-warrancy__form-action'}>
+          <button
+            onClick={() => {
+              setAddedHandler();
+              addItem(item);
+            }}
+            className={added ? 'ui-btn ui-btn_lg ui-btn_added form-with-warrancy__form-action' : 'ui-btn ui-btn_lg form-with-warrancy__form-action'}>
             <span> ADD TO CART </span>
           </button>
         </div>

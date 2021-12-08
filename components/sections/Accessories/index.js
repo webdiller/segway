@@ -1,31 +1,30 @@
-import Link from 'next/link';
+import {useCart} from 'react-use-cart';
 import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import useAddToCart from '@/hooks/useAddToCart';
-
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import {useState} from 'react';
 
 export default function Accessories({items}) {
-  const {added, setAddedHandler} = useAddToCart();
-  const [activeButton, setActiveButton] = useState();
+
+  const [clicked, setClicked] = useState()
+
   const onClickHandler = (id) => {
-    setAddedHandler;
-    setActiveButton(id);
+    addItem(id)
   };
+
+  const {addItem} = useCart();
+
   return (
     <div className="accessories">
       <div className="container accessories__container">
         <p className="title accessories__title">Accessories</p>
         <div className="accessories__swiper">
-          {/* Выводим слайды вручную, т.к. для верстки требуются переносы
-          текста, хоть это и грабли. Лучше я думаю сделать доп. поле в файле с
-          версткой имени. */}
-          <Swiper
+          <Swiper 
             modules={[Scrollbar, FreeMode]}
             slidesPerView={2.1}
             spaceBetween={15}
@@ -42,7 +41,8 @@ export default function Accessories({items}) {
                 allowTouchMove: false
               }
             }}>
-            {items.map(({id, name, nameWrap, description, price, imgPath}) => {
+            {items.map((item) => {
+              const {id, name, nameWrap, description, price, imgPath} = item;
               return (
                 <SwiperSlide key={id} className="swiper-slide accessories__item">
                   <div className="accessories__item-wrapper">
@@ -53,14 +53,9 @@ export default function Accessories({items}) {
                     <p className="text text_13 text_grey2 accessories__description">{description}</p>
                     <div className="accessories__price">
                       <p className="text text_16 accessories__price-key">Price:</p>
-                      <p className="text text_uppercase accessories__price-value">{price}</p>
+                      <p className="text text_uppercase accessories__price-value">${price}</p>
                     </div>
-                    {/* <Link passHref href={`/product-cart-popup/[productId]?accessoryId=${id}`} as={`/product-cart-popup/accessory-${id}`}>
-                      <button className="ui-btn accessories__add-cart">
-                        <span>ADD TO CART</span>
-                      </button>
-                    </Link> */}
-                    <button onClick={() => onClickHandler(id)} className={(activeButton == id) ? "ui-btn ui-btn_added accessories__add-cart" : "ui-btn accessories__add-cart"}>
+                    <button onClick={() => onClickHandler(item)} className="ui-btn accessories__add-cart">
                       <span>ADD TO CART</span>
                     </button>
                   </div>

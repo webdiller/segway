@@ -8,6 +8,8 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
@@ -51,6 +53,8 @@
     grid-area: stock;
     @include media("<=768px") {
       text-align: center;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 
@@ -87,6 +91,8 @@
       text-align: center;
       margin-left: auto;
       margin-right: auto;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 
@@ -112,6 +118,8 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 
@@ -128,6 +136,8 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 
@@ -222,14 +232,23 @@
     transition: all 0.3s ease;
     
     &_prev {
+      @include media("<=768px") {
+        padding-left: 16px;
+        padding-right: 30px;
+      }
     }
 
     &_next {
+      @include media("<=768px") {
+        padding-right: 16px;
+        padding-left: 30px;
+      }
     }
 
     @include media("<=991px") {
     }
     @include media("<=768px") {
+      height: 200px;
     }
     @include media("<=768px") {
     }

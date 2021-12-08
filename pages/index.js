@@ -24,22 +24,19 @@ const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllF
 const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'));
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
 const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'));
+const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'));
+const ProductAddedModalDinamic = dynamic(() => import('@/modals/ProductAddedModal'));
 
 import {data} from '@/base/data';
 
 export default function Home({allData}) {
-  useEffect(() => {
-    console.info('Code author: Eugene Butkov');
-    console.info('github: https://github.com/webdiller');
-    console.info('telegram: webdillerru');
-  }, []);
 
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
         <TopSwiperDinamic items={allData} />
         <TopStockDinamic />
-        <WelcomeDinamic />
+        <WelcomeDinamic item={allData.segways.adultSegways[5]} />
         <TabsDinamic />
         <PackingListDinamic />
         <AccessoriesDinamic items={allData.accessoeries} />
@@ -56,9 +53,11 @@ export default function Home({allData}) {
         <CompareSpecificationsDinamic items={allData.segways} />
         <SegwayProtectDinamic />
         <ControllFromSmartphoneDinamic />
-        <SegwayNinebotDinamic />
+        <SegwayNinebotDinamic item={allData.segways.adultSegways[5]} />
         <OtherModelsDinamic items={allData.segways.adultSegways} />
-        <FixedModalDinamic />
+        <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" />
+        <DiscountModalDinamic />
+        <ProductAddedModalDinamic specificItem={allData.segways.adultSegways[5]} items={allData.segways.adultSegways} />
       </DefaultLayout>
     </div>
   );

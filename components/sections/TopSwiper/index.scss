@@ -28,6 +28,7 @@
   }
 
   &__item {
+    overflow-x: hidden;
     &.accent {
       .top-swiper__link {
         background-color: #009eff;

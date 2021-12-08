@@ -11,7 +11,7 @@ import arrowRight from "@/base/icon-arrow-right.svg";
 import exampleItem from "@/base/example-item-1.png";
 import "swiper/css/pagination";
 
-export default function Welcome() {
+export default function Welcome({item}) {
   return (
     <div className="welcome">
       <div className="container welcome__container">
@@ -33,7 +33,7 @@ export default function Welcome() {
 
           {/* area name: form */}
           <div className="welcome__form-wrapper">
-            <FormWithWarrancy customClass="welcome__form" />
+            <FormWithWarrancy item={item} customClass="welcome__form" />
           </div>
 
           {/* area name: payments */}

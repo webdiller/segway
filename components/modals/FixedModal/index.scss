@@ -10,7 +10,9 @@
     display: block;
   }
   &__wrapper {
-    @include reset-btn();
+    text-decoration: none;
+    text-align: center;
+    display: block;
     width: 100%;
     background-color: #fff;
   }

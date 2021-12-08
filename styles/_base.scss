@@ -328,6 +328,7 @@ img {
 
   &_added {
     background-color: #6ACD68;
+    pointer-events: none;
     &:active, &:focus, &:hover {
       background-color: #6ACD68;
       color: #009eff;
@@ -400,4 +401,13 @@ img {
   @include media('<=576px') {
     display: block;
   }
+}
+
+.hide {
+  display: none !important;
+}
+
+.break-json {
+  white-space: break-spaces;
+  word-break: break-word;
 }

@@ -165,6 +165,7 @@
       }
     }
     &_mobile {
+      display: none;
       @include media('<=768px') {
         display: block;
       }

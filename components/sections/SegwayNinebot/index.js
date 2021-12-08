@@ -4,7 +4,7 @@ import PaymentsMethods from '@/blocks/PaymentsMethods'
 import SegwayProtectMobile from '@/blocks/SegwayProtectMobile'
 import segwayBg from "@/base/segway-ninebot-background.png";
 
-export default function SegwayNinebot() {
+export default function SegwayNinebot({item}) {
   return (
     <div className="segway-ninebot">
       <div className="container segway-ninebot__container">
@@ -39,7 +39,7 @@ export default function SegwayNinebot() {
 
         {/* area name: form */}
         <div className="segway-ninebot__form-wrapper">
-          <FormWithWarrancy customClass="segway-ninebot__form" />
+          <FormWithWarrancy item={item} customClass="segway-ninebot__form" />
         </div>
 
         {/* area name: payments */}

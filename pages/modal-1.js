@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <DefaultLayout description="segway description" title="segway index">
-        <DidntFindModal />
+        <DidntFindModal forForm={true} />
       </DefaultLayout>
     </div>
   );

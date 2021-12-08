@@ -40,13 +40,16 @@ export default function TopSwiper({items}) {
               try {
                 if (window.innerWidth <= 768) {
                   setTimeout(() => {
-                    el.slideNext();
+                    try {
+                      el.slideNext();
+                    } catch (error) {
+                    }
                   }, 2000);
                 }
               } catch (error) {}
             }}>
-            {items.segways.adultSegways.map(({id, name, shortName, imgPath, ...props}) => (
-              <SwiperSlide key={id} className="top-swiper__item">
+            {items.segways.adultSegways.map(({id, name, shortName, imgPath, accent, ...props}) => (
+              <SwiperSlide key={id} className={accent ? "top-swiper__item accent" : "top-swiper__item"}>
                 <Link href="#">
                   <a className="top-swiper__link">
                     <div className="top-swiper__img-wrapper">
@@ -70,7 +73,7 @@ export default function TopSwiper({items}) {
               </SwiperSlide>
             ))}
             <SwiperSlide key="99999" className="top-swiper__item">
-              <Link href="#">
+              <Link href="#accessories">
                 <a className="top-swiper__link">
                   <div className="top-swiper__img-wrapper">
                     <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />

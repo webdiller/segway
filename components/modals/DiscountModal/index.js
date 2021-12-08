@@ -4,12 +4,11 @@ import noScroll from 'no-scroll';
 import TinderCard from 'react-tinder-card';
 
 export default function DiscountModal() {
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
     noScroll.toggle();
   };
-
   const onSwipe = (direction) => {
     console.log('You swiped: ' + direction);
     setActiveModal((prev) => !prev);
@@ -21,7 +20,15 @@ export default function DiscountModal() {
   };
 
   useEffect(() => {
-    noScroll.on();
+    if (window.localStorage.isFirstVisit) {
+     
+    } else {
+      setTimeout(() => {
+        setActiveModal(true);
+        noScroll.on();
+      }, 5000);
+      window.localStorage.setItem('isFirstVisit', 'false');
+    }
   }, []);
 
   return (

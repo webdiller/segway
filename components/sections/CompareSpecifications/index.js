@@ -25,7 +25,7 @@ export default function CompareSpecifications({items}) {
   const [allModels, setAllModels] = useState(items.adultSegways);
 
   // Если есть модель, то отобразить данные, иначе показать прочерк
-  const [selectedModel, setSelectedModel] = useState(null);
+  const [selectedModel, setSelectedModel] = useState();
 
   // Показать модкалку, или нет?
   const [modalActive, setModalActive] = useState(false);
@@ -64,7 +64,7 @@ export default function CompareSpecifications({items}) {
           <div className="main-slide compare-specfications__main-slide">
             <div className="main-slide__wrapper">
               <div className="main-slide__img-wrapper">
-                <Image objectFit="contain" src={allModels[7].imgPath} alt={allModels[7].name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                <Image objectFit="contain" src={allModels[5].imgPath} alt={allModels[5].name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
               </div>
               <p className="text text_bold main-slide__name">Ninebot Kickscooter MAX</p>
               <div className="main-slide__items">
@@ -73,7 +73,7 @@ export default function CompareSpecifications({items}) {
                     <MdSpeed className="main-slide__item-icon" />
                     Max. speed
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].maxSpeed}</div>
+                  <div className="main-slide__item-value">{allModels[5].maxSpeed}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -81,7 +81,7 @@ export default function CompareSpecifications({items}) {
                     <FaRoad className="main-slide__item-icon" />
                     Range (miles)
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].rangeByMiles}</div>
+                  <div className="main-slide__item-value">{allModels[5].rangeByMiles}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -89,7 +89,7 @@ export default function CompareSpecifications({items}) {
                     <BsBatteryCharging className="main-slide__item-icon" />
                     Battery Capacity
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].batteryCapacity}</div>
+                  <div className="main-slide__item-value">{allModels[5].batteryCapacity}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -97,7 +97,7 @@ export default function CompareSpecifications({items}) {
                     <GiWeight className="main-slide__item-icon" />
                     Net Weight
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].netWeight}</div>
+                  <div className="main-slide__item-value">{allModels[5].netWeight}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -105,7 +105,7 @@ export default function CompareSpecifications({items}) {
                     <BsDownload className="main-slide__item-icon" />
                     Payload
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].payload}</div>
+                  <div className="main-slide__item-value">{allModels[5].payload}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -113,7 +113,7 @@ export default function CompareSpecifications({items}) {
                     <BiTimeFive className="main-slide__item-icon" />
                     Chargin Time
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].charginTime}</div>
+                  <div className="main-slide__item-value">{allModels[5].charginTime}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -121,7 +121,7 @@ export default function CompareSpecifications({items}) {
                     <MdFormatListNumbered className="main-slide__item-icon" />
                     Number of Batteries
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].numberOfBatteries}</div>
+                  <div className="main-slide__item-value">{allModels[5].numberOfBatteries}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -129,7 +129,7 @@ export default function CompareSpecifications({items}) {
                     <AiOutlineThunderbolt className="main-slide__item-icon" />
                     Motor power
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].motorPower}</div>
+                  <div className="main-slide__item-value">{allModels[5].motorPower}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -137,7 +137,7 @@ export default function CompareSpecifications({items}) {
                     <RiLogoutCircleRLine className="main-slide__item-icon" />
                     Power Output
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].powerOutput}</div>
+                  <div className="main-slide__item-value">{allModels[5].powerOutput}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -145,7 +145,7 @@ export default function CompareSpecifications({items}) {
                     <BiShapeTriangle className="main-slide__item-icon" />
                     Max. Incline
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].maxIncline}</div>
+                  <div className="main-slide__item-value">{allModels[5].maxIncline}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -153,7 +153,7 @@ export default function CompareSpecifications({items}) {
                     <GiSpring className="main-slide__item-icon" />
                     Shock Absorption
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].shockAbsorption}</div>
+                  <div className="main-slide__item-value">{allModels[5].shockAbsorption}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -161,7 +161,7 @@ export default function CompareSpecifications({items}) {
                     <AiOutlineSafety className="main-slide__item-icon" />
                     Safety
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].safety}</div>
+                  <div className="main-slide__item-value">{allModels[5].safety}</div>
                 </div>
 
                 <div className="main-slide__item">
@@ -169,12 +169,12 @@ export default function CompareSpecifications({items}) {
                     <MdOutlineLightMode className="main-slide__item-icon" />
                     Atmosphere Light
                   </div>
-                  <div className="main-slide__item-value">{allModels[7].atmosphereLight}</div>
+                  <div className="main-slide__item-value">{allModels[5].atmosphereLight}</div>
                 </div>
               </div>
 
               <p className="text text_25 main-slide__price">$949.99</p>
-              <Link href={`/order-product?productId=006`}>
+              <Link href={`?buyItNow=true&buyItNowFromFixedModal=false&id=006`} scroll={false}>
                 <a className="ui-btn main-slide__buy-btn">
                   <span>BUY IT NOW</span>
                 </a>
@@ -302,8 +302,8 @@ export default function CompareSpecifications({items}) {
                 ''
               ) : (
                 <>
-                  <p className="text text_25 main-slide__price">{selectedModel.price}</p>
-                  <Link href={`/order-product?productId=${selectedModel.id}`}>
+                  <p className="text text_25 main-slide__price">${selectedModel.price}</p>
+                  <Link href={`?buyItNow=true&buyItNowFromFixedModal=false&id=${selectedModel.id}`} scroll={false}>
                     <a className="ui-btn main-slide__buy-btn">
                       <span>BUY IT NOW</span>
                     </a>
@@ -422,8 +422,8 @@ export default function CompareSpecifications({items}) {
                   </div>
                 </div>
 
-                <p className="text text_25 compare-specfications__price">{price}</p>
-                <Link href={`/order-product?productId=${id}`}>
+                <p className="text text_25 compare-specfications__price">${price}</p>
+                <Link href={`?buyItNow=true&buyItNowFromFixedModal=false&id=${id}`} scroll={false}>
                   <a className="ui-btn compare-specfications__buy-btn">
                     <span>BUY IT NOW</span>
                   </a>
