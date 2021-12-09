@@ -100,8 +100,10 @@
     grid-area: protect;
     display: none;
     margin-bottom: 15px;
-    @include media("<=576px") {
+    @include media("<=480px") {
       display: block;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 

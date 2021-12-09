@@ -4,12 +4,13 @@
     @include media("<=991px") {
     }
     @include media("<=768px") {
-      margin-bottom: 15px;
-      text-align: center;
-      font-weight: 300;
       font-size: 18px;
       line-height: 22px;
-      color: #323941;
+      text-align: center;
+    }
+    @include media("<=480px") {
+      font-weight: 300;
+      margin-bottom: 15px;
     }
     &_desktop {
       @include media("<=768px") {
@@ -40,7 +41,7 @@
       font-size: 18px;
       line-height: 22px;
       color: #999999;
-      @include media("<=575px") {
+      @include media("<=480px") {
         color: #323941;
       }
     }

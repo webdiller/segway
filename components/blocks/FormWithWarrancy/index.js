@@ -52,6 +52,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
         </div>
 
         <div className="form-with-warrancy__form-prices-subtitle-image">
+          {/* PRICES */}
           <div className="form-with-warrancy__form-prices">
             {tab1 ? (
               <>
@@ -75,9 +76,20 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
               </>
             )}
           </div>
-          <p className="form-with-warrancy__form-subtitle">Segway Protective Gear Set as a gift</p>
-          <div className="form-with-warrancy__form-img-wrapper">
-            <Image className="form-with-warrancy__form-img" src={segwayProtect} alt="Segway Protective Gear Set as a gift" layout="fill" objectFit="contain" />
+          <div className="form-with-warrancy__title-with-image">
+            {/* IMAGE */}
+            <div className="form-with-warrancy__form-img-wrapper">
+              <Image className="form-with-warrancy__form-img" src={segwayProtect} alt="Segway Protective Gear Set as a gift" layout="fill" objectFit="contain" />
+            </div>
+            {/* TITLE */}
+            <div className="form-with-warrancy__form-subtitle">
+              <p className="hide-991">
+                Segway Protective Gear Set <span>as a gift</span>
+              </p>
+              <p className="show-block-991">
+                Segway <br /> Protective <br /> Gear Set <span>as a gift</span>
+              </p>
+            </div>
           </div>
         </div>
 

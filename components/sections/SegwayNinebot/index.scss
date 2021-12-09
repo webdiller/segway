@@ -6,36 +6,36 @@
     column-gap: 20px;
     grid-template-columns: 1fr 400px;
     grid-template-areas:
-      "stock stock"
-      "title title"
-      "form swiper"
-      "payments payments";
+      'stock stock'
+      'title title'
+      'form swiper'
+      'payments payments';
     margin-top: 60px;
     margin-bottom: 120px;
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       grid-template-columns: 1fr 300px;
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 40px;
     }
-    @include media("<=900px") {
+    @include media('<=900px') {
       display: flex;
       flex-direction: column;
     }
-    @include media("<=768px") {
+    @include media('<=576px') {
       margin-top: 40px;
       padding-bottom: 45px;
-      background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
       background-clip: padding-box;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       grid-template-columns: 1fr;
       grid-template-areas:
-        "stock"
-        "title"
-        "protect"
-        "form"
-        "payments";
+        'stock'
+        'title'
+        'protect'
+        'form'
+        'payments';
+      background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
     }
   }
 
@@ -44,13 +44,13 @@
     z-index: 10;
     grid-area: stock;
     margin-bottom: 10px;
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       margin-bottom: 15px;
     }
-    @include media("<=900px") {
+    @include media('<=900px') {
       order: 1;
     }
-    @include media("<=575px") {
+    @include media('<=575px') {
       text-align: center;
       margin-bottom: 40px;
     }
@@ -72,9 +72,9 @@
     padding-right: 20px;
 
     color: #6acd68;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       min-width: 105px;
     }
   }
@@ -85,7 +85,7 @@
     grid-area: protect;
     display: none;
     margin-bottom: 15px;
-    @include media("<=575px") {
+    @include media('<=480px') {
       order: 4;
       display: block;
     }
@@ -95,12 +95,12 @@
     position: relative;
     z-index: 10;
     grid-area: title;
-    @include media("<=900px") {
+    @include media('<=900px') {
       order: 2;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=575px") {
+    @include media('<=575px') {
       text-align: center;
       margin-left: auto;
       margin-right: auto;
@@ -109,23 +109,23 @@
 
   &__title {
     margin-bottom: 15px;
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       display: block;
       margin-bottom: 25px;
       max-width: 780px;
       font-size: 108px;
       line-height: 94px;
     }
-    @include media("<=900px") {
+    @include media('<=900px') {
       font-size: 70px;
       line-height: 87.3%;
       margin-bottom: 0;
       max-width: 600px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       font-size: 40px;
     }
-    @include media("<=375px") {
+    @include media('<=375px') {
       font-size: 39px;
     }
   }
@@ -133,25 +133,25 @@
   &__form-wrapper {
     position: relative;
     grid-area: form;
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       max-width: 475px;
     }
-    @include media("<=900px") {
+    @include media('<=900px') {
       order: 4;
       max-width: none;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=575px") {
+    @include media('<=575px') {
       order: 5;
     }
   }
 
   &__form {
     margin-bottom: 25px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
@@ -162,18 +162,18 @@
     .payments-methods__payments-title_mobile .payments-methods__payments-item_2,
     .payments-methods__payments-title_mobile .payments-methods__payments-item_3 {
       display: none;
-      @include media("<=575px") {
+      @include media('<=575px') {
         display: flex;
       }
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=900px") {
+    @include media('<=900px') {
       order: 5;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=575px") {
+    @include media('<=575px') {
       order: 6;
     }
   }
@@ -185,29 +185,29 @@
     height: 650px;
     bottom: 80px;
     right: -180px;
-    @include media("<=2500px") {
+    @include media('<=2500px') {
       width: 1060px;
       height: 490px;
     }
-    @include media("<=1920px") {
+    @include media('<=1920px') {
       right: unset;
       left: 55%;
       bottom: 40px;
     }
-    @include media("<=1400px") {
+    @include media('<=1400px') {
       height: 420px;
       left: 45%;
       bottom: 115px;
     }
-    @include media("<=1200px") {
+    @include media('<=1200px') {
       left: 46%;
       height: 450px;
       bottom: 130px;
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
       bottom: 90px;
     }
-    @include media("<=900px") {
+    @include media('<=900px') {
       order: 3;
       position: relative;
       left: unset;
@@ -218,7 +218,7 @@
       margin-top: 30px;
       margin-bottom: 10px;
     }
-    @include media("<=375px") {
+    @include media('<=375px') {
       max-height: 186px;
     }
   }

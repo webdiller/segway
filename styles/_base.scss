@@ -379,6 +379,18 @@ img {
   }
 }
 
+.hide-991 {
+  @include media('<=991px') {
+    display: none;
+  }
+}
+.show-block-991 {
+  display: none;
+  @include media('<=991px') {
+    display: block;
+  }
+}
+
 .hide-768 {
   @include media('<=768px') {
     display: none;
