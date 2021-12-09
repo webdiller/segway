@@ -67,7 +67,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
             ) : tab3 ? (
               <>
                 <p className="form-with-warrancy__form-price-old">$1328</p>
-                <p className="form-with-warrancy__form-price-new">$1437</p>
+                <p className="form-with-warrancy__form-price-new">$1228</p>
               </>
             ) : (
               <>
