@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import noScroll from 'no-scroll';
 import TinderCard from 'react-tinder-card';
 
@@ -19,6 +19,14 @@ export default function DiscountModal() {
     console.log(myIdentifier + ' left the screen');
   };
 
+  const elRef = useRef(null);
+  const onClickWrapper = (e) => {
+    if (e.target === elRef.current) {
+      setActiveModal((prev) => !prev);
+      noScroll.toggle();
+    }
+  }
+
   useEffect(() => {
     if (window.localStorage.isFirstVisit) {
      
@@ -32,7 +40,7 @@ export default function DiscountModal() {
   }, []);
 
   return (
-    <div className={activeModal ? 'discount-modal active' : 'discount-modal'}>
+    <div onClick={(e)=>onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>
       <TinderCard swipeThreshold={300} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
         <div className="discount-modal__wrapper">
           <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">
