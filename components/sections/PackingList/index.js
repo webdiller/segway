@@ -19,10 +19,10 @@ export default function PackingList() {
 
   const removeOverlayForVideo = () => {
     if (overlay) {
+      setOverlay(false);
       setTimeout(() => {
-        setOverlay(false);
         setYoutubeFocus();
-      }, 500);
+      }, 200);
     }
   };
 
