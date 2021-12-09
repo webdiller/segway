@@ -1,20 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import packingList from '@/base/packing-list.png';
+
+const useFocus = () => {
+  const htmlElRef = useRef(null);
+  const setFocus = () => {
+    if (htmlElRef.current) {
+      htmlElRef.current.src += "?rel=0&showinfo=0&autoplay=1"
+    }
+  };
+  return [htmlElRef, setFocus];
+};
 
 export default function PackingList() {
   const [overlay, setOverlay] = useState(true);
+  const [youtubeRef, setYoutubeFocus] = useFocus();
+
   const removeOverlayForVideo = () => {
     if (overlay) {
       setTimeout(() => {
         setOverlay(false);
-      }, 200);
+        setYoutubeFocus();
+      }, 500);
     }
   };
 
   const YoutubeIframe = () => {
-    return <iframe className="packing-list__video-iframe" width="560" height="315" src="https://www.youtube.com/embed/Vq0JCR6_YpA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy"></iframe>;
+    return <iframe ref={youtubeRef} className="packing-list__video-iframe" width="560" height="315" src="https://www.youtube.com/embed/Vq0JCR6_YpA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy"></iframe>;
   };
 
   return (

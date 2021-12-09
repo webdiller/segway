@@ -35,7 +35,7 @@ export default function DiscountModal() {
     <div className={activeModal ? 'discount-modal active' : 'discount-modal'}>
       <TinderCard swipeThreshold={300} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
         <div className="discount-modal__wrapper">
-          <button onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">
+          <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">
             <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
             <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile" src="./icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" />
           </button>

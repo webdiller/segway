@@ -2,7 +2,7 @@
   &__container {
     margin-top: 60px;
     margin-bottom: 90px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-top: 40px;
       margin-bottom: 40px;
     }
@@ -10,9 +10,15 @@
 
   &__cart {
     display: flex;
-    padding: 25px 60px 25px 45px;
-    border: 5px solid #009eff;
-    @include media("<=768px") {
+    // padding: 25px 60px 25px 45px;
+    // border: 5px solid #009eff;
+    @include media('<=991px') {
+      //   padding: 25px 60px 25px 45px;
+      //   border: 5px solid #009eff;
+      justify-content: center;
+    }
+    @include media('<=768px') {
+      border: 5px solid #009eff;
       flex-direction: row-reverse;
       padding: 10px 15px 10px 15px;
     }
@@ -20,17 +26,39 @@
 
   &__img-wrapper {
     position: relative;
-    margin-right: 40px;
+    margin-right: 55px;
     width: 278px;
     flex: 0 0 278px;
-    @include media("<=768px") {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 272px;
+      height: 272px;
+      top: 50%;
+      right: 50%;
+      border-radius: 50%;
+      transform: translate(50%, -50%);
+      background: #009eff;
+      @include media('<=991px') {
+        width: 200px;
+        height: 200px;
+      }
+      @include media('<=768px') {
+        display: none;
+      }
+    }
+    @include media('<=991px') {
+      width: 200px;
+      flex: 0 0 200px;
+    }
+    @include media('<=768px') {
       margin-right: 0;
       transform: rotate(90deg);
       flex: 0 0 140px;
       width: 140px;
       height: 140px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       width: auto;
       flex: 0 1 120px;
       height: 120px;
@@ -41,22 +69,46 @@
   }
 
   &__content {
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin-right: auto;
       min-width: 210px;
     }
 
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
   &__title {
     margin-bottom: 9px;
-    @include media("<=768px") {
+    span {
+      color: #009eff;
+      @include media('<=576px') {
+        color: #323941;
+      }
+    }
+    @include media('<=991px') {
+      max-width: 360px;
+      font-size: 28px;
+      line-height: 32px;
+    }
+    @include media('<=768px') {
       padding-top: 10px;
     }
+    @include media('<=576px') {
+      font-size: 20px;
+      line-height: 24px;
+    }
   }
-
-  &__description {
+  &__text {
+    font-size: 25px;
+    line-height: 33px;
+    @include media('<=768px') {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @include media('<=768px') {
+      font-size: 14px;
+      line-height: 17px;
+    }
   }
 }

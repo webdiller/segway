@@ -4,6 +4,7 @@ import {useCart} from 'react-use-cart';
 
 export default function Home() {
   const {items} = useCart();
+  const {totalItems} = useCart();
   return (
     <div>
       <DefaultLayout description="segway description" title="User cart">
@@ -18,7 +19,7 @@ export default function Home() {
         <br />
         <br />
         <div className="container">
-          <pre className="break-json">{JSON.stringify(items, 4)}</pre>
+          {/* <pre className="break-json">{JSON.stringify(items, 4)}</pre> */}
         </div>
         <br />
         <br />

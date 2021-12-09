@@ -66,6 +66,7 @@
   }
 
   &__close-btn-icon {
+    pointer-events: none;
     &_desktop {
       @include media("<=768px") {
         display: none;
