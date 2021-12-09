@@ -411,3 +411,7 @@ img {
   white-space: break-spaces;
   word-break: break-word;
 }
+
+#__next {
+  overflow-y: hidden;
+}

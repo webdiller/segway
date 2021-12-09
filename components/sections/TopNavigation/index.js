@@ -3,7 +3,7 @@ import Image from 'next/image';
 import {BsCart2, BsTelephone} from 'react-icons/bs';
 import {IoIosCloseCircleOutline} from 'react-icons/io';
 import {AiOutlineMenu} from 'react-icons/ai';
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {useCart} from 'react-use-cart';
 import logoBlack from '@/base/logo-black.svg';
 
@@ -13,10 +13,17 @@ export default function TopNavigation() {
   const handleSetIsActiveMenu = () => {
     setIsActiveMenu((prev) => !prev);
   };
-  
-  const { totalItems  } = useCart();
+
+  const {totalItems} = useCart();
 
   let isServer = typeof window === 'undefined' ? false : true;
+  const itemsRef = useRef(null);
+
+  const onClick = (e) => {
+    if (e.target === itemsRef.current) {
+      setIsActiveMenu()
+    }
+  };
 
   return (
     <div className="top-nav">
@@ -25,7 +32,7 @@ export default function TopNavigation() {
           {isActiveMenu ? <IoIosCloseCircleOutline className="top-nav__btn-icon" /> : <AiOutlineMenu className="top-nav__btn-icon" />}
         </button>
 
-        <nav className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
+        <nav onClick={(e) => onClick(e)} ref={itemsRef} className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
           <Link href="#">
             <a className="top-nav__item">REVIEWS</a>
           </Link>
