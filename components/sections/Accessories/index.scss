@@ -212,6 +212,10 @@
     min-width: 140px;
     font-size: 13px;
     white-space: nowrap;
+    
+    &.ui-btn_added {
+      background-color: #6ACD68;
+    }
     @include media('<=768px') {
       max-width: 150px;
       padding-left: 23px;
