@@ -1,15 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import {VscFilePdf} from 'react-icons/vsc';
 import UiLink from '@/ui/UiLink';
-import {useRef} from 'react';
 
 export default function DownloadManual() {
-  const refElement = useRef(null);
-  const clickHandler = () => {
-    setTimeout(() => {
-      refElement.current.blur();
-    }, 500);
-  };
+
   return (
     <div className="download-manual">
       <div className="container download-manual__container">
@@ -55,8 +49,7 @@ export default function DownloadManual() {
               </div>
             </div>
 
-            {/* <UiLink unfocusOnClick={true} target="_blank" download href="/download-manual.pdf" classNameLink="ui-btn ui-btn_with-icon download-manual__link" innerText="Download manual" icon={<VscFilePdf className="download-manual__link-icon" />} /> */}
-            <button onClick={clickHandler} ref={refElement} className="ui-btn ui-btn_with-icon download-manual__link"><span>download manual</span></button>
+            <UiLink unfocusOnClick={true} target="_blank" download href="/download-manual.pdf" classNameLink="ui-btn ui-btn_with-icon download-manual__link" innerText="Download manual" icon={<VscFilePdf className="download-manual__link-icon" />} />
           </div>
         </div>
       </div>
