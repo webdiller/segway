@@ -10,6 +10,7 @@ button {
 
 html {
   line-height: 1.35;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -352,6 +353,29 @@ img {
         transition: all .3s ease;
       }
     }
+  }
+}
+
+.ui-scroll-up {
+  position: fixed;
+  bottom: 85px;
+  right: 16px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 48px;
+  height: 48px;
+  background-color: #F7F7F7;
+   
+  z-index: 50;
+  &__img-wrapper {
+    position: relative;
+    top: -2px;
+    display: block;
+    width: 20px;
+    height: 10px;
   }
 }
 
