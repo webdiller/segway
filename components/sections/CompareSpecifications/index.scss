@@ -179,7 +179,6 @@
     color: transparent;
 
     text-overflow: ellipsis;
-    overflow: hidden;
     white-space: nowrap;
     &::selection {
       background-color: transparent;
@@ -196,25 +195,10 @@
         display: none;
       }
     }
-    @include media('<=1200px') {
-      font-size: 16px;
-    }
-    @include media('<=991px') {
-    }
-
-    @include media('<=768px') {
-    }
-
     @include media('<=576px') {
       padding-bottom: 16px;
-      font-size: 16px;
-    }
-    @include media('<=480px') {
-      font-size: 14px;
-      padding-bottom: 5px;
-    }
-    @include media('<=420px') {
-      font-size: 12px;
+      font-size: 18px;
+      line-height: 87.3%;
     }
   }
 
@@ -380,6 +364,20 @@
   &__wrapper {
   }
 
+  &__header {
+    @include media('<=768px') {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    &-left {}
+    &-right {
+      display: none;
+      @include media('<=768px') {
+        display: block;
+      }
+    }
+  }
+
   &__img-wrapper {
     position: relative;
     display: block;
@@ -469,8 +467,26 @@
     }
 
     @include media('<=768px') {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       padding-top: 14px;
       padding-bottom: 14px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  &__item-left {
+  }
+  &__item-right {
+    display: none;
+    .main-slide__item-key {
+      opacity: 0;
+    }
+    @include media('<=768px') {
+      display: block;
+    }
+    @include media('<=576px') {
       padding-left: 15px;
     }
   }
@@ -484,7 +500,6 @@
     padding-bottom: 9px;
 
     text-overflow: ellipsis;
-    overflow: hidden;
     white-space: nowrap;
     &::before {
       content: '';
@@ -498,25 +513,11 @@
         display: none;
       }
     }
-    @include media('<=1200px') {
-      font-size: 16px;
-    }
-    @include media('<=991px') {
-    }
-
-    @include media('<=768px') {
-    }
 
     @include media('<=576px') {
       padding-bottom: 16px;
-      font-size: 16px;
-    }
-    @include media('<=480px') {
-      font-size: 14px;
-      padding-bottom: 5px;
-    }
-    @include media('<=420px') {
-      font-size: 12px;
+      font-size: 18px;
+      line-height: 87.3%;
     }
   }
 
@@ -553,13 +554,30 @@
 
     @include media('<=576px') {
       padding-top: 0;
-      font-size: 14px;
+      font-size: 18px;
+      line-height: 120%;
+
+      text-overflow: unset;
+      overflow: visible;
+      white-space: unset;
     }
     @include media('<=480px') {
-      font-size: 14px;
     }
     @include media('<=420px') {
-      font-size: 12px;
+    }
+  }
+
+  &__bottom {
+    @include media('<=768px') {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    &-left {}
+    &-right {
+      display: none;
+      @include media('<=768px') {
+        display: block;
+      }
     }
   }
 

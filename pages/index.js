@@ -18,7 +18,7 @@ const RegenerativeDinamic = dynamic(() => import('@/sections/Regenerative'));
 const EasyOneCordDinamic = dynamic(() => import('@/sections/EasyOneCord'));
 const RidingModesDinamic = dynamic(() => import('@/sections/RidingModes'));
 const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'));
-const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'));
+const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), {ssr: false});
 const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'));
@@ -57,7 +57,7 @@ export default function Home({allData}) {
         <OtherModelsDinamic items={allData.segways.adultSegways} />
         <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" />
         <DiscountModalDinamic />
-        <ProductAddedModalDinamic specificItem={allData.segways.adultSegways[5]} items={allData.segways.adultSegways} />
+        <ProductAddedModalDinamic specificItem={allData.segways.adultSegways[5]} items={allData.segways.adultSegways} /> 
       </DefaultLayout>
     </div>
   );

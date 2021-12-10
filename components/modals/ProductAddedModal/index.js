@@ -11,7 +11,7 @@ import noScroll from 'no-scroll';
 
 export default function ProductAddedModal({prices = {main: 949, oneYear: 139, twoYear: 209, threeYear: 279}, warrancyPrice = 279, items} = {}) {
   const router = useRouter();
-  const [currentItem, setCurrentItem] = useState("");
+  const [currentItem, setCurrentItem] = useState('');
   const {active: activeModal, setActiveHandler: setActiveModal} = useToggle(false);
   const {
     tabs: {tab1, tab2, tab3},
@@ -27,7 +27,6 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
     setActiveModal(false);
     noScroll.off();
   };
-
 
   const toggleModal = () => {
     setActiveModal(true);
@@ -71,18 +70,18 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
               </p>
 
               <div className="product-added-modal__content-buttons">
-                <buttom onClick={() => setTabsHandler('tab1')} className={tab1 ? 'product-added-modal__content-button active' : 'product-added-modal__content-button'}>
+                <button onClick={() => setTabsHandler('tab1')} className={tab1 ? 'product-added-modal__content-button active' : 'product-added-modal__content-button'}>
                   <span className="product-added-modal__content-button-year">1 year</span>
                   <span className="product-added-modal__content-button-price">${prices.oneYear}</span>
-                </buttom>
-                <buttom onClick={() => setTabsHandler('tab2')} className={tab2 ? 'product-added-modal__content-button active' : 'product-added-modal__content-button'}>
+                </button>
+                <button onClick={() => setTabsHandler('tab2')} className={tab2 ? 'product-added-modal__content-button active' : 'product-added-modal__content-button'}>
                   <span className="product-added-modal__content-button-year">2 year</span>
                   <span className="product-added-modal__content-button-price">${prices.twoYear}</span>
-                </buttom>
-                <buttom onClick={() => setTabsHandler('tab3')} className={tab3 ? 'product-added-modal__content-button active' : 'product-added-modal__content-button'}>
+                </button>
+                <button onClick={() => setTabsHandler('tab3')} className={tab3 ? 'product-added-modal__content-button active' : 'product-added-modal__content-button'}>
                   <span className="product-added-modal__content-button-year">3 year</span>
                   <span className="product-added-modal__content-button-price">${prices.threeYear}</span>
-                </buttom>
+                </button>
               </div>
 
               <div className="product-added-modal__total">

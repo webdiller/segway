@@ -141,7 +141,7 @@ export default function ControllFromSmartphone() {
                 width="762"
                 height="465"
                 className="controll-from-smartphone__hand-img"
-                src="/controll-from-smartphone-hand-mobile.png"
+                src="/controll-from-smartphone-hand-mobile.jpg"
                 alt="Control from your smartphone"
                 loading="lazy"
               />

@@ -4,27 +4,28 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
-import useAddToCart from '@/hooks/useAddToCart';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import {useState} from 'react';
 
 export default function Accessories({items}) {
-
-  const [clicked, setClicked] = useState()
-
-  const onClickHandler = (id) => {
-    addItem(id)
-  };
-
   const {addItem} = useCart();
+
+  const onClickHandler = (id, e) => {
+    addItem(id);
+    e.target.classList.add('ui-btn_added');
+    e.target.focus();
+    setTimeout(() => {
+      e.target.classList.remove('ui-btn_added');
+      e.target.blur();
+    }, 3000);
+  };
 
   return (
     <div className="accessories">
       <div className="container accessories__container">
         <p className="title accessories__title">Accessories</p>
         <div className="accessories__swiper">
-          <Swiper 
+          <Swiper
             modules={[Scrollbar, FreeMode]}
             slidesPerView={2.1}
             spaceBetween={15}
@@ -55,7 +56,7 @@ export default function Accessories({items}) {
                       <p className="text text_16 accessories__price-key">Price:</p>
                       <p className="text text_uppercase accessories__price-value">${price}</p>
                     </div>
-                    <button onClick={() => onClickHandler(item)} className="ui-btn accessories__add-cart">
+                    <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories__add-cart">
                       <span>ADD TO CART</span>
                     </button>
                   </div>

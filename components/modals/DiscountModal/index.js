@@ -34,7 +34,7 @@ export default function DiscountModal() {
       setTimeout(() => {
         setActiveModal(true);
         noScroll.on();
-      }, 5000);
+      }, 3000);
       window.localStorage.setItem('isFirstVisit', 'false');
     }
   }, []);

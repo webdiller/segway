@@ -1,9 +1,23 @@
 .top-swiper {
-  background-color: #323941;
+  position: relative;
+  background-color: #3d434a;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    z-index: 10;
+    background-color: #323941;
+    @include media('<=768px') {
+      display: none;
+    }
+  }
   &__container {
-    @include media("<=768px") {
+    @include media('<=768px') {
       overflow: hidden;
-      max-height: 105px;
+      max-height: 103px;
     }
   }
 
@@ -15,14 +29,14 @@
   .swiper-slide {
     transition: all 0.3s ease;
     flex: 0 1 calc(100% / 7);
-    @include media("<=768px") {
+    @include media('<=768px') {
       flex: 0 0 auto;
     }
   }
 
   .swiper-wrapper {
     flex-wrap: wrap;
-    @include media("<=768px") {
+    @include media('<=768px') {
       flex-wrap: nowrap;
     }
   }
@@ -31,26 +45,14 @@
     overflow-x: hidden;
     &.accent {
       .top-swiper__link {
-        background-color: #009eff;
+        background-color: #000000;
+        &::before {
+          opacity: 0.37;
+        }
+        &::after {
+          opacity: 1;
+        }
       }
-      .top-swiper__name {
-        color: #fff;
-      }
-    }
-  }
-
-  &__link {
-    display: block;
-    padding: 10px 0;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    border: 0;
-    transition: all 0.3s ease;
-
-    &:hover,
-    &:focus {
-      background-color: #009eff;
       .top-swiper__name {
         color: #fff;
       }
@@ -60,7 +62,75 @@
     }
   }
 
+  &__link {
+    position: relative;
+    display: block;
+    padding: 13px 0 10px 0;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: 0;
+    transition: all 0.5s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 63px;
+      height: 63px;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+
+      background: #ffffff;
+      opacity: 0;
+      filter: blur(28.5px);
+      transition: all 0.3s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 63px;
+      height: 63px;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: #ffffff;
+      opacity: 0;
+      transition: all 0.3s ease;
+      @include media('<=768px') {
+        background: #009eff;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #000000;
+      &::before {
+        opacity: 0.37;
+      }
+      &::after {
+        opacity: 1;
+        @include media('<=768px') {
+          background: #009eff;
+        }
+      }
+      .top-swiper__name {
+        color: #fff;
+      }
+      img {
+        transform: scale(0.95);
+      }
+    }
+    @include media('<=768px') {
+      padding: 10px 0 7px 0;
+    }
+  }
+
   &__name {
+    position: relative;
     display: inline-block;
     text-transform: uppercase;
     margin-top: 5px;
@@ -68,7 +138,11 @@
     line-height: 22px;
     color: #53595f;
     font-weight: 600;
-    @include media("<=576px") {
+    z-index: 2;
+    @include media('<=991px') {
+      font-size: 16px;
+    }
+    @include media('<=576px') {
       font-size: 12px;
     }
   }
@@ -79,7 +153,8 @@
     margin: 0 auto;
     width: 80px;
     height: 80px;
-    @include media("<=768px") {
+    z-index: 2;
+    @include media('<=768px') {
       height: 58px;
       width: 58px;
     }
@@ -92,7 +167,6 @@
       transition: all 0.3s ease;
     }
   }
-
 
   &__navigation {
     position: absolute;
@@ -109,7 +183,7 @@
     height: 0;
 
     display: none;
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: flex;
     }
     &.disabled {

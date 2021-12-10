@@ -3,25 +3,29 @@ import Image from 'next/image';
 import {BsCart2, BsTelephone} from 'react-icons/bs';
 import {IoIosCloseCircleOutline} from 'react-icons/io';
 import {AiOutlineMenu} from 'react-icons/ai';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useCart} from 'react-use-cart';
 import logoBlack from '@/base/logo-black.svg';
 
 /** Верхняя навигация */
 export default function TopNavigation() {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
+  const [items, setItems] = useState(0);
   const handleSetIsActiveMenu = () => {
     setIsActiveMenu((prev) => !prev);
   };
 
   const {totalItems} = useCart();
 
-  let isServer = typeof window === 'undefined' ? false : true;
   const itemsRef = useRef(null);
+
+  useEffect(() => {
+    setItems(totalItems);
+  }, [totalItems]);
 
   const onClick = (e) => {
     if (e.target === itemsRef.current) {
-      setIsActiveMenu()
+      setIsActiveMenu();
     }
   };
 
@@ -63,7 +67,7 @@ export default function TopNavigation() {
           <Link href="/user-cart">
             <a className="top-nav__action top-nav__action_cart">
               <BsCart2 />
-              <span className="top-nav__action-counter">{totalItems}</span>
+              <span className="top-nav__action-counter">{items}</span>
             </a>
           </Link>
           <Link href="tel:+18888888888">
@@ -80,7 +84,7 @@ export default function TopNavigation() {
           <Link href="/user-cart">
             <a className="top-nav__action top-nav__action_cart">
               <BsCart2 />
-              <span className="top-nav__action-counter">{totalItems}</span>
+              <span className="top-nav__action-counter">{items}</span>
             </a>
           </Link>
         </div>

@@ -191,7 +191,6 @@ export const data = {
         links: ['https://www.segway.com/ninebot-kickscooter-e45/', 'https://store.segway.com/segway-ninebot-kickscooter-e45']
       },
       {
-        _index: '5',
         id: '006',
         type: 'kickscooter',
         accent: true,
