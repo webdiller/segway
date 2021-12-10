@@ -1,15 +1,16 @@
 .middle-navigation {
-  @include media("<=576px") {
+  @include media('<=576px') {
     display: none;
   }
   &__container {
     display: flex;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 0px;
+    padding-bottom: 15px;
   }
 
   &__logo-link {
+    padding-top: 19px;
     margin-right: auto;
   }
 
@@ -19,16 +20,26 @@
   &__director {
     display: flex;
     align-items: center;
+    align-self: flex-start;
+    max-width: 400px;
+    margin-left: auto;
+    padding-top: 7px;
+    @include media('<=768px') {
+      max-width: 300px;
+    }
   }
 
   &__director-img-wrapper {
+    display: block;
+    width: 81px;
+    flex: 0 1 81px;
+    min-width: 81px;
+    height: 81px;
+    border-radius: 50%;
     margin-right: 13px;
   }
 
   &__director-img {
-    min-width: 63px;
-    min-height: 63px;
-    border-radius: 50%;
     border: 2px solid #323941;
   }
 
@@ -39,9 +50,16 @@
   &__director-name {
     display: block;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__director-description {
+    margin-bottom: 4px;
     font-size: 13px;
     line-height: 119.3%;
+    color: #84888d;
   }
 
   &__director-link {
