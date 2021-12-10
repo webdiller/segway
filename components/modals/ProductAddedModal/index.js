@@ -126,7 +126,7 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
             </button>
             <Link href="/user-cart">
               <a className="ui-btn product-added-modal__action">
-                <span>CHECK OUT 2</span>
+                <span>CHECK OUT</span>
               </a>
             </Link>
           </div>

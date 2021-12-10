@@ -16,9 +16,11 @@ import React, {useEffect, useState} from 'react';
 import Swipe from 'react-easy-swipe';
 import noScroll from 'no-scroll';
 import {useCart} from 'react-use-cart';
+import {useRouter} from 'next/dist/client/router';
 import 'swiper/css/navigation';
 
 export default function CompareSpecifications({items}) {
+  const router = useRouter();
   const {addItem} = useCart();
 
   // Активный индекс у слайдера (для больших экранов)
@@ -33,9 +35,18 @@ export default function CompareSpecifications({items}) {
   // Показать модкалку, или нет?
   const [modalActive, setModalActive] = useState(false);
 
+  const setUrlIfModalActive = () => {
+    if (!modalActive) {
+      router.push('?modalSelectAModelToCompare=true', undefined, {shallow: true})
+    } else {
+      router.push('?modalSelectAModelToCompare=false', undefined, {shallow: true})
+    }
+  }
+
   const setModalActiveHandle = () => {
     noScroll.toggle();
     setModalActive((prev) => !prev);
+    setUrlIfModalActive()
   };
 
   const setSelectedModelHandle = (id) => {
@@ -43,16 +54,19 @@ export default function CompareSpecifications({items}) {
     setSelectedModel(...filtered);
     setModalActive(false);
     noScroll.off();
+    setUrlIfModalActive()
   };
 
   const onSwipeUp = () => {
     setModalActive(false);
     noScroll.off();
+    setUrlIfModalActive()
   };
 
   const onSwipeDown = () => {
     setModalActive(false);
     noScroll.off();
+    setUrlIfModalActive()
   };
 
   useEffect(() => {

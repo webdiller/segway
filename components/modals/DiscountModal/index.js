@@ -2,8 +2,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import noScroll from 'no-scroll';
 import TinderCard from 'react-tinder-card';
+import {useRouter} from 'next/dist/client/router';
 
 export default function DiscountModal() {
+  const router = useRouter();
   const [activeModal, setActiveModal] = useState(false);
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
@@ -25,22 +27,21 @@ export default function DiscountModal() {
       setActiveModal((prev) => !prev);
       noScroll.toggle();
     }
-  }
+  };
 
   useEffect(() => {
-    if (window.localStorage.isFirstVisit) {
-     
-    } else {
+    const {modalSelectAModelToCompare} = router.query;
+    if (!window.localStorage.isFirstVisit && (modalSelectAModelToCompare == 'false' || modalSelectAModelToCompare == undefined)) {
       setTimeout(() => {
         setActiveModal(true);
         noScroll.on();
+        window.localStorage.setItem('isFirstVisit', 'false');
       }, 3000);
-      window.localStorage.setItem('isFirstVisit', 'false');
     }
   }, []);
 
   return (
-    <div onClick={(e)=>onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>
+    <div onClick={(e) => onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>
       <TinderCard swipeThreshold={300} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
         <div className="discount-modal__wrapper">
           <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">

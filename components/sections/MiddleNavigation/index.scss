@@ -1,5 +1,5 @@
 .middle-navigation {
-  @include media('<=576px') {
+  @include media('<=991px') {
     display: none;
   }
   &__container {
