@@ -150,8 +150,13 @@
   &__form {
     margin-bottom: 25px;
     @include media('<=991px') {
+      margin-bottom: 16px;
     }
     @include media('<=768px') {
+      margin-bottom: 10px;
+    }
+    @include media('<=480px') {
+      margin-bottom: 30px;
     }
   }
 

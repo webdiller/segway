@@ -64,7 +64,6 @@ export default function CompareSpecifications({items}) {
   useEffect(() => {
     if (typeof window !== 'undefined' && !selectedModel) {
       let storageItem = JSON.parse(localStorage.getItem('selectedModel'));
-      console.log(storageItem);
       if (storageItem) {
         setSelectedModel(storageItem);
       }

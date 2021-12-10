@@ -45,7 +45,7 @@
     overflow-x: hidden;
     &.accent {
       .top-swiper__link {
-        background-color: #000000;
+        background-color: rgba(0,0,0,.2);
         &::before {
           opacity: 0.37;
         }
@@ -107,7 +107,7 @@
 
     &:hover,
     &:focus {
-      background-color: #000000;
+      background-color: rgba(0,0,0,.2);
       &::before {
         opacity: 0.37;
       }
