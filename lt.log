@@ -3422,3 +3422,38 @@
 {"level":"debug","time":"2021-12-13T09:45:18.921+1000","caller":"cmd/lt.go:182","msg":"All goroutines exited"}
 {"level":"debug","time":"2021-12-13T09:45:18.921+1000","caller":"runtime/asm_amd64.s:1373","msg":"main: all goroutines have finished."}
 {"level":"debug","time":"2021-12-13T09:45:18.921+1000","caller":"cobra/command.go:854","msg":"Go routines exited within timeout"}
+{"level":"info","time":"2021-12-13T09:46:47.310+1000","caller":"cobra/command.go:854","msg":"LambdaTest Tunnel version: 3.1.18"}
+{"level":"debug","time":"2021-12-13T09:46:47.343+1000","caller":"cmd/lt.go:182","msg":"Starting pipeline....."}
+{"level":"debug","time":"2021-12-13T09:46:47.343+1000","caller":"cmd/lt.go:182","msg":"OS: windows, Arch: amd64"}
+{"level":"debug","time":"2021-12-13T09:46:47.343+1000","caller":"cmd/lt.go:182","msg":"Fetching config"}
+{"level":"warn","time":"2021-12-13T09:46:47.344+1000","caller":"core/lifecycle.go:47","msg":"Tunnel Name was not specified, using: 93697b79-3297-4538-8609-ea2106a1fda1"}
+{"level":"debug","time":"2021-12-13T09:46:47.344+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting tunnel With flags: --user eugenefromrus@gmail.com --key ***** --dir E:\\lambda"}
+{"level":"debug","time":"2021-12-13T09:46:48.193+1000","caller":"cmd/lt.go:182","msg":"Remote config fetched"}
+{"level":"debug","time":"2021-12-13T09:46:48.245+1000","caller":"core/lifecycle.go:178","msg":"Starting File server"}
+{"level":"debug","time":"2021-12-13T09:46:48.245+1000","caller":"runtime/asm_amd64.s:1373","msg":"Trying over ssh over ws"}
+{"level":"debug","time":"2021-12-13T09:46:48.245+1000","caller":"runtime/asm_amd64.s:1373","msg":"Trying on port 443"}
+{"level":"debug","time":"2021-12-13T09:46:48.245+1000","caller":"fileserver/setup.go:96","msg":"Starting File server for tunnel info on port: 33000"}
+{"level":"debug","time":"2021-12-13T09:46:48.245+1000","caller":"core/lifecycle.go:138","msg":"Starting sink proxy"}
+{"level":"debug","time":"2021-12-13T09:46:48.245+1000","caller":"runtime/asm_amd64.s:1373","msg":"Trying on port 22"}
+{"level":"info","time":"2021-12-13T09:46:48.297+1000","caller":"custom/setup.go:677","msg":"Tunnel binary started on port :9090"}
+{"level":"debug","time":"2021-12-13T09:46:48.902+1000","caller":"runtime/asm_amd64.s:1373","msg":"WSS connection was successful"}
+{"level":"debug","time":"2021-12-13T09:46:49.729+1000","caller":"runtime/asm_amd64.s:1373","msg":"SSH connection over port 443 successful"}
+{"level":"debug","time":"2021-12-13T09:46:50.102+1000","caller":"runtime/asm_amd64.s:1373","msg":"SSH connection over ws successful"}
+{"level":"debug","time":"2021-12-13T09:46:50.138+1000","caller":"runtime/asm_amd64.s:1373","msg":"SSH connection over port 22 successful"}
+{"level":"info","time":"2021-12-13T09:46:50.138+1000","caller":"core/lifecycle.go:115","msg":"Using ssh(over_22) :: connection mode"}
+{"level":"debug","time":"2021-12-13T09:46:50.139+1000","caller":"core/lifecycle.go:233","msg":"Starting control ws connection at wss://ts.lambdatest.com/monitor"}
+{"level":"info","time":"2021-12-13T09:46:50.139+1000","caller":"cmd/lt.go:182","msg":"Launching tunnel"}
+{"level":"debug","time":"2021-12-13T09:46:51.003+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-13T09:46:51.003+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-13T09:46:51.745+1000","caller":"runtime/asm_amd64.s:1373","msg":"Sending tunnel registered message to channels"}
+{"level":"debug","time":"2021-12-13T09:46:51.746+1000","caller":"runtime/asm_amd64.s:1373","msg":"Tunnel registered message received on control channel"}
+{"level":"debug","time":"2021-12-13T09:46:51.745+1000","caller":"core/lifecycle.go:283","msg":"Using 5 ssh connection"}
+{"level":"debug","time":"2021-12-13T09:46:51.746+1000","caller":"runtime/asm_amd64.s:1373","msg":"controller bus registered"}
+{"level":"debug","time":"2021-12-13T09:46:53.389+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 13030"}
+{"level":"debug","time":"2021-12-13T09:46:53.391+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 13375"}
+{"level":"info","time":"2021-12-13T09:46:53.391+1000","caller":"runtime/asm_amd64.s:1373","msg":"You can start testing now"}
+{"level":"info","time":"2021-12-13T09:46:53.391+1000","caller":"runtime/asm_amd64.s:1373","msg":"Tunnel ID: 872742"}
+{"level":"debug","time":"2021-12-13T09:46:53.391+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote Listener Started on Port 5911"}
+{"level":"debug","time":"2021-12-13T09:46:53.402+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 4237"}
+{"level":"debug","time":"2021-12-13T09:46:53.414+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 22909"}
+{"level":"debug","time":"2021-12-13T09:46:53.553+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 17893"}

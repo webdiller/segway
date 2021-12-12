@@ -568,7 +568,7 @@
     @include media('<=420px') {
     }
     &_payload, &_weight, &_range {
-      @include media('<=480px') {
+      @include media('<=576px') {
         max-width: 120px;
       }
     }

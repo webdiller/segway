@@ -1,10 +1,11 @@
-import React from 'react';
-
 export default function useToggleScroll() {
-  const [disabled, setDisabled] = useState(false);
-  const setDisabledHandle = () => setDisabled((prev) => !prev);
+  const htmlTag = document.querySelector('html');
+  const setDisabledHandle = (updateClass = false) => {
+    return () => {
+      updateClass ? htmlTag.classList.add('disabled') : htmlTag.classList.remove('disabled');
+    };
+  };
   return {
-    disabled,
     setDisabledHandle
   };
 }

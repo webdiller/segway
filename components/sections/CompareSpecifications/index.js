@@ -138,7 +138,7 @@ export default function CompareSpecifications({items}) {
                       <FaRoad className="main-slide__item-icon" />
                       Range (miles)
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].rangeByMiles}</div>
+                    <div className="main-slide__item-value main-slide__item-value_range">{allModels[5].rangeByMiles}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
