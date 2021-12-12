@@ -56,8 +56,8 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 100px;
-      height: 90%;
+      width: 220px;
+      height: 100%;
       background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
       z-index: 10;
       @include media('<=576px') {
@@ -369,7 +369,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    &-left {}
+    &-left {
+    }
     &-right {
       display: none;
       @include media('<=768px') {
@@ -565,6 +566,11 @@
     }
     @include media('<=420px') {
     }
+    &_payload, &_weight {
+      @include media('<=480px') {
+        max-width: 120px;
+      }
+    }
   }
 
   &__bottom {
@@ -572,7 +578,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    &-left {}
+    &-left {
+    }
     &-right {
       display: none;
       @include media('<=768px') {

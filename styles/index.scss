@@ -21,6 +21,7 @@
 @import '@/sections/Reviews';
 @import '@/sections/SegwayProtect';
 @import '@/sections/Accessories';
+@import '@/sections/Contacts';
 @import '@/sections/CompareSpecifications';
 @import '@/sections/PackingList';
 @import '@/sections/OtherModels';
@@ -32,11 +33,13 @@
 @import '@/sections/Footer';
 
 /** BLOCKS */
+@import '@/blocks/TitleWithDescription';
 @import '@/blocks/FormWithWarrancy';
 @import '@/blocks/PaymentsMethods';
 @import '@/blocks/SegwayProtectMobile';
 
 /** MODALS */
+@import '@/modals/BottomSheet';
 @import '@/modals/FixedModal';
 @import '@/modals/DidntFindModal';
 @import '@/modals/DiscountModal';

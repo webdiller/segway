@@ -368,9 +368,13 @@ img {
   width: 48px;
   height: 48px;
   background-color: #F7F7F7;
+
+  border: 0;
+  outline: none;
    
   z-index: 150;
   transition: all .3s ease;
+  cursor: pointer;
   &_disabled {
     pointer-events: none;
     opacity: 0;

@@ -1,13 +1,10 @@
 import dynamic from 'next/dynamic';
-import {useEffect} from 'react';
 import DefaultLayout from '@/basic/DefaultLayout';
 
-const TopSwiperDinamic = dynamic(() => import('@/sections/TopSwiper'));
-const TopStockDinamic = dynamic(() => import('@/sections/TopStock'));
 const WelcomeDinamic = dynamic(() => import('@/sections/Welcome'));
 const TabsDinamic = dynamic(() => import('@/sections/Tabs'));
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
-const AccessoriesDinamic = dynamic(() => import('@/sections/Accessories'));
+const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
 const KickScooterOverviewDinamic = dynamic(() => import('@/sections/KickScooterOverview'));
 const SmartBatteryDinamic = dynamic(() => import('@/sections/SmartBattery'));
@@ -33,13 +30,11 @@ export default function Home({allData}) {
 
   return (
     <div>
-      <DefaultLayout description="segway description" title="segway index">
-        <TopSwiperDinamic items={allData} />
-        <TopStockDinamic />
+      <DefaultLayout items={allData} description="segway description" title="segway index">
         <WelcomeDinamic item={allData.segways.adultSegways[5]} />
         <TabsDinamic />
         <PackingListDinamic />
-        <AccessoriesDinamic items={allData.accessoeries} />
+        <AccessoriesSliderDinamic items={allData.accessoeries} />
         <FeaturesDinamic />
         <KickScooterOverviewDinamic />
         <SmartBatteryDinamic />
@@ -55,7 +50,7 @@ export default function Home({allData}) {
         <ControllFromSmartphoneDinamic />
         <SegwayNinebotDinamic item={allData.segways.adultSegways[5]} />
         <OtherModelsDinamic items={allData.segways.adultSegways} />
-        <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" />
+        {/* <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" /> */}
         <DiscountModalDinamic />
         <ProductAddedModalDinamic specificItem={allData.segways.adultSegways[5]} items={allData.segways.adultSegways} /> 
       </DefaultLayout>

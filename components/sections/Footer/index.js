@@ -3,6 +3,7 @@ import Image from 'next/image';
 import footerLogo from '@/base/logo-black-footer.svg';
 import {Fragment} from 'react';
 import UiSrollUp from '@/ui/UiSrollUp';
+import BottomSheet from '@/modals/BottomSheet';
 
 export default function Footer() {
   return (
@@ -24,6 +25,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
+      <BottomSheet />
     </Fragment>
   );
 }

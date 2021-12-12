@@ -47,7 +47,7 @@ export default function DidntFindModal({isWhiteMode = true,}) {
           <div className="didnt-find-modal__content">
             <p className="title didnt-find-modal__title">Didn’t find a model?</p>
             <p className="text didnt-find-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
-            <UiInput forForm customClass="didnt-find-modal__input" />
+            <UiInput forForm={true} customClass="didnt-find-modal__input" />
           </div>
           <button className="ui-btn didnt-find-modal__btn">
             <span>SEND</span>

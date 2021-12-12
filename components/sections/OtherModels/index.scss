@@ -75,9 +75,9 @@
       padding: 30px 15px 37px 15px;
 
       .other-models__see-more {
-        margin-top: 55px;
+        margin-top: 48px;
         @include media('<=991px') {
-          margin-top: 50px;
+          margin-top: 67px;
         }
         @include media('<=768px') {
           margin-top: 0;
@@ -268,12 +268,12 @@
     }
   }
   &__form-text {
-    margin-bottom: 14px;
+    margin-bottom: 20px;
     font-size: 16px;
     line-height: 19px;
+    text-align: center;
     @include media('<=768px') {
       font-size: 14px;
-      text-align: center;
     }
   }
   &__form-input {
@@ -300,7 +300,7 @@
       font-size: 14px;
     }
     @include media('<=466px') {
-      margin-bottom: 41px;
+      margin-bottom: 34px;
     }
   }
   &__form-input {

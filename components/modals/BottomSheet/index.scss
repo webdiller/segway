@@ -1,0 +1,24 @@
+.bottom-sheet {
+  &__header {
+  }
+
+  &__content {
+  }
+
+  &__wrapper {
+    padding-bottom: 24px;
+  }
+
+  &__top-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 9px;
+    margin-bottom: 24px;
+  }
+
+  &__top-action {
+  }
+
+  &__text {
+  }
+}

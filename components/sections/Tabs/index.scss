@@ -1,6 +1,6 @@
 .tabs {
   &__container {
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: flex;
       flex-direction: column-reverse;
       background-color: #f7f7f7;
@@ -11,11 +11,11 @@
   &__tabs {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
@@ -52,13 +52,13 @@
         display: block;
       }
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       justify-content: center;
       background-color: #fff;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
@@ -67,49 +67,61 @@
     margin-right: 19px;
     transition: all 0.3s ease;
     min-width: 37px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin-right: 0;
       min-width: auto;
+      height: auto;
+      min-width: 35px;
+      width: 35px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
     &_color {
     }
     &_white {
+      position: relative;
       display: none;
+    }
+    &_1 {
+    }
+    &_2 {
+    }
+    &_3 {
+    }
+    &_4 {
     }
   }
 
   &__tab-img {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
   &__tab-text {
     text-align: left;
     max-width: 150px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       font-size: 15px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: none;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
   &__presentations {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
@@ -120,51 +132,50 @@
     background-color: #f7f7f7;
     height: 195px;
 
-    @include media("<=768px") {
+    @include media('<=768px') {
       height: auto;
       padding: 15px 0;
       background-color: transparent;
       height: 370px;
     }
 
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
     &.active {
       display: flex;
-      @include media("<=768px") {
+      @include media('<=768px') {
         flex-direction: column-reverse;
         align-items: center;
       }
     }
     &_delivery {
-      @include media("<=576px") {
+      @include media('<=576px') {
         .tabs__presentation-content {
           bottom: 32px;
         }
       }
     }
     &_warrancy {
-      @include media("<=576px") {
+      @include media('<=576px') {
         .tabs__presentation-content {
           bottom: 16px;
         }
       }
     }
     &_support {
-      @include media("<=576px") {
+      @include media('<=576px') {
         .tabs__presentation-content {
           bottom: 16px;
         }
       }
     }
     &_road {
-      @include media("<=576px") {
+      @include media('<=576px') {
         .tabs__presentation-content {
-          
         }
       }
     }
@@ -174,55 +185,55 @@
     max-width: 547px;
     margin-right: auto;
     align-self: flex-start;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       align-self: center;
       margin-right: 0;
       text-align: center;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       position: relative;
     }
   }
 
   &__presentation-title {
     margin-bottom: 10px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       font-size: 23px;
       line-height: 31px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
   &__presentation-description {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
     }
   }
 
   &__presentation-icon-wrapper {
     display: flex;
     position: relative;
-    @include media("<=768px") {
+    @include media('<=768px') {
       height: 200px;
       width: 200px;
       margin-bottom: 20px;
     }
     &_large {
-      @include media("<=768px") {
+      @include media('<=768px') {
         justify-content: center;
         align-items: center;
       }
     }
     &_range {
-      @include media("<=460px") {
+      @include media('<=460px') {
         top: 17px;
       }
     }
@@ -232,13 +243,13 @@
     align-self: center;
     margin-left: 50px;
     min-width: 200px;
-    @include media("<=768px") {
+    @include media('<=768px') {
       min-width: unset;
       margin-left: 0;
     }
     &_large {
       margin-top: 15px;
-      @include media("<=768px") {
+      @include media('<=768px') {
         margin-top: 0;
         margin-bottom: 10px;
       }

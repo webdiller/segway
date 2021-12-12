@@ -179,7 +179,7 @@ export default function CompareSpecifications({items}) {
                       <GiWeight className="main-slide__item-icon" />
                       Net Weight
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].netWeight}</div>
+                    <div className="main-slide__item-value main-slide__item-value_weight">{allModels[5].netWeight}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -187,7 +187,7 @@ export default function CompareSpecifications({items}) {
                       <MdSpeed className="main-slide__item-icon" />
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.netWeight}</div>
+                    <div className="main-slide__item-value main-slide__item-value_weight">{!selectedModel ? '--' : selectedModel.netWeight}</div>
                   </div>
                 </div>
 
@@ -199,7 +199,7 @@ export default function CompareSpecifications({items}) {
                       <BsDownload className="main-slide__item-icon" />
                       Payload
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].payload}</div>
+                    <div className="main-slide__item-value main-slide__item-value_payload">{allModels[5].payload}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -207,7 +207,7 @@ export default function CompareSpecifications({items}) {
                       <MdSpeed className="main-slide__item-icon" />
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.payload}</div>
+                    <div className="main-slide__item-value main-slide__item-value_payload">{!selectedModel ? '--' : selectedModel.payload}</div>
                   </div>
                 </div>
 

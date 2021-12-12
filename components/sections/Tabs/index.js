@@ -29,11 +29,11 @@ export default function Tabs() {
             onClick={() => setTabHandle(1)}
             className={tab === 1 ? "tabs__tab active" : "tabs__tab"}
           >
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
-              <Image src={tabIcon1Color} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_1 tabs__tab-icon-wrapper_color">
+              <Image objectFit="contain" layout="responsive" src={tabIcon1Color} alt="icon for tab" />
             </div>
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
-              <Image src={tabIcon1White} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_1 tabs__tab-icon-wrapper_white">
+              <Image objectFit="contain" layout="responsive" src={tabIcon1White} alt="icon for tab" />
             </div>
             <span className="tabs__tab-text">
               Delivery within 1 business day
@@ -43,11 +43,11 @@ export default function Tabs() {
             onClick={() => setTabHandle(2)}
             className={tab === 2 ? "tabs__tab active" : "tabs__tab"}
           >
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
-              <Image src={tabIcon2Color} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_2 tabs__tab-icon-wrapper_color">
+              <Image objectFit="contain" layout="responsive" src={tabIcon2Color} alt="icon for tab" />
             </div>
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
-              <Image src={tabIcon2White} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_2 tabs__tab-icon-wrapper_white">
+              <Image objectFit="contain" layout="responsive" src={tabIcon2White} alt="icon for tab" />
             </div>
             <span className="tabs__tab-text">Basic 1 year warranty</span>
           </div>
@@ -55,11 +55,11 @@ export default function Tabs() {
             onClick={() => setTabHandle(3)}
             className={tab === 3 ? "tabs__tab active" : "tabs__tab"}
           >
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
-              <Image src={tabIcon3Color} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_3 tabs__tab-icon-wrapper_color">
+              <Image objectFit="contain" layout="responsive" src={tabIcon3Color} alt="icon for tab" />
             </div>
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
-              <Image src={tabIcon3White} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_3 tabs__tab-icon-wrapper_white">
+              <Image objectFit="contain" layout="responsive" src={tabIcon3White} alt="icon for tab" />
             </div>
             <span className="tabs__tab-text">After Sales Support</span>
           </div>
@@ -67,11 +67,11 @@ export default function Tabs() {
             onClick={() => setTabHandle(4)}
             className={tab === 4 ? "tabs__tab active" : "tabs__tab"}
           >
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_color">
-              <Image src={tabIcon4Color} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_4 tabs__tab-icon-wrapper_color">
+              <Image objectFit="contain" layout="responsive" src={tabIcon4Color} alt="icon for tab" />
             </div>
-            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_white">
-              <Image src={tabIcon4White} alt="icon for tab" />
+            <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_4 tabs__tab-icon-wrapper_white">
+              <Image objectFit="contain" layout="responsive" src={tabIcon4White} alt="icon for tab" />
             </div>
             <span className="tabs__tab-text">Up to 40 miles per charge</span>
           </div>

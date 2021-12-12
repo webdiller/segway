@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react';
 import DefaultLayout from '@/basic/DefaultLayout';
 import {useCart} from 'react-use-cart';
+import {data} from '@/base/data';
 
-export default function Home() {
+export default function UserCart({allData}) {
   const {items} = useCart();
   const [clientItems, setClientItems] = useState([]);
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function Home() {
   }, [items]);
   return (
     <div>
-      <DefaultLayout description="segway description" title="User cart">
+      <DefaultLayout items={allData} description="segway description" title="User cart">
         <br />
         <br />
         <br />
@@ -58,4 +59,12 @@ export default function Home() {
       </DefaultLayout>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      allData: data
+    }
+  };
 }
