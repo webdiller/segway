@@ -7,7 +7,6 @@ import useMultipleToggle from '@/hooks/useMultipleToggle';
 import iconClose from '@/base/icon-close-white.svg';
 import {useEffect, useState} from 'react';
 import Swipe from 'react-easy-swipe';
-import noScroll from 'no-scroll';
 
 export default function ProductAddedModal({prices = {main: 949, oneYear: 139, twoYear: 209, threeYear: 279}, warrancyPrice = 279, items} = {}) {
   const router = useRouter();
@@ -20,17 +19,14 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
 
   const onSwipeUp = () => {
     setActiveModal(false);
-    noScroll.off();
   };
 
   const onSwipeDown = () => {
     setActiveModal(false);
-    noScroll.off();
   };
 
   const toggleModal = () => {
     setActiveModal(true);
-    noScroll.toggle();
   };
 
   useEffect(() => {
@@ -51,7 +47,12 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
     <div className={activeModal ? 'product-added-modal active' : 'product-added-modal'}>
       <div className="product-added-modal__wrapper">
         <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
-          <button onClick={toggleModal} className="product-added-modal__close-btn">
+          <button
+            onClick={() => {
+              setActiveModal(false);
+              router.replace('/', undefined, {shallow: true});
+            }}
+            className="product-added-modal__close-btn">
             <div className="product-added-modal__close-btn-icon">
               <Image className="top-nav__logo-img" src={iconClose} alt="icon close" />
             </div>
@@ -117,9 +118,9 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
           <div className="product-added-modal__actions">
             <button
               onClick={() => {
-                setActiveModal();
-                noScroll.off();
-                router.replace('/', undefined, {shallow: true});
+                setActiveModal(false);
+                // noScroll.off();
+                router.replace('/', undefined, {shallow: true, scroll: false});
               }}
               className="ui-btn ui-btn_fill-grey product-added-modal__action">
               <span>CONTINUE</span>

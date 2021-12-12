@@ -14,7 +14,6 @@ import {AiOutlineThunderbolt, AiOutlineSafety} from 'react-icons/ai';
 import {RiLogoutCircleRLine} from 'react-icons/ri';
 import React, {useEffect, useState} from 'react';
 import Swipe from 'react-easy-swipe';
-import noScroll from 'no-scroll';
 import {useCart} from 'react-use-cart';
 import {useRouter} from 'next/dist/client/router';
 import 'swiper/css/navigation';
@@ -44,7 +43,7 @@ export default function CompareSpecifications({items}) {
   }
 
   const setModalActiveHandle = () => {
-    noScroll.toggle();
+    // noScroll.toggle();
     setModalActive((prev) => !prev);
     setUrlIfModalActive()
   };
@@ -53,19 +52,19 @@ export default function CompareSpecifications({items}) {
     const filtered = allModels.filter((model) => model.id == id);
     setSelectedModel(...filtered);
     setModalActive(false);
-    noScroll.off();
+    // noScroll.off();
     setUrlIfModalActive()
   };
 
   const onSwipeUp = () => {
     setModalActive(false);
-    noScroll.off();
+    // noScroll.off();
     setUrlIfModalActive()
   };
 
   const onSwipeDown = () => {
     setModalActive(false);
-    noScroll.off();
+    // noScroll.off();
     setUrlIfModalActive()
   };
 
@@ -147,7 +146,7 @@ export default function CompareSpecifications({items}) {
                       <MdSpeed className="main-slide__item-icon" />
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.rangeByMiles}</div>
+                    <div className="main-slide__item-value main-slide__item-value_range">{!selectedModel ? '--' : selectedModel.rangeByMiles}</div>
                   </div>
                 </div>
 
@@ -379,6 +378,7 @@ export default function CompareSpecifications({items}) {
                     <a
                       onClick={() => {
                         addItem(items.adultSegways[5]);
+                        // noScroll.on();
                       }}
                       className="ui-btn main-slide__buy-btn">
                       <span>BUY IT NOW</span>
@@ -392,7 +392,10 @@ export default function CompareSpecifications({items}) {
                     <>
                       <p className="text text_25 main-slide__price">${selectedModel.price}</p>
                       <Link href={`?buyItNow=true&buyItNowFromFixedModal=false&id=${selectedModel.id}`} scroll={false}>
-                        <a onClick={() => addItem(selectedModel)} className="ui-btn main-slide__buy-btn">
+                        <a onClick={() => {
+                          addItem(selectedModel)
+                          // noScroll.on();
+                        }} className="ui-btn main-slide__buy-btn">
                           <span>BUY IT NOW</span>
                         </a>
                       </Link>
@@ -444,7 +447,7 @@ export default function CompareSpecifications({items}) {
                     {/* Range (miles) */}
                     <div className="compare-specfications__item">
                       <div className="compare-specfications__item-key">Range (miles)</div>
-                      <div className="compare-specfications__item-value">{rangeByMiles}</div>
+                      <div className="compare-specfications__item-value main-slide__item-value_range">{rangeByMiles}</div>
                     </div>
 
                     {/* Battery Capacity */}

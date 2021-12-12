@@ -24,9 +24,14 @@
     overflow-y: scroll;
   }
   &.active {
-    z-index: 200;
+    z-index: 1500;
     opacity: 1;
     visibility: visible;
+    .product-added-modal__wrapper {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
   }
   &__wrapper {
     padding: 17px 20px 20px 20px;
@@ -35,7 +40,11 @@
     max-width: 590px;
     background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
     border: 10px solid #009eff;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.05);
     @include media('<=768px') {
       display: flex;
       flex-direction: column;

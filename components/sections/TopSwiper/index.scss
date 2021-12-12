@@ -109,7 +109,7 @@
     &:focus {
       background-color: rgba(0,0,0,.2);
       &::before {
-        opacity: 0.5;
+        opacity: .5;
       }
       &::after {
         opacity: 1;

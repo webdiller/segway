@@ -64,6 +64,7 @@
 
   &__tab-icon-wrapper {
     position: relative;
+    display: block;
     margin-right: 19px;
     transition: all 0.3s ease;
     min-width: 37px;
@@ -71,7 +72,6 @@
     }
     @include media('<=768px') {
       margin-right: 0;
-      min-width: auto;
       height: auto;
       min-width: 35px;
       width: 35px;
@@ -87,6 +87,8 @@
     &_1 {
     }
     &_2 {
+      width: 25px;
+      min-width: 25px;
     }
     &_3 {
     }

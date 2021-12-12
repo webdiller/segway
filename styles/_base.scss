@@ -328,10 +328,12 @@ img {
   }
 
   &_added {
-    background-color: #6ACD68;
+    background-color: #6acd68;
     pointer-events: none;
-    &:active, &:focus, &:hover {
-      background-color: #6ACD68;
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: #6acd68;
       color: #009eff;
       &::before {
         opacity: 0;
@@ -340,7 +342,7 @@ img {
         opacity: 0;
       }
     }
-   
+
     span {
       visibility: hidden;
       &::after {
@@ -350,7 +352,7 @@ img {
         display: block;
         position: absolute;
         color: #fff;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
       }
     }
   }
@@ -358,8 +360,8 @@ img {
 
 .ui-scroll-up {
   position: fixed;
-  bottom: 85px;
-  right: 16px;
+  bottom: 30px;
+  right: 30px;
 
   display: inline-flex;
   justify-content: center;
@@ -367,14 +369,19 @@ img {
 
   width: 48px;
   height: 48px;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 
   border: 0;
   outline: none;
-   
+
   z-index: 150;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+
+  @include media('<=768px') {
+    bottom: 85px;
+    right: 16px;
+  }
   &_disabled {
     pointer-events: none;
     opacity: 0;

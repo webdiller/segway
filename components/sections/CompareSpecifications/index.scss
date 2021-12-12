@@ -60,6 +60,7 @@
       height: 100%;
       background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
       z-index: 10;
+      pointer-events: none;
       @include media('<=576px') {
         width: 50px;
       }
@@ -566,7 +567,7 @@
     }
     @include media('<=420px') {
     }
-    &_payload, &_weight {
+    &_payload, &_weight, &_range {
       @include media('<=480px') {
         max-width: 120px;
       }
