@@ -63,15 +63,15 @@
 
 // // 40
 
-import { useRef, useState } from 'react';
+import {useRef, useState} from 'react';
 import Sheet from 'react-modal-sheet';
 
-const snapPoints = [600, 400, 200, 100];
+const snapPoints = [-50, 0.5, 0];
 const initialSnap = snapPoints.length - 1;
 const disableOnClose = () => {};
 
 const BottomSheet = () => {
-  const [activeSheet, setActiveSheet] = useState(false)
+  const [activeSheet, setActiveSheet] = useState(false);
   const ref = useRef();
   const snapTo = (i) => ref.current?.snapTo(i);
 
@@ -79,15 +79,14 @@ const BottomSheet = () => {
     <>
       <h1>Always open Sheet</h1>
 
-      <Sheet ref={ref} isOpen={activeSheet} onClose={disableOnClose} snapPoints={snapPoints} initialSnap={initialSnap}>
+      <Sheet initialSnap={1} ref={ref} isOpen={activeSheet} onClose={disableOnClose} snapPoints={snapPoints}>
         <Sheet.Container>
           <Sheet.Header />
           <Sheet.Content>
             <div style={{display: 'flex', justifyContent: 'space-around'}}>
-              <button onClick={() => snapTo(0)}>600</button>
-              <button onClick={() => snapTo(1)}>400</button>
-              <button onClick={() => snapTo(2)}>200</button>
-              <button onClick={() => snapTo(3)}>100</button>
+              <button onClick={() => snapTo(0)}>20%</button>
+              <button onClick={() => snapTo(1)}>40%</button>
+              <button onClick={() => snapTo(2)}>80%</button>
             </div>
           </Sheet.Content>
         </Sheet.Container>
