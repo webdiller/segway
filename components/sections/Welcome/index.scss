@@ -272,4 +272,11 @@
     @include media("<=768px") {
     }
   }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
 }
