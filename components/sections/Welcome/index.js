@@ -9,18 +9,7 @@ import segwayPlaceholder from "@/base/segway-placeholder.png";
 import arrowLeft from "@/base/icon-arrow-left.svg";
 import arrowRight from "@/base/icon-arrow-right.svg";
 import exampleItem from "@/base/example-item-1.png";
-
-import ksMax_1 from "@/base/ks-max/ks-max-1.jpg";
-import ksMax_2 from "@/base/ks-max/ks-max-2.jpg";
-import ksMax_3 from "@/base/ks-max/ks-max-3.jpg";
-import ksMax_4 from "@/base/ks-max/ks-max-4.jpg";
-import ksMax_5 from "@/base/ks-max/ks-max-5.jpg";
-import ksMax_6 from "@/base/ks-max/ks-max-6.jpg";
-import ksMax_7 from "@/base/ks-max/ks-max-7.jpg";
-import ksMax_8 from "@/base/ks-max/ks-max-8.jpg";
-
 import "swiper/css/pagination";
-
 
 export default function Welcome({item}) {
   return (
@@ -78,7 +67,7 @@ export default function Welcome({item}) {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src={ksMax_1}
+                      src={exampleItem}
                       alt="welcome swiper"
                       quality={50}
                       layout="responsive"
@@ -92,7 +81,7 @@ export default function Welcome({item}) {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src={ksMax_2}
+                      src={exampleItem}
                       alt="welcome swiper"
                       quality={50}
                       layout="responsive"
@@ -106,77 +95,7 @@ export default function Welcome({item}) {
                     <Image
                       objectFit="contain"
                       className="welcome__swiper-img"
-                      src={ksMax_3}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={ksMax_4}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={ksMax_5}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={ksMax_6}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={ksMax_7}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={ksMax_8}
+                      src={exampleItem}
                       alt="welcome swiper"
                       quality={50}
                       layout="responsive"
