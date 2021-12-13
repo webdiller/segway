@@ -5,7 +5,7 @@ import { useState } from "react";
  * @param {object} data 
  * @returns tabs, settabsHandler
  */
-function useToggle(data = { tab1: false, tab2: false, tab3: false }) {
+function useMultipleToggle(data = { tab1: false, tab2: false, tab3: false }) {
   const [tabs, setTabs] = useState(data);
 
   const setTabsHandler = (name) => {
@@ -17,4 +17,4 @@ function useToggle(data = { tab1: false, tab2: false, tab3: false }) {
 
   return { tabs, setTabsHandler };
 }
-export default useToggle;
+export default useMultipleToggle;

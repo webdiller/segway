@@ -9,7 +9,7 @@
     height: 1px;
     width: 100%;
     z-index: 10;
-    background-color: #474D54;
+    background-color: #474d54;
     @include media('<=768px') {
       display: none;
     }
@@ -45,9 +45,12 @@
     overflow-x: hidden;
     &.accent {
       .top-swiper__link {
-        background-color: rgba(0,0,0,.2);
+        background-color: rgba(0, 0, 0, 0.2);
         &::before {
-          opacity: 0.37;
+          opacity: 0.4;
+          @include media('<=768px') {
+            opacity: 0.67;
+          }
         }
         &::after {
           opacity: 1;
@@ -75,16 +78,23 @@
     &::before {
       content: '';
       position: absolute;
-      width: 63px;
-      height: 63px;
-      top: 50%;
+      width: 57px;
+      height: 57px;
+      border-radius: 50%;
+      top: 23px;
       right: 50%;
-      transform: translate(50%, -50%);
+      transform: translateX(50%);
 
       background: #ffffff;
       opacity: 0;
-      filter: blur(28.5px);
+      filter: blur(20px);
       transition: all 0.3s ease;
+      @include media('<=768px') {
+        top: 20px;
+        width: 42px;
+        height: 42px;
+        filter: blur(15px);
+      }
     }
 
     &::after {
@@ -92,8 +102,8 @@
       position: absolute;
       left: 0;
       right: 0;
-      width: 63px;
-      height: 63px;
+      width: 57px;
+      height: 57px;
       bottom: 0;
       height: 2px;
       width: 100%;
@@ -107,9 +117,12 @@
 
     &:hover,
     &:focus {
-      background-color: rgba(0,0,0,.2);
+      background-color: rgba(0, 0, 0, 0.2);
       &::before {
-        opacity: .5;
+        opacity: 0.4;
+        @include media('<=768px') {
+          opacity: 0.67;
+        }
       }
       &::after {
         opacity: 1;

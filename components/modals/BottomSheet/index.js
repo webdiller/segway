@@ -77,8 +77,6 @@ const BottomSheet = () => {
 
   return (
     <>
-      <h1>Always open Sheet</h1>
-
       <Sheet initialSnap={1} ref={ref} isOpen={activeSheet} onClose={disableOnClose} snapPoints={snapPoints}>
         <Sheet.Container>
           <Sheet.Header />

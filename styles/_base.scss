@@ -11,6 +11,13 @@ button {
 html {
   line-height: 1.35;
   scroll-behavior: smooth;
+  &.disabled {
+    overflow-y: hidden;
+    padding-right: 17px;
+    @media (pointer: coarse) {
+      padding-right: 0;
+    }
+  }
 }
 
 html,

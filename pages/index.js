@@ -25,26 +25,11 @@ const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'));
 const ProductAddedModalDinamic = dynamic(() => import('@/modals/ProductAddedModal'));
 
 import {data} from '@/base/data';
-// import useToggleScroll from '@/hooks/useToggleScroll';
 
 export default function Home({allData}) {
-  
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway index">
-        {/* <div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <button onClick={useToggleScroll(updateClass=true)}>Toggle</button>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-        </div> */}
         <WelcomeDinamic item={allData.segways.adultSegways[5]} />
         <TabsDinamic />
         <PackingListDinamic />
@@ -64,7 +49,7 @@ export default function Home({allData}) {
         <ControllFromSmartphoneDinamic />
         <SegwayNinebotDinamic item={allData.segways.adultSegways[5]} />
         <OtherModelsDinamic items={allData.segways.adultSegways} />
-        {/* <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" /> */}
+        <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" />
         <DiscountModalDinamic />
         <ProductAddedModalDinamic specificItem={allData.segways.adultSegways[5]} items={allData.segways.adultSegways} />
       </DefaultLayout>

@@ -5,17 +5,21 @@ import {useRouter} from 'next/dist/client/router';
 import useToggle from '@/hooks/useToggle';
 import useMultipleToggle from '@/hooks/useMultipleToggle';
 import iconClose from '@/base/icon-close-white.svg';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import Swipe from 'react-easy-swipe';
+import useToggleScroll from '@/hooks/useToggleScroll';
 
 export default function ProductAddedModal({prices = {main: 949, oneYear: 139, twoYear: 209, threeYear: 279}, warrancyPrice = 279, items} = {}) {
   const router = useRouter();
+  const modalRef = useRef(null)
   const [currentItem, setCurrentItem] = useState('');
   const {active: activeModal, setActiveHandler: setActiveModal} = useToggle(false);
   const {
     tabs: {tab1, tab2, tab3},
     setTabsHandler
   } = useMultipleToggle({tab1: false, tab2: false, tab3: false});
+
+  const {setDisabledHandle} = useToggleScroll();
 
   const onSwipeUp = () => {
     setActiveModal(false);
@@ -43,13 +47,22 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router, setCurrentItem]);
 
+  const removeOnTapWrap = (e) => {
+    if (modalRef.current === e.target) {
+      setActiveModal(false);
+      setDisabledHandle(false);
+      router.replace('/', undefined, {shallow: true});
+    }
+  }
+
   return (
-    <div className={activeModal ? 'product-added-modal active' : 'product-added-modal'}>
+    <div ref={modalRef} onClick={e=>removeOnTapWrap(e)} className={activeModal ? 'product-added-modal active' : 'product-added-modal'}>
       <div className="product-added-modal__wrapper">
         <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
           <button
             onClick={() => {
               setActiveModal(false);
+              setDisabledHandle(false);
               router.replace('/', undefined, {shallow: true});
             }}
             className="product-added-modal__close-btn">
@@ -119,14 +132,14 @@ export default function ProductAddedModal({prices = {main: 949, oneYear: 139, tw
             <button
               onClick={() => {
                 setActiveModal(false);
-                // noScroll.off();
+                setDisabledHandle(false);
                 router.replace('/', undefined, {shallow: true, scroll: false});
               }}
               className="ui-btn ui-btn_fill-grey product-added-modal__action">
               <span>CONTINUE</span>
             </button>
             <Link href="/user-cart">
-              <a className="ui-btn product-added-modal__action">
+              <a onClick={() => setDisabledHandle(false)} className="ui-btn product-added-modal__action">
                 <span>CHECK OUT</span>
               </a>
             </Link>

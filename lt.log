@@ -3457,3 +3457,56 @@
 {"level":"debug","time":"2021-12-13T09:46:53.402+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 4237"}
 {"level":"debug","time":"2021-12-13T09:46:53.414+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 22909"}
 {"level":"debug","time":"2021-12-13T09:46:53.553+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully started sshd listener on port: 17893"}
+{"level":"debug","time":"2021-12-13T21:34:23.690+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-13T21:34:23.690+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-13T21:34:23.690+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-13T21:34:23.691+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-13T21:34:23.692+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed read tcp 192.168.0.102:49997->3.66.78.89:443: i/o timeout "}
+{"level":"debug","time":"2021-12-13T21:34:23.698+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote connection on remote port: 13375 closed, reason: EOF"}
+{"level":"debug","time":"2021-12-13T21:34:23.699+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote connection on remote port: 13030 closed, reason: EOF"}
+{"level":"debug","time":"2021-12-13T21:34:23.699+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote connection on remote port: 22909 closed, reason: EOF"}
+{"level":"debug","time":"2021-12-13T21:34:23.699+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote connection on remote port: 17893 closed, reason: EOF"}
+{"level":"debug","time":"2021-12-13T21:34:25.101+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-13T21:34:25.105+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-13T21:34:25.278+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-13T21:34:25.278+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-13T21:34:25.278+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-13T21:34:25.278+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-13T21:34:25.278+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"debug","time":"2021-12-13T21:34:25.927+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-13T21:34:25.939+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-13T21:34:25.989+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully reconnected remote listener on port: 13375"}
+{"level":"debug","time":"2021-12-13T21:34:26.091+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-13T21:34:26.102+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-13T21:34:26.102+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-13T21:34:26.102+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-13T21:34:26.102+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"debug","time":"2021-12-13T21:34:27.872+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-13T21:34:27.879+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-13T21:34:27.911+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully reconnected remote listener on port: 22909"}
+{"level":"debug","time":"2021-12-13T21:34:27.926+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully reconnected remote listener on port: 13030"}
+{"level":"debug","time":"2021-12-13T21:34:27.953+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully reconnected remote listener on port: 17893"}
+{"level":"debug","time":"2021-12-13T21:34:28.044+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-13T21:34:28.058+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-13T21:34:28.058+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-13T21:34:28.058+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-13T21:34:28.058+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"debug","time":"2021-12-13T21:34:32.757+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-13T21:34:32.757+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-13T21:34:32.938+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-13T21:34:32.938+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-13T21:34:32.938+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-13T21:34:32.938+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-13T21:34:32.938+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"debug","time":"2021-12-13T21:34:37.662+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote connection on remote port: 4237 closed, reason: EOF"}
+{"level":"debug","time":"2021-12-13T21:34:39.748+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully reconnected remote listener on port: 4237"}
+{"level":"debug","time":"2021-12-13T21:34:41.628+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-13T21:34:41.628+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-13T21:34:41.789+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-13T21:34:41.789+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-13T21:34:41.789+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-13T21:34:41.789+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-13T21:34:41.790+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"error","time":"2021-12-13T21:34:41.790+1000","caller":"cmd/lt.go:182","msg":"Err occurred: ERR::CTRL::CONN::MAX::ATTEMPT : Control websocket reconnection max attempt reached "}
+{"level":"error","time":"2021-12-13T21:34:41.790+1000","caller":"cmd/lt.go:182","msg":"Aborting"}
+{"level":"info","time":"2021-12-13T21:34:42.599+1000","caller":"cmd/lt.go:182","msg":"Tunnel stopped successfully"}
