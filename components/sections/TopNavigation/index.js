@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {BsCart2, BsTelephone} from 'react-icons/bs';
 import {IoIosCloseCircleOutline} from 'react-icons/io';
 import {AiOutlineMenu} from 'react-icons/ai';
 import {useEffect, useRef, useState} from 'react';
 import {useCart} from 'react-use-cart';
 import logoBlack from '@/base/logo-black.svg';
+import iconCartWhite from '@/base/icon-cart-white.svg';
+import iconCartBlack from '@/base/icon-cart-black.svg';
+import iconPhoneBlack from '@/base/icon-phone-black.svg';
 
 /** Верхняя навигация */
 export default function TopNavigation() {
@@ -66,7 +68,9 @@ export default function TopNavigation() {
         <div className="top-nav__actions top-nav__actions_desktop">
           <Link href="/user-cart">
             <a className="top-nav__action top-nav__action_cart">
-              <BsCart2 />
+              <div className="top-nav__action-icon-wrapper">
+                <Image src={iconCartWhite} alt="icon" />
+              </div>
               <span className="top-nav__action-counter">{items}</span>
             </a>
           </Link>
@@ -78,12 +82,16 @@ export default function TopNavigation() {
         <div className="top-nav__actions top-nav__actions_mobile">
           <Link href="#">
             <a className="top-nav__action">
-              <BsTelephone />
+              <div className="top-nav__action-icon-wrapper">
+                <Image src={iconPhoneBlack} alt="icon" />
+              </div>
             </a>
           </Link>
           <Link href="/user-cart">
             <a className="top-nav__action top-nav__action_cart">
-              <BsCart2 />
+              <div className="top-nav__action-icon-wrapper">
+                <Image src={iconCartBlack} alt="icon" />
+              </div>
               <span className="top-nav__action-counter">{items}</span>
             </a>
           </Link>

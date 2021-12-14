@@ -554,8 +554,8 @@ export default function CompareSpecifications({items}) {
                     <div className="compare-specfications__item">
                       <div className="compare-specfications__item-key">Range (miles)</div>
                       <div className="compare-specfications__item-value main-slide__item-value_range">
-                        (<span className="hide-576">{rangeByMiles}</span>
-                        <span className="show-block-576">{rangeByMilesWrap}</span>)
+                        <span className="hide-576">{rangeByMiles}</span>
+                        <span className="show-block-576">{rangeByMilesWrap}</span>
                       </div>
                     </div>
 
