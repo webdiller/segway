@@ -1,95 +1,198 @@
-// import {useRef, useState} from 'react';
-// import Sheet from 'react-modal-sheet';
-
-// export default function BottomSheet() {
-//   const [isOpen, setOpen] = useState(false);
-//   const ref = useRef();
-//   const snapTo = (i) => ref.current?.snapTo(i);
-
-//   return (
-//     <>
-//       <button onClick={() => setOpen(true)}>Open sheet</button>
-//       <div className="bottom-sheet">
-//         <Sheet snapPoints={[600, 400, 100, 0]} initialSnap={1} onSnap={(snapIndex) => console.log('> Current snap point index:', snapIndex)} isOpen={isOpen} onClose={() => setOpen(false)}>
-//           <Sheet.Container>
-//             <Sheet.Header className="bottom-sheet__header" />
-//             <Sheet.Content className="bottom-sheet__content">
-//               <div className="bottom-sheet__wrapper">
-//                 {/* HEADER START */}
-//                 <div className="container bottom-sheet__header">
-//                   <div className="bottom-sheet__top-actions">
-//                     <button className="ui-btn ui-btn_fill-grey bottom-sheet__top-action">
-//                       <span>BACK</span>
-//                     </button>
-//                     <button className="ui-btn bottom-sheet__top-action">
-//                       <span>CHECK OUT</span>
-//                     </button>
-//                   </div>
-//                 </div>
-//                 <div className="container">
-//                   <button onClick={() => snapTo(0)}>Scroll Up 0</button>
-//                   <button onClick={() => snapTo(1)}>Scroll Up 1</button>
-//                   <button onClick={() => snapTo(2)}>Scroll Up 2</button>
-//                   <button onClick={() => snapTo(3)}>Scroll Up 3</button>
-//                 </div>
-//                 <br />
-//                 {/* HEADER END */}
-//                 <p className="container bottom-sheet__text">
-//                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere blanditiis totam, minima eum, quis maiores sequi officiis non officia ipsam facilis, a nulla quisquam labore ad repellat minus iste distinctio illum. Doloribus repudiandae distinctio quas et aperiam quia vel similique consequuntur earum ea hic possimus tempore
-//                   debitis dolor fugit numquam, voluptate fugiat nobis rerum! Illo id blanditiis odio, quas illum et dicta a reiciendis modi ut nostrum quaerat perferendis, vel, eius porro culpa quidem harum. Possimus quia at nam, adipisci nisi iusto, nulla fugiat laborum eum necessitatibus dolore odio ipsum nostrum tempore maiores neque? Sed culpa
-//                   dicta fugit quasi vitae, asperiores mollitia delectus saepe veniam ad illo excepturi dignissimos, maxime perferendis ratione consequatur id. Placeat, aliquam mollitia? Perferendis vitae reprehenderit nobis laborum illo eaque non asperiores, deserunt repellat aut? Vero fugit excepturi cupiditate animi, blanditiis praesentium
-//                   asperiores ab quia a et placeat pariatur quas tempora dignissimos alias, sed ut quibusdam vitae, quasi consectetur molestiae nobis autem. Rerum corrupti, consectetur quod fugit repellendus at delectus iure, impedit quaerat odit nobis repudiandae incidunt sequi ex iste optio? Placeat consequuntur cumque aut ducimus porro
-//                   dignissimos. Cupiditate voluptatum quisquam facilis cum quia facere ducimus sequi in alias. Cumque pariatur id sequi sunt dolores. Alias ipsa reiciendis cumque inventore laborum, excepturi dolore tenetur, minima voluptatem at aspernatur omnis sequi cupiditate? Eius rem quidem ab ad provident harum explicabo reprehenderit saepe hic
-//                   illo et dolores excepturi officiis neque nisi, distinctio unde. Explicabo tenetur asperiores incidunt neque laboriosam magni molestiae amet adipisci nisi perferendis placeat, magnam est possimus maxime quis, eveniet dolore velit quibusdam nulla atque dolorum unde! Facere, numquam ipsam quae beatae enim, sit eligendi a ad dolores
-//                   repellendus doloremque non. Sunt cum officia fuga ea mollitia inventore nostrum dicta. Similique, soluta? Maxime, modi tenetur? Et eos doloribus labore nihil architecto id porro optio nam iure beatae eum unde saepe ipsa tempora cumque, amet fugit sunt doloremque fugiat dolore omnis, repellendus consequatur recusandae! Cumque vel
-//                   quam, libero eum commodi consectetur a facere temporibus ullam quisquam natus molestias ex ab, impedit eius quidem recusandae! Deleniti necessitatibus, voluptas earum corporis repudiandae labore tempora, doloremque ratione ut explicabo minus quas vero nobis reprehenderit repellat commodi. Ipsam, architecto. Provident, porro
-//                   deleniti? Cupiditate necessitatibus doloribus nulla, voluptatum minima molestias maxime eos excepturi, enim illo ratione, itaque iusto ab? Beatae explicabo dignissimos impedit dolor! Vitae, aliquam. Dicta repellendus recusandae aspernatur obcaecati deserunt, deleniti, et quas similique quasi aliquid facilis vitae consequatur dolor
-//                   repudiandae laboriosam magnam totam commodi doloribus cumque unde ipsum incidunt sed molestiae at? Accusamus rerum illum necessitatibus incidunt, veritatis dicta commodi nostrum et! Unde optio quidem, possimus rerum quod doloribus accusantium laborum cumque, ut iste excepturi! Modi, quae! Mollitia sint consequuntur enim esse
-//                   nostrum ex praesentium officia quisquam eligendi quae dolor ullam sed voluptatum sequi veniam earum, quibusdam labore maxime. Sed illo veritatis rerum accusantium expedita dolorem accusamus, eius corrupti debitis adipisci dolor maxime voluptas aut quam porro quisquam ad. Quod placeat fugiat nesciunt amet porro? Ducimus quaerat
-//                   adipisci quis sapiente ipsa autem perferendis aperiam. Atque quis saepe quibusdam nisi? Facilis totam illum dolor quibusdam praesentium, animi alias necessitatibus harum itaque mollitia pariatur numquam quisquam autem non excepturi possimus reprehenderit nisi odit. Aperiam ad dolore, doloremque consequatur debitis optio blanditiis
-//                   illo nisi incidunt soluta id ipsam laborum ullam amet totam odio repellat, magni accusamus adipisci perferendis. Doloribus minus aliquam quaerat harum sed ex ab quibusdam veniam, minima eveniet, id, hic quidem? Illum totam qui nobis, rerum harum consequuntur velit obcaecati assumenda iure atque, sint ullam aliquam laboriosam
-//                   necessitatibus incidunt tempora iusto minima vel reiciendis ea veritatis quisquam. Dolor incidunt qui nam, quis consequatur quasi harum commodi tenetur sunt, magnam eius.
-//                 </p>
-//               </div>
-//             </Sheet.Content>
-//           </Sheet.Container>
-
-//           <Sheet.Backdrop />
-//         </Sheet>
-//       </div>
-//     </>
-//   );
-// }
-
-// // 40
-
+/* eslint-disable @next/next/no-img-element */
 import {useRef, useState} from 'react';
+import {Navigation, FreeMode} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
+import Image from 'next/image';
 import Sheet from 'react-modal-sheet';
-
-const snapPoints = [-50, 0.5, 0];
-const initialSnap = snapPoints.length - 1;
-const disableOnClose = () => {};
+import iconClose from '@/base/icon-close-black.svg';
+import iconCartBlue from '@/base/icon-cart-blue.svg';
+import iconArrowTop from '@/base/icon-arrow-top-black.svg';
+import {BiMinus, BiPlus} from 'react-icons/bi';
 
 const BottomSheet = () => {
-  const [activeSheet, setActiveSheet] = useState(false);
+  const [activeSheet, setActiveSheet] = useState(true);
+  const [visibleProducts, setVisibleProducts] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   const ref = useRef();
-  const snapTo = (i) => ref.current?.snapTo(i);
+
+  /** 0 => 0.8 | 1 => 0.4 | 2 => 0 (close modal) */
+  const snapTo = (index) => () => {
+    ref.current?.snapTo(index);
+    setVisibleProducts(true);
+  };
+
+  /** 0 => 0.8 | 1 => 0.4 | 2 => 0 (close modal) */
+  const snapPoints = [0.86, 530, 0];
+
+  const toggleArea = () => {
+    return () => {
+      if (!visibleProducts) {
+        setVisibleProducts(true);
+        ref.current?.snapTo(0);
+      } else {
+        setVisibleProducts(false);
+        ref.current?.snapTo(1);
+      }
+    };
+  };
 
   return (
-    <>
-      <Sheet initialSnap={1} ref={ref} isOpen={activeSheet} onClose={disableOnClose} snapPoints={snapPoints}>
-        <Sheet.Container>
-          <Sheet.Header />
-          <Sheet.Content>
-            <div style={{display: 'flex', justifyContent: 'space-around'}}>
-              <button onClick={() => snapTo(0)}>20%</button>
-              <button onClick={() => snapTo(1)}>40%</button>
-              <button onClick={() => snapTo(2)}>80%</button>
+    <div className="bottom-sheet">
+      {/* <Sheet.Backdrop className="bottom-sheet__backdrop"> */}
+      <Sheet disableDrag={true} snapPoints={snapPoints} initialSnap={1} ref={ref} isOpen={activeSheet} onClose={() => {}}>
+        <Sheet.Container className="bottom-sheet__container">
+          <Sheet.Header>
+            <div className="bottom-sheet__top">
+              <div className="text text_25 bottom-sheet__top-title">Added to cart</div>
+              <div onClick={snapTo(2)} className="inline-flex-center bottom-sheet__top-img-wrapper">
+                <Image src={iconClose} alt="icon" layout="responsive" />
+              </div>
+            </div>
+            <div className="container bottom-sheet__top-actions">
+              <button className="ui-btn ui-btn_fill-grey bottom-sheet__top-actions-item">
+                <span>BACK</span>
+              </button>
+              <button className="ui-btn bottom-sheet__top-actions-item">
+                <span>CHECK OUT</span>
+              </button>
+            </div>
+          </Sheet.Header>
+          <Sheet.Content className="bottom-sheet__content">
+            <div className="container bottom-sheet__summ-and-products">
+              <div onClick={toggleArea()} className={visibleProducts ? 'bottom-sheet__summ-area active' : 'bottom-sheet__summ-area'}>
+                <div className="inline-flex-center bottom-sheet__summ-icon-cart-wrapper">
+                  <Image src={iconCartBlue} alt="icon" />
+                </div>
+                <p className="bottom-sheet__summ-title">Hide order summary</p>
+                <div className="inline-flex-center bottom-sheet__summ-icon-arrow-up-wrapper">
+                  <Image src={iconArrowTop} alt="icon" />
+                </div>
+                <p className="text text_bold bottom-sheet__summ-total">$949.99</p>
+              </div>
+
+              <div className={visibleProducts ? 'bottom-sheet__products-area active' : 'bottom-sheet__products-area'}>
+                <div className="bottom-sheet__product">
+                  <div className="bottom-sheet__product-main-area">
+                    <div className="bottom-sheet__product-img-wrapper">
+                      <img src="" alt="" className="bottom-sheet__product-img" />
+                    </div>
+                    <div className="bottom-sheet__product-name-and-price">
+                      <p className="bottom-sheet__product-name">Ninebot KickScooter MAX</p>
+                      <p className="bottom-sheet__product-price"> 1 x $949.99</p>
+                    </div>
+                    <div className="bottom-sheet__product-counter">
+                      <button className="inline-flex-center bottom-sheet__product-count-minus">
+                        <BiMinus />
+                      </button>
+                      <p className="bottom-sheet__product-count">1</p>
+                      <button className="inline-flex-center bottom-sheet__product-count-plus">
+                        <BiPlus />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="bottom-sheet__product-warrancy-area">
+                    <p className="bottom-sheet__product-warrancy-title">Add an extended warranty from Extend</p>
+                    <div className="bottom-sheet__product-warrancy-items">
+                      <button className="bottom-sheet__product-warrancy">
+                        <span className="bottom-sheet__product-warrancy-year">1 year</span>
+                        <span className="bottom-sheet__product-warrancy-price">$139</span>
+                      </button>
+                      <button className="bottom-sheet__product-warrancy">
+                        <span className="bottom-sheet__product-warrancy-year">2 year</span>
+                        <span className="bottom-sheet__product-warrancy-price">$209</span>
+                      </button>
+                      <button className="bottom-sheet__product-warrancy">
+                        <span className="bottom-sheet__product-warrancy-year">3 year</span>
+                        <span className="bottom-sheet__product-warrancy-price">$279</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bottom-sheet__product">
+                  <div className="bottom-sheet__product-main-area">
+                    <div className="bottom-sheet__product-img-wrapper">
+                      <img src="" alt="" className="bottom-sheet__product-img" />
+                    </div>
+                    <div className="bottom-sheet__product-name-and-price">
+                      <p className="bottom-sheet__product-name">Ninebot Engine Speaker</p>
+                      <p className="bottom-sheet__product-price"> 1 x $949.99</p>
+                    </div>
+                    <div className="bottom-sheet__product-counter">
+                      <button className="inline-flex-center bottom-sheet__product-count-minus">
+                        <BiMinus />
+                      </button>
+                      <p className="bottom-sheet__product-count">1</p>
+                      <button className="inline-flex-center bottom-sheet__product-count-plus">
+                        <BiPlus />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bottom-sheet__accessoeries">
+              <p className="text text_25 bottom-sheet__accessoeries-title">Accessories</p>
+              <div className="container bottom-sheet__accessoeries-swiper-wrapper">
+                <div className="bottom-sheet__accessoeries-swiper">
+                  <Swiper
+                    modules={[Navigation, FreeMode]}
+                    spaceBetween={10}
+                    slidesPerView={2}
+                    loop={false}
+                    freeMode={true}
+                    navigation={{
+                      prevEl: '.bottom-sheet__nav_prev',
+                      nextEl: '.bottom-sheet__nav_next'
+                    }}
+                  >
+                    <SwiperSlide className="bottom-sheet__accessoeries-item">
+                      <div className="bottom-sheet__accessoeries-img-wrapper">
+                        <img src="" alt="" className="bottom-sheet__accessoeries-img" />
+                      </div>
+                      <p className="bottom-sheet__accessoeries-name">Ninebot Engine Speaker</p>
+                      <p className="bottom-sheet__accessoeries-price">$949.99</p>
+                    </SwiperSlide>
+                    <SwiperSlide className="bottom-sheet__accessoeries-item">
+                      <div className="bottom-sheet__accessoeries-img-wrapper">
+                        <img src="" alt="" className="bottom-sheet__accessoeries-img" />
+                      </div>
+                      <p className="bottom-sheet__accessoeries-name">Ninebot Engine Speaker</p>
+                      <p className="bottom-sheet__accessoeries-price">$949.99</p>
+                    </SwiperSlide>
+                    <SwiperSlide className="bottom-sheet__accessoeries-item">
+                      <div className="bottom-sheet__accessoeries-img-wrapper">
+                        <img src="" alt="" className="bottom-sheet__accessoeries-img" />
+                      </div>
+                      <p className="bottom-sheet__accessoeries-name">Ninebot Engine Speaker</p>
+                      <p className="bottom-sheet__accessoeries-price">$949.99</p>
+                    </SwiperSlide>
+                    <SwiperSlide className="bottom-sheet__accessoeries-item">
+                      <div className="bottom-sheet__accessoeries-img-wrapper">
+                        <img src="" alt="" className="bottom-sheet__accessoeries-img" />
+                      </div>
+                      <p className="bottom-sheet__accessoeries-name">Ninebot Engine Speaker</p>
+                      <p className="bottom-sheet__accessoeries-price">$949.99</p>
+                    </SwiperSlide>
+                  </Swiper>
+                  <div className={activeIndex !== 0 ? 'bottom-sheet__navigation' : 'bottom-sheet__navigation disabled'}>
+                    <button className="bottom-sheet__nav bottom-sheet__nav_prev">
+                      <BsChevronCompactLeft className="bottom-sheet__nav-icon" />
+                    </button>
+                    <button className="bottom-sheet__nav bottom-sheet__nav_next">
+                      <BsChevronCompactRight className="bottom-sheet__nav-icon" />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </Sheet.Content>
         </Sheet.Container>
       </Sheet>
-    </>
+      {/* </Sheet.Backdrop> */}
+    </div>
   );
 };
 

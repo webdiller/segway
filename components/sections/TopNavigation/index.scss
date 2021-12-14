@@ -183,6 +183,7 @@
     }
     &:not(:last-child) {
       @include media('<=991px') {
+        padding-left: 14px;
         padding-right: 14px;
       }
     }
