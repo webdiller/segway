@@ -61,7 +61,7 @@ export default function TopNavigation() {
 
         <Link href="/">
           <a className="top-nav__logo-link">
-            <Image className="top-nav__logo-img" src={logoBlack} alt="segway" width={94} height={28} />
+            <Image src={logoBlack} alt="segway" width={94} height={28} />
           </a>
         </Link>
 
