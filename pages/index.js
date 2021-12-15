@@ -53,7 +53,7 @@ export default function Home({allData}) {
         <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" />
         <DiscountModalDinamic />
         <ProductSegwayModalDinamic specificItem={allData.segways.adultSegways[5]} items={allData.segways.adultSegways} />
-        <ProductModalDinamic accessoeries={allData.accessoeries} />
+        <ProductModalDinamic segways={allData.segways} accessoeries={allData.accessoeries} />
       </DefaultLayout>
     </div>
   );

@@ -438,6 +438,13 @@ img {
   }
 }
 
+.show-grid-991 {
+  display: none;
+  @include media('<=991px') {
+    display: grid;
+  }
+}
+
 .hide-768 {
   @include media('<=768px') {
     display: none;
@@ -475,4 +482,8 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+#__next {
+  overflow-y: hidden;
 }

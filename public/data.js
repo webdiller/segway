@@ -97,6 +97,20 @@ export const data = {
         shockAbsorption: 'N/A',
         safety: 'LED rear light',
         atmosphereLight: 'N/A',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/segway-ninebot-kickscooter-e22.png',
         imgSmallPath: '/segway-ninebot-kickscooter-e22_small.png',
         links: ['https://www.segway.com/ninebot-kickscooter-e22/', 'https://store.segway.com/segway-ninebot-kickscooter-e22']
@@ -123,6 +137,20 @@ export const data = {
         shockAbsorption: 'Front',
         safety: 'N/A',
         atmosphereLight: 'N/A',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-es1l.png',
         imgSmallPath: '/ninebot-kickscooter-es1l_small.png',
         links: ['https://www.segway.com/ninebot-kickscooter-es1l', 'https://store.segway.com/ninebot-kickscooter-es1l']
@@ -149,6 +177,20 @@ export const data = {
         shockAbsorption: 'N/A',
         safety: 'LED rear light',
         atmosphereLight: 'N/A',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-air-t15.png',
         imgSmallPath: '/ninebot-kickscooter-air-t15_small.png',
         links: ['https://www.segway.com/ninebot-kickscooter-air-t15/', 'https://store.segway.com/ninebot-kickscooter-air-t15']
@@ -175,6 +217,20 @@ export const data = {
         shockAbsorption: 'N/A',
         safety: 'LED rear light',
         atmosphereLight: 'N/A',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-ekickscooter-f30.png',
         imgSmallPath: '/ninebot-ekickscooter-f30_small.png',
         links: ['https://www.segway.com/ninebot-kickscooter-f30/', 'https://store.segway.com/ninebot-ekickscooter-f-series']
@@ -201,6 +257,20 @@ export const data = {
         shockAbsorption: 'Front',
         safety: 'LED rear light',
         atmosphereLight: 'Customizable color',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-e45.png',
         imgSmallPath: '/ninebot-kickscooter-e45_small.png',
         links: ['https://www.segway.com/ninebot-kickscooter-e45/', 'https://store.segway.com/segway-ninebot-kickscooter-e45']
@@ -208,7 +278,6 @@ export const data = {
       {
         id: '006',
         type: 'kickscooter',
-        accent: true,
         name: 'Ninebot Kickscooter MAX',
         shortName: 'KS MAX',
         price: '949.99',
@@ -228,9 +297,24 @@ export const data = {
         shockAbsorption: 'N/A',
         safety: 'LED rear light',
         atmosphereLight: 'N/A',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-max-006.png',
         imgSmallPath: '/ninebot-kickscooter-max-006_small.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-max/', 'https://store.segway.com/ninebot-kickscooter-max']
+        links: ['https://www.segway.com/ninebot-kickscooter-max/', 'https://store.segway.com/ninebot-kickscooter-max'],
+        accent: true,
       },
       {
         id: '007',
@@ -254,6 +338,20 @@ export const data = {
         shockAbsorption: 'N/A',
         safety: 'LED rear light',
         atmosphereLight: 'N/A',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-max-007.png',
         imgSmallPath: '/ninebot-kickscooter-max-007_small.png',
         links: ['https://www.segway.com/ninebot-kickscooter-g30lp/']
@@ -280,6 +378,20 @@ export const data = {
         shockAbsorption: 'front & rear',
         safety: 'LED rear light',
         atmosphereLight: 'Customizable color',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-es2.png',
         imgSmallPath: '/ninebot-kickscooter-es2_small.png',
         links: ['https://www.segway.com/kickscooter-es2/', 'https://store.segway.com/segway-ninebot-kickscooter-es2-grey']
@@ -306,6 +418,20 @@ export const data = {
         shockAbsorption: 'N/A',
         safety: 'LED headlight, side and rear reflector',
         atmosphereLight: 'N/A',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-es3.png',
         imgSmallPath: '/ninebot-kickscooter-es3_small.png',
         links: ['https://www.segway.com/kickscooter-es3/', 'https://store.segway.com/segway-ninebot-kickscooter-es3']
@@ -332,6 +458,20 @@ export const data = {
         shockAbsorption: 'front & rear',
         safety: 'LED rear light',
         atmosphereLight: 'Customizable color',
+        warrancy: {
+          oneYear: {
+            price: '139',
+            selected: false
+          },
+          twoYear: {
+            price: '209',
+            selected: false
+          },
+          threeYear: {
+            price: '279',
+            selected: false
+          }
+        },
         imgPath: '/ninebot-kickscooter-es4.png',
         imgSmallPath: '/ninebot-kickscooter-es4_small.png',
         links: ['https://www.segway.com/kickscooter-es4/', 'https://store.segway.com/segway-ninebot-kickscooter-es4']
