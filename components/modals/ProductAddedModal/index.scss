@@ -592,13 +592,22 @@
 
   &__product-img-wrapper {
     position: relative;
-    width: 56px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
     flex: 0 0 56px;
-    margin-right: 15px;
+    width: 56px;
     height: 56px;
+
+    margin-right: 15px;
   }
 
   &__product-img {
+    max-height: 100%;
+    width: auto;
+    height: auto;
     &::before {
       content: '';
       position: absolute;
@@ -749,34 +758,83 @@
   &__accessoeries-swiper {
   }
   &__accessoeries-item {
+    cursor: pointer;
+    &.added {
+      pointer-events: none;
+      .product-modal__accessoeries-img-wrapper {
+        border-color: rgba(0, 158, 255, 0.9);
+      }
+      .product-modal__accessoeries-overlay {
+        z-index: 10;
+        opacity: 1;
+      }
+    }
   }
   &__accessoeries-img-wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 
     margin-bottom: 5px;
     border: 2px solid #dddddd;
     height: 166px;
     background-color: #fff;
+    transition: all 0.3s ease;
   }
   &__accessoeries-img {
     height: 100%;
     max-height: calc(100% - 10px);
     max-width: calc(100% - 10px);
     object-fit: contain;
+    pointer-events: none;
+  }
+  &__accessoeries-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 158, 255, 0.9);
+
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+    transition: all .3s ease;
+  }
+  &__accessoeries-overlay-text {
+    position: absolute;
+    right: 50%;
+    bottom: 18px;
+    transform: translateX(50%);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 21px;
+    text-align: center;
+    color: #ffffff;
+  }
+  &__accessoeries-overlay-icon {
   }
   &__accessoeries-name {
     font-weight: 600;
     font-size: 15.9959px;
     line-height: 17px;
     color: #323941;
+    pointer-events: none;
   }
   &__accessoeries-price {
     font-weight: 600;
     font-size: 16px;
     line-height: 33px;
     color: #009eff;
+    pointer-events: none;
   }
 
   &__navigation {

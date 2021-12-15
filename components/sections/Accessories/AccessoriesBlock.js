@@ -1,15 +1,18 @@
 import {useCart} from 'react-use-cart';
+import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import TitleWithDescription from '@/blocks/TitleWithDescription';
 
 export default function AccessoriesBlock({items}) {
   const {addItem} = useCart();
+  const router = useRouter();
 
   const onClickHandler = (id, e) => {
     addItem(id);
     e.target.classList.add('ui-btn_added');
     e.target.focus();
+    router.push(`/?productModal=true&productId=${id}&selectedWarranty=null`, null, {scroll: false});
     setTimeout(() => {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();

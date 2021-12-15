@@ -105,7 +105,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
             onClick={() => {
               const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
               setAddedHandler();
-              addItem({...item, selectedWarranty: selectedWarranty && {selected: true}});
+              addItem({...item});
               router.push(`/?productModal=true&productId=${item.id}&selectedWarranty=${selectedWarranty}`, null, {scroll: false});
             }}
             className={added ? 'ui-btn ui-btn_lg ui-btn_added form-with-warrancy__form-action' : 'ui-btn ui-btn_lg form-with-warrancy__form-action'}>

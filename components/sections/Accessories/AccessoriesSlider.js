@@ -6,14 +6,17 @@ import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import { useRouter } from 'next/dist/client/router';
 
 export default function AccessoriesSlider({items}) {
   const {addItem} = useCart();
+  const router = useRouter();
 
   const onClickHandler = (id, e) => {
     addItem(id);
     e.target.classList.add('ui-btn_added');
     e.target.focus();
+    router.push(`/?productModal=true&productId=${id}&selectedWarranty=null`, null, {scroll: false});
     setTimeout(() => {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();

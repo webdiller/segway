@@ -15,8 +15,8 @@ import useToggleScroll from '@/hooks/useToggleScroll';
 
 export default function ProductModal({segways, accessoeries}) {
   // modals
-  const [activeModal, setActiveModal] = useState(false);
-  const [visibleProducts, setVisibleProducts] = useState(false);
+  const [activeModal, setActiveModal] = useState(true);
+  const [visibleProducts, setVisibleProducts] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);
   const router = useRouter();
@@ -28,13 +28,15 @@ export default function ProductModal({segways, accessoeries}) {
   const [clientItems, setClientItems] = useState([]);
   const [clientItemsTotal, setClientItemsTotal] = useState([]);
 
-  const closeModal = (route = '/') => () => {
-    if (activeModal) {
-      setActiveModal(false);
-      setDisabledHandle(false);
-      router.replace(route, undefined, {shallow: true});
-    }
-  };
+  const closeModal =
+    (route = '/') =>
+    () => {
+      if (activeModal) {
+        setActiveModal(false);
+        setDisabledHandle(false);
+        router.replace(route, undefined, {shallow: true});
+      }
+    };
 
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
@@ -48,6 +50,14 @@ export default function ProductModal({segways, accessoeries}) {
 
   const addItemToCart = (item) => () => {
     addItem(item);
+  };
+
+  const addItemToCartWithAnimation = (e, item) => {
+    addItem(item);
+    e.target.classList.add('added');
+    setTimeout(() => {
+      e.target.classList.remove('added');
+    }, 1000);
   };
 
   const updateItemInCart = (itemId, itemQuantity) => () => {
@@ -77,7 +87,7 @@ export default function ProductModal({segways, accessoeries}) {
 
   return (
     <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className={activeModal ? 'product-modal active' : 'product-modal'}>
-      <div className={visibleProducts ? "product-modal__wrapper active" : "product-modal__wrapper"}>
+      <div className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
         <button onClick={closeModal()} className="product-modal__close-btn">
           <div className="product-modal__close-btn-icon">
             <Image src={iconCloseWhite} alt="icon close" />
@@ -105,7 +115,6 @@ export default function ProductModal({segways, accessoeries}) {
 
         {/* CONTENT START */}
         <div className={visibleProducts ? 'product-modal__content active' : 'product-modal__content'}>
-
           <div className="product-modal__summ-and-products">
             <div onClick={setVisibleProductsToggle()} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
               <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
@@ -121,6 +130,7 @@ export default function ProductModal({segways, accessoeries}) {
             <div className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
               {clientItems.map((item) => {
                 const {id, type, name, shortName, price, maxSpeed, rangeByMiles, batteryCapacity, netWeight, payload, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgPath, imgSmallPath, quantity} = item;
+
                 return (
                   <div key={id} className="product-modal__product">
                     <div className="product-modal__product-main-area">
@@ -130,7 +140,6 @@ export default function ProductModal({segways, accessoeries}) {
                       <div className="product-modal__product-name-and-price">
                         <p className="product-modal__product-name">{name}</p>
                         <p className="product-modal__product-price">
-                          {' '}
                           {quantity} x ${price}
                         </p>
                       </div>
@@ -144,48 +153,26 @@ export default function ProductModal({segways, accessoeries}) {
                         </button>
                       </div>
                     </div>
-                    <div className="product-modal__product-warrancy-area">
-                      <p className="product-modal__product-warrancy-title">Add an extended warranty from Extend</p>
-                      <div className="product-modal__product-warrancy-items">
-                        <button className="product-modal__product-warrancy">
-                          <span className="product-modal__product-warrancy-year">1 year</span>
-                          <span className="product-modal__product-warrancy-price">$139</span>
-                        </button>
-                        <button className="product-modal__product-warrancy">
-                          <span className="product-modal__product-warrancy-year">2 year</span>
-                          <span className="product-modal__product-warrancy-price">$209</span>
-                        </button>
-                        <button className="product-modal__product-warrancy">
-                          <span className="product-modal__product-warrancy-year">3 year</span>
-                          <span className="product-modal__product-warrancy-price">$279</span>
-                        </button>
+                    {type !== 'accessory' && (
+                      <div className="product-modal__product-warrancy-area">
+                        <p className="product-modal__product-warrancy-title">Add an extended warranty from Extend</p>
+                        <div className="product-modal__product-warrancy-items">
+                          <button className="product-modal__product-warrancy">
+                            <span className="product-modal__product-warrancy-year">1 year</span>
+                            <span className="product-modal__product-warrancy-price">$139</span>
+                          </button>
+                          <button className="product-modal__product-warrancy">
+                            <span className="product-modal__product-warrancy-year">2 year</span>
+                            <span className="product-modal__product-warrancy-price">$209</span>
+                          </button>
+                          <button className="product-modal__product-warrancy">
+                            <span className="product-modal__product-warrancy-year">3 year</span>
+                            <span className="product-modal__product-warrancy-price">$279</span>
+                          </button>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
-
-                  // <div key={id} className="product-modal__product">
-                  //   <div className="product-modal__product-main-area">
-                  //     <div className="product-modal__product-img-wrapper">
-                  //       <img src={`./${imgPath}`} alt={name} className="product-modal__product-img" />
-                  //     </div>
-                  //     <div className="product-modal__product-name-and-price">
-                  //       <p className="product-modal__product-name">{name}</p>
-                  //       <p className="product-modal__product-price">
-                  //         {' '}
-                  //         {quantity} x ${price}
-                  //       </p>
-                  //     </div>
-                  //     <div className="product-modal__product-counter">
-                  //       <button onClick={updateItemInCart(id, quantity - 1)} className="inline-flex-center product-modal__product-count-minus">
-                  //         <BiMinus />
-                  //       </button>
-                  //       <p className="product-modal__product-count">{quantity}</p>
-                  //       <button onClick={addItemToCart(item)} className="inline-flex-center product-modal__product-count-plus">
-                  //         <BiPlus />
-                  //       </button>
-                  //     </div>
-                  //   </div>
-                  // </div>
                 );
               })}
             </div>
@@ -217,9 +204,13 @@ export default function ProductModal({segways, accessoeries}) {
                   {accessoeries.map((item) => {
                     const {id, name, nameWrap, description, price, imgPath} = item;
                     return (
-                      <SwiperSlide key={id} className="product-modal__accessoeries-item">
+                      <SwiperSlide onClick={(e) => addItemToCartWithAnimation(e, item)} key={id} className="product-modal__accessoeries-item">
                         <div className="product-modal__accessoeries-img-wrapper">
                           <img src={`.${imgPath}`} alt={name} className="product-modal__accessoeries-img" />
+                          <div className="product-modal__accessoeries-overlay">
+                            <p className="product-modal__accessoeries-overlay-text">Added to card</p>
+                            <img className="product-modal__accessoeries-overlay-icon" src="./icon-check-bold.svg" alt="icon" />
+                          </div>
                         </div>
                         <p className="product-modal__accessoeries-name">{name}</p>
                         <p className="product-modal__accessoeries-price">${price}</p>
