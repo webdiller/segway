@@ -49,6 +49,7 @@ export default function CompareSpecifications({items}) {
 
   // Все модели
   const [allModels, setAllModels] = useState(items.adultSegways);
+  const [allModelsWithExcludetSegway, setAllModelsWithExcludetSegway] = useState([allModels[0], allModels[1], allModels[2], allModels[3], allModels[4], allModels[6], allModels[7], allModels[8], allModels[9]]);
 
   // Если есть модель, то отобразить данные, иначе показать прочерк
   const [selectedModel, setSelectedModel] = useState();
@@ -517,7 +518,7 @@ export default function CompareSpecifications({items}) {
             modules={[Navigation]}
             spaceBetween={0}
             slidesPerView={2}
-            loop={true}
+            loop={false}
             allowTouchMove={false}
             navigation={{
               prevEl: '.compare-specfications__nav_prev',
@@ -534,7 +535,7 @@ export default function CompareSpecifications({items}) {
                 slidesPerView: 3
               }
             }}>
-            {allModels.map((item) => {
+            {allModelsWithExcludetSegway.map((item) => {
               const {id, type, name, shortName, price, maxSpeed, rangeByMiles, rangeByMilesWrap, batteryCapacity, netWeight, netWeightWrap, payload, payloadWrap, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgPath, links} = item;
               return (
                 <SwiperSlide key={id} className="compare-specfications__slide">
@@ -648,7 +649,7 @@ export default function CompareSpecifications({items}) {
             })}
           </Swiper>
 
-          <div className="compare-specfications__navigation">
+          <div className={activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 6 ? "compare-specfications__navigation disabled-right" : "compare-specfications__navigation"}>
             <button className="compare-specfications__nav compare-specfications__nav_prev">
               <FcPrevious className="compare-specfications__icon" />
             </button>
@@ -670,7 +671,7 @@ export default function CompareSpecifications({items}) {
                       setSelectedModelHandle(id);
                     }}
                     key={id}
-                    className="compare-modal__item">
+                    className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
                     <div className="compare-modal__img-wrapper">
                       <Image objectFit="contain" src={imgPath} alt={name} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                     </div>

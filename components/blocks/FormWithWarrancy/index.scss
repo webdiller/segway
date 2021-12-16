@@ -24,10 +24,8 @@
     line-height: 22px;
     color: #323941;
     pointer-events: none;
-    @include media('<=991px') {
-      span {
-        font-weight: 700;
-      }
+    span {
+      font-weight: 700;
     }
     @include media('<=768px') {
       margin-bottom: 8px;

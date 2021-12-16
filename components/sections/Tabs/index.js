@@ -72,7 +72,7 @@ export default function Tabs() {
               </span>
             </p>
             <p className="text tabs__presentation-description">
-              <span className="hide-768">Free California 1 day shipping. US Free Shipping 3-5 Days</span>
+              <span className="hide-768">Free California 1 day shipping. <br /> US Free Shipping 3-5 Days</span>
               <span className="show-block-768">
                 Free California 1 day shipping. <br /> US Free Shipping 3-5 Days
               </span>
@@ -95,7 +95,7 @@ export default function Tabs() {
               </span>
             </p>
             <p className="text tabs__presentation-description">
-              <span className="hide-768">The basic warranty is 1 year. You can also extend the warranty up to 4 years.</span>
+              <span className="hide-768">The basic warranty is 1 year. <br /> You can also extend the warranty up to 4 years.</span>
               <span className="show-block-768">
                 The basic warranty is 1 year. <br />
                 You can also extend the warranty <br /> up to 4 years.
@@ -121,7 +121,7 @@ export default function Tabs() {
               </span>
             </p>
             <p className="text tabs__presentation-description">
-              <span className="hide-768">If you have any difficulties with your kickscooter, our specialists will contact you within 15 minutes</span>
+              <span className="hide-768">If you have any difficulties with your kickscooter, our specialists will <br /> contact you within 15 minutes</span>
               <span className="show-block-768">
                 If you have any difficulties with your <br /> kickscooter, our specialists will contact you <br /> within 15 minutes
               </span>

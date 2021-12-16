@@ -9,13 +9,15 @@
     min-height: 48px;
     text-transform: uppercase;
     color: #fff;
+    letter-spacing: 0.02em;
     font-size: 18px;
+    font-weight: 300;
     line-height: 22px;
 
     padding-top: 5px;
     padding-bottom: 5px;
   }
-  @include media("<=576px") {
+  @include media('<=576px') {
     display: none;
   }
 }
