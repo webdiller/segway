@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import {useRouter} from 'next/dist/client/router';
 import {useCart} from 'react-use-cart';
 import {useEffect, useRef, useState} from 'react';
 import {Navigation, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {BsChevronLeft, BsChevronRight} from 'react-icons/bs';
-import Image from 'next/image';
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
@@ -15,7 +15,7 @@ import useToggleScroll from '@/hooks/useToggleScroll';
 
 export default function ProductModal({segways, accessoeries}) {
   // modals
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);
@@ -69,7 +69,13 @@ export default function ProductModal({segways, accessoeries}) {
   }, [activeModal, setDisabledHandle]);
 
   useEffect(() => {
-    setClientItems(items);
+    
+    const adultScootersFilter = items.filter(({type})=>type === 'kickscooter')
+    const kidsScooterFilter = items.filter(({type})=>type === 'kidsScooter')
+    const accessoriesFilter = items.filter(({type})=>type === 'accessory')
+    const allData = [...adultScootersFilter, ...kidsScooterFilter, ...accessoriesFilter]
+
+    setClientItems(allData);
     setClientItemsTotal(Math.round(cartTotal));
   }, [items, cartTotal]);
 
@@ -80,7 +86,6 @@ export default function ProductModal({segways, accessoeries}) {
       setRouterProduct(...matchProduct);
       setActiveModal(true);
       setVisibleProducts(true);
-      console.log(selectedWarranty);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query]);

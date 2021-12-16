@@ -1,48 +1,61 @@
 /* eslint-disable @next/next/no-img-element */
 import React, {useEffect, useRef, useState} from 'react';
-import noScroll from 'no-scroll';
+import useToggleScroll from '@/hooks/useToggleScroll';
 import TinderCard from 'react-tinder-card';
 import {useRouter} from 'next/dist/client/router';
 
 export default function DiscountModal() {
   const router = useRouter();
+  const elRef = useRef(null);
   const [activeModal, setActiveModal] = useState(false);
+  const [lsFirstVisit, setLsFirstVisit] = useState();
+  const {setDisabledHandle} = useToggleScroll();
+
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
-    noScroll.toggle();
+    setDisabledHandle(false);
   };
+
   const onSwipe = (direction) => {
     console.log('You swiped: ' + direction);
     setActiveModal((prev) => !prev);
-    noScroll.toggle();
+    setDisabledHandle(false);
   };
 
-  const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + ' left the screen');
-  };
-
-  const elRef = useRef(null);
   const onClickWrapper = (e) => {
     if (e.target === elRef.current) {
       setActiveModal((prev) => !prev);
-      noScroll.toggle();
+      setDisabledHandle(false);
     }
   };
 
   useEffect(() => {
-    const {modalSelectAModelToCompare} = router.query;
-    if (!window.localStorage.isFirstVisit && (modalSelectAModelToCompare == 'false' || modalSelectAModelToCompare == undefined)) {
-      setTimeout(() => {
-        setActiveModal(true);
-        noScroll.on();
-        window.localStorage.setItem('isFirstVisit', 'false');
-      }, 3000);
-    }
+    const firstInterval = null;
+    const secondInterval = null;
+
+    firstInterval = setInterval(() => {
+      if (window.localStorage.isFirstVisit == undefined && !window.location.href.toLocaleLowerCase().includes('modal')) {
+        console.log('first interval');
+
+        secondInterval = setInterval(() => {
+          if (window.localStorage.isFirstVisit == undefined && !window.location.href.toLocaleLowerCase().includes('modal')) {
+            setActiveModal(true);
+            window.localStorage.setItem('isFirstVisit', 'false');
+            clearInterval(firstInterval)
+            clearInterval(secondInterval)
+          }
+        }, 5000);
+      }
+    }, 5000);
   }, []);
+
+  // Запускаем интервал в 3 секунды
+  //    Проверяем, пустой ли роут и первый ли визит
+  //    Если да, то показываем модалку, записываем первый визит и очищаем интервал
 
   return (
     <div onClick={(e) => onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>
-      <TinderCard swipeThreshold={300} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
+      <TinderCard swipeThreshold={300} onSwipe={onSwipe} preventSwipe={['right', 'left']}>
         <div className="discount-modal__wrapper">
           <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">
             <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />

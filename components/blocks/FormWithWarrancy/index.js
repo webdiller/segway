@@ -8,14 +8,18 @@ import {useRouter} from 'next/dist/client/router';
 
 export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
   const router = useRouter();
+  const {addItem} = useCart();
   const {added, setAddedHandler} = useAddToCart();
+  const tabWrapper = useRef(null);
   const [tabs, setTabs] = useState({
     oneYear: false,
     twoYear: false,
     threeYear: false
   });
 
-  const setActiveTabHandled = (name) => {
+  const {oneYear, twoYear, threeYear} = tabs;
+
+  const setActiveTabHandled = (name) => () => {
     setTabs({
       oneYear: false,
       twoYear: false,
@@ -24,10 +28,15 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
     });
   };
 
-  const {oneYear, twoYear, threeYear} = tabs;
-  const tabWrapper = useRef(null);
+  const addItemToCartAndShowModal = (productItem) => () => {
+    const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
 
-  const {addItem} = useCart();
+    // Если выбрали гарантию, то указываем уникальный id с гарантией. Иначе возвращаем обычный объект
+    selectedWarranty ? (productItem = {...productItem, id: `${productItem.id}?warrancy=${selectedWarranty}`}) : productItem;
+    setAddedHandler();
+    addItem({...productItem});
+    router.push(`/?productModal=true&productId=${productItem.id}&selectedWarranty=${selectedWarranty}`, null, {scroll: false});
+  };
 
   return (
     <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>
@@ -36,17 +45,17 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
           Add an extended warranty from <span>Extend</span>
         </p>
         <div className="form-with-warrancy__form-buttons">
-          <button onClick={() => setActiveTabHandled('oneYear')} className={oneYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
+          <button onClick={setActiveTabHandled('oneYear')} className={oneYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
             <span className="form-with-warrancy__form-button-year">1 Year</span>
             <span className="form-with-warrancy__form-button-separator">-</span>
             <span className="form-with-warrancy__form-button-price">$139</span>
           </button>
-          <button onClick={() => setActiveTabHandled('twoYear')} className={twoYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
+          <button onClick={setActiveTabHandled('twoYear')} className={twoYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
             <span className="form-with-warrancy__form-button-year">2 Year</span>
             <span className="form-with-warrancy__form-button-separator">-</span>
             <span className="form-with-warrancy__form-button-price">$209</span>
           </button>
-          <button onClick={() => setActiveTabHandled('threeYear')} className={threeYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
+          <button onClick={setActiveTabHandled('threeYear')} className={threeYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
             <span className="form-with-warrancy__form-button-year">3 Year</span>
             <span className="form-with-warrancy__form-button-separator">-</span>
             <span className="form-with-warrancy__form-button-price">$279</span>
@@ -101,14 +110,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
               <span>BUY IT Now</span>
             </a>
           </Link>
-          <button
-            onClick={() => {
-              const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
-              setAddedHandler();
-              addItem({...item});
-              router.push(`/?productModal=true&productId=${item.id}&selectedWarranty=${selectedWarranty}`, null, {scroll: false});
-            }}
-            className={added ? 'ui-btn ui-btn_lg ui-btn_added form-with-warrancy__form-action' : 'ui-btn ui-btn_lg form-with-warrancy__form-action'}>
+          <button onClick={addItemToCartAndShowModal(item)} className={added ? 'ui-btn ui-btn_lg ui-btn_added form-with-warrancy__form-action' : 'ui-btn ui-btn_lg form-with-warrancy__form-action'}>
             <span> ADD TO CART </span>
           </button>
         </div>

@@ -4,11 +4,14 @@ import UiLink from '@/ui/UiLink';
 
 export default function DownloadManual() {
   const handleClick = (e) => {
+    // window.open('/download-manual.pdf');
+    // e.target.focus();
+    // setTimeout(() => {
+    //   e.target.blur();
+    // }, 100);
+
     window.open('/download-manual.pdf');
-    e.target.focus();
-    setTimeout(() => {
-      e.target.blur();
-    }, 1000);
+    e.target.blur();
   };
   return (
     <div className="download-manual">
