@@ -94,6 +94,11 @@ export default function CompareSpecifications({items}) {
     setUrlIfModalActive();
   };
 
+  const addItemToCartAndShowModal = (event, productItem) => {
+    addItem(productItem);
+    router.push(`/?productModal=true&productId=${productItem.id}`, null, {scroll: false});
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined' && selectedModel) {
       localStorage.setItem('selectedModel', JSON.stringify(selectedModel));
@@ -479,15 +484,12 @@ export default function CompareSpecifications({items}) {
               <div className="main-slide__bottom">
                 <div className="main-slide__bottom-left">
                   <p className="text text_25 main-slide__price">$949.99</p>
-                  <Link href={`?buyItNow=true&buyItNowFromFixedModal=false&id=006`} scroll={false}>
-                    <a
-                      onClick={() => {
-                        addItem(items.adultSegways[5]);
-                        setDisabledHandle(true);
-                      }}
-                      className="ui-btn main-slide__buy-btn">
-                      <span>BUY IT NOW</span>
-                    </a>
+
+                  <button onClick={(e) => addItemToCartAndShowModal(e, items.adultSegways[5])} className="ui-btn main-slide__buy-btn">
+                    <span>BUY IT NOW</span>
+                  </button>
+                  <Link href="/details-page" scroll={false}>
+                    <a className="main-slide__see-details">See details</a>
                   </Link>
                 </div>
                 <div className="main-slide__bottom-right">
@@ -496,15 +498,12 @@ export default function CompareSpecifications({items}) {
                   ) : (
                     <>
                       <p className="text text_25 main-slide__price">${selectedModel.price}</p>
-                      <Link href={`?buyItNow=true&buyItNowFromFixedModal=false&id=${selectedModel.id}`} scroll={false}>
-                        <a
-                          onClick={() => {
-                            addItem(selectedModel);
-                            setDisabledHandle(true);
-                          }}
-                          className="ui-btn main-slide__buy-btn">
-                          <span>BUY IT NOW</span>
-                        </a>
+
+                      <button onClick={(e) => addItemToCartAndShowModal(e, selectedModel)} className="ui-btn main-slide__buy-btn">
+                        <span>BUY IT NOW</span>
+                      </button>
+                      <Link href="/details-page" scroll={false}>
+                        <a className="main-slide__see-details">See details</a>
                       </Link>
                     </>
                   )}
@@ -634,22 +633,19 @@ export default function CompareSpecifications({items}) {
                   </div>
 
                   <p className="text text_25 compare-specfications__price">${price}</p>
-                  <Link href={`?buyItNow=true&buyItNowFromFixedModal=false&id=${id}`} scroll={false}>
-                    <a
-                      onClick={() => {
-                        addItem(item);
-                        setDisabledHandle(true);
-                      }}
-                      className="ui-btn compare-specfications__buy-btn">
-                      <span>BUY IT NOW</span>
-                    </a>
+
+                  <button onClick={(e) => addItemToCartAndShowModal(e, item)} className="ui-btn compare-specfications__buy-btn">
+                    <span>BUY IT NOW</span>
+                  </button>
+                  <Link href="/details-page" scroll={false}>
+                    <a className="compare-specfications__see-details">See details</a>
                   </Link>
                 </SwiperSlide>
               );
             })}
           </Swiper>
 
-          <div className={activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 6 ? "compare-specfications__navigation disabled-right" : "compare-specfications__navigation"}>
+          <div className={activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 6 ? 'compare-specfications__navigation disabled-right' : 'compare-specfications__navigation'}>
             <button className="compare-specfications__nav compare-specfications__nav_prev">
               <FcPrevious className="compare-specfications__icon" />
             </button>

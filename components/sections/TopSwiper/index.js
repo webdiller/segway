@@ -42,14 +42,18 @@ export default function TopSwiper({items}) {
                   setTimeout(() => {
                     try {
                       el.slideNext();
-                    } catch (error) {
-                    }
+                      setTimeout(() => {
+                        try {
+                          el.slidePrev();
+                        } catch (error) {}
+                      }, 1000);
+                    } catch (error) {}
                   }, 2000);
                 }
               } catch (error) {}
             }}>
             {items.segways.adultSegways.map(({id, name, shortName, imgPath, accent, ...props}) => (
-              <SwiperSlide key={id} className={accent ? "top-swiper__item accent" : "top-swiper__item"}>
+              <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>
                 <Link href="#">
                   <a className="top-swiper__link">
                     <div className="top-swiper__img-wrapper">

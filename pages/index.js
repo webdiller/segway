@@ -50,7 +50,7 @@ export default function Home({allData}) {
         <ControllFromSmartphoneDinamic />
         <SegwayNinebotDinamic item={allData.segways.adultSegways[5]} />
         <OtherModelsDinamic items={allData.segways.adultSegways} />
-        <FixedModalDinamic anchor="?buyItNow=true&buyItNowFromFixedModal=true&id=006" />
+        <FixedModalDinamic segwayItem={allData.segways.adultSegways[5]} />
         <DiscountModalDinamic />
         <ProductSegwayModalDinamic specificItem={allData.segways.adultSegways[5]} items={allData.segways.adultSegways} />
         <ProductModalDinamic segways={allData.segways} accessoeries={allData.accessoeries} />

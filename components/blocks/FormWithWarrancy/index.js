@@ -28,6 +28,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
     });
   };
 
+  // TODO: Сделать DRY
   const addItemToCartAndShowModal = (productItem) => () => {
     const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
 
@@ -35,7 +36,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
     selectedWarranty ? (productItem = {...productItem, id: `${productItem.id}?warrancy=${selectedWarranty}`, selectedWarranty}) : productItem;
     setAddedHandler();
     addItem({...productItem});
-    router.push(`/?productModal=true&productId=${productItem.id}&selectedWarranty=${selectedWarranty}`, null, {scroll: false});
+    router.push(`/?productModal=true&productId=${productItem.id}`, null, {scroll: false});
   };
 
   return (

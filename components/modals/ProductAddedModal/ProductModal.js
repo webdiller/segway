@@ -79,9 +79,10 @@ export default function ProductModal({segways, accessoeries}) {
   }, [items, cartTotal]);
 
   useEffect(() => {
-    const {productModal, productId, selectedWarranty} = router.query;
+    const {productModal, productId} = router.query;
     if (productModal === 'true' && productId) {
       const matchProduct = segways.adultSegways.filter((segway) => segway.id === productId);
+      // TODO: Ненужный стейт setRouterProduct
       setRouterProduct(...matchProduct);
       setActiveModal(true);
       setVisibleProducts(true);
