@@ -82,9 +82,6 @@
     margin-bottom: 9px;
     span {
       color: #009eff;
-      @include media('<=576px') {
-        color: #323941;
-      }
     }
     @include media('<=991px') {
       max-width: 360px;

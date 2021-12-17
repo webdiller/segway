@@ -7649,3 +7649,44 @@
 {"level":"debug","time":"2021-12-17T18:48:03.174+1000","caller":"runtime/asm_amd64.s:1373","msg":"Response &{200 OK 200 HTTP/1.1 1 1 map[Accept-Ranges:[bytes] Cache-Control:[public, max-age=0] Connection:[keep-alive] Content-Length:[21190] Content-Type:[image/png] Date:[Fri, 17 Dec 2021 08:48:03 GMT] Etag:[W/\"52c6-17d365be1f5\"] Keep-Alive:[timeout=5] Last-Modified:[Fri, 19 Nov 2021 04:02:11 GMT]] 0xc000f2d280 21190 [] false false map[] 0xc0004bcc00 <nil>} for http request from host localhost:3000"}
 {"level":"debug","time":"2021-12-17T18:48:03.330+1000","caller":"runtime/asm_amd64.s:1373","msg":"handle http request for localhost:3000"}
 {"level":"debug","time":"2021-12-17T18:48:03.339+1000","caller":"runtime/asm_amd64.s:1373","msg":"Response &{200 OK 200 HTTP/1.1 1 1 map[Accept-Ranges:[bytes] Cache-Control:[public, max-age=0] Connection:[keep-alive] Content-Length:[62083] Content-Type:[image/png] Date:[Fri, 17 Dec 2021 08:48:03 GMT] Etag:[W/\"f283-17d36113595\"] Keep-Alive:[timeout=5] Last-Modified:[Fri, 19 Nov 2021 02:40:37 GMT]] 0xc000388c00 62083 [] false false map[] 0xc0004bcd00 <nil>} for http request from host localhost:3000"}
+{"level":"debug","time":"2021-12-17T18:48:49.050+1000","caller":"runtime/asm_amd64.s:1373","msg":"handling connect request for URL https://pancake.apple.com:443"}
+{"level":"debug","time":"2021-12-17T18:52:30.952+1000","caller":"runtime/asm_amd64.s:1373","msg":"handling connect request for URL https://api.smoot.apple.com:443"}
+{"level":"debug","time":"2021-12-17T18:52:30.958+1000","caller":"runtime/asm_amd64.s:1373","msg":"handling connect request for URL https://api.smoot.apple.com:443"}
+{"level":"debug","time":"2021-12-17T18:52:32.219+1000","caller":"runtime/asm_amd64.s:1373","msg":"handling connect request for URL https://api.smoot.apple.com:443"}
+{"level":"debug","time":"2021-12-17T19:11:49.537+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-17T19:11:49.537+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote connection on remote port: 1664 closed, reason: EOF"}
+{"level":"debug","time":"2021-12-17T19:11:49.537+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"debug","time":"2021-12-17T19:11:49.537+1000","caller":"runtime/asm_amd64.s:1373","msg":"Remote connection on remote port: 16304 closed, reason: EOF"}
+{"level":"error","time":"2021-12-17T19:11:49.538+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-17T19:11:49.538+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-17T19:11:49.539+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed read tcp 192.168.0.102:62690->3.66.78.89:443: wsarecv: An existing connection was forcibly closed by the remote host. "}
+{"level":"debug","time":"2021-12-17T19:11:50.808+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-17T19:11:50.808+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-17T19:11:50.995+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-17T19:11:50.995+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-17T19:11:50.995+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-17T19:11:50.997+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-17T19:11:50.998+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"debug","time":"2021-12-17T19:11:51.645+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-17T19:11:51.645+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-17T19:11:51.694+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully reconnected remote listener on port: 16304"}
+{"level":"debug","time":"2021-12-17T19:11:51.701+1000","caller":"runtime/asm_amd64.s:1373","msg":"Successfully reconnected remote listener on port: 1664"}
+{"level":"debug","time":"2021-12-17T19:11:51.807+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-17T19:11:51.807+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-17T19:11:51.807+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-17T19:11:51.808+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-17T19:11:51.808+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"debug","time":"2021-12-17T19:11:53.600+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-17T19:11:53.600+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-17T19:11:53.751+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-17T19:11:53.752+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-17T19:11:53.751+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-17T19:11:53.752+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-17T19:11:53.752+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"debug","time":"2021-12-17T19:11:58.479+1000","caller":"core/lifecycle.go:233","msg":"Control ws channel opened"}
+{"level":"debug","time":"2021-12-17T19:11:58.479+1000","caller":"runtime/asm_amd64.s:1373","msg":"Starting message listener on control connection"}
+{"level":"debug","time":"2021-12-17T19:11:58.643+1000","caller":"runtime/asm_amd64.s:1373","msg":"Unusual close error on control channel..."}
+{"level":"debug","time":"2021-12-17T19:11:58.643+1000","caller":"runtime/asm_amd64.s:1373","msg":"Write loop ended for control channel"}
+{"level":"error","time":"2021-12-17T19:11:58.643+1000","caller":"core/lifecycle.go:233","msg":"Control connection break error"}
+{"level":"warn","time":"2021-12-17T19:11:58.643+1000","caller":"core/lifecycle.go:233","msg":"Retrying"}
+{"level":"error","time":"2021-12-17T19:11:58.644+1000","caller":"core/lifecycle.go:233","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}

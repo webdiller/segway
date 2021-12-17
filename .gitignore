@@ -18,7 +18,8 @@
 # misc
 .DS_Store
 *.pem
-LT
+LT.exe
+lt.log
 
 # debug
 npm-debug.log*
