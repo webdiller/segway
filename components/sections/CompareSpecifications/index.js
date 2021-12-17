@@ -486,7 +486,7 @@ export default function CompareSpecifications({items}) {
                   <p className="text text_25 main-slide__price">$949.99</p>
 
                   <button onClick={(e) => addItemToCartAndShowModal(e, items.adultSegways[5])} className="ui-btn main-slide__buy-btn">
-                    <span>BUY IT NOW</span>
+                    <span>ADD TO CART</span>
                   </button>
                   <Link href="/details-page" scroll={false}>
                     <a className="main-slide__see-details">See details</a>
@@ -500,7 +500,7 @@ export default function CompareSpecifications({items}) {
                       <p className="text text_25 main-slide__price">${selectedModel.price}</p>
 
                       <button onClick={(e) => addItemToCartAndShowModal(e, selectedModel)} className="ui-btn main-slide__buy-btn">
-                        <span>BUY IT NOW</span>
+                        <span>ADD TO CART</span>
                       </button>
                       <Link href="/details-page" scroll={false}>
                         <a className="main-slide__see-details">See details</a>
@@ -635,7 +635,7 @@ export default function CompareSpecifications({items}) {
                   <p className="text text_25 compare-specfications__price">${price}</p>
 
                   <button onClick={(e) => addItemToCartAndShowModal(e, item)} className="ui-btn compare-specfications__buy-btn">
-                    <span>BUY IT NOW</span>
+                    <span>ADD TO CART</span>
                   </button>
                   <Link href="/details-page" scroll={false}>
                     <a className="compare-specfications__see-details">See details</a>
