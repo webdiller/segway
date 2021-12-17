@@ -15,10 +15,10 @@ export default function SegwayProtectMobile({ customClass }) {
           <div className="segway-protect-mobile__content">
             <p className="title title_fz-20 segway-protect-mobile__title">
               <span className="hide-576">
-                Segway Protective Gear Set as a gift
+                Segway Protective Gear Set <span className="accent-color">as a gift</span>
               </span>
               <span className="show-block-576">
-                Segway Protective <br /> Gear Set as a gift
+                Segway Protective <br /> Gear Set <span className="accent-color">as a gift</span>
               </span>
             </p>
             <p className="text segway-protect__text">

@@ -32,7 +32,7 @@ export default function Tabs() {
             <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_1 tabs__tab-icon-wrapper_white">
               <Image objectFit="contain" layout="responsive" src={tabIcon1White} alt="icon for tab" />
             </div>
-            <span className="tabs__tab-text">Delivery within 1 business day</span>
+            <span className="tabs__tab-text">Delivery within <br />1 business day</span>
           </div>
           <div onClick={() => setTabHandle(2)} className={tab === 2 ? 'tabs__tab active' : 'tabs__tab'}>
             <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_2 tabs__tab-icon-wrapper_color">
@@ -41,7 +41,7 @@ export default function Tabs() {
             <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_2 tabs__tab-icon-wrapper_white">
               <Image objectFit="contain" layout="responsive" src={tabIcon2White} alt="icon for tab" />
             </div>
-            <span className="tabs__tab-text">Basic 1 year warranty</span>
+            <span className="tabs__tab-text">Basic 1 year <br />warranty</span>
           </div>
           <div onClick={() => setTabHandle(3)} className={tab === 3 ? 'tabs__tab active' : 'tabs__tab'}>
             <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_3 tabs__tab-icon-wrapper_color">
@@ -50,7 +50,7 @@ export default function Tabs() {
             <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_3 tabs__tab-icon-wrapper_white">
               <Image objectFit="contain" layout="responsive" src={tabIcon3White} alt="icon for tab" />
             </div>
-            <span className="tabs__tab-text">After Sales Support</span>
+            <span className="tabs__tab-text">After Sales <br />Support</span>
           </div>
           <div onClick={() => setTabHandle(4)} className={tab === 4 ? 'tabs__tab active' : 'tabs__tab'}>
             <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_4 tabs__tab-icon-wrapper_color">
@@ -59,7 +59,7 @@ export default function Tabs() {
             <div className="tabs__tab-icon-wrapper tabs__tab-icon-wrapper_4 tabs__tab-icon-wrapper_white">
               <Image objectFit="contain" layout="responsive" src={tabIcon4White} alt="icon for tab" />
             </div>
-            <span className="tabs__tab-text">Up to 40 miles per charge</span>
+            <span className="tabs__tab-text">Up to 40 miles <br />per charge</span>
           </div>
         </div>
 

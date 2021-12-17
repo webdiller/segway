@@ -153,9 +153,6 @@
       margin-bottom: 16px;
     }
     @include media('<=768px') {
-      margin-bottom: 10px;
-    }
-    @include media('<=480px') {
       margin-bottom: 30px;
     }
   }
@@ -164,8 +161,8 @@
     position: relative;
     z-index: 10;
     grid-area: payments;
-    .payments-methods__payments-title_mobile .payments-methods__payments-item_2,
-    .payments-methods__payments-title_mobile .payments-methods__payments-item_3 {
+    .payments-methods__payments-item_2,
+    .payments-methods__payments-item_3 {
       display: none;
       @include media('<=575px') {
         display: flex;
