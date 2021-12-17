@@ -31,8 +31,8 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
   const addItemToCartAndShowModal = (productItem) => () => {
     const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
 
-    // Если выбрали гарантию, то указываем уникальный id с гарантией. Иначе возвращаем обычный объект
-    selectedWarranty ? (productItem = {...productItem, id: `${productItem.id}?warrancy=${selectedWarranty}`}) : productItem;
+    // Если выбрали гарантию, то указываем уникальный id с гарантией и поле 'selectedWarranty'. Иначе возвращаем обычный объект
+    selectedWarranty ? (productItem = {...productItem, id: `${productItem.id}?warrancy=${selectedWarranty}`, selectedWarranty}) : productItem;
     setAddedHandler();
     addItem({...productItem});
     router.push(`/?productModal=true&productId=${productItem.id}&selectedWarranty=${selectedWarranty}`, null, {scroll: false});

@@ -69,11 +69,10 @@ export default function ProductModal({segways, accessoeries}) {
   }, [activeModal, setDisabledHandle]);
 
   useEffect(() => {
-    
-    const adultScootersFilter = items.filter(({type})=>type === 'kickscooter')
-    const kidsScooterFilter = items.filter(({type})=>type === 'kidsScooter')
-    const accessoriesFilter = items.filter(({type})=>type === 'accessory')
-    const allData = [...adultScootersFilter, ...kidsScooterFilter, ...accessoriesFilter]
+    const adultScootersFilter = items.filter(({type}) => type === 'kickscooter');
+    const kidsScooterFilter = items.filter(({type}) => type === 'kidsScooter');
+    const accessoriesFilter = items.filter(({type}) => type === 'accessory');
+    const allData = [...adultScootersFilter, ...kidsScooterFilter, ...accessoriesFilter];
 
     setClientItems(allData);
     setClientItemsTotal(Math.round(cartTotal));
@@ -134,7 +133,7 @@ export default function ProductModal({segways, accessoeries}) {
 
             <div className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
               {clientItems.map((item) => {
-                const {id, type, name, shortName, price, maxSpeed, rangeByMiles, batteryCapacity, netWeight, payload, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgPath, imgSmallPath, quantity} = item;
+                const {id, type, name, price, imgPath, quantity, shortName, maxSpeed, rangeByMiles, batteryCapacity, netWeight, payload, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgSmallPath} = item;
 
                 return (
                   <div key={id} className="product-modal__product">
@@ -158,22 +157,24 @@ export default function ProductModal({segways, accessoeries}) {
                         </button>
                       </div>
                     </div>
-                    {type !== 'accessory' && (
+                    {type !== 'accessory' && item?.selectedWarranty && (
                       <div className="product-modal__product-warrancy-area">
                         <p className="product-modal__product-warrancy-title">Add an extended warranty from Extend</p>
                         <div className="product-modal__product-warrancy-items">
-                          <button className="product-modal__product-warrancy">
+                          <div className={item?.selectedWarranty === 'oneYear' ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
                             <span className="product-modal__product-warrancy-year">1 year</span>
-                            <span className="product-modal__product-warrancy-price">$139</span>
-                          </button>
-                          <button className="product-modal__product-warrancy">
+                            <span className="product-modal__product-warrancy-price">${item?.warranty.oneYear.price}</span>
+                          </div>
+
+                          <div className={item?.selectedWarranty === 'twoYear' ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
                             <span className="product-modal__product-warrancy-year">2 year</span>
-                            <span className="product-modal__product-warrancy-price">$209</span>
-                          </button>
-                          <button className="product-modal__product-warrancy">
+                            <span className="product-modal__product-warrancy-price">${item?.warranty.twoYear.price}</span>
+                          </div>
+
+                          <div className={item?.selectedWarranty === 'threeYear' ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
                             <span className="product-modal__product-warrancy-year">3 year</span>
-                            <span className="product-modal__product-warrancy-price">$279</span>
-                          </button>
+                            <span className="product-modal__product-warrancy-price">${item?.warranty.threeYear.price}</span>
+                          </div>
                         </div>
                       </div>
                     )}
