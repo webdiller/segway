@@ -5,7 +5,7 @@ import {useCart} from 'react-use-cart';
 import {useEffect, useRef, useState} from 'react';
 import {Navigation, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {BsChevronLeft, BsChevronRight} from 'react-icons/bs';
+import {FcPrevious, FcNext} from 'react-icons/fc';
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
@@ -225,12 +225,12 @@ export default function ProductModal({segways, accessoeries}) {
                   })}
                 </Swiper>
                 <div className={activeIndex !== 0 ? 'product-modal__navigation' : 'product-modal__navigation disabled'}>
-                  <button className="product-modal__nav product-modal__nav_prev">
-                    <BsChevronLeft className="product-modal__nav-icon" />
-                  </button>
-                  <button className="product-modal__nav product-modal__nav_next">
-                    <BsChevronRight className="product-modal__nav-icon" />
-                  </button>
+                  <div className="product-modal__nav product-modal__nav_prev">
+                    <FcPrevious className="product-modal__nav-icon" />
+                  </div>
+                  <div className="product-modal__nav product-modal__nav_next">
+                    <FcNext className="product-modal__nav-icon" />
+                  </div>
                 </div>
               </div>
             </div>
