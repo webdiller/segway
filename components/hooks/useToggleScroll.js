@@ -1,4 +1,6 @@
-export default function useToggleScroll() {
+import {useEffect} from 'react';
+
+export default function UseToggleScroll() {
   /** false - убрать, true - добавить, toggle - toggle */
   const setDisabledHandle = (updateClass = false) => {
     try {
@@ -13,6 +15,7 @@ export default function useToggleScroll() {
       console.log(error);
     }
   };
+
   return {
     setDisabledHandle
   };

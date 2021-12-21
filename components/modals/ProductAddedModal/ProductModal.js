@@ -11,20 +11,108 @@ import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
 import {BiMinus, BiPlus} from 'react-icons/bi';
-import useToggleScroll from '@/hooks/useToggleScroll';
+import UseToggleScroll from '@/hooks/useToggleScroll';
+
+const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
+  const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
+  const [initWarranty, setInitWarranty] = useState(segwayItem.selectedWarranty || segwayItem.id);
+  const [isClicked, setIsClicked] = useState(false);
+  const [itemQuantity, setItemQuantity] = useState(0);
+
+  const tabToggleHandler = (event, expectedWarranty) => {
+    if (event.target.classList.contains('selected')) {
+      setTabToggle(null);
+      setIsClicked(true);
+      event.target.classList.remove('selected');
+    } else {
+      setTabToggle(expectedWarranty);
+      setIsClicked(true);
+      event.target.classList.add('selected');
+    }
+  };
+
+  useEffect(() => {
+    allItems.filter(item=>{})
+  }, [allItems])
+
+  useEffect(() => {
+    let idWithoutWarranty = segwayItem.id.split('?')[0];
+    let newId = null;
+    let itemsCount = allItems.filter((item) => item.id.includes(initWarranty));
+    itemsCount = itemsCount[0]?.quantity;
+    
+    if (isClicked) {
+      // if (tabToggle === initWarranty) {
+      //   newId = `${idWithoutWarranty}?warrancy=${tabToggle}`;
+      //   console.log('Если сняли гарантию у текущей гарантии');
+      // } else {
+      //   newId = idWithoutWarranty;
+      //   console.log('Если выбрали новую гарантию');
+      // }
+
+      // let prevItemsId =
+      // updateItemQuantityHandler(segwayItem.id, 0)
+      // updateItemQuantityHandler(segwayItem.id, 0)
+
+
+      if (tabToggle !== null) {
+        let currentId = segwayItem.id;
+        let currentQuantity = itemsCount;
+        // console.log(currentQuantity);
+        newId = `${idWithoutWarranty}?warrancy=${tabToggle}`;
+        setIsClicked(false)
+
+        updateItemQuantityHandler(segwayItem.id, 0);
+        let newItem = {...segwayItem, id: newId};
+        delete newItem['quantity'];
+        addItemHandler(newItem, itemsCount)
+      } else {
+        let currentId = segwayItem.id;
+        let currentQuantity = itemsCount;
+        newId = tabToggle ? `${idWithoutWarranty}?warrancy=${tabToggle}` : idWithoutWarranty;
+
+        setIsClicked(false)
+        updateItemQuantityHandler(segwayItem.id, 0);
+        let newItem = {...segwayItem, id: newId};
+        delete newItem['quantity'];
+        // addItemHandler(newItem, itemsCount)
+      }
+    }
+  }, [tabToggle, segwayItem, allItems, initWarranty, isClicked, addItemHandler, updateItemQuantityHandler]);
+
+  return (
+    <div className="product-modal__product-warrancy-items">
+      <button onClick={(event) => tabToggleHandler(event, 'oneYear')} className={segwayItem.id.includes('oneYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
+        <span className="product-modal__product-warrancy-year">1 year</span>
+        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty.oneYear.price}</span>
+      </button>
+
+      <button onClick={(event) => tabToggleHandler(event, 'twoYear')} className={segwayItem.id.includes('twoYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
+        <span className="product-modal__product-warrancy-year">2 year</span>
+        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty.twoYear.price}</span>
+      </button>
+
+      <button onClick={(event) => tabToggleHandler(event, 'threeYear')} className={segwayItem.id.includes('threeYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
+        <span className="product-modal__product-warrancy-year">3 year</span>
+        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty.threeYear.price}</span>
+      </button>
+    </div>
+  );
+};
 
 export default function ProductModal({segways, accessoeries}) {
   // modals
-  const [activeModal, setActiveModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(true);
   const [visibleProducts, setVisibleProducts] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);
   const router = useRouter();
-  const {setDisabledHandle} = useToggleScroll();
+  const {setDisabledHandle} = UseToggleScroll();
 
   // data
   const [routerProduct, setRouterProduct] = useState(null);
   const {items, cartTotal, addItem, updateItemQuantity} = useCart();
+
   const [clientItems, setClientItems] = useState([]);
   const [clientItemsTotal, setClientItemsTotal] = useState([]);
 
@@ -60,8 +148,13 @@ export default function ProductModal({segways, accessoeries}) {
     }, 1000);
   };
 
-  const updateItemInCart = (itemId, itemQuantity) => () => {
+  /** itemId, itemQuantity  */
+  const updateItemQuantityInCart = (itemId, itemQuantity) => () => {
     updateItemQuantity(itemId, itemQuantity);
+  };
+
+  const addItemInCart = (item, quantity) => {
+    addItem(item, quantity);
   };
 
   useEffect(() => {
@@ -149,7 +242,7 @@ export default function ProductModal({segways, accessoeries}) {
                         </p>
                       </div>
                       <div className="product-modal__product-counter">
-                        <button onClick={updateItemInCart(id, quantity - 1)} className="inline-flex-center product-modal__product-count-minus">
+                        <button onClick={updateItemQuantityInCart(id, quantity - 1)} className="inline-flex-center product-modal__product-count-minus">
                           <BiMinus />
                         </button>
                         <p className="product-modal__product-count">{quantity}</p>
@@ -158,25 +251,10 @@ export default function ProductModal({segways, accessoeries}) {
                         </button>
                       </div>
                     </div>
-                    {type !== 'accessory' && item?.selectedWarranty && (
+                    {type !== 'accessory' && (
                       <div className="product-modal__product-warrancy-area">
                         <p className="product-modal__product-warrancy-title">Add an extended warranty from Extend</p>
-                        <div className="product-modal__product-warrancy-items">
-                          <div className={item?.selectedWarranty === 'oneYear' ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
-                            <span className="product-modal__product-warrancy-year">1 year</span>
-                            <span className="product-modal__product-warrancy-price">${item?.warranty.oneYear.price}</span>
-                          </div>
-
-                          <div className={item?.selectedWarranty === 'twoYear' ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
-                            <span className="product-modal__product-warrancy-year">2 year</span>
-                            <span className="product-modal__product-warrancy-price">${item?.warranty.twoYear.price}</span>
-                          </div>
-
-                          <div className={item?.selectedWarranty === 'threeYear' ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
-                            <span className="product-modal__product-warrancy-year">3 year</span>
-                            <span className="product-modal__product-warrancy-price">${item?.warranty.threeYear.price}</span>
-                          </div>
-                        </div>
+                        <ItemSegwayWarranty allItems={clientItems} segwayItem={item} updateItemQuantityHandler={updateItemQuantity} addItemHandler={addItemInCart} />
                       </div>
                     )}
                   </div>

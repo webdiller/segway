@@ -13,6 +13,7 @@ html {
   scroll-behavior: smooth;
   &.disabled {
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     // padding-right: 17px;
     @media (pointer: coarse) {
       padding-right: 0;

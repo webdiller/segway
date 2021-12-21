@@ -42,7 +42,6 @@
 
   &__btn-icon {
     transition: all 0.3s ease;
-    font-size: 28px;
     @include media('<=991px') {
       position: relative;
       left: -2px;

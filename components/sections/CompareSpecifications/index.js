@@ -10,7 +10,7 @@ import React, {useEffect, useState} from 'react';
 import Swipe from 'react-easy-swipe';
 import {useCart} from 'react-use-cart';
 import {useRouter} from 'next/dist/client/router';
-import useToggleScroll from '@/hooks/useToggleScroll';
+import UseToggleScroll from '@/hooks/UseToggleScroll';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -42,7 +42,7 @@ export default function CompareSpecifications({items}) {
   const router = useRouter();
   const {addItem} = useCart();
 
-  const {setDisabledHandle} = useToggleScroll();
+  const {setDisabledHandle} = UseToggleScroll();
 
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);

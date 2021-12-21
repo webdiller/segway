@@ -336,6 +336,9 @@
     z-index: 1500;
     opacity: 1;
     visibility: visible;
+    @include media('<=991px') {
+      overflow-y: hidden;
+    }
     .product-modal__wrapper {
       opacity: 1;
       visibility: visible;
@@ -701,7 +704,7 @@
     justify-content: center;
     height: 55px;
     padding: 5px;
-    cursor: auto;
+    cursor: pointer;
     border: 1px solid rgba(153, 153, 153, 0.33);
     &.selected {
       background-color: #009eff;
@@ -717,6 +720,7 @@
     line-height: 23px;
     color: #323941;
     margin-bottom: -1px;
+    pointer-events: none;
   }
 
   &__product-warrancy-price {
@@ -725,6 +729,7 @@
     line-height: 104%;
     color: #009eff;
     margin-top: -1px;
+    pointer-events: none;
   }
 
   &__accessoeries {

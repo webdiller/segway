@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Image from 'next/image';
 import {IoIosCloseCircleOutline} from 'react-icons/io';
@@ -35,7 +36,7 @@ export default function TopNavigation() {
     <div className="top-nav">
       <div className="container top-nav__container">
         <button onClick={handleSetIsActiveMenu} className={isActiveMenu ? 'top-nav__btn-menu active' : 'top-nav__btn-menu'}>
-          {isActiveMenu ? <IoIosCloseCircleOutline className="top-nav__btn-icon" /> : <AiOutlineMenu className="top-nav__btn-icon" />}
+          {!isActiveMenu ? <img width="25" height="19" src="./icon-bar.svg" alt="icon close menu" loading="lazy" className="top-nav__btn-icon" /> : <img width="20" height="20" src="./icon-close-white.svg" alt="icon close menu" loading="lazy" className="top-nav__btn-icon" />}
         </button>
 
         <nav onClick={(e) => onClick(e)} ref={itemsRef} className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
