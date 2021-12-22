@@ -4,12 +4,12 @@
     margin-bottom: 150px;
     @include media('<=991px') {
       margin-top: 50px;
-      // margin-bottom: 40px;
       margin-bottom: 100px;
     }
     @include media('<=768px') {
       padding-left: 0;
       padding-right: 0;
+      margin-bottom: 20px;
     }
   }
 
@@ -267,7 +267,7 @@
     max-width: 187px;
     margin: 0 auto 0 20px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     @include media('<=768px') {
       font-size: 16px;
       white-space: nowrap;
@@ -645,7 +645,7 @@
     max-width: 187px;
     margin: 0 auto 0 20px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     &.added {
       pointer-events: none;
       background-color: #6acd68;
@@ -660,6 +660,7 @@
       font-size: 16px;
       white-space: nowrap;
       margin: 0 auto 0 15px;
+      min-height: 41px;
     }
     @include media('<=576px') {
       max-width: 160px;

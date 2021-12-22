@@ -2,15 +2,15 @@
 import Link from 'next/link';
 import {Navigation} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Image from 'next/image';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import {FcPrevious, FcNext} from 'react-icons/fc';
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Swipe from 'react-easy-swipe';
 import {useCart} from 'react-use-cart';
 import {useRouter} from 'next/dist/client/router';
-import UseToggleScroll from '@/hooks/UseToggleScroll';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -41,8 +41,7 @@ const MainItemLeft = ({text, srcImg}) => {
 export default function CompareSpecifications({items}) {
   const router = useRouter();
   const {addItem} = useCart();
-
-  const {setDisabledHandle} = UseToggleScroll();
+  const targetScrollElement = useRef(null);
 
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
@@ -66,7 +65,6 @@ export default function CompareSpecifications({items}) {
   };
 
   const setModalActiveHandle = () => {
-    // noScroll.toggle();
     setModalActive((prev) => !prev);
     setUrlIfModalActive();
   };
@@ -75,22 +73,19 @@ export default function CompareSpecifications({items}) {
     const filtered = allModels.filter((model) => model.id == id);
     setSelectedModel(...filtered);
     setModalActive(false);
-    // noScroll.off();
-    setDisabledHandle(false);
+    enableBodyScroll(targetScrollElement.current)
     setUrlIfModalActive();
   };
 
   const onSwipeUp = () => {
     setModalActive(false);
-    // noScroll.off();
-    setDisabledHandle(false);
+    enableBodyScroll(targetScrollElement.current)
     setUrlIfModalActive();
   };
 
   const onSwipeDown = () => {
     setModalActive(false);
-    // noScroll.off();
-    setDisabledHandle(false);
+    enableBodyScroll(targetScrollElement.current)
     setUrlIfModalActive();
   };
 
@@ -104,6 +99,10 @@ export default function CompareSpecifications({items}) {
       localStorage.setItem('selectedModel', JSON.stringify(selectedModel));
     }
   }, [selectedModel]);
+
+  useEffect(() => {
+    modalActive ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current)
+  }, [modalActive])
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !selectedModel) {
@@ -655,7 +654,7 @@ export default function CompareSpecifications({items}) {
           </div>
         </div>
 
-        <div className={modalActive ? 'compare-modal active' : 'compare-modal'}>
+        <div ref={targetScrollElement} className={modalActive ? 'compare-modal active' : 'compare-modal'}>
           <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
             <div className="compare-modal__wrapper">
               <p className="title compare-modal__title">select a model to compare</p>

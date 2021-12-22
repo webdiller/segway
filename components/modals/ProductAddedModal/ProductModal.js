@@ -11,7 +11,7 @@ import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
 import {BiMinus, BiPlus} from 'react-icons/bi';
-import UseToggleScroll from '@/hooks/useToggleScroll';
+import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
@@ -32,15 +32,15 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
   };
 
   useEffect(() => {
-    allItems.filter(item=>{})
-  }, [allItems])
+    allItems.filter((item) => {});
+  }, [allItems]);
 
   useEffect(() => {
     let idWithoutWarranty = segwayItem.id.split('?')[0];
     let newId = null;
     let itemsCount = allItems.filter((item) => item.id.includes(initWarranty));
     itemsCount = itemsCount[0]?.quantity;
-    
+
     if (isClicked) {
       // if (tabToggle === initWarranty) {
       //   newId = `${idWithoutWarranty}?warrancy=${tabToggle}`;
@@ -54,24 +54,26 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
       // updateItemQuantityHandler(segwayItem.id, 0)
       // updateItemQuantityHandler(segwayItem.id, 0)
 
-
       if (tabToggle !== null) {
         let currentId = segwayItem.id;
         let currentQuantity = itemsCount;
-        // console.log(currentQuantity);
         newId = `${idWithoutWarranty}?warrancy=${tabToggle}`;
-        setIsClicked(false)
 
-        updateItemQuantityHandler(segwayItem.id, 0);
+        // updateItemQuantityHandler(segwayItem.id, 0);
+
         let newItem = {...segwayItem, id: newId};
         delete newItem['quantity'];
-        addItemHandler(newItem, itemsCount)
+        // addItemHandler(newItem, itemsCount);
+        console.log(newItem);
+        console.log(itemsCount);
+
+        // setIsClicked(false);
       } else {
         let currentId = segwayItem.id;
         let currentQuantity = itemsCount;
         newId = tabToggle ? `${idWithoutWarranty}?warrancy=${tabToggle}` : idWithoutWarranty;
 
-        setIsClicked(false)
+        setIsClicked(false);
         updateItemQuantityHandler(segwayItem.id, 0);
         let newItem = {...segwayItem, id: newId};
         delete newItem['quantity'];
@@ -79,7 +81,6 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
       }
     }
   }, [tabToggle, segwayItem, allItems, initWarranty, isClicked, addItemHandler, updateItemQuantityHandler]);
-
   return (
     <div className="product-modal__product-warrancy-items">
       <button onClick={(event) => tabToggleHandler(event, 'oneYear')} className={segwayItem.id.includes('oneYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
@@ -101,13 +102,15 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
 };
 
 export default function ProductModal({segways, accessoeries}) {
+  // scroll
+  const targetScrollElement = useRef(null);
+
   // modals
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);
   const router = useRouter();
-  const {setDisabledHandle} = UseToggleScroll();
 
   // data
   const [routerProduct, setRouterProduct] = useState(null);
@@ -115,13 +118,14 @@ export default function ProductModal({segways, accessoeries}) {
 
   const [clientItems, setClientItems] = useState([]);
   const [clientItemsTotal, setClientItemsTotal] = useState([]);
+  const [totalPriceWithWarranty, setTotalPriceWithWarranty] = useState(0);
 
   const closeModal =
     (route = '/') =>
     () => {
       if (activeModal) {
         setActiveModal(false);
-        setDisabledHandle(false);
+        enableBodyScroll(targetScrollElement.current);
         router.replace(route, undefined, {shallow: true});
       }
     };
@@ -129,7 +133,7 @@ export default function ProductModal({segways, accessoeries}) {
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
       setActiveModal(false);
-      setDisabledHandle(false);
+      enableBodyScroll(targetScrollElement.current);
       router.replace('/', undefined, {shallow: true});
     }
   };
@@ -158,8 +162,8 @@ export default function ProductModal({segways, accessoeries}) {
   };
 
   useEffect(() => {
-    activeModal ? setDisabledHandle(true) : setDisabledHandle(false);
-  }, [activeModal, setDisabledHandle]);
+    activeModal ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
+  }, [activeModal]);
 
   useEffect(() => {
     const adultScootersFilter = items.filter(({type}) => type === 'kickscooter');
@@ -168,8 +172,25 @@ export default function ProductModal({segways, accessoeries}) {
     const allData = [...adultScootersFilter, ...kidsScooterFilter, ...accessoriesFilter];
 
     setClientItems(allData);
-    setClientItemsTotal(Math.round(cartTotal));
+    setClientItemsTotal(cartTotal);
   }, [items, cartTotal]);
+
+  useEffect(() => {
+    setTotalPriceWithWarranty(0);
+    clientItems.map((product) => {
+      if (product.id.includes('warrancy')) {
+        const {id, warranty, price, quantity} = product;
+        let warrantyId = id.split('warrancy=')[1];
+        let priceOfWarranty = Number(warranty[warrantyId].price);
+        let totalPrice = priceOfWarranty + Number(price) * quantity;
+        setTotalPriceWithWarranty((prev) => (prev += totalPrice));
+      } else {
+        const {price, quantity} = product;
+        let totalPrice = Number(price) * quantity;
+        setTotalPriceWithWarranty((prev) => (prev += totalPrice));
+      }
+    });
+  }, [clientItems]);
 
   useEffect(() => {
     const {productModal, productId} = router.query;
@@ -212,7 +233,7 @@ export default function ProductModal({segways, accessoeries}) {
         {/* HEADER END */}
 
         {/* CONTENT START */}
-        <div className={visibleProducts ? 'product-modal__content active' : 'product-modal__content'}>
+        <div ref={targetScrollElement} className={visibleProducts ? 'product-modal__content active' : 'product-modal__content'}>
           <div className="product-modal__summ-and-products">
             <div onClick={setVisibleProductsToggle()} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
               <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
@@ -222,7 +243,7 @@ export default function ProductModal({segways, accessoeries}) {
               <div className="inline-flex-center product-modal__summ-icon-arrow-up-wrapper">
                 <Image src={iconArrowTop} alt="icon" />
               </div>
-              <p className="text text_bold product-modal__summ-total">$ {clientItemsTotal}</p>
+              <p className="text text_bold product-modal__summ-total">$ {totalPriceWithWarranty.toFixed(2)}</p>
             </div>
 
             <div className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>

@@ -88,6 +88,7 @@ export const data = {
         id: '001',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter E22',
+        nameWrap: 'Ninebot\nKickscooter\nE22',
         shortName: 'KS E22',
         price: '599.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
@@ -128,6 +129,7 @@ export const data = {
         id: '002',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES1L',
+        nameWrap: 'Ninebot\nKickscooter\nES1L',
         shortName: 'KS ES1L',
         price: '389.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
@@ -168,6 +170,7 @@ export const data = {
         id: '003',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter Air T15',
+        nameWrap: 'Ninebot\nKickscooter\nAir T15',
         shortName: 'KS AIR T15',
         price: '819.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
@@ -207,7 +210,8 @@ export const data = {
       {
         id: '004',
         type: 'kickscooter',
-        name: 'Ninebot eKickScooter F30',
+        name: 'Ninebot KickScooter F30',
+        nameWrap: 'Ninebot\nKickScooter\nF30',
         shortName: 'KS F30',
         price: '649.99',
         maxSpeed: 'Approx. 15.5 mph (25 km/h)',
@@ -240,14 +244,15 @@ export const data = {
             selected: false
           }
         },
-        imgPath: '/ninebot-ekickscooter-f30.png',
-        imgSmallPath: '/ninebot-ekickscooter-f30_small.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-f30/', 'https://store.segway.com/ninebot-ekickscooter-f-series']
+        imgPath: '/ninebot-kickscooter-f30.png',
+        imgSmallPath: '/ninebot-kickscooter-f30_small.png',
+        links: ['https://www.segway.com/ninebot-kickscooter-f30/', 'https://store.segway.com/ninebot-kickscooter-f-series']
       },
       {
         id: '005',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter E45',
+        nameWrap: 'Ninebot\nKickscooter\nE45',
         shortName: 'KS E45',
         price: '859.99',
         maxSpeed: '18.6 mph (30 km/h)',
@@ -288,6 +293,7 @@ export const data = {
         id: '006',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter MAX',
+        nameWrap: 'Ninebot\nKickscooter\nMAX',
         shortName: 'KS MAX',
         price: '949.99',
         maxSpeed: '18.6 mph (30 km/h)',
@@ -328,7 +334,8 @@ export const data = {
       {
         id: '007',
         type: 'kickscooter',
-        name: 'Ninebot Kickscooter MAX ',
+        name: 'Ninebot Kickscooter MAX',
+        nameWrap: 'Ninebot\nKickscooter\nMAX',
         shortName: 'KS MAX',
         price: '949.99',
         maxSpeed: 'Approx. 18.6 mph (30 km/h)',
@@ -369,6 +376,7 @@ export const data = {
         id: '008',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES2',
+        nameWrap: 'Ninebot\nKickscooter\nES2',
         shortName: 'KS ES2',
         price: '649.99',
         maxSpeed: '15.5 mph (25 km/h)',
@@ -409,6 +417,7 @@ export const data = {
         id: '009',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES3',
+        nameWrap: 'Ninebot\nKickscooter\nES3',
         shortName: 'KS ES3',
         price: '699.99',
         maxSpeed: '15.5 mph (25 km/h)',
@@ -449,6 +458,7 @@ export const data = {
         id: '010',
         type: 'kickscooter',
         name: 'Ninebot Kickscooter ES4',
+        nameWrap: 'Ninebot\nickscooter\nES4',
         shortName: 'KS ES4',
         price: '799.99',
         maxSpeed: '18.6 mph (30 km/h)',
@@ -490,8 +500,8 @@ export const data = {
       {
         id: '011',
         type: 'kidsScooter',
-        name: 'NINEBOT EKICKSCOOTER ZING E8',
-        shortName: 'EKS ZING E8',
+        name: 'NINEBOT KICKSCOOTER ZING E8',
+        shortName: 'KS ZING E8',
         price: '249.99',
         maxSpeed: '8.6 mph',
         rangeByMiles: '6.2 miles',
@@ -508,14 +518,14 @@ export const data = {
         requiredHeight: '3’9”–4’9” (115–145 cm)',
         frameMaterial: 'Alluminum-alloy',
         shockAbsorbtion: 'Spring damper',
-        imgPath: '/ninebot-ekickscooter-zing-e8.png',
-        links: ['https://www.segway.com/ninebot-ekickscooter-zing-e8/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e8']
+        imgPath: '/ninebot-kickscooter-zing-e8.png',
+        links: ['https://www.segway.com/ninebot-kickscooter-zing-e8/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e8']
       },
       {
         id: '012',
         type: 'kidsScooter',
-        name: 'NINEBOT EKICKSCOOTER ZING E10',
-        shortName: 'EKS ZING E10',
+        name: 'NINEBOT KICKSCOOTER ZING E10',
+        shortName: 'KS ZING E10',
         price: '259.99',
         maxSpeed: '10 mph',
         rangeByMiles: '6.2 miles',
@@ -532,14 +542,14 @@ export const data = {
         requiredHeight: "4'3 - 5'3 (130-160 cm)",
         frameMaterial: 'Alluminum-alloy',
         shockAbsorbtion: 'Spring damper',
-        imgPath: '/ninebot-ekickscooter-zing-e10.png',
-        links: ['https://www.segway.com/ninebot-ekickscooter-zing-e10/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e10']
+        imgPath: '/ninebot-kickscooter-zing-e10.png',
+        links: ['https://www.segway.com/ninebot-kickscooter-zing-e10/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e10']
       },
       {
         id: '013',
         type: 'kidsScooter',
-        name: 'NINEBOT EKICKSCOOTER ZING E12',
-        shortName: 'EKS ZING E12',
+        name: 'NINEBOT KICKSCOOTER ZING E12',
+        shortName: 'KS ZING E12',
         price: '$259.99',
         maxSpeed: '11.2 mph',
         rangeByMiles: '6.2 miles',
@@ -556,8 +566,8 @@ export const data = {
         requiredHeight: '4’3”–5’3” (130–160 cm)',
         frameMaterial: 'Alluminum-alloy',
         shockAbsorbtion: 'Spring damper',
-        imgPath: '/ninebot-ekickscooter-zing-e12.png',
-        links: ['https://www.segway.com/ninebot-ekickscooter-zing-e12/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e12']
+        imgPath: '/ninebot-kickscooter-zing-e12.png',
+        links: ['https://www.segway.com/ninebot-kickscooter-zing-e12/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e12']
       }
     ]
   }

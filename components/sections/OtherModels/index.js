@@ -12,7 +12,7 @@ import UiInput from '@/ui/UiInput';
 
 export default function OtherModels({items}) {
   const swiperRef = useRef(null);
-  const filteredModels = [items[0], items[1], items[2], items[3], items[4], items[5], items[6]]
+  const filteredModels = [items[0], items[1], items[2], items[3], items[4], items[5], items[6]];
   return (
     <div className="other-models">
       <div className="container other-models__container">
@@ -62,7 +62,7 @@ export default function OtherModels({items}) {
                 }
               } catch (error) {}
             }}>
-            {filteredModels.map(({id, name, price, imgPath}) => (
+            {filteredModels.map(({id, name, nameWrap, shortName, price, imgPath}) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
                 <div className="other-models__item-wrapper">
                   <Link href="#">
@@ -70,7 +70,10 @@ export default function OtherModels({items}) {
                       <div className="other-models__img-wrapper">
                         <Image objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                       </div>
-                      <p className="text text_25 other-models__name">{name}</p>
+                      <p className="text text_25 other-models__name">
+                        <span className="hide-768">{shortName}</span>
+                        <span className="show-block-768">{nameWrap}</span>
+                      </p>
                       <div className="other-models__price">
                         <p className="text text_uppercase other-models__price-value">${price}</p>
                       </div>
@@ -88,8 +91,8 @@ export default function OtherModels({items}) {
             <SwiperSlide className="swiper-slide swiper-slide_form other-models__form">
               <p className="other-models__form-title">DIDN’T FIND A MODEL?</p>
               <p className="text other-models__form-text">Leave your contact details and we will help you with the choice</p>
-              
-              <UiInput forForm={false} customClass="other-models__form-input"/>
+
+              <UiInput forForm={false} customClass="other-models__form-input" />
 
               <Link href="#">
                 <a className="ui-btn other-models__see-more">

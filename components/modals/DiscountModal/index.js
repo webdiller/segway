@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, {useEffect, useRef, useState} from 'react';
-import useToggleScroll from '@/hooks/useToggleScroll';
+import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import TinderCard from 'react-tinder-card';
 import {useRouter} from 'next/dist/client/router';
 
@@ -9,23 +9,22 @@ export default function DiscountModal() {
   const elRef = useRef(null);
   const [activeModal, setActiveModal] = useState(false);
   const [lsFirstVisit, setLsFirstVisit] = useState();
-  const {setDisabledHandle} = useToggleScroll();
 
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
-    setDisabledHandle(false);
+    enableBodyScroll(elRef.current)
   };
 
   const onSwipe = (direction) => {
     console.log('You swiped: ' + direction);
     setActiveModal((prev) => !prev);
-    setDisabledHandle(false);
+    enableBodyScroll(elRef.current)
   };
 
   const onClickWrapper = (e) => {
     if (e.target === elRef.current) {
       setActiveModal((prev) => !prev);
-      setDisabledHandle(false);
+      enableBodyScroll(elRef.current)
     }
   };
 
@@ -41,13 +40,21 @@ export default function DiscountModal() {
           if (window.localStorage.isFirstVisit == undefined && !window.location.href.toLocaleLowerCase().includes('modal')) {
             setActiveModal(true);
             window.localStorage.setItem('isFirstVisit', 'false');
-            clearInterval(firstInterval)
-            clearInterval(secondInterval)
+            clearInterval(firstInterval);
+            clearInterval(secondInterval);
           }
         }, 5000);
       }
     }, 5000);
   }, []);
+
+  useEffect(() => {
+    if (activeModal) {
+      disableBodyScroll(elRef.current);
+    } else {
+      enableBodyScroll(elRef.current)
+    }
+  }, [activeModal])
 
   // Запускаем интервал в 3 секунды
   //    Проверяем, пустой ли роут и первый ли визит
