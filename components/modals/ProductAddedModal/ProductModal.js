@@ -38,8 +38,6 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
   useEffect(() => {
     let idWithoutWarranty = segwayItem.id.split('?')[0];
     let newId = null;
-    let itemsCount = allItems.filter((item) => item.id.includes(initWarranty));
-    itemsCount = itemsCount[0]?.quantity;
 
     if (isClicked) {
       // if (tabToggle === initWarranty) {
@@ -55,29 +53,23 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
       // updateItemQuantityHandler(segwayItem.id, 0)
 
       if (tabToggle !== null) {
-        let currentId = segwayItem.id;
-        let currentQuantity = itemsCount;
+        setIsClicked(false);
         newId = `${idWithoutWarranty}?warrancy=${tabToggle}`;
 
-        // updateItemQuantityHandler(segwayItem.id, 0);
+        updateItemQuantityHandler(segwayItem.id, 0);
 
         let newItem = {...segwayItem, id: newId};
         delete newItem['quantity'];
-        // addItemHandler(newItem, itemsCount);
-        console.log(newItem);
-        console.log(itemsCount);
+        addItemHandler(newItem, segwayItem.quantity);
 
-        // setIsClicked(false);
       } else {
-        let currentId = segwayItem.id;
-        let currentQuantity = itemsCount;
+        setIsClicked(false);
         newId = tabToggle ? `${idWithoutWarranty}?warrancy=${tabToggle}` : idWithoutWarranty;
 
-        setIsClicked(false);
         updateItemQuantityHandler(segwayItem.id, 0);
         let newItem = {...segwayItem, id: newId};
         delete newItem['quantity'];
-        // addItemHandler(newItem, itemsCount)
+        addItemHandler(newItem, segwayItem.quantity)
       }
     }
   }, [tabToggle, segwayItem, allItems, initWarranty, isClicked, addItemHandler, updateItemQuantityHandler]);
@@ -106,7 +98,7 @@ export default function ProductModal({segways, accessoeries}) {
   const targetScrollElement = useRef(null);
 
   // modals
-  const [activeModal, setActiveModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(true);
   const [visibleProducts, setVisibleProducts] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);
@@ -182,7 +174,7 @@ export default function ProductModal({segways, accessoeries}) {
         const {id, warranty, price, quantity} = product;
         let warrantyId = id.split('warrancy=')[1];
         let priceOfWarranty = Number(warranty[warrantyId].price);
-        let totalPrice = priceOfWarranty + Number(price) * quantity;
+        let totalPrice = (priceOfWarranty + Number(price)) * Number(quantity);
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       } else {
         const {price, quantity} = product;
