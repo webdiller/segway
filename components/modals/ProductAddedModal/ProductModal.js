@@ -98,7 +98,7 @@ export default function ProductModal({segways, accessoeries}) {
   const targetScrollElement = useRef(null);
 
   // modals
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);

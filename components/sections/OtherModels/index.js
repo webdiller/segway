@@ -62,7 +62,7 @@ export default function OtherModels({items}) {
                 }
               } catch (error) {}
             }}>
-            {filteredModels.map(({id, name, nameWrap, shortName, price, imgPath}) => (
+            {filteredModels.map(({id, name, nameWithoutBrand, price, imgPath}) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
                 <div className="other-models__item-wrapper">
                   <Link href="#">
@@ -71,8 +71,7 @@ export default function OtherModels({items}) {
                         <Image objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                       </div>
                       <p className="text text_25 other-models__name">
-                        <span className="hide-768">{shortName}</span>
-                        <span className="show-block-768">{nameWrap}</span>
+                        {nameWithoutBrand}
                       </p>
                       <div className="other-models__price">
                         <p className="text text_uppercase other-models__price-value">${price}</p>
