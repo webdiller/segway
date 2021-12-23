@@ -21,46 +21,23 @@ export default function OtherModels({items}) {
         <div ref={swiperRef} className="other-models__swiper">
           <Swiper
             modules={[Scrollbar, FreeMode]}
-            slidesPerView={1.8}
+            slidesPerView='auto'
             freeMode={true}
-            spaceBetween={10}
-            centeredSlides={true}
             loop={false}
+            centeredSlides={false}
             allowTouchMove={true}
             scrollbar={{
               el: '.other-models__swiper-scrollbar',
               draggable: true
             }}
-            onReachEnd={(e) => {
-              // TODO: доделать
-              // swiperRef.current.classList.add('reached')
-            }}
             breakpoints={{
-              480: {
-                loop: false,
-                slidesPerView: 2.2,
-                spaceBetween: 10,
-                allowTouchMove: true
-              },
-              576: {
-                loop: false,
-                slidesPerView: 3,
-                spaceBetween: 10,
-                allowTouchMove: true
-              },
               768: {
+                slidesPerView: 2.2,
                 loop: false,
                 spaceBetween: 0,
                 allowTouchMove: false,
                 centeredSlides: false
               }
-            }}
-            onInit={(el) => {
-              try {
-                if (window.innerWidth <= 768) {
-                  el.slideNext();
-                }
-              } catch (error) {}
             }}>
             {filteredModels.map(({id, name, nameWithoutBrand, price, imgPath}) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
@@ -70,9 +47,7 @@ export default function OtherModels({items}) {
                       <div className="other-models__img-wrapper">
                         <Image objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                       </div>
-                      <p className="text text_25 other-models__name">
-                        {nameWithoutBrand}
-                      </p>
+                      <p className="text text_25 other-models__name">{nameWithoutBrand}</p>
                       <div className="other-models__price">
                         <p className="text text_uppercase other-models__price-value">${price}</p>
                       </div>
@@ -88,27 +63,15 @@ export default function OtherModels({items}) {
             ))}
 
             <SwiperSlide className="swiper-slide swiper-slide_form other-models__form">
-              <p className="other-models__form-title">DIDN’T FIND A MODEL?</p>
-              <p className="text other-models__form-text">Leave your contact details and we will help you with the choice</p>
-
+              <p className="other-models__form-title">DIDN’T FIND <br /> A MODEL?</p>
+              <p className="text other-models__form-text">Leave your contact details <br /> and we will help you with <br /> the choice</p>
               <UiInput forForm={false} customClass="other-models__form-input" />
-
               <Link href="#">
-                <a className="ui-btn other-models__see-more">
-                  <span>SEE MORE</span>
+                <a className="ui-btn ui-btn_outline other-models__see-more">
+                  <span>SEND</span>
                 </a>
               </Link>
             </SwiperSlide>
-
-            {/* Заглушки (чтобы отцентрировать слайд с формой) */}
-            {/* <SwiperSlide className="swiper-slide other-models__item other-models__item_hide">
-              <div className="other-models__item-wrapper">
-                <p className="text text_25 other-models__name"></p>
-                <div className="other-models__price">
-                  <p className="text text_uppercase other-models__price-value"></p>
-                </div>
-              </div>
-            </SwiperSlide> */}
           </Swiper>
         </div>
         <div className="other-models__swiper-scrollbar"></div>
