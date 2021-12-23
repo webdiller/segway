@@ -161,7 +161,7 @@ export default function ProductModal({segways, accessoeries}) {
       if (product.id.includes('warrancy')) {
         const {id, warranty, price, quantity} = product;
         let warrantyId = id.split('warrancy=')[1];
-        let priceOfWarranty = Number(warranty[warrantyId].price);
+        let priceOfWarranty = (Number(warranty[warrantyId]?.price)) || '006';
         let totalPrice = (priceOfWarranty + Number(price)) * Number(quantity);
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       } else {
