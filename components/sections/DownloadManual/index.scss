@@ -131,14 +131,21 @@
     @include media("<=576px") {
       width: 100%;
     }
+    &:hover, &:focus, &:active {
+      img {
+        opacity: 1;
+        visibility:visible;
+      }
+    }
   }
 
   &__link-icon {
     margin-left: 37px;
     font-size: 25px;
+    z-index: 10;
     @include media("<=991px") {
     }
-    @include media("<=576px") {
+    @include media("<=768px") {
       display: none;
     }
   }

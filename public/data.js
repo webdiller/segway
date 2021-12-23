@@ -7,7 +7,8 @@ export const data = {
       nameWrap: 'NineboT \n Engine Speaker',
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
       price: '149.99',
-      imgPath: '/accessory-1.png'
+      imgPath: '/accessory-1.png',
+      imgPathWithCircle: '/accessory-with-circle-1.png'
     },
     {
       id: '002',
@@ -16,7 +17,8 @@ export const data = {
       nameWrap: 'Extension \n Rod',
       description: 'The Extension Rod helps you to easily maneuver your scooter, so you no longer need to bend over and push it, making it easier to take with you anywhere.',
       price: '29.99',
-      imgPath: '/accessory-2.png'
+      imgPath: '/accessory-2.png',
+      imgPathWithCircle: '/accessory-with-circle-2.png',
     },
     {
       id: '015',
@@ -25,7 +27,8 @@ export const data = {
       nameWrap: 'Segway Protective \n Gear Set',
       description: 'The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.',
       price: '29.99',
-      imgPath: '/accessory-3.png'
+      imgPath: '/accessory-3.png',
+      imgPathWithCircle: '/accessory-with-circle-3.png'
     },
     {
       id: '016',
@@ -34,7 +37,8 @@ export const data = {
       nameWrap: 'Ninebot Leisure \n Backpack',
       description: 'The Ninebot leisure backpack adopts a stylish gray-yellow color contrast, adding a trendy accessory to your wardrobe.',
       price: '69.99',
-      imgPath: '/accessory-4.png'
+      imgPath: '/accessory-4.png',
+      imgPathWithCircle: '/accessory-with-circle-4.png'
     },
     {
       id: '017',
@@ -43,7 +47,8 @@ export const data = {
       nameWrap: 'Segway External \n Battery',
       description: 'It is easy to install and increases the range of the ES1, ES2 & E22 to 27.9, 28 and 27 miles respectively and It also increases the speed',
       price: '249.99',
-      imgPath: '/accessory-5.png'
+      imgPath: '/accessory-5.png',
+      imgPathWithCircle: '/accessory-with-circle-5.png'
     },
     {
       id: '018',
@@ -52,7 +57,8 @@ export const data = {
       nameWrap: 'Segway \n Charger',
       description: 'Whether at home, the office, or on your KickScooter journey, this Ninebot KickScooter by Segway Charger is designed to provide a safe and stable charge anytime, anywhere.',
       price: '79.99',
-      imgPath: '/accessory-6.png'
+      imgPath: '/accessory-6.png',
+      imgPathWithCircle: '/accessory-with-circle-6.png'
     },
     {
       id: '019',
@@ -61,7 +67,8 @@ export const data = {
       nameWrap: 'Segway \n Scooter Bag',
       description: 'Tough EVA material, suitable for the entire Ninebot KickScooter by Segway line. 3L capacity gives you plenty of room to carry your phone, charger, bottled water, and other personal items.',
       price: '49.99',
-      imgPath: '/accessory-7.png'
+      imgPath: '/accessory-7.png',
+      imgPathWithCircle: '/accessory-with-circle-7.png'
     },
     {
       id: '020',
@@ -70,7 +77,8 @@ export const data = {
       nameWrap: 'Segway \n Phone Holder',
       description: 'The dual screw, non-slip design offers ultimate security and versatility. The phone holder is applicable to multiple vehicle series.',
       price: '29.99',
-      imgPath: '/accessory-8.png'
+      imgPath: '/accessory-8.png',
+      imgPathWithCircle: '/accessory-with-circle-8.png'
     },
     {
       id: '021',
@@ -79,7 +87,8 @@ export const data = {
       nameWrap: 'Segway \n Scooter Seat',
       description: 'This scooter seat is designed to work with the MAX. It offers high quality, comfort and safety that is in line with the MAX KickScooter.',
       price: '119.99',
-      imgPath: '/accessory-9.png'
+      imgPath: '/accessory-9.png',
+      imgPathWithCircle: '/accessory-with-circle-9.png'
     }
   ],
   segways: {

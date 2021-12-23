@@ -6,7 +6,7 @@ import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import { useRouter } from 'next/dist/client/router';
+import {useRouter} from 'next/dist/client/router';
 
 export default function AccessoriesSlider({items}) {
   const {addItem} = useCart();
@@ -25,7 +25,7 @@ export default function AccessoriesSlider({items}) {
 
   return (
     <div className="accessories-slider">
-      <div className="container accessories-slider__container">
+      <div id="accessories" className="container accessories-slider__container">
         <p className="title accessories-slider__title">Accessories</p>
         <div className="accessories-slider__swiper">
           <Swiper
@@ -46,15 +46,17 @@ export default function AccessoriesSlider({items}) {
               }
             }}>
             {items.map((item) => {
-              const {id, name, nameWrap, description, price, imgPath} = item;
+              const {id, name, nameWrap, description, price, imgPathWithCircle} = item;
               return (
                 <SwiperSlide key={id} className="swiper-slide accessories-slider__item">
                   <div className="accessories-slider__item-wrapper">
                     <div className="accessories-slider__img-wrapper">
-                      <Image objectFit="contain" className="accessories-slider__img" src={imgPath} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
+                      <Image objectFit="contain" className="accessories-slider__img" src={imgPathWithCircle} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                     </div>
                     <p className="text text_25 accessories-slider__name">{nameWrap}</p>
-                    <p className="text text_13 text_grey2 accessories-slider__description">{description}</p>
+                    <p className="text text_13 text_grey2 accessories-slider__description">
+                      <span className="accessories-slider__description-text">{description}</span>
+                    </p>
                     <div className="accessories-slider__price">
                       <p className="text text_16 accessories-slider__price-key">Price:</p>
                       <p className="text text_uppercase accessories-slider__price-value">${price}</p>

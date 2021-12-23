@@ -40,18 +40,6 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
     let newId = null;
 
     if (isClicked) {
-      // if (tabToggle === initWarranty) {
-      //   newId = `${idWithoutWarranty}?warrancy=${tabToggle}`;
-      //   console.log('Если сняли гарантию у текущей гарантии');
-      // } else {
-      //   newId = idWithoutWarranty;
-      //   console.log('Если выбрали новую гарантию');
-      // }
-
-      // let prevItemsId =
-      // updateItemQuantityHandler(segwayItem.id, 0)
-      // updateItemQuantityHandler(segwayItem.id, 0)
-
       if (tabToggle !== null) {
         setIsClicked(false);
         newId = `${idWithoutWarranty}?warrancy=${tabToggle}`;

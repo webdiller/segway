@@ -4,12 +4,6 @@ import UiLink from '@/ui/UiLink';
 
 export default function DownloadManual() {
   const handleClick = (e) => {
-    // window.open('/download-manual.pdf');
-    // e.target.focus();
-    // setTimeout(() => {
-    //   e.target.blur();
-    // }, 100);
-
     window.open('/download-manual.pdf');
     e.target.blur();
   };
@@ -61,6 +55,7 @@ export default function DownloadManual() {
             {/* <UiLink unfocusOnClick={true} target="_blank" download href="/download-manual.pdf" classNameLink="ui-btn ui-btn_with-icon download-manual__link" innerText="Download manual" icon={<VscFilePdf className="download-manual__link-icon" />} /> */}
             <button onClick={handleClick} className="ui-btn ui-btn_with-icon download-manual__link">
               <span>download manual</span>
+              <img className="download-manual__link-icon" src="./icon-pdf.svg" alt="icon pdf" />
             </button>
           </div>
         </div>
