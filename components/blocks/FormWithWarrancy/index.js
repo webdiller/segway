@@ -14,6 +14,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
 
   const dispatch = useDispatch();
   const {selectedTab} = useSelector((state) => state.selectedWarrantyTabReducer);
+  const {currentSegway} = useSelector((state) => state.fixedModalReducer);
 
   const {addItem} = useCart();
   const {added, setAddedHandler} = useAddToCart();
@@ -50,8 +51,8 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
 
   const addItemToCartAndShowModal = () => () => {
     setAddedHandler();
-    addItem(preparedProduct);
-    router.push(`/?productModal=true&productId=${item.id}`, null, {scroll: false});
+    addItem(currentSegway);
+    router.push(`/?productModal=true&productId=${currentSegway.id}`, null, {scroll: false});
   };
 
   return (
