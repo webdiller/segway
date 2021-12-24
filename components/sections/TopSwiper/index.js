@@ -77,7 +77,7 @@ export default function TopSwiper({items}) {
               </SwiperSlide>
             ))}
             <SwiperSlide key="99999" className="top-swiper__item">
-              <Link href="/accessories">
+              <Link href="#accessories">
                 <a className="top-swiper__link">
                   <div className="top-swiper__img-wrapper">
                     <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />

@@ -5,11 +5,11 @@ const TopSwiperDinamic = dynamic(() => import('@/sections/TopSwiper'));
 const TopStockDinamic = dynamic(() => import('@/sections/TopStock'));
 
 /** Дефолтное расположение эементов */
-export default function DefaultLayout({title = 'Segway', description = 'Описание', children, items} = {}) {
+export default function DefaultLayout({title = 'Segway', description = 'Описание', children, items, hideSwiper = false} = {}) {
   return (
     <>
       <CustomHead description={description} title={title} />
-      <TopSwiperDinamic items={items} />
+      {hideSwiper ? null : <TopSwiperDinamic items={items} />}
       <TopStockDinamic />
       {children}
       <Footer />

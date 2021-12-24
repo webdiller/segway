@@ -38,7 +38,7 @@ export default function TopNavigation() {
         </button>
 
         <nav onClick={(e) => onClick(e)} ref={itemsRef} className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
-          <Link href="/reviews">
+          <Link href="#">
             <a className="top-nav__item">REVIEWS</a>
           </Link>
           <Link href="#">
@@ -50,7 +50,7 @@ export default function TopNavigation() {
           <Link href="#">
             <a className="top-nav__item">BLOG</a>
           </Link>
-          <Link href="/contacts">
+          <Link href="#">
             <a className="top-nav__item">CONTACTS</a>
           </Link>
           <Link href="#">

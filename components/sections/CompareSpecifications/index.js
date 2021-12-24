@@ -60,7 +60,7 @@ export default function CompareSpecifications({items}) {
     if (!modalActive) {
       router.push('?modalSelectAModelToCompare=true', undefined, {shallow: true});
     } else {
-      router.push('?modalSelectAModelToCompare=false', undefined, {shallow: true});
+      router.replace('/', undefined, {shallow: true});
     }
   };
 

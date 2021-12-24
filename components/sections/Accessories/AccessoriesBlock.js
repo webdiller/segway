@@ -12,7 +12,7 @@ export default function AccessoriesBlock({items}) {
     addItem(id);
     e.target.classList.add('ui-btn_added');
     e.target.focus();
-    router.push(`/?productModal=true&productId=${id}&selectedWarranty=null`, null, {scroll: false});
+    router.push(`?productModal=true&productId=${id}&selectedWarranty=null`, null, {scroll: false});
     setTimeout(() => {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();
