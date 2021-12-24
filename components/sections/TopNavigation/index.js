@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Image from 'next/image';
-import {IoIosCloseCircleOutline} from 'react-icons/io';
-import {AiOutlineMenu} from 'react-icons/ai';
 import {useEffect, useRef, useState} from 'react';
 import {useCart} from 'react-use-cart';
 import logoBlack from '@/base/logo-black.svg';
@@ -40,7 +38,7 @@ export default function TopNavigation() {
         </button>
 
         <nav onClick={(e) => onClick(e)} ref={itemsRef} className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
-          <Link href="#">
+          <Link href="/reviews">
             <a className="top-nav__item">REVIEWS</a>
           </Link>
           <Link href="#">
@@ -52,7 +50,7 @@ export default function TopNavigation() {
           <Link href="#">
             <a className="top-nav__item">BLOG</a>
           </Link>
-          <Link href="#">
+          <Link href="/contacts">
             <a className="top-nav__item">CONTACTS</a>
           </Link>
           <Link href="#">
