@@ -9,7 +9,6 @@ export default function FixedModal() {
   const {addItem} = useCart();
 
   const addItemToCartAndShowModal = (productItem) => () => {
-    console.log(currentSegway);
     addItem(currentSegway);
     router.push(`/?productModal=true&productId=${productItem.id}`, null, {scroll: false});
   };
