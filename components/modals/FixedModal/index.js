@@ -9,7 +9,8 @@ export default function FixedModal() {
   const {addItem} = useCart();
 
   const addItemToCartAndShowModal = (productItem) => () => {
-    addItem({...productItem, id: `${productItem.id}?warrancy=oneYear`, selectedWarranty: 'oneYear'});
+    console.log(currentSegway);
+    addItem(currentSegway);
     router.push(`/?productModal=true&productId=${productItem.id}`, null, {scroll: false});
   };
   return (

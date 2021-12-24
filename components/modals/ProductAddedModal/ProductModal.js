@@ -150,7 +150,6 @@ export default function ProductModal({segways, accessoeries}) {
     const kidsScooterFilter = items.filter(({type}) => type === 'kidsScooter');
     const accessoriesFilter = items.filter(({type}) => type === 'accessory');
     const allData = [...adultScootersFilter, ...kidsScooterFilter, ...accessoriesFilter];
-
     setClientItems(allData);
     setClientItemsTotal(cartTotal);
   }, [items, cartTotal]);
@@ -161,7 +160,7 @@ export default function ProductModal({segways, accessoeries}) {
       if (product.id.includes('warrancy')) {
         const {id, warranty, price, quantity} = product;
         let warrantyId = id.split('warrancy=')[1];
-        let priceOfWarranty = (Number(warranty[warrantyId]?.price)) || '006';
+        let priceOfWarranty = (Number(warranty[warrantyId].price));
         let totalPrice = (priceOfWarranty + Number(price)) * Number(quantity);
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       } else {
@@ -170,7 +169,7 @@ export default function ProductModal({segways, accessoeries}) {
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       }
     });
-  }, [clientItems]);
+  }, [clientItems, cartTotal]);
 
   useEffect(() => {
     const {productModal, productId} = router.query;

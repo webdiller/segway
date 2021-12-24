@@ -19,46 +19,30 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
     twoYear: false,
     threeYear: false
   });
-  const [totalPrice, setTotalPrice] = useState(Number(item.price));
-  const [firstInit, setFirstInit] = useState(true);
-
   const {oneYear, twoYear, threeYear} = tabs;
 
   useEffect(() => {
     const selectedTab = null;
-    const newItem = null;
+
     for (let element in tabs) {
       if (tabs[element] === true) selectedTab = element;
     }
 
     if (selectedTab) {
       try {
-        setFirstInit(false);
         dispatch(setPrice(Number(item.price) + Number(item.warranty[selectedTab].price)));
         const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
-        selectedWarranty ? (newItem = {...item, id: `${item.id}?warrancy=${selectedWarranty}`, selectedWarranty}) : item;
-        console.log(newItem);
-        console.log(item);
-        if (newItem) {
-          dispatch(setSegway(newItem));
-        } else {
-          dispatch(setSegway(item));
-        }
+        const defineProduct = selectedWarranty ? {...item, id: `${item.id}?warrancy=${selectedWarranty}`, selectedWarranty} : item;
+        dispatch(setSegway(defineProduct));
       } catch (error) {
         console.log(error);
       }
-    } else if (!firstInit) {
+    } else {
       try {
         dispatch(setPrice(Number(item.price)));
         const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
-        selectedWarranty ? (newItem = {...item, id: `${item.id}?warrancy=${selectedWarranty}`, selectedWarranty}) : item;
-        console.log(newItem);
-        console.log(item);
-        if (newItem) {
-          dispatch(setSegway(newItem));
-        } else {
-          dispatch(setSegway(item));
-        }
+        const defineProduct = selectedWarranty ? {...item, id: `${item.id}?warrancy=${selectedWarranty}`, selectedWarranty} : item;
+        dispatch(setSegway(defineProduct));
       } catch (error) {
         console.log(error);
       }
@@ -164,8 +148,6 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
           </div>
         </div>
       </div>
-      {/* 
-      <FixedModalDinamic item={item} addItemToCartAndShowModal={addItemToCartAndShowModal} totalPrice={totalPrice} /> */}
     </>
   );
 }
