@@ -126,6 +126,7 @@
 
   &__link {
     font-size: 16px;
+    font-weight: 600;
     @include media("<=991px") {
     }
     @include media("<=576px") {

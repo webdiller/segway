@@ -58,9 +58,9 @@ export default function CompareSpecifications({items}) {
 
   const setUrlIfModalActive = () => {
     if (!modalActive) {
-      router.push('?modalSelectAModelToCompare=true', undefined, {shallow: true});
+      router.push('?modalSelectAModelToCompare=true', undefined, {shallow: false, scroll: false});
     } else {
-      router.replace('/', undefined, {shallow: true});
+      router.replace('/', undefined, {shallow: false, scroll: false});
     }
   };
 
@@ -91,7 +91,7 @@ export default function CompareSpecifications({items}) {
 
   const addItemToCartAndShowModal = (event, productItem) => {
     addItem(productItem);
-    router.push(`/?productModal=true&productId=${productItem.id}`, null, {scroll: false});
+    router.push(`/?productModal=true&productId=${productItem.id}`, null, {shallow: false, scroll: false});
   };
 
   useEffect(() => {

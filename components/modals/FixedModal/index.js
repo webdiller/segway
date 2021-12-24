@@ -4,7 +4,6 @@ import {useSelector} from 'react-redux';
 
 export default function FixedModal() {
   const {currentPrice, currentSegway} = useSelector((state) => state.fixedModalReducer);
-
   const router = useRouter();
   const {addItem} = useCart();
 

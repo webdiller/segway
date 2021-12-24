@@ -49,7 +49,6 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
         let newItem = {...segwayItem, id: newId};
         delete newItem['quantity'];
         addItemHandler(newItem, segwayItem.quantity);
-
       } else {
         setIsClicked(false);
         newId = tabToggle ? `${idWithoutWarranty}?warrancy=${tabToggle}` : idWithoutWarranty;
@@ -57,25 +56,26 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
         updateItemQuantityHandler(segwayItem.id, 0);
         let newItem = {...segwayItem, id: newId};
         delete newItem['quantity'];
-        addItemHandler(newItem, segwayItem.quantity)
+        addItemHandler(newItem, segwayItem.quantity);
       }
     }
   }, [tabToggle, segwayItem, allItems, initWarranty, isClicked, addItemHandler, updateItemQuantityHandler]);
+
   return (
     <div className="product-modal__product-warrancy-items">
       <button onClick={(event) => tabToggleHandler(event, 'oneYear')} className={segwayItem.id.includes('oneYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
         <span className="product-modal__product-warrancy-year">1 year</span>
-        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty.oneYear.price}</span>
+        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty?.oneYear?.price}</span>
       </button>
 
       <button onClick={(event) => tabToggleHandler(event, 'twoYear')} className={segwayItem.id.includes('twoYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
         <span className="product-modal__product-warrancy-year">2 year</span>
-        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty.twoYear.price}</span>
+        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty?.twoYear?.price}</span>
       </button>
 
       <button onClick={(event) => tabToggleHandler(event, 'threeYear')} className={segwayItem.id.includes('threeYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
         <span className="product-modal__product-warrancy-year">3 year</span>
-        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty.threeYear.price}</span>
+        <span className="product-modal__product-warrancy-price">${segwayItem?.warranty?.threeYear?.price}</span>
       </button>
     </div>
   );
@@ -158,11 +158,15 @@ export default function ProductModal({segways, accessoeries}) {
     setTotalPriceWithWarranty(0);
     clientItems.map((product) => {
       if (product.id.includes('warrancy')) {
-        const {id, warranty, price, quantity} = product;
-        let warrantyId = id.split('warrancy=')[1];
-        let priceOfWarranty = (Number(warranty[warrantyId].price));
-        let totalPrice = (priceOfWarranty + Number(price)) * Number(quantity);
-        setTotalPriceWithWarranty((prev) => (prev += totalPrice));
+        try {
+          const {id, warranty, price, quantity} = product;
+          let warrantyId = id.split('warrancy=')[1];
+          let priceOfWarranty = Number(warranty[warrantyId].price);
+          let totalPrice = (priceOfWarranty + Number(price)) * Number(quantity);
+          setTotalPriceWithWarranty((prev) => (prev += totalPrice));
+        } catch (error) {
+          console.log(error);
+        }
       } else {
         const {price, quantity} = product;
         let totalPrice = Number(price) * quantity;

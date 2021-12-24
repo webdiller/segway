@@ -21,7 +21,7 @@ export default function OtherModels({items}) {
         <div ref={swiperRef} className="other-models__swiper">
           <Swiper
             modules={[Scrollbar, FreeMode]}
-            slidesPerView='auto'
+            slidesPerView="auto"
             freeMode={true}
             loop={false}
             centeredSlides={false}
@@ -63,8 +63,12 @@ export default function OtherModels({items}) {
             ))}
 
             <SwiperSlide className="swiper-slide swiper-slide_form other-models__form">
-              <p className="other-models__form-title">DIDN’T FIND <br /> A MODEL?</p>
-              <p className="text other-models__form-text">Leave your contact details <br /> and we will help you with <br /> the choice</p>
+              <p className="other-models__form-title">
+                DIDN’T FIND <br /> A MODEL?
+              </p>
+              <p className="text other-models__form-text">
+                Leave your contact details <br /> and we will help you with <br /> the choice
+              </p>
               <UiInput forForm={false} customClass="other-models__form-input" />
               <Link href="#">
                 <a className="ui-btn ui-btn_outline other-models__see-more">
@@ -72,6 +76,22 @@ export default function OtherModels({items}) {
                 </a>
               </Link>
             </SwiperSlide>
+
+            {/* <SwiperSlide key="020202" className="swiper-slide other-models__item_hide other-models__item">
+              <div className="other-models__item-wrapper">
+                <Link href="#">
+                  <a className="other-models__link">
+                    <div className="other-models__img-wrapper">
+                    </div>
+                    <p className="text text_25 other-models__name"></p>
+                    <div className="other-models__price">
+                      <p className="text text_uppercase other-models__price-value"></p>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+            </SwiperSlide> */}
+
           </Swiper>
         </div>
         <div className="other-models__swiper-scrollbar"></div>

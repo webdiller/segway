@@ -93,6 +93,15 @@
         }
       }
     }
+    &.other-models__item_hide {
+      padding: 0;
+      margin-right: 0;
+      @include media('<=768px') {
+        display: block;
+        width: 150px;
+        flex: 0 0 150px;
+      }
+    }
   }
 
   .swiper-wrapper {
@@ -119,8 +128,8 @@
   &__item {
     &_hide {
       opacity: 0;
-      visibility: hidden;
       z-index: -1;
+      visibility: hidden;
     }
   }
 
@@ -223,14 +232,12 @@
     margin-top: auto;
     text-decoration: none;
     font-size: 13px;
-    font-weight: 400;
     width: 130px;
     @include media('<=768px') {
       padding-left: 23px;
       padding-right: 23px;
       width: 150px;
       min-height: 37px;
-      font-weight: 400;
       font-size: 16px;
     }
     @include media('<=576px') {

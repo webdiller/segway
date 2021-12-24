@@ -5,67 +5,52 @@ import segwayProtect from '@/base/segway-protect.png';
 import useAddToCart from '@/hooks/useAddToCart';
 import {useCart} from 'react-use-cart';
 import {useRouter} from 'next/dist/client/router';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setPrice, setSegway} from 'store/actions/fixedModalAction';
+import {setWarranty} from 'store/actions/selectedWarrantyTabAction';
 
 export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
-  const dispatch = useDispatch();
   const router = useRouter();
+
+  const dispatch = useDispatch();
+  const {selectedTab} = useSelector((state) => state.selectedWarrantyTabReducer);
+
   const {addItem} = useCart();
   const {added, setAddedHandler} = useAddToCart();
+
+  const [preparedProduct, setPreparedProduct] = useState(item);
+
   const tabWrapper = useRef(null);
-  const [tabs, setTabs] = useState({
-    oneYear: false,
-    twoYear: false,
-    threeYear: false
-  });
-  const {oneYear, twoYear, threeYear} = tabs;
 
-  useEffect(() => {
-    const selectedTab = null;
-
-    for (let element in tabs) {
-      if (tabs[element] === true) selectedTab = element;
-    }
-
-    if (selectedTab) {
-      try {
-        dispatch(setPrice(Number(item.price) + Number(item.warranty[selectedTab].price)));
-        const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
-        const defineProduct = selectedWarranty ? {...item, id: `${item.id}?warrancy=${selectedWarranty}`, selectedWarranty} : item;
-        dispatch(setSegway(defineProduct));
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      try {
-        dispatch(setPrice(Number(item.price)));
-        const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
-        const defineProduct = selectedWarranty ? {...item, id: `${item.id}?warrancy=${selectedWarranty}`, selectedWarranty} : item;
-        dispatch(setSegway(defineProduct));
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }, [tabs]);
-
-  const setActiveTabHandled = (name) => () => {
-    setTabs({
-      oneYear: false,
-      twoYear: false,
-      threeYear: false,
-      [name]: tabs[name] === true ? false : true
-    });
+  const pricesWithWarranty = {
+    defaultPrice: Number(item.price),
+    oneYear: Number(item.warranty.oneYear.price) + Number(item.price),
+    twoYear: Number(item.warranty.twoYear.price) + Number(item.price),
+    threeYear: Number(item.warranty.threeYear.price) + Number(item.price)
   };
 
-  // TODO: Сделать DRY
-  const addItemToCartAndShowModal = () => () => {
-    const selectedWarranty = tabs.oneYear ? 'oneYear' : tabs.twoYear ? 'twoYear' : tabs.threeYear ? 'threeYear' : null;
+  const selectProductHandler = (event, selectedTabName) => {
+    if (!event.target.classList.contains('active')) {
+      event.target.classList.add('active');
+      const defineProduct = {...item, id: `${item.id}?warrancy=${selectedTabName}`, selectedWarranty: selectedTabName};
 
-    // Если выбрали гарантию, то указываем уникальный id с гарантией и поле 'selectedWarranty'. Иначе возвращаем обычный объект
-    selectedWarranty ? (item = {...item, id: `${item.id}?warrancy=${selectedWarranty}`, selectedWarranty}) : item;
+      dispatch(setWarranty(selectedTabName));
+      dispatch(setPrice(pricesWithWarranty[selectedTabName]));
+      setPreparedProduct(defineProduct);
+      dispatch(setSegway(defineProduct));
+    } else {
+      event.target.classList.remove('active');
+      setPreparedProduct(item);
+
+      dispatch(setWarranty(null));
+      dispatch(setPrice(item.price));
+      dispatch(setSegway(item));
+    }
+  };
+
+  const addItemToCartAndShowModal = () => () => {
     setAddedHandler();
-    addItem({...item});
+    addItem(preparedProduct);
     router.push(`/?productModal=true&productId=${item.id}`, null, {scroll: false});
   };
 
@@ -77,45 +62,57 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
             Add an extended warranty from <span>Extend</span>
           </p>
           <div className="form-with-warrancy__form-buttons">
-            <button onClick={setActiveTabHandled('oneYear')} className={oneYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
+            <button
+              onClick={(event) => {
+                selectProductHandler(event, 'oneYear');
+              }}
+              className={selectedTab === 'oneYear' ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
               <span className="form-with-warrancy__form-button-year">1 Year</span>
               <span className="form-with-warrancy__form-button-separator">-</span>
-              <span className="form-with-warrancy__form-button-price">$139</span>
+              <span className="form-with-warrancy__form-button-price">${item.warranty.oneYear.price}</span>
             </button>
-            <button onClick={setActiveTabHandled('twoYear')} className={twoYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
+            <button
+              onClick={(event) => {
+                selectProductHandler(event, 'twoYear');
+              }}
+              className={selectedTab === 'twoYear' ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
               <span className="form-with-warrancy__form-button-year">2 Year</span>
               <span className="form-with-warrancy__form-button-separator">-</span>
-              <span className="form-with-warrancy__form-button-price">$209</span>
+              <span className="form-with-warrancy__form-button-price">${item.warranty.twoYear.price}</span>
             </button>
-            <button onClick={setActiveTabHandled('threeYear')} className={threeYear ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
+            <button
+              onClick={(event) => {
+                selectProductHandler(event, 'threeYear');
+              }}
+              className={selectedTab === 'threeYear' ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
               <span className="form-with-warrancy__form-button-year">3 Year</span>
               <span className="form-with-warrancy__form-button-separator">-</span>
-              <span className="form-with-warrancy__form-button-price">$279</span>
+              <span className="form-with-warrancy__form-button-price">${item.warranty.threeYear.price}</span>
             </button>
           </div>
 
           <div className="form-with-warrancy__form-prices-subtitle-image">
             {/* PRICES */}
             <div className="form-with-warrancy__form-prices">
-              {oneYear ? (
+              {selectedTab === 'oneYear' ? (
                 <>
                   <p className="form-with-warrancy__form-price-old">$1188</p>
-                  <p className="form-with-warrancy__form-price-new">$1088</p>
+                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.oneYear}</p>
                 </>
-              ) : twoYear ? (
+              ) : selectedTab === 'twoYear' ? (
                 <>
                   <p className="form-with-warrancy__form-price-old">$1258</p>
-                  <p className="form-with-warrancy__form-price-new">$1158</p>
+                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.twoYear}</p>
                 </>
-              ) : threeYear ? (
+              ) : selectedTab === 'threeYear' ? (
                 <>
                   <p className="form-with-warrancy__form-price-old">$1328</p>
-                  <p className="form-with-warrancy__form-price-new">$1228</p>
+                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.threeYear}</p>
                 </>
               ) : (
                 <>
                   <p className="form-with-warrancy__form-price-old">$1049</p>
-                  <p className="form-with-warrancy__form-price-new">$949</p>
+                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.defaultPrice}</p>
                 </>
               )}
             </div>

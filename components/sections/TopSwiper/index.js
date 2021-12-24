@@ -21,6 +21,7 @@ export default function TopSwiper({items}) {
           <Swiper
             modules={[Navigation, FreeMode]}
             spaceBetween={0}
+            speed={600}
             slidesPerView={4}
             loop={false}
             freeMode={true}
@@ -46,7 +47,7 @@ export default function TopSwiper({items}) {
                         try {
                           el.slidePrev();
                         } catch (error) {}
-                      }, 1000);
+                      }, 250);
                     } catch (error) {}
                   }, 2000);
                 }
