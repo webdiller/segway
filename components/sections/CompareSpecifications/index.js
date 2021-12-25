@@ -133,7 +133,7 @@ export default function CompareSpecifications({items}) {
                 </div>
                 <div className="main-slide__header-right">
                   <div onClick={setModalActiveHandle} className="main-slide__img-compare-wrapper">
-                    <img width="104" height="104" src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`} alt="icon-compare" className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'} />
+                    <Image width="104" height="104" src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`} alt="icon-compare" className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'} />
                   </div>
                   <p className="text text_bold main-slide__name">{!selectedModel ? 'Add model' : selectedModel.name} </p>
                 </div>

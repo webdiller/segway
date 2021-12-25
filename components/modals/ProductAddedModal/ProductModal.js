@@ -237,7 +237,7 @@ export default function ProductModal({segways, accessoeries}) {
                   <div key={id} className="product-modal__product">
                     <div className="product-modal__product-main-area">
                       <div className="product-modal__product-img-wrapper">
-                        <img src={`./${imgPath}`} alt={name} className="product-modal__product-img" />
+                        <Image layout="fill" objectFit="contain" src={imgPath} alt={name} className="product-modal__product-img" />
                       </div>
                       <div className="product-modal__product-name-and-price">
                         <p className="product-modal__product-name">{name}</p>
@@ -295,10 +295,10 @@ export default function ProductModal({segways, accessoeries}) {
                     return (
                       <SwiperSlide onClick={(e) => addItemToCartWithAnimation(e, item)} key={id} className="product-modal__accessoeries-item">
                         <div className="product-modal__accessoeries-img-wrapper">
-                          <img src={`.${imgPath}`} alt={name} className="product-modal__accessoeries-img" />
+                          <img loading="lazy" src={`.${imgPath}`} alt={name} className="product-modal__accessoeries-img" />
                           <div className="product-modal__accessoeries-overlay">
                             <p className="product-modal__accessoeries-overlay-text">Added to card</p>
-                            <img className="product-modal__accessoeries-overlay-icon" src="./icon-check-bold.svg" alt="icon" />
+                            <img loading="lazy" className="product-modal__accessoeries-overlay-icon" src="./icon-check-bold.svg" alt="icon" />
                           </div>
                         </div>
                         <p className="product-modal__accessoeries-name">{name}</p>
