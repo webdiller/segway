@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
-import {useRouter} from 'next/dist/client/router';
 import {useCart} from 'react-use-cart';
 import {useEffect, useRef, useState} from 'react';
 import {Navigation, FreeMode} from 'swiper';
@@ -13,6 +12,9 @@ import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
 import {BiMinus, BiPlus} from 'react-icons/bi';
 import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
+import {useDispatch, useSelector} from 'react-redux';
+import {setProductModal} from 'store/actions/productModal';
+import {useRouter} from 'next/dist/client/router';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
@@ -87,35 +89,37 @@ export default function ProductModal({segways, accessoeries}) {
   const targetScrollElement = useRef(null);
 
   // modals
-  const [activeModal, setActiveModal] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);
-  const router = useRouter();
 
   // data
-  const [routerProduct, setRouterProduct] = useState(null);
   const {items, cartTotal, addItem, updateItemQuantity} = useCart();
+  const {active: isActiveModal} = useSelector((state) => state.productModal);
 
   const [clientItems, setClientItems] = useState([]);
   const [clientItemsTotal, setClientItemsTotal] = useState([]);
   const [totalPriceWithWarranty, setTotalPriceWithWarranty] = useState(0);
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   const closeModal =
-    (route = '/') =>
+    (goToUserCart, route) =>
     () => {
-      if (activeModal) {
-        setActiveModal(false);
+      if (goToUserCart) {
+        router.push(`${route}`);
+        dispatch(setProductModal(false));
         enableBodyScroll(targetScrollElement.current);
-        router.replace(route, undefined, {shallow: true});
+      } else {
+        dispatch(setProductModal(false));
+        enableBodyScroll(targetScrollElement.current);
       }
     };
 
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
-      setActiveModal(false);
+      dispatch(setProductModal(false));
       enableBodyScroll(targetScrollElement.current);
-      router.replace('/', undefined, {shallow: true});
     }
   };
 
@@ -143,8 +147,8 @@ export default function ProductModal({segways, accessoeries}) {
   };
 
   useEffect(() => {
-    activeModal ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
-  }, [activeModal]);
+    isActiveModal ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
+  }, [isActiveModal]);
 
   useEffect(() => {
     const adultScootersFilter = items.filter(({type}) => type === 'kickscooter');
@@ -177,19 +181,13 @@ export default function ProductModal({segways, accessoeries}) {
   }, [clientItems, cartTotal]);
 
   useEffect(() => {
-    const {productModal, productId} = router.query;
-    if (productModal === 'true' && productId) {
-      const matchProduct = segways.adultSegways.filter((segway) => segway.id === productId);
-      // TODO: Ненужный стейт setRouterProduct
-      setRouterProduct(...matchProduct);
-      setActiveModal(true);
+    if (isActiveModal) {
       setVisibleProducts(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query]);
+  }, [isActiveModal]);
 
   return (
-    <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className={activeModal ? 'product-modal active' : 'product-modal'}>
+    <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className={isActiveModal ? 'product-modal active' : 'product-modal'}>
       <div className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
         <button onClick={closeModal()} className="product-modal__close-btn">
           <div className="product-modal__close-btn-icon">
@@ -209,7 +207,7 @@ export default function ProductModal({segways, accessoeries}) {
             <button onClick={closeModal()} className="ui-btn ui-btn_fill-grey product-modal__top-actions-item">
               <span>BACK</span>
             </button>
-            <button onClick={closeModal('/user-cart')} className="ui-btn product-modal__top-actions-item">
+            <button onClick={closeModal(true, '/user-cart')} className="ui-btn product-modal__top-actions-item">
               <span>CHECK OUT</span>
             </button>
           </div>
@@ -326,9 +324,9 @@ export default function ProductModal({segways, accessoeries}) {
             <button onClick={closeModal()} className="ui-btn ui-btn_fill-grey product-modal__top-actions-item">
               <span>BACK</span>
             </button>
-            <button onClick={closeModal('/user-cart')} className="ui-btn product-modal__top-actions-item">
+            <a onClick={closeModal(true, '/user-cart')} className="ui-btn product-modal__top-actions-item">
               <span>CHECK OUT</span>
-            </button>
+            </a>
           </div>
         </div>
         {/* CONTENT END */}

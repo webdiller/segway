@@ -1,18 +1,18 @@
-import {useRouter} from 'next/dist/client/router';
 import {useCart} from 'react-use-cart';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {setProductModal} from '../../../store/actions/productModal'
 
 export default function FixedModal() {
   const {currentPrice, currentSegway} = useSelector((state) => state.fixedModal);
-  const router = useRouter();
   const {addItem} = useCart();
+  const dispatch = useDispatch();
 
-  const addItemToCartAndShowModal = (productItem) => () => {
+  const addItemToCartAndShowModal = () => () => {
     addItem(currentSegway);
-    router.push(`/?productModal=true&productId=${productItem.id}`, null, {scroll: false});
+    dispatch(setProductModal(true))
   };
   return (
-    <div onClick={addItemToCartAndShowModal(currentSegway)} className="fixed-modal">
+    <div onClick={addItemToCartAndShowModal()} className="fixed-modal">
       <button className="fixed-modal__wrapper">
         <span className="fixed-modal__title">
           <span className="fixed-modal__title-name">Add to cart</span>

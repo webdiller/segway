@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import {Navigation} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import Image from 'next/image';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import {FcPrevious, FcNext} from 'react-icons/fc';
@@ -10,7 +10,6 @@ import {FcPrevious, FcNext} from 'react-icons/fc';
 import React, {useEffect, useRef, useState} from 'react';
 import Swipe from 'react-easy-swipe';
 import {useCart} from 'react-use-cart';
-import {useRouter} from 'next/dist/client/router';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -25,6 +24,8 @@ import iconIncline from '@/base/icon-incline.svg';
 import iconShock from '@/base/icon-shock.svg';
 import iconSafety from '@/base/icon-safety.svg';
 import iconAtmosphere from '@/base/icon-atmosphere.svg';
+import {setProductModal} from '../../../store/actions/productModal';
+import {useDispatch} from 'react-redux';
 import 'swiper/css/navigation';
 
 const MainItemLeft = ({text, srcImg}) => {
@@ -39,8 +40,8 @@ const MainItemLeft = ({text, srcImg}) => {
 };
 
 export default function CompareSpecifications({items}) {
-  const router = useRouter();
   const {addItem} = useCart();
+  const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
 
   // Активный индекс у слайдера (для больших экранов)
@@ -58,9 +59,9 @@ export default function CompareSpecifications({items}) {
 
   const setUrlIfModalActive = () => {
     if (!modalActive) {
-      router.push('?modalSelectAModelToCompare=true', undefined, {shallow: false, scroll: false});
+      dispatch(setProductModal(true));
     } else {
-      router.replace('/', undefined, {shallow: false, scroll: false});
+      dispatch(setProductModal(false));
     }
   };
 
@@ -69,29 +70,33 @@ export default function CompareSpecifications({items}) {
     setUrlIfModalActive();
   };
 
+  const toggleCompareModal = () => () => {
+    setModalActive((prev) => !prev);
+  };
+
   const setSelectedModelHandle = (id) => {
     const filtered = allModels.filter((model) => model.id == id);
     setSelectedModel(...filtered);
     setModalActive(false);
-    enableBodyScroll(targetScrollElement.current)
+    enableBodyScroll(targetScrollElement.current);
     setUrlIfModalActive();
   };
 
   const onSwipeUp = () => {
     setModalActive(false);
-    enableBodyScroll(targetScrollElement.current)
+    enableBodyScroll(targetScrollElement.current);
     setUrlIfModalActive();
   };
 
   const onSwipeDown = () => {
     setModalActive(false);
-    enableBodyScroll(targetScrollElement.current)
+    enableBodyScroll(targetScrollElement.current);
     setUrlIfModalActive();
   };
 
   const addItemToCartAndShowModal = (event, productItem) => {
     addItem(productItem);
-    router.push(`/?productModal=true&productId=${productItem.id}`, null, {shallow: false, scroll: false});
+    dispatch(setProductModal(true));
   };
 
   useEffect(() => {
@@ -101,8 +106,8 @@ export default function CompareSpecifications({items}) {
   }, [selectedModel]);
 
   useEffect(() => {
-    modalActive ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current)
-  }, [modalActive])
+    modalActive ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
+  }, [modalActive]);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !selectedModel) {
@@ -132,7 +137,7 @@ export default function CompareSpecifications({items}) {
                   <p className="text text_bold main-slide__name">Ninebot Kickscooter MAX</p>
                 </div>
                 <div className="main-slide__header-right">
-                  <div onClick={setModalActiveHandle} className="main-slide__img-compare-wrapper">
+                  <div onClick={toggleCompareModal()} className="main-slide__img-compare-wrapper">
                     <img loading="lazzy" width="104" height="104" src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`} alt="icon-compare" className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'} />
                   </div>
                   <p className="text text_bold main-slide__name">{!selectedModel ? 'Add model' : selectedModel.name} </p>
@@ -658,7 +663,7 @@ export default function CompareSpecifications({items}) {
           <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
             <div className="compare-modal__wrapper">
               <p className="title compare-modal__title">select a model to compare</p>
-              <img onClick={setModalActiveHandle} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+              <img onClick={toggleCompareModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
               <div className="compare-modal__items">
                 {allModels.map(({id, name, imgPath}) => (
                   <button

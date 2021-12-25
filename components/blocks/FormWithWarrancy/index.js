@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import segwayProtect from '@/base/segway-protect.png';
 import useAddToCart from '@/hooks/useAddToCart';
 import {useCart} from 'react-use-cart';
-import {useRouter} from 'next/dist/client/router';
 import {useDispatch, useSelector} from 'react-redux';
 import {setPrice, setSegway} from 'store/actions/fixedModal';
 import {setWarranty} from 'store/actions/selectedWarranty';
+import {setProductModal} from 'store/actions/productModal';
 
+// FIXME: Оптимизировать 
 export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
-  const router = useRouter();
 
   const dispatch = useDispatch();
   const {selectedTab} = useSelector((state) => state.selectedWarranty);
@@ -19,30 +19,24 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
   const {addItem} = useCart();
   const {added, setAddedHandler} = useAddToCart();
 
-  const [preparedProduct, setPreparedProduct] = useState(item);
-
   const tabWrapper = useRef(null);
 
-  const pricesWithWarranty = {
+  const [pricesWithWarranty, setPricesWithWarranty] = useState({
     defaultPrice: Number(item.price),
     oneYear: Number(item.warranty.oneYear.price) + Number(item.price),
     twoYear: Number(item.warranty.twoYear.price) + Number(item.price),
     threeYear: Number(item.warranty.threeYear.price) + Number(item.price)
-  };
+  });
 
   const selectProductHandler = (event, selectedTabName) => {
     if (!event.target.classList.contains('active')) {
       event.target.classList.add('active');
       const defineProduct = {...item, id: `${item.id}?warrancy=${selectedTabName}`, selectedWarranty: selectedTabName};
-
       dispatch(setWarranty(selectedTabName));
       dispatch(setPrice(pricesWithWarranty[selectedTabName]));
-      setPreparedProduct(defineProduct);
       dispatch(setSegway(defineProduct));
     } else {
       event.target.classList.remove('active');
-      setPreparedProduct(item);
-
       dispatch(setWarranty(null));
       dispatch(setPrice(item.price));
       dispatch(setSegway(item));
@@ -52,8 +46,12 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
   const addItemToCartAndShowModal = () => () => {
     setAddedHandler();
     addItem(currentSegway);
-    router.push(`/?productModal=true&productId=${currentSegway.id}`, null, {scroll: false});
+    dispatch(setProductModal(true))
   };
+
+  useEffect(() => {
+
+  }, [])
 
   return (
     <>

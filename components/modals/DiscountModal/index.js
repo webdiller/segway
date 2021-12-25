@@ -2,29 +2,28 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import TinderCard from 'react-tinder-card';
-import {useRouter} from 'next/dist/client/router';
+import {useSelector} from 'react-redux';
 
 export default function DiscountModal() {
-  const router = useRouter();
   const elRef = useRef(null);
   const [activeModal, setActiveModal] = useState(false);
-  const [lsFirstVisit, setLsFirstVisit] = useState();
+  const {active: activeModalProduct} = useSelector((state) => state.productModal);
 
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
-    enableBodyScroll(elRef.current)
+    enableBodyScroll(elRef.current);
   };
 
   const onSwipe = (direction) => {
     console.log('You swiped: ' + direction);
     setActiveModal((prev) => !prev);
-    enableBodyScroll(elRef.current)
+    enableBodyScroll(elRef.current);
   };
 
   const onClickWrapper = (e) => {
     if (e.target === elRef.current) {
       setActiveModal((prev) => !prev);
-      enableBodyScroll(elRef.current)
+      enableBodyScroll(elRef.current);
     }
   };
 
@@ -32,12 +31,10 @@ export default function DiscountModal() {
     const firstInterval = null;
     const secondInterval = null;
 
-    firstInterval = setInterval(() => {
-      if (window.localStorage.isFirstVisit == undefined && !window.location.href.toLocaleLowerCase().includes('modal')) {
-        console.log('first interval');
-
-        secondInterval = setInterval(() => {
-          if (window.localStorage.isFirstVisit == undefined && !window.location.href.toLocaleLowerCase().includes('modal')) {
+    firstInterval = setInterval((_first) => {
+      if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false) {
+        secondInterval = setInterval((_second) => {
+          if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false) {
             setActiveModal(true);
             window.localStorage.setItem('isFirstVisit', 'false');
             clearInterval(firstInterval);
@@ -46,19 +43,19 @@ export default function DiscountModal() {
         }, 5000);
       }
     }, 5000);
-  }, []);
+    return (_first) => {
+      clearInterval(firstInterval);
+      clearInterval(secondInterval);
+    };
+  });
 
   useEffect(() => {
     if (activeModal) {
       disableBodyScroll(elRef.current);
     } else {
-      enableBodyScroll(elRef.current)
+      enableBodyScroll(elRef.current);
     }
-  }, [activeModal])
-
-  // Запускаем интервал в 3 секунды
-  //    Проверяем, пустой ли роут и первый ли визит
-  //    Если да, то показываем модалку, записываем первый визит и очищаем интервал
+  }, [activeModal]);
 
   return (
     <div onClick={(e) => onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>

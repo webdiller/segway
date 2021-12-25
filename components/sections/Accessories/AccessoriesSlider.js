@@ -4,19 +4,20 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
+import {useDispatch} from 'react-redux';
+import {setProductModal} from '../../../store/actions/productModal';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import {useRouter} from 'next/dist/client/router';
 
 export default function AccessoriesSlider({items}) {
   const {addItem} = useCart();
-  const router = useRouter();
+  const dispatch = useDispatch();
 
   const onClickHandler = (id, e) => {
     addItem(id);
     e.target.classList.add('ui-btn_added');
     e.target.focus();
-    router.push(`/?productModal=true&productId=${id}&selectedWarranty=null`, null, {scroll: false});
+    dispatch(setProductModal(true));
     setTimeout(() => {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();
