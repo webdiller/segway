@@ -301,7 +301,7 @@ export default function ProductModal({segways, accessoeries}) {
                           </div>
                           <div className="product-modal__accessoeries-overlay">
                             <p className="product-modal__accessoeries-overlay-text">Added to card</p>
-                            <img loading="lazy" className="product-modal__accessoeries-overlay-icon" src="./icon-check-bold.svg" alt="icon" />
+                            <img width="63" height="50" loading="lazy" className="product-modal__accessoeries-overlay-icon" src="./icon-check-bold.svg" alt="icon" />
                           </div>
                         </div>
                         <p className="product-modal__accessoeries-name">{name}</p>

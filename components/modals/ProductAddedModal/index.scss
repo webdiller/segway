@@ -604,7 +604,11 @@
     width: 56px;
     height: 56px;
 
-    margin-right: 15px;
+    margin-right: 20px;
+    margin-left: 13px;
+    @include media('<=991px') {
+      margin-right: 15px;
+    }
   }
 
   &__product-img {
@@ -624,7 +628,7 @@
   }
 
   &__product-name-and-price {
-    align-self: flex-start;
+    align-self: center;
     text-align: left;
     margin-right: auto;
     max-width: 140px;
@@ -632,9 +636,10 @@
 
   &__product-name {
     display: block;
+    margin-bottom: 1px;
+    line-height: 110.8%;
     font-weight: 600;
     font-size: 16px;
-    line-height: 110.8%;
     color: #000000;
   }
 
