@@ -6,6 +6,7 @@ import {useEffect, useRef, useState} from 'react';
 import {Navigation, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {FcPrevious, FcNext} from 'react-icons/fc';
+import imagePlaceholder from '@/base/circle-placeholder.svg';
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
@@ -129,7 +130,7 @@ export default function ProductModal({segways, accessoeries}) {
     e.target.classList.add('added');
     setTimeout(() => {
       e.target.classList.remove('added');
-    }, 1000);
+    }, 600);
   };
 
   /** itemId, itemQuantity  */
@@ -294,8 +295,10 @@ export default function ProductModal({segways, accessoeries}) {
                     const {id, name, nameWrap, description, price, imgPath} = item;
                     return (
                       <SwiperSlide onClick={(e) => addItemToCartWithAnimation(e, item)} key={id} className="product-modal__accessoeries-item">
-                        <div className="product-modal__accessoeries-img-wrapper">
-                          <img loading="lazy" src={`.${imgPath}`} alt={name} className="product-modal__accessoeries-img" />
+                        <div className="product-modal__accessoeries-img-main-wrapper">
+                          <div className="product-modal__accessoeries-img-wrapper">
+                            <Image objectFit="contain" width="152" height="155" layout="responsive" src={imgPath} alt={name} className="product-modal__accessoeries-img" placeholder="blur" blurDataURL={imagePlaceholder} />
+                          </div>
                           <div className="product-modal__accessoeries-overlay">
                             <p className="product-modal__accessoeries-overlay-text">Added to card</p>
                             <img loading="lazy" className="product-modal__accessoeries-overlay-icon" src="./icon-check-bold.svg" alt="icon" />
