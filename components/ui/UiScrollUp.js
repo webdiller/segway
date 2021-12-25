@@ -6,8 +6,12 @@ export default function UiSrollUp() {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    window.onscroll = () => {
+    const onScrollEvent = (e) => {
       setOffset(window.pageYOffset);
+    };
+    window.addEventListener('scroll', onScrollEvent);
+    return () => {
+      window.removeEventListener('scroll', onScrollEvent);
     };
   }, []);
 
