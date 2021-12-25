@@ -1,28 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
-import {useCart} from 'react-use-cart';
+import {useRef, useState} from 'react';
 import logoBlack from '@/base/logo-black.svg';
 import iconCartWhite from '@/base/icon-cart-white.svg';
 import iconCartBlack from '@/base/icon-cart-black.svg';
 import iconPhoneBlack from '@/base/icon-phone-black.svg';
+import { useSelector } from 'react-redux';
 
 /** Верхняя навигация */
 export default function TopNavigation() {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
-  const [items, setItems] = useState(0);
   const handleSetIsActiveMenu = () => {
     setIsActiveMenu((prev) => !prev);
   };
 
-  const {totalItems} = useCart();
+  const {totalUniqueItems: totalCount} = useSelector((state) => state.productCart)
 
   const itemsRef = useRef(null);
-
-  useEffect(() => {
-    setItems(totalItems);
-  }, [totalItems]);
 
   const onClick = (e) => {
     if (e.target === itemsRef.current) {
@@ -70,7 +65,7 @@ export default function TopNavigation() {
               <div className="top-nav__action-icon-wrapper">
                 <Image src={iconCartWhite} alt="icon" />
               </div>
-              <span className="top-nav__action-counter">{items}</span>
+              <span className="top-nav__action-counter">{totalCount}</span>
             </a>
           </Link>
           <Link href="tel:+18888888888">
@@ -91,7 +86,7 @@ export default function TopNavigation() {
               <div className="top-nav__action-icon-wrapper">
                 <Image src={iconCartBlack} alt="icon" />
               </div>
-              <span className="top-nav__action-counter">{items}</span>
+              <span className="top-nav__action-counter">{totalCount}</span>
             </a>
           </Link>
         </div>

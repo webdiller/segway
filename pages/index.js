@@ -24,10 +24,10 @@ const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'));
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'));
 const ProductSegwayModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductSegwayModal'));
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'));
-
 import {data} from '@/base/data';
 
 export default function Home({allData}) {
+
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway index">

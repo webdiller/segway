@@ -47,7 +47,7 @@ const initialState = {
   }
 };
 
-export const fixedModalReducer = (state = initialState, action) => {
+export const fixedModal = (state = initialState, action) => {
   const {type, payload} = action;
   switch (type) {
     case types.SET_PRICE_FOR_FIXED_MODAL:

@@ -1,20 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import segwayProtect from '@/base/segway-protect.png';
 import useAddToCart from '@/hooks/useAddToCart';
 import {useCart} from 'react-use-cart';
 import {useRouter} from 'next/dist/client/router';
 import {useDispatch, useSelector} from 'react-redux';
-import {setPrice, setSegway} from 'store/actions/fixedModalAction';
-import {setWarranty} from 'store/actions/selectedWarrantyTabAction';
+import {setPrice, setSegway} from 'store/actions/fixedModal';
+import {setWarranty} from 'store/actions/selectedWarranty';
 
 export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
   const router = useRouter();
 
   const dispatch = useDispatch();
-  const {selectedTab} = useSelector((state) => state.selectedWarrantyTabReducer);
-  const {currentSegway} = useSelector((state) => state.fixedModalReducer);
+  const {selectedTab} = useSelector((state) => state.selectedWarranty);
+  const {currentSegway} = useSelector((state) => state.fixedModal);
 
   const {addItem} = useCart();
   const {added, setAddedHandler} = useAddToCart();

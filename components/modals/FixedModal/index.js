@@ -3,7 +3,7 @@ import {useCart} from 'react-use-cart';
 import {useSelector} from 'react-redux';
 
 export default function FixedModal() {
-  const {currentPrice, currentSegway} = useSelector((state) => state.fixedModalReducer);
+  const {currentPrice, currentSegway} = useSelector((state) => state.fixedModal);
   const router = useRouter();
   const {addItem} = useCart();
 
