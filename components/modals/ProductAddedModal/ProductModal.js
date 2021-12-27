@@ -14,6 +14,7 @@ import {BiMinus, BiPlus} from 'react-icons/bi';
 import {useDispatch, useSelector} from 'react-redux';
 import {setProductModal} from 'store/actions/productModal';
 import {useRouter} from 'next/dist/client/router';
+import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
@@ -172,28 +173,8 @@ export default function ProductModal({segways, accessoeries}) {
   }, [clientItems, cartTotal]);
 
   useEffect(() => {
-    const bodySelector = document.querySelector('body');
-    if (isActiveModal) {
-      try {
-        if (window.pageYOffset > 0) {
-          setCurrentPageOffset(window.pageYOffset);
-        }
-        bodySelector.style.position = 'fixed';
-        bodySelector.style.overflow = 'hidden';
-        bodySelector.style.width = '100%';
-        bodySelector.style.top = `-${currentPageOffset}px`;
-        setVisibleProducts(true);
-      } catch (error) {
-        console.log(error);
-      }
-    } else if (!isActiveModal && currentPageOffset > 0) {
-      bodySelector.style.removeProperty('overflow');
-      bodySelector.style.removeProperty('position');
-      bodySelector.style.removeProperty('top');
-      bodySelector.style.removeProperty('width');
-      window.scrollTo(0, currentPageOffset);
-    }
-  }, [isActiveModal, currentPageOffset]);
+    isActiveModal ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
+  }, [isActiveModal]);
 
   return (
     <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className={isActiveModal ? 'product-modal active' : 'product-modal'}>
