@@ -14,7 +14,7 @@ import {BiMinus, BiPlus} from 'react-icons/bi';
 import {useDispatch, useSelector} from 'react-redux';
 import {setProductModal} from 'store/actions/productModal';
 import {useRouter} from 'next/dist/client/router';
-import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
+import disableScroll from 'disable-scroll';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
@@ -173,7 +173,7 @@ export default function ProductModal({segways, accessoeries}) {
   }, [clientItems, cartTotal]);
 
   useEffect(() => {
-    isActiveModal ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
+    isActiveModal ? disableScroll.on() : disableScroll.off();
   }, [isActiveModal]);
 
   return (
