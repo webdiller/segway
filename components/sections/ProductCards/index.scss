@@ -25,7 +25,7 @@
 
   &__item {
     min-height: 320px;
-    background-color: rgb(0 0 0 / 0.4);
+    background-color: #009eff;
     @include media('<=991px') {
     }
   }
@@ -41,12 +41,17 @@
   }
 
   &__item-content {
+    display: flex;
+    flex-direction: column;
     max-width: 250px;
+    padding: 30px 21px 29px 21px;
+    height: 100%;
     @include media('<=991px') {
     }
   }
 
   &__item-name {
+    margin-bottom: 7px;
     font-weight: bold;
     font-size: 35px;
     line-height: 38px;
@@ -57,12 +62,40 @@
   }
 
   &__item-price {
+    margin-bottom: auto;
+    font-size: 25px;
+    line-height: 23px;
+    color: #ffffff;
     @include media('<=991px') {
     }
   }
 
   &__item-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 142px;
+    min-height: 40px;
+
+    text-decoration: none;
+    background-color: transparent;
+    background: rgba(0, 0, 0, 0.01);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #ffffff66;
     @include media('<=991px') {
+    }
+  }
+  &__bottom {
+    margin-top: 41px;
+    text-align: center;
+    &-link {
+      width: 229px;
     }
   }
 }

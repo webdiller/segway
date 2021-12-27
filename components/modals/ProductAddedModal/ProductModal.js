@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import {useCart} from 'react-use-cart';
-import {useEffect, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 import {Navigation, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {FcPrevious, FcNext} from 'react-icons/fc';
@@ -11,7 +11,6 @@ import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
 import {BiMinus, BiPlus} from 'react-icons/bi';
-import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import {useDispatch, useSelector} from 'react-redux';
 import {setProductModal} from 'store/actions/productModal';
 import {useRouter} from 'next/dist/client/router';
@@ -20,7 +19,6 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
   const [initWarranty, setInitWarranty] = useState(segwayItem.selectedWarranty || segwayItem.id);
   const [isClicked, setIsClicked] = useState(false);
-  const [itemQuantity, setItemQuantity] = useState(0);
 
   const tabToggleHandler = (event, expectedWarranty) => {
     if (event.target.classList.contains('selected')) {
@@ -87,6 +85,7 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
 export default function ProductModal({segways, accessoeries}) {
   // scroll
   const targetScrollElement = useRef(null);
+  const [currentPageOffset, setCurrentPageOffset] = useState(0);
 
   // modals
   const [visibleProducts, setVisibleProducts] = useState(true);
@@ -98,28 +97,25 @@ export default function ProductModal({segways, accessoeries}) {
   const {active: isActiveModal} = useSelector((state) => state.productModal);
 
   const [clientItems, setClientItems] = useState([]);
-  const [clientItemsTotal, setClientItemsTotal] = useState([]);
   const [totalPriceWithWarranty, setTotalPriceWithWarranty] = useState(0);
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const closeModal =
-    (goToUserCart, route) =>
-    () => {
-      if (goToUserCart) {
-        router.push(`${route}`);
-        dispatch(setProductModal(false));
-        enableBodyScroll(targetScrollElement.current);
-      } else {
-        dispatch(setProductModal(false));
-        enableBodyScroll(targetScrollElement.current);
-      }
-    };
+  const closeModal = (goToUserCart, route) => () => {
+    if (goToUserCart) {
+      router.push(`${route}`);
+      dispatch(setProductModal(false));
+      // enableBodyScroll();
+    } else {
+      dispatch(setProductModal(false));
+      // disableScroll();
+    }
+  };
 
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
       dispatch(setProductModal(false));
-      enableBodyScroll(targetScrollElement.current);
+      // enableBodyScroll();
     }
   };
 
@@ -147,16 +143,11 @@ export default function ProductModal({segways, accessoeries}) {
   };
 
   useEffect(() => {
-    isActiveModal ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
-  }, [isActiveModal]);
-
-  useEffect(() => {
     const adultScootersFilter = items.filter(({type}) => type === 'kickscooter');
     const kidsScooterFilter = items.filter(({type}) => type === 'kidsScooter');
     const accessoriesFilter = items.filter(({type}) => type === 'accessory');
     const allData = [...adultScootersFilter, ...kidsScooterFilter, ...accessoriesFilter];
     setClientItems(allData);
-    setClientItemsTotal(cartTotal);
   }, [items, cartTotal]);
 
   useEffect(() => {
@@ -181,10 +172,28 @@ export default function ProductModal({segways, accessoeries}) {
   }, [clientItems, cartTotal]);
 
   useEffect(() => {
+    const bodySelector = document.querySelector('body');
     if (isActiveModal) {
-      setVisibleProducts(true);
+      try {
+        if (window.pageYOffset > 0) {
+          setCurrentPageOffset(window.pageYOffset);
+        }
+        bodySelector.style.position = 'fixed';
+        bodySelector.style.overflow = 'hidden';
+        bodySelector.style.width = '100%';
+        bodySelector.style.top = `-${currentPageOffset}px`;
+        setVisibleProducts(true);
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (!isActiveModal && currentPageOffset > 0) {
+      bodySelector.style.removeProperty('overflow');
+      bodySelector.style.removeProperty('position');
+      bodySelector.style.removeProperty('top');
+      bodySelector.style.removeProperty('width');
+      window.scrollTo(0, currentPageOffset);
     }
-  }, [isActiveModal]);
+  }, [isActiveModal, currentPageOffset]);
 
   return (
     <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className={isActiveModal ? 'product-modal active' : 'product-modal'}>

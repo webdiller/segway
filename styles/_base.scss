@@ -12,10 +12,14 @@ html {
   line-height: 1.35;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
+body {
+  width: 100%;
+}
 
 html,
 body,
@@ -362,7 +366,6 @@ img {
 }
 
 .ui-glass-link {
-  
 }
 
 .ui-scroll-up {

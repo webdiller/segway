@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import {Navigation} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import Image from 'next/image';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import {FcPrevious, FcNext} from 'react-icons/fc';
@@ -43,6 +42,7 @@ export default function CompareSpecifications({items}) {
   const {addItem} = useCart();
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
+  const [currentPageOffset, setCurrentPageOffset] = useState(0);
 
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
@@ -78,19 +78,16 @@ export default function CompareSpecifications({items}) {
     const filtered = allModels.filter((model) => model.id == id);
     setSelectedModel(...filtered);
     setModalActive(false);
-    enableBodyScroll(targetScrollElement.current);
     setUrlIfModalActive();
   };
 
   const onSwipeUp = () => {
     setModalActive(false);
-    enableBodyScroll(targetScrollElement.current);
     setUrlIfModalActive();
   };
 
   const onSwipeDown = () => {
     setModalActive(false);
-    enableBodyScroll(targetScrollElement.current);
     setUrlIfModalActive();
   };
 
@@ -106,8 +103,27 @@ export default function CompareSpecifications({items}) {
   }, [selectedModel]);
 
   useEffect(() => {
-    modalActive ? disableBodyScroll(targetScrollElement.current) : enableBodyScroll(targetScrollElement.current);
-  }, [modalActive]);
+    const bodySelector = document.querySelector('body');
+    if (modalActive) {
+      try {
+        if (window.pageYOffset > 0) {
+          setCurrentPageOffset(window.pageYOffset);
+        }
+        bodySelector.style.position = 'fixed';
+        bodySelector.style.overflow = 'hidden';
+        bodySelector.style.width = '100%';
+        bodySelector.style.top = `-${currentPageOffset}px`;
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (!modalActive && currentPageOffset > 0) {
+      bodySelector.style.removeProperty('overflow');
+      bodySelector.style.removeProperty('position');
+      bodySelector.style.removeProperty('top');
+      bodySelector.style.removeProperty('width');
+      window.scrollTo(0, currentPageOffset);
+    }
+  }, [modalActive, currentPageOffset]);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !selectedModel) {
@@ -116,7 +132,7 @@ export default function CompareSpecifications({items}) {
         setSelectedModel(storageItem);
       }
     }
-  }, []);
+  }, [selectedModel]);
 
   return (
     <div className="compare-specfications">
