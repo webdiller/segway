@@ -115,31 +115,6 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    &:hover {
-      .controll-from-smartphone__item-img_border {
-        opacity: 0;
-        visibility: hidden;
-        z-index: -1;
-        @include media('<=991px') {
-          display: none;
-        }
-      }
-      .controll-from-smartphone__item-img_fill {
-        opacity: 1;
-        visibility: visible;
-        z-index: 1;
-        transform: translate(50%, -50%) scale(1);
-        @include media('<=991px') {
-          display: none;
-        }
-      }
-    }
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
-    }
-    @include media('<=576px') {
-    }
   }
 
   &__item-img-wrapper {

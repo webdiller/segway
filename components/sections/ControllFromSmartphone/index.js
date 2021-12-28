@@ -3,12 +3,11 @@ import Image from 'next/image';
 
 import smartphoneDesktop from '@/base/controll-from-smartphone-payments.png';
 
-const ControllItem = ({imgPathBorder, imgPathFill, imgPathMobile, text} = {}) => {
+const ControllItem = ({imgPathBorder, imgPathMobile, text} = {}) => {
   return (
     <div className="controll-from-smartphone__item">
       <div className="controll-from-smartphone__item-img-wrapper">
         <img loading="lazy" src={imgPathBorder} alt="icon" className="controll-from-smartphone__item-img controll-from-smartphone__item-img_border" />
-        <img loading="lazy" src={imgPathFill} alt="icon" className="controll-from-smartphone__item-img controll-from-smartphone__item-img_fill" />
         <img loading="lazy" src={imgPathMobile} alt="icon" className="controll-from-smartphone__item-img controll-from-smartphone__item-img_mobile" />
       </div>
       <p className="controll-from-smartphone__item-description">{text}</p>
@@ -39,17 +38,17 @@ export default function ControllFromSmartphone() {
         <div className="controll-from-smartphone__bottom">
           <div className="controll-from-smartphone__bottom-left">
             <div className="controll-from-smartphone__items">
-              <ControllItem imgPathBorder="./controll-from-smartphone-1-border.svg" imgPathFill="./controll-from-smartphone-1-fill.svg" imgPathMobile="./control-1-border-mobile.svg" text="Anti-theft protection" />
+              <ControllItem imgPathBorder="./controll-from-smartphone-1-border.svg" imgPathMobile="./control-1-border-mobile.svg" text="Anti-theft protection" />
 
-              <ControllItem imgPathBorder="./controll-from-smartphone-2-border.svg" imgPathFill="./controll-from-smartphone-2-fill.svg" imgPathMobile="./control-2-border-mobile.svg" text="Dashboard" />
+              <ControllItem imgPathBorder="./controll-from-smartphone-2-border.svg" imgPathMobile="./control-2-border-mobile.svg" text="Dashboard" />
 
-              <ControllItem imgPathBorder="./controll-from-smartphone-3-border.svg" imgPathFill="./controll-from-smartphone-3-fill.svg" imgPathMobile="./control-3-border-mobile.svg" text="Firmware upgrade" />
+              <ControllItem imgPathBorder="./controll-from-smartphone-3-border.svg" imgPathMobile="./control-3-border-mobile.svg" text="Firmware upgrade" />
 
-              <ControllItem imgPathBorder="./controll-from-smartphone-4-border.svg" imgPathFill="./controll-from-smartphone-4-fill.svg" imgPathMobile="./control-4-border-mobile.svg" text="Device status" />
+              <ControllItem imgPathBorder="./controll-from-smartphone-4-border.svg" imgPathMobile="./control-4-border-mobile.svg" text="Device status" />
 
-              <ControllItem imgPathBorder="./controll-from-smartphone-5-border.svg" imgPathFill="./controll-from-smartphone-5-fill.svg" imgPathMobile="./control-5-border-mobile.svg" text="Settings and restrictions" />
+              <ControllItem imgPathBorder="./controll-from-smartphone-5-border.svg" imgPathMobile="./control-5-border-mobile.svg" text="Settings and restrictions" />
 
-              <ControllItem imgPathBorder="./controll-from-smartphone-6-border.svg" imgPathFill="./controll-from-smartphone-6-fill.svg" imgPathMobile="./control-6-border-mobile.svg" text="Training programs" />
+              <ControllItem imgPathBorder="./controll-from-smartphone-6-border.svg" imgPathMobile="./control-6-border-mobile.svg" text="Training programs" />
             </div>
 
             <div className="controll-from-smartphone__payments-img-wrapper">
