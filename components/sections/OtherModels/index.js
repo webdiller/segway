@@ -31,7 +31,7 @@ export default function OtherModels({items}) {
               draggable: true
             }}
             breakpoints={{
-              768: {
+              769: {
                 slidesPerView: 2.2,
                 loop: false,
                 spaceBetween: 0,
