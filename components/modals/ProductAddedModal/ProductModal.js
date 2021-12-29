@@ -14,7 +14,6 @@ import {BiMinus, BiPlus} from 'react-icons/bi';
 import {useDispatch, useSelector} from 'react-redux';
 import {setProductModal} from 'store/actions/productModal';
 import {useRouter} from 'next/dist/client/router';
-import disableScroll from 'disable-scroll';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
@@ -32,10 +31,6 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
       event.target.classList.add('selected');
     }
   };
-
-  useEffect(() => {
-    allItems.filter((item) => {});
-  }, [allItems]);
 
   useEffect(() => {
     let idWithoutWarranty = segwayItem.id.split('?')[0];
@@ -173,11 +168,37 @@ export default function ProductModal({segways, accessoeries}) {
   }, [clientItems, cartTotal]);
 
   useEffect(() => {
-    isActiveModal ? disableScroll.on() : disableScroll.off();
-  }, [isActiveModal]);
+    const bodySelector = document.querySelector('body');
+    if (isActiveModal) {
+      try {
+        setCurrentPageOffset(window.pageYOffset);
+        modalRef.current.classList.add('enable-background');
+        setTimeout(() => {
+          bodySelector.style.position = 'fixed';
+          bodySelector.style.overflow = 'hidden';
+          bodySelector.style.width = '100%';
+          bodySelector.style.top = `-${currentPageOffset}px`;
+          setVisibleProducts(true);
+        }, 500);
+        setTimeout(() => {
+          modalRef.current.classList.remove('enable-background');
+          modalRef.current.classList.add('active');
+        }, 700);
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (!isActiveModal) {
+      modalRef.current.classList.remove('active');
+      bodySelector.style.removeProperty('overflow');
+      bodySelector.style.removeProperty('position');
+      bodySelector.style.removeProperty('top');
+      bodySelector.style.removeProperty('width');
+      window.scrollTo(0, currentPageOffset);
+    }
+  }, [isActiveModal, currentPageOffset]);
 
   return (
-    <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className={isActiveModal ? 'product-modal active' : 'product-modal'}>
+    <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className="product-modal">
       <div className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
         <button onClick={closeModal()} className="product-modal__close-btn">
           <div className="product-modal__close-btn-icon">
@@ -324,3 +345,7 @@ export default function ProductModal({segways, accessoeries}) {
     </div>
   );
 }
+
+// Затемняем экран (класс)
+// Показываем модалку и показываем модалку
+// Делаем открытие экрана (класс)

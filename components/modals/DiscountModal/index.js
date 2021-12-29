@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, {useEffect, useRef, useState} from 'react';
-import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import TinderCard from 'react-tinder-card';
+import disableScroll from 'disable-scroll';
 import {useSelector} from 'react-redux';
 
 export default function DiscountModal() {
@@ -11,19 +11,19 @@ export default function DiscountModal() {
 
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
-    enableBodyScroll(elRef.current);
+    disableScroll.off();
   };
 
   const onSwipe = (direction) => {
     console.log('You swiped: ' + direction);
     setActiveModal((prev) => !prev);
-    enableBodyScroll(elRef.current);
+    disableScroll.off();
   };
 
   const onClickWrapper = (e) => {
     if (e.target === elRef.current) {
       setActiveModal((prev) => !prev);
-      enableBodyScroll(elRef.current);
+      disableScroll.off();
     }
   };
 
@@ -51,9 +51,9 @@ export default function DiscountModal() {
 
   useEffect(() => {
     if (activeModal) {
-      disableBodyScroll(elRef.current);
+      disableScroll.on();
     } else {
-      enableBodyScroll(elRef.current);
+      disableScroll.off();
     }
   }, [activeModal]);
 

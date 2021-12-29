@@ -10,7 +10,7 @@
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 100px 15px 15px 15px;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, opacity 0.3s ease, background-color 0.4s ease;
 
   z-index: -1;
   opacity: 0;
@@ -44,9 +44,16 @@
       visibility: visible;
       transform: scale(1);
       @include media('<=991px') {
-        top: 0;
+        top: 0%;
       }
     }
+  }
+
+  &.enable-background {
+    z-index: 1500;
+    opacity: 1;
+    visibility: visible;
+    background-color: rgb(255, 255, 255);
   }
 
   &__wrapper {
@@ -61,7 +68,7 @@
 
     opacity: 0;
     visibility: hidden;
-    transform: scale(1.05);
+    transform: scale(0.9);
     @include media('<=991px') {
       border: 0;
       border-top-left-radius: 40px;
@@ -72,7 +79,7 @@
       padding: 11px;
       height: 50vh;
       min-height: 528px;
-      top: 100vh;
+      top: 90%;
       opacity: 1;
       visibility: visible;
       transform: scale(1);

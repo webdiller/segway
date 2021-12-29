@@ -9,6 +9,7 @@ import {FcPrevious, FcNext} from 'react-icons/fc';
 import React, {useEffect, useRef, useState} from 'react';
 import Swipe from 'react-easy-swipe';
 import {useCart} from 'react-use-cart';
+import disableScroll from 'disable-scroll';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -42,7 +43,6 @@ export default function CompareSpecifications({items}) {
   const {addItem} = useCart();
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
-  const [currentPageOffset, setCurrentPageOffset] = useState(0);
 
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
@@ -63,11 +63,6 @@ export default function CompareSpecifications({items}) {
     } else {
       dispatch(setProductModal(false));
     }
-  };
-
-  const setModalActiveHandle = () => {
-    setModalActive((prev) => !prev);
-    setUrlIfModalActive();
   };
 
   const toggleCompareModal = () => () => {
@@ -103,27 +98,12 @@ export default function CompareSpecifications({items}) {
   }, [selectedModel]);
 
   useEffect(() => {
-    const bodySelector = document.querySelector('body');
     if (modalActive) {
-      try {
-        if (window.pageYOffset > 0) {
-          setCurrentPageOffset(window.pageYOffset);
-        }
-        bodySelector.style.position = 'fixed';
-        bodySelector.style.overflow = 'hidden';
-        bodySelector.style.width = '100%';
-        bodySelector.style.top = `-${currentPageOffset}px`;
-      } catch (error) {
-        console.log(error);
-      }
-    } else if (!modalActive && currentPageOffset > 0) {
-      bodySelector.style.removeProperty('overflow');
-      bodySelector.style.removeProperty('position');
-      bodySelector.style.removeProperty('top');
-      bodySelector.style.removeProperty('width');
-      window.scrollTo(0, currentPageOffset);
+      disableScroll.on();
+    } else if (!modalActive) {
+      disableScroll.off();
     }
-  }, [modalActive, currentPageOffset]);
+  }, [modalActive]);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !selectedModel) {
