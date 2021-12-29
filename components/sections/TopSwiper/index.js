@@ -21,7 +21,7 @@ export default function TopSwiper({items}) {
           <Swiper
             modules={[Navigation, FreeMode]}
             spaceBetween={0}
-            speed={600}
+            speed={700}
             slidesPerView={4}
             loop={false}
             freeMode={true}
@@ -39,19 +39,23 @@ export default function TopSwiper({items}) {
             }}
             onInit={(el) => {
               try {
-                if (window.innerWidth <= 768) {
-                  setTimeout(() => {
+                let myInterval;
+                myInterval = setInterval(() => {
+                  if (document.readyState === 'complete' && window.innerWidth <= 768) {
+                    clearInterval(myInterval);
                     try {
                       el.slideNext();
                       setTimeout(() => {
                         try {
                           el.slidePrev();
                         } catch (error) {}
-                      }, 250);
+                      }, 450);
                     } catch (error) {}
-                  }, 2000);
-                }
-              } catch (error) {}
+                  }
+                }, 1000);
+              } catch (error) {
+                console.log(error);
+              }
             }}>
             {items.segways.adultSegways.map(({id, name, shortName, imgPath, accent, ...props}) => (
               <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>
