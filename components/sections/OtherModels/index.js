@@ -25,7 +25,7 @@ export default function OtherModels({items}) {
           try {
             swiperRef.current.slidePrev();
           } catch (error) {}
-        }, 750);
+        }, 350);
       } catch (error) {}
     }
   }, [swiperRef, inView]);
@@ -38,7 +38,6 @@ export default function OtherModels({items}) {
         <div className="other-models__swiper">
           <Swiper
             ref={swiperRef}
-            speed={700}
             modules={[Scrollbar, FreeMode]}
             slidesPerView="auto"
             freeMode={true}

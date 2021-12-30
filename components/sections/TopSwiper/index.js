@@ -16,32 +16,26 @@ export default function TopSwiper({items}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const {ref, inView} = useInView({threshold: 0.5});
   const swiperRef = useRef(null);
-  const [time, setTime] = useState(0);
-  const [shownAnimation, setShownAnimation] = useState(false);
+  const [fistInit, setFirstInit] = useState(true);
 
   useEffect(() => {
-    let myInterval;
-    myInterval = setInterval(() => {
-      setTime((prev) => prev + 1);
-    }, 1000);
-    if (shownAnimation) {
-      clearInterval(myInterval);
-    }
-  }, [shownAnimation]);
-
-  useEffect(() => {
-    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && !shownAnimation) {
-      setShownAnimation(true)
-      try {
-        swiperRef.current.slideNext();
-        setTimeout(() => {
+    if (window.innerWidth <= 768 && inView && fistInit) {
+      let myInterval;
+      myInterval = setInterval(() => {
+        if (document.readyState === 'complete') {
+          clearInterval(myInterval)
           try {
-            swiperRef.current.slidePrev();
+            swiperRef.current.slideNext();
+            setTimeout(() => {
+              try {
+                swiperRef.current.slidePrev();
+              } catch (error) {}
+            }, 350);
           } catch (error) {}
-        }, 450);
-      } catch (error) {}
+        }
+      })
     }
-  }, [swiperRef, inView, time, shownAnimation]);
+  }, [swiperRef, inView, fistInit]);
 
   return (
     <div ref={ref} className="top-swiper">
@@ -51,7 +45,6 @@ export default function TopSwiper({items}) {
             ref={swiperRef}
             modules={[Navigation, FreeMode]}
             spaceBetween={0}
-            speed={700}
             slidesPerView={4}
             loop={false}
             freeMode={true}

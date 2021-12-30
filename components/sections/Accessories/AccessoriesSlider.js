@@ -37,7 +37,7 @@ export default function AccessoriesSlider({items}) {
           try {
             swiperRef.current.slidePrev();
           } catch (error) {}
-        }, 750);
+        }, 350);
       } catch (error) {}
     }
   }, [swiperRef, inView]);
