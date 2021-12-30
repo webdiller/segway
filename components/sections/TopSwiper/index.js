@@ -2,10 +2,11 @@ import {Navigation, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import topSwiperAccessory from '@/base/top-swiper-accessory.png';
+import {useInView} from 'react-intersection-observer';
 
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -13,12 +14,61 @@ import 'swiper/css/scrollbar';
 /** Свайпер в шапке с самокатами */
 export default function TopSwiper({items}) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const {ref, inView} = useInView({threshold: 0.5});
+  const swiperRef = useRef(null);
+  const [time, setTime] = useState(0);
+  const [shownAnimation, setShownAnimation] = useState(false);
+
+  // useEffect(() => {
+  //   let myInterval;
+  //   setInterval(() => {
+  //     setTime((prev) => prev + 1);
+  //     if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && !shownAnimation) {
+  //       clearInterval(myInterval);
+  //       console.log(time);
+  //       console.log('in interval');
+  //       // try {
+  //       //   swiperRef.current.slideNext();
+  //       //   setTimeout(() => {
+  //       //     try {
+  //       //       swiperRef.current.slidePrev();
+  //       //     } catch (error) {}
+  //       //   }, 450);
+  //       // } catch (error) {}
+  //     }
+  //   }, 1000);
+  // }, [swiperRef, inView, shownAnimation, time]);
+
+  useEffect(() => {
+    let myInterval;
+    myInterval = setInterval(() => {
+      setTime((prev) => prev + 1);
+    }, 1000);
+    if (shownAnimation) {
+      clearInterval(myInterval);
+    }
+  }, [shownAnimation]);
+
+  useEffect(() => {
+    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && !shownAnimation) {
+      setShownAnimation(true)
+      try {
+        swiperRef.current.slideNext();
+        setTimeout(() => {
+          try {
+            swiperRef.current.slidePrev();
+          } catch (error) {}
+        }, 450);
+      } catch (error) {}
+    }
+  }, [swiperRef, inView, time, shownAnimation]);
 
   return (
-    <div className="top-swiper">
+    <div ref={ref} className="top-swiper">
       <div className="container top-swiper__container">
         <div className="top-swiper__swiper">
           <Swiper
+            ref={swiperRef}
             modules={[Navigation, FreeMode]}
             spaceBetween={0}
             speed={700}
@@ -37,25 +87,8 @@ export default function TopSwiper({items}) {
             onSlideChange={(el) => {
               setActiveIndex(el.activeIndex);
             }}
-            onInit={(el) => {
-              try {
-                let myInterval;
-                myInterval = setInterval(() => {
-                  if (document.readyState === 'complete' && window.innerWidth <= 768) {
-                    clearInterval(myInterval);
-                    try {
-                      el.slideNext();
-                      setTimeout(() => {
-                        try {
-                          el.slidePrev();
-                        } catch (error) {}
-                      }, 450);
-                    } catch (error) {}
-                  }
-                }, 1000);
-              } catch (error) {
-                console.log(error);
-              }
+            onInit={(swiper) => {
+              swiperRef.current = swiper;
             }}>
             {items.segways.adultSegways.map(({id, name, shortName, imgPath, accent, ...props}) => (
               <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>

@@ -1,25 +1,44 @@
 import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
-import {useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
+import {useInView} from 'react-intersection-observer';
+
+import UiInput from '@/ui/UiInput';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import UiInput from '@/ui/UiInput';
 
 export default function OtherModels({items}) {
   const swiperRef = useRef(null);
   const filteredModels = [items[0], items[1], items[2], items[3], items[4], items[5], items[6]];
+  const {ref, inView} = useInView({threshold: 0.5});
+
+  useEffect(() => {
+    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView) {
+      try {
+        swiperRef.current.slideNext();
+        setTimeout(() => {
+          try {
+            swiperRef.current.slidePrev();
+          } catch (error) {}
+        }, 450);
+      } catch (error) {}
+    }
+  }, [swiperRef, inView]);
+
   return (
-    <div className="other-models">
+    <div ref={ref} className="other-models">
       <div className="container other-models__container">
         <p className="title title_fz-20 other-models__title">OTHER MODELS</p>
         <div className="other-models__subtitle">Check out the entire line of Segway scooters</div>
-        <div ref={swiperRef} className="other-models__swiper">
+        <div className="other-models__swiper">
           <Swiper
+            ref={swiperRef}
+            speed={700}
             modules={[Scrollbar, FreeMode]}
             slidesPerView="auto"
             freeMode={true}
@@ -38,6 +57,9 @@ export default function OtherModels({items}) {
                 allowTouchMove: false,
                 centeredSlides: false
               }
+            }}
+            onInit={(swiper) => {
+              swiperRef.current = swiper;
             }}>
             {filteredModels.map(({id, name, nameWithoutBrand, price, imgPath}) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
@@ -91,7 +113,6 @@ export default function OtherModels({items}) {
                 </Link>
               </div>
             </SwiperSlide> */}
-
           </Swiper>
         </div>
         <div className="other-models__swiper-scrollbar"></div>
