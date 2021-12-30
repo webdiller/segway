@@ -8,6 +8,8 @@ import {useDispatch} from 'react-redux';
 import {setProductModal} from '../../../store/actions/productModal';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import {useEffect, useRef, useState} from 'react';
+import {useInView} from 'react-intersection-observer';
 
 export default function AccessoriesSlider({items}) {
   const {addItem} = useCart();
@@ -24,15 +26,35 @@ export default function AccessoriesSlider({items}) {
     }, 3000);
   };
 
+  const swiperRef = useRef(null);
+  const {ref, inView} = useInView({threshold: 0.5});
+
+  useEffect(() => {
+    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView) {
+      try {
+        swiperRef.current.slideNext();
+        setTimeout(() => {
+          try {
+            swiperRef.current.slidePrev();
+          } catch (error) {}
+        }, 750);
+      } catch (error) {}
+    }
+  }, [swiperRef, inView]);
+
+  const [speed, setSeed] = useState(1200);
+
   return (
-    <div className="accessories-slider">
+    <div ref={ref} className="accessories-slider">
       <div id="accessories" className="container accessories-slider__container">
         <p className="title accessories-slider__title">Accessories</p>
         <div className="accessories-slider__swiper">
           <Swiper
+            ref={swiperRef}
             modules={[Scrollbar, FreeMode]}
             slidesPerView={2.1}
             spaceBetween={15}
+            speed={speed}
             loop={false}
             freeMode={true}
             scrollbar={{
@@ -45,6 +67,9 @@ export default function AccessoriesSlider({items}) {
                 spaceBetween: 0,
                 allowTouchMove: false
               }
+            }}
+            onInit={(swiper) => {
+              swiperRef.current = swiper;
             }}>
             {items.map((item) => {
               const {id, name, nameWrap, description, price, imgPathWithCircle} = item;

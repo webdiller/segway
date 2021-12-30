@@ -25,7 +25,7 @@ export default function OtherModels({items}) {
           try {
             swiperRef.current.slidePrev();
           } catch (error) {}
-        }, 450);
+        }, 750);
       } catch (error) {}
     }
   }, [swiperRef, inView]);

@@ -19,26 +19,6 @@ export default function TopSwiper({items}) {
   const [time, setTime] = useState(0);
   const [shownAnimation, setShownAnimation] = useState(false);
 
-  // useEffect(() => {
-  //   let myInterval;
-  //   setInterval(() => {
-  //     setTime((prev) => prev + 1);
-  //     if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && !shownAnimation) {
-  //       clearInterval(myInterval);
-  //       console.log(time);
-  //       console.log('in interval');
-  //       // try {
-  //       //   swiperRef.current.slideNext();
-  //       //   setTimeout(() => {
-  //       //     try {
-  //       //       swiperRef.current.slidePrev();
-  //       //     } catch (error) {}
-  //       //   }, 450);
-  //       // } catch (error) {}
-  //     }
-  //   }, 1000);
-  // }, [swiperRef, inView, shownAnimation, time]);
-
   useEffect(() => {
     let myInterval;
     myInterval = setInterval(() => {
