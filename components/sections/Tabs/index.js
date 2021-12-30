@@ -17,7 +17,7 @@ import iconTabPresentationSupport from '@/base/icon-tab-presentation-support.svg
 import iconTabPresentationRoad from '@/base/icon-tab-presentation-road.svg';
 
 export default function Tabs() {
-  const [tab, setTab] = useState(4);
+  const [tab, setTab] = useState(1);
 
   const setTabHandle = (val) => setTab(val);
 
