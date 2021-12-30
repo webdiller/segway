@@ -2,93 +2,102 @@ export const data = {
   accessoeries: [
     {
       id: '014',
-      type: "accessory",
+      type: 'accessory',
       name: 'NineboT Engine Speaker',
       nameWrap: 'NineboT \n Engine Speaker',
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
       price: '149.99',
       imgPath: '/accessory-1.png',
-      imgPathWithCircle: '/accessory-with-circle-1.png'
+      imgPathWithCircle: '/accessory-with-circle-1.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-1.png'
     },
     {
       id: '002',
-      type: "accessory",
+      type: 'accessory',
       name: 'Extension Rod',
       nameWrap: 'Extension \n Rod',
       description: 'The Extension Rod helps you to easily maneuver your scooter, so you no longer need to bend over and push it, making it easier to take with you anywhere.',
       price: '29.99',
       imgPath: '/accessory-2.png',
       imgPathWithCircle: '/accessory-with-circle-2.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-2.png'
     },
     {
       id: '015',
-      type: "accessory",
+      type: 'accessory',
       name: 'Segway Protective Gear Set',
       nameWrap: 'Segway Protective \n Gear Set',
       description: 'The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.',
       price: '29.99',
       imgPath: '/accessory-3.png',
-      imgPathWithCircle: '/accessory-with-circle-3.png'
+      imgPathWithCircle: '/accessory-with-circle-3.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-3.png'
     },
     {
       id: '016',
-      type: "accessory",
+      type: 'accessory',
       name: 'Ninebot Leisure Backpack',
       nameWrap: 'Ninebot Leisure \n Backpack',
       description: 'The Ninebot leisure backpack adopts a stylish gray-yellow color contrast, adding a trendy accessory to your wardrobe.',
       price: '69.99',
       imgPath: '/accessory-4.png',
-      imgPathWithCircle: '/accessory-with-circle-4.png'
+      imgPathWithCircle: '/accessory-with-circle-4.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-4.png'
     },
     {
       id: '017',
-      type: "accessory",
+      type: 'accessory',
       name: 'Segway External Battery',
       nameWrap: 'Segway External \n Battery',
       description: 'It is easy to install and increases the range of the ES1, ES2 & E22 to 27.9, 28 and 27 miles respectively and It also increases the speed',
       price: '249.99',
       imgPath: '/accessory-5.png',
-      imgPathWithCircle: '/accessory-with-circle-5.png'
+      imgPathWithCircle: '/accessory-with-circle-5.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-5.png'
     },
     {
       id: '018',
-      type: "accessory",
+      type: 'accessory',
       name: 'Segway Charger',
       nameWrap: 'Segway \n Charger',
       description: 'Whether at home, the office, or on your KickScooter journey, this Ninebot KickScooter by Segway Charger is designed to provide a safe and stable charge anytime, anywhere.',
       price: '79.99',
       imgPath: '/accessory-6.png',
-      imgPathWithCircle: '/accessory-with-circle-6.png'
+      imgPathWithCircle: '/accessory-with-circle-6.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-6.png'
     },
     {
       id: '019',
-      type: "accessory",
+      type: 'accessory',
       name: 'Segway Scooter Bag',
       nameWrap: 'Segway \n Scooter Bag',
       description: 'Tough EVA material, suitable for the entire Ninebot KickScooter by Segway line. 3L capacity gives you plenty of room to carry your phone, charger, bottled water, and other personal items.',
       price: '49.99',
       imgPath: '/accessory-7.png',
-      imgPathWithCircle: '/accessory-with-circle-7.png'
+      imgPathWithCircle: '/accessory-with-circle-7.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-7.png'
     },
     {
       id: '020',
-      type: "accessory",
+      type: 'accessory',
       name: 'Segway Phone Holder',
       nameWrap: 'Segway \n Phone Holder',
       description: 'The dual screw, non-slip design offers ultimate security and versatility. The phone holder is applicable to multiple vehicle series.',
       price: '29.99',
       imgPath: '/accessory-8.png',
-      imgPathWithCircle: '/accessory-with-circle-8.png'
+      imgPathWithCircle: '/accessory-with-circle-8.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-8.png'
     },
     {
       id: '021',
-      type: "accessory",
+      type: 'accessory',
       name: 'Segway Scooter Seat',
       nameWrap: 'Segway \n Scooter Seat',
       description: 'This scooter seat is designed to work with the MAX. It offers high quality, comfort and safety that is in line with the MAX KickScooter.',
       price: '119.99',
       imgPath: '/accessory-9.png',
-      imgPathWithCircle: '/accessory-with-circle-9.png'
+      imgPathWithCircle: '/accessory-with-circle-9.png',
+      imgPathWithBlueCircle: '/accessory-with-blue-circle-9.png'
     }
   ],
   segways: {
@@ -133,6 +142,8 @@ export const data = {
         },
         imgPath: '/segway-ninebot-kickscooter-e22.png',
         imgSmallPath: '/segway-ninebot-kickscooter-e22_small.png',
+        imgPathWithCircle: '/segway-ninebot-kickscooter-e22-circle-default.png',
+        imgPathWithBlueCircle: '/segway-ninebot-kickscooter-e22-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-e22/', 'https://store.segway.com/segway-ninebot-kickscooter-e22']
       },
       {
@@ -175,6 +186,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-es1l.png',
         imgSmallPath: '/ninebot-kickscooter-es1l_small.png',
+        imgPathWithCircle: '/segway-ninebot-kickscooter-es1l-circle-default.png',
+        imgPathWithBlueCircle: '/segway-ninebot-kickscooter-es1l-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-es1l', 'https://store.segway.com/ninebot-kickscooter-es1l']
       },
       {
@@ -217,6 +230,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-air-t15.png',
         imgSmallPath: '/ninebot-kickscooter-air-t15_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-air-t15-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-air-t15-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-air-t15/', 'https://store.segway.com/ninebot-kickscooter-air-t15']
       },
       {
@@ -259,6 +274,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-f30.png',
         imgSmallPath: '/ninebot-kickscooter-f30_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-f30-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-f30-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-f30/', 'https://store.segway.com/ninebot-kickscooter-f-series']
       },
       {
@@ -301,6 +318,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-e45.png',
         imgSmallPath: '/ninebot-kickscooter-e45_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-e45-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-e45-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-e45/', 'https://store.segway.com/segway-ninebot-kickscooter-e45']
       },
       {
@@ -343,8 +362,10 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-max-006.png',
         imgSmallPath: '/ninebot-kickscooter-max-006_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-max-006-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-max-006-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-max/', 'https://store.segway.com/ninebot-kickscooter-max'],
-        accent: true,
+        accent: true
       },
       {
         id: '007',
@@ -386,6 +407,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-max-007.png',
         imgSmallPath: '/ninebot-kickscooter-max-007_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-max-007-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-max-007-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-g30lp/']
       },
       {
@@ -428,6 +451,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-es2.png',
         imgSmallPath: '/ninebot-kickscooter-es2_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-es2-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-es2-circle-color.png',
         links: ['https://www.segway.com/kickscooter-es2/', 'https://store.segway.com/segway-ninebot-kickscooter-es2-grey']
       },
       {
@@ -470,6 +495,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-es3.png',
         imgSmallPath: '/ninebot-kickscooter-es3_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-es3-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-es3-circle-color.png',
         links: ['https://www.segway.com/kickscooter-es3/', 'https://store.segway.com/segway-ninebot-kickscooter-es3']
       },
       {
@@ -512,6 +539,8 @@ export const data = {
         },
         imgPath: '/ninebot-kickscooter-es4.png',
         imgSmallPath: '/ninebot-kickscooter-es4_small.png',
+        imgPathWithCircle: '/ninebot-kickscooter-es4-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-es4-circle-color.png',
         links: ['https://www.segway.com/kickscooter-es4/', 'https://store.segway.com/segway-ninebot-kickscooter-es4']
       }
     ],
@@ -538,6 +567,8 @@ export const data = {
         frameMaterial: 'Alluminum-alloy',
         shockAbsorbtion: 'Spring damper',
         imgPath: '/ninebot-kickscooter-zing-e8.png',
+        imgPathWithCircle: '/ninebot-kickscooter-zing-e8-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e8-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e8/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e8']
       },
       {
@@ -562,6 +593,8 @@ export const data = {
         frameMaterial: 'Alluminum-alloy',
         shockAbsorbtion: 'Spring damper',
         imgPath: '/ninebot-kickscooter-zing-e10.png',
+        imgPathWithCircle: '/ninebot-kickscooter-zing-e10-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e10-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e10/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e10']
       },
       {
@@ -586,6 +619,8 @@ export const data = {
         frameMaterial: 'Alluminum-alloy',
         shockAbsorbtion: 'Spring damper',
         imgPath: '/ninebot-kickscooter-zing-e12.png',
+        imgPathWithCircle: '/ninebot-kickscooter-zing-e12-circle-default.png',
+        imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e12-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e12/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e12']
       }
     ]

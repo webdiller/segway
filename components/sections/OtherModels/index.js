@@ -60,13 +60,14 @@ export default function OtherModels({items}) {
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {filteredModels.map(({id, name, nameWithoutBrand, price, imgPath}) => (
+            {filteredModels.map(({id, name, nameWithoutBrand, price, imgPathWithCircle, imgPathWithBlueCircle}) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
                 <div className="other-models__item-wrapper">
                   <Link href="#">
                     <a className="other-models__link">
                       <div className="other-models__img-wrapper">
-                        <Image objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
+                        <Image quality={50} objectFit="contain" className="other-models__img other-models__img_default" src={imgPathWithCircle} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
+                        <Image quality={50} objectFit="contain" className="other-models__img other-models__img_circle" src={imgPathWithBlueCircle} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                       </div>
                       <p className="text text_25 other-models__name">{nameWithoutBrand}</p>
                       <div className="other-models__price">

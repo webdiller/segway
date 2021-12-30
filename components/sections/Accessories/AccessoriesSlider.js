@@ -72,12 +72,13 @@ export default function AccessoriesSlider({items}) {
               swiperRef.current = swiper;
             }}>
             {items.map((item) => {
-              const {id, name, nameWrap, description, price, imgPathWithCircle} = item;
+              const {id, name, nameWrap, description, price, imgPathWithCircle, imgPathWithBlueCircle} = item;
               return (
                 <SwiperSlide key={id} className="swiper-slide accessories-slider__item">
                   <div className="accessories-slider__item-wrapper">
                     <div className="accessories-slider__img-wrapper">
-                      <Image objectFit="contain" className="accessories-slider__img" src={imgPathWithCircle} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
+                      <Image objectFit="contain" className="accessories-slider__img accessories-slider__img_default" src={imgPathWithCircle} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
+                      <Image objectFit="contain" className="accessories-slider__img accessories-slider__img_circle" src={imgPathWithBlueCircle} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                     </div>
                     <p className="text text_25 accessories-slider__name">{nameWrap}</p>
                     <p className="text text_13 text_grey2 accessories-slider__description">

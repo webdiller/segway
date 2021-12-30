@@ -179,11 +179,11 @@ export default function ProductModal({segways, accessoeries}) {
           bodySelector.style.width = '100%';
           bodySelector.style.top = `-${currentPageOffset}px`;
           setVisibleProducts(true);
-        }, 500);
+        }, 200);
         setTimeout(() => {
           modalRef.current.classList.remove('enable-background');
           modalRef.current.classList.add('active');
-        }, 700);
+        }, 350);
       } catch (error) {
         console.log(error);
       }
