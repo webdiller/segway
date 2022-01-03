@@ -3,24 +3,25 @@ import Image from 'next/image';
 import footerLogo from '@/base/logo-black-footer.svg';
 import {Fragment} from 'react';
 import UiSrollUp from '@/ui/UiScrollUp';
+import styles from './Footer.module.scss';
 
 export default function Footer() {
   return (
     <Fragment>
       <UiSrollUp />
-      <footer className="footer">
-        <div className="container footer__container">
+      <footer className={styles.footer}>
+        <div className={styles.footer__container}>
           <Link href="/">
-            <a className="footer__logo-link">
-              <Image className="footer__logo-img" src={footerLogo} alt="segway" width={174} height={50} />
+            <a className={styles.footer__logoLink}>
+              <Image className={styles.footer__logoImg} src={footerLogo} alt="segway" width={174} height={50} />
             </a>
           </Link>
-          <div className="footer__items">
+          <div className={styles.footer__items}>
             <Link href="tel:+1 (888) 777-77-77">
-              <a className="footer__item footer__item_phone">+1 (888) 777-77-77</a>
+              <a className={`${styles.footer__item} ${styles.footer__item_phone}`}>+1 (888) 777-77-77</a>
             </Link>
-            <p className="footer__item">2637 Fairfax Ave Culver City, CA 90232</p>
-            <p className="footer__item footer__item_copyright">Segway California © 2017</p>
+            <p className={styles.footer__item}>2637 Fairfax Ave Culver City, CA 90232</p>
+            <p className={`${styles.footer__item} ${styles.footer__item_copyright}`}>Segway California © 2017</p>
           </div>
         </div>
       </footer>

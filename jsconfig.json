@@ -8,7 +8,8 @@
       "@/hooks/*": ["components/hooks/*"],
       "@/modals/*": ["components/modals/*"],
       "@/sections/*": ["components/sections/*"],
-      "@/ui/*": ["components/ui/*"]
+      "@/ui/*": ["components/ui/*"],
+      "@/styles/*": ["styles/*"]
     }
   }
 }
