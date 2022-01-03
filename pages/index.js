@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic';
 import DefaultLayout from '@/basic/DefaultLayout';
+import {data} from '@/base/data';
+import { useSelector } from 'react-redux';
 
 const WelcomeDinamic = dynamic(() => import('@/sections/Welcome'));
 const TabsDinamic = dynamic(() => import('@/sections/Tabs'));
@@ -20,12 +22,12 @@ const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'));
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
-const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), { ssr: false });
-const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
-import {data} from '@/base/data';
+const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), {ssr: false});
+const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ssr: false});
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
 
 export default function Home({allData}) {
+  const {active: isModalActive} = useSelector((state) => state.productModal);
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway index">
@@ -50,7 +52,7 @@ export default function Home({allData}) {
         <OtherModelsDinamic items={allData.segways.adultSegways} />
         <FixedModalDinamic segwayItem={allData.segways.adultSegways[5]} />
         <DiscountModalDinamic />
-        <ProductModalDinamic accessoeries={allData.accessoeries} />
+        {isModalActive && <ProductModalDinamic accessoeries={allData.accessoeries} />}
       </DefaultLayout>
     </div>
   );
