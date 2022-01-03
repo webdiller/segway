@@ -101,17 +101,14 @@ export default function ProductModal({segways, accessoeries}) {
     if (goToUserCart) {
       router.push(`${route}`);
       dispatch(setProductModal(false));
-      // enableBodyScroll();
     } else {
       dispatch(setProductModal(false));
-      // disableScroll();
     }
   };
 
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
       dispatch(setProductModal(false));
-      // enableBodyScroll();
     }
   };
 

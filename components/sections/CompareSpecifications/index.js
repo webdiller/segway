@@ -39,7 +39,7 @@ const MainItemLeft = ({text, srcImg}) => {
   );
 };
 
-export default function CompareSpecifications({items}) {
+export default function CompareSpecifications({items, mainSegway}) {
   const {addItem} = useCart();
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
@@ -48,8 +48,7 @@ export default function CompareSpecifications({items}) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Все модели
-  const [allModels, setAllModels] = useState(items.adultSegways);
-  const [allModelsWithExcludetSegway, setAllModelsWithExcludetSegway] = useState([allModels[0], allModels[1], allModels[2], allModels[3], allModels[4], allModels[6], allModels[7], allModels[8], allModels[9]]);
+  const [allModels] = useState([...items.adultSegways, ...items.kidsSegways]);
 
   // Если есть модель, то отобразить данные, иначе показать прочерк
   const [selectedModel, setSelectedModel] = useState();
@@ -106,6 +105,9 @@ export default function CompareSpecifications({items}) {
   }, [modalActive]);
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && selectedModel) {
+      localStorage.setItem('selectedModel', JSON.stringify(selectedModel));
+    }
     if (typeof window !== 'undefined' && !selectedModel) {
       let storageItem = JSON.parse(localStorage.getItem('selectedModel'));
       if (storageItem) {
@@ -128,13 +130,13 @@ export default function CompareSpecifications({items}) {
               <div className="main-slide__header">
                 <div className="main-slide__header-left">
                   <div className="main-slide__img-wrapper">
-                    <Image objectFit="contain" src={allModels[5].imgPath} alt={allModels[5].name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                    <Image objectFit="contain" src={mainSegway.imgPath} alt={mainSegway.name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                   </div>
                   <p className="text text_bold main-slide__name">Ninebot Kickscooter MAX</p>
                 </div>
                 <div className="main-slide__header-right">
                   <div onClick={toggleCompareModal()} className="main-slide__img-compare-wrapper">
-                    <img loading="lazzy" width="104" height="104" src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`} alt="icon-compare" className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'} />
+                    <img loading="lazy" width="104" height="104" src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`} alt="icon-compare" className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'} />
                   </div>
                   <p className="text text_bold main-slide__name">{!selectedModel ? 'Add model' : selectedModel.name} </p>
                 </div>
@@ -151,7 +153,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].maxSpeed}</div>
+                    <div className="main-slide__item-value">{mainSegway.maxSpeed}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -176,8 +178,8 @@ export default function CompareSpecifications({items}) {
                       Range (miles)
                     </div>
                     <div className="main-slide__item-value main-slide__item-value_range">
-                      <span className="hide-576">{allModels[5].rangeByMiles}</span>
-                      <span className="show-block-576">{allModels[5].rangeByMilesWrap}</span>
+                      <span className="hide-576">{mainSegway.rangeByMiles}</span>
+                      <span className="show-block-576">{mainSegway.rangeByMilesWrap}</span>
                     </div>
                   </div>
                   {/* RIGHT */}
@@ -205,8 +207,14 @@ export default function CompareSpecifications({items}) {
                 <div className="main-slide__item">
                   {/* LEFT */}
                   <div className="main-slide__item-left">
-                    <MainItemLeft text="Battery Capacity" srcImg={iconBattery} />
-                    <div className="main-slide__item-value">{allModels[5].batteryCapacity}</div>
+                    <div className="main-slide__item-key">
+                      <div className="main-slide__item-icon-wrapper">
+                        <Image className="main-slide__item-icon" src={iconBattery} alt="icon" />
+                      </div>
+                      Battery Capacity
+                    </div>
+
+                    <div className="main-slide__item-value">{mainSegway.batteryCapacity}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -231,8 +239,8 @@ export default function CompareSpecifications({items}) {
                       Net Weight
                     </div>
                     <div className="main-slide__item-value main-slide__item-value_weight">
-                      <span className="hide-576">{allModels[5].netWeight}</span>
-                      <span className="show-block-576">{allModels[5].netWeightWrap}</span>
+                      <span className="hide-576">{mainSegway.netWeight}</span>
+                      <span className="show-block-576">{mainSegway.netWeightWrap}</span>
                     </div>
                   </div>
                   {/* RIGHT */}
@@ -267,8 +275,8 @@ export default function CompareSpecifications({items}) {
                       Payload
                     </div>
                     <div className="main-slide__item-value main-slide__item-value_payload">
-                      <span className="hide-576">{allModels[5].payload}</span>
-                      <span className="show-block-576">{allModels[5].payloadWrap}</span>
+                      <span className="hide-576">{mainSegway.payload}</span>
+                      <span className="show-block-576">{mainSegway.payloadWrap}</span>
                     </div>
                   </div>
                   {/* RIGHT */}
@@ -302,7 +310,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Chargin Time
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].charginTime}</div>
+                    <div className="main-slide__item-value">{mainSegway.charginTime}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -324,7 +332,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Number of Batteries
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].numberOfBatteries}</div>
+                    <div className="main-slide__item-value">{mainSegway.numberOfBatteries}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -348,7 +356,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Motor power
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].motorPower}</div>
+                    <div className="main-slide__item-value">{mainSegway.motorPower}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -372,7 +380,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Power Output
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].powerOutput}</div>
+                    <div className="main-slide__item-value">{mainSegway.powerOutput}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -394,7 +402,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Max. Incline
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].maxIncline}</div>
+                    <div className="main-slide__item-value">{mainSegway.maxIncline}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -418,7 +426,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Shock Absorption
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].shockAbsorption}</div>
+                    <div className="main-slide__item-value">{mainSegway.shockAbsorption}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -442,7 +450,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Safety
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].safety}</div>
+                    <div className="main-slide__item-value">{mainSegway.safety}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -466,7 +474,7 @@ export default function CompareSpecifications({items}) {
                       </div>
                       Atmosphere Light
                     </div>
-                    <div className="main-slide__item-value">{allModels[5].atmosphereLight}</div>
+                    <div className="main-slide__item-value">{mainSegway.atmosphereLight}</div>
                   </div>
                   {/* RIGHT */}
                   <div className="main-slide__item-right">
@@ -534,7 +542,7 @@ export default function CompareSpecifications({items}) {
                 slidesPerView: 3
               }
             }}>
-            {allModelsWithExcludetSegway.map((item) => {
+            {allModels.map((item) => {
               const {id, type, name, shortName, price, maxSpeed, rangeByMiles, rangeByMilesWrap, batteryCapacity, netWeight, netWeightWrap, payload, payloadWrap, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgPath, links} = item;
               return (
                 <SwiperSlide key={id} className="compare-specfications__slide">
@@ -645,7 +653,7 @@ export default function CompareSpecifications({items}) {
             })}
           </Swiper>
 
-          <div className={activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 6 ? 'compare-specfications__navigation disabled-right' : 'compare-specfications__navigation'}>
+          <div className={activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 10 ? 'compare-specfications__navigation disabled-right' : 'compare-specfications__navigation'}>
             <button className="compare-specfications__nav compare-specfications__nav_prev">
               <FcPrevious className="compare-specfications__icon" />
             </button>
