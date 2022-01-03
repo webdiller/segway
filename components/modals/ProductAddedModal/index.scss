@@ -212,28 +212,12 @@
   }
 
   &__summ-area {
-    position: relative;
     display: flex;
     align-items: center;
     padding-top: 10px;
     padding-bottom: 16px;
     cursor: pointer;
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #e1e1e1;
-      transition: all 0.3s ease;
-    }
     &.active {
-      &::before {
-        opacity: 0;
-      }
       .product-modal__summ-icon-arrow-up-wrapper {
         transform: rotate(0);
       }
@@ -292,6 +276,7 @@
   &__product {
     padding: 7px 11px 9px 7px;
     border: 1px solid #dddddd;
+    background-color: #fff;
     &:not(:last-child) {
       margin-bottom: 8px;
     }
@@ -454,8 +439,8 @@
       content: '';
       position: absolute;
       top: 0;
-      left: 5px;
-      right: 5px;
+      left: 0;
+      right: 0;
       background-color: #e1e1e1;
       height: 1px;
     }

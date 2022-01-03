@@ -1,3 +1,5 @@
+$rootSelector: '.accessories-slider';
+
 .accessories-slider {
   background-color: #fff;
   &__container {
@@ -104,6 +106,22 @@
     align-items: center;
     text-align: center;
     height: 100%;
+    
+    &:hover,
+    &:focus {
+      #{$rootSelector}__img-wrapper {
+        &::before {
+          background-color: #009eff;
+        }
+      }
+      #{$rootSelector}__img_default {
+        opacity: 0;
+      }
+      #{$rootSelector}__img_circle {
+        opacity: 1;
+      }
+    }
+
     @include media('<=768px') {
       padding-left: 20px;
       padding-right: 20px;
@@ -137,18 +155,6 @@
       @include media('<=768px') {
         width: 128px;
         height: 128px;
-      }
-    }
-    &:hover,
-    &:focus {
-      &::before {
-        background-color: #009eff;
-      }
-      .accessories-slider__img_default {
-        opacity: 0;
-      }
-      .accessories-slider__img_circle {
-        opacity: 1;
       }
     }
     @include media('<=768px') {

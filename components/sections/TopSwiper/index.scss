@@ -18,12 +18,18 @@
     @include media('<=768px') {
       overflow: hidden;
       max-height: 103px;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
   &__swiper {
     overflow-x: hidden;
     position: relative;
+    @include media('<=768px') {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 
   .swiper-slide {
@@ -217,6 +223,7 @@
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    padding: 0;
     &_prev {
     }
 

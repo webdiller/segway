@@ -139,10 +139,9 @@ export default function ProductModal({segways, accessoeries}) {
   };
 
   useEffect(() => {
-    const adultScootersFilter = items.filter(({type}) => type === 'kickscooter');
-    const kidsScooterFilter = items.filter(({type}) => type === 'kidsScooter');
+    const scooters = items.filter(({type}) => (type === 'kickscooter' || type === 'kidsScooter'));
     const accessoriesFilter = items.filter(({type}) => type === 'accessory');
-    const allData = [...adultScootersFilter, ...kidsScooterFilter, ...accessoriesFilter];
+    const allData = [...scooters, ...accessoriesFilter];
     setClientItems(allData);
   }, [items, cartTotal]);
 
@@ -345,7 +344,3 @@ export default function ProductModal({segways, accessoeries}) {
     </div>
   );
 }
-
-// Затемняем экран (класс)
-// Показываем модалку и показываем модалку
-// Делаем открытие экрана (класс)

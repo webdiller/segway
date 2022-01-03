@@ -6,10 +6,10 @@ import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import {useDispatch} from 'react-redux';
 import {setProductModal} from '../../../store/actions/productModal';
+import {useEffect, useRef} from 'react';
+import {useInView} from 'react-intersection-observer';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import {useEffect, useRef, useState} from 'react';
-import {useInView} from 'react-intersection-observer';
 
 export default function AccessoriesSlider({items}) {
   const {addItem} = useCart();
@@ -42,8 +42,6 @@ export default function AccessoriesSlider({items}) {
     }
   }, [swiperRef, inView]);
 
-  const [speed, setSeed] = useState(1200);
-
   return (
     <div ref={ref} className="accessories-slider">
       <div id="accessories" className="container accessories-slider__container">
@@ -54,7 +52,7 @@ export default function AccessoriesSlider({items}) {
             modules={[Scrollbar, FreeMode]}
             slidesPerView={2.1}
             spaceBetween={15}
-            speed={speed}
+            speed={1200}
             loop={false}
             freeMode={true}
             scrollbar={{
