@@ -89,10 +89,11 @@ export default function ProductModal({segways, accessoeries}) {
   const modalRef = useRef(null);
 
   // data
-  const {items, cartTotal, addItem, updateItemQuantity} = useCart();
+  const {items: segwaysWithAccessoeriesFromUseCart, cartTotal, addItem, updateItemQuantity} = useCart();
   const {active: isActiveModal} = useSelector((state) => state.productModal);
 
-  const [clientItems, setClientItems] = useState([]);
+  const [clientAllSegways, setClientAllSegways] = useState([]);
+  const [clientAllAccessoeries, setClientAllAccessoeries] = useState([]);
   const [totalPriceWithWarranty, setTotalPriceWithWarranty] = useState(0);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -150,15 +151,15 @@ export default function ProductModal({segways, accessoeries}) {
   };
 
   useEffect(() => {
-    const scooters = items.filter(({type}) => (type === 'kickscooter' || type === 'kidsScooter'));
-    const accessoriesFilter = items.filter(({type}) => type === 'accessory');
-    const allData = [...scooters, ...accessoriesFilter];
-    setClientItems(allData);
-  }, [items, cartTotal]);
+    const scooters = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'kickscooter' || type === 'kidsScooter');
+    const accessoriesFilter = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'accessory');
+    setClientAllSegways(scooters);
+    setClientAllAccessoeries(accessoriesFilter);
+  }, [segwaysWithAccessoeriesFromUseCart, cartTotal]);
 
   useEffect(() => {
     setTotalPriceWithWarranty(0);
-    clientItems.map((product) => {
+    segwaysWithAccessoeriesFromUseCart.map((product) => {
       if (product.id.includes('warrancy')) {
         try {
           const {id, warranty, price, quantity} = product;
@@ -175,7 +176,7 @@ export default function ProductModal({segways, accessoeries}) {
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       }
     });
-  }, [clientItems, cartTotal]);
+  }, [segwaysWithAccessoeriesFromUseCart, cartTotal]);
 
   useEffect(() => {
     const bodySelector = document.querySelector('body');
@@ -250,8 +251,8 @@ export default function ProductModal({segways, accessoeries}) {
             </div>
 
             <div className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
-              {clientItems.map((item) => {
-                const {id, type, name, price, imgPath, quantity, shortName, maxSpeed, rangeByMiles, batteryCapacity, netWeight, payload, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgSmallPath} = item;
+              {clientAllSegways.map((item) => {
+                const {id, name, price, imgPath, quantity} = item;
 
                 return (
                   <div key={id} className="product-modal__product">
@@ -275,12 +276,39 @@ export default function ProductModal({segways, accessoeries}) {
                         </button>
                       </div>
                     </div>
-                    {type !== 'accessory' && (
-                      <div className="product-modal__product-warrancy-area">
-                        <p className="product-modal__product-warrancy-title">Add an extended warranty from Extend</p>
-                        <ItemSegwayWarranty allItems={clientItems} segwayItem={item} updateItemQuantityHandler={updateItemQuantity} addItemHandler={addItemInCart} />
+                    <div className="product-modal__product-warrancy-area">
+                      <p className="product-modal__product-warrancy-title">Add an extended warranty from Extend</p>
+                      <ItemSegwayWarranty allItems={clientAllSegways} segwayItem={item} updateItemQuantityHandler={updateItemQuantity} addItemHandler={addItemInCart} />
+                    </div>
+                  </div>
+                );
+              })}
+
+              {clientAllAccessoeries.map((item) => {
+                const {id, name, price, imgPath, quantity} = item;
+
+                return (
+                  <div key={id} className="product-modal__product">
+                    <div className="product-modal__product-main-area">
+                      <div className="product-modal__product-img-wrapper">
+                        <Image layout="fill" objectFit="contain" src={imgPath} alt={name} className="product-modal__product-img" />
                       </div>
-                    )}
+                      <div className="product-modal__product-name-and-price">
+                        <p className="product-modal__product-name">{name}</p>
+                        <p className="product-modal__product-price">
+                          {quantity} x ${price}
+                        </p>
+                      </div>
+                      <div className="product-modal__product-counter">
+                        <button onClick={updateItemQuantityInCart(id, quantity - 1)} className="inline-flex-center product-modal__product-count-minus">
+                          <BiMinus />
+                        </button>
+                        <p className="product-modal__product-count">{quantity}</p>
+                        <button onClick={addItemToCart(item)} className="inline-flex-center product-modal__product-count-plus">
+                          <BiPlus />
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 );
               })}
