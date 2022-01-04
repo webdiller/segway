@@ -2,11 +2,10 @@ import {useCart} from 'react-use-cart';
 import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
-import UiLink from '@/ui/UiLink';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import {useDispatch} from 'react-redux';
 import {setProductModal} from '../../../store/actions/productModal';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useInView} from 'react-intersection-observer';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -14,6 +13,8 @@ import 'swiper/css/scrollbar';
 export default function AccessoriesSlider({items}) {
   const {addItem} = useCart();
   const dispatch = useDispatch();
+  const buttonElement = useRef(null);
+  const [hidenOtherAccessories, setHiddenOtherAccessories] = useState(true);
 
   const onClickHandler = (id, e) => {
     addItem(id);
@@ -24,6 +25,10 @@ export default function AccessoriesSlider({items}) {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();
     }, 3000);
+  };
+
+  const onToggleHiddenOthersetAccessories = () => {
+    setHiddenOtherAccessories((prev) => !prev);
   };
 
   const swiperRef = useRef(null);
@@ -43,7 +48,7 @@ export default function AccessoriesSlider({items}) {
   }, [swiperRef, inView]);
 
   return (
-    <div ref={ref} className="accessories-slider">
+    <div ref={ref} className={hidenOtherAccessories ? 'accessories-slider accessories-slider_hide-other-accessories' : 'accessories-slider'}>
       <div id="accessories" className="container accessories-slider__container">
         <p className="title accessories-slider__title">Accessories</p>
         <div className="accessories-slider__swiper">
@@ -70,7 +75,7 @@ export default function AccessoriesSlider({items}) {
               swiperRef.current = swiper;
             }}>
             {items.map((item) => {
-              const {id, imgPath, name, nameWrap, description, price} = item;
+              const {id, imgPath, nameWrap, description, price} = item;
               return (
                 <SwiperSlide key={id} className="swiper-slide accessories-slider__item">
                   <div className="accessories-slider__item-wrapper">
@@ -96,7 +101,9 @@ export default function AccessoriesSlider({items}) {
         </div>
         <div className="accessories-slider__swiper-scrollbar"></div>
         <div className="accessories-slider__bottom">
-          <UiLink href="#" classNameLink="ui-link ui-link_type-1 accessories-slider__bottom-link" innerText="SEE MORE" />
+          <button ref={buttonElement} onClick={onToggleHiddenOthersetAccessories} className={items.length <= 9 ? 'hide ui-btn accessories-slider__bottom-link' : 'ui-btn accessories-slider__bottom-link'}>
+            <span>See more</span>
+          </button>
         </div>
       </div>
     </div>

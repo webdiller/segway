@@ -2,6 +2,13 @@ $rootSelector: '.accessories-slider';
 
 .accessories-slider {
   background-color: #fff;
+
+  &_hide-other-accessories {
+    .swiper-slide:nth-child(9) ~ .swiper-slide {
+      display: none;
+    }
+  }
+
   &__container {
     padding-top: 60px;
     padding-bottom: 80px;
@@ -106,7 +113,7 @@ $rootSelector: '.accessories-slider';
     align-items: center;
     text-align: center;
     height: 100%;
-    
+
     &:hover,
     &:focus {
       #{$rootSelector}__img-wrapper {
