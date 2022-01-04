@@ -669,7 +669,7 @@ export default function CompareSpecifications({items, mainSegway}) {
               <p className="title compare-modal__title">select a model to compare</p>
               <img onClick={toggleCompareModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
               <div className="compare-modal__items">
-                {allModels.map(({id, name, imgPath}) => (
+                {allModels.map(({id, shortName, imgPath}) => (
                   <button
                     onClick={() => {
                       setSelectedModelHandle(id);
@@ -677,9 +677,9 @@ export default function CompareSpecifications({items, mainSegway}) {
                     key={id}
                     className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
                     <div className="compare-modal__img-wrapper">
-                      <Image objectFit="contain" src={imgPath} alt={name} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                      <Image objectFit="contain" src={imgPath} alt={shortName} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                     </div>
-                    <p className="compare-modal__name">{name}</p>
+                    <p className="compare-modal__name">{shortName}</p>
                   </button>
                 ))}
               </div>

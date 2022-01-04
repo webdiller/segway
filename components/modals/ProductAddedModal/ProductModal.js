@@ -102,12 +102,26 @@ export default function ProductModal({segways, accessoeries}) {
       router.push(`${route}`);
       dispatch(setProductModal(false));
     } else {
+      const bodySelector = document.querySelector('body');
+      modalRef.current.classList.remove('active');
+      bodySelector.style.removeProperty('overflow');
+      bodySelector.style.removeProperty('position');
+      bodySelector.style.removeProperty('top');
+      bodySelector.style.removeProperty('width');
+      window.scrollTo(0, currentPageOffset);
       dispatch(setProductModal(false));
     }
   };
 
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
+      const bodySelector = document.querySelector('body');
+      modalRef.current.classList.remove('active');
+      bodySelector.style.removeProperty('overflow');
+      bodySelector.style.removeProperty('position');
+      bodySelector.style.removeProperty('top');
+      bodySelector.style.removeProperty('width');
+      window.scrollTo(0, currentPageOffset);
       dispatch(setProductModal(false));
     }
   };

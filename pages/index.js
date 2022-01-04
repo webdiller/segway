@@ -24,7 +24,7 @@ const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'));
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
 const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), {ssr: false});
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ssr: true});
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: true});
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
 // import {ProductModal} from '@/modals/ProductAddedModal';
 
 export default function Home({allData}) {
@@ -53,9 +53,9 @@ export default function Home({allData}) {
         <OtherModelsDinamic items={allData.segways.adultSegways} />
         <FixedModalDinamic segwayItem={allData.segways.adultSegways[5]} />
         <DiscountModalDinamic />
-        <ProductModalDinamic accessoeries={allData.accessoeries} />
+        {/* <ProductModalDinamic accessoeries={allData.accessoeries} /> */}
         {/* {isModalActive ? <ProductModal accessoeries={allData.accessoeries} /> : <ProductModal accessoeries={allData.accessoeries} />} */}
-        {/* {isModalActive && <ProductModalDinamic accessoeries={allData.accessoeries} />} */}
+        {isModalActive && <ProductModalDinamic accessoeries={allData.accessoeries} />}
       </DefaultLayout>
     </div>
   );

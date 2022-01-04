@@ -1,5 +1,6 @@
 import * as types from '../types';
 
+/** Карточка товара (не модалка) */
 const initialState = {
   items: [],
   cartTotal: 0,

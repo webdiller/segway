@@ -1,5 +1,6 @@
 import * as types from '../types';
 
+/** Фиксированная модалка */
 const initialState = {
   currentPrice: 949.99,
   currentSegway: {
