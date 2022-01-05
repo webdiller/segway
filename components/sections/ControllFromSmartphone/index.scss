@@ -181,6 +181,7 @@
   }
 
   &__payments-img-wrapper {
+    position: relative;
     max-width: 295px;
     margin: 0 auto;
     @include media('<=991px') {
@@ -201,6 +202,7 @@
   }
 
   &__bottom-right {
+    position: relative;
     width: 400px;
     flex: 0 0 400px;
     overflow: hidden;
@@ -211,6 +213,21 @@
       flex: 1 1 auto;
     }
     @include media('<=576px') {
+    }
+  }
+
+  &__overlay-link {
+    position: absolute;
+    width: 50%;
+    &_left {
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+    &_right {
+      top: 0;
+      right: 0;
+      height: 100%;
     }
   }
 
