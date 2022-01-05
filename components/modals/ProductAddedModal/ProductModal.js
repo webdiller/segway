@@ -358,10 +358,10 @@ export default function ProductModal({segways, accessoeries}) {
                   })}
                 </Swiper>
                 <div className={activeIndex !== 0 ? 'product-modal__navigation' : 'product-modal__navigation disabled'}>
-                  <div className="product-modal__nav product-modal__nav_prev">
+                  <div aria-label="swipe to left accessoeries" className="product-modal__nav product-modal__nav_prev">
                     <FcPrevious className="product-modal__nav-icon" />
                   </div>
-                  <div className="product-modal__nav product-modal__nav_next">
+                  <div aria-label="swipe to right accessoeries" className="product-modal__nav product-modal__nav_next">
                     <FcNext className="product-modal__nav-icon" />
                   </div>
                 </div>

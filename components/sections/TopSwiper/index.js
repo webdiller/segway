@@ -100,10 +100,10 @@ export default function TopSwiper({items}) {
           </Swiper>
 
           <div className={activeIndex !== 0 ? 'top-swiper__navigation' : 'top-swiper__navigation disabled'}>
-            <button className="top-swiper__nav top-swiper__nav_prev">
+            <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
               <BsChevronCompactLeft className="top-swiper__icon" />
             </button>
-            <button className="top-swiper__nav top-swiper__nav_next">
+            <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
               <BsChevronCompactRight className="top-swiper__icon" />
             </button>
           </div>

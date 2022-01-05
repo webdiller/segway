@@ -654,10 +654,11 @@ export default function CompareSpecifications({items, mainSegway}) {
           </Swiper>
 
           <div className={activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 10 ? 'compare-specfications__navigation disabled-right' : 'compare-specfications__navigation'}>
-            <button className="compare-specfications__nav compare-specfications__nav_prev">
+            <button aria-label="swipe to left slider specifications" className="compare-specfications__nav compare-specfications__nav_prev">
               <FcPrevious className="compare-specfications__icon" />
             </button>
-            <button className="compare-specfications__nav compare-specfications__nav_next">
+
+            <button aria-label="swipe to right slider specifications" className="compare-specfications__nav compare-specfications__nav_next">
               <FcNext className="compare-specfications__icon" />
             </button>
           </div>
