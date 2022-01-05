@@ -34,7 +34,8 @@
     }
   }
 
-  &__picture {
+  &__img-wrapper {
+    display: block;
   }
   &__img {
     object-fit: contain;

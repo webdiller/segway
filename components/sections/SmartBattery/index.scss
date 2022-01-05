@@ -3,32 +3,27 @@
   background-color: #0e0e16;
   overflow: hidden;
 
-  @include media("<=991px") {
+  @include media('<=991px') {
     background-color: #05080c;
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 0;
     width: 100%;
     height: 500%;
-    background: radial-gradient(ellipse at center left, #202e57 0%, #04060A 30%, #04060A 100%);
-    @include media("<=768px") {
-      content: "";
+    background: radial-gradient(ellipse at center left, #202e57 0%, #04060a 30%, #04060a 100%);
+    @include media('<=768px') {
+      content: '';
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
       width: 200vw;
       height: 100%;
-      background: radial-gradient(
-        ellipse at center bottom,
-        #405aaa 0%,
-        #04060a 62%,
-        #04060a 100%
-      );
+      background: radial-gradient(ellipse at center bottom, #405aaa 0%, #04060a 62%, #04060a 100%);
     }
   }
 
@@ -36,25 +31,28 @@
     display: flex;
     align-items: center;
     min-height: 547px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       min-height: auto;
       height: 471px;
     }
   }
 
-  &__picture {
+  &__img-wrapper {
+    display: block;
     position: absolute;
     bottom: 0;
     right: 0;
-    @include media("<=991px") {
+    width: 782px;
+    @include media('<=991px') {
+      width: 100%;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       bottom: unset;
       top: 0;
     }
   }
   &__img {
-    @include media("<=768px") {
+    @include media('<=768px') {
       width: 100%;
       height: auto;
     }
@@ -67,7 +65,7 @@
     flex-direction: column;
     justify-content: center;
     z-index: 10;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-top: auto;
       margin-bottom: 45px;
     }
@@ -76,13 +74,13 @@
   &__title {
     margin-bottom: 18px;
 
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 8px;
     }
   }
 
   &__text {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
   }
 }

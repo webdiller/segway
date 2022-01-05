@@ -3,10 +3,7 @@ import {VscFilePdf} from 'react-icons/vsc';
 import UiLink from '@/ui/UiLink';
 
 export default function DownloadManual() {
-  const handleClick = (e) => {
-    window.open('/download-manual.pdf');
-    e.target.blur();
-  };
+  
   return (
     <div className="download-manual">
       <div className="container download-manual__container">
@@ -52,11 +49,7 @@ export default function DownloadManual() {
               </div>
             </div>
 
-            {/* <UiLink unfocusOnClick={true} target="_blank" download href="/download-manual.pdf" classNameLink="ui-btn ui-btn_with-icon download-manual__link" innerText="Download manual" icon={<VscFilePdf className="download-manual__link-icon" />} /> */}
-            <button onClick={handleClick} className="ui-btn ui-btn_with-icon download-manual__link">
-              <span>download manual</span>
-              <img className="download-manual__link-icon" src="./icon-pdf.svg" alt="icon pdf" />
-            </button>
+            <UiLink download={true} target="_blank" href="/download-manual.pdf" classNameLink="ui-btn ui-btn_with-icon download-manual__link" innerText="Download manual" icon={<VscFilePdf className="download-manual__link-icon" />} />
           </div>
         </div>
       </div>

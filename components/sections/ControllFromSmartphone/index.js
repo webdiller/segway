@@ -1,7 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
+import imageDesktop from '@/base/controll-from-smartphone-hand-desktop.png';
+import imageMobile from '@/base/controll-from-smartphone-hand-mobile.jpg';
 
 import smartphoneDesktop from '@/base/controll-from-smartphone-payments.png';
+import {useMediaQuery} from '@/hooks/useMediaQuery';
 
 const ControllItem = ({imgPathBorder, imgPathMobile, text} = {}) => {
   return (
@@ -16,6 +18,8 @@ const ControllItem = ({imgPathBorder, imgPathMobile, text} = {}) => {
 };
 
 export default function ControllFromSmartphone() {
+  let mediaQuery = useMediaQuery('(min-width: 768px)');
+
   return (
     <div className="controll-from-smartphone">
       <div className="container controll-from-smartphone__container">
@@ -39,15 +43,10 @@ export default function ControllFromSmartphone() {
           <div className="controll-from-smartphone__bottom-left">
             <div className="controll-from-smartphone__items">
               <ControllItem imgPathBorder="./controll-from-smartphone-1-border.svg" imgPathMobile="./control-1-border-mobile.svg" text="Anti-theft protection" />
-
               <ControllItem imgPathBorder="./controll-from-smartphone-2-border.svg" imgPathMobile="./control-2-border-mobile.svg" text="Dashboard" />
-
               <ControllItem imgPathBorder="./controll-from-smartphone-3-border.svg" imgPathMobile="./control-3-border-mobile.svg" text="Firmware upgrade" />
-
               <ControllItem imgPathBorder="./controll-from-smartphone-4-border.svg" imgPathMobile="./control-4-border-mobile.svg" text="Device status" />
-
               <ControllItem imgPathBorder="./controll-from-smartphone-5-border.svg" imgPathMobile="./control-5-border-mobile.svg" text="Settings and restrictions" />
-
               <ControllItem imgPathBorder="./controll-from-smartphone-6-border.svg" imgPathMobile="./control-6-border-mobile.svg" text="Training programs" />
             </div>
 
@@ -56,12 +55,13 @@ export default function ControllFromSmartphone() {
             </div>
           </div>
           <div className="controll-from-smartphone__bottom-right">
-            <picture className="controll-from-smartphone__hand-picture">
-              <source srcSet="/controll-from-smartphone-hand-desktop.webp" media="(min-width: 768px)" />
-              <source srcSet="/controll-from-smartphone-hand-desktop.png" media="(min-width: 768px)" />
-              <source srcSet="/controll-from-smartphone-hand-mobile.webp" />
-              <img width="762" height="465" className="controll-from-smartphone__hand-img" src="/controll-from-smartphone-hand-mobile.jpg" alt="Control from your smartphone" loading="lazy" />
-            </picture>
+            <div className="controll-from-smartphone__hand-image-wrapper">
+              {mediaQuery ? (
+                <Image objectFit="contain" className="controll-from-smartphone__hand-img" src={imageDesktop} alt="Control from your smartphone" quality={50} layout="responsive" />
+              ) : (
+                <Image objectFit="contain" className="controll-from-smartphone__hand-img" src={imageMobile} alt="Control from your smartphone" quality={50} layout="responsive" />
+              )}
+            </div>
           </div>
         </div>
       </div>
