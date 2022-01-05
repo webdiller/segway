@@ -7,8 +7,6 @@ import {useDispatch} from 'react-redux';
 import {setProductModal} from '../../../store/actions/productModal';
 import {useEffect, useRef, useState} from 'react';
 import {useInView} from 'react-intersection-observer';
-import 'swiper/css';
-import 'swiper/css/scrollbar';
 
 export default function AccessoriesSlider({items}) {
   const {addItem} = useCart();

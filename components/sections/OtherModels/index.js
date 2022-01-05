@@ -1,16 +1,11 @@
 import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef} from 'react';
 import Link from 'next/link';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import {useInView} from 'react-intersection-observer';
-
 import UiInput from '@/ui/UiInput';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
 
 export default function OtherModels({items}) {
   const swiperRef = useRef(null);

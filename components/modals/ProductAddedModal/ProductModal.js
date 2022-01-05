@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import {useCart} from 'react-use-cart';
-import {useCallback, useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Navigation, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {FcPrevious, FcNext} from 'react-icons/fc';

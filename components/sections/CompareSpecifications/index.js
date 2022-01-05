@@ -26,18 +26,6 @@ import iconSafety from '@/base/icon-safety.svg';
 import iconAtmosphere from '@/base/icon-atmosphere.svg';
 import {setProductModal} from '../../../store/actions/productModal';
 import {useDispatch} from 'react-redux';
-import 'swiper/css/navigation';
-
-const MainItemLeft = ({text, srcImg}) => {
-  return (
-    <div className="main-slide__item-key">
-      <div className="main-slide__item-icon-wrapper">
-        <Image className="main-slide__item-icon" src={srcImg} alt="icon" />
-      </div>
-      {text}
-    </div>
-  );
-};
 
 export default function CompareSpecifications({items, mainSegway}) {
   const {addItem} = useCart();

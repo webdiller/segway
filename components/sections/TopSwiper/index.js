@@ -7,8 +7,8 @@ import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import topSwiperAccessory from '@/base/top-swiper-accessory.png';
 import {useInView} from 'react-intersection-observer';
-
 import 'swiper/css';
+import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
 /** Свайпер в шапке с самокатами */
