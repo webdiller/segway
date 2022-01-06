@@ -1,12 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Image from 'next/image';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import logoBlack from '@/base/logo-black.svg';
 import iconCartWhite from '@/base/icon-cart-white.svg';
 import iconCartBlack from '@/base/icon-cart-black.svg';
 import iconPhoneBlack from '@/base/icon-phone-black.svg';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 /** Верхняя навигация */
 export default function TopNavigation() {
@@ -15,24 +14,29 @@ export default function TopNavigation() {
     setIsActiveMenu((prev) => !prev);
   };
 
-  const {totalUniqueItems: totalCount} = useSelector((state) => state.productCart)
+  const {totalUniqueItems: totalCount} = useSelector((state) => state.productCart);
 
-  const itemsRef = useRef(null);
+  const elementRef = useRef(null);
 
-  const onClick = (e) => {
-    if (e.target === itemsRef.current) {
-      setIsActiveMenu();
-    }
-  };
+  useEffect(() => {
+    const closeElementIfClickOutside = (event) => {
+      (isActiveMenu && elementRef.current && !elementRef.current.contains(event.target)) && setIsActiveMenu(false);
+    };
+
+    document.addEventListener('mousedown', closeElementIfClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', closeElementIfClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="top-nav">
+    <div ref={elementRef} className="top-nav">
       <div className="container top-nav__container">
         <button onClick={handleSetIsActiveMenu} className={isActiveMenu ? 'top-nav__btn-menu active' : 'top-nav__btn-menu'}>
           {!isActiveMenu ? <img width="25" height="19" src="./icon-bar.svg" alt="icon close menu" loading="lazy" className="top-nav__btn-icon" /> : <img width="20" height="20" src="./icon-close-white.svg" alt="icon close menu" loading="lazy" className="top-nav__btn-icon" />}
         </button>
 
-        <nav onClick={(e) => onClick(e)} ref={itemsRef} className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
+        <nav className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
           <Link href="#">
             <a className="top-nav__item">REVIEWS</a>
           </Link>
