@@ -5,6 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({ 
   reactStrictMode: false,
+  productionBrowserSourceMaps: true,
 })
 
 // For images https://bestofreactjs.com/repo/humaans-next-img--react-nextjs-extensions

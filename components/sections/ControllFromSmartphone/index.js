@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import imageDesktop from '@/base/controll-from-smartphone-hand-desktop.png';
 import imageMobile from '@/base/controll-from-smartphone-hand-mobile.jpg';
 
@@ -20,7 +19,9 @@ const ControllItem = ({imgPathBorder, imgPathMobile, text} = {}) => {
 
 export default function ControllFromSmartphone() {
   let mediaQuery = useMediaQuery('(min-width: 768px)');
-
+  const openAddress = (address) => () => {
+    typeof window !== 'undefined' && window.open(address);
+  };
   return (
     <div className="controll-from-smartphone">
       <div className="container controll-from-smartphone__container">
@@ -54,12 +55,8 @@ export default function ControllFromSmartphone() {
             <div className="controll-from-smartphone__payments-img-wrapper">
               <Image className="controll-from-smartphone__payments-img" src={smartphoneDesktop} alt="Smart battery Management system (Smart-BMS)" width={844} height={123} layout="responsive" />
 
-              <Link href="https://apps.apple.com/us/app/segway-ninebot/id1484302191">
-                <a rel="noOpener" target="_blank"className="controll-from-smartphone__overlay-link controll-from-smartphone__overlay-link_left"></a>
-              </Link>
-              <Link href="https://play.google.com/store/apps/details?id=com.ninebot.segway">
-                <a rel="noOpener" target="_blank" className="controll-from-smartphone__overlay-link controll-from-smartphone__overlay-link_right"></a>
-              </Link>
+              <button aria-label="Open link in new tab to app store" onClick={openAddress('https://apps.apple.com/us/app/segway-ninebot/id1484302191')} rel="noOpener" target="_blank" className="controll-from-smartphone__overlay-link controll-from-smartphone__overlay-link_left"></button>
+              <button aria-label="Open link in new tab to google play" onClick={openAddress('https://play.google.com/store/apps/details?id=com.ninebot.segway')} rel="noOpener" target="_blank" className="controll-from-smartphone__overlay-link controll-from-smartphone__overlay-link_right"></button>
             </div>
           </div>
           <div className="controll-from-smartphone__bottom-right">

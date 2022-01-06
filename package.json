@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "find:unused": "next-unused"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.0.7",

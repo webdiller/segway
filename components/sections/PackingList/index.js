@@ -2,12 +2,13 @@
 import Image from 'next/image';
 import {useRef, useState} from 'react';
 import packingList from '@/base/packing-list.png';
+import posterImage from '@/base/packing-list-poster.jpg';
 
 const useFocus = () => {
   const htmlElRef = useRef(null);
   const setFocus = () => {
     if (htmlElRef.current) {
-      htmlElRef.current.src += "?rel=0&showinfo=0&autoplay=1"
+      htmlElRef.current.src += '?rel=0&showinfo=0&autoplay=1';
     }
   };
   return [htmlElRef, setFocus];
@@ -39,7 +40,9 @@ export default function PackingList() {
           <p className="title packing-list__title packing-list__title_desktop">Packing List</p>
 
           <div onClick={removeOverlayForVideo} className="packing-list__video-wrapper">
-            <img className={overlay ? 'packing-list__video-poster' : 'packing-list__video-poster disabled'} alt="YouTube video player" src="https://i.ytimg.com/vi/Vq0JCR6_YpA/hqdefault.jpg" />
+            <div className={overlay ? 'packing-list__video-poster-wrapper' : 'packing-list__video-poster-wrapper disabled'}>
+              <Image layout="fixed" objectFit="contain" className="packing-list__video-poster-img" alt="YouTube video player" src={posterImage} />
+            </div>
             <div className={overlay ? 'packing-list__video-button' : 'packing-list__video-button disabled'}>
               <svg className="packing-list__video-icon" height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
                 <path

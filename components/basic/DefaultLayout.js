@@ -1,13 +1,11 @@
 import CustomHead from './CustomHead';
-import dynamic from 'next/dynamic';
 import Footer from '@/sections/Footer';
-const TopSwiperDinamic = dynamic(() => import('@/sections/TopSwiper'));
-const TopStockDinamic = dynamic(() => import('@/sections/TopStock'));
 
 import {useCart} from 'react-use-cart';
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
 import {setProducts, setUniqueProductsCount} from '../../store/actions/productCart';
+import TopSwiper from '@/sections/TopSwiper';
 
 /** Дефолтное расположение эементов */
 export default function DefaultLayout({title = 'Segway', description = 'Описание', children, items, hideSwiper = false} = {}) {
@@ -22,8 +20,7 @@ export default function DefaultLayout({title = 'Segway', description = 'Опис
   return (
     <>
       <CustomHead description={description} title={title} />
-      {hideSwiper ? null : <TopSwiperDinamic items={items} />}
-      <TopStockDinamic />
+      {hideSwiper ? null : <TopSwiper items={items} />}
       {children}
       <Footer />
     </>

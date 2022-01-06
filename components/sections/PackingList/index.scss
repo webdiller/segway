@@ -63,7 +63,7 @@
     height: 100%;
   }
 
-  &__video-poster {
+  &__video-poster-wrapper {
     position: absolute;
     top: 0;
     right: 0;
@@ -72,10 +72,16 @@
     z-index: 10;
     object-fit: cover;
     transition: all 0.3s ease;
+    overflow: hidden;
     &.disabled {
       opacity: 0;
       z-index: -1;
     }
+  }
+
+  &__video-poster-img {
+    width: 100%;
+    height: 100%;
   }
 
   &__video-button {

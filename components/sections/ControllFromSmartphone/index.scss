@@ -219,6 +219,10 @@
   &__overlay-link {
     position: absolute;
     width: 50%;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
     &_left {
       top: 0;
       left: 0;
