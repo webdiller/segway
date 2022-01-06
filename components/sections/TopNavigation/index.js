@@ -22,10 +22,11 @@ export default function TopNavigation() {
     const closeElementIfClickOutside = (event) => {
       (isActiveMenu && elementRef.current && !elementRef.current.contains(event.target)) && setIsActiveMenu(false);
     };
-
     document.addEventListener('mousedown', closeElementIfClickOutside);
+    document.addEventListener('touchend', closeElementIfClickOutside);
     return () => {
       document.removeEventListener('mousedown', closeElementIfClickOutside);
+      document.removeEventListener('touchend', closeElementIfClickOutside);
     };
   }, []);
 

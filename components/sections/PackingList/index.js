@@ -41,7 +41,7 @@ export default function PackingList() {
 
           <div onClick={removeOverlayForVideo} className="packing-list__video-wrapper">
             <div className={overlay ? 'packing-list__video-poster-wrapper' : 'packing-list__video-poster-wrapper disabled'}>
-              <Image layout="fixed" objectFit="contain" className="packing-list__video-poster-img" alt="YouTube video player" src={posterImage} />
+              <Image layout="fill" objectFit="cover" className="packing-list__video-poster-img" alt="YouTube video player" src={posterImage} />
             </div>
             <div className={overlay ? 'packing-list__video-button' : 'packing-list__video-button disabled'}>
               <svg className="packing-list__video-icon" height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
