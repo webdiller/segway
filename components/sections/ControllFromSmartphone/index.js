@@ -18,7 +18,7 @@ const ControllItem = ({imgPathBorder, imgPathMobile, text} = {}) => {
 };
 
 export default function ControllFromSmartphone() {
-  let mediaQuery = useMediaQuery('(min-width: 768px)');
+  let mediaQuery = useMediaQuery('(min-width: 769px)');
   const openAddress = (address) => () => {
     typeof window !== 'undefined' && window.open(address);
   };

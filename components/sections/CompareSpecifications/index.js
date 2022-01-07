@@ -7,9 +7,7 @@ import segwayPlaceholder from '@/base/segway-placeholder.png';
 import {FcPrevious, FcNext} from 'react-icons/fc';
 
 import React, {useEffect, useRef, useState} from 'react';
-import Swipe from 'react-easy-swipe';
 import {useCart} from 'react-use-cart';
-import disableScroll from 'disable-scroll';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -31,6 +29,7 @@ export default function CompareSpecifications({items, mainSegway}) {
   const {addItem} = useCart();
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
+  const [currentPageOffset, setCurrentPageOffset] = useState(0);
 
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
@@ -63,16 +62,6 @@ export default function CompareSpecifications({items, mainSegway}) {
     setUrlIfModalActive();
   };
 
-  const onSwipeUp = () => {
-    setModalActive(false);
-    setUrlIfModalActive();
-  };
-
-  const onSwipeDown = () => {
-    setModalActive(false);
-    setUrlIfModalActive();
-  };
-
   const addItemToCartAndShowModal = (event, productItem) => {
     addItem(productItem);
     dispatch(setProductModal(true));
@@ -85,12 +74,30 @@ export default function CompareSpecifications({items, mainSegway}) {
   }, [selectedModel]);
 
   useEffect(() => {
+    const bodySelector = document.querySelector('body');
     if (modalActive) {
-      disableScroll.on();
+      setCurrentPageOffset(window.pageYOffset);
+      targetScrollElement.current.classList.add('enable-background');
+      targetScrollElement.current.classList.remove('active');
+      setTimeout(() => {
+        bodySelector.style.position = 'fixed';
+        bodySelector.style.overflow = 'hidden';
+        bodySelector.style.width = '100%';
+        bodySelector.style.top = `-${currentPageOffset}px`;
+      }, 300);
+      setTimeout(() => {
+        targetScrollElement.current.classList.remove('enable-background');
+        targetScrollElement.current.classList.add('active');
+      }, 450);
     } else if (!modalActive) {
-      disableScroll.off();
+      targetScrollElement.current.classList.remove('enable-background');
+      bodySelector.style.removeProperty('overflow');
+      bodySelector.style.removeProperty('position');
+      bodySelector.style.removeProperty('top');
+      bodySelector.style.removeProperty('width');
+      window.scrollTo(0, currentPageOffset);
     }
-  }, [modalActive]);
+  }, [modalActive, currentPageOffset]);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && selectedModel) {
@@ -653,8 +660,8 @@ export default function CompareSpecifications({items, mainSegway}) {
         </div>
 
         <div ref={targetScrollElement} className={modalActive ? 'compare-modal active' : 'compare-modal'}>
-          <Swipe onSwipeUp={onSwipeUp} onSwipeDown={onSwipeDown}>
-            <div className="compare-modal__wrapper">
+          <div className="compare-modal__wrapper">
+            <div className="compare-modal__wrapper-inner">
               <p className="title compare-modal__title">select a model to compare</p>
               <img onClick={toggleCompareModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
               <div className="compare-modal__items">
@@ -673,7 +680,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                 ))}
               </div>
             </div>
-          </Swipe>
+          </div>
         </div>
       </div>
     </div>
