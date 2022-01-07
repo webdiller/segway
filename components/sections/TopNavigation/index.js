@@ -7,6 +7,8 @@ import iconCartBlack from '@/base/icon-cart-black.svg';
 import iconPhoneBlack from '@/base/icon-phone-black.svg';
 import {useSelector} from 'react-redux';
 
+const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+
 /** Верхняя навигация */
 export default function TopNavigation() {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
@@ -20,15 +22,22 @@ export default function TopNavigation() {
 
   useEffect(() => {
     const closeElementIfClickOutside = (event) => {
-      (isActiveMenu && elementRef.current && !elementRef.current.contains(event.target)) && setIsActiveMenu(false);
+      if (isActiveMenu && elementRef.current && !elementRef.current.contains(event.target)) {
+        setIsActiveMenu(false);
+      }
     };
-    document.addEventListener('mousedown', closeElementIfClickOutside);
-    document.addEventListener('touchend', closeElementIfClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', closeElementIfClickOutside);
-      document.removeEventListener('touchend', closeElementIfClickOutside);
-    };
-  }, []);
+    if (isTouchDevice) {
+      document.addEventListener('touchend', closeElementIfClickOutside);
+    } else {
+      document.addEventListener('mousedown', closeElementIfClickOutside);
+    }
+
+    if (isTouchDevice) {
+      return () => document.removeEventListener('touchend', closeElementIfClickOutside);
+    } else {
+      return () => document.removeEventListener('mousedown', closeElementIfClickOutside);
+    }
+  }, [isActiveMenu]);
 
   return (
     <div ref={elementRef} className="top-nav">
