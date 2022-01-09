@@ -23,7 +23,7 @@ export default function TopSwiper({items}) {
       let myInterval;
       myInterval = setInterval(() => {
         if (document.readyState === 'complete') {
-          clearInterval(myInterval)
+          clearInterval(myInterval);
           try {
             swiperRef.current.slideNext();
             setTimeout(() => {
@@ -33,7 +33,7 @@ export default function TopSwiper({items}) {
             }, 350);
           } catch (error) {}
         }
-      })
+      });
     }
   }, [swiperRef, inView, fistInit]);
 
@@ -63,19 +63,19 @@ export default function TopSwiper({items}) {
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {items.segways.adultSegways.map(({id, name, shortName, imgPath, accent, ...props}) => (
+            {items.segways.adultSegways.map(({id, name, shortName, imgSmallPath, accent}) => (
               <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>
                 <Link href="#">
                   <a className="top-swiper__link">
                     <div className="top-swiper__img-wrapper">
-                      <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                      <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                     </div>
                     <p className="top-swiper__name">{shortName}</p>
                   </a>
                 </Link>
               </SwiperSlide>
             ))}
-            {items.segways.kidsSegways.map(({id, name, shortName, imgPath, ...props}) => (
+            {items.segways.kidsSegways.map(({id, name, shortName, imgPath}) => (
               <SwiperSlide key={id} className="top-swiper__item">
                 <Link href="#">
                   <a className="top-swiper__link">
