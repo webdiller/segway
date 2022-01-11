@@ -102,6 +102,7 @@ export default function ProductModal({accessoeries}) {
       router.push(`${route}`);
       dispatch(setProductModal(false));
     } else {
+      document.body.classList.remove('disabled')
       if (window.innerWidth <= 991) {
         modalRef.current.classList.add('scroll-modal-to-bottom');
         setTimeout(() => {

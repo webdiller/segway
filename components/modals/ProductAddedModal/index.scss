@@ -74,7 +74,7 @@
       max-width: none;
       display: flex;
       flex-direction: column;
-      padding: 11px;
+      padding: 11px 0 11px 0;
       height: 50vh;
       min-height: 528px;
       top: 90%;
@@ -89,6 +89,13 @@
       }
     }
   }
+
+  &__header {
+    @include media('<=991px') {
+      padding: 0 16px;
+    }
+  }
+
   &__close-btn {
     @include reset-btn();
     position: absolute;
@@ -111,9 +118,23 @@
     align-items: center;
   }
   &__content {
-    &.active {
-      @include media('<=991px') {
-        overflow-y: scroll;
+    @include media('<=991px') {
+      padding: 0 8px;
+      margin: 10px 8px 0 8px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 4px;
+        border-radius: 100px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 100px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #323941;
+        border-radius: 100px;
       }
     }
   }
@@ -215,6 +236,9 @@
     padding-top: 10px;
     padding-bottom: 16px;
     cursor: pointer;
+    @include media('<=991px') {
+      padding-top: 0;
+    }
     &.active {
       .product-modal__summ-icon-arrow-up-wrapper {
         transform: rotate(0);
