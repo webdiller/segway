@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import DefaultLayout from '@/basic/DefaultLayout';
 import {data} from '@/base/data';
-import {useSelector} from 'react-redux';
 import Welcome from '@/sections/Welcome';
 import Tabs from '@/sections/Tabs';
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
@@ -26,7 +25,6 @@ const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ss
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
 
 export default function Home({allData}) {
-  const {active: isModalActive} = useSelector((state) => state.productModal);
   return (
     <DefaultLayout items={allData} description="segway description" title="segway index">
       <Welcome item={allData.segways.adultSegways[5]} />
@@ -50,9 +48,7 @@ export default function Home({allData}) {
       <OtherModelsDinamic items={allData.segways.adultSegways} />
       <FixedModalDinamic segwayItem={allData.segways.adultSegways[5]} />
       <DiscountModalDinamic />
-      {/* <ProductModalDinamic accessoeries={allData.accessoeries} /> */}
-      {/* {isModalActive ? <ProductModal accessoeries={allData.accessoeries} /> : <ProductModal accessoeries={allData.accessoeries} />} */}
-      {isModalActive && <ProductModalDinamic accessoeries={allData.accessoeries} />}
+      <ProductModalDinamic accessoeries={allData.accessoeries} />
     </DefaultLayout>
   );
 }

@@ -49,11 +49,12 @@
     }
   }
 
-  &.enable-background {
-    z-index: 1500;
-    opacity: 1;
-    visibility: visible;
-    background-color: rgb(255, 255, 255);
+  &.scroll-modal-to-bottom {
+    .product-modal__wrapper {
+      @include media('<=991px') {
+        top: 100%;
+      }
+    }
   }
 
   &__wrapper {
@@ -65,9 +66,6 @@
     border: 10px solid #009eff;
     transition: all 0.4s ease;
     pointer-events: all;
-
-    opacity: 0;
-    visibility: hidden;
     transform: scale(0.9);
     @include media('<=991px') {
       border: 0;

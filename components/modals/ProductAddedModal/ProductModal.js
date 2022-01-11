@@ -17,7 +17,7 @@ import {useRouter} from 'next/dist/client/router';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
-  const [initWarranty, setInitWarranty] = useState(segwayItem.selectedWarranty || segwayItem.id);
+  const [initWarranty] = useState(segwayItem.selectedWarranty || segwayItem.id);
   const [isClicked, setIsClicked] = useState(false);
 
   const tabToggleHandler = (event, expectedWarranty) => {
@@ -78,10 +78,9 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
   );
 };
 
-export default function ProductModal({segways, accessoeries}) {
+export default function ProductModal({accessoeries}) {
   // scroll
   const targetScrollElement = useRef(null);
-  const [currentPageOffset, setCurrentPageOffset] = useState(0);
 
   // modals
   const [visibleProducts, setVisibleProducts] = useState(true);
@@ -103,26 +102,22 @@ export default function ProductModal({segways, accessoeries}) {
       router.push(`${route}`);
       dispatch(setProductModal(false));
     } else {
-      const bodySelector = document.querySelector('body');
-      modalRef.current.classList.remove('active');
-      bodySelector.style.removeProperty('overflow');
-      bodySelector.style.removeProperty('position');
-      bodySelector.style.removeProperty('top');
-      bodySelector.style.removeProperty('width');
-      window.scrollTo(0, currentPageOffset);
-      dispatch(setProductModal(false));
+      if (window.innerWidth <= 991) {
+        modalRef.current.classList.add('scroll-modal-to-bottom');
+        setTimeout(() => {
+          modalRef.current.classList.remove('scroll-modal-to-bottom');
+          dispatch(setProductModal(false));
+        }, 300);
+      } else {
+        modalRef.current.classList.remove('scroll-modal-to-bottom');
+        dispatch(setProductModal(false));
+      }
     }
   };
 
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
-      const bodySelector = document.querySelector('body');
       modalRef.current.classList.remove('active');
-      bodySelector.style.removeProperty('overflow');
-      bodySelector.style.removeProperty('position');
-      bodySelector.style.removeProperty('top');
-      bodySelector.style.removeProperty('width');
-      window.scrollTo(0, currentPageOffset);
       dispatch(setProductModal(false));
     }
   };
@@ -179,34 +174,17 @@ export default function ProductModal({segways, accessoeries}) {
   }, [segwaysWithAccessoeriesFromUseCart, cartTotal]);
 
   useEffect(() => {
-    const bodySelector = document.querySelector('body');
     if (isActiveModal) {
       try {
-        setCurrentPageOffset(window.pageYOffset);
-        modalRef.current.classList.add('enable-background');
-        setTimeout(() => {
-          bodySelector.style.position = 'fixed';
-          bodySelector.style.overflow = 'hidden';
-          bodySelector.style.width = '100%';
-          bodySelector.style.top = `-${currentPageOffset}px`;
-          setVisibleProducts(true);
-        }, 200);
-        setTimeout(() => {
-          modalRef.current.classList.remove('enable-background');
-          modalRef.current.classList.add('active');
-        }, 350);
+        setVisibleProducts(true);
+        modalRef.current.classList.add('active');
       } catch (error) {
         console.log(error);
       }
     } else if (!isActiveModal) {
       modalRef.current.classList.remove('active');
-      bodySelector.style.removeProperty('overflow');
-      bodySelector.style.removeProperty('position');
-      bodySelector.style.removeProperty('top');
-      bodySelector.style.removeProperty('width');
-      window.scrollTo(0, currentPageOffset);
     }
-  }, [isActiveModal, currentPageOffset]);
+  }, [isActiveModal]);
 
   return (
     <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className="product-modal">
