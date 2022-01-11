@@ -106,10 +106,12 @@ export default function ProductModal({accessoeries}) {
         modalRef.current.classList.add('scroll-modal-to-bottom');
         setTimeout(() => {
           modalRef.current.classList.remove('scroll-modal-to-bottom');
+          modalRef.current.classList.remove('active');
           dispatch(setProductModal(false));
         }, 300);
       } else {
         modalRef.current.classList.remove('scroll-modal-to-bottom');
+        modalRef.current.classList.remove('active');
         dispatch(setProductModal(false));
       }
     }
@@ -176,13 +178,12 @@ export default function ProductModal({accessoeries}) {
   useEffect(() => {
     if (isActiveModal) {
       try {
+        document.body.classList.add('disabled');
         setVisibleProducts(true);
         modalRef.current.classList.add('active');
       } catch (error) {
         console.log(error);
       }
-    } else if (!isActiveModal) {
-      modalRef.current.classList.remove('active');
     }
   }, [isActiveModal]);
 

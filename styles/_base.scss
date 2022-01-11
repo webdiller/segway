@@ -19,6 +19,9 @@ body {
 
 body {
   width: 100%;
+  &.disabled {
+    overflow-y: hidden;
+  }
 }
 
 html,
