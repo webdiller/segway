@@ -608,6 +608,7 @@ export const data = {
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e8.png',
+        imgSmallPath: "/ninebot-kickscooter-zing-e8_small.png",
         imgPathWithCircle: '/ninebot-kickscooter-zing-e8-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e8-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e8/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e8']
@@ -654,6 +655,7 @@ export const data = {
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e10.png',
+        imgSmallPath: "/ninebot-kickscooter-zing-e10_small.png",
         imgPathWithCircle: '/ninebot-kickscooter-zing-e10-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e10-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e10/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e10']
@@ -700,6 +702,7 @@ export const data = {
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e12.png',
+        imgSmallPath: "/ninebot-kickscooter-zing-e12_small.png",
         imgPathWithCircle: '/ninebot-kickscooter-zing-e12-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e12-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e12/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e12']
