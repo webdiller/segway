@@ -1,9 +1,9 @@
-import React from 'react'
+import styles from './FancyModal.module.scss';
 
 export default function FancyModal() {
     return (
-        <div className="modal">
-            
+        <div className={styles.fancyModal}>
+            <div className={styles.FancyModal__wrapper}></div>
         </div>
     )
 }
