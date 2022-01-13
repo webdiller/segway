@@ -116,7 +116,7 @@ export const data = {
       {
         id: '001',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter E22',
         nameWithoutBrand: 'Kickscooter\nE22',
         nameWrap: 'Kickscooter\nE22',
@@ -161,7 +161,7 @@ export const data = {
       {
         id: '002',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter ES1L',
         nameWithoutBrand: 'Kickscooter\nES1L',
         nameWrap: 'Ninebot\nKickscooter\nES1L',
@@ -206,7 +206,7 @@ export const data = {
       {
         id: '003',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter Air T15',
         nameWithoutBrand: 'Kickscooter\nAir T15',
         nameWrap: 'Ninebot\nKickscooter\nAir T15',
@@ -251,7 +251,7 @@ export const data = {
       {
         id: '004',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot KickScooter F30',
         nameWithoutBrand: 'KickScooter\nF30',
         nameWrap: 'Ninebot\nKickScooter\nF30',
@@ -296,7 +296,7 @@ export const data = {
       {
         id: '005',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter E45',
         nameWithoutBrand: 'Kickscooter\nE45',
         nameWrap: 'Ninebot\nKickscooter\nE45',
@@ -341,7 +341,7 @@ export const data = {
       {
         id: '006',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter MAX',
         nameWithoutBrand: 'Kickscooter\nMAX',
         nameWrap: 'Ninebot\nKickscooter\nMAX',
@@ -382,12 +382,13 @@ export const data = {
         imgPathWithCircle: '/ninebot-kickscooter-max-006-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-max-006-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-max/', 'https://store.segway.com/ninebot-kickscooter-max'],
+        galleryImages: ['/ks-max/ks-max-006-1.png', '/ks-max/ks-max-006-2.png', '/ks-max/ks-max-006-3.png', '/ks-max/ks-max-006-4.png', '/ks-max/ks-max-006-5.png', '/ks-max/ks-max-006-6.png'],
         accent: true
       },
       {
         id: '007',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter MAX',
         nameWithoutBrand: 'Kickscooter\nMAX',
         nameWrap: 'Ninebot\nKickscooter\nMAX',
@@ -432,7 +433,7 @@ export const data = {
       {
         id: '008',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter ES2',
         nameWithoutBrand: 'Kickscooter\nES2',
         nameWrap: 'Ninebot\nKickscooter\nES2',
@@ -477,7 +478,7 @@ export const data = {
       {
         id: '009',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter ES3',
         nameWithoutBrand: 'Kickscooter\nES3',
         nameWrap: 'Ninebot\nKickscooter\nES3',
@@ -522,7 +523,7 @@ export const data = {
       {
         id: '010',
         type: 'kickscooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter ES4',
         nameWithoutBrand: 'Kickscooter\nES4',
         nameWrap: 'Ninebot\nickscooter\nES4',
@@ -569,7 +570,7 @@ export const data = {
       {
         id: '011',
         type: 'kidsScooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter Zing e8',
         shortName: 'KS ZING E8',
         price: '249.99',
@@ -583,7 +584,7 @@ export const data = {
         payloadWrap: '44 - 110 lbs',
         charginTime: '4 hrs',
         numberOfBatteries: '1 Build-in',
-        motorPower: "–",
+        motorPower: '–',
         powerOutput: 'Nominal Power 150 W',
         maxIncline: '7°',
         ridingModes: 'Turbo Mode, Cruise Mode and Safe Mode',
@@ -608,7 +609,7 @@ export const data = {
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e8.png',
-        imgSmallPath: "/ninebot-kickscooter-zing-e8_small.png",
+        imgSmallPath: '/ninebot-kickscooter-zing-e8_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-zing-e8-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e8-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e8/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e8']
@@ -616,7 +617,7 @@ export const data = {
       {
         id: '012',
         type: 'kidsScooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter Zing E10',
         shortName: 'KS ZING E10',
         price: '259.99',
@@ -630,7 +631,7 @@ export const data = {
         payloadWrap: '44 - 132 lbs',
         charginTime: '4 hrs',
         numberOfBatteries: '1 Build-in',
-        motorPower: "–",
+        motorPower: '–',
         powerOutput: 'Nominal Power 150 W',
         maxIncline: '7°',
         ridingModes: 'Turbo Mode, Cruise Mode and Safe Mode',
@@ -655,7 +656,7 @@ export const data = {
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e10.png',
-        imgSmallPath: "/ninebot-kickscooter-zing-e10_small.png",
+        imgSmallPath: '/ninebot-kickscooter-zing-e10_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-zing-e10-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e10-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e10/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e10']
@@ -663,7 +664,7 @@ export const data = {
       {
         id: '013',
         type: 'kidsScooter',
-        brandName: "Ninebot",
+        brandName: 'Ninebot',
         name: 'Ninebot Kickscooter Zing E12',
         shortName: 'KS ZING E12',
         price: '259.99',
@@ -677,7 +678,7 @@ export const data = {
         payloadWrap: '44 - 132 lbs',
         charginTime: '4 hrs',
         numberOfBatteries: '1 Build-in',
-        motorPower: "–",
+        motorPower: '–',
         powerOutput: 'Nominal Power 150 W',
         maxIncline: '7°',
         ridingModes: 'Turbo Mode, Cruise Mode and Safe Mode',
@@ -702,7 +703,7 @@ export const data = {
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e12.png',
-        imgSmallPath: "/ninebot-kickscooter-zing-e12_small.png",
+        imgSmallPath: '/ninebot-kickscooter-zing-e12_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-zing-e12-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e12-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-zing-e12/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e12']

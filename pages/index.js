@@ -27,7 +27,7 @@ const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/Pro
 export default function Home({allData}) {
   return (
     <DefaultLayout items={allData} description="segway description" title="segway index">
-      <Welcome item={allData.segways.adultSegways[5]} />
+      <Welcome currentSegway={allData.segways.adultSegways[5]} />
       <Tabs />
       <PackingListDinamic />
       <AccessoriesSliderDinamic items={allData.accessoeries} />

@@ -1,27 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-import { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import PaymentsMethods from '@/blocks/PaymentsMethods'
-import FormWithWarrancy from '@/blocks/FormWithWarrancy'
-import SegwayProtectMobile from '@/blocks/SegwayProtectMobile'
-import segwayPlaceholder from "@/base/segway-placeholder.png";
-import arrowLeft from "@/base/icon-arrow-left.svg";
-import arrowRight from "@/base/icon-arrow-right.svg";
-import exampleItem0 from "@/base/example-item-1.png";
-import exampleItem1 from "@/base/ks-max/ks-max-1.jpg";
-import exampleItem2 from "@/base/ks-max/ks-max-2.jpg";
-import exampleItem3 from "@/base/ks-max/ks-max-3.jpg";
-import exampleItem4 from "@/base/ks-max/ks-max-4.jpg";
-import exampleItem5 from "@/base/ks-max/ks-max-5.jpg";
-import exampleItem6 from "@/base/ks-max/ks-max-6.jpg";
-import exampleItem7 from "@/base/ks-max/ks-max-7.jpg";
-import exampleItem8 from "@/base/ks-max/ks-max-8.jpg";
+import Image from 'next/image';
+import {Navigation, Pagination} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import PaymentsMethods from '@/blocks/PaymentsMethods';
+import FormWithWarrancy from '@/blocks/FormWithWarrancy';
+import SegwayProtectMobile from '@/blocks/SegwayProtectMobile';
+import arrowLeft from '@/base/icon-arrow-left.svg';
+import arrowRight from '@/base/icon-arrow-right.svg';
+import segwayPlaceholder from '@/base/segway-placeholder.png';
+import 'swiper/css/pagination';
 
-import "swiper/css/pagination";
-
-
-export default function Welcome({item}) {
+export default function Welcome({currentSegway}) {
   return (
     <div className="welcome">
       <div className="container welcome__container">
@@ -33,9 +22,7 @@ export default function Welcome({item}) {
 
           {/* area name: title */}
           <div className="welcome__title-wrapper">
-            <p className="title title_fz-80 welcome__title">
-              SEGWAY Ninebot Kickscooter MAX
-            </p>
+            <p className="title title_fz-80 welcome__title">SEGWAY Ninebot Kickscooter MAX</p>
           </div>
 
           {/* area name: protect */}
@@ -43,7 +30,7 @@ export default function Welcome({item}) {
 
           {/* area name: form */}
           <div className="welcome__form-wrapper">
-            <FormWithWarrancy item={item} customClass="welcome__form" />
+            <FormWithWarrancy item={currentSegway} customClass="welcome__form" />
           </div>
 
           {/* area name: payments */}
@@ -58,147 +45,24 @@ export default function Welcome({item}) {
                 slidesPerView={1}
                 pagination={{
                   clickable: true,
-                  el: ".welcome__swiper-pagination",
+                  el: '.welcome__swiper-pagination'
                 }}
                 loop={false}
                 navigation={{
-                  prevEl: ".welcome__swiper-nav_prev",
-                  nextEl: ".welcome__swiper-nav_next",
+                  prevEl: '.welcome__swiper-nav_prev',
+                  nextEl: '.welcome__swiper-nav_next'
                 }}
                 breakpoints={{
                   768: {
                     spaceBetween: 0,
-                    slidesPerView: 1,
-                  },
-                }}
-              >
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem0}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem1}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem2}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem3}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem4}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem5}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem6}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem7}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="welcome__swiper-item">
-                  <div className="welcome__swiper-img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="welcome__swiper-img"
-                      src={exampleItem8}
-                      alt="welcome swiper"
-                      quality={50}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                </SwiperSlide>
+                    slidesPerView: 1
+                  }
+                }}>
+              {currentSegway.galleryImages.map((imgPath,id)=>{
+                return (
+                  <SwiperSlide key={id} className="welcome__swiper-item"><div className="welcome__swiper-img-wrapper"><Image width="400" height="650" layout="responsive" objectFit="contain" className="welcome__swiper-img" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} /></div></SwiperSlide>
+                )
+              })}
               </Swiper>
 
               <div className="welcome__swiper-navigation">

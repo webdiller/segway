@@ -21,8 +21,8 @@
       "stock swiper"
       "title swiper"
       "form swiper"
-      "payments swiper";
-
+      "payments payments"
+      ;
     @include media("<=1200px") {
       grid-template-columns: 1fr 300px;
     }
@@ -161,6 +161,9 @@
     @include media("<=768px") {
       margin-bottom: 45px;
     }
+    .swiper-wrapper {
+      align-items: center;
+    }
   }
 
   &__swiper-item {
@@ -179,7 +182,7 @@
       margin-right: auto;
     }
     @include media("<=576px") {
-      max-width: 153px;
+      max-width: 256px;
     }
   }
 
