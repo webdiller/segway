@@ -60,7 +60,7 @@ export default function Welcome({currentSegway}) {
                 }}>
               {currentSegway.galleryImages.map((imgPath,id)=>{
                 return (
-                  <SwiperSlide key={id} className="welcome__swiper-item"><div className="welcome__swiper-img-wrapper"><Image width="400" height="650" layout="responsive" objectFit="contain" className="welcome__swiper-img" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} /></div></SwiperSlide>
+                  <SwiperSlide key={id} className="welcome__swiper-item"><div className="welcome__swiper-img-wrapper"><Image width="400" height="650" objectFit="contain" className="welcome__swiper-img" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} /></div></SwiperSlide>
                 )
               })}
               </Swiper>
