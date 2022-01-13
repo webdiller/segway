@@ -9,7 +9,8 @@
       "@/modals/*": ["components/modals/*"],
       "@/sections/*": ["components/sections/*"],
       "@/ui/*": ["components/ui/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/actions/*": ["store/actions/*"]
     }
   }
 }

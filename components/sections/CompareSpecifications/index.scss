@@ -726,9 +726,9 @@
   justify-content: center;
   align-items: center;
 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
   padding: 15px;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color .3s ease, z-index .6s ease;
 
   z-index: -1;
   opacity: 0;
@@ -738,20 +738,14 @@
 
   &.active {
     opacity: 1;
-    z-index: 1000;
+    z-index: 3000;
     visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5);
     .compare-modal__wrapper {
       opacity: 1;
-      z-index: 10;
       visibility: visible;
+      transform: scale(1);
     }
-  }
-
-  &.enable-background {
-    z-index: 1500;
-    opacity: 1;
-    visibility: visible;
-    background-color: rgb(255, 255, 255);
   }
 
   @include media('<=576px') {
@@ -766,10 +760,10 @@
     align-self: center;
 
     opacity: 0;
-    z-index: -1;
     visibility: hidden;
     transition: all 0.3s ease;
     overflow: hidden;
+    transform: scale(0.97);
 
     &::before {
       display: none;

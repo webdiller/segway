@@ -22,14 +22,13 @@ import iconIncline from '@/base/icon-incline.svg';
 import iconShock from '@/base/icon-shock.svg';
 import iconSafety from '@/base/icon-safety.svg';
 import iconAtmosphere from '@/base/icon-atmosphere.svg';
-import {setProductModal} from '../../../store/actions/productModal';
+import {setProductModal} from '@/actions/productModal';
 import {useDispatch} from 'react-redux';
 
 export default function CompareSpecifications({items, mainSegway}) {
   const {addItem} = useCart();
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
-  const [currentPageOffset, setCurrentPageOffset] = useState(0);
 
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
@@ -48,6 +47,12 @@ export default function CompareSpecifications({items, mainSegway}) {
       dispatch(setProductModal(true));
     } else {
       dispatch(setProductModal(false));
+    }
+  };
+
+  const closeOnClick = (event) => {
+    if (modalActive && targetScrollElement.current === event.target) {
+      setModalActive(false)
     }
   };
 
@@ -71,38 +76,6 @@ export default function CompareSpecifications({items, mainSegway}) {
     if (typeof window !== 'undefined' && selectedModel) {
       localStorage.setItem('selectedModel', JSON.stringify(selectedModel));
     }
-  }, [selectedModel]);
-
-  useEffect(() => {
-    const bodySelector = document.querySelector('body');
-    if (modalActive) {
-      setCurrentPageOffset(window.pageYOffset);
-      targetScrollElement.current.classList.add('enable-background');
-      targetScrollElement.current.classList.remove('active');
-      setTimeout(() => {
-        bodySelector.style.position = 'fixed';
-        bodySelector.style.overflow = 'hidden';
-        bodySelector.style.width = '100%';
-        bodySelector.style.top = `-${currentPageOffset}px`;
-      }, 300);
-      setTimeout(() => {
-        targetScrollElement.current.classList.remove('enable-background');
-        targetScrollElement.current.classList.add('active');
-      }, 450);
-    } else if (!modalActive) {
-      targetScrollElement.current.classList.remove('enable-background');
-      bodySelector.style.removeProperty('overflow');
-      bodySelector.style.removeProperty('position');
-      bodySelector.style.removeProperty('top');
-      bodySelector.style.removeProperty('width');
-      window.scrollTo(0, currentPageOffset);
-    }
-  }, [modalActive, currentPageOffset]);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && selectedModel) {
-      localStorage.setItem('selectedModel', JSON.stringify(selectedModel));
-    }
     if (typeof window !== 'undefined' && !selectedModel) {
       let storageItem = JSON.parse(localStorage.getItem('selectedModel'));
       if (storageItem) {
@@ -110,6 +83,10 @@ export default function CompareSpecifications({items, mainSegway}) {
       }
     }
   }, [selectedModel]);
+
+  useEffect(() => {
+    modalActive ? document.body.classList.add('disabled') : document.body.classList.remove('disabled');
+  }, [modalActive]);
 
   return (
     <div className="compare-specfications">
@@ -659,7 +636,7 @@ export default function CompareSpecifications({items, mainSegway}) {
           </div>
         </div>
 
-        <div ref={targetScrollElement} className={modalActive ? 'compare-modal active' : 'compare-modal'}>
+        <div onClick={(e) => closeOnClick(e)} ref={targetScrollElement} className={modalActive ? 'compare-modal active' : 'compare-modal'}>
           <div className="compare-modal__wrapper">
             <div className="compare-modal__wrapper-inner">
               <p className="title compare-modal__title">select a model to compare</p>
