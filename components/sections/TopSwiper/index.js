@@ -13,10 +13,21 @@ import 'swiper/css/scrollbar';
 
 /** Свайпер в шапке с самокатами */
 export default function TopSwiper({items}) {
-  const [activeIndex, setActiveIndex] = useState(0);
   const {ref, inView} = useInView({threshold: 0.5});
-  const swiperRef = useRef(null);
-  const [fistInit, setFirstInit] = useState(true);
+  const actionSwiper = useRef(null);
+  const swiperWithAllSegways = useRef(null);
+  const parentSwiper = useRef(null);
+  const [fistInit] = useState(true);
+
+  const slideToHandle = (event, id) => {
+    actionSwiper.current.slideTo(id, 600, null);
+    parentSwiper.current.slideTo(id, 600, null);
+    const htmlItems = event.target.parentElement.children;
+    for (let item of htmlItems) {
+      item.classList.remove('swiper-slide-active');
+    }
+    event.target.classList.add('swiper-slide-active')
+  };
 
   useEffect(() => {
     if (window.innerWidth <= 768 && inView && fistInit) {
@@ -25,88 +36,205 @@ export default function TopSwiper({items}) {
         if (document.readyState === 'complete') {
           clearInterval(myInterval);
           try {
-            swiperRef.current.slideNext();
+            swiperWithAllSegways.current.slideNext();
             setTimeout(() => {
               try {
-                swiperRef.current.slidePrev();
+                swiperWithAllSegways.current.slidePrev();
               } catch (error) {}
             }, 350);
           } catch (error) {}
         }
       });
     }
-  }, [swiperRef, inView, fistInit]);
+  }, [swiperWithAllSegways, inView, fistInit]);
 
   return (
     <div ref={ref} className="top-swiper">
-      <div className="container top-swiper__container">
-        <div className="top-swiper__swiper">
-          <Swiper
-            ref={swiperRef}
-            modules={[Navigation, FreeMode]}
-            spaceBetween={0}
-            slidesPerView={4}
-            loop={false}
-            freeMode={true}
-            navigation={{
-              prevEl: '.top-swiper__nav_prev',
-              nextEl: '.top-swiper__nav_next'
-            }}
-            breakpoints={{
-              768: {
-                allowTouchMove: false
-              }
-            }}
-            onSlideChange={(el) => {
-              setActiveIndex(el.activeIndex);
-            }}
-            onInit={(swiper) => {
-              swiperRef.current = swiper;
-            }}>
-            {items.segways.adultSegways.map(({id, name, shortName, imgSmallPath, accent}) => (
-              <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                <Link href="#">
-                  <a className="top-swiper__link">
-                    <div className="top-swiper__img-wrapper">
-                      <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                    </div>
-                    <p className="top-swiper__name">{shortName}</p>
-                  </a>
-                </Link>
-              </SwiperSlide>
-            ))}
-            {items.segways.kidsSegways.map(({id, name, shortName, imgSmallPath}) => (
-              <SwiperSlide key={id} className="top-swiper__item">
-                <Link href="#">
-                  <a className="top-swiper__link">
-                    <div className="top-swiper__img-wrapper">
-                      <Image objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                    </div>
-                    <p className="top-swiper__name">{shortName}</p>
-                  </a>
-                </Link>
-              </SwiperSlide>
-            ))}
-            <SwiperSlide key="99999" className="top-swiper__item">
-              <Link href="#accessories">
-                <a className="top-swiper__link">
-                  <div className="top-swiper__img-wrapper">
-                    <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                  </div>
-                  <p className="top-swiper__name">Accessories</p>
-                </a>
-              </Link>
+      <div className="top-swiper__actions">
+        <Swiper
+          className="top-swiper__actions-swiper"
+          modules={[FreeMode]}
+          spaceBetween={0}
+          slidesPerView="auto"
+          freeMode={true}
+          loop={false}
+          breakpoints={{
+            991: {
+              freeMode: false,
+              slidesPerView: 2
+            }
+          }}
+          onInit={(swiper) => (actionSwiper.current = swiper)}>
+          <SwiperSlide onClick={(event) => slideToHandle(event, 0)} tag="button" className="top-swiper__actions-slide">
+            Ninebot kickscooter
+          </SwiperSlide>
+          <SwiperSlide onClick={(event) => slideToHandle(event, 1)} tag="button" className="top-swiper__actions-slide">
+            Ninebot gokart
+          </SwiperSlide>
+          <SwiperSlide onClick={(event) => slideToHandle(event, 2)} tag="button" className="top-swiper__actions-slide">
+            Other
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      <div className="top-swiper__all-swipers">
+        <div className="container top-swiper__container">
+          <Swiper className="top-swiper__parent-swiper" spaceBetween={10} slidesPerView={1} loop={false} allowTouchMove={false} onInit={(swiper) => (parentSwiper.current = swiper)}>
+            <SwiperSlide className="top-swiper__parent-slide">
+              <div className="top-swiper__main-container">
+                <Swiper
+                  className="top-swiper__swiper"
+                  ref={swiperWithAllSegways}
+                  modules={[Navigation, FreeMode]}
+                  spaceBetween={0}
+                  slidesPerView={4}
+                  loop={false}
+                  freeMode={true}
+                  navigation={{
+                    prevEl: '.top-swiper__nav_prev',
+                    nextEl: '.top-swiper__nav_next'
+                  }}
+                  breakpoints={{
+                    768: {
+                      allowTouchMove: false
+                    }
+                  }}
+                  onInit={(swiper) => {
+                    swiperWithAllSegways.current = swiper;
+                  }}>
+                  {items.segways.adultSegways.map(({id, name, shortName, imgSmallPath, accent}) => (
+                    <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>
+                      <Link href="#">
+                        <a className="top-swiper__link">
+                          <div className="top-swiper__img-wrapper">
+                            <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                          </div>
+                          <p className="top-swiper__name">{shortName}</p>
+                        </a>
+                      </Link>
+                    </SwiperSlide>
+                  ))}
+                  {items.segways.kidsSegways.map(({id, name, shortName, imgSmallPath}) => (
+                    <SwiperSlide key={id} className="top-swiper__item">
+                      <Link href="#">
+                        <a className="top-swiper__link">
+                          <div className="top-swiper__img-wrapper">
+                            <Image objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                          </div>
+                          <p className="top-swiper__name">{shortName}</p>
+                        </a>
+                      </Link>
+                    </SwiperSlide>
+                  ))}
+                  <SwiperSlide key="99999" className="top-swiper__item">
+                    <Link href="#accessories">
+                      <a className="top-swiper__link">
+                        <div className="top-swiper__img-wrapper">
+                          <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                        </div>
+                        <p className="top-swiper__name">Accessories</p>
+                      </a>
+                    </Link>
+                  </SwiperSlide>
+                </Swiper>
+
+                <div className="top-swiper__navigation">
+                  <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
+                    <BsChevronCompactLeft className="top-swiper__icon" />
+                  </button>
+                  <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
+                    <BsChevronCompactRight className="top-swiper__icon" />
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide className="top-swiper__parent-slide">
+              <div className="top-swiper__main-container">
+                <Swiper
+                  className="top-swiper__swiper"
+                  modules={[Navigation, FreeMode]}
+                  spaceBetween={0}
+                  slidesPerView={4}
+                  loop={false}
+                  freeMode={true}
+                  navigation={{
+                    prevEl: '.top-swiper__nav_prev',
+                    nextEl: '.top-swiper__nav_next'
+                  }}
+                  breakpoints={{
+                    768: {
+                      allowTouchMove: false
+                    }
+                  }}>
+                  {items.segways.adultSegways.map(({id, name, shortName, imgSmallPath, accent}) => (
+                    <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>
+                      <Link href="#">
+                        <a className="top-swiper__link">
+                          <div className="top-swiper__img-wrapper">
+                            <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                          </div>
+                          <p className="top-swiper__name">{shortName}</p>
+                        </a>
+                      </Link>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                <div className="top-swiper__navigation">
+                  <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
+                    <BsChevronCompactLeft className="top-swiper__icon" />
+                  </button>
+                  <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
+                    <BsChevronCompactRight className="top-swiper__icon" />
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide className="top-swiper__parent-slide">
+              <div className="top-swiper__main-container">
+                <Swiper
+                  className="top-swiper__swiper"
+                  modules={[Navigation, FreeMode]}
+                  spaceBetween={0}
+                  slidesPerView={4}
+                  loop={false}
+                  freeMode={true}
+                  navigation={{
+                    prevEl: '.top-swiper__nav_prev',
+                    nextEl: '.top-swiper__nav_next'
+                  }}
+                  breakpoints={{
+                    768: {
+                      allowTouchMove: false
+                    }
+                  }}>
+                  {items.segways.kidsSegways.map(({id, name, shortName, imgSmallPath, accent}) => (
+                    <SwiperSlide key={id} className={accent ? 'top-swiper__item accent' : 'top-swiper__item'}>
+                      <Link href="#">
+                        <a className="top-swiper__link">
+                          <div className="top-swiper__img-wrapper">
+                            <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                          </div>
+                          <p className="top-swiper__name">{shortName}</p>
+                        </a>
+                      </Link>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                <div className="top-swiper__navigation">
+                  <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
+                    <BsChevronCompactLeft className="top-swiper__icon" />
+                  </button>
+                  <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
+                    <BsChevronCompactRight className="top-swiper__icon" />
+                  </button>
+                </div>
+              </div>
             </SwiperSlide>
           </Swiper>
-
-          <div className={activeIndex !== 0 ? 'top-swiper__navigation' : 'top-swiper__navigation disabled'}>
-            <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
-              <BsChevronCompactLeft className="top-swiper__icon" />
-            </button>
-            <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
-              <BsChevronCompactRight className="top-swiper__icon" />
-            </button>
-          </div>
         </div>
       </div>
     </div>

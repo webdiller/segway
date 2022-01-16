@@ -3,11 +3,13 @@ import React, {useEffect, useRef, useState} from 'react';
 import TinderCard from 'react-tinder-card';
 import disableScroll from 'disable-scroll';
 import {useSelector} from 'react-redux';
+import UiInput from '@/ui/UiInput';
 
 export default function DiscountModal() {
   const elRef = useRef(null);
   const [activeModal, setActiveModal] = useState(false);
   const {active: activeModalProduct} = useSelector((state) => state.productModal);
+  const {active: isActiveCompareModal} = useSelector((state) => state.compareModal);
 
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
@@ -32,9 +34,9 @@ export default function DiscountModal() {
     const secondInterval = null;
 
     firstInterval = setInterval((_first) => {
-      if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false) {
+      if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false && isActiveCompareModal === false) {
         secondInterval = setInterval((_second) => {
-          if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false) {
+          if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false && isActiveCompareModal === false) {
             setActiveModal(true);
             window.localStorage.setItem('isFirstVisit', 'false');
             clearInterval(firstInterval);
@@ -70,6 +72,7 @@ export default function DiscountModal() {
             <p className="title discount-modal__subtitle">discount</p>
             <p className="text discount-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
           </div>
+          <UiInput forForm={true} customClass="didnt-find-modal__input" />
           <button className="ui-btn discount-modal__btn">
             <span>Get a discount</span>
           </button>

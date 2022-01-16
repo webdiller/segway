@@ -35,6 +35,7 @@
     background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
     border: 10px solid #009eff;
     text-align: center;
+    padding-bottom: 50px;
     @include media("<=768px") {
       border-width: 5px;
       min-width: 337px;
@@ -94,7 +95,7 @@
   }
 
   &__content {
-    padding-bottom: 47px;
+    padding-bottom: 17px;
   }
 
   &__subtitle {

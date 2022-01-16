@@ -8,9 +8,30 @@ import SegwayProtectMobile from '@/blocks/SegwayProtectMobile';
 import arrowLeft from '@/base/icon-arrow-left.svg';
 import arrowRight from '@/base/icon-arrow-right.svg';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
+import {useDispatch, useSelector} from 'react-redux';
+import {setFancyImages} from '@/actions/fancyModal';
+import {useEffect, useRef, useState} from 'react';
+import {setSlideIndex} from '@/actions/welcomeSlider';
 import 'swiper/css/pagination';
 
 export default function Welcome({currentSegway}) {
+  const [imagesFrFancySlider] = useState(currentSegway.galleryImages);
+  const dispatch = useDispatch();
+  const {selectedSlide} = useSelector((state) => state.welcomeSlider);
+  const mainSliderElement = useRef(null);
+
+  useEffect(() => {
+    dispatch(setFancyImages(imagesFrFancySlider));
+  }, [imagesFrFancySlider, dispatch]);
+
+  useEffect(() => {
+    mainSliderElement.current.slideTo(selectedSlide, 600, null);
+  }, [selectedSlide, mainSliderElement]);
+
+  const setSlideIndexHandler = (indx) => () => {
+    dispatch(setSlideIndex(indx));
+  };
+
   return (
     <div className="welcome">
       <div className="container welcome__container">
@@ -40,6 +61,7 @@ export default function Welcome({currentSegway}) {
           <div className="welcome__swiper-wrapper">
             <div className="welcome__swiper">
               <Swiper
+                ref={mainSliderElement}
                 modules={[Navigation, Pagination]}
                 spaceBetween={0}
                 slidesPerView={1}
@@ -57,12 +79,19 @@ export default function Welcome({currentSegway}) {
                     spaceBetween: 0,
                     slidesPerView: 1
                   }
+                }}
+                onInit={(swiper) => {
+                  mainSliderElement.current = swiper;
                 }}>
-              {currentSegway.galleryImages.map((imgPath,id)=>{
-                return (
-                  <SwiperSlide key={id} className="welcome__swiper-item"><div className="welcome__swiper-img-wrapper"><Image width="400" height="650" objectFit="contain" className="welcome__swiper-img" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} /></div></SwiperSlide>
-                )
-              })}
+                {currentSegway.galleryImages.map((imgPath, id) => {
+                  return (
+                    <SwiperSlide key={id} className="welcome__swiper-item">
+                      <div className="welcome__swiper-img-wrapper">
+                        <Image width="400" height="650" objectFit="contain" className="welcome__swiper-img" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
               </Swiper>
 
               <div className="welcome__swiper-navigation">
@@ -79,6 +108,31 @@ export default function Welcome({currentSegway}) {
               </div>
               <div className="welcome__swiper-pagination"></div>
             </div>
+          </div>
+
+          <div className="welcome__thumbnails">
+            <p className="welcome__thumbnails-title">OTHER PHOTO:</p>
+            <Swiper
+              className="welcome__thumbnails-swiper"
+              spaceBetween={10}
+              slidesPerView={5}
+              loop={false}
+              breakpoints={{
+                768: {
+                  spaceBetween: 20,
+                  slidesPerView: 6
+                }
+              }}>
+              {currentSegway.galleryImages.map((imgPath, id) => {
+                return (
+                  <SwiperSlide onClick={setSlideIndexHandler(id)} key={id} className="welcome__thumbnails-item">
+                    <div className={selectedSlide === id ? 'welcome__thumbnails-img-wrapper active' : 'welcome__thumbnails-img-wrapper'}>
+                      <Image width="140" height="140" objectFit="contain" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
           </div>
         </div>
       </div>

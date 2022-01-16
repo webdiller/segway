@@ -23,12 +23,15 @@ import iconShock from '@/base/icon-shock.svg';
 import iconSafety from '@/base/icon-safety.svg';
 import iconAtmosphere from '@/base/icon-atmosphere.svg';
 import {setProductModal} from '@/actions/productModal';
-import {useDispatch} from 'react-redux';
+import {setCompareModal} from '@/actions/compareModal';
+import {useDispatch, useSelector} from 'react-redux';
 
 export default function CompareSpecifications({items, mainSegway}) {
   const {addItem} = useCart();
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
+
+  const {active: isActiveCompareModal} = useSelector((state) => state.compareModal);
 
   // Активный индекс у слайдера (для больших экранов)
   const [activeIndex, setActiveIndex] = useState(0);
@@ -39,31 +42,32 @@ export default function CompareSpecifications({items, mainSegway}) {
   // Если есть модель, то отобразить данные, иначе показать прочерк
   const [selectedModel, setSelectedModel] = useState();
 
-  // Показать модкалку, или нет?
-  const [modalActive, setModalActive] = useState(false);
-
   const setUrlIfModalActive = () => {
-    if (!modalActive) {
+    if (!isActiveCompareModal) {
       dispatch(setProductModal(true));
     } else {
       dispatch(setProductModal(false));
     }
   };
 
-  const closeOnClick = (event) => {
-    if (modalActive && targetScrollElement.current === event.target) {
-      setModalActive(false)
+  const closeOnClickOutsite = (event) => {
+    if (isActiveCompareModal && targetScrollElement.current === event.target) {
+      dispatch(setCompareModal(false))
     }
   };
 
-  const toggleCompareModal = () => () => {
-    setModalActive((prev) => !prev);
+  const closeModal = () => () => {
+    dispatch(setCompareModal(false))
+  };
+
+  const openModal = () => () => {
+    dispatch(setCompareModal(true))
   };
 
   const setSelectedModelHandle = (id) => {
     const filtered = allModels.filter((model) => model.id == id);
     setSelectedModel(...filtered);
-    setModalActive(false);
+    dispatch(setCompareModal(false))
     setUrlIfModalActive();
   };
 
@@ -85,8 +89,8 @@ export default function CompareSpecifications({items, mainSegway}) {
   }, [selectedModel]);
 
   useEffect(() => {
-    modalActive ? document.body.classList.add('disabled') : document.body.classList.remove('disabled');
-  }, [modalActive]);
+    isActiveCompareModal ? document.body.classList.add('disabled') : document.body.classList.remove('disabled');
+  }, [isActiveCompareModal]);
 
   return (
     <div className="compare-specfications">
@@ -107,7 +111,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                   <p className="text text_bold main-slide__name">Ninebot Kickscooter MAX</p>
                 </div>
                 <div className="main-slide__header-right">
-                  <div onClick={toggleCompareModal()} className="main-slide__img-compare-wrapper">
+                  <div onClick={openModal()} className="main-slide__img-compare-wrapper">
                     <img loading="lazy" width="104" height="104" src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`} alt="icon-compare" className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'} />
                   </div>
                   <p className="text text_bold main-slide__name">{!selectedModel ? 'Add model' : selectedModel.name} </p>
@@ -636,11 +640,11 @@ export default function CompareSpecifications({items, mainSegway}) {
           </div>
         </div>
 
-        <div onClick={(e) => closeOnClick(e)} ref={targetScrollElement} className={modalActive ? 'compare-modal active' : 'compare-modal'}>
+        <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={isActiveCompareModal ? 'compare-modal active' : 'compare-modal'}>
           <div className="compare-modal__wrapper">
             <div className="compare-modal__wrapper-inner">
               <p className="title compare-modal__title">select a model to compare</p>
-              <img onClick={toggleCompareModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+              <img onClick={closeModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
               <div className="compare-modal__items">
                 {allModels.map(({id, shortName, imgPath}) => (
                   <button

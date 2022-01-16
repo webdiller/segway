@@ -1,7 +1,7 @@
 import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import {useInView} from 'react-intersection-observer';
@@ -9,7 +9,7 @@ import UiInput from '@/ui/UiInput';
 
 export default function OtherModels({items}) {
   const swiperRef = useRef(null);
-  const filteredModels = [items[0], items[1], items[2], items[3], items[4], items[5], items[6]];
+  const [allSegways] = useState(items)
   const {ref, inView} = useInView({threshold: 0.5});
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function OtherModels({items}) {
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {filteredModels.map(({id, name, nameWithoutBrand, price, imgPath}) => (
+            {allSegways.map(({id, name, nameWithoutBrand, price, imgPath}) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
                 <div className="other-models__item-wrapper">
                   <Link href="#">

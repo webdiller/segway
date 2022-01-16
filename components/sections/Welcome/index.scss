@@ -1,13 +1,13 @@
 .welcome {
   overflow-x: hidden;
-  @include media("<=991px") {
+  @include media('<=991px') {
   }
   &__container {
     padding-top: 20px;
     padding-bottom: 40px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 0;
       padding-right: 0;
     }
@@ -18,40 +18,40 @@
     column-gap: 20px;
     grid-template-columns: 1fr 400px;
     grid-template-areas:
-      "stock swiper"
-      "title swiper"
-      "form swiper"
-      "payments payments"
-      ;
-    @include media("<=1200px") {
+      'stock swiper'
+      'title swiper'
+      'form swiper'
+      'payments payments'
+      'thumbnails thumbnails';
+    @include media('<=1200px') {
       grid-template-columns: 1fr 300px;
     }
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       grid-template-columns: 1fr;
       grid-template-areas:
-        "stock"
-        "title"
-        "swiper"
-        "form"
-        "payments";
+        'stock'
+        'title'
+        'swiper'
+        'form'
+        'payments';
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       grid-template-columns: 1fr;
       grid-template-areas:
-        "stock"
-        "title"
-        "swiper"
-        "protect"
-        "form"
-        "payments";
+        'stock'
+        'title'
+        'swiper'
+        'protect'
+        'form'
+        'payments';
     }
   }
 
   &__stock-wrapper {
     grid-area: stock;
-    @include media("<=768px") {
+    @include media('<=768px') {
       text-align: center;
       padding-left: 16px;
       padding-right: 16px;
@@ -75,18 +75,18 @@
 
     color: #6acd68;
     margin-bottom: 10px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       min-width: 105px;
     }
   }
 
   &__title-wrapper {
     grid-area: title;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       max-width: 400px;
       text-align: center;
       margin-left: auto;
@@ -100,7 +100,7 @@
     grid-area: protect;
     display: none;
     margin-bottom: 15px;
-    @include media("<=480px") {
+    @include media('<=480px') {
       display: block;
       padding-left: 16px;
       padding-right: 16px;
@@ -109,17 +109,17 @@
 
   &__title {
     margin-bottom: 15px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
   &__form-wrapper {
     grid-area: form;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 16px;
       padding-right: 16px;
     }
@@ -127,17 +127,17 @@
 
   &__form {
     margin-bottom: 25px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
   &__payments-wrapper {
     grid-area: payments;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       padding-left: 16px;
       padding-right: 16px;
     }
@@ -149,16 +149,16 @@
   &__swiper-wrapper {
     grid-area: swiper;
     overflow: hidden;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
   &__swiper {
     position: relative;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       margin-bottom: 45px;
     }
     .swiper-wrapper {
@@ -167,29 +167,29 @@
   }
 
   &__swiper-item {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
   &__swiper-img-wrapper {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       max-width: 200px;
       margin-left: auto;
       margin-right: auto;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       max-width: 256px;
     }
   }
 
   &__swiper-img {
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
@@ -208,9 +208,9 @@
     z-index: 10;
     height: 0;
     display: none;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       display: flex;
       margin: 0 auto;
       width: 100%;
@@ -221,9 +221,9 @@
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
@@ -235,27 +235,27 @@
 
     cursor: pointer;
     transition: all 0.3s ease;
-    
+
     &_prev {
-      @include media("<=768px") {
+      @include media('<=768px') {
         padding-left: 16px;
         padding-right: 30px;
       }
     }
 
     &_next {
-      @include media("<=768px") {
+      @include media('<=768px') {
         padding-right: 16px;
         padding-left: 30px;
       }
     }
 
-    @include media("<=991px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
       height: 200px;
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
     }
   }
 
@@ -267,19 +267,50 @@
       justify-content: flex-start;
     }
     &_right {
-      justify-content: flex-end;}
-    @include media("<=991px") {
+      justify-content: flex-end;
     }
-    @include media("<=768px") {
+    @include media('<=991px') {
     }
-    @include media("<=768px") {
+    @include media('<=768px') {
+    }
+    @include media('<=768px') {
     }
   }
 
-  // .swiper-slide {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   height: auto;
-  // }
+  &__thumbnails {
+    grid-area: thumbnails;
+    position: relative;
+    overflow: hidden;
+    @include media('<=768px') {
+      display: none;
+    }
+  }
+  &__thumbnails-title {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 31px;
+    text-transform: uppercase;
+    color: #323941;
+    @include media('<=768px') {
+      margin-top: 0;
+    }
+  }
+  &__thumbnails-swiper {
+    position: relative;
+    overflow: hidden;
+  }
+  &__thumbnails-item {
+  }
+  &__thumbnails-swiper {
+  }
+  &__thumbnails-img-wrapper {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    &.active {
+      opacity: 1;
+    }
+  }
 }

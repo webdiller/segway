@@ -3,6 +3,7 @@ import DefaultLayout from '@/basic/DefaultLayout';
 import {data} from '@/base/data';
 import Welcome from '@/sections/Welcome';
 import Tabs from '@/sections/Tabs';
+import { FancyModal } from 'components/shared/Modal';
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
 const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
@@ -45,10 +46,11 @@ export default function Home({allData}) {
       <SegwayProtectDinamic />
       <ControllFromSmartphoneDinamic />
       <SegwayNinebotDinamic item={allData.segways.adultSegways[5]} />
-      <OtherModelsDinamic items={allData.segways.adultSegways} />
+      <OtherModelsDinamic items={[...allData.segways.adultSegways, ...allData.segways.kidsSegways]} />
       <FixedModalDinamic segwayItem={allData.segways.adultSegways[5]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
+      <FancyModal/>
     </DefaultLayout>
   );
 }

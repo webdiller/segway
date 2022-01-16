@@ -382,7 +382,7 @@ export const data = {
         imgPathWithCircle: '/ninebot-kickscooter-max-006-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-max-006-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-max/', 'https://store.segway.com/ninebot-kickscooter-max'],
-        galleryImages: ['/ks-max/ks-max-006-1.png', '/ks-max/ks-max-006-2.png', '/ks-max/ks-max-006-3.png', '/ks-max/ks-max-006-4.png', '/ks-max/ks-max-006-5.png', '/ks-max/ks-max-006-6.png'],
+        galleryImages: ['/ks-max/ks-max-006-1.png', '/ks-max/ks-max-006-2.png', '/ks-max/ks-max-006-3.png', '/ks-max/ks-max-006-4.png', '/ks-max/ks-max-006-5.png', '/ks-max/ks-max-006-6.png', '/ks-max/ks-max-006-7.png'],
         accent: true
       },
       {
@@ -572,6 +572,7 @@ export const data = {
         type: 'kidsScooter',
         brandName: 'Ninebot',
         name: 'Ninebot Kickscooter Zing e8',
+        nameWithoutBrand: 'Kickscooter\nE8',
         shortName: 'KS ZING E8',
         price: '249.99',
         maxSpeed: '8.6 mph',
@@ -619,6 +620,7 @@ export const data = {
         type: 'kidsScooter',
         brandName: 'Ninebot',
         name: 'Ninebot Kickscooter Zing E10',
+        nameWithoutBrand: 'Kickscooter\nE10',
         shortName: 'KS ZING E10',
         price: '259.99',
         maxSpeed: '10 mph',
@@ -666,6 +668,7 @@ export const data = {
         type: 'kidsScooter',
         brandName: 'Ninebot',
         name: 'Ninebot Kickscooter Zing E12',
+        nameWithoutBrand: 'Kickscooter\nE12',
         shortName: 'KS ZING E12',
         price: '259.99',
         maxSpeed: '11.2 mph',
