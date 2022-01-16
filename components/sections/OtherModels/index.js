@@ -92,21 +92,6 @@ export default function OtherModels({items}) {
                 </a>
               </Link>
             </SwiperSlide>
-
-            {/* <SwiperSlide key="020202" className="swiper-slide other-models__item_hide other-models__item">
-              <div className="other-models__item-wrapper">
-                <Link href="#">
-                  <a className="other-models__link">
-                    <div className="other-models__img-wrapper">
-                    </div>
-                    <p className="text text_25 other-models__name"></p>
-                    <div className="other-models__price">
-                      <p className="text text_uppercase other-models__price-value"></p>
-                    </div>
-                  </a>
-                </Link>
-              </div>
-            </SwiperSlide> */}
           </Swiper>
         </div>
         <div className="other-models__swiper-scrollbar"></div>

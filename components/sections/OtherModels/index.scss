@@ -219,6 +219,7 @@
   }
 
   &__name {
+    white-space: break-spaces;
     margin-bottom: 15px;
     @include media('<=991px') {
       max-width: 220px;
