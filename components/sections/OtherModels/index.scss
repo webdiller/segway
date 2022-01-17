@@ -64,6 +64,7 @@
     flex: 0 1 25%;
     padding: 0 15px 50px 15px;
     height: auto;
+
     @include media('<=991px') {
       flex: 0 1 33.33%;
     }
@@ -126,14 +127,12 @@
         }
       }
     }
-    &.other-models__item_hide {
-      padding: 0;
-      margin-right: 0;
-      @include media('<=768px') {
-        display: block;
-        width: 150px;
-        flex: 0 0 150px;
-      }
+    &:nth-last-child(-n + 2) {
+      margin-left: auto;
+    }
+    &:last-child {
+      margin-left: 0;
+      margin-right: auto;
     }
   }
 
