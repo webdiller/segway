@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import {Navigation} from 'swiper';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import styles from './FancyModal.module.scss';
@@ -17,6 +17,8 @@ export default function FancyModal() {
   const swipePrevRef = useRef();
   const swiperRef = useRef();
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const slideToLeft = () => swiperRef.current.slidePrev();
   const slideToRight = () => {
     swiperRef.current.slideNext();
@@ -32,7 +34,7 @@ export default function FancyModal() {
 
   useEffect(() => {
     activeModal ? document.body.classList.add('disabled') : document.body.classList.remove('disabled');
-  }, [activeModal])
+  }, [activeModal]);
 
   return (
     <div className={activeModal ? `${styles.fancyModal} ${styles.fancyModal__active}` : `${styles.fancyModal}`}>
@@ -47,6 +49,10 @@ export default function FancyModal() {
           loop={false}
           onInit={(swiper) => {
             swiperRef.current = swiper;
+          }}
+          onSlideChange={(swiper) => {
+            let indx = swiper.activeIndex;
+            setCurrentSlide(indx);
           }}>
           {images.map((element, id) => (
             <SwiperSlide key={id} className={styles.fancyModal__imageWrapper}>
@@ -56,10 +62,10 @@ export default function FancyModal() {
         </Swiper>
 
         <div className={styles.fancyModal__navigation}>
-          <button onClick={slideToLeft} ref={swipePrevRef} aria-label="swipe to left slider" className={`${styles.fancyModal__navigationItem}`}>
+          <button onClick={slideToLeft} ref={swipePrevRef} aria-label="swipe to left slider" className={currentSlide === 0 ? `${styles.fancyModal__navigationItem} ${styles.fancyModal__navigationItem_hidden}` : `${styles.fancyModal__navigationItem}`}>
             <FcPrevious className="top-swiper__icon" />
           </button>
-          <button onClick={slideToRight} ref={swipeNextRef} aria-label="swipe to right slider" className={`${styles.fancyModal__navigationItem}`}>
+          <button onClick={slideToRight} ref={swipeNextRef} aria-label="swipe to right slider" className={(currentSlide + 1) === images.length ? `${styles.fancyModal__navigationItem} ${styles.fancyModal__navigationItem_hidden}` : `${styles.fancyModal__navigationItem}`}>
             <FcNext className="top-swiper__icon" />
           </button>
         </div>
