@@ -43,11 +43,27 @@
     border: 7px solid #009eff;
   }
 
-  &__closeIcon {
+  &__closeIcon_desktop {
     position: absolute;
     top: 15px;
     right: -65px;
+    z-index: 10;
     transition: all 0.3s ease;
+    @include media('<=991px') {
+      display: none;
+    }
+  }
+  &__closeIcon_mobile {
+    position: absolute;
+    top: 15px;
+    z-index: 10;
+    transition: all 0.3s ease;
+    @include media('<=991px') {
+      display: block;
+      right: 15px;
+      width: 16px;
+      height: 16px;
+    }
   }
   &__slider {
     height: 100%;
@@ -66,6 +82,9 @@
     justify-content: space-between;
     z-index: 100;
     height: 0;
+    @include media('<=991px') {
+      width: calc(100% - 20px);
+    }
   }
   &__navigationItem {
     width: 70px;
@@ -77,21 +96,23 @@
     justify-content: center;
     align-items: center;
 
+    cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover,
     &:focus {
       background-color: #fff;
     }
+    @include media('<=991px') {
+      width: 40px;
+      height: 40px;
+    }
   }
-  &__navigationItem_left {
-  }
-  &__navigationItem_right {
-  }
+
   &__navigationIcon {
     font-size: 40px;
     color: #009eff;
-    @include media('<=768px') {
+    @include media('<=991px') {
       font-size: 22px;
     }
   }

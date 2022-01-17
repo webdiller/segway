@@ -1,9 +1,13 @@
 import * as types from '../types';
 
-export const setFancyModal = (active) => async (dispatch) => {
+/**
+ * @param {number} activeIndex 
+ * @param {boolean} isActiveModal 
+ */
+export const setFancyModal = (isActiveModal, activeIndex) => async (dispatch) => {
   dispatch({
     type: types.SET_FANCY_MODAL,
-    payload: active
+    payload: {isActiveModal, activeIndex}
   });
 };
 
