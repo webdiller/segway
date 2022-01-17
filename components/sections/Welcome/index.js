@@ -15,8 +15,9 @@ import {setSlideIndex} from '@/actions/welcomeSlider';
 import 'swiper/css/pagination';
 
 export default function Welcome({currentSegway}) {
-  const [imagesFrFancySlider] = useState(currentSegway.galleryImages);
   const dispatch = useDispatch();
+
+  const [imagesFrFancySlider] = useState(currentSegway.galleryImages);
   const {selectedSlide} = useSelector((state) => state.welcomeSlider);
   const mainSliderElement = useRef(null);
   const thumbnailSliderElement = useRef(null);
@@ -26,6 +27,7 @@ export default function Welcome({currentSegway}) {
   };
 
   const setSlideIndexHandler = (indx) => () => {
+    dispatch(setFancyModal(true, indx));
     dispatch(setSlideIndex(indx));
   };
 
