@@ -219,7 +219,7 @@
     bottom: -3px;
     @include media('<=768px') {
       display: flex;
-      bottom: -7px;
+      bottom: -7px !important;
     }
   }
 
