@@ -121,7 +121,7 @@ export default function ProductModal({accessoeries}) {
   const closeModalWrapper = (e) => {
     if (e.target === modalRef.current) {
       modalRef.current.classList.remove('active');
-      document.body.classList.add('disabled');
+      document.body.classList.remove('disabled');
       dispatch(setProductModal(false));
     }
   };
