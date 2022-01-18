@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import DefaultLayout from '@/basic/DefaultLayout';
 import {data} from '@/base/data';
 import Welcome from '@/sections/Welcome';
+import TopStock from '@/sections/TopStock';
 import Tabs from '@/sections/Tabs';
 import { FancyModal } from 'components/shared/Modal';
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
@@ -28,6 +29,7 @@ const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/Pro
 export default function Home({allData}) {
   return (
     <DefaultLayout items={allData} description="segway description" title="segway index">
+      <TopStock/>
       <Welcome currentSegway={allData.segways.adultSegways[5]} />
       <Tabs />
       <PackingListDinamic />

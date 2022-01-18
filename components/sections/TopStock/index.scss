@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    white-space: nowrap;
 
     min-height: 48px;
     text-transform: uppercase;
@@ -16,8 +17,16 @@
 
     padding-top: 5px;
     padding-bottom: 5px;
-  }
-  @include media('<=576px') {
-    display: none;
+    @include media('<=768px') {
+      min-height: 33px;
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
   }
 }

@@ -1,6 +1,9 @@
 .top-swiper {
   &__actions {
     background-color: #31363B;
+    @include media('<=576px') {
+      border-bottom: 1px solid #323941;
+    }
   }
 
   &__actions-swiper {
@@ -8,6 +11,8 @@
 
   &__actions-slide {
     @include reset-btn();
+
+    position: relative;
 
     display: flex;
     justify-content: center;
@@ -26,8 +31,24 @@
     transition: all 0.3s ease !important;
     cursor: pointer;
 
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url(/icon-top-swiper-triangle.svg);
+      background-repeat: no-repeat;
+      width: 10px;
+      height: 6px;
+      opacity: 0;
+    }
+
     &.swiper-slide-active {
       background-color: #009eff;
+      &::before {
+        opacity: 1;
+      }
     }
     @include media('<=991px') {
       min-height: 39px;

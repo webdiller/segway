@@ -1,64 +1,39 @@
 .welcome {
   overflow-x: hidden;
-  @include media('<=991px') {
-  }
   &__container {
-    padding-top: 20px;
-    padding-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     @include media('<=991px') {
     }
     @include media('<=768px') {
+      margin-top: 20px;
       padding-left: 0;
       padding-right: 0;
     }
   }
 
-  &__top {
-    display: grid;
-    column-gap: 20px;
-    grid-template-columns: 1fr 400px;
-    grid-template-areas:
-      'stock swiper'
-      'title swiper'
-      'form swiper'
-      'payments payments'
-      'thumbnails thumbnails';
-    @include media('<=1200px') {
-      grid-template-columns: 1fr 300px;
-    }
-    @include media('<=991px') {
-    }
+  &__stock-with-title {
     @include media('<=768px') {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        'stock'
-        'title'
-        'swiper'
-        'form'
-        'payments';
-    }
-    @include media('<=576px') {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        'stock'
-        'title'
-        'swiper'
-        'protect'
-        'form'
-        'payments';
-    }
-  }
-
-  &__stock-wrapper {
-    grid-area: stock;
-    @include media('<=768px') {
-      text-align: center;
       padding-left: 16px;
       padding-right: 16px;
+      text-align: center;
+    }
+    &_desktop {
+      @include media('<=768px') {
+        display: none;
+      }
+    }
+    &_mobile {
+      display: none;
+
+      @include media('<=768px') {
+        display: block;
+      }
     }
   }
 
   &__stock {
+    margin-bottom: 26px;
     height: 28px;
     border: 2px solid #6acd68;
     box-sizing: border-box;
@@ -74,122 +49,91 @@
     padding-right: 20px;
 
     color: #6acd68;
-    margin-bottom: 10px;
-    @include media('<=991px') {
-    }
     @include media('<=768px') {
       min-width: 105px;
+      margin-bottom: 15px;
+    }
+  }
+  &__title {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    font-size: 58px;
+    line-height: 60px;
+    @include media('<=768px') {
+      max-width: 330px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 37px;
+      line-height: 34px;
     }
   }
 
-  &__title-wrapper {
-    grid-area: title;
-    @include media('<=991px') {
-    }
+  &__content-with-swiper {
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 400px);
+    column-gap: 18px;
+    margin-bottom: 15px;
     @include media('<=768px') {
-      max-width: 400px;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  &__content {
+  }
+
+  &__title {
+  }
+  &__form {
+    margin-bottom: 30px;
+    @include media('<=768px') {
       padding-left: 16px;
       padding-right: 16px;
     }
   }
-
-  &__protect-wrapper {
-    grid-area: protect;
+  &__protect {
     display: none;
     margin-bottom: 15px;
-    @include media('<=480px') {
+    @include media('<=576px') {
       display: block;
       padding-left: 16px;
       padding-right: 16px;
     }
   }
-
-  &__title {
-    margin-bottom: 15px;
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
-    }
-  }
-
-  &__form-wrapper {
-    grid-area: form;
-    @include media('<=991px') {
-    }
+  &__payments {
     @include media('<=768px') {
       padding-left: 16px;
       padding-right: 16px;
     }
   }
 
-  &__form {
-    margin-bottom: 25px;
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
-    }
-  }
-
-  &__payments-wrapper {
-    grid-area: payments;
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-  }
-
-  &__top-right {
-  }
-
-  &__swiper-wrapper {
-    grid-area: swiper;
-    overflow: hidden;
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
-    }
-  }
   &__swiper {
     position: relative;
-    @include media('<=991px') {
-    }
     @include media('<=768px') {
-      margin-bottom: 45px;
+      margin-bottom: 18px;
     }
     .swiper-wrapper {
       align-items: center;
     }
   }
 
-  &__swiper-item {
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
-    }
-  }
-
   &__swiper-img-wrapper {
-    @include media('<=991px') {
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(0.99);
+      cursor: pointer;
+    }
+    &:active {
+      transform: scale(0.99);
+      cursor: grab;
     }
     @include media('<=768px') {
-      max-width: 200px;
+      max-width: unset;
       margin-left: auto;
       margin-right: auto;
     }
     @include media('<=576px') {
-      max-width: 256px;
-    }
-  }
-
-  &__swiper-img {
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
+      max-width: unset;
     }
   }
 
@@ -214,16 +158,6 @@
       display: flex;
       margin: 0 auto;
       width: 100%;
-    }
-  }
-
-  &__swiper-pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
     }
   }
 
@@ -277,25 +211,33 @@
     }
   }
 
+  &__swiper-pagination {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    bottom: -3px;
+    @include media('<=768px') {
+      display: flex;
+      bottom: -7px;
+    }
+  }
+
   &__thumbnails {
-    grid-area: thumbnails;
     position: relative;
     overflow: hidden;
+    margin-bottom: 25px;
     @include media('<=768px') {
       display: none;
     }
   }
   &__thumbnails-title {
-    margin-top: 25px;
     margin-bottom: 15px;
     font-weight: bold;
     font-size: 25px;
     line-height: 31px;
     text-transform: uppercase;
     color: #323941;
-    @include media('<=768px') {
-      margin-top: 0;
-    }
   }
   &__thumbnails-swiper {
     position: relative;
@@ -306,9 +248,10 @@
   &__thumbnails-swiper {
   }
   &__thumbnails-img-wrapper {
-    cursor: pointer;
+    border: 1px solid #f1f1f1;
     opacity: 0.6;
     transition: all 0.3s ease;
+    cursor: pointer;
     &.active {
       opacity: 1;
     }

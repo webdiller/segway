@@ -23,7 +23,8 @@
     align-self: flex-start;
     max-width: 400px;
     margin-left: auto;
-    padding-top: 7px;
+    margin-right: 9px;
+    margin-top: 13px;
     @include media('<=768px') {
       max-width: 300px;
     }
@@ -31,12 +32,13 @@
 
   &__director-img-wrapper {
     display: block;
-    width: 81px;
-    flex: 0 1 81px;
-    min-width: 81px;
-    height: 81px;
+    width: 68px;
+    flex: 0 1 68px;
+    min-width: 68px;
+    height: 68px;
     border-radius: 50%;
-    margin-right: 13px;
+    margin-right: 22px;
+    margin-bottom: 4px;
   }
 
   &__director-img {
@@ -45,6 +47,8 @@
 
   &__director-items {
     text-align: left;
+    flex: 0 1 auto;
+    max-width: 302px;
   }
 
   &__director-name {
