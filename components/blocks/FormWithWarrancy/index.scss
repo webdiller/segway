@@ -102,13 +102,20 @@
     }
   }
 
+  
+  &__form-button-year {
+    pointer-events: none;
+  }
+
   &__form-button-separator {
     margin: 0 5px;
+    pointer-events: none;
     @include media('<=575px') {
       display: none;
     }
   }
   &__form-button-price {
+    pointer-events: none;
     @include media('<=575px') {
       font-weight: 600;
       color: #009eff;

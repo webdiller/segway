@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "local-dev": "next dev -p 3000 -H 192.168.0.101",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

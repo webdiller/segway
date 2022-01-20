@@ -58,6 +58,7 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
     }
   }, [tabToggle, segwayItem, allItems, initWarranty, isClicked, addItemHandler, updateItemQuantityHandler]);
 
+
   return (
     <div className="product-modal__product-warrancy-items">
       <button onClick={(event) => tabToggleHandler(event, 'oneYear')} className={segwayItem.id.includes('oneYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
@@ -80,7 +81,10 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
 
 export default function ProductModal({accessoeries}) {
   // scroll
+  const modalWrapperElement = useRef(null);
   const targetScrollElement = useRef(null);
+  const targetVisibleItemsElement = useRef(null);
+  const targetItemsAreaElement = useRef(null);
 
   // modals
   const [visibleProducts, setVisibleProducts] = useState(true);
@@ -189,9 +193,23 @@ export default function ProductModal({accessoeries}) {
     }
   }, [isActiveModal]);
 
+  useEffect(() => {
+    if (segwaysWithAccessoeriesFromUseCart.length === 0) {
+      targetScrollElement.current.classList.remove('active');
+      targetVisibleItemsElement.current.classList.remove('active');
+      targetItemsAreaElement.current.classList.remove('active');
+      modalWrapperElement.current.classList.remove('active')
+    } else {
+      targetScrollElement.current.classList.add('active');
+      targetVisibleItemsElement.current.classList.add('active');
+      targetItemsAreaElement.current.classList.add('active');
+      modalWrapperElement.current.classList.add('active')
+    }
+  }, [segwaysWithAccessoeriesFromUseCart])
+
   return (
     <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className="product-modal">
-      <div className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
+      <div ref={modalWrapperElement} className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
         <button onClick={closeModal()} className="product-modal__close-btn">
           <div className="product-modal__close-btn-icon">
             <Image src={iconCloseWhite} alt="icon close" />
@@ -220,7 +238,7 @@ export default function ProductModal({accessoeries}) {
         {/* CONTENT START */}
         <div ref={targetScrollElement} className={visibleProducts ? 'product-modal__content active' : 'product-modal__content'}>
           <div className="product-modal__summ-and-products">
-            <div onClick={setVisibleProductsToggle()} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
+            <div ref={targetVisibleItemsElement} onClick={setVisibleProductsToggle()} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
               <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
                 <Image src={iconCartBlue} alt="icon" />
               </div>
@@ -231,7 +249,7 @@ export default function ProductModal({accessoeries}) {
               <p className="text text_bold product-modal__summ-total">$ {totalPriceWithWarranty.toFixed(2)}</p>
             </div>
 
-            <div className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
+            <div ref={targetItemsAreaElement} className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
               {clientAllSegways.map((item) => {
                 const {id, name, price, imgPath, quantity} = item;
 

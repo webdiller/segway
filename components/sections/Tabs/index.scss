@@ -135,18 +135,15 @@
     padding: 27px 15px 27px 23px;
     background-color: #f7f7f7;
     height: 195px;
-
+    @include media('<=991px') {
+    }
     @include media('<=768px') {
       height: auto;
-      padding: 15px 0;
+      padding: 15px 10px;
       background-color: transparent;
       height: 370px;
     }
 
-    @include media('<=991px') {
-    }
-    @include media('<=768px') {
-    }
     @include media('<=576px') {
     }
     &.active {

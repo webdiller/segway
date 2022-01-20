@@ -7,9 +7,13 @@ import UiInput from '@/ui/UiInput';
 
 export default function DiscountModal() {
   const elRef = useRef(null);
-  const [activeModal, setActiveModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(true);
   const {active: activeModalProduct} = useSelector((state) => state.productModal);
   const {active: isActiveCompareModal} = useSelector((state) => state.compareModal);
+
+  const addClassForRootELementIfFocused = (condition) => () => {
+    condition ? elRef.current.classList.add('focused') : elRef.current.classList.remove('focused')
+  }
 
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
@@ -60,7 +64,7 @@ export default function DiscountModal() {
   }, [activeModal]);
 
   return (
-    <div onClick={(e) => onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>
+    <div onFocus={addClassForRootELementIfFocused(true)} onBlur={addClassForRootELementIfFocused(false)} onClick={(e) => onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>
       <TinderCard swipeThreshold={300} onSwipe={onSwipe} preventSwipe={['right', 'left']}>
         <div className="discount-modal__wrapper">
           <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">

@@ -5,9 +5,9 @@ import segwayProtect from '@/base/segway-protect.png';
 import useAddToCart from '@/hooks/useAddToCart';
 import {useCart} from 'react-use-cart';
 import {useDispatch, useSelector} from 'react-redux';
-import {setPrice, setSegway} from 'store/actions/fixedModal';
-import {setWarranty} from 'store/actions/selectedWarranty';
-import {setProductModal} from 'store/actions/productModal';
+import {setPrice, setSegway} from '@/actions/fixedModal';
+import {setWarranty} from '@/actions/selectedWarranty';
+import {setProductModal} from '@/actions/productModal';
 
 // FIXME: Оптимизировать 
 export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
@@ -29,7 +29,12 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
   });
 
   const selectProductHandler = (event, selectedTabName) => {
-    if (!event.target.classList.contains('active')) {
+    if (event.target.classList.contains('active')) {
+      event.target.classList.remove('active');
+      dispatch(setWarranty(null));
+      dispatch(setPrice(item.price));
+      dispatch(setSegway(item));
+    } else if (!event.target.classList.contains('active')) {
       event.target.classList.add('active');
       const defineProduct = {...item, id: `${item.id}?warrancy=${selectedTabName}`, selectedWarranty: selectedTabName};
       dispatch(setWarranty(selectedTabName));
@@ -147,3 +152,9 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
     </>
   );
 }
+
+/**
+ * Нажали на гарантию
+ * если есть класс, то убираем класс и подготавливаем чистый продукт
+ * иначе, добавляем класс и подготавляваем модифицированный продукт
+ */

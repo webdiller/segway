@@ -121,7 +121,10 @@
     @include media('<=991px') {
       padding: 0 8px;
       margin: 10px 8px 0 8px;
-      overflow-y: scroll;
+      overflow-y: hidden;
+      &.active {
+        overflow-y: scroll;
+      }
       &::-webkit-scrollbar {
         width: 4px;
         border-radius: 100px;

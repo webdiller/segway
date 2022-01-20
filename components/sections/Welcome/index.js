@@ -24,13 +24,8 @@ export default function Welcome({currentSegway}) {
   const mainSliderElement = useRef(null);
   const thumbnailSliderElement = useRef(null);
 
-  const openFancyModalHandle = (indx) => () => {
-    dispatch(setFancyModal(true, indx));
-  };
-
   const setSlideIndexHandler = (indx) => () => {
     dispatch(setFancyModal(true, indx));
-    dispatch(setSlideIndex(indx));
   };
 
   useEffect(() => {
@@ -90,7 +85,7 @@ export default function Welcome({currentSegway}) {
               }}>
               {currentSegway.galleryImages.map((imgPath, id) => {
                 return (
-                  <SwiperSlide onClick={openFancyModalHandle(id)} key={id} className="welcome__swiper-item">
+                  <SwiperSlide key={id} className="welcome__swiper-item">
                     <div className="welcome__swiper-img-wrapper">
                       <Image width={mediaQuery ? "370" : "400"} height={mediaQuery ? "374" : "560"} objectFit="contain" className="welcome__swiper-img" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                     </div>

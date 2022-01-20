@@ -5,12 +5,14 @@ import logoBlack from '@/base/logo-black.svg';
 import iconCartWhite from '@/base/icon-cart-white.svg';
 import iconCartBlack from '@/base/icon-cart-black.svg';
 import iconPhoneBlack from '@/base/icon-phone-black.svg';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {setProductModal} from '@/actions/productModal';
 
 const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
 /** Верхняя навигация */
 export default function TopNavigation() {
+  const dispatch = useDispatch();
   const [isActiveMenu, setIsActiveMenu] = useState(false);
   const handleSetIsActiveMenu = () => {
     setIsActiveMenu((prev) => !prev);
@@ -75,14 +77,12 @@ export default function TopNavigation() {
           </Link>
 
           <div className="top-nav__actions top-nav__actions_desktop">
-            <Link href="/user-cart">
-              <a className="top-nav__action top-nav__action_cart">
+              <button onClick={() =>dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
                 <div className="top-nav__action-icon-wrapper">
                   <Image src={iconCartWhite} alt="icon" />
                 </div>
                 <span className="top-nav__action-counter">{totalCount}</span>
-              </a>
-            </Link>
+              </button>
             <Link href="tel:+18888888888">
               <a className="top-nav__action top-nav__action_phone">+1 (888) 888-88-88</a>
             </Link>
@@ -96,14 +96,12 @@ export default function TopNavigation() {
                 </div>
               </a>
             </Link>
-            <Link href="/user-cart">
-              <a className="top-nav__action top-nav__action_cart">
+              <button onClick={() =>dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
                 <div className="top-nav__action-icon-wrapper">
                   <Image src={iconCartBlack} alt="icon" />
                 </div>
                 <span className="top-nav__action-counter">{totalCount}</span>
-              </a>
-            </Link>
+              </button>
           </div>
         </div>
       </div>

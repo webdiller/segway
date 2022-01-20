@@ -30,6 +30,7 @@ export default function SegwayNinebot({item}) {
             src={segwayBg}
             alt="Segway Protective Gear Set as a gift"
             layout='fill'
+            quality={100}
             objectFit='contain'
           />
         </div>

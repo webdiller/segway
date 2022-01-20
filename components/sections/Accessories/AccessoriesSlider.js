@@ -100,7 +100,7 @@ export default function AccessoriesSlider({items}) {
         <div className="accessories-slider__swiper-scrollbar"></div>
         <div className="accessories-slider__bottom">
           <button ref={buttonElement} onClick={onToggleHiddenOthersetAccessories} className={items.length <= 9 ? 'hide ui-btn accessories-slider__bottom-link' : 'ui-btn accessories-slider__bottom-link'}>
-            <span>See more</span>
+            <span>{hidenOtherAccessories ? 'See more' : 'See less'} </span>
           </button>
         </div>
       </div>
