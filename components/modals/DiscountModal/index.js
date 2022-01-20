@@ -7,7 +7,7 @@ import UiInput from '@/ui/UiInput';
 
 export default function DiscountModal() {
   const elRef = useRef(null);
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
   const {active: activeModalProduct} = useSelector((state) => state.productModal);
   const {active: isActiveCompareModal} = useSelector((state) => state.compareModal);
 
