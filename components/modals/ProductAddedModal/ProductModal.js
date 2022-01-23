@@ -13,6 +13,7 @@ import iconArrowTop from '@/base/icon-arrow-top-black.svg';
 import {BiMinus, BiPlus} from 'react-icons/bi';
 import {useDispatch, useSelector} from 'react-redux';
 import {setProductModal} from 'store/actions/productModal';
+import {reactLocalStorage} from 'reactjs-localstorage';
 import {useRouter} from 'next/dist/client/router';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
@@ -58,7 +59,6 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
     }
   }, [tabToggle, segwayItem, allItems, initWarranty, isClicked, addItemHandler, updateItemQuantityHandler]);
 
-
   return (
     <div className="product-modal__product-warrancy-items">
       <button onClick={(event) => tabToggleHandler(event, 'oneYear')} className={segwayItem.id.includes('oneYear') ? 'product-modal__product-warrancy selected' : 'product-modal__product-warrancy'}>
@@ -92,7 +92,7 @@ export default function ProductModal({accessoeries}) {
   const modalRef = useRef(null);
 
   // data
-  const {items: segwaysWithAccessoeriesFromUseCart, cartTotal, addItem, updateItemQuantity} = useCart();
+  const {items: segwaysWithAccessoeriesFromUseCart, cartTotal, addItem, setItems, updateItemQuantity} = useCart();
   const {active: isActiveModal} = useSelector((state) => state.productModal);
 
   const [clientAllSegways, setClientAllSegways] = useState([]);
@@ -106,7 +106,7 @@ export default function ProductModal({accessoeries}) {
       router.push(`${route}`);
       dispatch(setProductModal(false));
     } else {
-      document.body.classList.remove('disabled')
+      document.body.classList.remove('disabled');
       if (window.innerWidth <= 991) {
         modalRef.current.classList.add('scroll-modal-to-bottom');
         setTimeout(() => {
@@ -158,9 +158,7 @@ export default function ProductModal({accessoeries}) {
     const accessoriesFilter = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'accessory');
     setClientAllSegways(scooters);
     setClientAllAccessoeries(accessoriesFilter);
-  }, [segwaysWithAccessoeriesFromUseCart, cartTotal]);
 
-  useEffect(() => {
     setTotalPriceWithWarranty(0);
     segwaysWithAccessoeriesFromUseCart.map((product) => {
       if (product.id.includes('warrancy')) {
@@ -179,7 +177,48 @@ export default function ProductModal({accessoeries}) {
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       }
     });
+
+    console.log('render segwaysWithAccessoeriesFromUseCart, cartTotal');
   }, [segwaysWithAccessoeriesFromUseCart, cartTotal]);
+
+  useEffect(() => {
+    const prevItems = reactLocalStorage.getObject('react-use-cart').items.filter((item) => item.type !== 'accessory');
+    const currentItems = segwaysWithAccessoeriesFromUseCart.filter((item) => item.type !== 'accessory');
+    const currentAccessories = segwaysWithAccessoeriesFromUseCart.filter((item) => item.type === 'accessory')
+
+    const selectedIdsFromPrev = [];
+    const selectedIdsFromNew = [];
+
+    prevItems.forEach((el) => selectedIdsFromPrev.push(el.id));
+    currentItems.forEach((el) => selectedIdsFromNew.push(el.id));
+
+    const conditionEqual = selectedIdsFromPrev.every((element) => selectedIdsFromNew.includes(element));
+
+    if (!conditionEqual && selectedIdsFromPrev.length === currentItems.length && currentItems.length !== 1) {
+      let newProduct;
+      let lastProductPosition;
+      let preparedItemsWithoutAccessories;
+      let preparedItemsWithAccessories;
+
+      for (let indx = 0; indx < prevItems.length; indx++) {
+        if (prevItems[indx].id !== currentItems[indx].id) {
+          lastProductPosition = prevItems.indexOf(prevItems[indx]);
+          newProduct = JSON.parse(JSON.stringify(currentItems[currentItems.length - 1]));
+          
+          preparedItemsWithoutAccessories = JSON.parse(JSON.stringify(currentItems.filter(item=>item.id !== newProduct.id)))
+          preparedItemsWithoutAccessories.splice(lastProductPosition, 0, newProduct)
+
+          preparedItemsWithAccessories = [...preparedItemsWithoutAccessories, ...currentAccessories];
+
+          setItems(preparedItemsWithAccessories)
+          
+          return;
+        }
+      }
+    }
+
+    console.log('render segwaysWithAccessoeriesFromUseCart, setItems');
+  }, [segwaysWithAccessoeriesFromUseCart, setItems]);
 
   useEffect(() => {
     if (isActiveModal) {
@@ -191,6 +230,8 @@ export default function ProductModal({accessoeries}) {
         console.log(error);
       }
     }
+    
+    console.log('render isActiveModal');
   }, [isActiveModal]);
 
   useEffect(() => {
@@ -198,14 +239,16 @@ export default function ProductModal({accessoeries}) {
       targetScrollElement.current.classList.remove('active');
       targetVisibleItemsElement.current.classList.remove('active');
       targetItemsAreaElement.current.classList.remove('active');
-      modalWrapperElement.current.classList.remove('active')
+      modalWrapperElement.current.classList.remove('active');
     } else {
       targetScrollElement.current.classList.add('active');
       targetVisibleItemsElement.current.classList.add('active');
       targetItemsAreaElement.current.classList.add('active');
-      modalWrapperElement.current.classList.add('active')
+      modalWrapperElement.current.classList.add('active');
     }
-  }, [segwaysWithAccessoeriesFromUseCart])
+    
+    console.log('render segwaysWithAccessoeriesFromUseCart');
+  }, [segwaysWithAccessoeriesFromUseCart]);
 
   return (
     <div onClick={(e) => closeModalWrapper(e)} ref={modalRef} className="product-modal">
@@ -382,3 +425,9 @@ export default function ProductModal({accessoeries}) {
     </div>
   );
 }
+
+/**
+ * Копируем данные
+ * Сортируем
+ * Вставляем
+ */
