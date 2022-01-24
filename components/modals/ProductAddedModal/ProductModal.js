@@ -177,14 +177,12 @@ export default function ProductModal({accessoeries}) {
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       }
     });
-
-    console.log('render segwaysWithAccessoeriesFromUseCart, cartTotal');
   }, [segwaysWithAccessoeriesFromUseCart, cartTotal]);
 
   useEffect(() => {
     const prevItems = reactLocalStorage.getObject('react-use-cart').items.filter((item) => item.type !== 'accessory');
     const currentItems = segwaysWithAccessoeriesFromUseCart.filter((item) => item.type !== 'accessory');
-    const currentAccessories = segwaysWithAccessoeriesFromUseCart.filter((item) => item.type === 'accessory')
+    const currentAccessories = segwaysWithAccessoeriesFromUseCart.filter((item) => item.type === 'accessory');
 
     const selectedIdsFromPrev = [];
     const selectedIdsFromNew = [];
@@ -204,20 +202,18 @@ export default function ProductModal({accessoeries}) {
         if (prevItems[indx].id !== currentItems[indx].id) {
           lastProductPosition = prevItems.indexOf(prevItems[indx]);
           newProduct = JSON.parse(JSON.stringify(currentItems[currentItems.length - 1]));
-          
-          preparedItemsWithoutAccessories = JSON.parse(JSON.stringify(currentItems.filter(item=>item.id !== newProduct.id)))
-          preparedItemsWithoutAccessories.splice(lastProductPosition, 0, newProduct)
+
+          preparedItemsWithoutAccessories = JSON.parse(JSON.stringify(currentItems.filter((item) => item.id !== newProduct.id)));
+          preparedItemsWithoutAccessories.splice(lastProductPosition, 0, newProduct);
 
           preparedItemsWithAccessories = [...preparedItemsWithoutAccessories, ...currentAccessories];
 
-          setItems(preparedItemsWithAccessories)
-          
+          setItems(preparedItemsWithAccessories);
+
           return;
         }
       }
     }
-
-    console.log('render segwaysWithAccessoeriesFromUseCart, setItems');
   }, [segwaysWithAccessoeriesFromUseCart, setItems]);
 
   useEffect(() => {
@@ -230,7 +226,7 @@ export default function ProductModal({accessoeries}) {
         console.log(error);
       }
     }
-    
+
     console.log('render isActiveModal');
   }, [isActiveModal]);
 
@@ -246,8 +242,6 @@ export default function ProductModal({accessoeries}) {
       targetItemsAreaElement.current.classList.add('active');
       modalWrapperElement.current.classList.add('active');
     }
-    
-    console.log('render segwaysWithAccessoeriesFromUseCart');
   }, [segwaysWithAccessoeriesFromUseCart]);
 
   return (
@@ -263,6 +257,7 @@ export default function ProductModal({accessoeries}) {
         <div className="product-modal__header">
           <div className="product-modal__top">
             <div className="text text_25 product-modal__top-title">Added to cart</div>
+
             <div onClick={closeModal()} className="inline-flex-center product-modal__top-img-wrapper">
               <Image src={iconCloseBlack} alt="icon" layout="responsive" />
             </div>
@@ -281,11 +276,14 @@ export default function ProductModal({accessoeries}) {
         {/* CONTENT START */}
         <div ref={targetScrollElement} className={visibleProducts ? 'product-modal__content active' : 'product-modal__content'}>
           <div className="product-modal__summ-and-products">
-            <div ref={targetVisibleItemsElement} onClick={setVisibleProductsToggle()} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
-              <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
-                <Image src={iconCartBlue} alt="icon" />
+            <div ref={targetVisibleItemsElement} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
+              <div onClick={setVisibleProductsToggle()} className="product-modal__summ-icon-with-text">
+                <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
+                  <Image src={iconCartBlue} alt="icon" />
+                </div>
+                <p className="product-modal__summ-title">Hide order summary</p>
               </div>
-              <p className="product-modal__summ-title">Hide order summary</p>
+
               <div className="inline-flex-center product-modal__summ-icon-arrow-up-wrapper">
                 <Image src={iconArrowTop} alt="icon" />
               </div>

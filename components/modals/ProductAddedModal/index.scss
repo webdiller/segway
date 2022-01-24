@@ -10,7 +10,7 @@
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 100px 15px 15px 15px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
   z-index: -1;
   opacity: 0;
@@ -249,6 +249,22 @@
     }
   }
 
+  &__summ-icon-with-text {
+    display: inline-flex;
+    align-items: center;
+    @include media('<=991px') {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 240px;
+        height: 60px;
+      }
+    }
+  }
+
   &__summ-icon-cart-wrapper {
     margin-right: 17px;
   }
@@ -271,6 +287,7 @@
   &__summ-total {
     font-size: 18px;
     margin-left: auto;
+    pointer-events: none;
   }
 
   &__products-area {
@@ -377,8 +394,22 @@
 
   &__product-count-minus {
     @include reset-btn();
+    position: relative;
     font-size: 15px;
     color: #323941;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      width: 50px;
+      height: 60px;
+      @include media('<=991px') {
+        width: 60px;
+        height: 78px;
+      }
+    }
   }
 
   &__product-count {
@@ -399,8 +430,22 @@
 
   &__product-count-plus {
     @include reset-btn();
+    position: relative;
     font-size: 15px;
     color: #323941;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      width: 50px;
+      height: 60px;
+      @include media('<=991px') {
+        width: 60px;
+        height: 78px;
+      }
+    }
   }
 
   &__product-warrancy-area {
@@ -605,9 +650,15 @@
         visibility: hidden;
       }
     }
+
+    @include media('<=991px') {
+      width: calc(100% - 14px);
+    }
   }
 
   &__nav {
+    position: relative;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -621,6 +672,17 @@
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      width: 58px;
+      height: 78px;
+    }
+
     &_prev {
     }
 
