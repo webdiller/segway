@@ -20,9 +20,9 @@ export default function DefaultLayout({title = 'Segway', description = 'Опис
   return (
     <>
       <CustomHead description={description} title={title} />
-      {hideSwiper ? null : <TopSwiper items={items} />}
+      {/* {hideSwiper ? null : <TopSwiper items={items} />} */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
