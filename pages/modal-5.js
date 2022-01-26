@@ -6,7 +6,7 @@ export default function Modal5({allData}) {
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway index">
-        <RemainTimeModalWithoutTimer />
+        {/* <RemainTimeModalWithoutTimer /> */}
       </DefaultLayout>
     </div>
   );

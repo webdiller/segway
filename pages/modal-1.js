@@ -6,7 +6,7 @@ export default function Modal1({allData}) {
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway index">
-        <DidntFindModal forForm={true} />
+        {/* <DidntFindModal forForm={true} /> */}
       </DefaultLayout>
     </div>
   );

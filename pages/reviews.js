@@ -8,7 +8,7 @@ export default function Reviews({allData}) {
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway reviews">
-        <ReviewsBlockDinamic />
+        {/* <ReviewsBlockDinamic /> */}
       </DefaultLayout>
     </div>
   );

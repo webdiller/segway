@@ -6,7 +6,7 @@ export default function Modal3({allData}) {
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway index">
-        <DiscountModal />
+        {/* <DiscountModal /> */}
       </DefaultLayout>
     </div>
   );

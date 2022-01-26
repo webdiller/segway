@@ -13,8 +13,8 @@ export default function CustomHead({
         <title>{title}</title>
         <meta name="description" content={description} />
       </Head>
-      <TopNavigation />
-      <MiddleNavigation/>
+      {/* <TopNavigation /> */}
+      {/* <MiddleNavigation/> */}
     </>
   );
 }

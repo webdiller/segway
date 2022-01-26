@@ -6,7 +6,7 @@ export default function Modal2({allData}) {
   return (
     <div>
       <DefaultLayout items={allData} description="segway description" title="segway index">
-        <DidntFindModal isWhiteMode={false} />
+        {/* <DidntFindModal isWhiteMode={false} /> */}
       </DefaultLayout>
     </div>
   );
