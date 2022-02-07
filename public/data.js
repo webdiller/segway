@@ -121,6 +121,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nE22',
         nameWrap: 'Kickscooter\nE22',
         shortName: 'KS E22',
+        pageLinkName: 'ks-e-22',
         price: '599.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
         rangeByMiles: 'Approx. 13.7 miles (22km)',
@@ -156,7 +157,8 @@ export const data = {
         imgSmallPath: '/segway-ninebot-kickscooter-e22_small.png',
         imgPathWithCircle: '/segway-ninebot-kickscooter-e22-circle-default.png',
         imgPathWithBlueCircle: '/segway-ninebot-kickscooter-e22-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-e22/', 'https://store.segway.com/segway-ninebot-kickscooter-e22']
+        links: ['https://www.segway.com/ninebot-kickscooter-e22/', 'https://store.segway.com/segway-ninebot-kickscooter-e22'],
+        galleryImages: ['/ks-e22/ks-e22-1.png', '/ks-e22/ks-e22-2.png', '/ks-e22/ks-e22-3.png', '/ks-e22/ks-e22-4.png', '/ks-e22/ks-e22-5.png', '/ks-e22/ks-e22-6.png', '/ks-e22/ks-e22-7.png'],
       },
       {
         id: '002',
@@ -346,6 +348,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nMAX',
         nameWrap: 'Ninebot\nKickscooter\nMAX',
         shortName: 'KS MAX',
+        pageLinkName: 'kickscooter-max',
         price: '949.99',
         maxSpeed: '18.6 mph (30 km/h)',
         rangeByMiles: 'Approx. 40.4 miles (65 km)',
@@ -383,7 +386,6 @@ export const data = {
         imgPathWithBlueCircle: '/ninebot-kickscooter-max-006-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-max/', 'https://store.segway.com/ninebot-kickscooter-max'],
         galleryImages: ['/ks-max/ks-max-006-1.png', '/ks-max/ks-max-006-2.png', '/ks-max/ks-max-006-3.png', '/ks-max/ks-max-006-4.png', '/ks-max/ks-max-006-5.png', '/ks-max/ks-max-006-6.png', '/ks-max/ks-max-006-7.png'],
-        accent: true
       },
       {
         id: '007',

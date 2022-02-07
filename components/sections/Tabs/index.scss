@@ -1,4 +1,14 @@
-.tabs {
+$rootContainer: '.tabs';
+
+#{$rootContainer} {
+  &_main-page {
+    #{$rootContainer}__container {
+      margin-bottom: 48px;
+      @include media('<=768px') {
+        margin-bottom: 18px;
+      }
+    }
+  }
   &__container {
     @include media('<=768px') {
       display: flex;

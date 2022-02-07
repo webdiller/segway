@@ -11,10 +11,8 @@ import {setProductModal} from '@/actions/productModal';
 
 // FIXME: Оптимизировать 
 export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
-
   const dispatch = useDispatch();
   const {selectedTab} = useSelector((state) => state.selectedWarranty);
-  const {currentSegway} = useSelector((state) => state.fixedModal);
 
   const {addItem} = useCart();
   const {added, setAddedHandler} = useAddToCart();
@@ -50,13 +48,9 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
 
   const addItemToCartAndShowModal = () => () => {
     setAddedHandler();
-    addItem(currentSegway);
+    addItem(item);
     dispatch(setProductModal(true))
   };
-
-  useEffect(() => {
-
-  }, [])
 
   return (
     <>
@@ -152,9 +146,3 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
     </>
   );
 }
-
-/**
- * Нажали на гарантию
- * если есть класс, то убираем класс и подготавливаем чистый продукт
- * иначе, добавляем класс и подготавляваем модифицированный продукт
- */

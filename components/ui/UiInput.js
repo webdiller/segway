@@ -1,4 +1,3 @@
-import React from 'react';
 import InputMask from 'react-input-mask';
 
 export default function UiInput({placeholder = '+1 (___) ___-__-__', customClass, forForm = false, ...props}) {

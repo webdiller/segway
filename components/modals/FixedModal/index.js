@@ -1,7 +1,6 @@
 import {useCart} from 'react-use-cart';
 import {useDispatch, useSelector} from 'react-redux';
-import {setProductModal} from '../../../store/actions/productModal'
-
+import {setProductModal} from '@/actions/productModal';
 export default function FixedModal() {
   const {currentPrice, currentSegway} = useSelector((state) => state.fixedModal);
   const {addItem} = useCart();
@@ -9,8 +8,9 @@ export default function FixedModal() {
 
   const addItemToCartAndShowModal = () => () => {
     addItem(currentSegway);
-    dispatch(setProductModal(true))
+    dispatch(setProductModal(true));
   };
+
   return (
     <div onClick={addItemToCartAndShowModal()} className="fixed-modal">
       <button className="fixed-modal__wrapper">

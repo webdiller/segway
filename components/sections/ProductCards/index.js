@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -14,12 +13,14 @@ export default function ProductCards() {
             <div className="product-cards__item-product-img-wrapper"></div>
             <div className="product-cards__item-content">
               <p className="product-cards__item-name">
-                Ninebot <br /> kickscooter
+                Ninebot 
+                <br /> 
+                kickscooter
                 <br />
                 MAX
               </p>
               <p className="product-cards__item-price">$999.99</p>
-              <Link href="#">
+              <Link href="/kickscooter-max">
                 <a className="ui-glass-link product-cards__item-link">SEE DETAILS</a>
               </Link>
             </div>
@@ -30,12 +31,14 @@ export default function ProductCards() {
             <div className="product-cards__item-product-img-wrapper"></div>
             <div className="product-cards__item-content">
               <p className="product-cards__item-name">
-                Ninebot <br /> kickscooter
+                Ninebot 
+                <br /> 
+                kickscooter
                 <br />
-                MAX
+                E22
               </p>
               <p className="product-cards__item-price">$999.99</p>
-              <Link href="#">
+              <Link href="/ks-e-22">
                 <a className="ui-glass-link product-cards__item-link">SEE DETAILS</a>
               </Link>
             </div>

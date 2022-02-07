@@ -1,20 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import {useRef, useState} from 'react';
-import packingList from '@/base/packing-list.png';
+import packingListType_1 from '@/base/packing-list-1.png';
+import packingListType_2 from '@/base/packing-list-2.png';
 import posterImage from '@/base/packing-list-poster.jpg';
 
 const useFocus = () => {
   const htmlElRef = useRef(null);
   const setFocus = () => {
-    if (htmlElRef.current) {
-      htmlElRef.current.src += '?rel=0&showinfo=0&autoplay=1';
-    }
+    if (htmlElRef.current) {htmlElRef.current.src += '?rel=0&showinfo=0&autoplay=1'}
   };
   return [htmlElRef, setFocus];
 };
 
-export default function PackingList() {
+/**
+ * @param {string} toster_type 
+ * @description type_1, type_2
+ */
+export default function PackingList({toster_type = "type_1"}) {
   const [overlay, setOverlay] = useState(true);
   const [youtubeRef, setYoutubeFocus] = useFocus();
 
@@ -57,7 +60,7 @@ export default function PackingList() {
           </div>
         </div>
         <div className="packing-list__img-wrapper">
-          <Image objectFit="contain" src={packingList} alt="Packing List" />
+          <Image objectFit="contain" src={toster_type === "type_1" ? packingListType_1: packingListType_2} alt="Packing List" />
         </div>
       </div>
     </div>

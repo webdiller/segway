@@ -1,26 +1,20 @@
 import Image from 'next/image';
-import imageDesktop from '@/base/kick-scooter-overview-desktop.jpg';
-import imageMobile from '@/base/kick-scooter-overview-mobile.jpg';
 import {useMediaQuery} from '@/hooks/useMediaQuery';
 
-export default function KickScooterOverview() {
+export default function KickScooterOverview({desktopTitle = 'KickScooter overview SEGWAY Ninebot Kickscooter MAX', mobileTitle = 'KickScooter overview', subtitle = 'SEGWAY Ninebot Kickscooter MAX', mobileImage, desktopImage}) {
   let mediaQuery = useMediaQuery('(min-width: 768px)');
 
   return (
     <div className="kick-scooter-overview">
       <div className="container kick-scooter-overview__container">
         <p className="title kick-scooter-overview__title">
-          <span className="kick-scooter-overview__desktop">KickScooter overview SEGWAY Ninebot Kickscooter MAX</span>
-          <span className="kick-scooter-overview__mobile">KickScooter overview</span>
+          <span className="kick-scooter-overview__desktop">{desktopTitle}</span>
+          <span className="kick-scooter-overview__mobile">{mobileTitle}</span>
         </p>
-        <p className="kick-scooter-overview__subtitle">SEGWAY Ninebot Kickscooter MAX </p>
+        <p className="kick-scooter-overview__subtitle">{subtitle} </p>
 
         <div className="kick-scooter-overview__img-wrapper">
-          {mediaQuery ? (
-            <Image objectFit="contain" className="kick-scooter-overview__img" src={imageDesktop} alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX" quality={50} layout="responsive" />
-          ) : (
-            <Image objectFit="contain" className="kick-scooter-overview__img" src={imageMobile} alt="KickScooter overview SEGWAY Ninebot Kickscooter MAX" quality={50} layout="responsive" />
-          )}
+          {mediaQuery ? <Image quality={100} layout="fill" objectFit="contain" className="kick-scooter-overview__img" src={desktopImage} alt={desktopTitle} /> : <Image quality={100} layout="fill" objectFit="contain" className="kick-scooter-overview__img" src={mobileImage} alt={desktopTitle} />}
         </div>
       </div>
     </div>

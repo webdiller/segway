@@ -4,8 +4,6 @@ import Link from 'next/link';
 import exampleImageUser from '@/base/reviews-block-example-image.jpg';
 import exampleImageSegway from '@/base/example-item-1.png';
 
-import React from 'react';
-
 export default function ReviewsBlock() {
   return (
     <div className="reviews-block">

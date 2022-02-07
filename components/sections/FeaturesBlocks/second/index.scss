@@ -1,0 +1,115 @@
+.feature-second-type-one {
+  position: relative;
+  background-color: #fff;
+
+  &_ks-e22 {
+    background-color: #f3f3f3;
+    .feature-second-type-one__content {
+      padding-right: 0;
+      max-width: 420px;
+    }
+    .feature-second-type-one__img-wrapper {
+      @include media('<=991px') {
+        width: 50%;
+        left: -10%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      @include media('<=768px') {
+        position: static;
+        transform: unset;
+        width: 100%;
+        margin-bottom: 14px;
+      }
+     
+    }
+    .feature-second-type-one__title {
+      @include media('<=576px') {
+        max-width: 85%;
+      }
+    }
+    .feature-second-type-one__text {
+      @include media('<=576px') {
+        max-width: 90%;
+      }
+    }
+  }
+
+  &_ks-max {
+    .feature-second-type-one__img-wrapper {
+      @include media('<=1200px') {
+        width: 50%;
+      }
+      @include media('<=768px') {
+        position: relative;
+        width: 100%;
+      }
+     
+    }
+    .feature-second-type-one__title {
+      @include media('<=576px') {
+        max-width: 85%;
+      }
+    }
+    .feature-second-type-one__text {
+      @include media('<=576px') {
+        max-width: 90%;
+      }
+    }
+  }
+
+  &__img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 720px;
+    @include media('<=768px') {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    min-height: 547px;
+    overflow: hidden;
+    @include media('<=768px') {
+      min-height: unset;
+    }
+  }
+
+  &__content {
+    position: relative;
+    max-width: 390px;
+    padding-right: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    text-align: left;
+    z-index: 10;
+
+    @include media('<=768px') {
+      margin-top: auto;
+      margin-left: 0;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    @include media('<=991px') {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 11px;
+    }
+  }
+}

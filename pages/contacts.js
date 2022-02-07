@@ -1,17 +1,15 @@
 import dynamic from 'next/dynamic';
-import DefaultLayout from '@/basic/DefaultLayout';
-
 const ContactsDinamic = dynamic(() => import('@/sections/Contacts'));
 
 import {data} from '@/base/data';
+import CustomHead from '@/basic/CustomHead';
 
 export default function Contacts({allData}) {
   return (
-    <div>
-      <DefaultLayout items={allData} description="segway description" title="accessories">
-        <ContactsDinamic />
-      </DefaultLayout>
-    </div>
+    <>
+      <CustomHead description="segway description" title="accessories" />
+      <ContactsDinamic />
+    </>
   );
 }
 

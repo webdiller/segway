@@ -108,7 +108,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                   <div className="main-slide__img-wrapper">
                     <Image objectFit="contain" src={mainSegway.imgPath} alt={mainSegway.name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                   </div>
-                  <p className="text text_bold main-slide__name">Ninebot Kickscooter MAX</p>
+                  <p className="text text_bold main-slide__name">{mainSegway.name}</p>
                 </div>
                 <div className="main-slide__header-right">
                   <div onClick={openModal()} className="main-slide__img-compare-wrapper">
@@ -469,7 +469,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                 <div className="main-slide__bottom-left">
                   <p className="text text_25 main-slide__price">$949.99</p>
 
-                  <button onClick={(e) => addItemToCartAndShowModal(e, items.adultSegways[5])} className="ui-btn main-slide__buy-btn">
+                  <button onClick={(e) => addItemToCartAndShowModal(e, mainSegway)} className="ui-btn main-slide__buy-btn">
                     <span>ADD TO CART</span>
                   </button>
                   <Link href="/details-page" scroll={false}>

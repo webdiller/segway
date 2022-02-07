@@ -2,20 +2,29 @@
   background-color: #f5f5f5;
   &__container {
     text-align: center;
+    padding-top: 63px;
     padding-bottom: 73px;
-    @include media("<=991px") {
+    @include media('<=991px') {
+      padding-top: 33px;
       padding-bottom: 30px;
     }
   }
 
   &__title {
     margin-bottom: 72px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       margin-bottom: 40px;
     }
   }
 
   &__main-img-wrapper {
+    position: relative;
+    margin-bottom: 63px;
+    width: 100%;
+    height: auto;
+    @include media('<=768px') {
+      margin-bottom: 33px;
+    }
   }
   &__main-img {
   }
@@ -26,11 +35,11 @@
     justify-content: center;
     column-gap: 120px;
     row-gap: 30px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       grid-template-columns: repeat(4, auto);
       column-gap: 30px;
     }
-    @include media("<=576px") {
+    @include media('<=576px') {
       column-gap: 20px;
     }
   }
@@ -41,49 +50,49 @@
     align-items: center;
     text-align: center;
     &_tires {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 1;
       }
     }
 
     &_led {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 2;
       }
     }
 
     &_speed {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 3;
       }
     }
 
     &_range {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 5;
       }
     }
 
     &_grade {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 4;
       }
     }
 
     &_water {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 7;
       }
     }
 
     &_charge {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 6;
       }
     }
 
     &_battery {
-      @include media("<=768px") {
+      @include media('<=768px') {
         order: 8;
       }
     }
@@ -95,7 +104,7 @@
     height: 90px;
     width: 90px;
     margin-bottom: 10px;
-    @include media("<=991px") {
+    @include media('<=991px') {
       width: 60px;
       height: 60px;
     }
@@ -110,7 +119,7 @@
     line-height: 43px;
     color: #009eff;
     white-space: nowrap;
-    @include media("<=991px") {
+    @include media('<=991px') {
       font-size: 18px;
       line-height: 23px;
     }
@@ -120,7 +129,7 @@
     font-size: 18px;
     line-height: 22px;
     color: #999999;
-    @include media("<=991px") {
+    @include media('<=991px') {
       font-size: 12px;
       line-height: 15px;
     }

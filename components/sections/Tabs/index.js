@@ -16,13 +16,13 @@ import iconTabPresentationWarrancy from '@/base/icon-tab-presentation-warrancy.s
 import iconTabPresentationSupport from '@/base/icon-tab-presentation-support.svg';
 import iconTabPresentationRoad from '@/base/icon-tab-presentation-road.svg';
 
-export default function Tabs() {
+export default function Tabs({customClass}) {
   const [tab, setTab] = useState(1);
 
   const setTabHandle = (val) => setTab(val);
 
   return (
-    <div className="tabs">
+    <div className={customClass ? `tabs tabs_${customClass}` : 'tabs'}>
       <div className="container tabs__container">
         <div className="tabs__tabs">
           <div onClick={() => setTabHandle(1)} className={tab === 1 ? 'tabs__tab active' : 'tabs__tab'}>

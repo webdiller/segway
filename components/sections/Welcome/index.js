@@ -15,7 +15,7 @@ import {setSlideIndex} from '@/actions/welcomeSlider';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import 'swiper/css/pagination';
 
-export default function Welcome({currentSegway}) {
+export default function Welcome({currentSegway, title="SEGWAY Ninebot Kickscooter MAX"}) {
   const dispatch = useDispatch();
   let mediaQuery = useMediaQuery('(max-width: 768px)');
 
@@ -41,14 +41,14 @@ export default function Welcome({currentSegway}) {
       <div className="container welcome__container">
         <div className="welcome__stock-with-title welcome__stock-with-title_mobile">
           <p className="welcome__stock">In stock</p>
-          <p className="welcome__title">SEGWAY Ninebot Kickscooter MAX</p>
+          <p className="welcome__title">{title}</p>
         </div>
 
         <div className="welcome__content-with-swiper">
           <div className="welcome__content">
             <div className="welcome__stock-with-title welcome__stock-with-title_desktop">
               <p className="welcome__stock">In stock</p>
-              <p className="title welcome__title">SEGWAY Ninebot Kickscooter MAX</p>
+              <p className="title welcome__title">{title}</p>
             </div>
             <SegwayProtectMobile customClass="welcome__protect" />
             <FormWithWarrancy item={currentSegway} customClass="welcome__form" />

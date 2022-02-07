@@ -34,8 +34,8 @@ export default function DiscountModal() {
   };
 
   useEffect(() => {
-    const firstInterval = null;
-    const secondInterval = null;
+    let firstInterval = null;
+    let secondInterval = null;
 
     firstInterval = setInterval((_first) => {
       if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false && isActiveCompareModal === false) {

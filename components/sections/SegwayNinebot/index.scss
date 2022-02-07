@@ -1,6 +1,16 @@
 .segway-ninebot {
   position: relative;
   overflow: hidden;
+
+  &_ks-e22 {
+    .segway-ninebot__title span::after {
+      content: attr(data-last-text);
+      color: #009eff;
+      transform: translateX(-100%);
+      position: absolute;
+    }
+  }
+
   &__container {
     display: grid;
     column-gap: 20px;
@@ -108,13 +118,14 @@
   }
 
   &__title {
+    max-width: 540px;
     margin-bottom: 15px;
+    font-size: 58px;
+    line-height: 60px;
     @include media('<=1200px') {
       display: block;
       margin-bottom: 25px;
       max-width: 780px;
-      font-size: 108px;
-      line-height: 94px;
     }
     @include media('<=900px') {
       font-size: 70px;
@@ -124,6 +135,7 @@
     }
     @include media('<=576px') {
       font-size: 40px;
+      white-space: pre-line;
     }
     @include media('<=375px') {
       font-size: 39px;

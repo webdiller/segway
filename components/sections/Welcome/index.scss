@@ -110,7 +110,7 @@
   &__swiper {
     position: relative;
     @include media('<=768px') {
-      margin-bottom: 18px;
+      margin-bottom: 40px;
     }
     .swiper-wrapper {
       align-items: center;
@@ -122,12 +122,8 @@
 
   &__swiper-img-wrapper {
     transition: all 0.3s ease;
-    &:hover {
-      transform: scale(0.99);
-      cursor: pointer;
-    }
     &:active {
-      transform: scale(0.99);
+      transform: scale(0.98);
       cursor: grab;
     }
     @include media('<=768px') {
@@ -222,7 +218,7 @@
     bottom: -3px;
     @include media('<=768px') {
       display: flex;
-      bottom: -7px !important;
+      bottom: -24px !important;
     }
   }
 

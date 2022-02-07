@@ -35,13 +35,23 @@
   }
 
   &__img-wrapper {
+    position: relative;
     display: block;
+    aspect-ratio: 1 / 0.5170630816959669;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    @include media("<=768px") {
+      width: 100%;
+      height: 500px;
+      aspect-ratio: 1 / 0.686;
+    }
   }
   &__img {
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    width: auto;
-    height: auto;
+    // object-fit: contain;
+    // display: block;
+    // margin: 0 auto;
+    // width: auto;
+    // height: auto;
   }
 }

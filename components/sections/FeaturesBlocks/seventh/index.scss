@@ -1,0 +1,129 @@
+.feature-seventh-type-one {
+  position: relative;
+  background-color: #12151e;
+  overflow: hidden;
+
+  &_ks-e22 {
+    @include media('<=768px') {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .feature-seventh-type-one__img-wrapper {
+      width: 992px;
+      @include media('<=768px') {
+        width: 100%;
+        margin-bottom: 26px;
+      }
+    }
+    .feature-seventh-type-one__content {
+      @include media('<=768px') {
+        margin-bottom: 23px;
+        margin-top: 0;
+        max-width: unset;
+      }
+    }
+  }
+
+  &__bg-image-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    > span {
+      height: 100% !important;
+    }
+  }
+  &__bg-image {
+  }
+
+  &__img-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 760px;
+    height: 100%;
+    z-index: 10;
+    @include media('<=1200px') {
+      width: 50%;
+      height: auto;
+    }
+    @include media('<=768px') {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__img {
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    min-height: 547px;
+    @include media('<=768px') {
+      min-height: auto;
+      align-items: flex-start;
+    }
+  }
+
+  &__content {
+    position: relative;
+    max-width: 553px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+    @include media('<=768px') {
+      margin-top: 40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    &_desktop {
+      @include media('<=768px') {
+        display: none;
+      }
+    }
+    &_mobile {
+      display: none;
+      white-space: pre-line;
+      @include media('<=768px') {
+        display: block;
+      }
+    }
+    @include media('<=991px') {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__text {
+    @include media('<=768px') {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+  &__text2 {
+    margin-top: 20px;
+    @include media('<=768px') {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+  &__text3 {
+    display: none;
+    margin-top: 13px;
+    color: #aaaaaa;
+    font-size: 12px;
+    line-height: 14px;
+    @include media('<=768px') {
+      display: block;
+      font-weight: 300;
+    }
+  }
+}

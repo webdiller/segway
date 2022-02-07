@@ -1,0 +1,15 @@
+.large-image {
+  background-color: #f5f5f5;
+  &__container {
+  }
+
+  &__img-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    @include media('<=768px') {
+    }
+  }
+  &__main-img {
+  }
+}

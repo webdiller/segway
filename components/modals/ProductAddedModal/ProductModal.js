@@ -226,8 +226,6 @@ export default function ProductModal({accessoeries}) {
         console.log(error);
       }
     }
-
-    console.log('render isActiveModal');
   }, [isActiveModal]);
 
   useEffect(() => {
