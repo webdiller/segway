@@ -3,7 +3,7 @@ import FormWithWarrancy from '@/blocks/FormWithWarrancy';
 import PaymentsMethods from '@/blocks/PaymentsMethods';
 import SegwayProtectMobile from '@/blocks/SegwayProtectMobile';
 
-export default function SegwayNinebot({customClass, titleDesktop, titleMobile, item, lastWord, mainImage}) {
+export default function SegwayNinebot({customClass, titleDesktop, titleMobile, item, lastWord, mainImage, imgWidth, imgHeight}) {
   return (
     <div className={customClass ? `segway-ninebot segway-ninebot_${customClass}` : 'segway-ninebot'}>
       <div className="container segway-ninebot__container">
@@ -23,8 +23,8 @@ export default function SegwayNinebot({customClass, titleDesktop, titleMobile, i
         </div>
 
         {/* area name: bgimage */}
-        <div className="segway-ninebot__bg-wrapper">
-          <Image src={mainImage} alt={titleDesktop} layout="fill" quality={100} objectFit="contain" />
+        <div className="segway-ninebot__img-wrapper">
+          <Image width={imgWidth} height={imgHeight} src={mainImage} alt={titleDesktop} layout="responsive" quality={100} objectFit="contain" />
         </div>
 
         {/* area name: protect */}

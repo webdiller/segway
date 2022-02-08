@@ -17,6 +17,24 @@ import FeaturesDesktopImage from '@/base/ks-max/other/features_desktop.jpg';
 import FeaturesMobileImage from '@/base/ks-max/other/features_mobile.jpg';
 const LargeImageDinamic = dynamic(() => import('@/sections/LargeImage'));
 
+import featuresIcon_1 from '@/base/ks-max/features/feature-1.svg';
+import featuresIcon_2 from '@/base/ks-max/features/feature-2.svg';
+import featuresIcon_3 from '@/base/ks-max/features/feature-3.svg';
+import featuresIcon_4 from '@/base/ks-max/features/feature-4.svg';
+import featuresIcon_5 from '@/base/ks-max/features/feature-5.svg';
+import featuresIcon_6 from '@/base/ks-max/features/feature-6.svg';
+import featuresIcon_7 from '@/base/ks-max/features/feature-7.svg';
+import featuresIcon_8 from '@/base/ks-max/features/feature-8.svg';
+const featuresItems = [
+  {icon: featuresIcon_1, title: '10', description: 'Pneumatic Tires'},
+  {icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights'},
+  {icon: featuresIcon_3, title: '18.6 mph', description: 'Max Speed'},
+  {icon: featuresIcon_4, title: '40.4 Miles', description: 'Max Range'},
+  {icon: featuresIcon_5, title: '20%', description: 'Hill Grade'},
+  {icon: featuresIcon_6, title: 'IPX5', description: 'Water-Resistant'},
+  {icon: featuresIcon_7, title: '6H', description: 'Fast Charging'},
+  {icon: featuresIcon_8, title: '551Wh', description: 'Battery'}
+];
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
 
 import KickScooterOverviewDesktopImage from '@/base/ks-max/other/kick-scooter-overview_desktop.png';
@@ -87,7 +105,7 @@ export default function Home({allData}) {
 
       <LargeImageDinamic imageAltText="Background image before features block" desktopImage={FeaturesDesktopImage} mobileImage={FeaturesMobileImage} />
 
-      <FeaturesDinamic title="IMPRESSIVE FEATURES" />
+      <FeaturesDinamic customClass="ks-max" features={featuresItems} title="IMPRESSIVE FEATURES" />
 
       <KickScooterOverviewDinamic
         desktopTitle="KickScooter overview Segway Ninebot Kickscooter MAX"
@@ -160,12 +178,14 @@ export default function Home({allData}) {
       <ControllFromSmartphoneDinamic />
 
       <SegwayNinebotDinamic
+        imgWidth={1060}
+        height={490}
         mainImage={segwayImage}
         titleDesktop="SEGWAY Ninebot Kickscooter MAX"
         titleMobile={'SEGWAY Ninebot <br/> Kickscooter <br/> MAX'.split('<br/>').join('\n')}
         item={allData.segways.adultSegways[5]}
       />
-      
+
       <OtherModelsDinamic items={[...allData.segways.adultSegways, ...allData.segways.kidsSegways]} />
       <FixedModalDinamic segwayItem={allData.segways.adultSegways[5]} />
       <DiscountModalDinamic />

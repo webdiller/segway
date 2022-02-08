@@ -71,7 +71,8 @@ export const data = {
       type: 'accessory',
       name: 'Segway Scooter Bag',
       nameWrap: 'Segway \n Scooter Bag',
-      description: 'Tough EVA material, suitable for the entire Ninebot KickScooter by Segway line. 3L capacity gives you plenty of room to carry your phone, charger, bottled water, and other personal items.',
+      description:
+        'Tough EVA material, suitable for the entire Ninebot KickScooter by Segway line. 3L capacity gives you plenty of room to carry your phone, charger, bottled water, and other personal items.',
       price: '49.99',
       imgPath: '/accessory-7.png',
       imgPathWithCircle: '/accessory-with-circle-7.png',
@@ -158,7 +159,7 @@ export const data = {
         imgPathWithCircle: '/segway-ninebot-kickscooter-e22-circle-default.png',
         imgPathWithBlueCircle: '/segway-ninebot-kickscooter-e22-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-e22/', 'https://store.segway.com/segway-ninebot-kickscooter-e22'],
-        galleryImages: ['/ks-e22/ks-e22-1.png', '/ks-e22/ks-e22-2.png', '/ks-e22/ks-e22-3.png', '/ks-e22/ks-e22-4.png', '/ks-e22/ks-e22-5.png', '/ks-e22/ks-e22-6.png', '/ks-e22/ks-e22-7.png'],
+        galleryImages: ['/ks-e22/slider/1.jpg', '/ks-e22/slider/2.jpg', '/ks-e22/slider/3.jpg', '/ks-e22/slider/4.jpg', '/ks-e22/slider/5.jpg', '/ks-e22/slider/6.jpg']
       },
       {
         id: '002',
@@ -385,7 +386,7 @@ export const data = {
         imgPathWithCircle: '/ninebot-kickscooter-max-006-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-max-006-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-max/', 'https://store.segway.com/ninebot-kickscooter-max'],
-        galleryImages: ['/ks-max/ks-max-006-1.png', '/ks-max/ks-max-006-2.png', '/ks-max/ks-max-006-3.png', '/ks-max/ks-max-006-4.png', '/ks-max/ks-max-006-5.png', '/ks-max/ks-max-006-6.png', '/ks-max/ks-max-006-7.png'],
+        galleryImages: ['/ks-max/slider/1.jpg', '/ks-max/slider/2.jpg', '/ks-max/slider/3.jpg', '/ks-max/slider/4.jpg', '/ks-max/slider/5.jpg', '/ks-max/slider/6.jpg', '/ks-max/slider/7.jpg']
       },
       {
         id: '007',

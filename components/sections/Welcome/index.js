@@ -12,10 +12,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setFancyImages, setFancyModal} from '@/actions/fancyModal';
 import {useEffect, useRef, useState} from 'react';
 import {setSlideIndex} from '@/actions/welcomeSlider';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import {useMediaQuery} from '@/hooks/useMediaQuery';
 import 'swiper/css/pagination';
 
-export default function Welcome({currentSegway, title="SEGWAY Ninebot Kickscooter MAX"}) {
+export default function Welcome({currentSegway, title = 'SEGWAY Ninebot Kickscooter MAX'}) {
   const dispatch = useDispatch();
   let mediaQuery = useMediaQuery('(max-width: 768px)');
 
@@ -83,11 +83,22 @@ export default function Welcome({currentSegway, title="SEGWAY Ninebot Kickscoote
                 thumbnailSliderElement.current.slideTo(swiper.activeIndex, 600, null);
                 dispatch(setSlideIndex(swiper.activeIndex));
               }}>
-              {currentSegway.galleryImages.map((imgPath, id) => {
+              {currentSegway.galleryImages.map((item, id) => {
                 return (
                   <SwiperSlide key={id} className="welcome__swiper-item">
                     <div className="welcome__swiper-img-wrapper">
-                      <Image width={mediaQuery ? "370" : "400"} height={mediaQuery ? "374" : "560"} objectFit="contain" className="welcome__swiper-img" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                      <Image
+                        width={mediaQuery ? '370' : '400'}
+                        height={mediaQuery ? '374' : '560'}
+                        objectFit="contain"
+                        className="welcome__swiper-img"
+                        src={item}
+                        alt="welcome swiper"
+                        quality={75}
+                        layout="responsive"
+                        placeholder="blur"
+                        blurDataURL={segwayPlaceholder}
+                      />
                     </div>
                   </SwiperSlide>
                 );
@@ -126,11 +137,11 @@ export default function Welcome({currentSegway, title="SEGWAY Ninebot Kickscoote
             onInit={(swiper) => {
               thumbnailSliderElement.current = swiper;
             }}>
-            {currentSegway.galleryImages.map((imgPath, id) => {
+            {currentSegway.galleryImages.map((item, id) => {
               return (
                 <SwiperSlide onClick={setSlideIndexHandler(id)} key={id} className="welcome__thumbnails-item">
                   <div className={selectedSlide === id ? 'welcome__thumbnails-img-wrapper active' : 'welcome__thumbnails-img-wrapper'}>
-                    <Image width="140" height="140" objectFit="contain" src={imgPath} alt="welcome swiper" quality={50} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                    <Image width="140" height="140" objectFit="contain" src={item} alt="welcome swiper" quality={30} layout="responsive" />
                   </div>
                 </SwiperSlide>
               );

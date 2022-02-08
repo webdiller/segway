@@ -17,6 +17,24 @@ import FeaturesDesktopImage from '@/base/ks-e22/other/features_desktop.jpg';
 import FeaturesMobileImage from '@/base/ks-e22/other/features_mobile.jpg';
 const LargeImageDinamic = dynamic(() => import('@/sections/LargeImage'));
 
+import featuresIcon_1 from '@/base/ks-e22/features/feature-1.svg';
+import featuresIcon_2 from '@/base/ks-e22/features/feature-2.svg';
+import featuresIcon_3 from '@/base/ks-e22/features/feature-3.svg';
+import featuresIcon_4 from '@/base/ks-e22/features/feature-4.svg';
+import featuresIcon_5 from '@/base/ks-e22/features/feature-5.svg';
+import featuresIcon_6 from '@/base/ks-e22/features/feature-6.svg';
+import featuresIcon_7 from '@/base/ks-e22/features/feature-7.svg';
+import featuresIcon_8 from '@/base/ks-e22/features/feature-8.svg';
+const featuresItems = [
+  {icon: featuresIcon_1, title: '10', description: 'Pneumatic Tires'},
+  {icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights'},
+  {icon: featuresIcon_3, title: '12.4 mph', description: 'Max Speed'},
+  {icon: featuresIcon_4, title: '13.7 Miles', description: 'Max Range'},
+  {icon: featuresIcon_5, title: '15%', description: 'Hill Grade'},
+  {icon: featuresIcon_6, title: '55-220 lbs', description: 'Payload'},
+  {icon: featuresIcon_7, title: '3,5H', description: 'Fast Charging'},
+  {icon: featuresIcon_8, title: '5100mAh', description: 'Battery'}
+];
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
 
 import KickScooterOverviewDesktopImage from '@/base/ks-e22/other/kick-scooter-overview_desktop.png';
@@ -63,7 +81,7 @@ const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpe
 const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 
-import segwayImage from '@/base/ks-max/other/segway-ninebot-image.png';
+import segwayImage from '@/base/ks-e22/other/segway-ninebot-image.jpg';
 const SegwayNinebotDinamic = dynamic(() => import('@/sections/SegwayNinebot'));
 
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
@@ -90,7 +108,7 @@ export default function Home({allData}) {
 
       <LargeImageDinamic imageAltText="Background image before features block" desktopImage={FeaturesDesktopImage} mobileImage={FeaturesMobileImage} />
 
-      <FeaturesDinamic title="IMPRESSIVE FEATURES" desktopImage={FeaturesDesktopImage} mobileImage={FeaturesMobileImage} />
+      <FeaturesDinamic customClass="ks-max" features={featuresItems} title="IMPRESSIVE FEATURES" />
 
       <KickScooterOverviewDinamic
         desktopTitle="KickScooter overview SEGWAY Ninebot Kickscooter E22"

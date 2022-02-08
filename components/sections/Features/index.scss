@@ -1,4 +1,6 @@
-.features {
+$rootClass: '.features';
+
+#{$rootClass} {
   background-color: #f5f5f5;
   &__container {
     text-align: center;
@@ -7,6 +9,58 @@
     @include media('<=991px') {
       padding-top: 33px;
       padding-bottom: 30px;
+    }
+  }
+
+  &_ks-max {
+    #{$rootClass}__item {
+      &:nth-child(1) {
+        @include media('<=768px') {
+          order: 1;
+        }
+      }
+
+      &:nth-child(2) {
+        @include media('<=768px') {
+          order: 2;
+        }
+      }
+
+      &:nth-child(3) {
+        @include media('<=768px') {
+          order: 3;
+        }
+      }
+
+      &:nth-child(4) {
+        @include media('<=768px') {
+          order: 5;
+        }
+      }
+
+      &:nth-child(5) {
+        @include media('<=768px') {
+          order: 4;
+        }
+      }
+
+      &:nth-child(6) {
+        @include media('<=768px') {
+          order: 7;
+        }
+      }
+
+      &:nth-child(7) {
+        @include media('<=768px') {
+          order: 6;
+        }
+      }
+
+      &:nth-child(8) {
+        @include media('<=768px') {
+          order: 8;
+        }
+      }
     }
   }
 
@@ -49,53 +103,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    &_tires {
-      @include media('<=768px') {
-        order: 1;
-      }
-    }
-
-    &_led {
-      @include media('<=768px') {
-        order: 2;
-      }
-    }
-
-    &_speed {
-      @include media('<=768px') {
-        order: 3;
-      }
-    }
-
-    &_range {
-      @include media('<=768px') {
-        order: 5;
-      }
-    }
-
-    &_grade {
-      @include media('<=768px') {
-        order: 4;
-      }
-    }
-
-    &_water {
-      @include media('<=768px') {
-        order: 7;
-      }
-    }
-
-    &_charge {
-      @include media('<=768px') {
-        order: 6;
-      }
-    }
-
-    &_battery {
-      @include media('<=768px') {
-        order: 8;
-      }
-    }
   }
 
   &__item-img-wrapper {
