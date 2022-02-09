@@ -38,7 +38,7 @@ export default function ProductCards() {
                 E22
               </p>
               <p className="product-cards__item-price">$999.99</p>
-              <Link href="/ks-e-22">
+              <Link href="/kickscooter-e-45">
                 <a className="ui-glass-link product-cards__item-link">SEE DETAILS</a>
               </Link>
             </div>
