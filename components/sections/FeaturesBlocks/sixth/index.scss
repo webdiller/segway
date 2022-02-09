@@ -3,6 +3,60 @@
   background-color: #f5f5f5;
   overflow: hidden;
 
+  &_ks-e-45 {
+    background-color: #fff;
+    .feature-sixth-type-two__container {
+      min-height: 667px;
+      @include media('<=1200px') {
+        min-height: unset;
+      }
+    }
+    .feature-sixth-type-two__img-wrapper {
+      width: 847px;
+      @include media('<=1200px') {
+        width: 55%;
+      }
+      @include media('<=1050px') {
+        width: 60%;
+      }
+      @include media('<=991px') {
+        width: 45%;
+      }
+      @include media('<=768px') {
+        width: 100%;
+        margin-bottom: 23px;
+      }
+    }
+    .feature-sixth-type-two__content {
+      position: relative;
+      right: -117px;
+      @include media('<=1200px') {
+        position: static;
+        right: 0;
+        padding: 50px 0;
+      }
+      @include media('<=768px') {
+        padding: 0 16px;
+        max-width: unset;
+        margin-bottom: 27px;
+      }
+    }
+    .feature-sixth-type-two__title {
+      @include media('<=991px') {
+        font-size: 20px;
+        line-height: 24.5px;
+      }
+    }
+    .feature-sixth-type-two__text {
+      @include media('<=991px') {
+        font-size: 15px;
+        line-height: 18px;
+      }
+    }
+    
+    // .feature-sixth-type-two
+  }
+
   &__container {
     display: flex;
     align-items: center;

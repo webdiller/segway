@@ -4,13 +4,23 @@
   overflow: hidden;
   &_ks-e22 {
     background-color: #252525;
-    @include media('<=768px') {
-      background: radial-gradient(68.67% 47% at 50% 100%, #262626 0%, #262626 100%);
-    }
     .feature-third-type-one__shine-left {
       display: none;
     }
 
+    .feature-third-type-one__title {
+      max-width: 271px;
+    }
+    .feature-third-type-one__text {
+      max-width: 491px;
+    }
+  }
+
+  &_ks-e-45 {
+    background-color: #000;
+    .feature-third-type-one__shine-left {
+      display: none;
+    }
     .feature-third-type-one__title {
       max-width: 271px;
     }

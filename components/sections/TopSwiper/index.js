@@ -122,7 +122,7 @@ export default function TopSwiper({items}) {
                   ))}
                   {items.segways.kidsSegways.map(({id, name, shortName, imgSmallPath, pageLinkName}) => (
                     <SwiperSlide key={id} className={router.asPath.includes(pageLinkName) ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                      <Link href="#">
+                      <Link href="/">
                         <a className="top-swiper__link">
                           <div className="top-swiper__img-wrapper">
                             <Image objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
@@ -176,7 +176,7 @@ export default function TopSwiper({items}) {
                   {items.segways.adultSegways.map(({id, name, shortName, imgSmallPath, pageLinkName}) => {
                     return (
                       <SwiperSlide key={id} className={router.asPath.includes(pageLinkName) ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                        <Link href="#">
+                        <Link href="/">
                           <a className="top-swiper__link">
                             <div className="top-swiper__img-wrapper">
                               <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
@@ -220,7 +220,7 @@ export default function TopSwiper({items}) {
                   }}>
                   {items.segways.kidsSegways.map(({id, name, shortName, imgSmallPath, pageLinkName}) => (
                     <SwiperSlide key={id} className={router.asPath.includes(pageLinkName) ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                      <Link href="#">
+                      <Link href="/">
                         <a className="top-swiper__link">
                           <div className="top-swiper__img-wrapper">
                             <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />

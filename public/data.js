@@ -122,7 +122,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nE22',
         nameWrap: 'Kickscooter\nE22',
         shortName: 'KS E22',
-        pageLinkName: 'ks-e-22',
+        pageLinkName: 'kickscooter-e-22',
         price: '599.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
         rangeByMiles: 'Approx. 13.7 miles (22km)',
@@ -304,6 +304,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nE45',
         nameWrap: 'Ninebot\nKickscooter\nE45',
         shortName: 'KS E45',
+        pageLinkName: 'kickscooter-e-45',
         price: '859.99',
         maxSpeed: '18.6 mph (30 km/h)',
         rangeByMiles: '28.0 miles (45 km)',
@@ -339,7 +340,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-e45_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-e45-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-e45-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-e45/', 'https://store.segway.com/segway-ninebot-kickscooter-e45']
+        links: ['https://www.segway.com/ninebot-kickscooter-e45/', 'https://store.segway.com/segway-ninebot-kickscooter-e45'],
+        galleryImages: ['/ks-e-45/slider/1.jpg', '/ks-e-45/slider/2.jpg', '/ks-e-45/slider/3.jpg', '/ks-e-45/slider/4.jpg', '/ks-e-45/slider/5.jpg', '/ks-e-45/slider/6.jpg']
       },
       {
         id: '006',

@@ -58,6 +58,51 @@ $rootClass: '.segway-ninebot';
     }
   }
 
+  &_ks-e-45 {
+    #{$rootClass}__title span::after {
+      content: attr(data-last-text);
+      color: #009eff;
+      transform: translateX(-100%);
+      position: absolute;
+    }
+    #{$rootClass}__container {
+      position: relative;
+    }
+
+    #{$rootClass}__img-wrapper {
+      top: calc(50%);
+      transform: translateY(-50%);
+      right: -100px;
+      left: unset;
+      bottom: unset;
+      width: 528px;
+      height: 501px;
+      @include media('<=991px') {
+        right: 0;
+      }
+      @include media('<=900px') {
+        order: 3;
+        position: relative;
+        transform: unset;
+        left: unset;
+        right: unset;
+        bottom: unset;
+        width: 70%;
+        height: auto;
+        margin-top: -60px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @include media('<=768px') {
+        width: 100%;
+      }
+      @include media('<=576px') {
+        margin-top: 0;
+      }
+    }
+  }
+
   &__container {
     display: grid;
     column-gap: 20px;
