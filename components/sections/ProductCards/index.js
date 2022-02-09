@@ -51,10 +51,10 @@ export default function ProductCards() {
               <p className="product-cards__item-name">
                 Ninebot <br /> kickscooter
                 <br />
-                MAX
+                E45
               </p>
               <p className="product-cards__item-price">$999.99</p>
-              <Link href="#">
+              <Link href="/kickscooter-e-45">
                 <a className="ui-glass-link product-cards__item-link">SEE DETAILS</a>
               </Link>
             </div>
