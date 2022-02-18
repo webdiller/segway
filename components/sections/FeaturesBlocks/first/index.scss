@@ -134,7 +134,7 @@
     }
     .feature-first-type-two__title {
       @include media('<=991px') {
-        max-width: 230px;
+        max-width: 250px;
         font-size: 20px;
         line-height: 24.5px;
       }

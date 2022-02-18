@@ -444,6 +444,18 @@ img {
   }
 }
 
+.hide-900 {
+  @include media('<=900px') {
+    display: none;
+  }
+}
+.show-block-900 {
+  display: none;
+  @include media('<=900px') {
+    display: block;
+  }
+}
+
 .show-grid-991 {
   display: none;
   @include media('<=991px') {

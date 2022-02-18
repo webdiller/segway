@@ -169,6 +169,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nES1L',
         nameWrap: 'Ninebot\nKickscooter\nES1L',
         shortName: 'KS ES1L',
+        pageLinkName: 'kickscooter-es-1l',
         price: '389.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
         rangeByMiles: 'Approx. 12.4 miles (20km)',
@@ -204,7 +205,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-es1l_small.png',
         imgPathWithCircle: '/segway-ninebot-kickscooter-es1l-circle-default.png',
         imgPathWithBlueCircle: '/segway-ninebot-kickscooter-es1l-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-es1l', 'https://store.segway.com/ninebot-kickscooter-es1l']
+        links: ['https://www.segway.com/ninebot-kickscooter-es1l', 'https://store.segway.com/ninebot-kickscooter-es1l'],
+        galleryImages: ['/ks-es-1l/slider/1.jpg', '/ks-es-1l/slider/2.jpg', '/ks-es-1l/slider/3.jpg', '/ks-es-1l/slider/4.jpg', '/ks-es-1l/slider/5.jpg', '/ks-es-1l/slider/6.jpg', ]
       },
       {
         id: '003',
@@ -214,6 +216,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nAir T15',
         nameWrap: 'Ninebot\nKickscooter\nAir T15',
         shortName: 'KS AIR T15',
+        pageLinkName: 'kickscooter-air-t15',
         price: '819.99',
         maxSpeed: 'Approx. 12.4 mph (20km/h)',
         rangeByMiles: 'Approx. 7.5 miles (12km)',
@@ -249,7 +252,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-air-t15_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-air-t15-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-air-t15-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-air-t15/', 'https://store.segway.com/ninebot-kickscooter-air-t15']
+        links: ['https://www.segway.com/ninebot-kickscooter-air-t15/', 'https://store.segway.com/ninebot-kickscooter-air-t15'],
+        galleryImages: ['/ks-air-t15/slider/1.jpg', '/ks-air-t15/slider/2.jpg', '/ks-air-t15/slider/3.jpg', '/ks-air-t15/slider/4.jpg', '/ks-air-t15/slider/5.jpg', '/ks-air-t15/slider/6.jpg', ]
       },
       {
         id: '004',
@@ -259,6 +263,7 @@ export const data = {
         nameWithoutBrand: 'KickScooter\nF30',
         nameWrap: 'Ninebot\nKickScooter\nF30',
         shortName: 'KS F30',
+        pageLinkName: 'kickscooter-f30',
         price: '649.99',
         maxSpeed: 'Approx. 15.5 mph (25 km/h)',
         rangeByMiles: 'Approx. 18.6 miles (30 km)',
@@ -294,7 +299,9 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-f30_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-f30-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-f30-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-f30/', 'https://store.segway.com/ninebot-kickscooter-f-series']
+        links: ['https://www.segway.com/ninebot-kickscooter-f30/', 'https://store.segway.com/ninebot-kickscooter-f-series'],
+        galleryImages: ['/ks-f30/slider/1.jpg', '/ks-f30/slider/2.jpg', '/ks-f30/slider/3.jpg', '/ks-f30/slider/4.jpg', '/ks-f30/slider/5.jpg', '/ks-f30/slider/6.jpg', ]
+
       },
       {
         id: '005',
@@ -398,6 +405,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nMAX',
         nameWrap: 'Ninebot\nKickscooter\nMAX',
         shortName: 'KS MAX',
+        pageLinkName: 'kickscooter-max-white',
         price: '949.99',
         maxSpeed: 'Approx. 18.6 mph (30 km/h)',
         rangeByMiles: 'Approx. 24.9 miles (40 km)',
@@ -433,7 +441,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-max-007_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-max-007-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-max-007-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-g30lp/']
+        links: ['https://www.segway.com/ninebot-kickscooter-g30lp/'],
+        galleryImages: ['/ks-max-white/slider/1.jpg', '/ks-max-white/slider/2.jpg', '/ks-max-white/slider/3.jpg', '/ks-max-white/slider/4.jpg', '/ks-max-white/slider/5.jpg', '/ks-max-white/slider/6.jpg']
       },
       {
         id: '008',
@@ -443,6 +452,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nES2',
         nameWrap: 'Ninebot\nKickscooter\nES2',
         shortName: 'KS ES2',
+        pageLinkName: 'kickscooter-es-2',
         price: '649.99',
         maxSpeed: '15.5 mph (25 km/h)',
         rangeByMiles: '15.5 miles (25 km)',
@@ -478,7 +488,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-es2_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-es2-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-es2-circle-color.png',
-        links: ['https://www.segway.com/kickscooter-es2/', 'https://store.segway.com/segway-ninebot-kickscooter-es2-grey']
+        links: ['https://www.segway.com/kickscooter-es2/', 'https://store.segway.com/segway-ninebot-kickscooter-es2-grey'],
+        galleryImages: ['/ks-es2/slider/1.jpg', '/ks-es2/slider/2.jpg', '/ks-es2/slider/3.jpg', '/ks-es2/slider/4.jpg', '/ks-es2/slider/5.jpg', '/ks-es2/slider/6.jpg']
       },
       {
         id: '009',
@@ -488,6 +499,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nES3',
         nameWrap: 'Ninebot\nKickscooter\nES3',
         shortName: 'KS ES3',
+        pageLinkName: 'kickscooter-es-3',
         price: '699.99',
         maxSpeed: '15.5 mph (25 km/h)',
         rangeByMiles: '28.0 miles (45 km)',
@@ -533,6 +545,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nES4',
         nameWrap: 'Ninebot\nickscooter\nES4',
         shortName: 'KS ES4',
+        pageLinkName: 'kickscooter-es-4',
         price: '799.99',
         maxSpeed: '18.6 mph (30 km/h)',
         rangeByMiles: '28.0 miles (45 km)',
@@ -568,7 +581,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-es4_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-es4-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-es4-circle-color.png',
-        links: ['https://www.segway.com/kickscooter-es4/', 'https://store.segway.com/segway-ninebot-kickscooter-es4']
+        links: ['https://www.segway.com/kickscooter-es4/', 'https://store.segway.com/segway-ninebot-kickscooter-es4'],
+        galleryImages: ['/ks-es4/slider/1.jpg', '/ks-es4/slider/2.jpg', '/ks-es4/slider/3.jpg', '/ks-es4/slider/4.jpg', '/ks-es4/slider/5.jpg', '/ks-es4/slider/6.jpg']
       }
     ],
     kidsSegways: [
@@ -580,6 +594,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nE8',
         nameWrap: 'Kickscooter\nE8',
         shortName: 'KS ZING E8',
+        pageLinkName: 'kickscooter-zing-e8',
         price: '249.99',
         maxSpeed: '8.6 mph',
         rangeByMiles: '6.2 miles',
@@ -619,7 +634,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-zing-e8_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-zing-e8-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e8-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-zing-e8/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e8']
+        links: ['https://www.segway.com/ninebot-kickscooter-zing-e8/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e8'],
+        galleryImages: ['/ks-zing-e8/slider/1.jpg', '/ks-zing-e8/slider/2.jpg', '/ks-zing-e8/slider/3.jpg', '/ks-zing-e8/slider/4.jpg', '/ks-zing-e8/slider/5.jpg', '/ks-zing-e8/slider/6.jpg']
       },
       {
         id: '012',
@@ -629,6 +645,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nE10',
         nameWrap: 'Kickscooter\nE10',
         shortName: 'KS ZING E10',
+        pageLinkName: 'kickscooter-zing-e10',
         price: '259.99',
         maxSpeed: '10 mph',
         rangeByMiles: '6.2 miles',
@@ -668,7 +685,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-zing-e10_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-zing-e10-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e10-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-zing-e10/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e10']
+        links: ['https://www.segway.com/ninebot-kickscooter-zing-e10/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e10'],
+        galleryImages: ['/ks-zing-e10/slider/1.jpg', '/ks-zing-e10/slider/2.jpg', '/ks-zing-e10/slider/3.jpg', '/ks-zing-e10/slider/4.jpg', '/ks-zing-e10/slider/5.jpg', '/ks-zing-e10/slider/6.jpg']
       },
       {
         id: '013',
@@ -678,6 +696,7 @@ export const data = {
         nameWithoutBrand: 'Kickscooter\nE12',
         nameWrap: 'Kickscooter\nE12',
         shortName: 'KS ZING E12',
+        pageLinkName: 'kickscooter-zing-e12',
         price: '259.99',
         maxSpeed: '11.2 mph',
         rangeByMiles: '6.2 miles',
@@ -717,7 +736,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-zing-e12_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-zing-e12-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-zing-e12-circle-color.png',
-        links: ['https://www.segway.com/ninebot-kickscooter-zing-e12/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e12']
+        links: ['https://www.segway.com/ninebot-kickscooter-zing-e12/', 'https://store.segway.com/segway-ninebot-kickscooter-zing-e12'],
+        galleryImages: ['/ks-zing-e12/slider/1.jpg', '/ks-zing-e12/slider/2.jpg', '/ks-zing-e12/slider/3.jpg', '/ks-zing-e12/slider/4.jpg', '/ks-zing-e12/slider/5.jpg', '/ks-zing-e12/slider/6.jpg']
       }
     ]
   }

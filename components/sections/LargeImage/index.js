@@ -17,7 +17,7 @@ const shimmer = (w, h) => `
 
 const toBase64 = (str) => (typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str));
 
-export default function LargeImage({imageAltText, desktopImage, mobileImage, mediaBreakpoint = 576}) {
+export default function LargeImage({imageAltText, desktopImage, mobileImage, mediaBreakpoint = 576, desktopWidth, desktopHeight, mobileWidth, mobileHeight}) {
   let mediaQuery = useMediaQuery(`(min-width: ${mediaBreakpoint}px)`);
 
   return (
@@ -25,25 +25,29 @@ export default function LargeImage({imageAltText, desktopImage, mobileImage, med
       <div className="large-image__img-wrapper">
         {mediaQuery ? (
           <Image
+            width={desktopWidth}
+            height={desktopHeight}
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             objectFit="contain"
             className="large-image__img"
             src={desktopImage}
             alt={imageAltText}
-            quality={100}
             layout="responsive"
+            quality={100}
           />
         ) : (
           <Image
+            width={mobileWidth}
+            height={mobileHeight}
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             objectFit="contain"
             className="large-image__img"
             src={mobileImage}
             alt={imageAltText}
-            quality={100}
             layout="responsive"
+            quality={100}
           />
         )}
       </div>

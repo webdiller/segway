@@ -103,6 +103,10 @@ $rootElement: '.discount-modal';
       margin-top: 24px;
       line-height: 110%;
     }
+    @include media('<=576px') {
+      font-size: 120px;
+      line-height: 100%;
+    }
   }
 
   &__content {
@@ -116,6 +120,10 @@ $rootElement: '.discount-modal';
     margin-left: auto;
     margin-right: auto;
     color: #323941;
+    @include media('<=576px') {
+      font-size: 40px;
+      line-height: 100%;
+    }
   }
 
   &__description {

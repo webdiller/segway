@@ -28,7 +28,7 @@ export default function OtherModels({items}) {
   return (
     <div ref={ref} className="other-models">
       <div className="container other-models__container">
-        <p className="title title_fz-20 other-models__title">OTHER MODELS</p>
+        <p className="title title_fz-20 other-models__title">Other kickscooters</p>
         <div className="other-models__subtitle">Check out the entire line of Segway scooters</div>
         <div className="other-models__swiper">
           <Swiper
@@ -61,7 +61,7 @@ export default function OtherModels({items}) {
                   <Link href="#">
                     <a className="other-models__link">
                       <div className="other-models__img-wrapper">
-                        <Image objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
+                        <Image quality={100} objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                       </div>
                       <p className="text text_25 other-models__name">{nameWithoutBrand}</p>
                       <div className="other-models__price">

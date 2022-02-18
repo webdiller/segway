@@ -3,7 +3,7 @@ import FormWithWarrancy from '@/blocks/FormWithWarrancy';
 import PaymentsMethods from '@/blocks/PaymentsMethods';
 import SegwayProtectMobile from '@/blocks/SegwayProtectMobile';
 
-export default function SegwayNinebot({customClass, titleDesktop, titleMobile, item, lastWord, mainImage, imgWidth, imgHeight}) {
+export default function SegwayNinebot({customClass, titleDesktop, titleMobile, item, mainImage, imgWidth, imgHeight}) {
   return (
     <div className={customClass ? `segway-ninebot segway-ninebot_${customClass}` : 'segway-ninebot'}>
       <div className="container segway-ninebot__container">
@@ -15,16 +15,16 @@ export default function SegwayNinebot({customClass, titleDesktop, titleMobile, i
         {/* area name: title */}
         <div className="segway-ninebot__title-wrapper">
           <p className="title segway-ninebot__title">
-            <span data-last-text={lastWord} className="hide-576">{titleDesktop}</span>
-            <span data-last-text={lastWord} className="show-block-576">
-              {titleMobile}
-            </span>
+            <span className="hide-576">{titleDesktop}</span>
+            <span className="show-block-576">{titleMobile}</span>
           </p>
         </div>
 
         {/* area name: bgimage */}
-        <div className="segway-ninebot__img-wrapper">
-          <Image width={imgWidth} height={imgHeight} src={mainImage} alt={titleDesktop} layout="responsive" quality={100} objectFit="contain" />
+        <div className="segway-ninebot__img-area">
+          {/* <div className="segway-ninebot__img-wrapper">
+            <Image width={imgWidth} height={imgHeight} src={mainImage} alt={titleDesktop} layout="responsive" quality={100} objectFit="contain" />
+          </div> */}
         </div>
 
         {/* area name: protect */}

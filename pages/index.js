@@ -11,7 +11,7 @@ export default function Home({allData}) {
   return (
     <div>
       <DefaultLayout hideSwiper={true} items={allData} description="segway description" title="segway index">
-        <ProductCardsDinamic/>
+        <ProductCardsDinamic products={allData.segways}/>
         <SegwayProtectDinamic />
         <TabsDinamic customClass="main-page" />
       </DefaultLayout>

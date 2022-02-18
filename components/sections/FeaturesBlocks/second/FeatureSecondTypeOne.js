@@ -1,16 +1,16 @@
 import Image from 'next/image';
 import {useMediaQuery} from '@/hooks/useMediaQuery';
 
-export default function FeatureSecondTypeOne({desktopImage, mobileImage, customClass, title, text, lastText}) {
+export default function FeatureSecondTypeOne({desktopImage, mobileImage, customClass, title, text, lastText, quality=100}) {
   let mediaQuery = useMediaQuery('(min-width: 768px)');
 
   return (
     <div className={customClass ? `feature-second-type-one feature-second-type-one_${customClass}` : 'feature-second-type-one'}>
       <div className="feature-second-type-one__img-wrapper">
         {mediaQuery ? (
-          <Image objectFit="contain" className="feature-second-type-one__img" src={desktopImage} alt={title} quality={100} layout="responsive" />
+          <Image objectFit="contain" className="feature-second-type-one__img" src={desktopImage} alt={title} quality={quality} layout="responsive" />
         ) : (
-          <Image objectFit="cover" className="feature-second-type-one__img" src={mobileImage} alt={title} quality={100} layout="responsive" />
+          <Image objectFit="cover" className="feature-second-type-one__img" src={mobileImage} alt={title} quality={quality} layout="responsive" />
         )}
       </div>
       <div className="container feature-second-type-one__container">
