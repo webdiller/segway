@@ -39,11 +39,11 @@ export default function FeatureSimple({
       )}
       {mediaQuery ? (
         <div className="feature-simple__main-image">
-          <Image quality={qualityDesktop} width={imgDesktopWidth} height={imgDesktopHeight} objectFit="cover" className="" src={imgDesktop} alt={titleDesktop} layout="responsive" />
+          <Image placeholder="blur" quality={qualityDesktop} width={imgDesktopWidth} height={imgDesktopHeight} objectFit="cover" src={imgDesktop} alt={titleDesktop} layout="responsive" />
         </div>
       ) : (
         <div className="feature-simple__main-image">
-          <Image quality={qualityMobile} width={imgMobileWidth} height={imgMobileHeight} objectFit="cover" src={imgMobile} alt={titleDesktop} layout="responsive" />
+          <Image placeholder="blur" quality={qualityMobile} width={imgMobileWidth} height={imgMobileHeight} objectFit="cover" src={imgMobile} alt={titleDesktop} layout="responsive" />
         </div>
       )}
 

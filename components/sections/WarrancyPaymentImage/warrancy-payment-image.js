@@ -28,11 +28,11 @@ export default function WarrancyPaymentImage({widthDesktop, heightDesktop, width
           <div className="form-warrancy__right">
             {mediaQuery ? (
               <div style={{width: `${widthDesktop}px`, height: `${heightDesktop}px`}} className="form-warrancy__img-wrapper">
-                <Image width={widthDesktop} height={heightDesktop} objectFit="contain" layout="fill" src={imgDesktop} alt={titleDesktop} className="form-warrancy__img" quality={100} />
+                <Image placeholder="blur" width={widthDesktop} height={heightDesktop} objectFit="contain" layout="fill" src={imgDesktop} alt={titleDesktop} className="form-warrancy__img" quality={100} />
               </div>
             ) : (
               <div className="form-warrancy__img-wrapper">
-                <Image width={widthMobile} height={heightMobile} objectFit="contain" layout="responsive" src={imgMobile} alt={titleDesktop} className="form-warrancy__img" quality={100} />
+                <Image placeholder="blur" width={widthMobile} height={heightMobile} objectFit="contain" layout="responsive" src={imgMobile} alt={titleDesktop} className="form-warrancy__img" quality={100} />
               </div>
             )}
           </div>
