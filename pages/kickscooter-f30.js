@@ -299,8 +299,8 @@ export default function Home({allData}) {
         customClass="type-5"
         titleDesktop={
           <>
-            E-ABS Electronic <br />
-            Brake & Disc Brake
+            E-ABS <br /> Electronic <br />
+            Brake & <br /> Disc Brake
           </>
         }
         textDesktop={

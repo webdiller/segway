@@ -380,7 +380,7 @@ export default function Home({allData}) {
 
       {/* 7 */}
       <FeatureSimpleDinamic
-        customClass="type-7"
+        customClass="content-top-mobile"
         titleDesktop={<>Bezel-less Dashboard</>}
         textDesktop={
           <>
