@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic';
-import DefaultLayout from '@/basic/DefaultLayout';
+import ModelLayout from '@/layouts/ModelLayout';
 import {data} from '@/base/data';
 import Welcome from '@/sections/Welcome';
 import TopStock from '@/sections/TopStock';
 import Tabs from '@/sections/Tabs';
-import {FancyModal} from 'components/shared/Modal';
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr:false});
 import CustomHead from '@/basic/CustomHead';
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
@@ -377,5 +377,5 @@ export async function getStaticProps() {
 }
 
 Home.getLayout = function getLayout(page) {
-  return <DefaultLayout items={data}>{page}</DefaultLayout>;
+  return <ModelLayout items={data}>{page}</ModelLayout>;
 };

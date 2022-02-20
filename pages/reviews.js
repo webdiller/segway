@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import DefaultLayout from '@/basic/DefaultLayout';
+import ModelLayout from '@/layouts/ModelLayout';
 const ReviewsBlockDinamic = dynamic(() => import('@/sections/Reviews/ReviewsBlock'));
 
 import {data} from '@/base/data';
@@ -7,9 +7,9 @@ import {data} from '@/base/data';
 export default function Reviews({allData}) {
   return (
     <div>
-      <DefaultLayout items={allData} description="segway description" title="segway reviews">
+      <ModelLayout items={allData} description="segway description" title="segway reviews">
         <ReviewsBlockDinamic />
-      </DefaultLayout>
+      </ModelLayout>
     </div>
   );
 }

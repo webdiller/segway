@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
 import bgImageDark from '@/base/didnt-find-img-dark.png';
-import UiInput from '@/ui/UiInput';
+import UiInput from 'components/shared/UiInput/UiInput';
 import noScroll from 'no-scroll';
 import TinderCard from 'react-tinder-card';
 

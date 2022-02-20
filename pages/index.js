@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import DefaultLayout from '@/basic/DefaultLayout';
+import ModelLayout from '@/layouts/ModelLayout';
 
 const ProductCardsDinamic = dynamic(() => import('@/sections/ProductCards'));
 const TabsDinamic = dynamic(() => import('@/sections/Tabs'));
@@ -10,11 +10,11 @@ import {data} from '@/base/data';
 export default function Home({allData}) {
   return (
     <div>
-      <DefaultLayout hideSwiper={true} items={allData} description="segway description" title="segway index">
+      <ModelLayout hideSwiper={true} items={allData} description="segway description" title="segway index">
         <ProductCardsDinamic products={allData.segways}/>
         <SegwayProtectDinamic />
         <TabsDinamic customClass="main-page" />
-      </DefaultLayout>
+      </ModelLayout>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import footerLogo from '@/base/logo-black-footer.svg';
 import {Fragment} from 'react';
-import UiSrollUp from '@/ui/UiScrollUp';
+import UiSrollUp from 'components/shared/ScrollUp/UiScrollUp';
 import styles from './Footer.module.scss';
 
 export default function Footer() {

@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import DefaultLayout from '@/basic/DefaultLayout';
+import ModelLayout from '@/layouts/ModelLayout';
 import {useCart} from 'react-use-cart';
 import {data} from '@/base/data';
 
@@ -11,7 +11,7 @@ export default function UserCart({allData}) {
   }, [items]);
   return (
     <div>
-      <DefaultLayout items={allData} description="segway description" title="User cart">
+      <ModelLayout items={allData} description="segway description" title="User cart">
         <br />
         <br />
         <br />
@@ -56,7 +56,7 @@ export default function UserCart({allData}) {
         <br />
         <br />
         <br />
-      </DefaultLayout>
+      </ModelLayout>
     </div>
   );
 }

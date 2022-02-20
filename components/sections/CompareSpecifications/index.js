@@ -25,6 +25,7 @@ import iconAtmosphere from '@/base/icon-atmosphere.svg';
 import {setProductModal} from '@/actions/productModal';
 import {setCompareModal} from '@/actions/compareModal';
 import {useDispatch, useSelector} from 'react-redux';
+import ModalWrapper from '@/modals/ModalWrapper';
 
 export default function CompareSpecifications({items, mainSegway}) {
   const {addItem} = useCart();
@@ -52,22 +53,22 @@ export default function CompareSpecifications({items, mainSegway}) {
 
   const closeOnClickOutsite = (event) => {
     if (isActiveCompareModal && targetScrollElement.current === event.target) {
-      dispatch(setCompareModal(false))
+      dispatch(setCompareModal(false));
     }
   };
 
   const closeModal = () => () => {
-    dispatch(setCompareModal(false))
+    dispatch(setCompareModal(false));
   };
 
   const openModal = () => () => {
-    dispatch(setCompareModal(true))
+    dispatch(setCompareModal(true));
   };
 
   const setSelectedModelHandle = (id) => {
     const filtered = allModels.filter((model) => model.id == id);
     setSelectedModel(...filtered);
-    dispatch(setCompareModal(false))
+    dispatch(setCompareModal(false));
     setUrlIfModalActive();
   };
 
@@ -106,13 +107,30 @@ export default function CompareSpecifications({items, mainSegway}) {
               <div className="main-slide__header">
                 <div className="main-slide__header-left">
                   <div className="main-slide__img-wrapper">
-                    <Image objectFit="contain" src={mainSegway.imgPath} alt={mainSegway.name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                    <Image
+                      objectFit="contain"
+                      src={mainSegway.imgPath}
+                      alt={mainSegway.name}
+                      width={180}
+                      height={180}
+                      quality={90}
+                      layout="responsive"
+                      placeholder="blur"
+                      blurDataURL={segwayPlaceholder}
+                    />
                   </div>
                   <p className="text text_bold main-slide__name">{mainSegway.name}</p>
                 </div>
                 <div className="main-slide__header-right">
                   <div onClick={openModal()} className="main-slide__img-compare-wrapper">
-                    <img loading="lazy" width="104" height="104" src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`} alt="icon-compare" className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'} />
+                    <img
+                      loading="lazy"
+                      width="104"
+                      height="104"
+                      src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`}
+                      alt="icon-compare"
+                      className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'}
+                    />
                   </div>
                   <p className="text text_bold main-slide__name">{!selectedModel ? 'Add model' : selectedModel.name} </p>
                 </div>
@@ -519,11 +537,46 @@ export default function CompareSpecifications({items, mainSegway}) {
               }
             }}>
             {allModels.map((item) => {
-              const {id, type, name, shortName, price, maxSpeed, rangeByMiles, rangeByMilesWrap, batteryCapacity, netWeight, netWeightWrap, payload, payloadWrap, charginTime, numberOfBatteries, motorPower, powerOutput, maxIncline, shockAbsorption, safety, atmosphereLight, imgPath, links} = item;
+              const {
+                id,
+                type,
+                name,
+                shortName,
+                price,
+                maxSpeed,
+                rangeByMiles,
+                rangeByMilesWrap,
+                batteryCapacity,
+                netWeight,
+                netWeightWrap,
+                payload,
+                payloadWrap,
+                charginTime,
+                numberOfBatteries,
+                motorPower,
+                powerOutput,
+                maxIncline,
+                shockAbsorption,
+                safety,
+                atmosphereLight,
+                imgPath,
+                links
+              } = item;
               return (
                 <SwiperSlide key={id} className="compare-specfications__slide">
                   <div className="compare-specfications__img-wrapper">
-                    <Image objectFit="contain" className="compare-specfications__img" src={imgPath} alt={name} width={180} height={180} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                    <Image
+                      objectFit="contain"
+                      className="compare-specfications__img"
+                      src={imgPath}
+                      alt={name}
+                      width={180}
+                      height={180}
+                      quality={90}
+                      layout="responsive"
+                      placeholder="blur"
+                      blurDataURL={segwayPlaceholder}
+                    />
                   </div>
                   <p className="text text_bold compare-specfications__name">{name}</p>
 
@@ -629,7 +682,10 @@ export default function CompareSpecifications({items, mainSegway}) {
             })}
           </Swiper>
 
-          <div className={activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 10 ? 'compare-specfications__navigation disabled-right' : 'compare-specfications__navigation'}>
+          <div
+            className={
+              activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 10 ? 'compare-specfications__navigation disabled-right' : 'compare-specfications__navigation'
+            }>
             <button aria-label="swipe to left slider specifications" className="compare-specfications__nav compare-specfications__nav_prev">
               <FcPrevious className="compare-specfications__icon" />
             </button>
@@ -640,29 +696,31 @@ export default function CompareSpecifications({items, mainSegway}) {
           </div>
         </div>
 
-        <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={isActiveCompareModal ? 'compare-modal active' : 'compare-modal'}>
-          <div className="compare-modal__wrapper">
-            <div className="compare-modal__wrapper-inner">
-              <p className="title compare-modal__title">select a model to compare</p>
-              <img onClick={closeModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-              <div className="compare-modal__items">
-                {allModels.map(({id, shortName, imgPath}) => (
-                  <button
-                    onClick={() => {
-                      setSelectedModelHandle(id);
-                    }}
-                    key={id}
-                    className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
-                    <div className="compare-modal__img-wrapper">
-                      <Image objectFit="contain" src={imgPath} alt={shortName} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                    </div>
-                    <p className="compare-modal__name">{shortName}</p>
-                  </button>
-                ))}
+        <ModalWrapper mounted={isActiveCompareModal}>
+          <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={isActiveCompareModal ? 'compare-modal active' : 'compare-modal'}>
+            <div className="compare-modal__wrapper">
+              <div className="compare-modal__wrapper-inner">
+                <p className="title compare-modal__title">select a model to compare</p>
+                <img onClick={closeModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+                <div className="compare-modal__items">
+                  {allModels.map(({id, shortName, imgPath}) => (
+                    <button
+                      onClick={() => {
+                        setSelectedModelHandle(id);
+                      }}
+                      key={id}
+                      className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
+                      <div className="compare-modal__img-wrapper">
+                        <Image objectFit="contain" src={imgPath} alt={shortName} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                      </div>
+                      <p className="compare-modal__name">{shortName}</p>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </ModalWrapper>
       </div>
     </div>
   );

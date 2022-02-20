@@ -5,7 +5,7 @@ import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import {useInView} from 'react-intersection-observer';
-import UiInput from '@/ui/UiInput';
+import UiInput from 'components/shared/UiInput/UiInput';
 
 export default function OtherModels({items}) {
   const swiperRef = useRef(null);

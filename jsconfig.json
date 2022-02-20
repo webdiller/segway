@@ -6,9 +6,9 @@
       "@/basic/*": ["components/basic/*"],
       "@/blocks/*": ["components/blocks/*"],
       "@/hooks/*": ["components/hooks/*"],
+      "@/layouts/*": ["components/layouts/*"],
       "@/modals/*": ["components/modals/*"],
       "@/sections/*": ["components/sections/*"],
-      "@/ui/*": ["components/ui/*"],
       "@/styles/*": ["styles/*"],
       "@/actions/*": ["store/actions/*"]
     }

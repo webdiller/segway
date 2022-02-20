@@ -1,13 +1,13 @@
-import DefaultLayout from "@/basic/DefaultLayout";
+import ModelLayout from "@/layouts/ModelLayout";
 import { RemainTimeModalWithTimer } from "@/modals/RemainTimeModal";
 import {data} from '@/base/data';
 
 export default function Modal4({allData}) {
   return (
     <div>
-      <DefaultLayout items={allData} description="segway description" title="segway index">
+      <ModelLayout items={allData} description="segway description" title="segway index">
         {/* <RemainTimeModalWithTimer /> */}
-      </DefaultLayout>
+      </ModelLayout>
     </div>
   );
 }

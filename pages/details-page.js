@@ -1,10 +1,10 @@
-import DefaultLayout from '@/basic/DefaultLayout';
+import ModelLayout from '@/layouts/ModelLayout';
 import {data} from '@/base/data';
 
 export default function UserCart({allData}) {
   return (
     <div>
-      <DefaultLayout items={allData} description="segway description" title="Details page">
+      <ModelLayout items={allData} description="segway description" title="Details page">
         <br />
         <br />
         <br />
@@ -38,7 +38,7 @@ export default function UserCart({allData}) {
         <br />
         <br />
         <br />
-      </DefaultLayout>
+      </ModelLayout>
     </div>
   );
 }

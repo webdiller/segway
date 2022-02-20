@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import {VscFilePdf} from 'react-icons/vsc';
-import UiLink from '@/ui/UiLink';
+import UiLink from 'components/shared/UiLink/UiLink';
 
 export default function DownloadManual() {
   

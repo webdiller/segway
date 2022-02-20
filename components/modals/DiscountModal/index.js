@@ -3,7 +3,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import TinderCard from 'react-tinder-card';
 import disableScroll from 'disable-scroll';
 import {useSelector} from 'react-redux';
-import UiInput from '@/ui/UiInput';
+import UiInput from 'components/shared/UiInput/UiInput';
+import ModalWrapper from '../ModalWrapper';
 
 export default function DiscountModal() {
   const elRef = useRef(null);
@@ -12,8 +13,8 @@ export default function DiscountModal() {
   const {active: isActiveCompareModal} = useSelector((state) => state.compareModal);
 
   const addClassForRootELementIfFocused = (condition) => () => {
-    condition ? elRef.current.classList.add('focused') : elRef.current.classList.remove('focused')
-  }
+    condition ? elRef.current.classList.add('focused') : elRef.current.classList.remove('focused');
+  };
 
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
@@ -62,26 +63,32 @@ export default function DiscountModal() {
       disableScroll.off();
     }
   }, [activeModal]);
-
   return (
-    <div onFocus={addClassForRootELementIfFocused(true)} onBlur={addClassForRootELementIfFocused(false)} onClick={(e) => onClickWrapper(e)} ref={elRef} className={activeModal ? 'discount-modal active' : 'discount-modal'}>
-      <TinderCard swipeThreshold={300} onSwipe={onSwipe} preventSwipe={['right', 'left']}>
-        <div className="discount-modal__wrapper">
-          <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">
-            <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-            <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile" src="./icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-          </button>
-          <p className="discount-modal__title">5%</p>
-          <div className="discount-modal__content">
-            <p className="title discount-modal__subtitle">discount</p>
-            <p className="text discount-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
+    <ModalWrapper mounted={activeModal} selector="#modal-root">
+      <div
+        onFocus={addClassForRootELementIfFocused(true)}
+        onBlur={addClassForRootELementIfFocused(false)}
+        onClick={(e) => onClickWrapper(e)}
+        ref={elRef}
+        className={activeModal ? 'discount-modal active' : 'discount-modal'}>
+        <TinderCard swipeThreshold={300} onSwipe={onSwipe} preventSwipe={['right', 'left']}>
+          <div className="discount-modal__wrapper">
+            <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">
+              <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+              <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile" src="./icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+            </button>
+            <p className="discount-modal__title">5%</p>
+            <div className="discount-modal__content">
+              <p className="title discount-modal__subtitle">discount</p>
+              <p className="text discount-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
+            </div>
+            <UiInput forForm={true} customClass="didnt-find-modal__input" />
+            <button className="ui-btn discount-modal__btn">
+              <span>Get a discount</span>
+            </button>
           </div>
-          <UiInput forForm={true} customClass="didnt-find-modal__input" />
-          <button className="ui-btn discount-modal__btn">
-            <span>Get a discount</span>
-          </button>
-        </div>
-      </TinderCard>
-    </div>
+        </TinderCard>
+      </div>
+    </ModalWrapper>
   );
 }
