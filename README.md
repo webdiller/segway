@@ -944,3 +944,152 @@ The 3M reflective sticker is installed on the fender. It <br/> has high reflecti
 3M Reflective Stickers
 
 The 3M reflective sticker is installed on the fender. <br/> It has high reflectivity, a wide reflection angle, and <br/> strong adhesion, providing more safety and security.
+
+
+
+
+# ------------------------------ ks-es-3 ------------------------------
+
+# 1
+More Powerful Battery
+
+The Ninebot KickScooter by Segway ES3 battery is a <br/>
+powerhouse, clocking in with a capacity of 374 Wh, with a <br/>
+nominal power of 250 W and peak power of 600 W. The <br/>
+batteries have overheating, short circuit, overcurrent, and over- <br/>
+charge protection, ensuring hundreds of cycles without <br/>
+compromising max capacity. Each ES3 comes with both an <br/>
+internal and removable external lithium-ion battery.
+
+
+# 1
+More Powerful Battery
+
+The Ninebot KickScooter by Segway ES3 battery <br/>
+is a powerhouse, clocking in with a capacity of 374 <br/>
+Wh, with a nominal power of 250 W and peak <br/>
+power of 600 W. The batteries have overheating, <br/>
+short circuit, overcurrent, and over-charge <br/>
+protection, ensuring hundreds of cycles without <br/>
+compromising max capacity. Each ES3 comes with <br/>
+both an internal and removable external lithium- <br/>
+ion battery.
+
+# 2
+A Real <br/>
+Powerhouse
+
+Experience greater power, range, and speed. With an <br/>
+internal and external lithium-ion battery, the Ninebot <br/>
+KickScooter by Segway ES3 has a top speed of nearly <br/>
+15.5 mph and a range of up to 28 miles. The bar for <br/>
+high-performance e-scooters has been raised.
+
+# 2
+A Real Powerhouse
+
+Experience greater power, range, and speed. <br/>
+With an internal and external lithium-ion battery, <br/>
+the Ninebot KickScooter by Segway ES3 has a <br/>
+top speed of nearly 15.5 mph and a range of up <br/>
+to 28 miles. The bar for high-performance e- <br/>
+scooters has been raised.
+
+# 3
+The Next Level <br/>
+of e-Scooter
+
+Equipped with internal and external lithium-ion batteries, the Ninebot <br/>
+KickScooter by Segway ES3 allows you to travel farther and reach your <br/>
+destination quicker than ever before. The extra power comes with <br/>
+controlled acceleration for a smoother ride and a cruise control option so <br/>
+you can ride in comfort. Thanks to the textured anti-slip handle, you’ll enjoy <br/>
+better grip and control.
+
+# 3
+The Next Level of e-Scooter
+
+Equipped with internal and external lithium-ion batteries, <br/>
+the Ninebot KickScooter by Segway ES3 <br/>
+allows you to travel farther and reach your <br/>
+destination quicker than ever before. The extra <br/>
+power comes with controlled acceleration for a <br/>
+smoother ride and a cruise control option so you <br/>
+can ride in comfort. Thanks to the textured anti-slip <br/>
+handle, you’ll enjoy better grip and control.
+
+# 4
+Lightweight & <br/>
+Foldable
+
+The one-click folding system allows this <br/>
+lightweight electric Ninebot by Segway <br/>
+KickScooter ES3 to be carried on public <br/>
+transportation, stored in your car and more. It <br/>
+conveniently goes anywhere.
+# 4
+Lightweight & Foldable
+
+The one-click folding system allows this lightweight <br/>
+electric Ninebot by Segway KickScooter <br/>
+ES3 to be carried on public <br/>
+transportation, stored in your car and more. <br/>
+It conveniently goes anywhere.
+
+# 5
+Enjoy a Longer <br/>
+Rider with <br/>
+Smart BMS
+
+Enjoy more of your ride, and get where you're going <br/>
+faster on your Ninebot KickScooter by Segway ES3 <br/>
+thanks to our efficient battery cells and powerful <br/>
+600W motor. Our Smart Battery Management System <br/>
+(Smart-BMS) closely monitors the battery cells.
+
+# 5
+Enjoy a Longer Rider with <br/>
+Smart BMS
+
+Enjoy more of your ride, and get where you're <br/>
+going faster on your Ninebot KickScooter by <br/>
+Segway ES3 thanks to our efficient battery cells <br/>
+and powerful 600W motor. Our Smart Battery <br/>
+Management System (Smart-BMS) closely monitors <br/>
+the battery cells.
+
+# 6
+Superior <br/>
+Technology
+
+The built-in LED display shows your speed and <br/>
+remaining battery life, so you always have the <br/>
+information you need. Turn on the headlight with a <br/>
+quick click of the power button.
+
+# 6
+Superior Technology
+
+The built-in LED display shows your speed and <br/>
+remaining battery life, so you always have the <br/>
+information you need. Turn on the headlight with a <br/>
+quick click of the power button.
+
+# 7
+Built for <br/>
+Performance <br/>
+and Comfort
+
+The Ninebot KickScooter by Segway ES3 has built-in <br/>
+front shock absorption to provide a smooth ride <br/>
+even at high speeds. It features electrical and <br/>
+mechanical brakes for increased safety.
+
+# 7
+Built for Performance <br/>
+and Comfort
+
+The Ninebot KickScooter by Segway ES3 has built- <br/>
+in front shock absorption to provide a smooth ride <br/>
+even at high speeds. It features electrical and <br/>
+mechanical brakes for increased safety.

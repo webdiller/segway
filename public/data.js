@@ -535,7 +535,8 @@ export const data = {
         imgSmallPath: '/ninebot-kickscooter-es3_small.png',
         imgPathWithCircle: '/ninebot-kickscooter-es3-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-es3-circle-color.png',
-        links: ['https://www.segway.com/kickscooter-es3/', 'https://store.segway.com/segway-ninebot-kickscooter-es3']
+        links: ['https://www.segway.com/kickscooter-es3/', 'https://store.segway.com/segway-ninebot-kickscooter-es3'],
+        galleryImages: ['/ks-es3/slider/1.jpg', '/ks-es3/slider/2.jpg', '/ks-es3/slider/3.jpg', '/ks-es3/slider/4.jpg', '/ks-es3/slider/5.jpg', '/ks-es3/slider/6.jpg', '/ks-es3/slider/7.jpg']
       },
       {
         id: '010',
