@@ -278,7 +278,7 @@ export default function Home({allData}) {
         }
         textDesktop={
           <>
-            Enjoy more of your ride, and get where you're going <br />
+            Enjoy more of your ride, and get where you&apos;re going <br />
             faster on your Ninebot KickScooter by Segway ES3 <br />
             thanks to our efficient battery cells and powerful <br />
             600W motor. Our Smart Battery Management System <br />
@@ -299,7 +299,7 @@ export default function Home({allData}) {
         }
         textMobile={
           <>
-            Enjoy more of your ride, and get where you're <br />
+            Enjoy more of your ride, and get where you&apos;re <br />
             going faster on your Ninebot KickScooter by <br />
             Segway ES3 thanks to our efficient battery cells <br />
             and powerful 600W motor. Our Smart Battery <br />
