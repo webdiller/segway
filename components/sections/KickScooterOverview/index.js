@@ -14,9 +14,9 @@ export default function KickScooterOverview({title = 'KickScooter overview', sub
 
         <div className="kick-scooter-overview__img-wrapper">
           {mediaQuery ? (
-            <Image quality={100} layout="responsive" objectFit="contain" className="kick-scooter-overview__img" src={desktopImage} alt={`${title} ${subtitle}`} />
+            <Image placeholder="blur" quality={100} layout="responsive" objectFit="contain" className="kick-scooter-overview__img" src={desktopImage} alt={`${title} ${subtitle}`} />
           ) : (
-            <Image quality={100} layout="responsive" objectFit="contain" className="kick-scooter-overview__img" src={mobileImage} alt={`${title} ${subtitle}`} />
+            <Image placeholder="blur" quality={100} layout="responsive" objectFit="contain" className="kick-scooter-overview__img" src={mobileImage} alt={`${title} ${subtitle}`} />
           )}
         </div>
       </div>

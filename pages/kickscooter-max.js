@@ -118,44 +118,38 @@ export default function Home({allData}) {
       {/* 1 */}
       <FeatureSimpleDinamic
         customClass="ks-air-t15"
-        titleDesktop={'Smart battery <br/> Management system <br/> (Smart-BMS)'.split('<br/>').join('\n')}
-        textDesktop={'The Smart-BMS closely monitors the battery status with multiple <br/> protection mechanisms to ensure the battery durability'.split('<br/>').join('\n')}
+        titleDesktop={<>Smart battery <br/> Management system <br/> (Smart-BMS)</>}
+        textDesktop={<>The Smart-BMS closely monitors the battery status with multiple <br/> protection mechanisms to ensure the battery durability</>}
         imgDesktop={FeatureSimple_1_desktop}
         imgDesktopWidth={1376}
         imgDesktopHeight={547}
         imgMobile={FeatureSimple_1_mobile}
         imgMobileWidth={375}
         imgMobileHeight={471}
-        titleMobile={'Smart battery <br/> Management system <br/> (Smart-BMS)'.split('<br/>').join('\n')}
-        textMobile={'The Smart-BMS closely monitors the battery status <br/> with multiple protection mechanisms to ensure the <br/> battery durability'.split('<br/>').join('\n')}
+        titleMobile={<>Smart battery <br/> Management system <br/> (Smart-BMS)</>}
+        textMobile={<>The Smart-BMS closely monitors the battery status <br/> with multiple protection mechanisms to ensure the <br/> battery durability</>}
       />
 
       {/* 2 */}
       <FeatureSimpleDinamic
         customClass="content-align-right-and-black"
-        titleDesktop={'Dual Braking <br/> System'.split('<br/>').join('\n')}
-        textDesktop={'Simultaneous mechanical front drum brake <br/> and regenerative electric back brake provide <br/> both stability and steerability. <br/> <br/> *IPX5 water resistance'
-          .split('<br/>')
-          .join('\n')}
+        titleDesktop={<>Dual Braking <br/> System</>}
+        textDesktop={<>Simultaneous mechanical front drum brake <br/> and regenerative electric back brake provide <br/> both stability and steerability. <br/> <br/> *IPX5 water resistance</>}
         imgDesktop={FeatureSimple_2_desktop}
         imgDesktopWidth={1376}
         imgDesktopHeight={547}
         imgMobile={FeatureSimple_2_mobile}
         imgMobileWidth={375}
         imgMobileHeight={507}
-        titleMobile={'Dual Braking System'.split('<br/>').join('\n')}
-        textMobile={'Simultaneous mechanical front drum brake and <br/> regenerative electric back brake provide both <br/> stability and steerability. <br/> <br/> *IPX5 water resistance'
-          .split('<br/>')
-          .join('\n')}
+        titleMobile={<>Dual Braking System</>}
+        textMobile={<>Simultaneous mechanical front drum brake and <br/> regenerative electric back brake provide both <br/> stability and steerability. <br/> <br/> *IPX5 water resistance</>}
       />
 
       {/* 3 */}
       <FeatureSimpleDinamic
         customClass="ks-air-t15"
-        titleDesktop={'Built-In Front  <br/> LED Light'.split('<br/>').join('\n')}
-        textDesktop={'Front-facing lights are designed with 2.5w high-brightness LED light to <br/> illuminate the path ahead of you and increase your visibility to others <br/> around you.'
-          .split('<br/>')
-          .join('\n')}
+        titleDesktop={<>Built-In Front  <br/> LED Light</>}
+        textDesktop={<>Front-facing lights are designed with 2.5w high-brightness LED light to <br/> illuminate the path ahead of you and increase your visibility to others <br/> around you.</>}
         descriptionDesktop="*Disclaimer: for your safety, please try not to ride at night"
         imgDesktop={FeatureSimple_3_desktop}
         imgDesktopWidth={1376}
@@ -163,8 +157,8 @@ export default function Home({allData}) {
         imgMobile={FeatureSimple_3_mobile}
         imgMobileWidth={375}
         imgMobileHeight={483}
-        titleMobile={'Smart battery <br/> Management system <br/> (Smart-BMS)'.split('<br/>').join('\n')}
-        textMobile={'The Smart-BMS closely monitors the battery status <br/> with multiple protection mechanisms to ensure the <br/> battery durability'.split('<br/>').join('\n')}
+        titleMobile={<>Smart battery <br/> Management system <br/> (Smart-BMS)</>}
+        textMobile={<>The Smart-BMS closely monitors the battery status <br/> with multiple protection mechanisms to ensure the <br/> battery durability</>}
         descriptionMobile="*Disclaimer: for your safety, please try not to ride at night"
       />
 
@@ -178,58 +172,46 @@ export default function Home({allData}) {
       {/* 5 */}
       <FeatureSimpleDinamic
         customClass="ks-air-t15"
-        titleDesktop={'Regenerative Brake for <br/> Power Recycle'.split('<br/>').join('\n')}
-        textDesktop={'The innovative regenerative brake system turns Ninebot KickScooter MAX <br/> into an electric vehicle powered by electricity and recycled energy from <br/> riding. Energy will be collected from regenerative braking and distributed <br/> when you need a boost.'
-          .split('<br/>')
-          .join('\n')}
+        titleDesktop={<>Regenerative Brake for <br/> Power Recycle</>}
+        textDesktop={<>The innovative regenerative brake system turns Ninebot KickScooter MAX <br/> into an electric vehicle powered by electricity and recycled energy from <br/> riding. Energy will be collected from regenerative braking and distributed <br/> when you need a boost.</>}
         imgDesktop={FeatureSimple_5_desktop}
         imgDesktopWidth={1376}
         imgDesktopHeight={547}
         imgMobile={FeatureSimple_5_mobile}
         imgMobileWidth={375}
         imgMobileHeight={434}
-        titleMobile={'Regenerative Brake <br/> for Power Recycle'.split('<br/>').join('\n')}
-        textMobile={'The innovative regenerative brake system turns <br/> Ninebot KickScooter MAX into an electric vehicle <br/> powered by electricity and recycled energy from <br/> riding. Energy will be collected from regenerative <br/> braking and distributed when you need a boost.'
-          .split('<br/>')
-          .join('\n')}
+        titleMobile={<>Regenerative Brake <br/> for Power Recycle</>}
+        textMobile={<>The innovative regenerative brake system turns <br/> Ninebot KickScooter MAX into an electric vehicle <br/> powered by electricity and recycled energy from <br/> riding. Energy will be collected from regenerative <br/> braking and distributed when you need a boost.</>}
       />
 
       {/* 6 */}
       <FeatureSimpleDinamic
         customClass="type-3"
-        titleDesktop={'Easy One Cord <br/> Fast Charging'.split('<br/>').join('\n')}
-        textDesktop={'The built-in charger lets riders recharge it easily <br/> when on the go without having to carry along a <br/> bulky charging adapter. 3A fast charge will give  <br/>Ninebot KickScooter MAX a full charge in 6 hours.'
-          .split('<br/>')
-          .join('\n')}
+        titleDesktop={<>Easy One Cord <br/> Fast Charging</>}
+        textDesktop={<>The built-in charger lets riders recharge it easily <br/> when on the go without having to carry along a <br/> bulky charging adapter. 3A fast charge will give  <br/>Ninebot KickScooter MAX a full charge in 6 hours.</>}
         imgDesktop={FeatureSimple_6_desktop}
         imgDesktopWidth={1376}
         imgDesktopHeight={505}
         imgMobile={FeatureSimple_6_mobile}
         imgMobileWidth={375}
         imgMobileHeight={434}
-        titleMobile={'Regenerative Brake <br/> for Power Recycle'.split('<br/>').join('\n')}
-        textMobile={'The innovative regenerative brake system turns <br/> Ninebot KickScooter MAX into an electric vehicle <br/> powered by electricity and recycled energy from <br/> riding. Energy will be collected from regenerative <br/> braking and distributed when you need a boost.'
-          .split('<br/>')
-          .join('\n')}
+        titleMobile={<>Regenerative Brake <br/> for Power Recycle</>}
+        textMobile={<>The innovative regenerative brake system turns <br/> Ninebot KickScooter MAX into an electric vehicle <br/> powered by electricity and recycled energy from <br/> riding. Energy will be collected from regenerative <br/> braking and distributed when you need a boost.</>}
       />
 
       {/* 7 */}
       <FeatureSimpleDinamic
         customClass="content-top-mobile"
-        titleDesktop={'3 Riding Modes'.split('<br/>').join('\n')}
-        textDesktop={'Eco, Standard, and Sports modes can be directly <br/> accessed by the intuitive LED dashboard, which also <br/> displays maintenance signals, power levels, <br/>Bluetooth connectivity and more.'
-          .split('<br/>')
-          .join('\n')}
+        titleDesktop={<>3 Riding Modes</>}
+        textDesktop={<>Eco, Standard, and Sports modes can be directly <br/> accessed by the intuitive LED dashboard, which also <br/> displays maintenance signals, power levels, <br/>Bluetooth connectivity and more.</>}
         imgDesktop={FeatureSimple_7_desktop}
         imgDesktopWidth={1376}
         imgDesktopHeight={547}
         imgMobile={FeatureSimple_7_mobile}
         imgMobileWidth={375}
         imgMobileHeight={354}
-        titleMobile={'3 Riding Modes'.split('<br/>').join('\n')}
-        textMobile={'Eco, Standard, and Sports modes can be directly <br/> accessed by the intuitive LED dashboard, which <br/> also displays maintenance signals, power levels, <br/> Bluetooth connectivity and more.'
-          .split('<br/>')
-          .join('\n')}
+        titleMobile={<>3 Riding Modes</>}
+        textMobile={<> Eco, Standard, and Sports modes can be directly <br/> accessed by the intuitive LED dashboard, which <br/> also displays maintenance signals, power levels, <br/> Bluetooth connectivity and more.</>}
       />
 
       <DownloadManualDinamic />
