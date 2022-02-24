@@ -1,13 +1,12 @@
-import ModelLayout from "@/layouts/ModelLayout";
-import { RemainTimeModalWithTimer } from "@/modals/RemainTimeModal";
+import {RemainTimeModalWithTimer} from '@/modals/RemainTimeModal';
 import {data} from '@/base/data';
+import CustomHead from '@/basic/CustomHead';
 
 export default function Modal4({allData}) {
   return (
     <div>
-      <ModelLayout items={allData} description="segway description" title="segway index">
-        {/* <RemainTimeModalWithTimer /> */}
-      </ModelLayout>
+      <CustomHead />
+      <RemainTimeModalWithTimer />
     </div>
   );
 }

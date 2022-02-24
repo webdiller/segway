@@ -1,0 +1,31 @@
+.categories-page {
+  &__items {
+    padding-top: 41px;
+    padding-bottom: 30px;
+    @include media('<=576px') {
+      padding: 0;
+    }
+  }
+  &__title {
+    margin: 32px 0 32px 0;
+    text-align: center;
+
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 120%;
+
+    color: #323941;
+  }
+  &__protect {
+    margin-bottom: 50px;
+    @include media('<=576px') {
+      margin-bottom: 25px;
+    }
+  }
+  &__tabs {
+    margin-bottom: 50px;
+    @include media('<=576px') {
+      margin-bottom: 0;
+    }
+  }
+}

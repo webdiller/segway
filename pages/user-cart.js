@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
-import ModelLayout from '@/layouts/ModelLayout';
 import {useCart} from 'react-use-cart';
 import {data} from '@/base/data';
+import CustomHead from '@/basic/CustomHead';
 
 export default function UserCart({allData}) {
   const {items} = useCart();
@@ -11,7 +11,7 @@ export default function UserCart({allData}) {
   }, [items]);
   return (
     <div>
-      <ModelLayout items={allData} description="segway description" title="User cart">
+      <CustomHead title="User cart" />
         <br />
         <br />
         <br />
@@ -56,7 +56,6 @@ export default function UserCart({allData}) {
         <br />
         <br />
         <br />
-      </ModelLayout>
     </div>
   );
 }

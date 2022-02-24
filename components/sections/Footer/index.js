@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
 import footerLogo from '@/base/logo-black-footer.svg';
 import {Fragment} from 'react';

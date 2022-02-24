@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import {Navigation} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';

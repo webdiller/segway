@@ -3,9 +3,12 @@
 @import './mixins';
 @import './fonts';
 @import './base';
+@import './pages';
 
 /** SECTIONS */
 @import '@/sections/TopNavigation';
+@import '@/sections/PaymentTopNavigation';
+@import '@/sections/Payment';
 @import '@/sections/TopSwiper';
 @import '@/sections/MiddleNavigation';
 @import '@/sections/TopStock';
@@ -29,6 +32,7 @@
 @import '@/sections/SegwayProtect';
 @import '@/sections/Accessories';
 @import '@/sections/Contacts';
+@import '@/sections/ShippingAndPayment';
 @import '@/sections/CompareSpecifications';
 @import '@/sections/PackingList';
 @import '@/sections/ProductCards';
@@ -52,3 +56,4 @@
 @import '@/modals/DiscountModal';
 @import '@/modals/ProductAddedModal';
 @import '@/modals/RemainTimeModal';
+

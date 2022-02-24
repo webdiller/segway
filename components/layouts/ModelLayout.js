@@ -7,9 +7,10 @@ import {setProducts, setUniqueProductsCount} from '../../store/actions/productCa
 import TopSwiper from '@/sections/TopSwiper';
 import TopNavigation from '@/sections/TopNavigation';
 import MiddleNavigation from '@/sections/MiddleNavigation';
+import TopStock from '@/sections/TopStock';
 
 /** Дефолтное расположение эементов */
-export default function ModelLayout({title = 'Segway', description = 'Описание', children, items, hideSwiper = false} = {}) {
+export default function ModelLayout({children, allData, hideSwiper = false} = {}) {
   const dispatch = useDispatch();
   const {totalUniqueItems, items: lsItems} = useCart();
 
@@ -20,10 +21,10 @@ export default function ModelLayout({title = 'Segway', description = 'Описа
 
   return (
     <>
-      <CustomHead description={description} title={title} />
       <TopNavigation /> 
       <MiddleNavigation/>
-      {hideSwiper ? null : <TopSwiper items={items} />}
+      {hideSwiper ? null : <TopSwiper items={allData} />}
+      <TopStock />
       {children}
       <Footer />
     </>

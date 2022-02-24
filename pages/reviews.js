@@ -1,15 +1,13 @@
 import dynamic from 'next/dynamic';
-import ModelLayout from '@/layouts/ModelLayout';
-const ReviewsBlockDinamic = dynamic(() => import('@/sections/Reviews/ReviewsBlock'));
-
+import CustomHead from '@/basic/CustomHead';
 import {data} from '@/base/data';
+const ReviewsBlockDinamic = dynamic(() => import('@/sections/Reviews/ReviewsBlock'));
 
 export default function Reviews({allData}) {
   return (
     <div>
-      <ModelLayout items={allData} description="segway description" title="segway reviews">
-        <ReviewsBlockDinamic />
-      </ModelLayout>
+      <CustomHead title="reviews"/>
+      <ReviewsBlockDinamic />
     </div>
   );
 }

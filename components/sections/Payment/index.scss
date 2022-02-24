@@ -1,0 +1,225 @@
+.payment-layout {
+  height: 100%;
+  &__page {
+    // Для страницы
+    min-height: 100vh;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  &__container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    @include media('<=991px') {
+      flex-direction: column-reverse;
+    }
+  }
+  &__left {
+    padding: 17px 30px 17px 0;
+    flex: 1 1 auto;
+    margin-right: 30px;
+    border-right: 1px solid #e1e1e1;
+    @include media('<=991px') {
+      flex: auto;
+      margin-right: 0;
+      border-right: 0;
+      padding-right: 0;
+    }
+  }
+  &__right {
+    padding: 17px 0 17px 0;
+    flex: 0 0 365px;
+    @include media('<=991px') {
+      flex: auto;
+    }
+  }
+}
+
+.payment-breadcrumbs {
+  &__container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+    @include media('<=991px') {
+      justify-content: center;
+    }
+  }
+  &_first-step {
+    .payment-breadcrumbs__link:nth-child(1) {
+      color: #323941;
+    }
+  }
+  &_second-step {
+    .payment-breadcrumbs__link:nth-child(1) {
+      color: #009eff;
+      text-shadow: 0 0 1px #009eff;
+    }
+    .payment-breadcrumbs__link:nth-child(2) {
+      color: #323941;
+    }
+  }
+  &_third-step {
+    .payment-breadcrumbs__link:nth-child(1) {
+      color: #009eff;
+      text-shadow: 0 0 1px #009eff;
+    }
+    .payment-breadcrumbs__link:nth-child(2) {
+      color: #009eff;
+      text-shadow: 0 0 1px #009eff;
+    }
+    .payment-breadcrumbs__link:nth-child(3) {
+      color: #323941;
+    }
+  }
+  &__link {
+    font-size: 13px;
+    line-height: 120%;
+    color: rgba(153, 153, 153, 1);
+    text-decoration: none;
+    &:not(:last-child) {
+      margin-right: 7px;
+    }
+  }
+}
+
+.payment {
+  &__title {
+    font-size: 18px;
+    line-height: 22px;
+    color: #323941;
+    @include media('<=768px') {
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+  &__description {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 120%;
+    @include media('<=768px') {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #999999;
+    }
+  }
+  &__group {
+    text-align: left;
+    .payment__title {
+      margin-bottom: 18px;
+    }
+  }
+  &__btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 240px;
+    height: 48px;
+
+    background-color: #009eff;
+    color: #fff;
+
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    &_transparent {
+      background-color: transparent;
+      color: #009eff;
+      font-weight: 400;
+    }
+    @include media('<=768px') {
+      height: 60px;
+    }
+  }
+}
+
+.payment-info {
+  &__title {
+    margin-bottom: 18px;
+    @include media('<=768px') {
+      text-align: center;
+    }
+  }
+  &__email {
+    margin-bottom: 11px;
+  }
+  &__checkbox {
+    label {
+      @include media('<=768px') {
+        justify-content: center;
+      }
+    }
+  }
+  &__contact-area {
+    margin-bottom: 34px;
+  }
+  &__shipping-address {
+  }
+  &__form-items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: -10px;
+    @include media('<=768px') {
+      margin-bottom: -8px;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+  &__form-item {
+    flex: 1 1 calc(100% - 10px);
+    margin: 0 5px 10px 5px;
+    @include media('<=768px') {
+      margin: 0 0 8px 0;
+    }
+    &_50 {
+      flex: 1 1 calc(50% - 10px);
+      @include media('<=768px') {
+        flex: 1 1 100%;
+      }
+    }
+    &_33 {
+      flex: 1 1 calc(33.33% - 10px);
+      @include media('<=768px') {
+        flex: 1 1 100%;
+      }
+    }
+  }
+  &__btn {
+    border: 0;
+    outline: 0;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+}
+
+.payment-shipping {
+  &__title {
+    margin-bottom: 18px;
+    @include media('<=768px') {
+      text-align: center;
+    }
+  }
+  &__status {
+    margin-bottom: 38px;
+  }
+  &__methods {
+  }
+  &__action-buttons {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.payment-payment {
+  &__status {
+  }
+  &__payment {
+  }
+  &__billing-address {
+  }
+}

@@ -7,7 +7,17 @@ export default function Contacts() {
   return (
     <div className="contacts">
       <div className="container contacts__top-container">
-        <TitleWithDescription customClassMain="contacts__title-with-description" titleText="CONTACT" descriptionText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis tortor eget nulla cursus sit. Aliquet nibh phasellus arcu in. A amet volutpat cursus hac nunc porttitor tristique id. " />
+        <TitleWithDescription
+        customClass='contacts__title-with-description'
+          titleDesktop={<>CONTACT</>}
+          titleMobile={<>CONTACT</>}
+          textDesktop={
+            <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis tortor eget nulla cursus sit. Aliquet nibh phasellus arcu in. A amet volutpat cursus hac nunc porttitor tristique id.</>
+          }
+          textMobile={
+            <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis tortor eget nulla cursus sit. Aliquet nibh phasellus arcu in. A amet volutpat cursus hac nunc porttitor tristique id.</>
+          }
+        />
         <div className="contacts__items">
           <div className="contacts__item">
             <div className="contacts__item-img-wrapper">

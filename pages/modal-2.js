@@ -1,13 +1,12 @@
-import ModelLayout from "@/layouts/ModelLayout";
-import DidntFindModal from "@/modals/DidntFindModal";
+import DidntFindModal from '@/modals/DidntFindModal';
 import {data} from '@/base/data';
+import CustomHead from '@/basic/CustomHead';
 
-export default function Modal2({allData}) {
+export default function Modal2() {
   return (
     <div>
-      <ModelLayout items={allData} description="segway description" title="segway index">
-        {/* <DidntFindModal isWhiteMode={false} /> */}
-      </ModelLayout>
+      <CustomHead />
+      <DidntFindModal isWhiteMode={false} />
     </div>
   );
 }

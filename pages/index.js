@@ -1,28 +1,28 @@
-import dynamic from 'next/dynamic';
-import ModelLayout from '@/layouts/ModelLayout';
+import MainPageLayout from '@/layouts/MainPageLayout';
+import {MainPageItems} from '@/sections/MainPageItems';
+import CustomHead from '@/basic/CustomHead';
+import SegwayProtect from '@/sections/SegwayProtect';
+import Tabs from '@/sections/Tabs';
 
-const ProductCardsDinamic = dynamic(() => import('@/sections/ProductCards'));
-const TabsDinamic = dynamic(() => import('@/sections/Tabs'));
-const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
-
-import {data} from '@/base/data';
-
-export default function Home({allData}) {
+export default function Categories() {
   return (
-    <div>
-      <ModelLayout hideSwiper={true} items={allData} description="segway description" title="segway index">
-        <ProductCardsDinamic products={allData.segways}/>
-        <SegwayProtectDinamic />
-        <TabsDinamic customClass="main-page" />
-      </ModelLayout>
-    </div>
+    <>
+      <CustomHead title="Main page" />
+      <div className="categories-page">
+        <div className="categories-page__items">
+          <MainPageItems />
+        </div>
+        <div className="categories-page__protect">
+          <SegwayProtect customClass="type-2" />
+        </div>
+        <div className="categories-page__tabs">
+          <Tabs />
+        </div>
+      </div>
+    </>
   );
 }
 
-export async function getStaticProps() {
-  return {
-    props: {
-      allData: data
-    }
-  };
-}
+Categories.getLayout = function getLayout(page) {
+  return <MainPageLayout>{page}</MainPageLayout>;
+};

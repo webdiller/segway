@@ -1,10 +1,10 @@
-import ModelLayout from '@/layouts/ModelLayout';
 import {data} from '@/base/data';
+import CustomHead from '@/basic/CustomHead';
 
 export default function UserCart({allData}) {
   return (
     <div>
-      <ModelLayout items={allData} description="segway description" title="Details page">
+      <CustomHead />
         <br />
         <br />
         <br />
@@ -38,7 +38,6 @@ export default function UserCart({allData}) {
         <br />
         <br />
         <br />
-      </ModelLayout>
     </div>
   );
 }

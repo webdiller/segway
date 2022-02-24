@@ -1,9 +1,16 @@
-export default function TitleWithDescription({customClassMain, customCLassContainer, customClassTitle, customClassDescription, titleText, descriptionText}) {
+import classNames from 'classnames';
+export default function TitleWithDescription({titleDesktop, titleMobile, textDesktop, textMobile, customClass}) {
   return (
-    <div className={customClassMain ? `title-with-description ${customClassMain}` : `title-with-description`}>
-      <div className={customClassMain ? `title-with-description__container ${customCLassContainer}` : `title-with-description__container`}>
-        <p className={customClassTitle ? `title title-with-description__title ${customClassTitle}` : `title title-with-description__title`}>{titleText}</p>
-        <p className={customClassDescription ? `text title-with-description__description ${customClassDescription}` : `text title-with-description__description`}>{descriptionText}</p>
+    <div className={classNames('title-with-description', classNames(customClass))}>
+      <div className="title-with-description__container">
+        <p className="title title-with-description__title">
+          <span className='hide-991'>{titleDesktop}</span>
+          <span className='show-block-991'>{titleMobile}</span>
+        </p>
+        <p className="text title-with-description__description">
+          <span className='hide-991'>{textDesktop}</span>
+          <span className='show-block-991'>{textMobile}</span>
+        </p>
       </div>
     </div>
   );

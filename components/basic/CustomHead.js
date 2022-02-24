@@ -3,7 +3,7 @@ import Head from 'next/head';
 /** Кастомный head для страницы с СЕО */
 export default function CustomHead({
   title = 'SegWay',
-  description = 'Описание',
+  description = 'Description',
 }) {
   return (
     <>

@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
 
 export default function ProductCards({products}) {
-  console.log();
   return (
     <div className="product-cards">
       <div className="container product-cards__container">
@@ -19,7 +19,7 @@ export default function ProductCards({products}) {
                     {shortName}
                   </p>
                   <p className="product-cards__item-price">$999.99</p>
-                  <Link href={pageLinkName ? `/${pageLinkName}` : '/'}>
+                  <Link href={pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}>
                     <a className="ui-glass-link product-cards__item-link">SEE DETAILS</a>
                   </Link>
                 </div>

@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
 import {useCart} from 'react-use-cart';
 import {useEffect, useRef, useState} from 'react';
@@ -411,9 +413,11 @@ export default function ProductModal({accessoeries}) {
             <button onClick={closeModal()} className="ui-btn ui-btn_fill-grey product-modal__top-actions-item">
               <span>BACK</span>
             </button>
-            <a onClick={closeModal(true, '/user-cart')} className="ui-btn product-modal__top-actions-item">
-              <span>CHECK OUT</span>
-            </a>
+            <Link href="/payment">
+              <a className="ui-btn product-modal__top-actions-item">
+                <span>CHECK OUT</span>
+              </a>
+            </Link>
           </div>
         </div>
         {/* CONTENT END */}
@@ -421,9 +425,3 @@ export default function ProductModal({accessoeries}) {
     </div>
   );
 }
-
-/**
- * Копируем данные
- * Сортируем
- * Вставляем
- */

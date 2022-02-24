@@ -4,7 +4,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import {useDispatch} from 'react-redux';
-import {setProductModal} from '../../../store/actions/productModal';
+import {setProductModal} from '@/actions/productModal';
 import {useEffect, useRef, useState} from 'react';
 import {useInView} from 'react-intersection-observer';
 

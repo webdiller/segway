@@ -1,0 +1,24 @@
+.payment-top-navigation {
+  border-bottom: 1px solid #e1e1e1;
+  &__container {
+    height: calc(100px + 1px);
+    display: flex;
+    align-items: center;
+    @include media('<=768px') {
+      justify-content: center;
+      height: calc(73px + 2px);
+      padding: 0;
+      border-bottom: 2px solid #e1e1e1;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    @include media('<=768px') {
+      width: 158px;
+      flex: 0 0 158px;
+    }
+  }
+}

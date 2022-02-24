@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 
 export default function UiLink({download = 'false', href = '#', target = '_self', classNameLink, icon, innerText = 'Custom link', } = {}) {
   return (

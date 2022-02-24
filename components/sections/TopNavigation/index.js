@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
 import {useEffect, useRef, useState} from 'react';
 import logoBlack from '@/base/logo-black.svg';
@@ -50,10 +51,10 @@ export default function TopNavigation() {
           </button>
 
           <nav className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
-            <Link href="#">
+            <Link href="/reviews">
               <a className="top-nav__item">REVIEWS</a>
             </Link>
-            <Link href="#">
+            <Link href="/shipping-and-payment">
               <a className="top-nav__item">SHIPPING AND PAYMENT</a>
             </Link>
             <Link href="#">
@@ -62,7 +63,7 @@ export default function TopNavigation() {
             <Link href="#">
               <a className="top-nav__item">BLOG</a>
             </Link>
-            <Link href="#">
+            <Link href="/contacts">
               <a className="top-nav__item">CONTACTS</a>
             </Link>
             <Link href="#">

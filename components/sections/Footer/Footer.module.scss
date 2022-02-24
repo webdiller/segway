@@ -1,6 +1,7 @@
-@import '../../../styles/mixins';
+@import '@/styles/mixins';
 
 .footer {
+  margin-top: auto;
   background-color: #32393f;
   &__container {
     @include siteContainer();

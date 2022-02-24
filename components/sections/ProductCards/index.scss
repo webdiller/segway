@@ -25,7 +25,7 @@
 
   &__item {
     min-height: 320px;
-    background-color: #009eff;
+    background-color: rgba(0,0,0,.6);
     @include media('<=991px') {
     }
   }

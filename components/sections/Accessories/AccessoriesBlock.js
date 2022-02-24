@@ -22,7 +22,7 @@ export default function AccessoriesBlock({items}) {
   return (
     <div className="accessories-block">
       <div className="container accessories-block__container">
-        <TitleWithDescription titleText="Accessories" descriptionText="Cо стильными оригинальными аксессуарами Xiaomi и Ninebot вы получите еще больше положительных эмоций от своих поездок." />
+        <TitleWithDescription titleText={<>Accessories</>} descriptionText={<>Cо стильными оригинальными аксессуарами Xiaomi и Ninebot вы получите еще больше положительных эмоций от своих поездок.</>} />
         <div className="accessories-block__items">
           {items.map((item) => {
             const {id, name, nameWrap, description, price, imgPath} = item;

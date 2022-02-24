@@ -1,13 +1,12 @@
-import ModelLayout from "@/layouts/ModelLayout";
-import DiscountModal from "@/modals/DiscountModal";
+import DiscountModal from '@/modals/DiscountModal';
 import {data} from '@/base/data';
+import CustomHead from '@/basic/CustomHead';
 
 export default function Modal3({allData}) {
   return (
     <div>
-      <ModelLayout items={allData} description="segway description" title="segway index">
-        {/* <DiscountModal /> */}
-      </ModelLayout>
+      <CustomHead />
+      <DiscountModal />
     </div>
   );
 }

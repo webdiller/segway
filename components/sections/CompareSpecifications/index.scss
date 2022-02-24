@@ -1,17 +1,14 @@
-@import '../../../styles/mixins';
+@import '@/styles/mixins';
 
 .compare-specfications {
   &__container {
     margin-top: 90px;
-    margin-bottom: 150px;
     @include media('<=991px') {
       margin-top: 50px;
-      margin-bottom: 100px;
     }
     @include media('<=768px') {
       padding-left: 0;
       padding-right: 0;
-      margin-bottom: 20px;
     }
   }
 

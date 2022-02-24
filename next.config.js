@@ -4,6 +4,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({ 
-  reactStrictMode: false,
+  swcMinify: true,
+  reactStrictMode: true,
   productionBrowserSourceMaps: true,
+  compiler: {
+    removeConsole: true,
+  },
 })

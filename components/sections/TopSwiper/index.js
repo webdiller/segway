@@ -1,7 +1,8 @@
 import {Navigation, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import {useEffect, useRef, useState} from 'react';
 import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
@@ -112,7 +113,7 @@ export default function TopSwiper({items}) {
                     const route = router.asPath.split('/')[1];
                     return (
                       <SwiperSlide key={id} className={route === pageLinkName ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                        <Link href={`${pageLinkName ? `/${pageLinkName}` : '/'}`}>
+                        <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
                           <a className="top-swiper__link">
                             <div className="top-swiper__img-wrapper">
                               <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
@@ -127,7 +128,7 @@ export default function TopSwiper({items}) {
                     const route = router.asPath.split('/')[1];
                     return (
                       <SwiperSlide key={id} className={route === pageLinkName ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                        <Link href={`${pageLinkName ? `/${pageLinkName}` : '/'}`}>
+                        <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
                           <a className="top-swiper__link">
                             <div className="top-swiper__img-wrapper">
                               <Image objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />

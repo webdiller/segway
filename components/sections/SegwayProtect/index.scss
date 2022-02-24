@@ -1,38 +1,21 @@
-.segway-protect {
-  &__container {
-    margin-top: 60px;
-    margin-bottom: 90px;
-    @include media('<=991px') {
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
-    @include media('<=768px') {
-      margin-top: 20px;
-    }
-  }
+$rootClass: '.segway-protect';
+/**
+* Без класса
+* Десктоп - без фона, с кругом, без бордера, высота фиксированная, без отступов
+* Мобилка - без фона, с кругом, без бордера, высота фиксированная, без отступов
+*
+* type-1 (для моделей)
+* Десктоп - без фона, с кругом, без бордера, высота фиксированная, без отступов
+* Мобилка (768) - без фона, без круга, с бордером, высота фиксированная, без отступов
+*
+* type-2 (для главной)
+* Десктоп - с фоном, с кругом, без бордера, высота фиксированная, без отступов
+* Мобилка (768) - с фоном, с кругом, без бордера, высота фиксированная, без отступов
+*/
 
-  &__cart {
-    display: flex;
-    // padding: 25px 60px 25px 45px;
-    // border: 5px solid #009eff;
-    @include media('<=991px') {
-      //   padding: 25px 60px 25px 45px;
-      //   border: 5px solid #009eff;
-      justify-content: center;
-    }
-    @include media('<=768px') {
-      border: 5px solid #009eff;
-      flex-direction: row-reverse;
-      padding: 10px 15px 10px 15px;
-    }
-  }
-
-  &__img-wrapper {
-    position: relative;
-    margin-right: 55px;
-    width: 278px;
-    flex: 0 0 278px;
-    &::before {
+#{$rootClass} {
+  &_type-1 {
+    #{$rootClass}__img-wrapper::before {
       content: '';
       position: absolute;
       width: 272px;
@@ -50,6 +33,74 @@
         display: none;
       }
     }
+    #{$rootClass}__cart {
+      @include media('<=768px') {
+        border: 5px solid #009eff;
+        padding: 10px 15px 10px 15px;
+      }
+    }
+  }
+  &_type-2 {
+    background-color: #f7f7f7;
+    @include media('<=768px') {
+      background-color: #fff;
+    }
+    #{$rootClass}__img-wrapper::before {
+      content: '';
+      position: absolute;
+      width: 272px;
+      height: 272px;
+      top: 50%;
+      right: 50%;
+      border-radius: 50%;
+      transform: translate(50%, -50%);
+      background: #009eff;
+      @include media('<=991px') {
+        width: 200px;
+        height: 200px;
+      }
+      @include media('<=768px') {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    #{$rootClass}__container {
+      @include media('<=576px') {
+        min-height: 154px;
+      }
+    }
+  }
+  &__container {
+    min-height: 424px;
+    display: flex;
+    align-items: center;
+    @include media('<=991px') {
+    }
+    @include media('<=768px') {
+      min-height: 200px;
+      margin-bottom: 17px;
+    }
+    @include media('<=576px') {
+      min-height: 145px;
+    }
+  }
+
+  &__cart {
+    display: flex;
+    width: 100%;
+    @include media('<=991px') {
+      justify-content: center;
+    }
+    @include media('<=768px') {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+    margin-right: 55px;
+    width: 278px;
+    flex: 0 0 278px;
     @include media('<=991px') {
       width: 200px;
       flex: 0 0 200px;
@@ -83,7 +134,7 @@
 
   &__title {
     margin-bottom: 9px;
-    span {
+    b {
       color: #009eff;
     }
     @include media('<=991px') {
@@ -107,6 +158,7 @@
       line-height: 22px;
     }
     @include media('<=768px') {
+      font-weight: 300;
       font-size: 14px;
       line-height: 17px;
     }
