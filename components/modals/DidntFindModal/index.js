@@ -36,14 +36,14 @@ export default function DidntFindModal({isWhiteMode = true,}) {
       <TinderCard swipeThreshold={300} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
         <div className="didnt-find-modal__wrapper">
           <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="didnt-find-modal__close-btn">
-            <img className="didnt-find-modal__close-btn-icon didnt-find-modal__close-btn-icon_desktop" src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+            <img className="didnt-find-modal__close-btn-icon didnt-find-modal__close-btn-icon_desktop" src="/icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
             <img className="didnt-find-modal__close-btn-icon didnt-find-modal__close-btn-icon_mobile" src={whiteModeState ? './icon-close-black.svg' : './icon-close-grey.svg'} alt="icon-close" width="34" height="34" loading="lazy" />
           </button>
           <div className="didnt-find-modal__bg-wrapper">
             {/* TODO: Выгрузить картинку из макета и поменять путь до картинки */}
             <Image src={whiteModeState ? bgImageDark : bgImageDark} alt="Didn’t find a model?" />
           </div>
-          <img className="didnt-find-modal__question-icon" src="./icon-question.svg" alt="icon-question" width="178" height="266" loading="lazy" />
+          <img className="didnt-find-modal__question-icon" src="/icon-question.svg" alt="icon-question" width="178" height="266" loading="lazy" />
           <div className="didnt-find-modal__content">
             <p className="title didnt-find-modal__title">Didn’t find a model?</p>
             <p className="text didnt-find-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>

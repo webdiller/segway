@@ -702,7 +702,7 @@ export default function CompareSpecifications({items, mainSegway}) {
             <div className="compare-modal__wrapper">
               <div className="compare-modal__wrapper-inner">
                 <p className="title compare-modal__title">select a model to compare</p>
-                <img onClick={closeModal()} className="compare-modal__icon-close" src="./icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+                <img onClick={closeModal()} className="compare-modal__icon-close" src="/icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
                 <div className="compare-modal__items">
                   {allModels.map(({id, shortName, imgPath}) => (
                     <button
