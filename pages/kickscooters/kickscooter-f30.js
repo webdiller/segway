@@ -111,7 +111,14 @@ export default function ModelPage({allData}) {
 
       <FeaturesDinamic features={featuresItems} title="IMPRESSIVE FEATURES" />
 
-      <KickScooterOverviewDinamic title="KickScooter overview" subtitle="SEGWAY Ninebot Kickscooter F30" desktopImage={OverviewImgDesktop} mobileImage={OverviewImgMobile} />
+      <KickScooterOverviewDinamic         titleDesktop={
+          <>
+            OvKickScooter overviewerview <br />
+            Segway Ninebot Kickscooter F30
+          </>
+        }
+        titleMobile={<>KickScooter overview</>}
+        subtitle={<>Segway Ninebot Kickscooter F30</>} desktopImage={OverviewImgDesktop} mobileImage={OverviewImgMobile} />
 
       {/* 1 */}
       <FeatureSimpleDinamic

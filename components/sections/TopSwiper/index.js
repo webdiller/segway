@@ -12,15 +12,24 @@ import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import topSwiperAccessory from '@/base/top-swiper-accessory.png';
 import {useInView} from 'react-intersection-observer';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
+/**
+ * Табы
+ * Слайдер со сайдерами
+ * У кадждого слайдера:
+ * - Личная навигация
+ * - В пропсах:
+ *    - Массив объектов с моделями
+ */
+
 /** 
  * Свайпер в шапке с самокатами
  * Если роут совпадает с выбранным сегвеем, то у сегвея добавляется класс 'accent', который переносит выбранный сегвей в начало слайдера
- * 
- *  */
+**/
 export default function TopSwiper({items}) {
   const {ref, inView} = useInView({threshold: 0.5});
   const actionSwiper = useRef(null);
@@ -183,10 +192,10 @@ export default function TopSwiper({items}) {
                       allowTouchMove: false
                     }
                   }}>
-                  {items.segways.adultSegways.map(({id, name, shortName, imgSmallPath, pageLinkName}) => {
+                  {items.gocarts.map(({id, name, shortName, imgSmallPath, pageLinkName}) => {
                     return (
                       <SwiperSlide key={id} className={router.asPath.includes(pageLinkName) ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                        <Link href="/">
+                        <Link href={`${pageLinkName ? `/gocarts/${pageLinkName}` : '/'}`}>
                           <a className="top-swiper__link">
                             <div className="top-swiper__img-wrapper">
                               <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />

@@ -1,10 +1,9 @@
-import MainPageLayout from '@/layouts/MainPageLayout';
 import {MainPageItems} from '@/sections/MainPageItems';
 import CustomHead from '@/basic/CustomHead';
 import SegwayProtect from '@/sections/SegwayProtect';
 import Tabs from '@/sections/Tabs';
 
-export default function Categories() {
+export default function HomePage() {
   return (
     <>
       <CustomHead title="Main page" />
@@ -22,7 +21,3 @@ export default function Categories() {
     </>
   );
 }
-
-Categories.getLayout = function getLayout(page) {
-  return <MainPageLayout>{page}</MainPageLayout>;
-};

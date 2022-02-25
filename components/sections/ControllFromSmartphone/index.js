@@ -44,12 +44,12 @@ export default function ControllFromSmartphone() {
         <div className="controll-from-smartphone__bottom">
           <div className="controll-from-smartphone__bottom-left">
             <div className="controll-from-smartphone__items">
-              <ControllItem imgPathBorder="./controll-from-smartphone-1-border.svg" imgPathMobile="./control-1-border-mobile.svg" text="Anti-theft protection" />
-              <ControllItem imgPathBorder="./controll-from-smartphone-2-border.svg" imgPathMobile="./control-2-border-mobile.svg" text="Dashboard" />
-              <ControllItem imgPathBorder="./controll-from-smartphone-3-border.svg" imgPathMobile="./control-3-border-mobile.svg" text="Firmware upgrade" />
-              <ControllItem imgPathBorder="./controll-from-smartphone-4-border.svg" imgPathMobile="./control-4-border-mobile.svg" text="Device status" />
-              <ControllItem imgPathBorder="./controll-from-smartphone-5-border.svg" imgPathMobile="./control-5-border-mobile.svg" text="Settings and restrictions" />
-              <ControllItem imgPathBorder="./controll-from-smartphone-6-border.svg" imgPathMobile="./control-6-border-mobile.svg" text="Training programs" />
+              <ControllItem imgPathBorder="/controll-from-smartphone-1-border.svg" imgPathMobile="/control-1-border-mobile.svg" text="Anti-theft protection" />
+              <ControllItem imgPathBorder="/controll-from-smartphone-2-border.svg" imgPathMobile="/control-2-border-mobile.svg" text="Dashboard" />
+              <ControllItem imgPathBorder="/controll-from-smartphone-3-border.svg" imgPathMobile="/control-3-border-mobile.svg" text="Firmware upgrade" />
+              <ControllItem imgPathBorder="/controll-from-smartphone-4-border.svg" imgPathMobile="/control-4-border-mobile.svg" text="Device status" />
+              <ControllItem imgPathBorder="/controll-from-smartphone-5-border.svg" imgPathMobile="/control-5-border-mobile.svg" text="Settings and restrictions" />
+              <ControllItem imgPathBorder="/controll-from-smartphone-6-border.svg" imgPathMobile="/control-6-border-mobile.svg" text="Training programs" />
             </div>
 
             <div className="controll-from-smartphone__payments-img-wrapper">

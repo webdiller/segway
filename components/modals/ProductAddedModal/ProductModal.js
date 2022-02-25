@@ -156,7 +156,7 @@ export default function ProductModal({accessoeries}) {
   };
 
   useEffect(() => {
-    const scooters = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'kickscooter' || type === 'kidsScooter');
+    const scooters = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'kickscooter' || type === 'kidsScooter' || type === 'gocart');
     const accessoriesFilter = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'accessory');
     setClientAllSegways(scooters);
     setClientAllAccessoeries(accessoriesFilter);

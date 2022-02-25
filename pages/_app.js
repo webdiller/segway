@@ -20,13 +20,14 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({Component, pageProps, router}) {
   let conditionForModelLayout =
     router.pathname.startsWith('/kickscooters/kickscooter') ||
+    router.pathname.startsWith('/gocarts/gocart') ||
     router.pathname.startsWith('/shipping-and-payment') ||
     router.pathname.startsWith('/contacts') ||
     router.pathname.startsWith('/wholesale') ||
     router.pathname.startsWith('/accessories') ||
     router.pathname.startsWith('/reviews');
-    
-  let conditionForMainPageLayout = router.route === '/kickscooters' || router.route === '/';
+
+  let conditionForMainPageLayout = router.route === '/kickscooters' || router.route === '/' || router.route === '/gocarts';
   let conditionForPaymentLayout = router.pathname.startsWith('/payment');
 
   if (conditionForModelLayout) {

@@ -1,20 +1,16 @@
-import dynamic from 'next/dynamic';
 import {data} from '@/base/data';
 import CustomHead from '@/basic/CustomHead';
-import MainPageLayout from '@/layouts/MainPageLayout';
+import ProductCards from '@/sections/ProductCards';
+import Tabs from '@/sections/Tabs';
+import SegwayProtect from '@/sections/SegwayProtect';
 
-const ProductCardsDinamic = dynamic(() => import('@/sections/ProductCards'));
-const TabsDinamic = dynamic(() => import('@/sections/Tabs'));
-const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
-
-
-export default function Kickscooters({allData}) {
+export default function KickscootersPage({allData}) {
   return (
     <>
       <CustomHead title="All kickscooters" />
-        <ProductCardsDinamic products={allData.segways}/>
-        <SegwayProtectDinamic customClass="type-1" />
-        <TabsDinamic customClass="main-page" />
+      <ProductCards title="Kickscooters" categoryRoute="kickscooters" products={[...allData.segways.adultSegways]} />
+      <SegwayProtect customClass="type-1" />
+      <Tabs customClass="main-page" />
     </>
   );
 }
@@ -26,7 +22,3 @@ export async function getStaticProps() {
     }
   };
 }
-
-Kickscooters.getLayout = function getLayout(page) {
-  return <MainPageLayout items={data}>{page}</MainPageLayout>;
-};

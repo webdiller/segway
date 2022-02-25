@@ -39,7 +39,7 @@ export default function MainPageItems() {
           <MainPageItem href="/kickscooters" name={<>Ninebot <br /> kickscooter </>} mainImg={kickscooter} hoverImg={kickscooterHover} />
           <MainPageItem name={<>KIDS </>} mainImg={kids} hoverImg={kidsHover} />
           <MainPageItem name={<>EMOPED </>} mainImg={emoped} hoverImg={emopedHover} />
-          <MainPageItem name={<>GOKART </>} mainImg={gocart} hoverImg={gocartHover} />
+          <MainPageItem href="/gocarts" name={<>GOKART </>} mainImg={gocart} hoverImg={gocartHover} />
           <MainPageItem name={<>SELF <br />BALANCING </>} mainImg={selfBalancing} hoverImg={selfBalancingHover} />
           <MainPageItem name={<>LOOMO </>} mainImg={loomo} hoverImg={loomoHover} />
           <MainPageItem name={<>MECHA <br /> KIT </>} mainImg={mechaKit} hoverImg={mechaKitHover} />

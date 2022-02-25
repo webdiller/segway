@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';
-const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr:false});
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
 import CustomHead from '@/basic/CustomHead';
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
@@ -81,7 +81,8 @@ export default function ModelPage({allData}) {
   return (
     <>
       <CustomHead title="Kickscooter ES2" />
-      <Welcome titleDesktop={
+      <Welcome
+        titleDesktop={
           <>
             SEGWAY Ninebot <br /> Kickscooter ES2
           </>
@@ -92,7 +93,9 @@ export default function ModelPage({allData}) {
             Kickscooter <br />
             ES2
           </>
-        } currentSegway={allData.segways.adultSegways[7]} />
+        }
+        currentSegway={allData.segways.adultSegways[7]}
+      />
       <Tabs />
       <PackingListDinamic poster_type="type_2" />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
@@ -109,7 +112,18 @@ export default function ModelPage({allData}) {
 
       <FeaturesDinamic customClass="ks-max" features={featuresItems} title="IMPRESSIVE FEATURES" />
 
-      <KickScooterOverviewDinamic title="KickScooter overview" subtitle="SEGWAY Ninebot Kickscooter ES2" desktopImage={OverviewImgDesktop} mobileImage={OverviewImgMobile} />
+      <KickScooterOverviewDinamic
+        titleDesktop={
+          <>
+            OvKickScooter overviewerview <br />
+            Segway Ninebot Kickscooter ES2
+          </>
+        }
+        titleMobile={<>KickScooter overview</>}
+        subtitle={<>Segway Ninebot Kickscooter ES2</>}
+        desktopImage={OverviewImgDesktop}
+        mobileImage={OverviewImgMobile}
+      />
 
       {/* 1 */}
       <FeatureSimpleDinamic
@@ -333,26 +347,42 @@ export default function ModelPage({allData}) {
       {/* 7 */}
       <FeatureSimpleDinamic
         customClass="type-9"
-        titleDesktop={<>Safeguards You <br/>
-          Along the Way</>}
-        textDesktop={<>The vehicle&rsquo;s structure was carefully analyzed by a <br/>
-        CAE simulation system and passed through 6,214 <br/>
-        miles of road ride testing. Smart Battery <br/>
-        Management System (Smart-BMS) constantly <br/>
-        monitors the battery&rsquo;s safety.</>}
+        titleDesktop={
+          <>
+            Safeguards You <br />
+            Along the Way
+          </>
+        }
+        textDesktop={
+          <>
+            The vehicle&rsquo;s structure was carefully analyzed by a <br />
+            CAE simulation system and passed through 6,214 <br />
+            miles of road ride testing. Smart Battery <br />
+            Management System (Smart-BMS) constantly <br />
+            monitors the battery&rsquo;s safety.
+          </>
+        }
         imgDesktop={FeatureSimple_7_desktop}
         imgDesktopWidth={1376}
         imgDesktopHeight={542}
         imgMobile={FeatureSimple_7_mobile}
         imgMobileWidth={375}
         imgMobileHeight={479}
-        titleMobile={<>Safeguards You <br/>
-          Along the Way</>}
-        textMobile={<>The vehicle&apos;s structure was carefully analyzed by a <br/>
-        CAE simulation system and passed through 6,214 <br/>
-        miles of road ride testing. Smart Battery <br/>
-        Management System (Smart-BMS) constantly <br/>
-        monitors the battery&apos;s safety.</>}
+        titleMobile={
+          <>
+            Safeguards You <br />
+            Along the Way
+          </>
+        }
+        textMobile={
+          <>
+            The vehicle&apos;s structure was carefully analyzed by a <br />
+            CAE simulation system and passed through 6,214 <br />
+            miles of road ride testing. Smart Battery <br />
+            Management System (Smart-BMS) constantly <br />
+            monitors the battery&apos;s safety.
+          </>
+        }
       />
 
       <DownloadManualDinamic />

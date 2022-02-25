@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';
-const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr:false});
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
 import CustomHead from '@/basic/CustomHead';
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
@@ -113,7 +113,18 @@ export default function ModelPage({allData}) {
 
       <FeaturesDinamic customClass="ks-max" features={featuresItems} title="IMPRESSIVE FEATURES" />
 
-      <KickScooterOverviewDinamic title="KickScooter overview" subtitle="SEGWAY Ninebot Kickscooter ZING e12" desktopImage={OverviewImgDesktop} mobileImage={OverviewImgMobile} />
+      <KickScooterOverviewDinamic
+        titleDesktop={
+          <>
+            OvKickScooter overviewerview <br />
+            Segway Ninebot Kickscooter E12
+          </>
+        }
+        titleMobile={<>KickScooter overview</>}
+        subtitle={<>Segway Ninebot Kickscooter E12</>}
+        desktopImage={OverviewImgDesktop}
+        mobileImage={OverviewImgMobile}
+      />
 
       {/* 1 */}
       <FeatureSimpleDinamic

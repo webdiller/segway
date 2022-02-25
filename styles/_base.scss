@@ -434,56 +434,56 @@ img {
 
 .hide-991 {
   @include media('<=991px') {
-    display: none;
+    display: none !important;
   }
 }
 .show-block-991 {
-  display: none;
+  display: none !important;
   @include media('<=991px') {
-    display: block;
+    display: block !important;
   }
 }
 
 .hide-900 {
   @include media('<=900px') {
-    display: none;
+    display: none !important;
   }
 }
 .show-block-900 {
-  display: none;
+  display: none !important;
   @include media('<=900px') {
-    display: block;
+    display: block !important;
   }
 }
 
 .show-grid-991 {
-  display: none;
+  display: none !important;
   @include media('<=991px') {
-    display: grid;
+    display: grid !important;
   }
 }
 
 .hide-768 {
   @include media('<=768px') {
-    display: none;
+    display: none !important;
   }
 }
 .show-block-768 {
-  display: none;
+  display: none !important;
   @include media('<=768px') {
-    display: block;
+    display: block !important;
   }
 }
 
 .hide-576 {
   @include media('<=576px') {
-    display: none;
+    display: none !important;
   }
 }
 .show-block-576 {
-  display: none;
+  display: none !important;
   @include media('<=576px') {
-    display: block;
+    display: block !important;
   }
 }
 

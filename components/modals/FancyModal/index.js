@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import {Navigation} from 'swiper';
 import {useEffect, useRef, useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -9,6 +8,9 @@ import {setFancyModal} from '@/actions/fancyModal';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import {FcPrevious, FcNext} from 'react-icons/fc';
 import ModalWrapper from '../ModalWrapper';
+
+import iconCloseBlack from '@/base/icon-close-black.svg';
+import iconCloseWhite from '@/base/icon-close-white.svg';
 
 export default function FancyModal() {
   const dispatch = useDispatch();
@@ -47,8 +49,8 @@ export default function FancyModal() {
     <ModalWrapper mounted={activeModal}>
       <div className={activeModal ? `${styles.fancyModal} ${styles.fancyModal__active}` : `${styles.fancyModal}`}>
         <div className={styles.fancyModal__wrapper}>
-          <img onClick={closeModal()} className={styles.fancyModal__closeIcon_desktop} src="./icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-          <img onClick={closeModal()} className={styles.fancyModal__closeIcon_mobile} src="./icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" />
+          <div className={styles.fancyModal__closeIcon_desktop}><Image onClick={closeModal()}  src={iconCloseWhite} alt="icon-close" width={34} height={34} /></div>
+          <div className={styles.fancyModal__closeIcon_mobile}><Image onClick={closeModal()}  src={iconCloseBlack} alt="icon-close" width={34} height={34} /></div>
           <Swiper
             modules={[Navigation]}
             className={styles.fancyModal__slider}

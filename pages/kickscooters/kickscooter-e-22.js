@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';
-const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr:false});
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
 import CustomHead from '@/basic/CustomHead';
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
@@ -81,7 +81,8 @@ export default function ModelPage({allData}) {
   return (
     <>
       <CustomHead title="Kickscooter E22" />
-      <Welcome titleDesktop={
+      <Welcome
+        titleDesktop={
           <>
             SEGWAY Ninebot <br /> Kickscooter E22
           </>
@@ -92,7 +93,9 @@ export default function ModelPage({allData}) {
             Kickscooter <br />
             E22
           </>
-        } currentSegway={allData.segways.adultSegways[0]} />
+        }
+        currentSegway={allData.segways.adultSegways[0]}
+      />
       <Tabs />
       <PackingListDinamic poster_type="type_2" />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
@@ -110,9 +113,13 @@ export default function ModelPage({allData}) {
       <FeaturesDinamic customClass="ks-max" features={featuresItems} title="IMPRESSIVE FEATURES" />
 
       <KickScooterOverviewDinamic
-        desktopTitle="KickScooter overview Segway Ninebot Kickscooter E22"
-        mobileTitle="KickScooter overview"
-        subtitle="Segway Ninebot Kickscooter E22"
+        titleDesktop={
+          <>
+            OvKickScooter overviewerview <br /> Segway Ninebot Kickscooter E22
+          </>
+        }
+        titleMobile={<>KickScooter overview</>}
+        subtitle={<>Segway Ninebot Kickscooter E22</>}
         desktopImage={OverviewImgDesktop}
         mobileImage={OverviewImgMobile}
       />
@@ -222,10 +229,10 @@ export default function ModelPage({allData}) {
       {/* 7 */}
       <FeatureSimpleDinamic
         customClass="ks-air-t15"
-        titleDesktop={'Supreme Shock <br/> Absorption,  <br/> No Tire Punctures'
+        titleDesktop={'Supreme Shock <br/> Absorption,  <br/> No Tire Punctures'.split('<br/>').join('\n')}
+        textDesktop={'Developed and fine-tuned for 3 years, FlatFree Tires* fill <br/> the inner tube with a new PU foaming material. This <br/> design tackles the pain point of possible tire leakage <br/> with pneumatic tires, while retaining the comfort of the <br/> riding, and the practicality of little maintenance needed. <br/> <br/>The upgraded 9-inch tires deliver more stability and <br/> comfort than the previous 8-inch tires, so you don’t have <br/> to worry about bumpy roads.'
           .split('<br/>')
           .join('\n')}
-        textDesktop={'Developed and fine-tuned for 3 years, FlatFree Tires* fill <br/> the inner tube with a new PU foaming material. This <br/> design tackles the pain point of possible tire leakage <br/> with pneumatic tires, while retaining the comfort of the <br/> riding, and the practicality of little maintenance needed. <br/> <br/>The upgraded 9-inch tires deliver more stability and <br/> comfort than the previous 8-inch tires, so you don’t have <br/> to worry about bumpy roads.'.split('<br/>').join('\n')}
         imgDesktop={FeatureSimple_7_desktop}
         imgDesktopWidth={1376}
         imgDesktopHeight={547}
@@ -236,7 +243,7 @@ export default function ModelPage({allData}) {
         textMobile={'Developed and fine-tuned for 3 years, FlatFree <br/> Tires* fill the inner tube with a new PU foaming <br/> material. This design tackles the pain point of  <br/> possible tire leakage with pneumatic tires, while <br/> retaining the comfort of the riding, and the  <br/> practicality of little maintenance needed. <br/><br/> The upgraded 9-inch tires deliver more stability  <br/> and comfort than the previous 8-inch tires, so you <br/> don’t have to worry about bumpy roads.'
           .split('<br/>')
           .join('\n')}
-          descriptionMobile={'*FlatFree Tire Technology: Unlike common solid tires, it fills the <br/> inner tube with a new PU foaming material. This design solves <br/> the problem of possible tire leakage with pneumatic tires, while  <br/> retaining the comfort of the riding, and the practicality of little  <br/> maintenance needed.'
+        descriptionMobile={'*FlatFree Tire Technology: Unlike common solid tires, it fills the <br/> inner tube with a new PU foaming material. This design solves <br/> the problem of possible tire leakage with pneumatic tires, while  <br/> retaining the comfort of the riding, and the practicality of little  <br/> maintenance needed.'
           .split('<br/>')
           .join('\n')}
       />
@@ -247,8 +254,16 @@ export default function ModelPage({allData}) {
       <ControllFromSmartphoneDinamic />
 
       <WarrancyPaymentImageDinamic
-        titleDesktop={<>SEGWAY Ninebot <br/> Kickscooter <b>E22</b></>}
-        titleMobile={<>SEGWAY Ninebot <br/> Kickscooter <br/> <b>E22</b></>}
+        titleDesktop={
+          <>
+            SEGWAY Ninebot <br /> Kickscooter <b>E22</b>
+          </>
+        }
+        titleMobile={
+          <>
+            SEGWAY Ninebot <br /> Kickscooter <br /> <b>E22</b>
+          </>
+        }
         imgDesktop={FormWarrancy_desktop}
         widthDesktop={608}
         heightDesktop={525}

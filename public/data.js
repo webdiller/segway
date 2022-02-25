@@ -142,16 +142,13 @@ export const data = {
         atmosphereLight: 'N/A',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/segway-ninebot-kickscooter-e22.png',
@@ -189,16 +186,13 @@ export const data = {
         atmosphereLight: 'N/A',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-es1l.png',
@@ -206,7 +200,7 @@ export const data = {
         imgPathWithCircle: '/segway-ninebot-kickscooter-es1l-circle-default.png',
         imgPathWithBlueCircle: '/segway-ninebot-kickscooter-es1l-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-es1l', 'https://store.segway.com/ninebot-kickscooter-es1l'],
-        galleryImages: ['/ks-es-1l/slider/1.jpg', '/ks-es-1l/slider/2.jpg', '/ks-es-1l/slider/3.jpg', '/ks-es-1l/slider/4.jpg', '/ks-es-1l/slider/5.jpg', '/ks-es-1l/slider/6.jpg', ]
+        galleryImages: ['/ks-es-1l/slider/1.jpg', '/ks-es-1l/slider/2.jpg', '/ks-es-1l/slider/3.jpg', '/ks-es-1l/slider/4.jpg', '/ks-es-1l/slider/5.jpg', '/ks-es-1l/slider/6.jpg']
       },
       {
         id: '003',
@@ -236,16 +230,13 @@ export const data = {
         atmosphereLight: 'N/A',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-air-t15.png',
@@ -253,7 +244,7 @@ export const data = {
         imgPathWithCircle: '/ninebot-kickscooter-air-t15-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-air-t15-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-air-t15/', 'https://store.segway.com/ninebot-kickscooter-air-t15'],
-        galleryImages: ['/ks-air-t15/slider/1.jpg', '/ks-air-t15/slider/2.jpg', '/ks-air-t15/slider/3.jpg', '/ks-air-t15/slider/4.jpg', '/ks-air-t15/slider/5.jpg', '/ks-air-t15/slider/6.jpg', ]
+        galleryImages: ['/ks-air-t15/slider/1.jpg', '/ks-air-t15/slider/2.jpg', '/ks-air-t15/slider/3.jpg', '/ks-air-t15/slider/4.jpg', '/ks-air-t15/slider/5.jpg', '/ks-air-t15/slider/6.jpg']
       },
       {
         id: '004',
@@ -283,16 +274,13 @@ export const data = {
         atmosphereLight: 'N/A',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-f30.png',
@@ -300,8 +288,7 @@ export const data = {
         imgPathWithCircle: '/ninebot-kickscooter-f30-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-f30-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-f30/', 'https://store.segway.com/ninebot-kickscooter-f-series'],
-        galleryImages: ['/ks-f30/slider/1.jpg', '/ks-f30/slider/2.jpg', '/ks-f30/slider/3.jpg', '/ks-f30/slider/4.jpg', '/ks-f30/slider/5.jpg', '/ks-f30/slider/6.jpg', ]
-
+        galleryImages: ['/ks-f30/slider/1.jpg', '/ks-f30/slider/2.jpg', '/ks-f30/slider/3.jpg', '/ks-f30/slider/4.jpg', '/ks-f30/slider/5.jpg', '/ks-f30/slider/6.jpg']
       },
       {
         id: '005',
@@ -331,16 +318,13 @@ export const data = {
         atmosphereLight: 'Customizable color',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-e45.png',
@@ -378,16 +362,13 @@ export const data = {
         atmosphereLight: 'N/A',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-max-006.png',
@@ -425,16 +406,13 @@ export const data = {
         atmosphereLight: 'N/A',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-max-007.png',
@@ -442,7 +420,14 @@ export const data = {
         imgPathWithCircle: '/ninebot-kickscooter-max-007-circle-default.png',
         imgPathWithBlueCircle: '/ninebot-kickscooter-max-007-circle-color.png',
         links: ['https://www.segway.com/ninebot-kickscooter-g30lp/'],
-        galleryImages: ['/ks-max-white/slider/1.jpg', '/ks-max-white/slider/2.jpg', '/ks-max-white/slider/3.jpg', '/ks-max-white/slider/4.jpg', '/ks-max-white/slider/5.jpg', '/ks-max-white/slider/6.jpg']
+        galleryImages: [
+          '/ks-max-white/slider/1.jpg',
+          '/ks-max-white/slider/2.jpg',
+          '/ks-max-white/slider/3.jpg',
+          '/ks-max-white/slider/4.jpg',
+          '/ks-max-white/slider/5.jpg',
+          '/ks-max-white/slider/6.jpg'
+        ]
       },
       {
         id: '008',
@@ -472,16 +457,13 @@ export const data = {
         atmosphereLight: 'Customizable color',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-es2.png',
@@ -519,16 +501,13 @@ export const data = {
         atmosphereLight: 'N/A',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-es3.png',
@@ -566,16 +545,13 @@ export const data = {
         atmosphereLight: 'Customizable color',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-es4.png',
@@ -619,16 +595,13 @@ export const data = {
         shockAbsorption: 'Spring damper',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e8.png',
@@ -670,16 +643,13 @@ export const data = {
         shockAbsorption: 'Spring damper',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e10.png',
@@ -721,16 +691,13 @@ export const data = {
         shockAbsorption: 'Spring damper',
         warranty: {
           oneYear: {
-            price: '139',
-            selected: false
+            price: '139'
           },
           twoYear: {
-            price: '209',
-            selected: false
+            price: '209'
           },
           threeYear: {
-            price: '279',
-            selected: false
+            price: '279'
           }
         },
         imgPath: '/ninebot-kickscooter-zing-e12.png',
@@ -741,5 +708,119 @@ export const data = {
         galleryImages: ['/ks-zing-e12/slider/1.jpg', '/ks-zing-e12/slider/2.jpg', '/ks-zing-e12/slider/3.jpg', '/ks-zing-e12/slider/4.jpg', '/ks-zing-e12/slider/5.jpg', '/ks-zing-e12/slider/6.jpg']
       }
     ]
-  }
+  },
+  gocarts: [
+    {
+      id: "001",
+      type: "gocart",
+      brandName: "Ninebot",
+      name: "Ninebot Gocart PRO",
+      nameWithoutBrand: "Gocart PRO",
+      nameWrap: "Gocart PRO",
+      shortName: "Gocart PRO",
+      pageLinkName: "gocart-pro",
+      price: "999.99",
+      features: [
+          {"speedLimit": "23 mph (37 km/h)", "speedLimitWrap": "23 mph (37 km/h)"},
+          {"typicalRange": "15.5 miles (25 km)", "typicalRangeWrap": "15.5 miles (25 km)"},
+          {"maxPayload": "220 lbs (100 kg)", "maxPayloadWrap": "220 lbs (100 kg)"},
+          {"netWeight": "112.9 lbs (51.2 kg)", "netWeightWrap": "112.9 lbs (51.2 kg)"},
+          {"heightRequirement": "51.2-74.8 in (130-190 cm)", "heightRequirementWrap": "51.2-74.8 in \n (130-190 cm)"},
+          {"recommendedAge": "14+ years old", "recommendedAgeWrap": "14+ years old"},
+          {"reversingSpeedLimit": "1.9 mph (3 km/h)", "reversingSpeedLimitWrap": "1.9 mph (3 km/h)"},
+          {"groundClearance": "1.8 in (45 mm)", "groundClearanceWrap": "1.8 in (45 mm)"},
+          {"maximumSlope": "15°", "maximumSlopeWrap": "15°"},
+          {"breakingMethod": "Electronic brake + mechanical handbrake", "breakingMethodWrap": "Electronic brake + \n mechanical \n handbrake"},
+          {"breakingDistance": "20 ft (6m)", "breakingDistanceWrap": "20 ft (6m)"},
+          {"frontTires": "Tire width: 3 in (80 mm); flatness ratio: 60% \n hub diameter: 5 in (127 mm)", "frontTiresWrap": "Tire width: 3 in \n (80 mm); flatness \n ratio: 60% hub \n diameter: \n5 in (127 mm)"},
+          {"tiresType": "Hollow solid tire", "tiresTypeWrap": "Hollow solid tire"},
+          {"light": "Headlight, Status indicator & Taillights", "lightWrap": "Headlight, Status indicator & Taillights"},
+      ],
+      warranty: {
+        oneYear: {
+          price: "139"
+        },
+        twoYear: {
+          price: "209"
+        },
+        threeYear: {
+          price: "279"
+        },
+      },
+      imgPath: "/segway-ninebot-kickscooter-e22.png",
+      imgSmallPath: "/segway-ninebot-kickscooter-e22_small.png",
+      imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
+      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
+      galleryImages: [
+        "/gocart-pro/slider/1.jpg",
+        "/gocart-pro/slider/2.jpg",
+        "/gocart-pro/slider/3.jpg",
+        "/gocart-pro/slider/4.jpg",
+        "/gocart-pro/slider/5.jpg",
+        "/gocart-pro/slider/6.jpg",
+        "/gocart-pro/slider/7.jpg",
+        "/gocart-pro/slider/8.jpg",
+        "/gocart-pro/slider/9.jpg",
+        "/gocart-pro/slider/10.jpg",
+        "/gocart-pro/slider/11.jpg",
+        "/gocart-pro/slider/12.jpg",
+      ],
+    },
+    {
+      id: "002",
+      type: "gocart",
+      brandName: "Ninebot",
+      name: "Ninebot Gocart KIT",
+      nameWithoutBrand: "Gocart KIT",
+      nameWrap: "Gocart KIT",
+      shortName: "Gocart KIT",
+      pageLinkName: "gocart-kit",
+      price: "999.99",
+      features: [
+          {"speedLimit": "15 mph (24 km/h)", "speedLimitWrap": "15 mph (24 km/h)"},
+          {"typicalRange": "9 miles (15 km)", "typicalRangeWrap": "9 miles (15 km)"},
+          {"maxPayload": "220 lbs (100 kg)", "maxPayloadWrap": "220 lbs (100 kg)"},
+          {"netWeight": "61.3 lbs (27.8 kg)", "netWeightWrap": "61.3 lbs (27.8 kg)"},
+          {"heightRequirement": "51.2-74.8 in (130-190cm)", "heightRequirementWrap": "51.2-74.8 in \n (130-190 cm)"},
+          {"recommendedAge": "8+ years old", "recommendedAgeWrap": "8+ years old"},
+          {"reversingSpeedLimit": "2 mph (3 km/h)", "reversingSpeedLimitWrap": "2 mph (3 km/h)"},
+          {"groundClearance": "1.6 in (40 mm)", "groundClearanceWrap": "1.6 in (40 mm)"},
+          {"maximumSlope": "15°", "maximumSlopeWrap": "15°"},
+          {"breakingMethod": "Electronic brake + mechanical handbrake", "breakingMethodWrap": "Electronic brake + \n mechanical \n handbrake"},
+          {"breakingDistance": "20 ft (6m)", "breakingDistanceWrap": "20 ft (6m)"},
+          {"frontTires": "Tire width: 3 in (80 mm); flatness ratio: 60% \n hub diameter: 5 in (127 mm)", "frontTiresWrap": "Tire width: 3 in \n (80 mm); flatness \n ratio: 60% hub \n diameter: \n5 in (127 mm)"},
+          {"tiresType": "Non-inflatable hollow tire", "tiresTypeWrap": "Non-inflatable \n hollow tire"},
+          {"light": "Headlight & Status indicator ", "lightWrap": "Headlight & \n Status indicator"},
+      ],
+      warranty: {
+        oneYear: {
+          price: "139"
+        },
+        twoYear: {
+          price: "209"
+        },
+        threeYear: {
+          price: "279"
+        },
+      },
+      imgPath: "/segway-ninebot-kickscooter-e22.png",
+      imgSmallPath: "/segway-ninebot-kickscooter-e22_small.png",
+      imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
+      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
+      galleryImages: [
+        "/gocart-kit/slider/1.jpg",
+        "/gocart-kit/slider/2.jpg",
+        "/gocart-kit/slider/3.jpg",
+        "/gocart-kit/slider/4.jpg",
+        "/gocart-kit/slider/5.jpg",
+        "/gocart-kit/slider/6.jpg",
+        "/gocart-kit/slider/7.jpg",
+        "/gocart-kit/slider/8.jpg",
+        "/gocart-kit/slider/9.jpg",
+        "/gocart-kit/slider/10.jpg",
+        "/gocart-kit/slider/11.jpg"
+      ],
+      
+    },
+  ]
 };
