@@ -16,7 +16,7 @@ import {BiMinus, BiPlus} from 'react-icons/bi';
 import {useDispatch, useSelector} from 'react-redux';
 import {setProductModal} from 'store/actions/productModal';
 import {reactLocalStorage} from 'reactjs-localstorage';
-import {useRouter} from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 
 const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);

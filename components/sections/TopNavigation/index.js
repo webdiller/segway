@@ -8,6 +8,8 @@ import iconCartBlack from '@/base/icon-cart-black.svg';
 import iconPhoneBlack from '@/base/icon-phone-black.svg';
 import {useDispatch, useSelector} from 'react-redux';
 import {setProductModal} from '@/actions/productModal';
+import iconCloseBlack from '@/base/icon-bar.svg';
+import iconCloseWhite from '@/base/icon-close-white.svg';
 
 const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
@@ -47,7 +49,7 @@ export default function TopNavigation() {
       <div ref={elementRef} className="top-nav">
         <div className="container top-nav__container">
           <button onClick={handleSetIsActiveMenu} className={isActiveMenu ? 'top-nav__btn-menu active' : 'top-nav__btn-menu'}>
-            {!isActiveMenu ? <img width="25" height="19" src="./icon-bar.svg" alt="icon close menu" loading="lazy" className="top-nav__btn-icon" /> : <img width="20" height="20" src="./icon-close-white.svg" alt="icon close menu" loading="lazy" className="top-nav__btn-icon" />}
+            {!isActiveMenu ? <Image width={25} height={19} src={iconCloseBlack} alt="icon close menu" /> : <Image width={20} height={20} src={iconCloseWhite} alt="icon close menu" />}
           </button>
 
           <nav className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
@@ -78,12 +80,12 @@ export default function TopNavigation() {
           </Link>
 
           <div className="top-nav__actions top-nav__actions_desktop">
-              <button onClick={() =>dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
-                <div className="top-nav__action-icon-wrapper">
-                  <Image src={iconCartWhite} alt="icon" />
-                </div>
-                <span className="top-nav__action-counter">{totalCount}</span>
-              </button>
+            <button onClick={() => dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
+              <div className="top-nav__action-icon-wrapper">
+                <Image src={iconCartWhite} alt="icon" />
+              </div>
+              <span className="top-nav__action-counter">{totalCount}</span>
+            </button>
             <Link href="tel:+18888888888">
               <a className="top-nav__action top-nav__action_phone">+1 (888) 888-88-88</a>
             </Link>
@@ -97,12 +99,12 @@ export default function TopNavigation() {
                 </div>
               </a>
             </Link>
-              <button onClick={() =>dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
-                <div className="top-nav__action-icon-wrapper">
-                  <Image src={iconCartBlack} alt="icon" />
-                </div>
-                <span className="top-nav__action-counter">{totalCount}</span>
-              </button>
+            <button onClick={() => dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
+              <div className="top-nav__action-icon-wrapper">
+                <Image src={iconCartBlack} alt="icon" />
+              </div>
+              <span className="top-nav__action-counter">{totalCount}</span>
+            </button>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
-import React from 'react';
 import Image from 'next/image';
 import logo from '@/base/logo-black-large.svg';
 

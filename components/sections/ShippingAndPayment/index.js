@@ -1,6 +1,5 @@
 import TitleWithDescription from '@/blocks/TitleWithDescription';
 import Image from 'next/image';
-import React from 'react';
 
 import IconCar from '@/base/icons/shipping-icon-car.svg';
 import IconRoket from '@/base/icons/shipping-icon-roket.svg';

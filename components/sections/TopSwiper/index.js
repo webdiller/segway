@@ -1,14 +1,17 @@
-import {Navigation, FreeMode} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import Image from 'next/image';
+
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import {Navigation, FreeMode} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+
 import {useEffect, useRef, useState} from 'react';
 import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import topSwiperAccessory from '@/base/top-swiper-accessory.png';
 import {useInView} from 'react-intersection-observer';
-import {useRouter} from 'next/dist/client/router';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';

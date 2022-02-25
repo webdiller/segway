@@ -1,8 +1,8 @@
 import {useCart} from 'react-use-cart';
-import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import TitleWithDescription from '@/blocks/TitleWithDescription';
+import { useRouter } from 'next/router';
 
 export default function AccessoriesBlock({items}) {
   const {addItem} = useCart();
