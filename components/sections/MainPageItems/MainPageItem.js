@@ -11,7 +11,7 @@ export default function MainPageItem({name, href = '/', hrefLabel = 'SEE MORE', 
     <div className={styles.categories__item}>
       <div className={styles.categories__content}>
         <p className={styles.categories__name}>{name}</p>
-        <Link href={href}><a className={styles.categories__link}>{hrefLabel}</a></Link>
+        <Link shallow={false} href={href}><a className={styles.categories__link}>{hrefLabel}</a></Link>
       </div>
 
       <div className={styles.categories__mainImg}>

@@ -57,7 +57,7 @@ export default function TopNavigation() {
             <Link href="/shipping-and-payment">
               <a className="top-nav__item">SHIPPING AND PAYMENT</a>
             </Link>
-            <Link href="#">
+            <Link href="/wholesale">
               <a className="top-nav__item">WHOLESALE</a>
             </Link>
             <Link href="#">

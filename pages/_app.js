@@ -22,6 +22,7 @@ function MyApp({Component, pageProps, router}) {
     router.pathname.startsWith('/kickscooters/kickscooter') ||
     router.pathname.startsWith('/shipping-and-payment') ||
     router.pathname.startsWith('/contacts') ||
+    router.pathname.startsWith('/wholesale') ||
     router.pathname.startsWith('/reviews');
     
   let conditionForMainPageLayout = router.route === '/kickscooters' || router.route === '/';
