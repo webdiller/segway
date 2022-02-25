@@ -1,13 +1,12 @@
-import dynamic from 'next/dynamic';
-const WholesaleDinamic = dynamic(() => import('@/sections/Wholesale'));
+import Wholesale from '@/sections/Wholesale';
 import {data} from '@/base/data';
 import CustomHead from '@/basic/CustomHead';
 
-export default function Wholesale({allData}) {
+export default function WholesalePage({allData}) {
   return (
     <>
-      <CustomHead title="Wholesale"/>
-      <WholesaleDinamic />
+      <CustomHead title="Wholesale" />
+      <Wholesale />
     </>
   );
 }

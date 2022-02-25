@@ -2,7 +2,7 @@ import CustomHead from '@/basic/CustomHead';
 import {data} from '@/base/data';
 import ShippingAndPayment from '@/sections/ShippingAndPayment';
 
-export default function PaymentMainPage({allData}) {
+export default function ShippingAndPaymentPage({allData}) {
   return (
     <>
       <CustomHead title="Shipping and payment" />

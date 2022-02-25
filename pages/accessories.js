@@ -1,16 +1,15 @@
-import dynamic from 'next/dynamic';
-const AccessoriesBlockDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesBlock'));
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'));
+import AccessoriesBlock from '@/sections/Accessories/AccessoriesBlock';
+import ProductModal from '@/modals/ProductAddedModal/ProductModal';
 import {data} from '@/base/data';
 import CustomHead from '@/basic/CustomHead';
 
-export default function Accessories({allData}) {
+export default function AccessoriesPage({allData}) {
 
   return (
     <div>
       <CustomHead />
-      <AccessoriesBlockDinamic items={allData.accessoeries}/>
-      <ProductModalDinamic segways={allData.segways} accessoeries={allData.accessoeries} />
+      <AccessoriesBlock items={allData.accessoeries}/>
+      <ProductModal segways={allData.segways} accessoeries={allData.accessoeries} />
     </div>
   );
 }
