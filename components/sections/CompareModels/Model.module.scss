@@ -1,0 +1,72 @@
+@import '@/styles/mixins';
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  flex: 1 1 50%;
+  @include media('<=991px') {
+  }
+  &:not(:first-child) {
+    .img {
+      padding-left: 0;
+    }
+  }
+}
+.img {
+  position: relative;
+  display: block;
+  margin-left: 16px;
+  margin-right: auto;
+  max-width: 205px;
+  margin-bottom: 24px;
+  @include media('<=991px') {
+    max-width: 162px;
+    margin-bottom: 15px;
+  }
+  @include media('<=768px') {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.hideImg {
+  opacity: 0;
+}
+.title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #323941;
+  white-space: pre-line;
+  padding-left: 16px;
+  @include media('<=991px') {
+  }
+  
+  @include media('<=768px') {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.features {
+  margin-top: 30px;
+  width: 100%;
+  margin-bottom: 50px;
+  @include media('<=991px') {
+    margin-top: 24px;
+    margin-bottom: 34px;
+  }
+}
+
+.prices {
+  margin-top: auto;
+  margin-left: 16px;
+  width: 100%;
+  max-width: 187px;
+  @include media('<=768px') {
+    max-width: 159px;
+  }
+}

@@ -711,116 +711,152 @@ export const data = {
   },
   gocarts: [
     {
-      id: "001",
-      type: "gocart",
-      brandName: "Ninebot",
-      name: "Ninebot Gocart PRO",
-      nameWithoutBrand: "Gocart PRO",
-      nameWrap: "Gocart PRO",
-      shortName: "Gocart PRO",
-      pageLinkName: "gocart-pro",
-      price: "999.99",
-      features: [
-          {"speedLimit": "23 mph (37 km/h)", "speedLimitWrap": "23 mph (37 km/h)"},
-          {"typicalRange": "15.5 miles (25 km)", "typicalRangeWrap": "15.5 miles (25 km)"},
-          {"maxPayload": "220 lbs (100 kg)", "maxPayloadWrap": "220 lbs (100 kg)"},
-          {"netWeight": "112.9 lbs (51.2 kg)", "netWeightWrap": "112.9 lbs (51.2 kg)"},
-          {"heightRequirement": "51.2-74.8 in (130-190 cm)", "heightRequirementWrap": "51.2-74.8 in \n (130-190 cm)"},
-          {"recommendedAge": "14+ years old", "recommendedAgeWrap": "14+ years old"},
-          {"reversingSpeedLimit": "1.9 mph (3 km/h)", "reversingSpeedLimitWrap": "1.9 mph (3 km/h)"},
-          {"groundClearance": "1.8 in (45 mm)", "groundClearanceWrap": "1.8 in (45 mm)"},
-          {"maximumSlope": "15°", "maximumSlopeWrap": "15°"},
-          {"breakingMethod": "Electronic brake + mechanical handbrake", "breakingMethodWrap": "Electronic brake + \n mechanical \n handbrake"},
-          {"breakingDistance": "20 ft (6m)", "breakingDistanceWrap": "20 ft (6m)"},
-          {"frontTires": "Tire width: 3 in (80 mm); flatness ratio: 60% \n hub diameter: 5 in (127 mm)", "frontTiresWrap": "Tire width: 3 in \n (80 mm); flatness \n ratio: 60% hub \n diameter: \n5 in (127 mm)"},
-          {"tiresType": "Hollow solid tire", "tiresTypeWrap": "Hollow solid tire"},
-          {"light": "Headlight, Status indicator & Taillights", "lightWrap": "Headlight, Status indicator & Taillights"},
+      id: '001',
+      type: 'gocart',
+      brandName: 'Ninebot',
+      name: 'Ninebot \n Gocart PRO',
+      nameWithoutBrand: 'Gocart PRO',
+      nameWrap: 'Gocart PRO',
+      shortName: 'Gocart PRO',
+      pageLinkName: 'gocart-pro',
+      price: '999.99',
+      characteristics: [
+        { title: 'Speed limit', slug: 'speedLimit', value: '23 mph \n (37 km/h)', iconSrc: '/gocart-pro/characteristics/icon-1.svg' },
+        { title: 'Typical Range', slug: 'typicalRange', value: '15.5 miles (25 km)', iconSrc: '/gocart-pro/characteristics/icon-2.svg' },
+        { title: 'Max payload', slug: 'maxPayload', value: '220 lbs (100 kg)', iconSrc: '/gocart-pro/characteristics/icon-3.svg' },
+        { title: 'Net weight', slug: 'netWeight', value: '112.9 lbs (51.2 kg)', iconSrc: '/gocart-pro/characteristics/icon-4.svg' },
+        { title: 'Height requirement', slug: 'heightRequirement', value: '51.2-74.8 in \n (130-190 cm)', iconSrc: '/gocart-pro/characteristics/icon-5.svg' },
+        { title: 'Recommended age', slug: 'recommendedAge', value: '14+ years old', iconSrc: '/gocart-pro/characteristics/icon-6.svg' },
+        { title: 'Reversing Speed Limit', slug: 'reversingSpeedLimit', value: '1.9 mph (3 km/h)', iconSrc: '/gocart-pro/characteristics/icon-7.svg' },
+        { title: 'Ground Clearance', slug: 'groundClearance', value: '1.8 in (45 mm)', iconSrc: '/gocart-pro/characteristics/icon-8.svg' },
+        { title: 'Maximum slope', slug: 'maximumSlope', value: '15°', iconSrc: '/gocart-pro/characteristics/icon-9.svg' },
+        { title: 'Braking method', slug: 'breakingMethod', value: 'Electronic brake + \n mechanical \n handbrake', iconSrc: '/gocart-pro/characteristics/icon-10.svg' },
+        { title: 'Braking distance', slug: 'breakingDistance', value: '20 ft (6m)', iconSrc: '/gocart-pro/characteristics/icon-11.svg' },
+        {
+          title: 'Front tires',
+          slug: 'frontTires',
+          value: 'Tire width: 3 in \n (80 mm); flatness \n ratio: 60% hub \n diameter: \n5 in (127 mm)',
+          iconSrc: '/gocart-pro/characteristics/icon-14.svg'
+        },
+        { title: 'Tires type', slug: 'tiresType', value: 'Hollow solid tire', iconSrc: '/gocart-kit/characteristics/icon-13.svg' },
+        { title: 'Light', slug: 'light', value: 'Headlight, Status \n indicator & Taillights', iconSrc: '/gocart-pro/characteristics/icon-14.svg' }
       ],
       warranty: {
         oneYear: {
-          price: "139"
+          price: '139'
         },
         twoYear: {
-          price: "209"
+          price: '209'
         },
         threeYear: {
-          price: "279"
-        },
+          price: '279'
+        }
       },
-      imgPath: "/segway-ninebot-kickscooter-e22.png",
-      imgSmallPath: "/segway-ninebot-kickscooter-e22_small.png",
-      imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
-      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
+      imgPath: '/segway-ninebot-kickscooter-e22.png',
+      imgSmallPath: '/segway-ninebot-kickscooter-e22_small.png',
+      imgPathWithCircle: '/segway-ninebot-kickscooter-e22-circle-default.png',
+      imgPathWithBlueCircle: '/segway-ninebot-kickscooter-e22-circle-color.png',
+      imgForCompare: '/gocart-pro.png',
       galleryImages: [
-        "/gocart-pro/slider/1.jpg",
-        "/gocart-pro/slider/2.jpg",
-        "/gocart-pro/slider/3.jpg",
-        "/gocart-pro/slider/4.jpg",
-        "/gocart-pro/slider/5.jpg",
-        "/gocart-pro/slider/6.jpg",
-        "/gocart-pro/slider/7.jpg",
-        "/gocart-pro/slider/8.jpg",
-        "/gocart-pro/slider/9.jpg",
-        "/gocart-pro/slider/10.jpg",
-        "/gocart-pro/slider/11.jpg",
-        "/gocart-pro/slider/12.jpg",
-      ],
+        '/gocart-pro/slider/1.jpg',
+        '/gocart-pro/slider/2.jpg',
+        '/gocart-pro/slider/3.jpg',
+        '/gocart-pro/slider/4.jpg',
+        '/gocart-pro/slider/5.jpg',
+        '/gocart-pro/slider/6.jpg',
+        '/gocart-pro/slider/7.jpg',
+        '/gocart-pro/slider/8.jpg',
+        '/gocart-pro/slider/9.jpg',
+        '/gocart-pro/slider/10.jpg',
+        '/gocart-pro/slider/11.jpg',
+        '/gocart-pro/slider/12.jpg'
+      ]
     },
     {
-      id: "002",
-      type: "gocart",
-      brandName: "Ninebot",
-      name: "Ninebot Gocart KIT",
-      nameWithoutBrand: "Gocart KIT",
-      nameWrap: "Gocart KIT",
-      shortName: "Gocart KIT",
-      pageLinkName: "gocart-kit",
-      price: "999.99",
-      features: [
-          {"speedLimit": "15 mph (24 km/h)", "speedLimitWrap": "15 mph (24 km/h)"},
-          {"typicalRange": "9 miles (15 km)", "typicalRangeWrap": "9 miles (15 km)"},
-          {"maxPayload": "220 lbs (100 kg)", "maxPayloadWrap": "220 lbs (100 kg)"},
-          {"netWeight": "61.3 lbs (27.8 kg)", "netWeightWrap": "61.3 lbs (27.8 kg)"},
-          {"heightRequirement": "51.2-74.8 in (130-190cm)", "heightRequirementWrap": "51.2-74.8 in \n (130-190 cm)"},
-          {"recommendedAge": "8+ years old", "recommendedAgeWrap": "8+ years old"},
-          {"reversingSpeedLimit": "2 mph (3 km/h)", "reversingSpeedLimitWrap": "2 mph (3 km/h)"},
-          {"groundClearance": "1.6 in (40 mm)", "groundClearanceWrap": "1.6 in (40 mm)"},
-          {"maximumSlope": "15°", "maximumSlopeWrap": "15°"},
-          {"breakingMethod": "Electronic brake + mechanical handbrake", "breakingMethodWrap": "Electronic brake + \n mechanical \n handbrake"},
-          {"breakingDistance": "20 ft (6m)", "breakingDistanceWrap": "20 ft (6m)"},
-          {"frontTires": "Tire width: 3 in (80 mm); flatness ratio: 60% \n hub diameter: 5 in (127 mm)", "frontTiresWrap": "Tire width: 3 in \n (80 mm); flatness \n ratio: 60% hub \n diameter: \n5 in (127 mm)"},
-          {"tiresType": "Non-inflatable hollow tire", "tiresTypeWrap": "Non-inflatable \n hollow tire"},
-          {"light": "Headlight & Status indicator ", "lightWrap": "Headlight & \n Status indicator"},
+      id: '002',
+      type: 'gocart',
+      brandName: 'Ninebot',
+      name: 'Ninebot \n Gocart KIT',
+      nameWithoutBrand: 'Gocart KIT',
+      nameWrap: 'Gocart KIT',
+      shortName: 'Gocart KIT',
+      pageLinkName: 'gocart-kit',
+      price: '999.99',
+      characteristics: [
+        { title: 'Speed limit', slug: 'speedLimit', value: '15 mph (24 km/h)', iconSrc: '/gocart-kit/characteristics/icon-1.svg' },
+        { title: 'Typical Range', slug: 'typicalRange', value: '9 miles (15 km)', iconSrc: '/gocart-kit/characteristics/icon-2.svg' },
+        { title: 'Max payload', slug: 'maxPayload', value: '220 lbs (100 kg)', iconSrc: '/gocart-kit/characteristics/icon-3.svg' },
+        { title: 'Net weight', slug: 'netWeight', value: '61.3 lbs (27.8 kg)', iconSrc: '/gocart-kit/characteristics/icon-4.svg' },
+        { title: 'Height requirement', slug: 'heightRequirement', value: '51.2-74.8 in \n (130-190 cm)', iconSrc: '/gocart-kit/characteristics/icon-5.svg' },
+        { title: 'Recommended age', slug: 'recommendedAge', value: '8+ years old', iconSrc: '/gocart-kit/characteristics/icon-6.svg' },
+        { title: 'Reversing Speed Limit', slug: 'reversingSpeedLimit', value: '2 mph (3 km/h)', iconSrc: '/gocart-kit/characteristics/icon-7.svg' },
+        { title: 'Ground Clearance', slug: 'groundClearance', value: '1.6 in (40 mm)', iconSrc: '/gocart-kit/characteristics/icon-8.svg' },
+        { title: 'Maximum slope', slug: 'maximumSlope', value: '15°', iconSrc: '/gocart-kit/characteristics/icon-9.svg' },
+        { title: 'Braking method', slug: 'breakingMethod', value: 'Electronic brake + \n mechanical \n handbrake', iconSrc: '/gocart-kit/characteristics/icon-10.svg' },
+        { title: 'Braking distance', slug: 'breakingDistance', value: '20 ft (6m)', iconSrc: '/gocart-kit/characteristics/icon-11.svg' },
+        { title: 'Front tires', slug: 'frontTires', value: 'Tire width: 3 in \n (80 mm); flatness \n ratio: 60% hub \n diameter: \n5 in (127 mm)', iconSrc: '/gocart-kit/characteristics/icon-12.svg' },
+        { title: 'Tires type', slug: 'tiresType', value: 'Non-inflatable \n hollow tire', iconSrc: '/gocart-kit/characteristics/icon-13.svg' },
+        { title: 'Light', slug: 'light', value: 'Headlight & \n Status indicator', iconSrc: '/gocart-kit/characteristics/icon-14.svg' }
       ],
       warranty: {
         oneYear: {
-          price: "139"
+          price: '139'
         },
         twoYear: {
-          price: "209"
+          price: '209'
         },
         threeYear: {
-          price: "279"
-        },
+          price: '279'
+        }
       },
-      imgPath: "/segway-ninebot-kickscooter-e22.png",
-      imgSmallPath: "/segway-ninebot-kickscooter-e22_small.png",
-      imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
-      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
+      imgPath: '/segway-ninebot-kickscooter-e22.png',
+      imgSmallPath: '/segway-ninebot-kickscooter-e22_small.png',
+      imgPathWithCircle: '/segway-ninebot-kickscooter-e22-circle-default.png',
+      imgPathWithBlueCircle: '/segway-ninebot-kickscooter-e22-circle-color.png',
+      imgForCompare: '/gocart-kit.png',
       galleryImages: [
-        "/gocart-kit/slider/1.jpg",
-        "/gocart-kit/slider/2.jpg",
-        "/gocart-kit/slider/3.jpg",
-        "/gocart-kit/slider/4.jpg",
-        "/gocart-kit/slider/5.jpg",
-        "/gocart-kit/slider/6.jpg",
-        "/gocart-kit/slider/7.jpg",
-        "/gocart-kit/slider/8.jpg",
-        "/gocart-kit/slider/9.jpg",
-        "/gocart-kit/slider/10.jpg",
-        "/gocart-kit/slider/11.jpg"
-      ],
-      
+        '/gocart-kit/slider/1.jpg',
+        '/gocart-kit/slider/2.jpg',
+        '/gocart-kit/slider/3.jpg',
+        '/gocart-kit/slider/4.jpg',
+        '/gocart-kit/slider/5.jpg',
+        '/gocart-kit/slider/6.jpg',
+        '/gocart-kit/slider/7.jpg',
+        '/gocart-kit/slider/8.jpg',
+        '/gocart-kit/slider/9.jpg',
+        '/gocart-kit/slider/10.jpg',
+        '/gocart-kit/slider/11.jpg'
+      ]
+    }
+  ],
+  blog: [
+    { 
+      dateCreated: '28 june 2021',
+      slug: 'heading-text-kickscooter-max',
+      title: 'HEADING TEXT KICKSCOOTER MAX',
+      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi morbi quam egestas tristique massa pulvinar sed. Gravida adipiscing interdum ut quis etiam vivamus imperdiet ultrices.',
+      posterSrc: '/blog/blog-1.jpg'
     },
+    { 
+      dateCreated: '01 july 2021',
+      slug: 'heading-text-kickscooter-max-white',
+      title: 'HEADING TEXT KICKSCOOTER MAX WHITE',
+      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi morbi quam egestas tristique massa pulvinar sed. Gravida adipiscing interdum ut quis etiam vivamus imperdiet ultrices.',
+      posterSrc: '/blog/blog-2.jpg'
+    },
+    { 
+      dateCreated: '29 june 2021',
+      slug: 'heading-text-kickscooter-es3',
+      title: 'HEADING TEXT KICKSCOOTER ES3',
+      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi morbi quam egestas tristique massa pulvinar sed. Gravida adipiscing interdum ut quis etiam vivamus imperdiet ultrices.',
+      posterSrc: '/blog/blog-3.jpg'
+    },
+    { 
+      dateCreated: '30 june 2021',
+      slug: 'heading-text-kickscooter-es2',
+      title: 'HEADING TEXT KICKSCOOTER ES2',
+      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi morbi quam egestas tristique massa pulvinar sed. Gravida adipiscing interdum ut quis etiam vivamus imperdiet ultrices.',
+      posterSrc: '/blog/blog-4.jpg'
+    }
   ]
 };

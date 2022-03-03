@@ -62,7 +62,7 @@ export default function TopNavigation() {
             <Link href="/wholesale">
               <a className="top-nav__item">WHOLESALE</a>
             </Link>
-            <Link href="#">
+            <Link href="/blog">
               <a className="top-nav__item">BLOG</a>
             </Link>
             <Link href="/contacts">

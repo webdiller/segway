@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 import classNames from 'classnames';
-import styles from './item.module.scss';
+import styles from './ShippingItem.module.scss';
 
 export default function ShippingItem({customClass, title, value, link}) {
   return (

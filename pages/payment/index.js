@@ -13,7 +13,7 @@ export default function PaymentMainPage() {
         <div className="payment-info__contact-area">
           <p className="payment__title payment-info__title">Contact information</p>
           <CustomInput customClass="payment-info__email" type="text" placeholder="Email" />
-          <CustomCheckbox customClass="payment-info__checkbox" text="Email me with news and offers" />
+          <CustomCheckbox customClass="payment-info__checkbox-first" text="Email me with news and offers" />
         </div>
         <div className="payment-info__shipping-address">
           <p className="payment__title payment-info__title">Shipping address</p>
@@ -46,7 +46,7 @@ export default function PaymentMainPage() {
               <CustomInput type="text" placeholder="Phone" />
             </div>
             <div className="payment-info__form-item">
-              <CustomCheckbox text="Save this information for next time" />
+              <CustomCheckbox customClass="payment-info__checkbox-second" text="Save this information for next time" />
             </div>
             <div className="payment-info__form-item">
               <Link href="/payment/shipping"><a className="payment__btn payment-info__btn">Continue for shipping</a></Link>

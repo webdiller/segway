@@ -1,0 +1,243 @@
+.blog {
+  &__title-with-description {
+    margin-top: 48px;
+    margin-bottom: 52px;
+    @include media('<=991px') {
+      margin-top: 22px;
+    }
+  }
+  &__container {
+    margin-bottom: 93px;
+    @include media('<=991px') {
+      margin-bottom: 71px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    padding: 34px 57px 34px 25px;
+    border: 3px solid #dddddd;
+    transition: all 0.3s ease;
+    &:hover {
+      border-color: #009eff;
+    }
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+    @include media('<=991px') {
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
+      padding: 35px 8px 21px 8px;
+      max-width: 80%;
+      min-width: 343px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  &__item-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  &__item-date {
+    font-weight: 400;
+    margin-bottom: 26px;
+    color: #999999;
+    text-transform: none;
+    @include media('<=991px') {
+      margin-bottom: 10px;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__item-title {
+    max-width: 326px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 43px;
+    color: #323941;
+    @include media('<=991px') {
+      margin: 0 auto 6px auto;
+      font-size: 26px;
+      line-height: 32px;
+    }
+  }
+
+  &__item-excerpt {
+    margin-bottom: 18px;
+    max-width: 495px;
+    font-size: 18px;
+    line-height: 150%;
+    color: #323941;
+    @include media('<=991px') {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+  &__item-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto;
+    color: #009eff;
+    text-decoration: none;
+    @include media('<=991px') {
+      margin: 0 auto;
+      font-size: 22px;
+      line-height: 27px;
+      color: #009eff;
+    }
+  }
+
+  &__item-img-wrapper {
+    display: block;
+    position: relative;
+    align-self: center;
+    overflow: hidden;
+    border-radius: 50%;
+
+    width: 268px;
+    flex: 0 0 268px;
+    height: 268px;
+
+    @include media('<=991px') {
+      width: 242px;
+      height: 242px;
+      flex: auto;
+      margin-bottom: 37px;
+    }
+  }
+  &__see-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+    @include media('<=991px') {
+    }
+  }
+  &__see-more-btn {
+    width: 229px;
+    @include media('<=991px') {
+    }
+  }
+}
+
+.blog-post {
+  overflow: hidden;
+  &__container {
+    margin-top: 48px;
+    margin-bottom: 139px;
+    text-align-last: left;
+    @include media('<=768px') {
+      margin-bottom: 30px;
+    }
+  }
+  &__title {
+    margin-bottom: 16px;
+  }
+  &__description {
+  }
+  &__rich {
+    position: relative;
+    display: flex;
+    margin: 48px 0;
+    &_bg-grey {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50vw;
+        width: 200vw;
+        height: 100%;
+        background-color: #f7f7f7;
+        @include media('<=768px') {
+          height: calc(100% + 20px);
+          top: -20px;
+        }
+      }
+    }
+
+    @include media('<=768px') {
+      flex-direction: column-reverse;
+    }
+    &-content {
+      position: relative;
+      padding: 36px 0 47px 0;
+      width: 496px;
+      flex: 0 1 472;
+      margin-right: calc(442px + 20px);
+      @include media('<=991px') {
+        margin-right: calc(300px + 20px);
+      }
+      @include media('<=768px') {
+        margin-right: 0;
+        flex: auto;
+        width: auto;
+      }
+    }
+    &-title {
+      margin-bottom: 16px;
+      font-weight: bold;
+      font-size: 35px;
+      line-height: 43px;
+      text-transform: uppercase;
+      color: #323941;
+      @include media('<=768px') {
+        font-size: 20px;
+        line-height: 120%;
+      }
+    }
+    &-text {
+    }
+    &-img-wrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 442px;
+      flex: 0 1 442px;
+      height: 100%;
+      overflow: hidden;
+      > span {
+        height: 100% !important;
+      }
+      @include media('<=991px') {
+        width: 300px;
+        flex: 0 1 300px;
+      }
+
+      @include media('<=768px') {
+        position: static;
+        flex: auto;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  &__columns {
+    margin: 48px 0;
+    &-title {
+      margin-bottom: 16px;
+      font-weight: bold;
+      font-size: 35px;
+      line-height: 43px;
+      text-transform: uppercase;
+      color: #323941;
+      @include media('<=768px') {
+        font-size: 20px;
+        line-height: 120%;
+      }
+    }
+    &-items {
+      columns: 2;
+      @include media('<=768px') {
+        columns: 1;
+      }
+    }
+    &-item {
+    }
+  }
+}

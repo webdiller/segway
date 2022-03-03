@@ -12,6 +12,8 @@ export default function DropdownList({customClass, placeholder, data}) {
     setCurrentValue(e.target.innerText);
   };
 
+  const setFocusHandler = () => inputRef.current.focus();
+
   useEffect(() => {
     const onEventHandler = (event) => {
       if (event.keyCode === 27) {
@@ -57,7 +59,7 @@ export default function DropdownList({customClass, placeholder, data}) {
       <div className={styles.main}>
         <input ref={inputRef} value={value} onFocus={setActiveHandler} onBlur={setInactiveHandler} className={styles.input} type="text" />
         <span className={styles.placeholder}>{placeholder}</span>
-        <IoMdArrowDropdown className={styles.icon} />
+        <IoMdArrowDropdown onClick={setFocusHandler} className={styles.icon} />
       </div>
     </div>
   );

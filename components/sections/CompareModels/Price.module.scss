@@ -1,0 +1,36 @@
+@import '@/styles/mixins';
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.price {
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #323941;
+}
+.button {
+  width: 100%;
+  @include media('<=768px') {
+    min-height: 41px;
+  }
+  span {
+  }
+}
+.link {
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  height: 44px;
+
+  font-size: 18px;
+  line-height: 22px;
+  color: #999999;
+  @include media('<=768px') {
+    height: 41px;
+  }
+}

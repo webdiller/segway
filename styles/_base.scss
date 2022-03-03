@@ -8,6 +8,10 @@ button {
   font-family: 'ProximaNova', 'sans-serif';
 }
 
+button, a {
+  cursor: pointer;
+}
+
 html {
   line-height: 1.35;
 }
@@ -487,6 +491,14 @@ img {
   }
 }
 
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.bb-0 {
+  border-bottom: 0 !important;
+}
+
 .hide {
   display: none !important;
 }
@@ -500,6 +512,14 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
 }
 
 #__next {

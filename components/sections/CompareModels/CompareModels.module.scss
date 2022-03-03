@@ -1,0 +1,41 @@
+@import '@/styles/mixins';
+
+.item {
+}
+
+.container {
+  @include siteContainer();
+  padding-top: 104px;
+  @include media('<=991px') {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.top {
+  margin-bottom: 40px;
+  @include media('<=991px') {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.title {
+  margin-bottom: 18px;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 61px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #323941;
+}
+.description {
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #323941;
+}
+
+.items {
+  display: flex;
+}

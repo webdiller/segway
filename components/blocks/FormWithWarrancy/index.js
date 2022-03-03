@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import segwayProtect from '@/base/segway-protect.png';
 import useAddToCart from '@/hooks/useAddToCart';
 import {useCart} from 'react-use-cart';

@@ -1,4 +1,4 @@
-import styles from './list.module.scss';
+import styles from './ShippingList.module.scss';
 import classNames from 'classnames';
 
 export default function ShippingList({customClass, children}) {

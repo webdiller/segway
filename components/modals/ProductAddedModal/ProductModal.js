@@ -266,9 +266,9 @@ export default function ProductModal({accessoeries}) {
             <button onClick={closeModal()} className="ui-btn ui-btn_fill-grey product-modal__top-actions-item">
               <span>BACK</span>
             </button>
-            <button onClick={closeModal(true, '/user-cart')} className="ui-btn product-modal__top-actions-item">
-              <span>CHECK OUT</span>
-            </button>
+            <Link href="/payment" >
+              <a className="ui-btn product-modal__top-actions-item" onClick={()=>document.body.classList.remove('disabled')}>CHECK OUT</a>
+            </Link>
           </div>
         </div>
         {/* HEADER END */}
@@ -414,7 +414,7 @@ export default function ProductModal({accessoeries}) {
               <span>BACK</span>
             </button>
             <Link href="/payment">
-              <a className="ui-btn product-modal__top-actions-item">
+              <a onClick={()=>document.body.classList.remove('disabled')} className="ui-btn product-modal__top-actions-item">
                 <span>CHECK OUT</span>
               </a>
             </Link>
