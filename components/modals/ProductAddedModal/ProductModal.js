@@ -267,7 +267,7 @@ export default function ProductModal({accessoeries}) {
               <span>BACK</span>
             </button>
             <Link href="/payment" >
-              <a className="ui-btn product-modal__top-actions-item" onClick={()=>document.body.classList.remove('disabled')}>CHECK OUT</a>
+              <a className="ui-btn product-modal__top-actions-item" onClick={()=>document.body.classList.remove('disabled')}><span>CHECK OUT</span></a>
             </Link>
           </div>
         </div>
