@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
+/** Отображаем все модели определенной категории */
 export default function ProductCards({categoryRoute, title, products}) {
   return (
     <div className="product-cards">
