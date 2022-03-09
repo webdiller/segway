@@ -115,7 +115,7 @@ export default function ModelPage({allData}) {
           tool and more.
         </>}
       />
-      <PackingListDinamic poster_type="type_2" />
+      <PackingListDinamic packingListImg={allData.segways.adultSegways[8].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic

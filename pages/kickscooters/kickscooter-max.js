@@ -97,7 +97,7 @@ export default function ModelPage({allData}) {
         currentSegway={allData.segways.adultSegways[5]}
       />
       <Tabs />
-      <PackingListDinamic />
+      <PackingListDinamic packingListImg={allData.segways.adultSegways[5].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic

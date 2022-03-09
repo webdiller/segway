@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 export default async function handler(req, res) {
-  console.log(req.body);
-  const { formFromOtherModels } = req.body;
+  
+  const { formFromOtherModelsName, formFromOtherModelsPhone } = req.body;
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -30,8 +30,9 @@ export default async function handler(req, res) {
     subject: `Заявка с сайта segway.com`,
     html: `
       <p>Заявка с сайта segway.com</p>
-      <p>Телефон пользователя: ${formFromOtherModels}</p>
-      `
+      <p>Имя пользователя: ${formFromOtherModelsName || 'Не указано'}</p>
+      <p>Телефон пользователя: ${formFromOtherModelsPhone}</p>
+    `
   };
 
   await new Promise((resolve, reject) => {

@@ -132,7 +132,7 @@ export default function OtherModels({ items }) {
               <p className="text other-models__form-text">
                 Leave your contact details <br /> and we will help you with <br /> the choice
               </p>
-              <UiInput name="formFromOtherModels" forForm={false} customClass="other-models__form-input" />
+              <UiInput name="formFromOtherModelsPhone" forForm={false} customClass="other-models__form-input" />
               <button ref={btnRef} type="submit" className="ui-btn ui-btn_outline other-models__see-more">
                 <span>SEND</span>
               </button>

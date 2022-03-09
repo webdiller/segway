@@ -1,10 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import {useRef, useState} from 'react';
-import packingListType_1 from '@/base/packing-list-1.png';
-import packingListType_2 from '@/base/packing-list-2.png';
-import packingListType_3 from '@/base/packing-list-3.png';
-import packingListType_4 from '@/base/packing-list-4.png';
 import posterImage from '@/base/packing-list-poster.jpg';
 
 const useFocus = () => {
@@ -15,12 +11,8 @@ const useFocus = () => {
   return [htmlElRef, setFocus];
 };
 
-// TODO: Отрефакторить. Больше SOLID
-/**
- * @param {string} poster_type 
- * @description type_1, type_2, type_3, type_4
- */
-export default function PackingList({poster_type = "type_1"}) {
+export default function PackingList({packingListImg}) {
+
   const [overlay, setOverlay] = useState(true);
   const [youtubeRef, setYoutubeFocus] = useFocus();
 
@@ -63,14 +55,7 @@ export default function PackingList({poster_type = "type_1"}) {
           </div>
         </div>
         <div className="packing-list__img-wrapper">
-          <Image objectFit="contain" src={
-            poster_type === "type_1" ? packingListType_1
-           : poster_type ==="type_2" ? packingListType_2 
-           : poster_type ==="type_3" ? packingListType_3 
-           : poster_type ==="type_4" ? packingListType_4 
-           : packingListType_1 
-          }
-           alt="Packing List" />
+          <Image quality={100} width={453} height={453} objectFit="contain" src={packingListImg} alt="Packing List" />
         </div>
       </div>
     </div>

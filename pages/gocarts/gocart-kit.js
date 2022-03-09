@@ -108,7 +108,8 @@ export default function ModelPage({allData}) {
           tool and more.
         </>}
       />
-      <PackingListDinamic />
+      
+      <PackingListDinamic packingListImg={allData.gocarts[1].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
