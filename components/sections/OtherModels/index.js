@@ -1,17 +1,63 @@
-import {Scrollbar, FreeMode} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Scrollbar, FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import axios from "axios";
 const Link = dynamic(() => import('next/link'));
 import circlePlaceholder from '@/base/circle-placeholder.svg';
-import {useInView} from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
 import UiInput from 'components/shared/UiInput/UiInput';
 
-export default function OtherModels({items}) {
+export default function OtherModels({ items }) {
   const swiperRef = useRef(null);
   const [allSegways] = useState(items)
-  const {ref, inView} = useInView({threshold: 0.5});
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
+  // form
+  const btnRef = useRef();
+  const onSubmit = async e => {
+    e.preventDefault();
+    const formData = {};
+    Array.from(e.currentTarget.elements).forEach(field => {
+      if (!field.name) return;
+      formData[field.name] = field.value;
+    });
+
+    console.log(e.currentTarget.elements[0].value);
+
+    let config = {
+      method: "post",
+      url: `/api/mail`,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      data: formData
+    };
+
+    btnRef.current.innerHTML = "<span>Sending...</span>";
+    btnRef.current.classList.add("loading");
+    try {
+      const response = await axios(config);
+
+      if (response.status === 200) {
+        btnRef.current.innerHTML = "<span>Success</span>";
+        btnRef.current.classList.remove("loading");
+
+        setTimeout(() => {
+          btnRef.current.innerHTML = "<span>Send</span>";
+        }, 3000);
+      }
+    } catch (error) {
+      alert('Error while sending form')
+      btnRef.current.innerHTML = "<span>Error while sending</span>";
+      setTimeout(() => {
+        btnRef.current.innerHTML = "<span>Send</span>";
+      }, 3000);
+    }
+
+  };
+  // form
 
   useEffect(() => {
     if (document.readyState === 'complete' && window.innerWidth <= 768 && inView) {
@@ -20,9 +66,9 @@ export default function OtherModels({items}) {
         setTimeout(() => {
           try {
             swiperRef.current.slidePrev();
-          } catch (error) {}
+          } catch (error) { }
         }, 350);
-      } catch (error) {}
+      } catch (error) { }
     }
   }, [swiperRef, inView]);
 
@@ -56,7 +102,7 @@ export default function OtherModels({items}) {
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {allSegways.map(({id, name, nameWithoutBrand, price, imgPath}) => (
+            {allSegways.map(({ id, name, nameWithoutBrand, price, imgPath }) => (
               <SwiperSlide key={id} className="swiper-slide other-models__item">
                 <div className="other-models__item-wrapper">
                   <Link href="#">
@@ -79,19 +125,17 @@ export default function OtherModels({items}) {
               </SwiperSlide>
             ))}
 
-            <SwiperSlide className="swiper-slide swiper-slide_form other-models__form">
+            <SwiperSlide onSubmit={onSubmit} tag="form" className="swiper-slide swiper-slide_form other-models__form">
               <p className="other-models__form-title">
                 DIDN’T FIND <br /> A MODEL?
               </p>
               <p className="text other-models__form-text">
                 Leave your contact details <br /> and we will help you with <br /> the choice
               </p>
-              <UiInput forForm={false} customClass="other-models__form-input" />
-              <Link href="#">
-                <a className="ui-btn ui-btn_outline other-models__see-more">
-                  <span>SEND</span>
-                </a>
-              </Link>
+              <UiInput name="formFromOtherModels" forForm={false} customClass="other-models__form-input" />
+              <button ref={btnRef} type="submit" className="ui-btn ui-btn_outline other-models__see-more">
+                <span>SEND</span>
+              </button>
             </SwiperSlide>
           </Swiper>
         </div>

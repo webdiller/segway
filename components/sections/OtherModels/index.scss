@@ -263,6 +263,36 @@
     text-decoration: none;
     font-size: 13px;
     width: 130px;
+    overflow: hidden;
+    
+    &.loading {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      cursor: wait;
+      background-color: #009eff;
+      color: #fff;
+      border-color: transparent;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        opacity: 1;
+        background: repeating-linear-gradient(
+        60deg, 
+        transparent, 
+        transparent 0.75rem, 
+        rgba(255,255,255,.1) 0.75rem, 
+        rgba(255,255,255,.1) 1.5rem);
+        animation: load 1s infinite linear;
+        transition: all .3s ease;
+        pointer-events: none;
+      }
+    }
     @include media('<=768px') {
       padding-left: 23px;
       padding-right: 23px;
@@ -338,5 +368,14 @@
       line-height: 19px;
       margin-bottom: 18px;
     }
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1.75rem);
   }
 }
