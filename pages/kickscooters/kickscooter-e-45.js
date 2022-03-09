@@ -96,7 +96,25 @@ export default function ModelPage({allData}) {
         }
         currentSegway={allData.segways.adultSegways[4]}
       />
-      <Tabs />
+<Tabs
+        showApp
+        tab_4_title={<>APP <br />Controll</>}
+        title_4_desktop={<>Access More Features <br /> And Functions Like A Pro</>}
+        title_4_mobile={<>Access More Features <br /> And Functions Like A Pro</>}
+        text_4_desktop={
+          <>
+            Explore the various tabs to learn about the health of the device.<br />
+            Checking the battery level, speed limiter, mileage calculator <br />
+            tool and more.
+          </>
+        }
+        text_4_mobile={<>
+          Explore the various tabs to learn about <br />
+          the health of the device. Checking the battery <br />
+          level, speed limiter, mileage calculator <br />
+          tool and more.
+        </>}
+      />
       <PackingListDinamic poster_type="type_2" />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 

@@ -45,7 +45,7 @@ $rootContainer: '.tabs';
         display: none;
       }
       .tabs__tab-icon-wrapper_white {
-        display: block;
+        display: flex;
       }
     }
     &.active {
@@ -55,7 +55,7 @@ $rootContainer: '.tabs';
         display: none;
       }
       .tabs__tab-icon-wrapper_white {
-        display: block;
+        display: flex;
       }
     }
     @include media('<=768px') {
@@ -66,7 +66,11 @@ $rootContainer: '.tabs';
 
   &__tab-icon-wrapper {
     position: relative;
-    display: block;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin-right: 19px;
     transition: all 0.3s ease;
     min-width: 37px;
