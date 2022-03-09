@@ -14,7 +14,7 @@ export default function BlogItem({ dateCreated, slug, title, excerpt, posterSrc 
                 </Link>
             </div>
             <div className="blog__item-img-wrapper">
-                <Image width={268} height={268} objectFit="cover" src={posterSrc} alt={title} layout="fill" />
+                <Image objectFit="cover" src={posterSrc} alt={title} layout="fill" />
             </div>
         </div>
     );

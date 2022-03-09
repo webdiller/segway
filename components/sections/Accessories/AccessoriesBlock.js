@@ -32,7 +32,7 @@ export default function AccessoriesBlock({items}) {
                   <div className="accessories-block__img-wrapper">
                     <Image objectFit="contain" className="accessories-block__img" src={imgPath} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                   </div>
-                  <p className="text text_25 accessories-block__name">{name}</p>
+                  <p className="text text_25 accessories-block__name">{nameWrap}</p>
                   <p className="text text_13 text_grey2 accessories-block__description">{description}</p>
                   <div className="accessories-block__price">
                     <p className="text text_16 accessories-block__price-key">Price:</p>

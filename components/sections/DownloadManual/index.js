@@ -1,13 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import {VscFilePdf} from 'react-icons/vsc';
 import UiLink from 'components/shared/UiLink/UiLink';
+import classNames from 'classnames';
 
-export default function DownloadManual() {
+export default function DownloadManual({desktopImg, mobileImg, customClass}) {
   
   return (
-    <div className="download-manual">
+    <div className={classNames("download-manual", classNames(customClass))}>
       <div className="container download-manual__container">
         <div className="download-manual__cart">
+          
           <picture className="download-manual__picture">
             <source srcSet="/download-manual-desktop.webp" media="(min-width: 480px)" />
             <source srcSet="/download-manual-desktop.png" media="(min-width: 480px)" />
