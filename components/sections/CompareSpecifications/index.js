@@ -122,13 +122,12 @@ export default function CompareSpecifications({items, mainSegway}) {
                   </div>
                   <p className="text text_bold main-slide__name">{mainSegway.name}</p>
                 </div>
-                <div className="main-slide__header-right">
-                  <div onClick={openModal()} className="main-slide__img-compare-wrapper">
-                    <img
-                      loading="lazy"
-                      width="104"
-                      height="104"
-                      src={!selectedModel ? './icon-compare.svg' : `${selectedModel.imgPath}`}
+                <div onClick={openModal()} className="main-slide__header-right">
+                  <div className="main-slide__img-compare-wrapper">
+                    <Image
+                      width="116"
+                      height="116"
+                      src={!selectedModel ? '/icon-compare.svg' : `${selectedModel.imgPath}`}
                       alt="icon-compare"
                       className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'}
                     />

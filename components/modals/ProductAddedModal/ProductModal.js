@@ -2,23 +2,23 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
-import {useCart} from 'react-use-cart';
-import {useEffect, useRef, useState} from 'react';
-import {Navigation, FreeMode} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {FcPrevious, FcNext} from 'react-icons/fc';
+import { useCart } from 'react-use-cart';
+import { useEffect, useRef, useState } from 'react';
+import { Navigation, FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FcPrevious, FcNext } from 'react-icons/fc';
 import imagePlaceholder from '@/base/circle-placeholder.svg';
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
-import {BiMinus, BiPlus} from 'react-icons/bi';
-import {useDispatch, useSelector} from 'react-redux';
-import {setProductModal} from 'store/actions/productModal';
-import {reactLocalStorage} from 'reactjs-localstorage';
+import { BiMinus, BiPlus } from 'react-icons/bi';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProductModal } from 'store/actions/productModal';
+import { reactLocalStorage } from 'reactjs-localstorage';
 import { useRouter } from 'next/router';
 
-const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, addItemHandler}) => {
+const ItemSegwayWarranty = ({ allItems, segwayItem, updateItemQuantityHandler, addItemHandler }) => {
   const [tabToggle, setTabToggle] = useState(segwayItem.selectedWarranty);
   const [initWarranty] = useState(segwayItem.selectedWarranty || segwayItem.id);
   const [isClicked, setIsClicked] = useState(false);
@@ -46,7 +46,7 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
 
         updateItemQuantityHandler(segwayItem.id, 0);
 
-        let newItem = {...segwayItem, id: newId};
+        let newItem = { ...segwayItem, id: newId };
         delete newItem['quantity'];
         addItemHandler(newItem, segwayItem.quantity);
       } else {
@@ -54,7 +54,7 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
         newId = tabToggle ? `${idWithoutWarranty}?warrancy=${tabToggle}` : idWithoutWarranty;
 
         updateItemQuantityHandler(segwayItem.id, 0);
-        let newItem = {...segwayItem, id: newId};
+        let newItem = { ...segwayItem, id: newId };
         delete newItem['quantity'];
         addItemHandler(newItem, segwayItem.quantity);
       }
@@ -81,7 +81,7 @@ const ItemSegwayWarranty = ({allItems, segwayItem, updateItemQuantityHandler, ad
   );
 };
 
-export default function ProductModal({accessoeries}) {
+export default function ProductModal({ accessoeries }) {
   // scroll
   const modalWrapperElement = useRef(null);
   const targetScrollElement = useRef(null);
@@ -90,12 +90,11 @@ export default function ProductModal({accessoeries}) {
 
   // modals
   const [visibleProducts, setVisibleProducts] = useState(true);
-  const [activeIndex, setActiveIndex] = useState(0);
   const modalRef = useRef(null);
 
   // data
-  const {items: segwaysWithAccessoeriesFromUseCart, cartTotal, addItem, setItems, updateItemQuantity} = useCart();
-  const {active: isActiveModal} = useSelector((state) => state.productModal);
+  const { items: segwaysWithAccessoeriesFromUseCart, cartTotal, addItem, setItems, updateItemQuantity } = useCart();
+  const { active: isActiveModal } = useSelector((state) => state.productModal);
 
   const [clientAllSegways, setClientAllSegways] = useState([]);
   const [clientAllAccessoeries, setClientAllAccessoeries] = useState([]);
@@ -156,8 +155,8 @@ export default function ProductModal({accessoeries}) {
   };
 
   useEffect(() => {
-    const scooters = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'kickscooter' || type === 'kidsScooter' || type === 'gocart');
-    const accessoriesFilter = segwaysWithAccessoeriesFromUseCart.filter(({type}) => type === 'accessory');
+    const scooters = segwaysWithAccessoeriesFromUseCart.filter(({ type }) => type === 'kickscooter' || type === 'kidsScooter' || type === 'gocart');
+    const accessoriesFilter = segwaysWithAccessoeriesFromUseCart.filter(({ type }) => type === 'accessory');
     setClientAllSegways(scooters);
     setClientAllAccessoeries(accessoriesFilter);
 
@@ -165,7 +164,7 @@ export default function ProductModal({accessoeries}) {
     segwaysWithAccessoeriesFromUseCart.map((product) => {
       if (product.id.includes('warrancy')) {
         try {
-          const {id, warranty, price, quantity} = product;
+          const { id, warranty, price, quantity } = product;
           let warrantyId = id.split('warrancy=')[1];
           let priceOfWarranty = Number(warranty[warrantyId].price);
           let totalPrice = (priceOfWarranty + Number(price)) * Number(quantity);
@@ -174,7 +173,7 @@ export default function ProductModal({accessoeries}) {
           console.log(error);
         }
       } else {
-        const {price, quantity} = product;
+        const { price, quantity } = product;
         let totalPrice = Number(price) * quantity;
         setTotalPriceWithWarranty((prev) => (prev += totalPrice));
       }
@@ -267,7 +266,7 @@ export default function ProductModal({accessoeries}) {
               <span>BACK</span>
             </button>
             <Link href="/payment" >
-              <a className="ui-btn product-modal__top-actions-item" onClick={()=>document.body.classList.remove('disabled')}><span>CHECK OUT</span></a>
+              <a className="ui-btn product-modal__top-actions-item" onClick={() => document.body.classList.remove('disabled')}><span>CHECK OUT</span></a>
             </Link>
           </div>
         </div>
@@ -292,7 +291,7 @@ export default function ProductModal({accessoeries}) {
 
             <div ref={targetItemsAreaElement} className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
               {clientAllSegways.map((item) => {
-                const {id, name, price, imgPath, quantity} = item;
+                const { id, name, price, imgPath, quantity } = item;
 
                 return (
                   <div key={id} className="product-modal__product">
@@ -325,7 +324,7 @@ export default function ProductModal({accessoeries}) {
               })}
 
               {clientAllAccessoeries.map((item) => {
-                const {id, name, price, imgPath, quantity} = item;
+                const { id, name, price, imgPath, quantity } = item;
 
                 return (
                   <div key={id} className="product-modal__product">
@@ -375,11 +374,9 @@ export default function ProductModal({accessoeries}) {
                       spaceBetween: 16
                     }
                   }}
-                  onSlideChange={(el) => {
-                    setActiveIndex(el.activeIndex);
-                  }}>
+                  >
                   {accessoeries.map((item) => {
-                    const {id, name, nameWrap, description, price, imgPath} = item;
+                    const { id, name, nameWrap, description, price, imgPath } = item;
                     return (
                       <SwiperSlide onClick={(e) => addItemToCartWithAnimation(e, item)} key={id} className="product-modal__accessoeries-item">
                         <div className="product-modal__accessoeries-img-main-wrapper">
@@ -397,7 +394,7 @@ export default function ProductModal({accessoeries}) {
                     );
                   })}
                 </Swiper>
-                <div className={activeIndex !== 0 ? 'product-modal__navigation' : 'product-modal__navigation disabled'}>
+                <div className="product-modal__navigation">
                   <div aria-label="swipe to left accessoeries" className="product-modal__nav product-modal__nav_prev">
                     <FcPrevious className="product-modal__nav-icon" />
                   </div>
@@ -414,7 +411,7 @@ export default function ProductModal({accessoeries}) {
               <span>BACK</span>
             </button>
             <Link href="/payment">
-              <a onClick={()=>document.body.classList.remove('disabled')} className="ui-btn product-modal__top-actions-item">
+              <a onClick={() => document.body.classList.remove('disabled')} className="ui-btn product-modal__top-actions-item">
                 <span>CHECK OUT</span>
               </a>
             </Link>

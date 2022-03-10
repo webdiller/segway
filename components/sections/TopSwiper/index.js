@@ -91,7 +91,7 @@ export default function TopSwiper({items}) {
             Ninebot gokart
           </SwiperSlide>
           <SwiperSlide onClick={(event) => slideToHandle(event, 2)} tag="button" className="top-swiper__actions-slide">
-            Other
+            Accessories
           </SwiperSlide>
         </Swiper>
       </div>

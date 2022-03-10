@@ -9,6 +9,7 @@
     @include media('<=768px') {
       padding-left: 0;
       padding-right: 0;
+      margin-bottom: 68px;
     }
   }
 
@@ -666,6 +667,22 @@
     }
     @include media('<=576px') {
       max-width: 160px;
+      span {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          opacity: 1;
+          transform: translateX(-50%);
+          display: block;
+          width: 197px;
+          margin: 0 auto;
+          height: 52px;
+          pointer-events: all;
+        }
+      }
     }
   }
 
@@ -691,6 +708,20 @@
     }
     @include media('<=576px') {
       max-width: 160px;
+      position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          opacity: 1;
+          transform: translateX(-50%);
+          display: block;
+          width: 197px;
+          margin: 0 auto;
+          height: 52px;
+          pointer-events: all;
+        }
     }
   }
 
