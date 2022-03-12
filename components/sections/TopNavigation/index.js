@@ -27,6 +27,8 @@ export default function TopNavigation() {
 
   useEffect(() => {
     const closeElementIfClickOutside = (event) => {
+      if (event.target.tagName) setIsActiveMenu(false);
+      
       if (isActiveMenu && elementRef.current && !elementRef.current.contains(event.target)) {
         setIsActiveMenu(false);
       }
