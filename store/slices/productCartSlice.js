@@ -1,5 +1,4 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import e from "cors";
 import { calculateTotalPrice } from "helpers/calculateTotalPrice";
 
 const initialState = {
