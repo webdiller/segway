@@ -1,18 +1,18 @@
-import {useCart} from 'react-use-cart';
 import Image from 'next/image';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import TitleWithDescription from '@/blocks/TitleWithDescription';
-import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { pushProduct } from 'store/slices/productCartSlice';
+import { productModalActiveSet } from 'store/slices/modalsSlice';
 
-export default function AccessoriesBlock({items}) {
-  const {addItem} = useCart();
-  const router = useRouter();
+export default function AccessoriesBlock({ items }) {
+  const dispatch = useDispatch();
 
-  const onClickHandler = (id, e) => {
-    addItem(id);
+  const onClickHandler = (item, e) => {
+    dispatch(pushProduct(item));
     e.target.classList.add('ui-btn_added');
     e.target.focus();
-    router.push(`?productModal=true&productId=${id}&selectedWarranty=null`, null, {scroll: false});
+    dispatch(productModalActiveSet(true));
     setTimeout(() => {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();
@@ -25,7 +25,7 @@ export default function AccessoriesBlock({items}) {
         <TitleWithDescription titleText={<>Accessories</>} descriptionText={<>Cо стильными оригинальными аксессуарами Xiaomi и Ninebot вы получите еще больше положительных эмоций от своих поездок.</>} />
         <div className="accessories-block__items">
           {items.map((item) => {
-            const {id, name, nameWrap, description, price, imgPath} = item;
+            const { id, name, nameWrap, description, price, imgPath } = item;
             return (
               <div key={id} className="swiper-slide accessories-block__item">
                 <div className="accessories-block__item-wrapper">

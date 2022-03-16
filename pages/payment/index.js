@@ -1,49 +1,54 @@
 import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
+
 import CustomHead from '@/basic/CustomHead';
 import CustomCheckbox from '@/shared/CustomCheckbox';
 import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
-const Link = dynamic(() => import('next/link'));
+import { useSelector } from 'react-redux';
+import { setEmail, setFirstName, setLastName, setAddress, setApartment, setCountry, setCity, setZipCode, setPhone, setState } from 'store/slices/profileSlice';
 
 export default function PaymentMainPage() {
+  const { email, firstName, lastName, address, apartment, country, city, state, zipCode, phone } = useSelector(state => state.profile);
   return (
     <>
       <CustomHead title="Payment main information" />
+
       <div className="payment-info">
         <div className="payment-info__contact-area">
           <p className="payment__title payment-info__title">Contact information</p>
-          <CustomInput customClass="payment-info__email" type="text" placeholder="Email" />
+          <CustomInput handler={setEmail} value={email} customClass="payment-info__email" type="text" placeholder="Email" />
           <CustomCheckbox customClass="payment-info__checkbox-first" text="Email me with news and offers" />
         </div>
         <div className="payment-info__shipping-address">
           <p className="payment__title payment-info__title">Shipping address</p>
           <form className="payment-info__form-items">
             <div className="payment-info__form-item payment-info__form-item_50">
-              <CustomInput type="text" placeholder="First name" />
+              <CustomInput handler={setFirstName} value={firstName} type="text" placeholder="First name" />
             </div>
             <div className="payment-info__form-item payment-info__form-item_50">
-              <CustomInput type="text" placeholder="Last name" />
+              <CustomInput handler={setLastName} value={lastName} type="text" placeholder="Last name" />
             </div>
             <div className="payment-info__form-item">
-              <CustomInput type="text" placeholder="Address" />
+              <CustomInput handler={setAddress} value={address} type="text" placeholder="Address" />
             </div>
             <div className="payment-info__form-item">
-              <CustomInput type="text" placeholder="Apartment, suite, tc. (optional)" />
+              <CustomInput handler={setApartment} value={apartment} type="text" placeholder="Apartment, suite, tc. (optional)" />
             </div>
             <div className="payment-info__form-item">
-              <CustomInput type="text" placeholder="City" />
+              <CustomInput handler={setCity} value={city} type="text" placeholder="City" />
             </div>
             <div className="payment-info__form-item payment-info__form-item_33">
-              <DropdownList placeholder="Country / region"/>
+              <DropdownList handler={setCountry} value={country} placeholder="Country / region" />
             </div>
             <div className="payment-info__form-item payment-info__form-item_33">
-            <DropdownList placeholder="State"/>
+              <DropdownList handler={setState} value={state} placeholder="State" />
             </div>
             <div className="payment-info__form-item payment-info__form-item_33">
-              <CustomInput type="text" placeholder="ZIP code" />
+              <CustomInput handler={setZipCode} value={zipCode} type="text" placeholder="ZIP code" />
             </div>
             <div className="payment-info__form-item">
-              <CustomInput type="text" placeholder="Phone" />
+              <CustomInput handler={setPhone} value={phone} type="text" placeholder="Phone" />
             </div>
             <div className="payment-info__form-item">
               <CustomCheckbox customClass="payment-info__checkbox-second" text="Save this information for next time" />

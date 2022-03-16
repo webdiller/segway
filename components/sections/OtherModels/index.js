@@ -24,8 +24,6 @@ export default function OtherModels({ items }) {
       formData[field.name] = field.value;
     });
 
-    console.log(e.currentTarget.elements[0].value);
-
     let config = {
       method: "post",
       url: `/api/mail`,

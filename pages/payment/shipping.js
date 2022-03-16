@@ -3,16 +3,18 @@ const Link = dynamic(() => import('next/link'));
 import CustomHead from '@/basic/CustomHead';
 import { ShippingItem, ShippingList } from '@/shared/ShippingStatus';
 import RadioWrapper from '@/shared/RadioItems/RadioWrapper';
+import { useSelector } from 'react-redux';
 
 export default function PaymentShippingPage() {
+  const { email, address } = useSelector(state => state.profile);
   return (
     <>
       <CustomHead title="Payment shipping" />
       <div className="payment-shipping">
         <div className="payment-shipping__status">
           <ShippingList>
-            <ShippingItem link="/payment" title="Contact" value="yourmail@mai.com" />
-            <ShippingItem link="/payment" title="Ship to" value="Your address" />
+            <ShippingItem link="/payment" title="Contact" value={email} />
+            <ShippingItem link="/payment" title="Ship to" value={address} />
           </ShippingList>
         </div>
         <div className="payment-shipping__methods">

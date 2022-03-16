@@ -4,9 +4,7 @@ import Welcome from '@/sections/Welcome';
 import Tabs from '@/sections/Tabs';
 const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
 import CustomHead from '@/basic/CustomHead';
-import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {setPrice, setSegway} from '@/actions/fixedModal';
+
 import {data} from '@/base/data';
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
@@ -71,12 +69,6 @@ const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ss
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
 
 export default function ModelPage({allData}) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setSegway(allData.segways.adultSegways[7]));
-    dispatch(setPrice(allData.segways.adultSegways[7].price));
-  }, []);
 
   return (
     <>
@@ -431,7 +423,7 @@ export default function ModelPage({allData}) {
       <FixedModalDinamic segwayItem={allData.segways.adultSegways[7]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal />
+      <FancyModal images={allData.segways.adultSegways[7].galleryImages} />
     </>
   );
 }

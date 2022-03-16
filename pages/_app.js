@@ -1,11 +1,10 @@
 import Router from 'next/router';
-import NProgress from 'nprogress'; //nprogress module
-import {CartProvider} from 'react-use-cart';
-import {Provider} from 'react-redux';
-import {createWrapper} from 'next-redux-wrapper';
-import store from '../store/store';
+import NProgress from 'nprogress';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react'
+import { store, persistor } from '../store/store';
 
-import {StrictMode} from 'react';
+import { StrictMode } from 'react';
 import ModelLayout from './../components/layouts/ModelLayout';
 import PaymentLayout from './../components/layouts/PaymentLayout';
 import MainPageLayout from '@/layouts/MainPageLayout';
@@ -17,7 +16,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-function MyApp({Component, pageProps, router}) {
+function MyApp({ Component, pageProps, router }) {
   let conditionForModelLayout =
     router.pathname.startsWith('/kickscooters/kickscooter') ||
     router.pathname.startsWith('/gocarts/gocart') ||
@@ -35,11 +34,9 @@ function MyApp({Component, pageProps, router}) {
     return (
       <StrictMode>
         <Provider store={store}>
-          <CartProvider>
-            <ModelLayout {...pageProps}>
-              <Component {...pageProps} />
-            </ModelLayout>
-          </CartProvider>
+          <ModelLayout {...pageProps}>
+            <Component {...pageProps} />
+          </ModelLayout>
         </Provider>
       </StrictMode>
     );
@@ -47,11 +44,11 @@ function MyApp({Component, pageProps, router}) {
     return (
       <StrictMode>
         <Provider store={store}>
-          <CartProvider>
-            <MainPageLayout>
+          <PersistGate loading={null} persistor={persistor}>
+            <MainPageLayout {...pageProps}>
               <Component {...pageProps} />
             </MainPageLayout>
-          </CartProvider>
+          </PersistGate>
         </Provider>
       </StrictMode>
     );
@@ -59,11 +56,11 @@ function MyApp({Component, pageProps, router}) {
     return (
       <StrictMode>
         <Provider store={store}>
-          <CartProvider>
-            <PaymentLayout>
+          <PersistGate loading={null} persistor={persistor}>
+            <PaymentLayout {...pageProps}>
               <Component {...pageProps} />
             </PaymentLayout>
-          </CartProvider>
+          </PersistGate>
         </Provider>
       </StrictMode>
     );
@@ -71,15 +68,13 @@ function MyApp({Component, pageProps, router}) {
     return (
       <StrictMode>
         <Provider store={store}>
-          <CartProvider>
+          <PersistGate loading={null} persistor={persistor}>
             <Component {...pageProps} />
-          </CartProvider>
+          </PersistGate>
         </Provider>
       </StrictMode>
     );
   }
 }
 
-const makeStore = () => store;
-const wrapper = createWrapper(makeStore);
-export default wrapper.withRedux(MyApp);
+export default MyApp;

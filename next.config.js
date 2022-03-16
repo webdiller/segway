@@ -9,5 +9,5 @@ module.exports = withBundleAnalyzer({
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: false,
-  },
+  }
 })

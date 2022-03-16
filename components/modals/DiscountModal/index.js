@@ -1,36 +1,31 @@
-/* eslint-disable @next/next/no-img-element */
-import React, {useEffect, useRef, useState} from 'react';
-import TinderCard from 'react-tinder-card';
-import disableScroll from 'disable-scroll';
-import {useSelector} from 'react-redux';
+import React, { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import UiInput from 'components/shared/UiInput/UiInput';
-import ModalWrapper from '../ModalWrapper';
+import {motion} from 'framer-motion'
+import Image from 'next/image';
+import { setActive } from 'store/slices/discountModalSlice';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function DiscountModal() {
+  const dispatch = useDispatch()
   const elRef = useRef(null);
-  const [activeModal, setActiveModal] = useState(false);
-  const {active: activeModalProduct} = useSelector((state) => state.productModal);
-  const {active: isActiveCompareModal} = useSelector((state) => state.compareModal);
+  const mediaQuery = useMediaQuery('(max-width: 768px) and (pointer: coarse)');
 
-  const addClassForRootELementIfFocused = (condition) => () => {
-    condition ? elRef.current.classList.add('focused') : elRef.current.classList.remove('focused');
-  };
+  const { isActive, userPhone } = useSelector((state) => state.discountModal);
+  const { compareModels, productModal } = useSelector((state) => state.modals);
+  const {isActive: isActiveDiscount} = useSelector(state => state.fancyModal);
+
+  // const addClassForRootELementIfFocused = (condition) => () => {
+  //   condition ? elRef.current.classList.add('focused') : elRef.current.classList.remove('focused');
+  // };
 
   const setActiveModalHandler = () => {
-    setActiveModal((prev) => !prev);
-    disableScroll.off();
-  };
-
-  const onSwipe = (direction) => {
-    console.log('You swiped: ' + direction);
-    setActiveModal((prev) => !prev);
-    disableScroll.off();
+    dispatch(setActive(false))
   };
 
   const onClickWrapper = (e) => {
     if (e.target === elRef.current) {
-      setActiveModal((prev) => !prev);
-      disableScroll.off();
+      dispatch(setActive(false))
     }
   };
 
@@ -39,10 +34,10 @@ export default function DiscountModal() {
     let secondInterval = null;
 
     firstInterval = setInterval((_first) => {
-      if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false && isActiveCompareModal === false) {
+      if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveDiscount) {
         secondInterval = setInterval((_second) => {
-          if (window.localStorage.isFirstVisit == undefined && activeModalProduct === false && isActiveCompareModal === false) {
-            setActiveModal(true);
+          if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveDiscount) {
+            dispatch(setActive(true))
             window.localStorage.setItem('isFirstVisit', 'false');
             clearInterval(firstInterval);
             clearInterval(secondInterval);
@@ -56,39 +51,81 @@ export default function DiscountModal() {
     };
   });
 
-  useEffect(() => {
-    if (activeModal) {
-      disableScroll.on();
-    } else {
-      disableScroll.off();
-    }
-  }, [activeModal]);
   return (
-    <ModalWrapper mounted={activeModal} selector="#modal-root">
-      <div
-        onFocus={addClassForRootELementIfFocused(true)}
-        onBlur={addClassForRootELementIfFocused(false)}
+    <>
+      <motion.div
         onClick={(e) => onClickWrapper(e)}
         ref={elRef}
-        className={activeModal ? 'discount-modal active' : 'discount-modal'}>
-        <TinderCard swipeThreshold={300} onSwipe={onSwipe} preventSwipe={['right', 'left']}>
-          <div className="discount-modal__wrapper">
-            <button onClick={setActiveModalHandler} onTouchStart={setActiveModalHandler} className="discount-modal__close-btn">
-              <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop" src="/icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-              <img className="discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile" src="/icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-            </button>
-            <p className="discount-modal__title">5%</p>
-            <div className="discount-modal__content">
-              <p className="title discount-modal__subtitle">discount</p>
-              <p className="text discount-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
-            </div>
-            <UiInput forForm={true} customClass="didnt-find-modal__input" />
-            <button className="ui-btn discount-modal__btn">
-              <span>Get a discount</span>
-            </button>
+        className={isActive ? 'discount-modal active' : 'discount-modal'}>
+        <motion.div 
+          whileDrag={{ scale: 1.05, cursor: 'grab' }}
+          drag={!mediaQuery}
+          dragConstraints={{
+            top: -50,
+            left: -50,
+            right: 50,
+            bottom: 50,
+          }}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className="discount-modal__wrapper">
+          <button onClick={setActiveModalHandler} className="discount-modal__close-btn">
+            <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop'><Image src="/icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" /></div>
+            <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile'><Image src="/icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" /></div>
+          </button>
+          <p className="discount-modal__title">5%</p>
+          <div className="discount-modal__content">
+            <p className="title discount-modal__subtitle">discount</p>
+            <p className="text discount-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
           </div>
-        </TinderCard>
-      </div>
-    </ModalWrapper>
+          <UiInput forForm={true} customClass="didnt-find-modal__input" />
+          <button className="ui-btn discount-modal__btn">
+            <span>Get a discount</span>
+          </button>
+        </motion.div>
+      </motion.div>
+    </>
   );
 }
+
+
+
+
+
+
+
+
+// .tinder {
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   bottom: 0;
+  
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   z-index: 200;
+//   &__wrapper {
+//     width: 400px;
+//     height: 400px;
+//     background-color: rgba(0, 0, 0, 1);
+//     border-radius: 10px;
+//     padding: 40px 20px;
+//     text-align: left;
+//     color: #fff;
+//   }
+
+//   &__title {
+//     font-size: 30px;
+//     margin-bottom: 20px;&::selection {
+//       background-color: transparent;
+//     }
+//   }
+
+//   &__description {&::selection {
+//     background-color: transparent;
+//   }
+//   }
+// }

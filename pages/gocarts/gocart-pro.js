@@ -5,9 +5,6 @@ import Welcome from '@/sections/Welcome';
 import Tabs from '@/sections/Tabs';
 const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
 import CustomHead from '@/basic/CustomHead';
-import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {setPrice, setSegway} from '@/actions/fixedModal';
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
 const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));
@@ -70,12 +67,6 @@ const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ss
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
 
 export default function ModelPage({allData}) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setSegway(allData.gocarts[0]));
-    dispatch(setPrice(allData.gocarts[0].price));
-  }, []);
 
   return (
     <>
@@ -401,7 +392,7 @@ export default function ModelPage({allData}) {
       <FixedModalDinamic segwayItem={allData.gocarts[0]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal />
+      <FancyModal images={allData.gocarts[0].galleryImages} />
     </>
   );
 }

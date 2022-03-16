@@ -1,57 +1,58 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
+
 import Image from 'next/image';
-import {useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import segwayProtect from '@/base/segway-protect.png';
-import useAddToCart from '@/hooks/useAddToCart';
-import {useCart} from 'react-use-cart';
-import {useDispatch, useSelector} from 'react-redux';
-import {setPrice, setSegway} from '@/actions/fixedModal';
-import {setWarranty} from '@/actions/selectedWarranty';
-import {setProductModal} from '@/actions/productModal';
+import { initProduct, setProperties, setCurrentPrice } from 'store/slices/preparedProductSlice';
+import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { pushProduct } from 'store/slices/productCartSlice';
 
-// FIXME: Оптимизировать 
-export default function FormWithWarrancy({customClass = 'form-with-warrancy', item}) {
+export default function FormWithWarrancy({ customClass = 'form-with-warrancy', product }) {
   const dispatch = useDispatch();
-  const {selectedTab} = useSelector((state) => state.selectedWarranty);
 
-  const {addItem} = useCart();
-  const {added, setAddedHandler} = useAddToCart();
+  const [currentWarranty, currentWarrantySet] = useState(null)
+  const [currentColor, currentColorSet] = useState(null)
 
   const tabWrapper = useRef(null);
+  const { preparedProduct } = useSelector(state => state.preparedProduct)
 
-  const [pricesWithWarranty, setPricesWithWarranty] = useState({
-    defaultPrice: Number(item.price),
-    oneYear: Number(item.warranty.oneYear.price) + Number(item.price),
-    twoYear: Number(item.warranty.twoYear.price) + Number(item.price),
-    threeYear: Number(item.warranty.threeYear.price) + Number(item.price)
-  });
+  useEffect(() => {
+    if (currentWarranty) {
+      dispatch(setCurrentPrice(Number(product.price) + Number(product.warranty[currentWarranty - 1].price)))
 
-  const selectProductHandler = (event, selectedTabName) => {
-    if (event.target.classList.contains('active')) {
-      event.target.classList.remove('active');
-      dispatch(setWarranty(null));
-      dispatch(setPrice(item.price));
-      dispatch(setSegway(item));
-    } else if (!event.target.classList.contains('active')) {
-      event.target.classList.add('active');
-      const defineProduct = {...item, id: `${item.id}?warrancy=${selectedTabName}`, selectedWarranty: selectedTabName};
-      dispatch(setWarranty(selectedTabName));
-      dispatch(setPrice(pricesWithWarranty[selectedTabName]));
-      dispatch(setSegway(defineProduct));
     } else {
-      event.target.classList.remove('active');
-      dispatch(setWarranty(null));
-      dispatch(setPrice(item.price));
-      dispatch(setSegway(item));
+      dispatch(setCurrentPrice(Number(product.price)))
     }
-  };
+  }, [currentWarranty, product, dispatch])
 
-  const addItemToCartAndShowModal = () => () => {
-    setAddedHandler();
-    addItem(item);
-    dispatch(setProductModal(true))
-  };
+  useEffect(() => {
+    dispatch(initProduct({ product: product, currentPrice: product.price }))
+  }, [dispatch, product])
+
+  useEffect(() => {
+    const idParams = new URLSearchParams(preparedProduct ? preparedProduct.id : product.id);
+    const warranty = idParams.get('warranty').toString()
+    const color = idParams.get('color').toString()
+
+    warranty === 'null' ? currentWarrantySet(null) : currentWarrantySet(Number(warranty))
+    color === 'null' ? currentColorSet(null) : currentColorSet(color)
+
+  }, [preparedProduct, product])
+
+  const onChangeWarrantyHandler = (e, selectedWarranty) => {
+    if (!e.target.classList.contains('active')) {
+      dispatch(setProperties({ selectedWarranty, selectedColor: null }))
+    } else {
+      dispatch(setProperties({ selectedWarranty: null, selectedColor: null }))
+    }
+  }
+
+  const addItemToCartAndShowModal = () => {
+    dispatch(pushProduct(preparedProduct))
+    dispatch(productModalActiveSet(true))
+  }
 
   return (
     <>
@@ -61,62 +62,37 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
             Add an extended warranty from <span>Extend</span>
           </p>
           <div className="form-with-warrancy__form-buttons">
-            <button
-              onClick={(event) => {
-                selectProductHandler(event, 'oneYear');
-              }}
-              className={selectedTab === 'oneYear' ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
-              <span className="form-with-warrancy__form-button-year">1 Year</span>
-              <span className="form-with-warrancy__form-button-separator">-</span>
-              <span className="form-with-warrancy__form-button-price">${item.warranty.oneYear.price}</span>
-            </button>
-            <button
-              onClick={(event) => {
-                selectProductHandler(event, 'twoYear');
-              }}
-              className={selectedTab === 'twoYear' ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
-              <span className="form-with-warrancy__form-button-year">2 Year</span>
-              <span className="form-with-warrancy__form-button-separator">-</span>
-              <span className="form-with-warrancy__form-button-price">${item.warranty.twoYear.price}</span>
-            </button>
-            <button
-              onClick={(event) => {
-                selectProductHandler(event, 'threeYear');
-              }}
-              className={selectedTab === 'threeYear' ? 'form-with-warrancy__form-button active' : 'form-with-warrancy__form-button'}>
-              <span className="form-with-warrancy__form-button-year">3 Year</span>
-              <span className="form-with-warrancy__form-button-separator">-</span>
-              <span className="form-with-warrancy__form-button-price">${item.warranty.threeYear.price}</span>
-            </button>
+            {product.warranty.map(({ durationYear, price }) => {
+              return (
+                <button
+                  onClick={(e) => { onChangeWarrantyHandler(e, durationYear) }}
+                  key={`${product.id}-${durationYear}`}
+                  className={currentWarranty == durationYear ? "form-with-warrancy__form-button active" : "form-with-warrancy__form-button"}>
+                  <span className="form-with-warrancy__form-button-year">{durationYear} Year</span>
+                  <span className="form-with-warrancy__form-button-separator">-</span>
+                  <span className="form-with-warrancy__form-button-price">${price}</span>
+                </button>
+              )
+            })}
           </div>
 
           <div className="form-with-warrancy__form-prices-subtitle-image">
             {/* PRICES */}
             <div className="form-with-warrancy__form-prices">
-              {selectedTab === 'oneYear' ? (
-                <>
-                  <p className="form-with-warrancy__form-price-old">$1188</p>
-                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.oneYear}</p>
-                </>
-              ) : selectedTab === 'twoYear' ? (
-                <>
-                  <p className="form-with-warrancy__form-price-old">$1258</p>
-                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.twoYear}</p>
-                </>
-              ) : selectedTab === 'threeYear' ? (
-                <>
-                  <p className="form-with-warrancy__form-price-old">$1328</p>
-                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.threeYear}</p>
-                </>
-              ) : (
-                <>
-                  <p className="form-with-warrancy__form-price-old">$1049</p>
-                  <p className="form-with-warrancy__form-price-new">${pricesWithWarranty.defaultPrice}</p>
-                </>
-              )}
+              <p className="form-with-warrancy__form-price-old">$
+                {currentWarranty !== null
+                  ? Number(product.warranty[currentWarranty - 1].oldPrice)
+                  : product.oldPrice
+                }
+              </p>
+              <p className="form-with-warrancy__form-price-new">$
+                {currentWarranty !== null
+                  ? Number(product.price) + Number(product.warranty[currentWarranty - 1].price)
+                  : product.price
+                }
+              </p>
             </div>
             <div className="form-with-warrancy__title-with-image">
-              {/* IMAGE */}
               <div className="form-with-warrancy__form-img-wrapper">
                 <Image className="form-with-warrancy__form-img" src={segwayProtect} alt="Segway Protective Gear Set as a gift" layout="fill" objectFit="contain" />
               </div>
@@ -138,7 +114,7 @@ export default function FormWithWarrancy({customClass = 'form-with-warrancy', it
                 <span>BUY IT Now</span>
               </a>
             </Link>
-            <button onClick={addItemToCartAndShowModal()} className={added ? 'ui-btn ui-btn_lg ui-btn_added form-with-warrancy__form-action' : 'ui-btn ui-btn_lg form-with-warrancy__form-action'}>
+            <button onClick={addItemToCartAndShowModal} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
               <span> ADD TO CART </span>
             </button>
           </div>

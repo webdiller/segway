@@ -180,6 +180,7 @@
     font-size: 35px;
     line-height: 43px;
     color: #323941;
+    white-space: nowrap;
     @include media('<=991px') {
     }
     @include media('<=768px') {

@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
-import {Navigation} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
-import {FcPrevious, FcNext} from 'react-icons/fc';
+import { FcPrevious, FcNext } from 'react-icons/fc';
 
-import React, {useEffect, useRef, useState} from 'react';
-import {useCart} from 'react-use-cart';
+import React, { useRef, useState } from 'react';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -23,76 +23,42 @@ import iconIncline from '@/base/icon-incline.svg';
 import iconShock from '@/base/icon-shock.svg';
 import iconSafety from '@/base/icon-safety.svg';
 import iconAtmosphere from '@/base/icon-atmosphere.svg';
-import {setProductModal} from '@/actions/productModal';
-import {setCompareModal} from '@/actions/compareModal';
-import {useDispatch, useSelector} from 'react-redux';
-import ModalWrapper from '@/modals/ModalWrapper';
 
-export default function CompareSpecifications({items, mainSegway}) {
-  const {addItem} = useCart();
+import { useDispatch, useSelector } from 'react-redux';
+import ModalWrapper from '@/modals/ModalWrapper';
+import { pushProduct } from 'store/slices/productCartSlice';
+import { compareModelsActive, productModalActiveSet, selectModelToCompare } from 'store/slices/modalsSlice';
+
+export default function CompareSpecifications({ items, mainSegway }) {
+
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
 
-  const {active: isActiveCompareModal} = useSelector((state) => state.compareModal);
+  const { compareModels: { activeModal, selectedModeltoCompare } } = useSelector((state) => state.modals);
 
-  // Активный индекс у слайдера (для больших экранов)
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Все модели
   const [allModels] = useState([...items.adultSegways, ...items.kidsSegways]);
 
-  // Если есть модель, то отобразить данные, иначе показать прочерк
-  const [selectedModel, setSelectedModel] = useState();
-
-  const setUrlIfModalActive = () => {
-    if (!isActiveCompareModal) {
-      dispatch(setProductModal(true));
-    } else {
-      dispatch(setProductModal(false));
-    }
-  };
-
   const closeOnClickOutsite = (event) => {
-    if (isActiveCompareModal && targetScrollElement.current === event.target) {
-      dispatch(setCompareModal(false));
+    if (activeModal && targetScrollElement.current === event.target) {
+      dispatch(compareModelsActive(false));
     }
   };
 
-  const closeModal = () => () => {
-    dispatch(setCompareModal(false));
-  };
-
-  const openModal = () => () => {
-    dispatch(setCompareModal(true));
+  const toggleModal = (status) => () => {
+    dispatch(compareModelsActive(status));
   };
 
   const setSelectedModelHandle = (id) => {
     const filtered = allModels.filter((model) => model.id == id);
-    setSelectedModel(...filtered);
-    dispatch(setCompareModal(false));
-    setUrlIfModalActive();
+    dispatch(selectModelToCompare(...filtered));
+    dispatch(compareModelsActive(false));
   };
 
   const addItemToCartAndShowModal = (event, productItem) => {
-    addItem(productItem);
-    dispatch(setProductModal(true));
+    dispatch(productModalActiveSet(true));
+    dispatch(pushProduct(productItem));
   };
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && selectedModel) {
-      localStorage.setItem('selectedModel', JSON.stringify(selectedModel));
-    }
-    if (typeof window !== 'undefined' && !selectedModel) {
-      let storageItem = JSON.parse(localStorage.getItem('selectedModel'));
-      if (storageItem) {
-        setSelectedModel(storageItem);
-      }
-    }
-  }, [selectedModel]);
-
-  useEffect(() => {
-    isActiveCompareModal ? document.body.classList.add('disabled') : document.body.classList.remove('disabled');
-  }, [isActiveCompareModal]);
 
   return (
     <div className="compare-specfications">
@@ -122,17 +88,17 @@ export default function CompareSpecifications({items, mainSegway}) {
                   </div>
                   <p className="text text_bold main-slide__name">{mainSegway.name}</p>
                 </div>
-                <div onClick={openModal()} className="main-slide__header-right">
+                <div onClick={toggleModal(true)} className="main-slide__header-right">
                   <div className="main-slide__img-compare-wrapper">
                     <Image
                       width="116"
                       height="116"
-                      src={!selectedModel ? '/icon-compare.svg' : `${selectedModel.imgPath}`}
+                      src={!selectedModeltoCompare ? '/icon-compare.svg' : `${selectedModeltoCompare.imgPath}`}
                       alt="icon-compare"
-                      className={!selectedModel ? 'main-slide__img-compare' : 'main-slide__img-compare selected'}
+                      className={!selectedModeltoCompare ? 'main-slide__img-compare' : 'main-slide__img-compare selected'}
                     />
                   </div>
-                  <p className="text text_bold main-slide__name">{!selectedModel ? 'Add model' : selectedModel.name} </p>
+                  <p className="text text_bold main-slide__name">{!selectedModeltoCompare ? 'Add model' : selectedModeltoCompare.name} </p>
                 </div>
               </div>
 
@@ -157,7 +123,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.maxSpeed}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.maxSpeed}</div>
                   </div>
                 </div>
 
@@ -185,12 +151,12 @@ export default function CompareSpecifications({items, mainSegway}) {
                       Max. speed
                     </div>
                     <div className="main-slide__item-value main-slide__item-value_range">
-                      {!selectedModel ? (
+                      {!selectedModeltoCompare ? (
                         '--'
                       ) : (
                         <>
-                          <span className="hide-576">{selectedModel.rangeByMiles}</span>
-                          <span className="show-block-576">{selectedModel.rangeByMilesWrap}</span>
+                          <span className="hide-576">{selectedModeltoCompare.rangeByMiles}</span>
+                          <span className="show-block-576">{selectedModeltoCompare.rangeByMilesWrap}</span>
                         </>
                       )}
                     </div>
@@ -218,7 +184,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.batteryCapacity}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.batteryCapacity}</div>
                   </div>
                 </div>
 
@@ -246,12 +212,12 @@ export default function CompareSpecifications({items, mainSegway}) {
                       Max. speed
                     </div>
                     <div className="main-slide__item-value main-slide__item-value_weight">
-                      {!selectedModel ? (
+                      {!selectedModeltoCompare ? (
                         '--'
                       ) : (
                         <>
-                          <span className="hide-576">{selectedModel.netWeight}</span>
-                          <span className="show-block-576">{selectedModel.netWeightWrap}</span>
+                          <span className="hide-576">{selectedModeltoCompare.netWeight}</span>
+                          <span className="show-block-576">{selectedModeltoCompare.netWeightWrap}</span>
                         </>
                       )}
                     </div>
@@ -282,12 +248,12 @@ export default function CompareSpecifications({items, mainSegway}) {
                       Max. speed
                     </div>
                     <div className="main-slide__item-value main-slide__item-value_payload">
-                      {!selectedModel ? (
+                      {!selectedModeltoCompare ? (
                         '--'
                       ) : (
                         <>
-                          <span className="hide-576">{selectedModel.payload}</span>
-                          <span className="show-block-576">{selectedModel.payloadWrap}</span>
+                          <span className="hide-576">{selectedModeltoCompare.payload}</span>
+                          <span className="show-block-576">{selectedModeltoCompare.payloadWrap}</span>
                         </>
                       )}
                     </div>
@@ -312,7 +278,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       <Image className="main-slide__item-icon" src={iconCharging} alt="icon" />
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.charginTime}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.charginTime}</div>
                   </div>
                 </div>
 
@@ -336,7 +302,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.numberOfBatteries}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.numberOfBatteries}</div>
                   </div>
                 </div>
 
@@ -360,7 +326,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.motorPower}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.motorPower}</div>
                   </div>
                 </div>
 
@@ -382,7 +348,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       <Image className="main-slide__item-icon" src={iconPowerOutput} alt="icon" />
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.powerOutput}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.powerOutput}</div>
                   </div>
                 </div>
 
@@ -406,7 +372,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.maxIncline}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.maxIncline}</div>
                   </div>
                 </div>
 
@@ -430,7 +396,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.shockAbsorption}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.shockAbsorption}</div>
                   </div>
                 </div>
 
@@ -454,7 +420,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.safety}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.safety}</div>
                   </div>
                 </div>
 
@@ -478,7 +444,7 @@ export default function CompareSpecifications({items, mainSegway}) {
                       </div>
                       Max. speed
                     </div>
-                    <div className="main-slide__item-value">{!selectedModel ? '--' : selectedModel.atmosphereLight}</div>
+                    <div className="main-slide__item-value">{!selectedModeltoCompare ? '--' : selectedModeltoCompare.atmosphereLight}</div>
                   </div>
                 </div>
               </div>
@@ -490,18 +456,20 @@ export default function CompareSpecifications({items, mainSegway}) {
                   <button onClick={(e) => addItemToCartAndShowModal(e, mainSegway)} className="ui-btn main-slide__buy-btn">
                     <span>ADD TO CART</span>
                   </button>
+
+
                   <Link href="/details-page" scroll={false}>
                     <a className="main-slide__see-details">See details</a>
                   </Link>
                 </div>
                 <div className="main-slide__bottom-right">
-                  {!selectedModel ? (
+                  {!selectedModeltoCompare ? (
                     ''
                   ) : (
                     <>
-                      <p className="text text_25 main-slide__price">${selectedModel.price}</p>
+                      <p className="text text_25 main-slide__price">${selectedModeltoCompare.price}</p>
 
-                      <button onClick={(e) => addItemToCartAndShowModal(e, selectedModel)} className="ui-btn main-slide__buy-btn">
+                      <button onClick={(e) => addItemToCartAndShowModal(e, selectedModeltoCompare)} className="ui-btn main-slide__buy-btn">
                         <span>ADD TO CART</span>
                       </button>
                       <Link href="/details-page" scroll={false}>
@@ -524,9 +492,6 @@ export default function CompareSpecifications({items, mainSegway}) {
             navigation={{
               prevEl: '.compare-specfications__nav_prev',
               nextEl: '.compare-specfications__nav_next'
-            }}
-            onSlideChange={(el) => {
-              setActiveIndex(el.activeIndex);
             }}
             breakpoints={{
               768: {
@@ -683,9 +648,7 @@ export default function CompareSpecifications({items, mainSegway}) {
           </Swiper>
 
           <div
-            className={
-              activeIndex === 0 ? 'compare-specfications__navigation disabled-left' : activeIndex === 10 ? 'compare-specfications__navigation disabled-right' : 'compare-specfications__navigation'
-            }>
+            className="compare-specfications__navigation">
             <button aria-label="swipe to left slider specifications" className="compare-specfications__nav compare-specfications__nav_prev">
               <FcPrevious className="compare-specfications__icon" />
             </button>
@@ -696,30 +659,28 @@ export default function CompareSpecifications({items, mainSegway}) {
           </div>
         </div>
 
-        <ModalWrapper mounted={isActiveCompareModal}>
-          <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={isActiveCompareModal ? 'compare-modal active' : 'compare-modal'}>
-            <div className="compare-modal__wrapper">
-              <div className="compare-modal__wrapper-inner">
-                <p className="title compare-modal__title">select a model to compare</p>
-                <img onClick={closeModal()} className="compare-modal__icon-close" src="/icon-close.svg" alt="icon-close" width="34" height="34" loading="lazy" />
-                <div className="compare-modal__items">
-                  {allModels.map(({id, shortName, imgPath}) => (
-                    <button
-                      onClick={() => {
-                        setSelectedModelHandle(id);
-                      }}
-                      key={id}
-                      className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
-                      <div className="compare-modal__img-wrapper">
-                        <Image objectFit="contain" src={imgPath} alt={shortName} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                      </div>
-                      <p className="compare-modal__name">{shortName}</p>
-                    </button>
-                  ))}
-                </div>
+        <ModalWrapper mounted={activeModal}>
+        <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={activeModal ? 'compare-modal active' : 'compare-modal'}>
+          <div className="compare-modal__wrapper">
+            <div className="compare-modal__wrapper-inner">
+              <p className="title compare-modal__title">select a model to compare</p>
+              <div className="compare-modal__icon-close"><Image onClick={toggleModal(false)} src="/icon-close.svg" alt="icon-close" width="34" height="34" /></div>
+              <div className="compare-modal__items">
+                {allModels.map(({ id, shortName, imgPath }) => (
+                  <button
+                    onClick={() => { setSelectedModelHandle(id) }}
+                    key={id}
+                    className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
+                    <div className="compare-modal__img-wrapper">
+                      <Image objectFit="contain" src={imgPath} alt={shortName} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                    </div>
+                    <p className="compare-modal__name">{shortName}</p>
+                  </button>
+                ))}
               </div>
             </div>
           </div>
+        </div>
         </ModalWrapper>
       </div>
     </div>

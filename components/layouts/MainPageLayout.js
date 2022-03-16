@@ -1,23 +1,13 @@
 import CustomHead from '@/basic/CustomHead';
 import Footer from '@/sections/Footer';
-import {useCart} from 'react-use-cart';
-import {useDispatch} from 'react-redux';
-import {useEffect} from 'react';
-import {setProducts, setUniqueProductsCount} from '../../store/actions/productCart';
-import TopNavigation from '@/sections/TopNavigation';
 import MiddleNavigation from '@/sections/MiddleNavigation';
+import TopNavigation from '@/sections/TopNavigation';
 import TopStock from '@/sections/TopStock';
 
-/** Дефолтное расположение эементов */
-export default function MainPageLayout({title = 'Segway', description = 'Описание', children} = {}) {
-  const dispatch = useDispatch();
-  const {totalUniqueItems, items: lsItems} = useCart();
+import dynamic from 'next/dynamic';
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
-  useEffect(() => {
-    dispatch(setProducts(lsItems));
-    dispatch(setUniqueProductsCount(totalUniqueItems));
-  }, [lsItems, totalUniqueItems, dispatch]);
-
+export default function MainPageLayout({ title = 'Segway', description = 'Описание', children, allData}) {
   return (
     <>
       <CustomHead description={description} title={title} />
@@ -26,6 +16,7 @@ export default function MainPageLayout({title = 'Segway', description = 'Опи�
       <TopStock />
       {children}
       <Footer />
+      <ProductModalDinamic accessoeries={allData.accessoeries} />
     </>
   );
 }

@@ -12,16 +12,18 @@ import iconAffirm from '@/base/icon-affirm.svg'
 import iconCoinbase from '@/base/icon-coinbase.svg'
 import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
+import { useSelector } from 'react-redux';
 
 export default function PauymentLastPage() {
+  const { email, address } = useSelector(state => state.profile);
   return (
     <>
       <CustomHead title="Payment main information" />
       <div className="payment-payment">
         <div className="payment-payment__status">
           <ShippingList>
-            <ShippingItem link="/payment" title="Contact" value="yourmail@mai.com" />
-            <ShippingItem link="/payment" title="Ship to" value="Your address" />
+            <ShippingItem link="/payment" title="Contact" value={email} />
+            <ShippingItem link="/payment" title="Ship to" value={address} />
             <ShippingItem link="/payment/shipping" title="Method" value="Economy • Free" />
           </ShippingList>
         </div>

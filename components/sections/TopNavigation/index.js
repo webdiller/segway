@@ -1,34 +1,36 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
+
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import logoBlack from '@/base/logo-black.svg';
 import iconCartWhite from '@/base/icon-cart-white.svg';
 import iconCartBlack from '@/base/icon-cart-black.svg';
 import iconPhoneBlack from '@/base/icon-phone-black.svg';
-import {useDispatch, useSelector} from 'react-redux';
-import {setProductModal} from '@/actions/productModal';
+import { useDispatch, useSelector } from 'react-redux';
 import iconCloseBlack from '@/base/icon-bar.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
+import { productModalActiveSet } from 'store/slices/modalsSlice';
 
 const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
-/** Верхняя навигация */
 export default function TopNavigation() {
+
+  const { products } = useSelector(state => state.products);
+  const [count, countSet] = useState(0)
+
   const dispatch = useDispatch();
   const [isActiveMenu, setIsActiveMenu] = useState(false);
   const handleSetIsActiveMenu = () => {
     setIsActiveMenu((prev) => !prev);
   };
 
-  const {totalUniqueItems: totalCount} = useSelector((state) => state.productCart);
-
   const elementRef = useRef(null);
 
   useEffect(() => {
     const closeElementIfClickOutside = (event) => {
       if (event.target.tagName) setIsActiveMenu(false);
-      
+
       if (isActiveMenu && elementRef.current && !elementRef.current.contains(event.target)) {
         setIsActiveMenu(false);
       }
@@ -45,6 +47,12 @@ export default function TopNavigation() {
       return () => document.removeEventListener('mousedown', closeElementIfClickOutside);
     }
   }, [isActiveMenu]);
+
+  useEffect(() => {
+    countSet(products.length)
+  }, [products])
+
+  const openModalHandler = () => dispatch(productModalActiveSet(true))
 
   return (
     <>
@@ -82,12 +90,14 @@ export default function TopNavigation() {
           </Link>
 
           <div className="top-nav__actions top-nav__actions_desktop">
-            <button onClick={() => dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
+
+            <button onClick={openModalHandler} className="top-nav__action top-nav__action_cart">
               <div className="top-nav__action-icon-wrapper">
                 <Image src={iconCartWhite} alt="icon" />
               </div>
-              <span className="top-nav__action-counter">{totalCount}</span>
+              <span className="top-nav__action-counter">{count}</span>
             </button>
+
             <Link href="tel:+18888888888">
               <a className="top-nav__action top-nav__action_phone">+1 (888) 888-88-88</a>
             </Link>
@@ -101,11 +111,13 @@ export default function TopNavigation() {
                 </div>
               </a>
             </Link>
-            <button onClick={() => dispatch(setProductModal(true))} className="top-nav__action top-nav__action_cart">
+
+            <button onClick={openModalHandler} className="top-nav__action top-nav__action_cart">
               <div className="top-nav__action-icon-wrapper">
                 <Image src={iconCartBlack} alt="icon" />
               </div>
-              <span className="top-nav__action-counter">{totalCount}</span>
+
+              <span className="top-nav__action-counter">{count}</span>
             </button>
           </div>
         </div>

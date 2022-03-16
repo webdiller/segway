@@ -1,13 +1,10 @@
 import dynamic from 'next/dynamic';
-import {data} from '@/base/data';
+import { data } from '@/base/data';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';
-const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), { ssr: false });
 import CustomHead from '@/basic/CustomHead';
-import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {setPrice, setSegway} from '@/actions/fixedModal';
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
 const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));
@@ -25,15 +22,16 @@ import featuresIcon_6 from '@/base/ks-max/features-icons/feature-6.svg';
 import featuresIcon_7 from '@/base/ks-max/features-icons/feature-7.svg';
 import featuresIcon_8 from '@/base/ks-max/features-icons/feature-8.svg';
 const featuresItems = [
-  {icon: featuresIcon_1, title: '10”', description: 'Pneumatic Tires'},
-  {icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights'},
-  {icon: featuresIcon_3, title: '18.6 mph', description: 'Max Speed'},
-  {icon: featuresIcon_4, title: '40.4 Miles', description: 'Max Range'},
-  {icon: featuresIcon_5, title: '20%', description: 'Hill Grade'},
-  {icon: featuresIcon_6, title: 'IPX5', description: 'Water-Resistant'},
-  {icon: featuresIcon_7, title: '6H', description: 'Fast Charging'},
-  {icon: featuresIcon_8, title: '551Wh', description: 'Battery'}
+  { icon: featuresIcon_1, title: '10”', description: 'Pneumatic Tires' },
+  { icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights' },
+  { icon: featuresIcon_3, title: '18.6 mph', description: 'Max Speed' },
+  { icon: featuresIcon_4, title: '40.4 Miles', description: 'Max Range' },
+  { icon: featuresIcon_5, title: '20%', description: 'Hill Grade' },
+  { icon: featuresIcon_6, title: 'IPX5', description: 'Water-Resistant' },
+  { icon: featuresIcon_7, title: '6H', description: 'Fast Charging' },
+  { icon: featuresIcon_8, title: '551Wh', description: 'Battery' }
 ];
+
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
 
 import OverviewImgDesktop from '@/base/ks-max/overview-desktop.jpg';
@@ -57,7 +55,7 @@ const FeatureSimpleDinamic = dynamic(() => import('@/sections/Feature/FeatureSim
 const FeatureLiteDinamic = dynamic(() => import('@/sections/Feature/FeatureLite'));
 
 const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'));
-const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), {ssr: false});
+const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), { ssr: false });
 const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 
@@ -66,17 +64,11 @@ import FormWarrancy_mobile from '@/base/ks-max/form-warrancy-mobile.jpg';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
 
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
-const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), {ssr: false});
-const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ssr: false});
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
+const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), { ssr: false });
+const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
-export default function ModelPage({allData}) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setSegway(allData.segways.adultSegways[5]));
-    dispatch(setPrice(allData.segways.adultSegways[5].price));
-  }, []);
+export default function ModelPage({ allData }) {
 
   return (
     <>
@@ -96,7 +88,9 @@ export default function ModelPage({allData}) {
         }
         currentSegway={allData.segways.adultSegways[5]}
       />
+
       <Tabs />
+
       <PackingListDinamic packingListImg={allData.segways.adultSegways[5].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
@@ -125,7 +119,6 @@ export default function ModelPage({allData}) {
         mobileImage={OverviewImgMobile}
       />
 
-      {/* 1 */}
       <FeatureSimpleDinamic
         customClass="ks-air-t15"
         titleDesktop={
@@ -156,7 +149,6 @@ export default function ModelPage({allData}) {
         }
       />
 
-      {/* 2 */}
       <FeatureSimpleDinamic
         customClass="content-align-right-and-black"
         titleDesktop={
@@ -183,7 +175,6 @@ export default function ModelPage({allData}) {
         }
       />
 
-      {/* 3 */}
       <FeatureSimpleDinamic
         customClass="ks-air-t15"
         titleDesktop={
@@ -216,14 +207,12 @@ export default function ModelPage({allData}) {
         descriptionMobile="*Disclaimer: for your safety, please try not to ride at night"
       />
 
-      {/* 4 */}
       <FeatureLiteDinamic
         image={FeatureSimple_4_desktop}
         title="One-step Folding Mechanism"
         text={'Ninebot KickScooter MAX can be easily folded <br/> and carried around in 3 seconds.'.split('<br/>').join('\n')}
       />
 
-      {/* 5 */}
       <FeatureSimpleDinamic
         customClass="ks-air-t15"
         titleDesktop={
@@ -256,7 +245,6 @@ export default function ModelPage({allData}) {
         }
       />
 
-      {/* 6 */}
       <FeatureSimpleDinamic
         customClass="type-3"
         titleDesktop={
@@ -289,7 +277,6 @@ export default function ModelPage({allData}) {
         }
       />
 
-      {/* 7 */}
       <FeatureSimpleDinamic
         customClass="content-top-mobile"
         titleDesktop={<>3 Riding Modes</>}
@@ -308,7 +295,6 @@ export default function ModelPage({allData}) {
         titleMobile={<>3 Riding Modes</>}
         textMobile={
           <>
-            {' '}
             Eco, Standard, and Sports modes can be directly <br /> accessed by the intuitive LED dashboard, which <br /> also displays maintenance signals, power levels, <br /> Bluetooth connectivity
             and more.
           </>
@@ -344,8 +330,8 @@ export default function ModelPage({allData}) {
       <OtherModelsDinamic items={[...allData.segways.adultSegways, ...allData.segways.kidsSegways]} />
       <FixedModalDinamic segwayItem={allData.segways.adultSegways[5]} />
       <DiscountModalDinamic />
+      <FancyModal images={allData.segways.adultSegways[5].galleryImages} />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal />
     </>
   );
 }

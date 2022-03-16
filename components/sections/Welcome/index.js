@@ -1,40 +1,44 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
-import {Navigation, Pagination} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import PaymentsMethods from '@/blocks/PaymentsMethods';
 import FormWithWarrancy from '@/blocks/FormWithWarrancy';
 import SegwayProtectMobile from '@/blocks/SegwayProtectMobile';
 import arrowLeft from '@/base/icon-arrow-left.svg';
 import arrowRight from '@/base/icon-arrow-right.svg';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
-import {useDispatch, useSelector} from 'react-redux';
-import {setFancyImages, setFancyModal} from '@/actions/fancyModal';
-import {useEffect, useRef, useState} from 'react';
-import {setSlideIndex} from '@/actions/welcomeSlider';
-import {useMediaQuery} from '@/hooks/useMediaQuery';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useRef } from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { setActive, setPositionSlide } from 'store/slices/fancyModalSlice';
+
 import 'swiper/css/pagination';
 
-export default function Welcome({currentSegway, titleDesktop, titleMobile}) {
+export default function Welcome({ currentSegway, titleDesktop, titleMobile }) {
   const dispatch = useDispatch();
   let mediaQuery = useMediaQuery('(max-width: 768px)');
 
-  const [imagesFrFancySlider] = useState(currentSegway.galleryImages);
-  const {selectedSlide} = useSelector((state) => state.welcomeSlider);
+  const { currentPosition } = useSelector(state => state.fancyModal);
+
   const mainSliderElement = useRef(null);
   const thumbnailSliderElement = useRef(null);
 
   const setSlideIndexHandler = (indx) => () => {
-    dispatch(setFancyModal(true, indx));
+    dispatch(setActive(true));
+    dispatch(setPositionSlide(indx));
   };
 
   useEffect(() => {
-    dispatch(setFancyImages(imagesFrFancySlider));
-  }, [imagesFrFancySlider, dispatch]);
-
-  useEffect(() => {
-    mainSliderElement.current.slideTo(selectedSlide, 600, null);
-  }, [selectedSlide, mainSliderElement]);
+    const onEventHandler = (event) => {
+      if (event.keyCode === 27) {
+        dispatch(setActive(false));
+      }
+    };
+    document.addEventListener('keydown', onEventHandler);
+    return () => {
+      document.removeEventListener('keydown', onEventHandler);
+    };
+  });
 
   return (
     <div className="welcome">
@@ -54,7 +58,7 @@ export default function Welcome({currentSegway, titleDesktop, titleMobile}) {
               <p className="title welcome__title">{titleDesktop}</p>
             </div>
             <SegwayProtectMobile customClass="welcome__protect" />
-            <FormWithWarrancy item={currentSegway} customClass="welcome__form" />
+            <FormWithWarrancy product={currentSegway} customClass="welcome__form" />
             <PaymentsMethods customClass="welcome__payments" />
           </div>
 
@@ -82,10 +86,11 @@ export default function Welcome({currentSegway, titleDesktop, titleMobile}) {
               onInit={(swiper) => {
                 mainSliderElement.current = swiper;
               }}
-              onSlideChange={(swiper) => {
-                thumbnailSliderElement.current.slideTo(swiper.activeIndex, 600, null);
-                dispatch(setSlideIndex(swiper.activeIndex));
-              }}>
+              onSlideChange={swiper => {
+                dispatch(setPositionSlide(swiper.activeIndex));
+                thumbnailSliderElement.current.slideTo(swiper.activeIndex, 600, false)
+              }}
+            >
               {currentSegway.galleryImages.map((item, id) => {
                 return (
                   <SwiperSlide key={id} className="welcome__swiper-item">
@@ -141,9 +146,14 @@ export default function Welcome({currentSegway, titleDesktop, titleMobile}) {
               thumbnailSliderElement.current = swiper;
             }}>
             {currentSegway.galleryImages.map((item, id) => {
+              // TODO: Починить серверный сендеринг Localstorage
+              let currentClass = 'welcome__thumbnails-img-wrapper';
+              if (typeof window !== 'undefined') {
+                if (currentPosition == id) currentClass = 'welcome__thumbnails-img-wrapper active'
+              }
               return (
                 <SwiperSlide onClick={setSlideIndexHandler(id)} key={id} className="welcome__thumbnails-item">
-                  <div className={selectedSlide === id ? 'welcome__thumbnails-img-wrapper active' : 'welcome__thumbnails-img-wrapper'}>
+                  <div className={currentClass}>
                     <Image width="140" height="140" objectFit="contain" src={item} alt="welcome swiper" quality={30} layout="responsive" />
                   </div>
                 </SwiperSlide>

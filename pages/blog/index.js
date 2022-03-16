@@ -2,12 +2,16 @@ import CustomHead from '@/basic/CustomHead';
 import { BlogMain } from '@/sections/Blog';
 import { data } from '@/base/data';
 
+import dynamic from 'next/dynamic';
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
+
 export default function BlogPage({ allData }) {
   return (
-    <div>
+    <>
       <CustomHead title="blog" />
       <BlogMain blogPosts={allData.blog} />
-    </div>
+      <ProductModalDinamic accessoeries={allData.accessoeries} />
+    </>
   );
 }
 

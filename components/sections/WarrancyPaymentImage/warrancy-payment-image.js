@@ -19,7 +19,7 @@ export default function WarrancyPaymentImage({widthDesktop, heightDesktop, width
         <div className="form-warrancy__content">
           <div className="form-warrancy__left">
             <div className="form-warrancy__form">
-              <FormWithWarrancy item={item} customClass="segway-ninebot__form" />
+              <FormWithWarrancy product={item} customClass="segway-ninebot__form" />
             </div>
             <div className="form-warrancy__payment">
               <PaymentsMethods customClass="form-warrancy__payments-wrapper" />

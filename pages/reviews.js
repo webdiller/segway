@@ -1,13 +1,17 @@
 import CustomHead from '@/basic/CustomHead';
-import {data} from '@/base/data';
+import { data } from '@/base/data';
 import ReviewsBlock from '@/sections/Reviews/ReviewsBlock';
 
-export default function ReviewsPage({allData}) {
+import dynamic from 'next/dynamic';
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
+
+export default function ReviewsPage({ allData }) {
   return (
-    <div>
+    <>
       <CustomHead title="reviews" />
       <ReviewsBlock />
-    </div>
+      <ProductModalDinamic accessoeries={allData.accessoeries} />
+    </>
   );
 }
 

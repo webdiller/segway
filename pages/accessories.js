@@ -1,8 +1,10 @@
 import AccessoriesBlock from '@/sections/Accessories/AccessoriesBlock';
-import ProductModal from '@/modals/ProductAddedModal/ProductModal';
 import { data } from '@/base/data';
 import CustomHead from '@/basic/CustomHead';
 import TitleWithDescription from '@/blocks/TitleWithDescription';
+
+import dynamic from 'next/dynamic';
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
 export default function AccessoriesPage({ allData }) {
 
@@ -21,7 +23,7 @@ export default function AccessoriesPage({ allData }) {
         }
       />
       <AccessoriesBlock items={allData.accessoeries} />
-      <ProductModal segways={allData.segways} accessoeries={allData.accessoeries} />
+      <ProductModalDinamic accessoeries={allData.accessoeries} />
     </div>
   );
 }

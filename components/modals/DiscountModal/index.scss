@@ -17,6 +17,13 @@ $rootElement: '.discount-modal';
   z-index: -1;
   opacity: 0;
   visibility: hidden;
+
+  &.active {
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+  }
+
   @include media('<=768px') {
     transform: unset;
     top: 0;
@@ -24,11 +31,7 @@ $rootElement: '.discount-modal';
     align-items: flex-start;
     padding: 51px 15px 15px 15px;
   }
-  &.active {
-    z-index: 400;
-    opacity: 1;
-    visibility: visible;
-  }
+
   &.focused {
     @media (hover: none) and (pointer: coarse) {
       padding-top: 0;
@@ -38,6 +41,7 @@ $rootElement: '.discount-modal';
       }
     }
   }
+
   &__wrapper {
     position: relative;
     width: 100%;
@@ -79,6 +83,9 @@ $rootElement: '.discount-modal';
 
   &__close-btn-icon {
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &_desktop {
       @include media('<=768px') {
         display: none;
@@ -89,7 +96,7 @@ $rootElement: '.discount-modal';
       @include media('<=768px') {
         width: 16px;
         height: 16px;
-        display: block;
+        display: flex;
       }
     }
   }

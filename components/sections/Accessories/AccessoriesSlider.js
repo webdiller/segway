@@ -1,24 +1,23 @@
-import {useCart} from 'react-use-cart';
 import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import {useDispatch} from 'react-redux';
-import {setProductModal} from '@/actions/productModal';
 import {useEffect, useRef, useState} from 'react';
 import {useInView} from 'react-intersection-observer';
+import { pushProduct } from 'store/slices/productCartSlice';
+import { productModalActiveSet } from 'store/slices/modalsSlice';
 
 export default function AccessoriesSlider({items}) {
-  const {addItem} = useCart();
   const dispatch = useDispatch();
   const buttonElement = useRef(null);
   const [hidenOtherAccessories, setHiddenOtherAccessories] = useState(true);
 
-  const onClickHandler = (id, e) => {
-    addItem(id);
+  const onClickHandler = (item, e) => {
+    dispatch(pushProduct(item));
     e.target.classList.add('ui-btn_added');
     e.target.focus();
-    dispatch(setProductModal(true));
+    dispatch(productModalActiveSet(true));
     setTimeout(() => {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();
@@ -91,6 +90,9 @@ export default function AccessoriesSlider({items}) {
                     <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">
                       <span>ADD TO CART</span>
                     </button>
+                    {/* <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">
+                      <span>ADD TO CART</span>
+                    </button> */}
                   </div>
                 </SwiperSlide>
               );

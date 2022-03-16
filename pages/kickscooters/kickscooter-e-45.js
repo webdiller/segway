@@ -2,12 +2,10 @@ import dynamic from 'next/dynamic';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';
-const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), { ssr: false });
 import CustomHead from '@/basic/CustomHead';
-import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {setPrice, setSegway} from '@/actions/fixedModal';
-import {data} from '@/base/data';
+
+import { data } from '@/base/data';
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
 const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));
@@ -25,14 +23,14 @@ import featuresIcon_6 from '@/base/ks-e-45/features-icons/feature-6.svg';
 import featuresIcon_7 from '@/base/ks-e-45/features-icons/feature-7.svg';
 import featuresIcon_8 from '@/base/ks-e-45/features-icons/feature-8.svg';
 const featuresItems = [
-  {icon: featuresIcon_1, title: '9”', description: 'Pneumatic Tires'},
-  {icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights'},
-  {icon: featuresIcon_3, title: '18.6 mph', description: 'Max Speed'},
-  {icon: featuresIcon_4, title: '28 Miles', description: 'Max Range'},
-  {icon: featuresIcon_5, title: '20%', description: 'Hill Grade'},
-  {icon: featuresIcon_6, title: '55-220 lbs', description: 'Payload'},
-  {icon: featuresIcon_7, title: 'IPX4', description: 'Water-Resistant'},
-  {icon: featuresIcon_8, title: '18650mAh', description: 'Battery'}
+  { icon: featuresIcon_1, title: '9”', description: 'Pneumatic Tires' },
+  { icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights' },
+  { icon: featuresIcon_3, title: '18.6 mph', description: 'Max Speed' },
+  { icon: featuresIcon_4, title: '28 Miles', description: 'Max Range' },
+  { icon: featuresIcon_5, title: '20%', description: 'Hill Grade' },
+  { icon: featuresIcon_6, title: '55-220 lbs', description: 'Payload' },
+  { icon: featuresIcon_7, title: 'IPX4', description: 'Water-Resistant' },
+  { icon: featuresIcon_8, title: '18650mAh', description: 'Battery' }
 ];
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
 
@@ -57,7 +55,7 @@ import FeatureSimple_7_mobile from '@/base/ks-e-45/features/feature-7-mobile.jpg
 const FeatureSimpleDinamic = dynamic(() => import('@/sections/Feature/FeatureSimple'));
 
 const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'));
-const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), {ssr: false});
+const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), { ssr: false });
 const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 
@@ -66,17 +64,11 @@ import FormWarrancy_mobile from '@/base/ks-e-45/form-warrancy-mobile.jpg';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
 
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
-const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), {ssr: false});
-const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ssr: false});
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
+const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), { ssr: false });
+const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
-export default function ModelPage({allData}) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setSegway(allData.segways.adultSegways[4]));
-    dispatch(setPrice(allData.segways.adultSegways[4].price));
-  }, []);
+export default function ModelPage({ allData }) {
 
   return (
     <>
@@ -96,7 +88,7 @@ export default function ModelPage({allData}) {
         }
         currentSegway={allData.segways.adultSegways[4]}
       />
-<Tabs
+      <Tabs
         showApp
         tab_4_title={<>APP <br />Controll</>}
         title_4_desktop={<>Access More Features <br /> And Functions Like A Pro</>}
@@ -298,7 +290,7 @@ export default function ModelPage({allData}) {
       <FixedModalDinamic segwayItem={allData.segways.adultSegways[4]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal />
+      <FancyModal images={allData.segways.adultSegways[4].galleryImages} />
     </>
   );
 }

@@ -1,12 +1,47 @@
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
 
-import rootReducer from './reducers/_index';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import { profileSlice, productCartSlice, modalsSlice, preparedProductSlice, discountModalSlice, fancyModalSlice } from './slices/_index'
 
-const initState = {};
-const middleware = [thunk];
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
+  // TODO:Добавить модалку с сравнением в блеклист
+  // blacklist: ['modals']
+}
 
-const store = createStore(rootReducer, initState, composeWithDevTools(applyMiddleware(...middleware)));
+const rootReducer = combineReducers({
+  profile: profileSlice,
+  products: productCartSlice,
+  modals: modalsSlice,
+  preparedProduct: preparedProductSlice,
+  discountModal: discountModalSlice,
+  fancyModal: fancyModalSlice,
+  
+})
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+})
+
+export const persistor = persistStore(store)

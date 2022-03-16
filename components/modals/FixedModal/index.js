@@ -1,20 +1,21 @@
-import {useCart} from 'react-use-cart';
-import {useDispatch, useSelector} from 'react-redux';
-import {setProductModal} from '@/actions/productModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { pushProduct } from 'store/slices/productCartSlice';
 import ModalWrapper from '../ModalWrapper';
 export default function FixedModal() {
-  const {currentPrice, currentSegway} = useSelector((state) => state.fixedModal);
-  const {addItem} = useCart();
-  const dispatch = useDispatch();
 
-  const addItemToCartAndShowModal = () => () => {
-    addItem(currentSegway);
-    dispatch(setProductModal(true));
-  };
+  const dispatch = useDispatch()
+
+  const { preparedProduct, currentPrice } = useSelector(state => state.preparedProduct)
+
+  const addItemToCartAndShowModal = () => {
+    dispatch(pushProduct(preparedProduct))
+    dispatch(productModalActiveSet(true))
+  }
 
   return (
     <ModalWrapper mounted={true}>
-      <div onClick={addItemToCartAndShowModal()} className="fixed-modal">
+      <div onClick={addItemToCartAndShowModal} className="fixed-modal">
         <button className="fixed-modal__wrapper">
           <span className="fixed-modal__title">
             <span className="fixed-modal__title-name">Add to cart</span>
