@@ -9,7 +9,7 @@ export default function DropdownList({ customClass, placeholder, data, handler, 
 
   const dispatch = useDispatch();
 
-  const { active, setToggleHandler, setActiveHandler, setInactiveHandler } = useToggle(false);
+  const { active, setActiveHandler, setInactiveHandler } = useToggle(false);
   const inputRef = useRef()
 
   const setCurrentValueHandler = (e) => {

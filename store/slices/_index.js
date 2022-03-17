@@ -1,5 +1,6 @@
 export {default as profileSlice} from './profileSlice'
 export {default as productCartSlice} from './productCartSlice'
+export {default as differentBillingSlice} from './differentBillingSlice'
 export {default as modalsSlice} from './modalsSlice'
 export {default as preparedProductSlice} from './preparedProductSlice'
 export {default as discountModalSlice} from './discountModalSlice'

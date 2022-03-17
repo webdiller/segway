@@ -13,20 +13,20 @@ import iconCoinbase from '@/base/icon-coinbase.svg'
 import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
 import { useSelector } from 'react-redux';
+
+import { setBillingAddress, setPaymentMethod } from 'store/slices/profileSlice';
+
 import {
-  setBillingAddress,
-  setPaymentMethod,
-  setEmail,
-  setFirstName,
-  setLastName,
-  setAddress,
-  setApartment,
-  setCountry,
-  setCity,
-  setZipCode,
-  setPhone,
-  setState
-} from 'store/slices/profileSlice';
+  setDifferentFirstName,
+  setDifferentLastName,
+  setDifferentAddress,
+  setDifferentApartment,
+  setDifferentCity,
+  setDifferentCountry,
+  setDifferentState,
+  setDifferentZipCode,
+  setDifferentPhone
+} from 'store/slices/differentBillingSlice';
 
 export default function PauymentLastPage() {
 
@@ -34,16 +34,20 @@ export default function PauymentLastPage() {
     email,
     address,
     paymentMethod,
-    billingAddress,
-    firstName,
-    lastName,
-    apartment,
-    country,
-    city,
-    state,
-    zipCode,
-    phone
+    billingAddress
   } = useSelector(state => state.profile);
+
+  const {
+    differentFirstName,
+    differentLastName,
+    differentAddress,
+    differentApartment,
+    differentCity,
+    differentCountry,
+    differentState,
+    differentZipCode,
+    differentPhone,
+  } = useSelector(state => state.differentBilling);
 
   return (
     <>
@@ -185,15 +189,15 @@ export default function PauymentLastPage() {
             </div>
           }
           dropdownChildren={<div className='payment-radio__inputs payment-radio__inputs_alt'>
-            <div className="payment-radio__input payment-radio__input_50"><CustomInput handler={setFirstName} value={firstName} type="text" placeholder="First name" /></div>
-            <div className="payment-radio__input payment-radio__input_50"><CustomInput handler={setLastName} value={lastName} type="text" placeholder="Last name" /></div>
-            <div className="payment-radio__input"><CustomInput handler={setAddress} value={address} type="text" placeholder="Address" /></div>
-            <div className="payment-radio__input"><CustomInput handler={setApartment} value={apartment} type="text" placeholder="Apartment, suite, tc. (optional)" /></div>
-            <div className="payment-radio__input"><CustomInput handler={setCity} value={city} type="text" placeholder="City" /></div>
-            <div className="payment-radio__input payment-radio__input_33"><DropdownList handler={setCountry} value={country} placeholder="Country / region" /></div>
-            <div className="payment-radio__input payment-radio__input_33"><DropdownList handler={setState} value={state} placeholder="State" /></div>
-            <div className="payment-radio__input payment-radio__input_33"><CustomInput handler={setZipCode} value={zipCode} type="text" placeholder="ZIP code" /></div>
-            <div className="payment-radio__input"><CustomInput handler={setPhone} value={phone} type="text" placeholder="Phone" /></div>
+            <div className="payment-radio__input payment-radio__input_50"><CustomInput handler={setDifferentFirstName} value={differentFirstName} type="text" placeholder="First name" /></div>
+            <div className="payment-radio__input payment-radio__input_50"><CustomInput handler={setDifferentLastName} value={differentLastName} type="text" placeholder="Last name" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setDifferentAddress} value={differentAddress} type="text" placeholder="Address" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setDifferentApartment} value={differentApartment} type="text" placeholder="Apartment, suite, tc. (optional)" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setDifferentCity} value={differentCity} type="text" placeholder="City" /></div>
+            <div className="payment-radio__input payment-radio__input_33"><DropdownList handler={setDifferentCountry} value={differentCountry} placeholder="Country / region" /></div>
+            <div className="payment-radio__input payment-radio__input_33"><DropdownList handler={setDifferentState} value={differentState} placeholder="State" /></div>
+            <div className="payment-radio__input payment-radio__input_33"><CustomInput handler={setDifferentZipCode} value={differentZipCode} type="text" placeholder="ZIP code" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setDifferentPhone} value={differentPhone} type="text" placeholder="Phone" /></div>
           </div>}
         />
 

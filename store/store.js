@@ -12,18 +12,18 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { profileSlice, productCartSlice, modalsSlice, preparedProductSlice, discountModalSlice, fancyModalSlice, elementInViewSlice } from './slices/_index'
+import { profileSlice, differentBillingSlice, productCartSlice, modalsSlice, preparedProductSlice, discountModalSlice, fancyModalSlice, elementInViewSlice } from './slices/_index'
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  // TODO:Добавить модалку с сравнением в блеклист
-  // blacklist: ['modals']
+  blacklist: ['differentBilling']
 }
 
 const rootReducer = combineReducers({
   profile: profileSlice,
+  differentBilling: differentBillingSlice,
   products: productCartSlice,
   modals: modalsSlice,
   preparedProduct: preparedProductSlice,
