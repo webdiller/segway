@@ -18,10 +18,12 @@
   font-size: 13px;
   border: 1px solid rgba(153, 153, 153, 0.33);
   transition: all 0.3s ease;
+
   &:focus {
     border: 1px solid #009eff;
     outline: 0;
   }
+
   &::placeholder {
     font-size: 13px;
     line-height: 120%;
@@ -37,30 +39,6 @@
     font-size: 16px;
   }
 }
-
-// .info {
-//   position: absolute;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   right: 15px;
-
-//   display: inline-flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   padding-top: 2px;
-//   width: 21px;
-//   height: 21px;
-//   border-radius: 50%;
-
-//   color: #fff;
-//   font-size: 14px;
-//   background-color: #999999;
-
-//   transition: all 0.3s ease;
-//   opacity: 0;
-//   visibility: hidden;
-// }
 
 .icon {
   position: absolute;

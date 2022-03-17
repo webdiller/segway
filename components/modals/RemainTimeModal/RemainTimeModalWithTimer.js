@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import Image from 'next/image';
 import bgImage from '@/base/remain-time-modal-img.png';
 import Swipe from 'react-easy-swipe';

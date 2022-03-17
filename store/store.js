@@ -12,7 +12,7 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { profileSlice, productCartSlice, modalsSlice, preparedProductSlice, discountModalSlice, fancyModalSlice } from './slices/_index'
+import { profileSlice, productCartSlice, modalsSlice, preparedProductSlice, discountModalSlice, fancyModalSlice, elementInViewSlice } from './slices/_index'
 
 const persistConfig = {
   key: 'root',
@@ -29,7 +29,7 @@ const rootReducer = combineReducers({
   preparedProduct: preparedProductSlice,
   discountModal: discountModalSlice,
   fancyModal: fancyModalSlice,
-  
+  elementInView: elementInViewSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

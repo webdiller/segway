@@ -22,7 +22,7 @@ export const calculateTotalPrice = (products) => {
       if (color.toString() == 'null') {
         color = 0
       } else {
-        color = Number(color.toString())
+        color = color.toString()
       }
 
       if (warranty) {
@@ -30,7 +30,8 @@ export const calculateTotalPrice = (products) => {
       } 
 
       if (color) {
-        color = Number(product.colors[color - 1].price)
+        const colorPrice = product.colors.find(el=>el.color === color).price;
+        color = colorPrice;
       } 
 
       total = total + ((price + warranty + color) * quantity)

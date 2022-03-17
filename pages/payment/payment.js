@@ -13,9 +13,38 @@ import iconCoinbase from '@/base/icon-coinbase.svg'
 import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
 import { useSelector } from 'react-redux';
+import {
+  setBillingAddress,
+  setPaymentMethod,
+  setEmail,
+  setFirstName,
+  setLastName,
+  setAddress,
+  setApartment,
+  setCountry,
+  setCity,
+  setZipCode,
+  setPhone,
+  setState
+} from 'store/slices/profileSlice';
 
 export default function PauymentLastPage() {
-  const { email, address } = useSelector(state => state.profile);
+
+  const {
+    email,
+    address,
+    paymentMethod,
+    billingAddress,
+    firstName,
+    lastName,
+    apartment,
+    country,
+    city,
+    state,
+    zipCode,
+    phone
+  } = useSelector(state => state.profile);
+
   return (
     <>
       <CustomHead title="Payment main information" />
@@ -34,9 +63,13 @@ export default function PauymentLastPage() {
         </div>
 
         <RadioWrapper
-          customClass="bb-0 payment-radio__border-input-top-alt"
+          currentValue={paymentMethod}
+          handler={setPaymentMethod}
+          radioName="shippingMethods"
+          value="paymentMethodsCreditCard"
           id="paymentMethodsCreditCard"
-          radioName="paymentMethods"
+
+          customClass="bb-0 payment-radio__border-input-top-alt"
           firstChildren={
             <div className="payment-radio__title-text">
               <span className="mb-0 payment-radio__title-text-title">Credit card</span>
@@ -60,10 +93,14 @@ export default function PauymentLastPage() {
         />
 
         <RadioWrapper
+          currentValue={paymentMethod}
+          handler={setPaymentMethod}
+          radioName="shippingMethods"
+          value="paymentMethodsPaypel"
+          id="paymentMethodsPaypel"
+
           hideSecondChildOnBlur
           customClass="bb-0"
-          id="paymentMethodsPaypel"
-          radioName="paymentMethods"
           firstChildren={
             <div className="payment-radio__payment-image">
               <Image src={iconPaypel} alt="Icon payment" />
@@ -76,10 +113,14 @@ export default function PauymentLastPage() {
         />
 
         <RadioWrapper
+          currentValue={paymentMethod}
+          handler={setPaymentMethod}
+          radioName="shippingMethods"
+          value="paymentMethodsAffirm"
+          id="paymentMethodsAffirm"
+
           hideSecondChildOnBlur
           customClass="bb-0"
-          id="paymentMethodsAffirm"
-          radioName="paymentMethods"
           firstChildren={
             <div className="payment-radio__payment-image">
               <Image src={iconAffirm} alt="Icon payment" />
@@ -92,9 +133,13 @@ export default function PauymentLastPage() {
         />
 
         <RadioWrapper
-          hideSecondChildOnBlur
+          currentValue={paymentMethod}
+          handler={setPaymentMethod}
+          radioName="shippingMethods"
+          value="paymentMethodsCoinbase"
           id="paymentMethodsCoinbase"
-          radioName="paymentMethods"
+
+          hideSecondChildOnBlur
           firstChildren={
             <div className="payment-radio__payment-image">
               <Image src={iconCoinbase} alt="Icon payment" />
@@ -112,35 +157,43 @@ export default function PauymentLastPage() {
         </div>
 
         <RadioWrapper
-          customClass="mb-0 bb-0"
-          id="sane"
+          currentValue={billingAddress}
+          handler={setBillingAddress}
           radioName="billingAddress"
+          value="same"
+          id="same"
+
+          customClass="mb-0 bb-0"
           firstChildren={
             <div className="mb-0 payment-radio__title-text">
-              <p className="mb-0 payment-radio__title-text-title payment-radio__title-text-title_bold">Sane as shipping address</p>
+              <p className="mb-0 payment-radio__title-text-title payment-radio__title-text-title_bold">Same as shipping address</p>
             </div>
           }
         />
 
         <RadioWrapper
-          customClass="payment-radio__border-input-top"
-          id="different"
+          currentValue={billingAddress}
+          handler={setBillingAddress}
           radioName="billingAddress"
+          value="different"
+          id="different"
+
+          customClass="payment-radio__border-input-top"
           firstChildren={
             <div className="mb-0 payment-radio__title-text">
               <p className="mb-0 payment-radio__title-text-title payment-radio__title-text-title_bold">Use a different billing address</p>
             </div>
           }
           dropdownChildren={<div className='payment-radio__inputs payment-radio__inputs_alt'>
-            <div className="payment-radio__input payment-radio__input_50"><CustomInput type="text" placeholder="First name" /></div>
-            <div className="payment-radio__input payment-radio__input_50"><CustomInput type="text" placeholder="Last name" /></div>
-            <div className="payment-radio__input"><CustomInput type="text" placeholder="Address" /></div>
-            <div className="payment-radio__input"><CustomInput type="text" placeholder="Apartment, suite, tc. (optional)" /></div>
-            <div className="payment-radio__input"><CustomInput type="text" placeholder="City" /></div>
-            <div className="payment-radio__input payment-radio__input_33"><DropdownList placeholder="Country / region" /></div>
-            <div className="payment-radio__input payment-radio__input_33"><DropdownList placeholder="State" /></div>
-            <div className="payment-radio__input payment-radio__input_33"><CustomInput type="text" placeholder="ZIP code" /></div>
-            <div className="payment-radio__input"><CustomInput type="text" placeholder="Phone" /></div>
+            <div className="payment-radio__input payment-radio__input_50"><CustomInput handler={setFirstName} value={firstName} type="text" placeholder="First name" /></div>
+            <div className="payment-radio__input payment-radio__input_50"><CustomInput handler={setLastName} value={lastName} type="text" placeholder="Last name" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setAddress} value={address} type="text" placeholder="Address" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setApartment} value={apartment} type="text" placeholder="Apartment, suite, tc. (optional)" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setCity} value={city} type="text" placeholder="City" /></div>
+            <div className="payment-radio__input payment-radio__input_33"><DropdownList handler={setCountry} value={country} placeholder="Country / region" /></div>
+            <div className="payment-radio__input payment-radio__input_33"><DropdownList handler={setState} value={state} placeholder="State" /></div>
+            <div className="payment-radio__input payment-radio__input_33"><CustomInput handler={setZipCode} value={zipCode} type="text" placeholder="ZIP code" /></div>
+            <div className="payment-radio__input"><CustomInput handler={setPhone} value={phone} type="text" placeholder="Phone" /></div>
           </div>}
         />
 

@@ -14,15 +14,9 @@ const initialState = {
   zipCode: '',
   phone: '',
   saveThisInfoForNextTime: false,
-  shippingMethod: {
-    economy: false
-  },
-  payment: {
-    creditCard: true,
-    paypal: false,
-    affirm: false,
-    coinbase: false,
-  }
+  shippingMethod: 'economy',
+  paymentMethod: '',
+  billingAddress: ''
 }
 
 export const profileSlice = createSlice({
@@ -35,8 +29,8 @@ export const profileSlice = createSlice({
     setEmail: (state, action) => {
       state.email = action.payload
     },
-    setEmailMeWithNewsAndOffers: (state, action) => {
-      state.emailMeWithNewsAndOffers = action.payload
+    setEmailMeWithNewsAndOffers: (state, _) => {
+      state.emailMeWithNewsAndOffers = !state.emailMeWithNewsAndOffers
     },
     setLastName: (state, action) => {
       state.lastName = action.payload
@@ -65,10 +59,21 @@ export const profileSlice = createSlice({
     setPhone: (state, action) => {
       state.phone = action.payload
     },
-    setSaveThisInfoForNextTime: (state, action) => {
-      state.saveThisInfoForNextTime = action.payload
+    setSaveThisInfoForNextTime: (state, _) => {
+      state.saveThisInfoForNextTime = !state.saveThisInfoForNextTime
     },
-
+    setShippingMethod: (state, action) => {
+      const value = action.payload;
+      state.shippingMethod = value
+    },
+    setPaymentMethod: (state, action) => {
+      const value = action.payload;
+      state.paymentMethod = value
+    },
+    setBillingAddress: (state, action) => {
+      const value = action.payload;
+      state.billingAddress = value
+    },
   }
 })
 
@@ -85,7 +90,10 @@ export const {
   setState,
   setZipCode,
   setPhone,
-  setSaveThisInfoForNextTime } = profileSlice.actions
+  setSaveThisInfoForNextTime,
+  setShippingMethod,
+  setPaymentMethod,
+  setBillingAddress } = profileSlice.actions
 export default profileSlice.reducer
 
 

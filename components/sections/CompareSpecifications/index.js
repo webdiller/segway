@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
@@ -8,7 +7,7 @@ import Image from 'next/image';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import { FcPrevious, FcNext } from 'react-icons/fc';
 
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -451,7 +450,7 @@ export default function CompareSpecifications({ items, mainSegway }) {
 
               <div className="main-slide__bottom">
                 <div className="main-slide__bottom-left">
-                  <p className="text text_25 main-slide__price">$949.99</p>
+                  <p className="text text_25 main-slide__price">${mainSegway.price}</p>
 
                   <button onClick={(e) => addItemToCartAndShowModal(e, mainSegway)} className="ui-btn main-slide__buy-btn">
                     <span>ADD TO CART</span>
@@ -525,125 +524,128 @@ export default function CompareSpecifications({ items, mainSegway }) {
                 safety,
                 atmosphereLight,
                 imgPath,
-                links
+                links,
+                excludeForMap
               } = item;
-              return (
-                <SwiperSlide key={id} className="compare-specfications__slide">
-                  <div className="compare-specfications__img-wrapper">
-                    <Image
-                      objectFit="contain"
-                      className="compare-specfications__img"
-                      src={imgPath}
-                      alt={name}
-                      width={180}
-                      height={180}
-                      quality={90}
-                      layout="responsive"
-                      placeholder="blur"
-                      blurDataURL={segwayPlaceholder}
-                    />
-                  </div>
-                  <p className="text text_bold compare-specfications__name">{name}</p>
-
-                  <div className="compare-specfications__items">
-                    {/* Max. speed */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Max. speed</div>
-                      <div className="compare-specfications__item-value">{maxSpeed}</div>
+              if (!excludeForMap && mainSegway.id !== id) {
+                return (
+                  <SwiperSlide key={id} className="compare-specfications__slide">
+                    <div className="compare-specfications__img-wrapper">
+                      <Image
+                        objectFit="contain"
+                        className="compare-specfications__img"
+                        src={imgPath}
+                        alt={name}
+                        width={180}
+                        height={180}
+                        quality={90}
+                        layout="responsive"
+                        placeholder="blur"
+                        blurDataURL={segwayPlaceholder}
+                      />
                     </div>
+                    <p className="text text_bold compare-specfications__name">{name}</p>
 
-                    {/* Range (miles) */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Range (miles)</div>
-                      <div className="compare-specfications__item-value main-slide__item-value_range">
-                        <span className="hide-576">{rangeByMiles}</span>
-                        <span className="show-block-576">{rangeByMilesWrap}</span>
+                    <div className="compare-specfications__items">
+                      {/* Max. speed */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Max. speed</div>
+                        <div className="compare-specfications__item-value">{maxSpeed}</div>
+                      </div>
+
+                      {/* Range (miles) */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Range (miles)</div>
+                        <div className="compare-specfications__item-value main-slide__item-value_range">
+                          <span className="hide-576">{rangeByMiles}</span>
+                          <span className="show-block-576">{rangeByMilesWrap}</span>
+                        </div>
+                      </div>
+
+                      {/* Battery Capacity */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Battery Capacity</div>
+                        <div className="compare-specfications__item-value">{batteryCapacity}</div>
+                      </div>
+
+                      {/* Net Weight */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Net Weight</div>
+                        <div className="compare-specfications__item-value">
+                          <span className="hide-576">{netWeight}</span>
+                          <span className="show-block-576">{netWeightWrap}</span>
+                        </div>
+                      </div>
+
+                      {/* Payload */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Payload</div>
+                        <div className="compare-specfications__item-value">
+                          <span className="hide-576">{payload}</span>
+                          <span className="show-block-576">{payloadWrap}</span>
+                        </div>
+                      </div>
+
+                      {/* Chargin Time */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Chargin Time</div>
+                        <div className="compare-specfications__item-value">{charginTime}</div>
+                      </div>
+
+                      {/* Number of Batteries */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Number of Batteries</div>
+                        <div className="compare-specfications__item-value">{numberOfBatteries}</div>
+                      </div>
+
+                      {/* Motor power */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Motor power</div>
+                        <div className="compare-specfications__item-value">{motorPower}</div>
+                      </div>
+
+                      {/* Power Output */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Power Output</div>
+                        <div className="compare-specfications__item-value">{powerOutput}</div>
+                      </div>
+
+                      {/* Max. Incline */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Max. Incline</div>
+                        <div className="compare-specfications__item-value">{maxIncline}</div>
+                      </div>
+
+                      {/* Shock Absorption */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Shock Absorption</div>
+                        <div className="compare-specfications__item-value">{shockAbsorption}</div>
+                      </div>
+
+                      {/* Safety */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Safety</div>
+                        <div className="compare-specfications__item-value">{safety}</div>
+                      </div>
+
+                      {/* Atmosphere Light */}
+                      <div className="compare-specfications__item">
+                        <div className="compare-specfications__item-key">Atmosphere Light</div>
+                        <div className="compare-specfications__item-value">{atmosphereLight}</div>
                       </div>
                     </div>
 
-                    {/* Battery Capacity */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Battery Capacity</div>
-                      <div className="compare-specfications__item-value">{batteryCapacity}</div>
-                    </div>
+                    <p className="text text_25 compare-specfications__price">${price}</p>
 
-                    {/* Net Weight */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Net Weight</div>
-                      <div className="compare-specfications__item-value">
-                        <span className="hide-576">{netWeight}</span>
-                        <span className="show-block-576">{netWeightWrap}</span>
-                      </div>
-                    </div>
-
-                    {/* Payload */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Payload</div>
-                      <div className="compare-specfications__item-value">
-                        <span className="hide-576">{payload}</span>
-                        <span className="show-block-576">{payloadWrap}</span>
-                      </div>
-                    </div>
-
-                    {/* Chargin Time */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Chargin Time</div>
-                      <div className="compare-specfications__item-value">{charginTime}</div>
-                    </div>
-
-                    {/* Number of Batteries */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Number of Batteries</div>
-                      <div className="compare-specfications__item-value">{numberOfBatteries}</div>
-                    </div>
-
-                    {/* Motor power */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Motor power</div>
-                      <div className="compare-specfications__item-value">{motorPower}</div>
-                    </div>
-
-                    {/* Power Output */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Power Output</div>
-                      <div className="compare-specfications__item-value">{powerOutput}</div>
-                    </div>
-
-                    {/* Max. Incline */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Max. Incline</div>
-                      <div className="compare-specfications__item-value">{maxIncline}</div>
-                    </div>
-
-                    {/* Shock Absorption */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Shock Absorption</div>
-                      <div className="compare-specfications__item-value">{shockAbsorption}</div>
-                    </div>
-
-                    {/* Safety */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Safety</div>
-                      <div className="compare-specfications__item-value">{safety}</div>
-                    </div>
-
-                    {/* Atmosphere Light */}
-                    <div className="compare-specfications__item">
-                      <div className="compare-specfications__item-key">Atmosphere Light</div>
-                      <div className="compare-specfications__item-value">{atmosphereLight}</div>
-                    </div>
-                  </div>
-
-                  <p className="text text_25 compare-specfications__price">${price}</p>
-
-                  <button onClick={(e) => addItemToCartAndShowModal(e, item)} className="ui-btn compare-specfications__buy-btn">
-                    <span>ADD TO CART</span>
-                  </button>
-                  <Link href="/details-page" scroll={false}>
-                    <a className="compare-specfications__see-details">See details</a>
-                  </Link>
-                </SwiperSlide>
-              );
+                    <button onClick={(e) => addItemToCartAndShowModal(e, item)} className="ui-btn compare-specfications__buy-btn">
+                      <span>ADD TO CART</span>
+                    </button>
+                    <Link href="/details-page" scroll={false}>
+                      <a className="compare-specfications__see-details">See details</a>
+                    </Link>
+                  </SwiperSlide>
+                );
+              }
             })}
           </Swiper>
 
@@ -660,27 +662,31 @@ export default function CompareSpecifications({ items, mainSegway }) {
         </div>
 
         <ModalWrapper mounted={activeModal}>
-        <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={activeModal ? 'compare-modal active' : 'compare-modal'}>
-          <div className="compare-modal__wrapper">
-            <div className="compare-modal__wrapper-inner">
-              <p className="title compare-modal__title">select a model to compare</p>
-              <div className="compare-modal__icon-close"><Image onClick={toggleModal(false)} src="/icon-close.svg" alt="icon-close" width="34" height="34" /></div>
-              <div className="compare-modal__items">
-                {allModels.map(({ id, shortName, imgPath }) => (
-                  <button
-                    onClick={() => { setSelectedModelHandle(id) }}
-                    key={id}
-                    className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
-                    <div className="compare-modal__img-wrapper">
-                      <Image objectFit="contain" src={imgPath} alt={shortName} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                    </div>
-                    <p className="compare-modal__name">{shortName}</p>
-                  </button>
-                ))}
+          <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={activeModal ? 'compare-modal active' : 'compare-modal'}>
+            <div className="compare-modal__wrapper">
+              <div className="compare-modal__wrapper-inner">
+                <p className="title compare-modal__title">select a model to compare</p>
+                <div className="compare-modal__icon-close"><Image onClick={toggleModal(false)} src="/icon-close.svg" alt="icon-close" width="34" height="34" /></div>
+                <div className="compare-modal__items">
+                  {allModels.map(({ id, shortName, imgPath, excludeForMap }) => {
+                    if (!excludeForMap && mainSegway.id !== id) {
+                      return (
+                        <button
+                          onClick={() => { setSelectedModelHandle(id) }}
+                          key={id}
+                          className={id === '006' ? 'compare-modal__item compare-modal__item_hidden' : 'compare-modal__item'}>
+                          <div className="compare-modal__img-wrapper">
+                            <Image objectFit="contain" src={imgPath} alt={shortName} width={52} height={58} quality={90} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                          </div>
+                          <p className="compare-modal__name">{shortName}</p>
+                        </button>
+                      )
+                    }
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </ModalWrapper>
       </div>
     </div>

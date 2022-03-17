@@ -4,39 +4,31 @@ const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import {Navigation, FreeMode} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Navigation, FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import {useEffect, useRef, useState} from 'react';
-import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
+import { useEffect, useRef } from 'react';
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import topSwiperAccessory from '@/base/top-swiper-accessory.png';
-import {useInView} from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
+import { useDispatch, useSelector } from 'react-redux';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
-/**
- * Табы
- * Слайдер со сайдерами
- * У кадждого слайдера:
- * - Личная навигация
- * - В пропсах:
- *    - Массив объектов с моделями
- */
+import { disableTopSlider } from 'store/slices/elementInViewSlice';
 
-/** 
- * Свайпер в шапке с самокатами
- * Если роут совпадает с выбранным сегвеем, то у сегвея добавляется класс 'accent', который переносит выбранный сегвей в начало слайдера
-**/
-export default function TopSwiper({items}) {
-  const {ref, inView} = useInView({threshold: 0.5});
+export default function TopSwiper({ items }) {
+  const { ref, inView } = useInView({ threshold: 0.5 });
   const actionSwiper = useRef(null);
   const swiperWithAllSegways = useRef(null);
   const parentSwiper = useRef(null);
-  const [fistInit] = useState(true);
   const router = useRouter();
+
+  const dispatch = useDispatch()
+  const { topSlider } = useSelector(state => state.elementInView)
 
   const slideToHandle = (event, id) => {
     actionSwiper.current.slideTo(id, 600, null);
@@ -49,7 +41,7 @@ export default function TopSwiper({items}) {
   };
 
   useEffect(() => {
-    if (window.innerWidth <= 768 && inView && fistInit) {
+    if (window.innerWidth <= 768 && inView && topSlider) {
       let myInterval;
       myInterval = setInterval(() => {
         if (document.readyState === 'complete') {
@@ -59,13 +51,16 @@ export default function TopSwiper({items}) {
             setTimeout(() => {
               try {
                 swiperWithAllSegways.current.slidePrev();
-              } catch (error) {}
+              } catch (error) { }
             }, 350);
-          } catch (error) {}
+          } catch (error) { }
+          finally {
+            dispatch(disableTopSlider(false))
+          }
         }
       });
     }
-  }, [swiperWithAllSegways, inView, fistInit]);
+  }, [swiperWithAllSegways, inView, topSlider, dispatch]);
 
   return (
     <div ref={ref} className="top-swiper">
@@ -121,35 +116,39 @@ export default function TopSwiper({items}) {
                   onInit={(swiper) => {
                     swiperWithAllSegways.current = swiper;
                   }}>
-                  {items.segways.adultSegways.map(({id, name, shortName, imgSmallPath, pageLinkName}) => {
-                    const route = router.asPath.split('/')[1];
-                    return (
-                      <SwiperSlide key={id} className={route === pageLinkName ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                        <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
-                          <a className="top-swiper__link">
-                            <div className="top-swiper__img-wrapper">
-                              <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                            </div>
-                            <p className="top-swiper__name">{shortName}</p>
-                          </a>
-                        </Link>
-                      </SwiperSlide>
-                    )
+                  {items.segways.adultSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap }) => {
+                    if (!excludeForMap) {
+                      const isMatch = router.asPath.split('/')[2] === pageLinkName;
+                      return (
+                        <SwiperSlide key={id} className={isMatch ? 'top-swiper__item accent' : 'top-swiper__item'}>
+                          <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
+                            <a className="top-swiper__link">
+                              <div className="top-swiper__img-wrapper">
+                                <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                              </div>
+                              <p className="top-swiper__name">{shortName}</p>
+                            </a>
+                          </Link>
+                        </SwiperSlide>
+                      )
+                    }
                   })}
-                  {items.segways.kidsSegways.map(({id, name, shortName, imgSmallPath, pageLinkName}) => {
-                    const route = router.asPath.split('/')[1];
-                    return (
-                      <SwiperSlide key={id} className={route === pageLinkName ? 'top-swiper__item accent' : 'top-swiper__item'}>
-                        <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
-                          <a className="top-swiper__link">
-                            <div className="top-swiper__img-wrapper">
-                              <Image objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                            </div>
-                            <p className="top-swiper__name">{shortName}</p>
-                          </a>
-                        </Link>
-                      </SwiperSlide>
-                    )
+                  {items.segways.kidsSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap }) => {
+                    if (!excludeForMap) {
+                      const isMatch = router.asPath.includes(pageLinkName);
+                      return (
+                        <SwiperSlide key={id} className={isMatch ? 'top-swiper__item accent' : 'top-swiper__item'}>
+                          <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
+                            <a className="top-swiper__link">
+                              <div className="top-swiper__img-wrapper">
+                                <Image objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                              </div>
+                              <p className="top-swiper__name">{shortName}</p>
+                            </a>
+                          </Link>
+                        </SwiperSlide>
+                      )
+                    }
                   })}
                   <SwiperSlide key="99999" className="top-swiper__item">
                     <Link href="/accessories">
@@ -192,7 +191,7 @@ export default function TopSwiper({items}) {
                       allowTouchMove: false
                     }
                   }}>
-                  {items.gocarts.map(({id, name, shortName, imgSmallPath, pageLinkName}) => {
+                  {items.gocarts.map(({ id, name, shortName, imgSmallPath, pageLinkName }) => {
                     return (
                       <SwiperSlide key={id} className={router.asPath.includes(pageLinkName) ? 'top-swiper__item accent' : 'top-swiper__item'}>
                         <Link href={`${pageLinkName ? `/gocarts/${pageLinkName}` : '/'}`}>
@@ -237,7 +236,7 @@ export default function TopSwiper({items}) {
                       allowTouchMove: false
                     }
                   }}>
-                  {items.segways.kidsSegways.map(({id, name, shortName, imgSmallPath, pageLinkName}) => (
+                  {items.segways.kidsSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName }) => (
                     <SwiperSlide key={id} className={router.asPath.includes(pageLinkName) ? 'top-swiper__item accent' : 'top-swiper__item'}>
                       <Link href="/">
                         <a className="top-swiper__link">

@@ -656,14 +656,15 @@ export const data = {
     ],
     kidsSegways: [
       {
-        id: "id=011&warranty=null&color=null",
+        excludeForMap: true,
+        id: "id=011&warranty=null&color=6D7DDF",
         type: "kidsScooter",
         brandName: "Ninebot",
         name: "Ninebot Kickscooter Zing e8",
         nameWithoutBrand: "Kickscooter\nE8",
         nameWrap: "Kickscooter\nE8",
         shortName: "KS ZING E8",
-        pageLinkName: "kickscooter-zing-e8",
+        pageLinkName: "kickscooter-zing-e8-purple",
         price: "249.99",
         oldPrice: "1049",
         maxSpeed: "8.6 mph",
@@ -706,13 +707,90 @@ export const data = {
         colors: [
           {
             name: "purple",
-            color: "#6D7DDF",
-            price: 50
+            color: "6D7DDF",
+            price: 50,
+            url: "/kickscooter-zing-e8-purple",
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple"
           },
           {
             name: "pink",
-            color: "#FFBFC0",
-            price: 75
+            color: "FFBFC0",
+            price: 75,
+            url: "/kickscooter-zing-e8-pink",
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink"
+          }
+        ],
+        imgPath: "/ninebot-kickscooter-zing-e8.png",
+        imgSmallPath: "/ninebot-kickscooter-zing-e8_small.png",
+        imgPathWithCircle: "/ninebot-kickscooter-zing-e8-circle-default.png",
+        imgPathWithBlueCircle: "/ninebot-kickscooter-zing-e8-circle-color.png",
+        links: ["https://www.segway.com/ninebot-kickscooter-zing-e8/", "https://store.segway.com/segway-ninebot-kickscooter-zing-e8"],
+        galleryImages: ["/ks-zing-e8/slider/1.jpg", "/ks-zing-e8/slider/2.jpg", "/ks-zing-e8/slider/3.jpg", "/ks-zing-e8/slider/4.jpg", "/ks-zing-e8/slider/5.jpg", "/ks-zing-e8/slider/6.jpg"],
+        packingListImg: "/packing-5.png",
+        quantity: 1
+      },
+      {
+        id: "id=011&warranty=null&color=FFBFC0",
+        type: "kidsScooter",
+        brandName: "Ninebot",
+        name: "Ninebot Kickscooter Zing e8",
+        nameWithoutBrand: "Kickscooter\nE8",
+        nameWrap: "Kickscooter\nE8",
+        shortName: "KS ZING E8",
+        pageLinkName: "kickscooter-zing-e8-pink",
+        price: "249.99",
+        oldPrice: "1049",
+        maxSpeed: "8.6 mph",
+        rangeByMiles: "6.2 miles",
+        rangeByMilesWrap: "6.2 miles",
+        batteryCapacity: "55.08 Wh",
+        netWeight: "17.6 lbs",
+        netWeightWrap: "17.6 lbs",
+        payload: "44 - 110 lbs",
+        payloadWrap: "44 - 110 lbs",
+        charginTime: "4 hrs",
+        numberOfBatteries: "1 Build-in",
+        motorPower: "–",
+        powerOutput: "Nominal Power 150 W",
+        maxIncline: "7°",
+        ridingModes: "Turbo Mode, Cruise Mode and Safe Mode",
+        safety: "Hand-operated brake + Foot brake + Regenerative brake",
+        atmosphereLight: "–",
+        recommendedAge: "6-12 years",
+        requiredHeight: "3’9”–4’9” (115–145 cm)",
+        frameMaterial: "Alluminum-alloy",
+        shockAbsorption: "Spring damper",
+        warranty: [
+          {
+            durationYear: 1,
+            price: 139,
+            oldPrice: 1188
+          },
+          {
+            durationYear: 2,
+            price: 209,
+            oldPrice: 1258
+          },
+          {
+            durationYear: 3,
+            price: 279,
+            oldPrice: 1328
+          }
+        ],
+        colors: [
+          {
+            name: "purple",
+            color: "6D7DDF",
+            price: 50,
+            url: "/kickscooter-zing-e8-purple",
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple"
+          },
+          {
+            name: "pink",
+            color: "FFBFC0",
+            price: 75,
+            url: "/kickscooter-zing-e8-pink",
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink"
           }
         ],
         imgPath: "/ninebot-kickscooter-zing-e8.png",

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 import styles from './Feature.module.scss';
 
 export default function Feature({title, value, slug, iconSrc}) {

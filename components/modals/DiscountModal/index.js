@@ -1,23 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import UiInput from 'components/shared/UiInput/UiInput';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image';
-import { setActive } from 'store/slices/discountModalSlice';
+import { setActive, setUserPhone } from 'store/slices/discountModalSlice';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import ReactInputMask from 'react-input-mask';
+import useForm from '@/hooks/useForm';
 
 export default function DiscountModal() {
   const dispatch = useDispatch()
+
   const elRef = useRef(null);
+  const btnRef = useRef(null);
+
   const mediaQuery = useMediaQuery('(max-width: 768px) and (pointer: coarse)');
+  const { onSubmit, curentRefSet, loading } = useForm()
+
+  const [readyToInteractiveWithModal, readyToInteractiveWithModalSet] = useState(true)
 
   const { isActive, userPhone } = useSelector((state) => state.discountModal);
   const { compareModels, productModal } = useSelector((state) => state.modals);
-  const {isActive: isActiveDiscount} = useSelector(state => state.fancyModal);
-
-  // const addClassForRootELementIfFocused = (condition) => () => {
-  //   condition ? elRef.current.classList.add('focused') : elRef.current.classList.remove('focused');
-  // };
+  const { isActive: isActiveDiscount } = useSelector(state => state.discountModal);
+  const { isActive: isActiveFancy } = useSelector(state => state.fancyModal);
 
   const setActiveModalHandler = () => {
     dispatch(setActive(false))
@@ -34,13 +38,17 @@ export default function DiscountModal() {
     let secondInterval = null;
 
     firstInterval = setInterval((_first) => {
-      if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveDiscount) {
+      if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
         secondInterval = setInterval((_second) => {
-          if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveDiscount) {
+          if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
+            readyToInteractiveWithModalSet(false)
             dispatch(setActive(true))
             window.localStorage.setItem('isFirstVisit', 'false');
             clearInterval(firstInterval);
             clearInterval(secondInterval);
+            setTimeout(() => {
+              readyToInteractiveWithModalSet(true)
+            }, 1500);
           }
         }, 5000);
       }
@@ -51,14 +59,24 @@ export default function DiscountModal() {
     };
   });
 
+  useEffect(() => {
+    curentRefSet(btnRef)
+  }, [btnRef, curentRefSet])
+
+  useEffect(() => {
+    console.log('readyToInteractiveWithModal: ', readyToInteractiveWithModal);
+  }, [readyToInteractiveWithModal])
+
   return (
     <>
       <motion.div
+        animate={{ backdropFilter: blur(10), }}
+        initial={{ backdropFilter: blur(0) }}
         onClick={(e) => onClickWrapper(e)}
         ref={elRef}
         className={isActive ? 'discount-modal active' : 'discount-modal'}>
-        <motion.div 
-          whileDrag={{ scale: 1.05, cursor: 'grab' }}
+        <motion.form
+          whileDrag={{ scale: 0.95 }}
           drag={!mediaQuery}
           dragConstraints={{
             top: -50,
@@ -66,10 +84,11 @@ export default function DiscountModal() {
             right: 50,
             bottom: 50,
           }}
-          animate={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
+          animate={{ top: 0, opacity: 1 }}
+          initial={{ top: -100, opacity: 0 }}
+          onSubmit={onSubmit}
           className="discount-modal__wrapper">
-          <button onClick={setActiveModalHandler} className="discount-modal__close-btn">
+          <button type='button' onClick={setActiveModalHandler} className="discount-modal__close-btn">
             <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop'><Image src="/icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" /></div>
             <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile'><Image src="/icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" /></div>
           </button>
@@ -78,54 +97,13 @@ export default function DiscountModal() {
             <p className="title discount-modal__subtitle">discount</p>
             <p className="text discount-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
           </div>
-          <UiInput forForm={true} customClass="didnt-find-modal__input" />
-          <button className="ui-btn discount-modal__btn">
+          <ReactInputMask name="formFromOtherModelsPhone" onChange={(e) => dispatch(setUserPhone(e.target.value))} value={userPhone} placeholder="+1 ___ ___ __ __" mask="+1 999 999 99 99" className='ui-input didnt-find-modal__input' />
+          <button ref={btnRef} type='submit' className="ui-btn discount-modal__btn">
             <span>Get a discount</span>
           </button>
-        </motion.div>
+        </motion.form>
       </motion.div>
+      <div style={{ zIndex: loading || !readyToInteractiveWithModal ? 1000 : -1 }} className="discount-modal-locker"></div>
     </>
   );
 }
-
-
-
-
-
-
-
-
-// .tinder {
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   left: 0;
-//   bottom: 0;
-  
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   z-index: 200;
-//   &__wrapper {
-//     width: 400px;
-//     height: 400px;
-//     background-color: rgba(0, 0, 0, 1);
-//     border-radius: 10px;
-//     padding: 40px 20px;
-//     text-align: left;
-//     color: #fff;
-//   }
-
-//   &__title {
-//     font-size: 30px;
-//     margin-bottom: 20px;&::selection {
-//       background-color: transparent;
-//     }
-//   }
-
-//   &__description {&::selection {
-//     background-color: transparent;
-//   }
-//   }
-// }

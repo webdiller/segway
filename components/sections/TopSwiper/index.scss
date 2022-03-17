@@ -196,8 +196,10 @@
       }
     }
 
-    &:hover,
-    &:focus {
+    &:hover
+    // Убрал фокус, чтобы не было нареканий что не нажимается ссылка
+    // &:focus 
+    {
       background-color: rgba(0, 0, 0, 0.2);
       &::before {
         opacity: 0.4;

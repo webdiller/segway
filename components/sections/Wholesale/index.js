@@ -1,52 +1,24 @@
 import TitleWithDescription from '@/blocks/TitleWithDescription';
 import Image from 'next/image';
 import WholesaleImage from '@/base/wholesale-image.jpg';
-import { useRef } from 'react';
-import axios from 'axios';
+import { useEffect, useRef } from 'react';
+import ReactInputMask from 'react-input-mask';
+import { setUserName, setUserPhone } from 'store/slices/discountModalSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import useForm from '@/hooks/useForm';
 
 export default function Wholesale() {
-    // form
-    const btnRef = useRef();
-    const onSubmit = async e => {
-      e.preventDefault();
-      const formData = {};
-      Array.from(e.currentTarget.elements).forEach(field => {
-        if (!field.name) return;
-        formData[field.name] = field.value;
-      });
-  
-      let config = {
-        method: "post",
-        url: `/api/mail`,
-        headers: {
-          "Content-Type": "application/json"
-        },
-        data: formData
-      };
-  
-      btnRef.current.innerHTML = "<span>Sending...</span>";
-      btnRef.current.classList.add("loading");
-      try {
-        const response = await axios(config);
-  
-        if (response.status === 200) {
-          btnRef.current.innerHTML = "<span>Success</span>";
-          btnRef.current.classList.remove("loading");
-  
-          setTimeout(() => {
-            btnRef.current.innerHTML = "<span>Send</span>";
-          }, 3000);
-        }
-      } catch (error) {
-        alert('Error while sending form')
-        btnRef.current.innerHTML = "<span>Error while sending</span>";
-        setTimeout(() => {
-          btnRef.current.innerHTML = "<span>Send</span>";
-        }, 3000);
-      }
-  
-    };
-    // form
+  const dispatch = useDispatch()
+
+  const btnRef = useRef(null);
+  const { onSubmit, curentRefSet, loading } = useForm()
+
+  const { userPhone, userName } = useSelector((state) => state.discountModal);
+
+  useEffect(() => {
+    curentRefSet(btnRef)
+  }, [btnRef, curentRefSet])
+
   return (
     <div className="wholesale">
       <div className="container wholesale__container">
@@ -66,11 +38,11 @@ export default function Wholesale() {
           <div className="wholesale__form-img-wrapper">
             <Image objectFit='contain' width={419} height={294} placeholder="blur" src={WholesaleImage} alt="wholesale image for form" />
           </div>
-          <input name="formFromOtherModelsName" placeholder="Your name" type="text" className="wholesale__form-input" />
-          <input name="formFromOtherModelsPhone" placeholder="+1 (888) ____-____" type="text" className="wholesale__form-input" />
-            <button ref={btnRef} type="submit" className="ui-btn wholesale__form-btn"><span>DOWNLOAD NOW</span></button>
+          <ReactInputMask name="formFromOtherModelsName" onChange={(e) => dispatch(setUserName(e.target.value))} value={userName} placeholder="Your name" maxLength={50} className='ui-input wholesale__form-input' />
+          <ReactInputMask name="formFromOtherModelsPhone" onChange={(e) => dispatch(setUserPhone(e.target.value))} value={userPhone} placeholder="+1 (888) ____-____" mask="+1 999 999 99 99" className='ui-input wholesale__form-input' />
+          <button ref={btnRef} type="submit" className="ui-btn wholesale__form-btn"><span>DOWNLOAD NOW</span></button>
         </form>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

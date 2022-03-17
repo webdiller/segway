@@ -1,4 +1,5 @@
 .title-with-description {
+  position: relative;
   &__container {
     @include media('<=991px') {
     }

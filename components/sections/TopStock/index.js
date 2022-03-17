@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function TopStock({
   title = "Free 1 day shipping within California. ",
 }) {

@@ -8,7 +8,7 @@ export default function KickscootersPage({allData}) {
   return (
     <>
       <CustomHead title="All kickscooters" />
-      <ProductCards title="Kickscooters" categoryRoute="kickscooters" products={[...allData.segways.adultSegways]} />
+      <ProductCards title="Kickscooters" categoryRoute="kickscooters" products={[...allData.segways.adultSegways, ...allData.segways.kidsSegways] } />
       <SegwayProtect customClass="type-1" />
       <Tabs customClass="main-page" />
     </>

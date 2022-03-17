@@ -1,20 +1,27 @@
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
+
 import { Scrollbar, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
 import axios from "axios";
-const Link = dynamic(() => import('next/link'));
+
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import { useInView } from 'react-intersection-observer';
 import UiInput from 'components/shared/UiInput/UiInput';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { disableOtherModelsSlider } from 'store/slices/elementInViewSlice';
 
 export default function OtherModels({ items }) {
   const swiperRef = useRef(null);
   const [allSegways] = useState(items)
   const { ref, inView } = useInView({ threshold: 0.5 });
 
-  // form
+  const dispatch = useDispatch()
+  const { otherModelsSlider } = useSelector(state => state.elementInView)
+
   const btnRef = useRef();
   const onSubmit = async e => {
     e.preventDefault();
@@ -55,10 +62,10 @@ export default function OtherModels({ items }) {
     }
 
   };
-  // form
 
   useEffect(() => {
-    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView) {
+    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && otherModelsSlider) {
+      dispatch(disableOtherModelsSlider(false))
       try {
         swiperRef.current.slideNext();
         setTimeout(() => {
@@ -68,7 +75,7 @@ export default function OtherModels({ items }) {
         }, 350);
       } catch (error) { }
     }
-  }, [swiperRef, inView]);
+  }, [swiperRef, inView, otherModelsSlider, dispatch]);
 
   return (
     <div ref={ref} className="other-models">
@@ -100,28 +107,32 @@ export default function OtherModels({ items }) {
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {allSegways.map(({ id, name, nameWithoutBrand, price, imgPath }) => (
-              <SwiperSlide key={id} className="swiper-slide other-models__item">
-                <div className="other-models__item-wrapper">
-                  <Link href="#">
-                    <a className="other-models__link">
-                      <div className="other-models__img-wrapper">
-                        <Image quality={100} objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
-                      </div>
-                      <p className="text text_25 other-models__name">{nameWithoutBrand}</p>
-                      <div className="other-models__price">
-                        <p className="text text_uppercase other-models__price-value">${price}</p>
-                      </div>
-                    </a>
-                  </Link>
-                  <Link href="#">
-                    <a className="ui-btn other-models__see-more">
-                      <span>SEE MORE</span>
-                    </a>
-                  </Link>
-                </div>
-              </SwiperSlide>
-            ))}
+            {allSegways.map(({ id, name, nameWithoutBrand, price, imgPath, excludeForMap }) => {
+              if (!excludeForMap) {
+                return (
+                  <SwiperSlide key={id} className="swiper-slide other-models__item">
+                    <div className="other-models__item-wrapper">
+                      <Link href="#">
+                        <a className="other-models__link">
+                          <div className="other-models__img-wrapper">
+                            <Image quality={100} objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
+                          </div>
+                          <p className="text text_25 other-models__name">{nameWithoutBrand}</p>
+                          <div className="other-models__price">
+                            <p className="text text_uppercase other-models__price-value">${price}</p>
+                          </div>
+                        </a>
+                      </Link>
+                      <Link href="#">
+                        <a className="ui-btn other-models__see-more">
+                          <span>SEE MORE</span>
+                        </a>
+                      </Link>
+                    </div>
+                  </SwiperSlide>
+                )
+              }
+            })}
 
             <SwiperSlide onSubmit={onSubmit} tag="form" className="swiper-slide swiper-slide_form other-models__form">
               <p className="other-models__form-title">

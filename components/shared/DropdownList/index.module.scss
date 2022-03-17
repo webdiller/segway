@@ -61,6 +61,7 @@
   font-size: 13px;
   border: 1px solid rgba(153, 153, 153, 0.33);
   transition: all 0.3s ease;
+
   &:focus {
     border: 1px solid #009eff;
     outline: 0;
@@ -68,6 +69,7 @@
       transform: translateY(-50%) rotate(180deg);
     }
   }
+
   &::placeholder {
     font-size: 13px;
     line-height: 120%;
@@ -76,6 +78,7 @@
       font-size: 16px;
     }
   }
+  
   @include media('<=768px') {
     padding-left: 12px;
     padding-top: 16px;

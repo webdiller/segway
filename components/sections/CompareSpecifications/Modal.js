@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Modal() {
   <style jsx>{`
     .container {

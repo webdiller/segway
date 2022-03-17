@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   preparedProduct: null,
@@ -23,14 +23,6 @@ export const preparedProductSlice = createSlice({
       idParams.set('color', selectedColor)
 
       state.preparedProduct.id = idParams.toString()
-
-      // console.log(current(state.preparedProduct).id);
-
-      // const currentId = new URLSearchParams(currentProduct.id);
-      // const newId = new URLSearchParams(currentProduct.id);
-
-      // newId.set('warranty', selectedWarranty);
-      // newId.set('color', selectedColor);
     },
 
     setCurrentPrice: (state, action) => {

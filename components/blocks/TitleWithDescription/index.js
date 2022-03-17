@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+
 export default function TitleWithDescription({ titleDesktop, titleMobile, textDesktop, textMobile, customClass }) {
   return (
     <div className={classNames('title-with-description', classNames(customClass))}>

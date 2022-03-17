@@ -182,6 +182,13 @@ input {
   overflow: visible;
 }
 
+input,
+textarea {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
 /**
      * Remove the inheritance of text transform in Edge, Firefox, and IE.
      * 1. Remove the inheritance of text transform in Firefox.

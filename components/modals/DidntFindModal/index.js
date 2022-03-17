@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import React, {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import bgImageDark from '@/base/didnt-find-img-dark.png';
 import UiInput from 'components/shared/UiInput/UiInput';
 import noScroll from 'no-scroll';
 import TinderCard from 'react-tinder-card';
 
-export default function DidntFindModal({isWhiteMode = true,}) {
+export default function DidntFindModal({ isWhiteMode = true, }) {
   const [activeModal, setActiveModal] = useState(true);
   const [whiteModeState, setWhiteModeState] = useState(isWhiteMode);
 
@@ -16,14 +16,11 @@ export default function DidntFindModal({isWhiteMode = true,}) {
   };
 
   const onSwipe = (direction) => {
-    console.log('You swiped: ' + direction);
     setActiveModal((prev) => !prev);
     noScroll.toggle();
   };
 
-  const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + ' left the screen');
-  };  
+  const onCardLeftScreen = (myIdentifier) => { };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

@@ -151,8 +151,50 @@ $rootElement: '.discount-modal';
     width: 234px;
     left: 50%;
     transform: translateX(-50%);
+    overflow: hidden;
+
+    &.loading {
+      overflow: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      cursor: wait;
+      background-color: #009eff;
+      color: #fff;
+      border-color: transparent;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        opacity: 1;
+        background: repeating-linear-gradient(60deg, transparent, transparent 0.75rem, rgba(255, 255, 255, 0.1) 0.75rem, rgba(255, 255, 255, 0.1) 1.5rem);
+        animation: load 1s infinite linear;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+    }
     @include media('<=768px') {
       width: 272px;
     }
+  }
+}
+
+.discount-modal-locker {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1.75rem);
   }
 }

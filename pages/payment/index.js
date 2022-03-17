@@ -6,10 +6,37 @@ import CustomCheckbox from '@/shared/CustomCheckbox';
 import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
 import { useSelector } from 'react-redux';
-import { setEmail, setFirstName, setLastName, setAddress, setApartment, setCountry, setCity, setZipCode, setPhone, setState } from 'store/slices/profileSlice';
+import {
+  setEmail,
+  setEmailMeWithNewsAndOffers,
+  setFirstName,
+  setLastName,
+  setAddress,
+  setApartment,
+  setCountry,
+  setCity,
+  setZipCode,
+  setPhone,
+  setSaveThisInfoForNextTime,
+  setState
+} from 'store/slices/profileSlice';
 
 export default function PaymentMainPage() {
-  const { email, firstName, lastName, address, apartment, country, city, state, zipCode, phone } = useSelector(state => state.profile);
+  const {
+    email,
+    emailMeWithNewsAndOffers,
+    saveThisInfoForNextTime,
+    firstName,
+    lastName,
+    address,
+    apartment,
+    country,
+    city,
+    state,
+    zipCode,
+    phone
+  } = useSelector(state => state.profile);
+  
   return (
     <>
       <CustomHead title="Payment main information" />
@@ -18,7 +45,7 @@ export default function PaymentMainPage() {
         <div className="payment-info__contact-area">
           <p className="payment__title payment-info__title">Contact information</p>
           <CustomInput handler={setEmail} value={email} customClass="payment-info__email" type="text" placeholder="Email" />
-          <CustomCheckbox customClass="payment-info__checkbox-first" text="Email me with news and offers" />
+          <CustomCheckbox handler={setEmailMeWithNewsAndOffers} value={emailMeWithNewsAndOffers} customClass="payment-info__checkbox-first" text="Email me with news and offers" />
         </div>
         <div className="payment-info__shipping-address">
           <p className="payment__title payment-info__title">Shipping address</p>
@@ -51,7 +78,7 @@ export default function PaymentMainPage() {
               <CustomInput handler={setPhone} value={phone} type="text" placeholder="Phone" />
             </div>
             <div className="payment-info__form-item">
-              <CustomCheckbox customClass="payment-info__checkbox-second" text="Save this information for next time" />
+              <CustomCheckbox handler={setSaveThisInfoForNextTime} value={saveThisInfoForNextTime} customClass="payment-info__checkbox-second" text="Save this information for next time" />
             </div>
             <div className="payment-info__form-item">
               <Link href="/payment/shipping"><a className="payment__btn payment-info__btn">Continue for shipping</a></Link>

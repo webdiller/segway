@@ -138,7 +138,6 @@ export default function ProductModal({ accessoeries }) {
                       <div className="product-modal__product-name-and-price">
                         <p className="product-modal__product-name">{name}</p>
                         <p className="product-modal__product-price">{quantity} x ${price}</p>
-                        {/* <span style={{ fontSize: 12, whiteSpace: 'nowrap' }}>id: {id}</span> */}
                         {colors && (
                           <ColorToggler product={item} />
                         )}

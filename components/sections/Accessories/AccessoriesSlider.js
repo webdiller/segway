@@ -2,14 +2,17 @@ import {Scrollbar, FreeMode} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Image from 'next/image';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useEffect, useRef, useState} from 'react';
 import {useInView} from 'react-intersection-observer';
 import { pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { disableAccessoriesSlider } from 'store/slices/elementInViewSlice';
 
 export default function AccessoriesSlider({items}) {
   const dispatch = useDispatch();
+  const { accessoriesSlider } = useSelector(state => state.elementInView)
+
   const buttonElement = useRef(null);
   const [hidenOtherAccessories, setHiddenOtherAccessories] = useState(true);
 
@@ -32,7 +35,8 @@ export default function AccessoriesSlider({items}) {
   const {ref, inView} = useInView({threshold: 0.5});
 
   useEffect(() => {
-    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView) {
+    if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && accessoriesSlider) {
+      dispatch(disableAccessoriesSlider(false))
       try {
         swiperRef.current.slideNext();
         setTimeout(() => {
@@ -42,7 +46,7 @@ export default function AccessoriesSlider({items}) {
         }, 350);
       } catch (error) {}
     }
-  }, [swiperRef, inView]);
+  }, [swiperRef, inView, accessoriesSlider, dispatch]);
 
   return (
     <div ref={ref} className={hidenOtherAccessories ? 'accessories-slider accessories-slider_hide-other-accessories' : 'accessories-slider'}>

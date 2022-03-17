@@ -60,7 +60,7 @@ export default function FancyModalA({ images }) {
           }}>
           {images.map((element, id) => (
             <SwiperSlide key={id} className={styles.fancyModal__imageWrapper}>
-              <Image quality={100} objectFit="contain" className={styles.fancyModal__image} src={element} alt="Segway image in slider" layout="fill" placeholder="blur" blurDataURL={segwayPlaceholder} />
+              <Image quality={100} objectFit="cover" className={styles.fancyModal__image} src={element} alt="Segway image in slider" layout="fill" placeholder="blur" blurDataURL={segwayPlaceholder} />
             </SwiperSlide>
           ))}
         </Swiper>

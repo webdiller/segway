@@ -4,9 +4,10 @@ import CustomHead from '@/basic/CustomHead';
 import { ShippingItem, ShippingList } from '@/shared/ShippingStatus';
 import RadioWrapper from '@/shared/RadioItems/RadioWrapper';
 import { useSelector } from 'react-redux';
+import { setShippingMethod } from 'store/slices/profileSlice';
 
 export default function PaymentShippingPage() {
-  const { email, address } = useSelector(state => state.profile);
+  const { email, address, shippingMethod } = useSelector(state => state.profile);
   return (
     <>
       <CustomHead title="Payment shipping" />
@@ -19,9 +20,13 @@ export default function PaymentShippingPage() {
         </div>
         <div className="payment-shipping__methods">
           <p className="payment__title payment-shipping__title">Shipping method</p>
+
           <RadioWrapper
-            id="shippingMethodEconomy"
+            currentValue={shippingMethod}
+            handler={setShippingMethod}
             radioName="shippingMethod"
+            id="economy"
+            value="economy"
             firstChildren={
               <div className="payment-radio__title-text">
                 <span className="payment-radio__title-text-title">Economy</span>
@@ -30,6 +35,7 @@ export default function PaymentShippingPage() {
             }
             secondChildren={<div className="payment-radio__link">Free</div>}
           />
+
         </div>
         <div className="payment-shipping__action-buttons">
           <Link href="/payment/payment">

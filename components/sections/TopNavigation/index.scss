@@ -26,6 +26,9 @@
     display: none;
     font-size: 24px;
     transition: all 0.3s ease;
+    > * {
+      pointer-events: none;
+    }
     @include media('<=991px') {
       z-index: 200;
       display: inline-flex;
@@ -41,14 +44,6 @@
           color: #fff;
         }
       }
-    }
-  }
-
-  &__btn-icon {
-    transition: all 0.3s ease;
-    @include media('<=991px') {
-      position: relative;
-      left: -2px;
     }
   }
 

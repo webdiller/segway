@@ -1,18 +1,40 @@
-import useToggle from '@/hooks/useToggle';
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
 import styles from './RadioWrapper.module.scss';
 
-export default function RadioWrapper({ customClass, id, radioName, firstChildren, secondChildren, dropdownChildren, hideSecondChildOnBlur }) {
-  const { active, setInactiveHandler, setActiveHandler } = useToggle(false)
+export default function RadioWrapper({
+  customClass,
+  id,
+  value,
+  currentValue,
+  radioName,
+  firstChildren,
+  secondChildren,
+  dropdownChildren,
+  hideSecondChildOnBlur,
+  handler,
+  checked }) {
+
+  const dispatch = useDispatch()
+
   return (
     <div className={classNames(styles.mainWrapper, classNames(customClass))}>
       <div className={styles.topWrapper}>
         <div className={styles.inputWithLabel}>
-          <input onClick={e => e.target.checked && setActiveHandler()} onBlur={setInactiveHandler} className={styles.input} type="radio" name={radioName} id={id} />
-          <label className={styles.label} htmlFor={id}></label>
+          <input
+            defaultChecked={value === currentValue}
+            onClick={e => e.target.checked && dispatch(handler(value))}
+            type="radio"
+            name={radioName}
+            id={id}
+            value={value}
+            className={styles.input} />
+          <label
+            htmlFor={id}
+            className={styles.label}></label>
         </div>
         {firstChildren && <div className={styles.firstChildren}>{firstChildren}</div>}
-        {secondChildren && <div className={active ? classNames(styles.secondChildren) : classNames(styles.secondChildren, styles.inactive)}>{secondChildren}</div>}
+        {secondChildren && <div className={id ? classNames(styles.secondChildren) : classNames(styles.secondChildren, styles.inactive)}>{secondChildren}</div>}
       </div>
       {dropdownChildren && <div className={styles.bottomWrapper}>{dropdownChildren}</div>}
     </div>

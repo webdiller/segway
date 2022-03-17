@@ -9,22 +9,24 @@ export default function ProductCards({categoryRoute, title, products}) {
         <p className="title product-cards__title">{title}</p>
 
         <div className="product-cards__items">
-          {products.map(({id, shortName, pageLinkName }) => {
-            return (
-              <div key={id} className="product-cards__item">
-                <div className="product-cards__item-background-img-wrapper"></div>
-                <div className="product-cards__item-product-img-wrapper"></div>
-                <div className="product-cards__item-content">
-                  <p className="product-cards__item-name">
-                    {shortName}
-                  </p>
-                  <p className="product-cards__item-price">$999.99</p>
-                  <Link href={pageLinkName ? `/${categoryRoute}/${pageLinkName}` : '/'}>
-                    <a className="ui-glass-link product-cards__item-link">SEE DETAILS</a>
-                  </Link>
+          {products.map(({id, shortName, pageLinkName, excludeForMap }) => {
+            if (!excludeForMap) {
+              return (
+                <div key={id} className="product-cards__item">
+                  <div className="product-cards__item-background-img-wrapper"></div>
+                  <div className="product-cards__item-product-img-wrapper"></div>
+                  <div className="product-cards__item-content">
+                    <p className="product-cards__item-name">
+                      {shortName}
+                    </p>
+                    <p className="product-cards__item-price">$999.99</p>
+                    <Link href={pageLinkName ? `/${categoryRoute}/${pageLinkName}` : '/'}>
+                      <a className="ui-glass-link product-cards__item-link">SEE DETAILS</a>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
+              );
+            }
           })}
         </div>
         <div className="product-cards__bottom">

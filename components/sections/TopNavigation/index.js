@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import logoBlack from '@/base/logo-black.svg';
 import iconCartWhite from '@/base/icon-cart-white.svg';
 import iconCartBlack from '@/base/icon-cart-black.svg';
@@ -12,40 +12,27 @@ import iconCloseBlack from '@/base/icon-bar.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import { productModalActiveSet } from 'store/slices/modalsSlice';
 
-const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
-
 export default function TopNavigation() {
+  const dispatch = useDispatch();
+
+  const [isActiveMenu, setIsActiveMenu] = useState(false);
 
   const { products } = useSelector(state => state.products);
   const [count, countSet] = useState(0)
 
-  const dispatch = useDispatch();
-  const [isActiveMenu, setIsActiveMenu] = useState(false);
   const handleSetIsActiveMenu = () => {
     setIsActiveMenu((prev) => !prev);
   };
 
-  const elementRef = useRef(null);
-
   useEffect(() => {
     const closeElementIfClickOutside = (event) => {
-      if (event.target.tagName) setIsActiveMenu(false);
-
-      if (isActiveMenu && elementRef.current && !elementRef.current.contains(event.target)) {
-        setIsActiveMenu(false);
-      }
+      if (event.target.tagName === 'A') setIsActiveMenu(false)
+      if (event.target.tagName !== 'button' && isActiveMenu) setIsActiveMenu(false)
     };
-    if (isTouchDevice) {
-      document.addEventListener('touchend', closeElementIfClickOutside);
-    } else {
-      document.addEventListener('mousedown', closeElementIfClickOutside);
-    }
 
-    if (isTouchDevice) {
-      return () => document.removeEventListener('touchend', closeElementIfClickOutside);
-    } else {
-      return () => document.removeEventListener('mousedown', closeElementIfClickOutside);
-    }
+    document.addEventListener('click', closeElementIfClickOutside);
+    return () => document.removeEventListener('click', closeElementIfClickOutside);
+
   }, [isActiveMenu]);
 
   useEffect(() => {
@@ -56,7 +43,7 @@ export default function TopNavigation() {
 
   return (
     <>
-      <div ref={elementRef} className="top-nav">
+      <div className="top-nav">
         <div className="container top-nav__container">
           <button onClick={handleSetIsActiveMenu} className={isActiveMenu ? 'top-nav__btn-menu active' : 'top-nav__btn-menu'}>
             {!isActiveMenu ? <Image width={25} height={19} src={iconCloseBlack} alt="icon close menu" /> : <Image width={20} height={20} src={iconCloseWhite} alt="icon close menu" />}

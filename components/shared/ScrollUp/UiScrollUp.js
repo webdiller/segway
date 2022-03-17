@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import logoBlack from '@/base/icon-arrow-top.svg';
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export default function UiSrollUp() {
   const [offset, setOffset] = useState(0);

@@ -1,15 +1,21 @@
 import styles from './index.module.scss';
-import {IoMdArrowDropdown} from 'react-icons/io';
+import { IoMdArrowDropdown } from 'react-icons/io';
 import useToggle from '@/hooks/useToggle';
 import classNames from 'classnames';
-import {useState, useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 
-export default function DropdownList({customClass, placeholder, data}) {
-  const {active, setToggleHandler, setActiveHandler, setInactiveHandler} = useToggle(false);
-  const [value, setCurrentValue] = useState();
+export default function DropdownList({ customClass, placeholder, data, handler, value }) {
+
+  const dispatch = useDispatch();
+
+  const { active, setToggleHandler, setActiveHandler, setInactiveHandler } = useToggle(false);
   const inputRef = useRef()
+
   const setCurrentValueHandler = (e) => {
-    setCurrentValue(e.target.innerText);
+    const value = e.target.innerText;
+    dispatch(handler(value))
+    setInactiveHandler()
   };
 
   const setFocusHandler = () => inputRef.current.focus();
@@ -57,7 +63,13 @@ export default function DropdownList({customClass, placeholder, data}) {
       </div>
 
       <div className={styles.main}>
-        <input ref={inputRef} value={value} onFocus={setActiveHandler} onBlur={setInactiveHandler} className={styles.input} type="text" />
+        <input
+          ref={inputRef}
+          defaultValue={value}
+          onFocus={setActiveHandler}
+          onBlur={setInactiveHandler}
+          className={styles.input}
+          type="text" />
         <span className={styles.placeholder}>{placeholder}</span>
         <IoMdArrowDropdown onClick={setFocusHandler} className={styles.icon} />
       </div>

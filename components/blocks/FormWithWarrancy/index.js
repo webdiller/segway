@@ -8,9 +8,13 @@ import segwayProtect from '@/base/segway-protect.png';
 import { initProduct, setProperties, setCurrentPrice } from 'store/slices/preparedProductSlice';
 import { productModalActiveSet } from 'store/slices/modalsSlice';
 import { pushProduct } from 'store/slices/productCartSlice';
+import Colors from './Colors';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function FormWithWarrancy({ customClass = 'form-with-warrancy', product }) {
   const dispatch = useDispatch();
+
+  let mediaQuery = useMediaQuery('(min-width: 768px)');
 
   const [currentWarranty, currentWarrantySet] = useState(null)
   const [currentColor, currentColorSet] = useState(null)
@@ -43,9 +47,9 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
   const onChangeWarrantyHandler = (e, selectedWarranty) => {
     if (!e.target.classList.contains('active')) {
-      dispatch(setProperties({ selectedWarranty, selectedColor: null }))
+      dispatch(setProperties({ selectedWarranty, selectedColor: currentColor }))
     } else {
-      dispatch(setProperties({ selectedWarranty: null, selectedColor: null }))
+      dispatch(setProperties({ selectedWarranty: null, selectedColor: currentColor }))
     }
   }
 
@@ -56,24 +60,38 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
   return (
     <>
+      {!mediaQuery && product.colors && (
+        <Colors colors={product.colors} />
+      )}
+
       <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>
         <div ref={tabWrapper} className="form-with-warrancy__wrapper">
-          <p className="form-with-warrancy__form-title">
-            Add an extended warranty from <span>Extend</span>
-          </p>
-          <div className="form-with-warrancy__form-buttons">
-            {product.warranty.map(({ durationYear, price }) => {
-              return (
-                <button
-                  onClick={(e) => { onChangeWarrantyHandler(e, durationYear) }}
-                  key={`${product.id}-${durationYear}`}
-                  className={currentWarranty == durationYear ? "form-with-warrancy__form-button active" : "form-with-warrancy__form-button"}>
-                  <span className="form-with-warrancy__form-button-year">{durationYear} Year</span>
-                  <span className="form-with-warrancy__form-button-separator">-</span>
-                  <span className="form-with-warrancy__form-button-price">${price}</span>
-                </button>
-              )
-            })}
+
+          <div className="form-with-warrancy__top">
+
+            {mediaQuery && product.colors && (
+              <Colors colors={product.colors} />
+            )}
+
+            <div className="form-with-warrancy__title-with-buttons">
+              <p className="form-with-warrancy__form-title">
+                Add an extended warranty from <span>Extend</span>
+              </p>
+              <div className="form-with-warrancy__form-buttons">
+                {product.warranty.map(({ durationYear, price }) => {
+                  return (
+                    <button
+                      onClick={(e) => { onChangeWarrantyHandler(e, durationYear) }}
+                      key={`${product.id}-${durationYear}`}
+                      className={currentWarranty == durationYear ? "form-with-warrancy__form-button active" : "form-with-warrancy__form-button"}>
+                      <span className="form-with-warrancy__form-button-year">{durationYear} Year</span>
+                      <span className="form-with-warrancy__form-button-separator">-</span>
+                      <span className="form-with-warrancy__form-button-price">${price}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           <div className="form-with-warrancy__form-prices-subtitle-image">

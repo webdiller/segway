@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isActive: false,
-  userPhone: null
+  userName: "",
+  userPhone: ""
 }
 
 export const discountModalSlice = createSlice({
@@ -18,11 +19,14 @@ export const discountModalSlice = createSlice({
         document.body.classList.remove('disabled')
       }
     },
+    setUserName: (state, action) => {
+      state.userName = action.payload;
+    },
     setUserPhone: (state, action) => {
       state.userPhone = action.payload;
     }
   }
 })
 
-export const { setActive, setUserPhone } = discountModalSlice.actions
+export const { setActive, setUserName, setUserPhone } = discountModalSlice.actions
 export default discountModalSlice.reducer

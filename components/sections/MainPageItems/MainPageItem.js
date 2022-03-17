@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
-import {useMediaQuery} from '@/hooks/useMediaQuery';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+
 import styles from './index.module.scss';
 
-export default function MainPageItem({name, href = '/', hrefLabel = 'SEE MORE', mainImg, hoverImg}) {
+export default function MainPageItem({ name, href = '/', hrefLabel = 'SEE MORE', mainImg, hoverImg }) {
   let mediaQuery = useMediaQuery(`(min-width: 991px)`);
 
   return (
