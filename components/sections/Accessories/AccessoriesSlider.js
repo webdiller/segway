@@ -1,15 +1,15 @@
-import {Scrollbar, FreeMode} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Scrollbar, FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import circlePlaceholder from '@/base/circle-placeholder.svg';
-import {useDispatch, useSelector} from 'react-redux';
-import {useEffect, useRef, useState} from 'react';
-import {useInView} from 'react-intersection-observer';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/modalsSlice';
 import { disableAccessoriesSlider } from 'store/slices/elementInViewSlice';
 
-export default function AccessoriesSlider({items}) {
+export default function AccessoriesSlider({ items }) {
   const dispatch = useDispatch();
   const { accessoriesSlider } = useSelector(state => state.elementInView)
 
@@ -25,6 +25,7 @@ export default function AccessoriesSlider({items}) {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();
     }, 3000);
+
   };
 
   const onToggleHiddenOthersetAccessories = () => {
@@ -32,19 +33,21 @@ export default function AccessoriesSlider({items}) {
   };
 
   const swiperRef = useRef(null);
-  const {ref, inView} = useInView({threshold: 0.5});
+  const { ref, inView } = useInView({ threshold: 0.5 });
 
   useEffect(() => {
     if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && accessoriesSlider) {
-      dispatch(disableAccessoriesSlider(false))
       try {
         swiperRef.current.slideNext();
         setTimeout(() => {
           try {
             swiperRef.current.slidePrev();
-          } catch (error) {}
+          } catch (error) { }
         }, 350);
-      } catch (error) {}
+      } catch (error) { }
+      finally {
+        dispatch(disableTopSlider(false))
+      }
     }
   }, [swiperRef, inView, accessoriesSlider, dispatch]);
 
@@ -76,7 +79,7 @@ export default function AccessoriesSlider({items}) {
               swiperRef.current = swiper;
             }}>
             {items.map((item) => {
-              const {id, imgPath, nameWrap, description, price} = item;
+              const { id, imgPath, nameWrap, description, price } = item;
               return (
                 <SwiperSlide key={id} className="swiper-slide accessories-slider__item">
                   <div className="accessories-slider__item-wrapper">
