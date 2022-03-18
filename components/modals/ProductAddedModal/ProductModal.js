@@ -21,8 +21,6 @@ import { WarrancyToggler, ColorToggler } from './index'
 export default function ProductModal({ accessoeries }) {
 
   const modalWrapperElement = useRef(null);
-  const targetScrollElement = useRef(null);
-  const targetVisibleItemsElement = useRef(null);
 
   const [visibleProducts, setVisibleProducts] = useState(true);
   const modalRef = useRef(null);
@@ -54,7 +52,11 @@ export default function ProductModal({ accessoeries }) {
     }
   };
 
-  const setVisibleProductsToggle = () => setVisibleProducts((prev) => !prev);
+  const setVisibleProductsToggle = () => {
+    if (products.length > 0) {
+      setVisibleProducts((prev) => !prev);
+    }
+  }
 
   const addItemToCartWithAnimation = (e, item) => {
     dispatch(pushProduct(item))
@@ -114,9 +116,9 @@ export default function ProductModal({ accessoeries }) {
         {/* HEADER END */}
 
         {/* CONTENT START */}
-        <div ref={targetScrollElement} className='product-modal__content'>
+        <div className='product-modal__content'>
           <div className="product-modal__summ-and-products">
-            <div ref={targetVisibleItemsElement} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
+            <div className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
               <div onClick={setVisibleProductsToggle} className="product-modal__summ-icon-with-text">
                 <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
                   <Image src={iconCartBlue} alt="icon" />
