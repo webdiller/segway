@@ -43,10 +43,10 @@ export default function AccessoriesSlider({ items }) {
           try {
             swiperRef.current.slidePrev();
           } catch (error) { }
-        }, 350);
+        }, 450);
       } catch (error) { }
       finally {
-        dispatch(disableTopSlider(false))
+        dispatch(disableAccessoriesSlider(false))
       }
     }
   }, [swiperRef, inView, accessoriesSlider, dispatch]);

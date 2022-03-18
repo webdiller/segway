@@ -52,7 +52,7 @@ export default function TopSwiper({ items }) {
               try {
                 swiperWithAllSegways.current.slidePrev();
               } catch (error) { }
-            }, 350);
+            }, 450);
           } catch (error) { }
           finally {
             dispatch(disableTopSlider(false))

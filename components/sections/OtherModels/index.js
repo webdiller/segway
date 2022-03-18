@@ -73,7 +73,7 @@ export default function OtherModels({ items }) {
           try {
             swiperRef.current.slidePrev();
           } catch (error) { }
-        }, 350);
+        }, 450);
       } catch (error) { }
       finally {
         dispatch(disableOtherModelsSlider(false))
