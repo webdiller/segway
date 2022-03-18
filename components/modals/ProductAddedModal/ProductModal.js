@@ -125,13 +125,27 @@ export default function ProductModal({ accessoeries }) {
 
             <div ref={targetItemsAreaElement} className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
               {products.map((item) => {
-                const { id, name, price, imgPath, quantity, colors } = item;
+
+                let { id, name, price, imgPath, quantity, colors } = item;
+                
+                if (colors && colors.length > 0) {
+                  const paramsId = new URLSearchParams(id);
+                  const currentColor = paramsId.get('color');
+                  imgPath = colors.find(el=>el.color === currentColor).imgPath;
+                  console.log(imgPath);
+                }
 
                 return (
                   <div key={id} className="product-modal__product">
                     <div className="product-modal__product-main-area">
                       <div className="product-modal__product-img-wrapper">
-                        <Image layout="fill" objectFit="contain" src={imgPath} alt={name} className="product-modal__product-img" />
+                        <Image
+                          layout="fill"
+                          objectFit="contain"
+                          src={imgPath}
+                          alt={name}
+                          className="product-modal__product-img"
+                        />
                       </div>
 
                       <div className="product-modal__product-name-and-price">

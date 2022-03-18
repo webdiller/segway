@@ -721,14 +721,16 @@ export const data = {
             color: "6D7DDF",
             price: 50,
             url: "/kickscooter-zing-e8-purple",
-            urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple"
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
+            imgPath: "/ninebot-kickscooter-zing-e8-purple.png"
           },
           {
             name: "pink",
             color: "FFBFC0",
             price: 75,
             url: "/kickscooter-zing-e8-pink",
-            urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink"
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
+            imgPath: "/ninebot-kickscooter-zing-e8-pink.png"
           }
         ],
         imgPath: "/ninebot-kickscooter-zing-e8-purple.png",
@@ -795,14 +797,16 @@ export const data = {
             color: "6D7DDF",
             price: 50,
             url: "/kickscooter-zing-e8-purple",
-            urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple"
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
+            imgPath: "/ninebot-kickscooter-zing-e8-purple.png"
           },
           {
             name: "pink",
             color: "FFBFC0",
             price: 75,
             url: "/kickscooter-zing-e8-pink",
-            urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink"
+            urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
+            imgPath: "/ninebot-kickscooter-zing-e8-pink.png"
           }
         ],
         imgPath: "/ninebot-kickscooter-zing-e8-pink.png",
