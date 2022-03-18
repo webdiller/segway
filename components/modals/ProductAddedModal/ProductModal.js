@@ -23,7 +23,6 @@ export default function ProductModal({ accessoeries }) {
   const modalWrapperElement = useRef(null);
   const targetScrollElement = useRef(null);
   const targetVisibleItemsElement = useRef(null);
-  const targetItemsAreaElement = useRef(null);
 
   const [visibleProducts, setVisibleProducts] = useState(true);
   const modalRef = useRef(null);
@@ -77,6 +76,14 @@ export default function ProductModal({ accessoeries }) {
     };
   });
 
+  useEffect(()=>{
+    if (products.length <= 0) {
+      setVisibleProducts(false)
+    } else {
+      setVisibleProducts(true)
+    }
+  }, [products])
+
   return (
     <div ref={modalRef} onClick={(e) => closeModalWrapper(e)} className={activeModal ? "product-modal product-modal_fixed active" : "product-modal product-modal_fixed"}>
       <div ref={modalWrapperElement} className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
@@ -107,7 +114,7 @@ export default function ProductModal({ accessoeries }) {
         {/* HEADER END */}
 
         {/* CONTENT START */}
-        <div ref={targetScrollElement} className={visibleProducts ? 'product-modal__content active' : 'product-modal__content'}>
+        <div ref={targetScrollElement} className='product-modal__content'>
           <div className="product-modal__summ-and-products">
             <div ref={targetVisibleItemsElement} className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
               <div onClick={setVisibleProductsToggle} className="product-modal__summ-icon-with-text">
@@ -123,15 +130,15 @@ export default function ProductModal({ accessoeries }) {
               <p className="text text_bold product-modal__summ-total">$ {totalPrice.toFixed(2)}</p>
             </div>
 
-            <div ref={targetItemsAreaElement} className={visibleProducts ? 'product-modal__products-area active' : 'product-modal__products-area'}>
+            <div className="product-modal__products-area">
               {products.map((item) => {
 
                 let { id, name, price, imgPath, quantity, colors } = item;
-                
+
                 if (colors && colors.length > 0) {
                   const paramsId = new URLSearchParams(id);
                   const currentColor = paramsId.get('color');
-                  imgPath = colors.find(el=>el.color === currentColor).imgPath;
+                  imgPath = colors.find(el => el.color === currentColor).imgPath;
                   console.log(imgPath);
                 }
 

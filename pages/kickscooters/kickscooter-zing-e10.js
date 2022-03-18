@@ -69,7 +69,6 @@ const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { s
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
 export default function ModelPage({ allData }) {
-  console.log(allData.segways.kidsSegways[2].galleryImages);
   return (
     <>
       <CustomHead title="Kickscooter ZING E10" />
