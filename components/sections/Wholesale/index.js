@@ -11,7 +11,7 @@ export default function Wholesale() {
   const dispatch = useDispatch()
 
   const btnRef = useRef(null);
-  const { onSubmit, curentRefSet, loading } = useForm()
+  const { onSubmit, curentRefSet, loading } = useForm({ fromWhere: "страница wholesale" })
 
   const { userPhone, userName } = useSelector((state) => state.discountModal);
 
@@ -39,7 +39,7 @@ export default function Wholesale() {
             <Image objectFit='contain' width={419} height={294} placeholder="blur" src={WholesaleImage} alt="wholesale image for form" />
           </div>
           <ReactInputMask name="formFromOtherModelsName" onChange={(e) => dispatch(setUserName(e.target.value))} value={userName} placeholder="Your name" maxLength={50} className='ui-input wholesale__form-input' />
-          <ReactInputMask name="formFromOtherModelsPhone" onChange={(e) => dispatch(setUserPhone(e.target.value))} value={userPhone} placeholder="+1 (888) ____-____" mask="+1 999 999 99 99" className='ui-input wholesale__form-input' />
+          <ReactInputMask name="formFromOtherModelsPhone" onChange={(e) => dispatch(setUserPhone(e.target.value))} value={userPhone} placeholder="+1 ___ ___ __ __" mask="+1 999 999 99 99" className='ui-input wholesale__form-input' />
           <button ref={btnRef} type="submit" className="ui-btn wholesale__form-btn"><span>DOWNLOAD NOW</span></button>
         </form>
       </div >

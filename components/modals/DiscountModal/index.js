@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion'
 import Image from 'next/image';
 import { setActive, setUserPhone } from 'store/slices/discountModalSlice';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
 import ReactInputMask from 'react-input-mask';
 import useForm from '@/hooks/useForm';
 
@@ -13,8 +12,7 @@ export default function DiscountModal() {
   const elRef = useRef(null);
   const btnRef = useRef(null);
 
-  const mediaQuery = useMediaQuery('(max-width: 768px) and (pointer: coarse)');
-  const { onSubmit, curentRefSet, loading } = useForm()
+  const { onSubmit, curentRefSet, loading, success } = useForm({ fromWhere: "модального окна" })
 
   const [readyToInteractiveWithModal, readyToInteractiveWithModalSet] = useState(true)
 
@@ -64,8 +62,8 @@ export default function DiscountModal() {
   }, [btnRef, curentRefSet])
 
   useEffect(() => {
-    console.log('readyToInteractiveWithModal: ', readyToInteractiveWithModal);
-  }, [readyToInteractiveWithModal])
+    success === true && dispatch(setActive(false))
+  }, [success, dispatch])
 
   return (
     <>
@@ -77,7 +75,7 @@ export default function DiscountModal() {
         className={isActive ? 'discount-modal active' : 'discount-modal'}>
         <motion.form
           whileDrag={{ scale: 0.95 }}
-          drag={!mediaQuery}
+          drag
           dragConstraints={{
             top: -50,
             left: -50,
@@ -97,7 +95,15 @@ export default function DiscountModal() {
             <p className="title discount-modal__subtitle">discount</p>
             <p className="text discount-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
           </div>
-          <ReactInputMask name="formFromOtherModelsPhone" onChange={(e) => dispatch(setUserPhone(e.target.value))} value={userPhone} placeholder="+1 ___ ___ __ __" mask="+1 999 999 99 99" className='ui-input didnt-find-modal__input' />
+          <ReactInputMask
+            name="formFromOtherModelsPhone"
+            onChange={(e) => dispatch(setUserPhone(e.target.value))}
+            value={userPhone}
+            placeholder="+1 ___ ___ __ __"
+            mask="+1 999 999 99 99"
+            className='ui-input didnt-find-modal__input'
+            required
+          />
           <button ref={btnRef} type='submit' className="ui-btn discount-modal__btn">
             <span>Get a discount</span>
           </button>

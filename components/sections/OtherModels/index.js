@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { disableOtherModelsSlider } from 'store/slices/elementInViewSlice';
 
 export default function OtherModels({ items }) {
+  
   const swiperRef = useRef(null);
   const [allSegways] = useState(items)
   const { ref, inView } = useInView({ threshold: 0.5 });
@@ -30,6 +31,7 @@ export default function OtherModels({ items }) {
       if (!field.name) return;
       formData[field.name] = field.value;
     });
+    formData = {...formData, fromWhere: `страница модели ${document.title}`}
 
     let config = {
       method: "post",

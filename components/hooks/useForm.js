@@ -1,18 +1,22 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function useForm() {
+export default function useForm({fromWhere}) {
 
   const [curentRef, curentRefSet] = useState(null)
   const [loading, loadingSet] = useState(false)
+  const [success, successSet] = useState(false)
 
   const onSubmit = async e => {
     e.preventDefault();
+
     const formData = {};
+
     Array.from(e.currentTarget.elements).forEach(field => {
       if (!field.name) return;
       formData[field.name] = field.value;
     });
+    formData = {...formData, fromWhere}
 
     let config = {
       method: "post",
@@ -37,6 +41,11 @@ export default function useForm() {
         setTimeout(() => {
           curentRef.current.innerHTML = "<span>Send</span>";
         }, 3000);
+
+        setTimeout(() => {
+          successSet(true)
+        }, 1500);
+
       }
     } catch (error) {
       console.log(error);
@@ -48,11 +57,13 @@ export default function useForm() {
     } finally {
       loadingSet(false)
     }
+    
   };
 
   return {
     onSubmit,
     curentRefSet,
-    loading
+    loading,
+    success
   }
 }

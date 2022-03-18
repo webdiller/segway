@@ -16,6 +16,7 @@ export default function FancyModalA({ images }) {
 
   const { isActive, currentPosition } = useSelector(state => state.fancyModal);
 
+  const rootElement = useRef();
   const swipeNextRef = useRef();
   const swipePrevRef = useRef();
   const swiperRef = useRef();
@@ -28,7 +29,7 @@ export default function FancyModalA({ images }) {
   const closeModal = () => {
     dispatch(setActive(false));
   };
-  
+
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -40,8 +41,17 @@ export default function FancyModalA({ images }) {
     }
   }, [currentPosition]);
 
+  useEffect(() => {
+    const closeElementIfClickOutside = (event) => {
+      event.target === rootElement.current && dispatch(setActive(false))
+    };
+
+    document.addEventListener('click', closeElementIfClickOutside);
+    return () => document.removeEventListener('click', closeElementIfClickOutside);
+  }, [dispatch])
+
   return (
-    <div className={isActive ? `${styles.fancyModal} ${styles.fancyModal__active}` : `${styles.fancyModal}`}>
+    <div ref={rootElement} className={isActive ? `${styles.fancyModal} ${styles.fancyModal__active}` : `${styles.fancyModal}`}>
       <div className={styles.fancyModal__wrapper}>
         <div className={styles.fancyModal__closeIcon_desktop}><Image onClick={closeModal} src={iconCloseWhite} alt="icon-close" width={34} height={34} /></div>
         <div className={styles.fancyModal__closeIcon_mobile}><Image onClick={closeModal} src={iconCloseBlack} alt="icon-close" width={34} height={34} /></div>
