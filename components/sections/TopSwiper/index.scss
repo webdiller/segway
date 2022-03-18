@@ -1,6 +1,6 @@
 .top-swiper {
   &__actions {
-    background-color: #31363B;
+    background-color: #31363b;
     @include media('<=576px') {
       border-bottom: 1px solid #323941;
     }
@@ -19,7 +19,7 @@
     align-items: center;
 
     min-height: 48px;
-    padding: 0 12px; 
+    padding: 0 12px;
 
     font-weight: bold;
     font-size: 25px;
@@ -32,7 +32,7 @@
     cursor: pointer;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -1px;
       left: 50%;
@@ -196,10 +196,8 @@
       }
     }
 
-    &:hover
-    // Убрал фокус, чтобы не было нареканий что не нажимается ссылка
-    // &:focus 
-    {
+    &:hover,
+    &:focus {
       background-color: rgba(0, 0, 0, 0.2);
       &::before {
         opacity: 0.4;
@@ -235,6 +233,7 @@
     color: #53595f;
     font-weight: 600;
     z-index: 2;
+    pointer-events: none;
     @include media('<=991px') {
       font-size: 16px;
     }
@@ -250,6 +249,7 @@
     width: 80px;
     height: 80px;
     z-index: 2;
+    pointer-events: none;
     @include media('<=768px') {
       height: 58px;
       width: 58px;
