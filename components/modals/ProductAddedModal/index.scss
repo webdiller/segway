@@ -18,8 +18,6 @@
     visibility: hidden;
     overflow-y: scroll;
 
-    will-change: backdrop-filter;
-
     &.scroll-modal-to-bottom {
       .product-modal__wrapper {
         @include media('<=991px') {
