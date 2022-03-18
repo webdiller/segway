@@ -3,20 +3,16 @@ const Link = dynamic(() => import('next/link'));
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { Navigation, FreeMode } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FcPrevious, FcNext } from 'react-icons/fc';
-import imagePlaceholder from '@/base/circle-placeholder.svg';
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
-import iconCheckForAccesoeriesSlider from '@/base/icon-check-bold.svg'
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { productModalActiveSet } from 'store/slices/modalsSlice';
 import { addQuantity, pushProduct, removeProduct } from 'store/slices/productCartSlice';
 import { WarrancyToggler, ColorToggler } from './index'
+import ProductSwiler from './ProductSwiler';
 
 export default function ProductModal({ accessoeries }) {
 
@@ -92,7 +88,7 @@ export default function ProductModal({ accessoeries }) {
       onClick={(e) => closeModalWrapper(e)}
       className={activeModal ? "product-modal product-modal_fixed active" : "product-modal product-modal_fixed"}>
       <div ref={modalWrapperElement} className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
-        
+
         <button onClick={closeModal} className="product-modal__close-btn">
           <div className="product-modal__close-btn-icon">
             <Image src={iconCloseWhite} alt="icon close" />
@@ -193,62 +189,7 @@ export default function ProductModal({ accessoeries }) {
             </div>
           </div>
 
-
-          {/* Слайдер с аксессуарами */}
-          <div className="product-modal__accessoeries">
-            <p className="text text_25 product-modal__accessoeries-title">Accessories</p>
-            <div className="product-modal__accessoeries-swiper-wrapper">
-              <div className="product-modal__accessoeries-swiper">
-                <Swiper
-                  modules={[Navigation, FreeMode]}
-                  spaceBetween={10}
-                  slidesPerView={2}
-                  loop={false}
-                  freeMode={true}
-                  navigation={{
-                    prevEl: '.product-modal__nav_prev',
-                    nextEl: '.product-modal__nav_next'
-                  }}
-                  breakpoints={{
-                    768: {
-                      slidesPerView: 3,
-                      spaceBetween: 16
-                    }
-                  }}
-                >
-
-                  {accessoeries.map((item) => {
-                    const { id, name, nameWrap, description, price, imgPath } = item;
-                    return (
-                      <SwiperSlide onClick={(e) => addItemToCartWithAnimation(e, item)} key={id} className="product-modal__accessoeries-item">
-                        <div className="product-modal__accessoeries-img-main-wrapper">
-                          <div className="product-modal__accessoeries-img-wrapper">
-                            <Image objectFit="contain" width="152" height="155" layout="responsive" src={imgPath} alt={name} className="product-modal__accessoeries-img" placeholder="blur" blurDataURL={imagePlaceholder} />
-                          </div>
-                          <div className="product-modal__accessoeries-overlay">
-                            <p className="product-modal__accessoeries-overlay-text">Added to card</p>
-                            <div className="product-modal__accessoeries-overlay-icon">
-                              <Image className="product-modal__accessoeries-overlay-icon" src={iconCheckForAccesoeriesSlider} alt="icon" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="product-modal__accessoeries-name">{name}</p>
-                        <p className="product-modal__accessoeries-price">${price}</p>
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
-                <div className="product-modal__navigation">
-                  <div aria-label="swipe to left accessoeries" className="product-modal__nav product-modal__nav_prev">
-                    <FcPrevious className="product-modal__nav-icon" />
-                  </div>
-                  <div aria-label="swipe to right accessoeries" className="product-modal__nav product-modal__nav_next">
-                    <FcNext className="product-modal__nav-icon" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProductSwiler handler={addItemToCartWithAnimation} accessoeries={accessoeries} />
 
           <div className="hide-991 product-modal__top-actions product-modal__top-actions_desktop">
             <button onClick={closeModal} className="ui-btn ui-btn_fill-grey product-modal__top-actions-item">
