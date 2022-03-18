@@ -74,6 +74,11 @@ export default function DiscountModal() {
         ref={elRef}
         className={isActive ? 'discount-modal active' : 'discount-modal'}>
         <motion.form
+          onDragEnd={(event, info) => {
+            const matchOffsetX = info.offset.x < -150 || info.offset.x > 150;
+            const matchOffsetY = info.offset.y < -150 || info.offset.y > 150;
+            if (matchOffsetX || matchOffsetY) dispatch(setActive(false))
+          }}
           whileDrag={{ scale: 0.95 }}
           drag
           dragConstraints={{
