@@ -89,6 +89,9 @@
     &.active {
       @include media('<=991px') {
         height: 90%;
+        .product-modal__content {
+          overflow-y: scroll;
+        }
       }
     }
   }

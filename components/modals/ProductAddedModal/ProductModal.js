@@ -78,7 +78,7 @@ export default function ProductModal({ accessoeries }) {
     };
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     if (products.length <= 0) {
       setVisibleProducts(false)
     } else {
@@ -87,8 +87,12 @@ export default function ProductModal({ accessoeries }) {
   }, [products])
 
   return (
-    <div ref={modalRef} onClick={(e) => closeModalWrapper(e)} className={activeModal ? "product-modal product-modal_fixed active" : "product-modal product-modal_fixed"}>
+    <div
+      ref={modalRef}
+      onClick={(e) => closeModalWrapper(e)}
+      className={activeModal ? "product-modal product-modal_fixed active" : "product-modal product-modal_fixed"}>
       <div ref={modalWrapperElement} className={visibleProducts ? 'product-modal__wrapper active' : 'product-modal__wrapper'}>
+        
         <button onClick={closeModal} className="product-modal__close-btn">
           <div className="product-modal__close-btn-icon">
             <Image src={iconCloseWhite} alt="icon close" />
