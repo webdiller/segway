@@ -12,17 +12,6 @@ $rootElement: '.discount-modal';
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 15px;
-  transition: all 0.3s ease;
-
-  z-index: -1;
-  opacity: 0;
-  visibility: hidden;
-
-  &.active {
-    z-index: 1000;
-    opacity: 1;
-    visibility: visible;
-  }
 
   @include media('<=768px') {
     transform: unset;
