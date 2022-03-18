@@ -69,7 +69,7 @@ const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { s
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
 export default function ModelPage({ allData }) {
-  
+  console.log(allData.segways.kidsSegways[2].galleryImages);
   return (
     <>
       <CustomHead title="Kickscooter ZING E10" />
@@ -86,7 +86,7 @@ export default function ModelPage({ allData }) {
             Zing e10
           </>
         }
-        currentSegway={allData.segways.kidsSegways[1]}
+        currentSegway={allData.segways.kidsSegways[2]}
       />
       <Tabs
         showApp
@@ -107,7 +107,7 @@ export default function ModelPage({ allData }) {
           tool and more.
         </>}
       />
-      <PackingListDinamic packingListImg={allData.segways.kidsSegways[1].packingListImg} />
+      <PackingListDinamic packingListImg={allData.segways.kidsSegways[2].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -404,7 +404,7 @@ export default function ModelPage({ allData }) {
       />
 
       <DownloadManualDinamic />
-      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways.kidsSegways[1]} />
+      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways.kidsSegways[2]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
       <WarrancyPaymentImageDinamic
@@ -425,13 +425,13 @@ export default function ModelPage({ allData }) {
         widthMobile={375}
         heightMobile={354}
         customClass="ks-e-45"
-        item={allData.segways.kidsSegways[1]}
+        item={allData.segways.kidsSegways[2]}
       />
       <OtherModelsDinamic items={[...allData.segways.adultSegways, ...allData.segways.kidsSegways]} />
-      <FixedModalDinamic segwayItem={allData.segways.kidsSegways[1]} />
+      <FixedModalDinamic segwayItem={allData.segways.kidsSegways[2]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.segways.kidsSegways[1].galleryImages} />
+      <FancyModal images={allData.segways.kidsSegways[2].galleryImages} />
     </>
   );
 }
