@@ -25,7 +25,6 @@ export default function ProductModal({ accessoeries }) {
   const targetVisibleItemsElement = useRef(null);
   const targetItemsAreaElement = useRef(null);
 
-
   const [visibleProducts, setVisibleProducts] = useState(true);
   const modalRef = useRef(null);
 

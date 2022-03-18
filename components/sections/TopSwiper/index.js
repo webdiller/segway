@@ -116,9 +116,9 @@ export default function TopSwiper({ items }) {
                   onInit={(swiper) => {
                     swiperWithAllSegways.current = swiper;
                   }}>
-                  {items.segways.adultSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap }) => {
+                  {items.segways.adultSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                     if (!excludeForMap) {
-                      const isMatch = router.asPath.split('/')[2] === pageLinkName;
+                      const isMatch = router.asPath.split('/')[2] === pageLinkForMatch;
                       return (
                         <SwiperSlide key={id} className={isMatch ? 'top-swiper__item accent' : 'top-swiper__item'}>
                           <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
@@ -133,9 +133,9 @@ export default function TopSwiper({ items }) {
                       )
                     }
                   })}
-                  {items.segways.kidsSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap }) => {
+                  {items.segways.kidsSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                     if (!excludeForMap) {
-                      const isMatch = router.asPath.includes(pageLinkName);
+                      const isMatch = router.asPath.includes(pageLinkForMatch);
                       return (
                         <SwiperSlide key={id} className={isMatch ? 'top-swiper__item accent' : 'top-swiper__item'}>
                           <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
