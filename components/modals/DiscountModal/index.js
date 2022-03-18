@@ -70,32 +70,17 @@ export default function DiscountModal() {
       {isActive && (
         <>
           <motion.div
-            animate={{ zIndex: 1000 }}
+            // TODO: Продумать will-change применение свойства
+            animate={{ zIndex: 1000, backdropFilter: 'blur(10px)' }}
             initial={{ zIndex: -1 }}
             exit={{ opacity: 0 }}
             onClick={(e) => onClickWrapper(e)}
             ref={elRef}
-
             className='discount-modal'>
             <motion.form
-              drag
-              onDragEnd={(_, info) => {
-                const matchOffsetX = info.offset.x < -150 || info.offset.x > 150;
-                const matchOffsetY = info.offset.y < -150 || info.offset.y > 150;
-                if (matchOffsetX || matchOffsetY) dispatch(setActive(false))
-              }}
-              whileDrag={{ scale: 0.95 }}
-              dragConstraints={{
-                top: -50,
-                left: -50,
-                right: 50,
-                bottom: 50,
-              }}
-
               animate={{ top: 0, opacity: 1, scale: 1 }}
               initial={{ top: -20, opacity: 0, scale: .9 }}
               exit={{ scale: .9 }}
-
               onSubmit={onSubmit}
               className="discount-modal__wrapper">
               <div type='button' onClick={setActiveModalHandler} className="discount-modal__close-btn">
