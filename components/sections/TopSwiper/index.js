@@ -116,7 +116,7 @@ export default function TopSwiper({ items }) {
                   onInit={(swiper) => {
                     swiperWithAllSegways.current = swiper;
                   }}>
-                  {items.segways.adultSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                  {items.segways.adultSegways.map(({ id, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                     if (!excludeForMap) {
                       const isMatch = router.asPath.split('/')[2] === pageLinkForMatch;
                       return (
@@ -126,14 +126,14 @@ export default function TopSwiper({ items }) {
                               <div className="top-swiper__img-wrapper">
                                 <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                               </div>
-                              <p className="top-swiper__name">{shortName}</p>
+                              <p className="top-swiper__name">{shortNameWithoutPrefix}</p>
                             </a>
                           </Link>
                         </SwiperSlide>
                       )
                     }
                   })}
-                  {items.segways.kidsSegways.map(({ id, name, shortName, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                  {items.segways.kidsSegways.map(({ id, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                     if (!excludeForMap) {
                       const isMatch = router.asPath.includes(pageLinkForMatch);
                       return (
@@ -143,7 +143,7 @@ export default function TopSwiper({ items }) {
                               <div className="top-swiper__img-wrapper">
                                 <Image objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                               </div>
-                              <p className="top-swiper__name">{shortName}</p>
+                              <p className="top-swiper__name">{shortNameWithoutPrefix}</p>
                             </a>
                           </Link>
                         </SwiperSlide>
