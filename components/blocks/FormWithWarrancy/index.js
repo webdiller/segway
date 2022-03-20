@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import segwayProtect from '@/base/segway-protect.png';
 import { initProduct, setProperties, setCurrentPrice } from 'store/slices/preparedProductSlice';
-import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { pushProduct } from 'store/slices/productCartSlice';
 import Colors from './Colors';
 import { useMediaQuery } from '@/hooks/useMediaQuery';

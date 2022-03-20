@@ -5,9 +5,6 @@ const initialState = {
     activeModal: false,
     selectedModeltoCompare: null
   },
-  productModal: {
-    activeModal: false,
-  }
 }
 
 export const modalsSlice = createSlice({
@@ -26,18 +23,8 @@ export const modalsSlice = createSlice({
     selectModelToCompare: (state, action) => {
       state.compareModels.selectedModeltoCompare = action.payload;
     },
-
-    productModalActiveSet: (state, action) => {
-      state.productModal.activeModal = action.payload;
-      if (action.payload === true) {
-        document.body.classList.add('disabled')
-      }
-      if (action.payload === false) {
-        document.body.classList.remove('disabled')
-      }
-    },
   }
 })
 
-export const {compareModelsActive, selectModelToCompare, productModalActiveSet} = modalsSlice.actions
+export const {compareModelsActive, selectModelToCompare} = modalsSlice.actions
 export default modalsSlice.reducer

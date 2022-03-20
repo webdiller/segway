@@ -3,7 +3,7 @@ import circlePlaceholder from '@/base/circle-placeholder.svg';
 import TitleWithDescription from '@/blocks/TitleWithDescription';
 import { useDispatch } from 'react-redux';
 import { pushProduct } from 'store/slices/productCartSlice';
-import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 
 export default function AccessoriesBlock({ items }) {
   const dispatch = useDispatch();

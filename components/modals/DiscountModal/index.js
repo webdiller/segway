@@ -17,7 +17,8 @@ export default function DiscountModal() {
   const [readyToInteractiveWithModal, readyToInteractiveWithModalSet] = useState(true)
 
   const { isActive, userPhone } = useSelector((state) => state.discountModal);
-  const { compareModels, productModal } = useSelector((state) => state.modals);
+  const { compareModels } = useSelector((state) => state.modals);
+  const { activeModal: productModal } = useSelector((state) => state.productModal);
   const { isActive: isActiveDiscount } = useSelector(state => state.discountModal);
   const { isActive: isActiveFancy } = useSelector(state => state.fancyModal);
 
@@ -36,9 +37,9 @@ export default function DiscountModal() {
     let secondInterval = null;
 
     firstInterval = setInterval((_first) => {
-      if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
+      if (window.localStorage.isFirstVisit == undefined && !productModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
         secondInterval = setInterval((_second) => {
-          if (window.localStorage.isFirstVisit == undefined && !productModal.activeModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
+          if (window.localStorage.isFirstVisit == undefined && !productModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
             readyToInteractiveWithModalSet(false)
             dispatch(setActive(true))
             window.localStorage.setItem('isFirstVisit', 'false');
@@ -70,9 +71,8 @@ export default function DiscountModal() {
       {isActive && (
         <>
           <motion.div
-            // TODO: Продумать will-change применение свойства
-            animate={{ zIndex: 1000, backdropFilter: 'blur(10px)' }}
-            initial={{ zIndex: -1 }}
+            initial={false}
+            animate={{ zIndex: 1000, backdropFilter: 'blur(5px)' }}
             exit={{ opacity: 0 }}
             onClick={(e) => onClickWrapper(e)}
             ref={elRef}

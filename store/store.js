@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import storage from 'redux-persist/lib/storage'
 import { combineReducers } from 'redux'
 
 import {
@@ -11,14 +12,25 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import { profileSlice, differentBillingSlice, productCartSlice, modalsSlice, preparedProductSlice, discountModalSlice, fancyModalSlice, elementInViewSlice } from './slices/_index'
+
+
+import {
+  profileSlice,
+  differentBillingSlice,
+  productCartSlice,
+  modalsSlice,
+  preparedProductSlice,
+  discountModalSlice,
+  fancyModalSlice,
+  elementInViewSlice,
+  productModalSlice
+} from './slices/_index'
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  blacklist: ['differentBilling']
+  blacklist: ['differentBilling', 'productModal']
 }
 
 const rootReducer = combineReducers({
@@ -26,6 +38,7 @@ const rootReducer = combineReducers({
   differentBilling: differentBillingSlice,
   products: productCartSlice,
   modals: modalsSlice,
+  productModal: productModalSlice,
   preparedProduct: preparedProductSlice,
   discountModal: discountModalSlice,
   fancyModal: fancyModalSlice,

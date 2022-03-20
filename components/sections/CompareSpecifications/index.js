@@ -26,7 +26,8 @@ import iconAtmosphere from '@/base/icon-atmosphere.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalWrapper from '@/modals/ModalWrapper';
 import { pushProduct } from 'store/slices/productCartSlice';
-import { compareModelsActive, productModalActiveSet, selectModelToCompare } from 'store/slices/modalsSlice';
+import { compareModelsActive, selectModelToCompare } from 'store/slices/modalsSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 
 export default function CompareSpecifications({ items, mainSegway }) {
 

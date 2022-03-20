@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { pushProduct } from 'store/slices/productCartSlice';
 import ModalWrapper from '../ModalWrapper';
 export default function FixedModal() {

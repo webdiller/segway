@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setPropertiesForProduct } from "store/slices/productCartSlice";
 
 export default function ColorToggler({ product }) {
+
   const dispatch = useDispatch()
   const [selectedWarranty, selectedWarrantySet] = useState();
   const [selectedColor, selectedColorSet] = useState();

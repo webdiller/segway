@@ -10,7 +10,7 @@ import iconPhoneBlack from '@/base/icon-phone-black.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import iconCloseBlack from '@/base/icon-bar.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
-import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 
 export default function TopNavigation() {
   const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { pushProduct } from 'store/slices/productCartSlice';
-import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { disableAccessoriesSlider } from 'store/slices/elementInViewSlice';
 
 export default function AccessoriesSlider({ items }) {

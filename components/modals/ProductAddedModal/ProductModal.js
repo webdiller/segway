@@ -9,7 +9,7 @@ import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import { productModalActiveSet } from 'store/slices/modalsSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { addQuantity, pushProduct, removeProduct } from 'store/slices/productCartSlice';
 import { WarrancyToggler, ColorToggler } from './index'
 import ProductSwiler from './ProductSwiler';
@@ -22,7 +22,7 @@ export default function ProductModal({ accessoeries }) {
   const modalRef = useRef(null);
 
   const { products, totalPrice } = useSelector((state) => state.products);
-  const { productModal: { activeModal } } = useSelector((state) => state.modals);
+  const { activeModal } = useSelector((state) => state.productModal);
 
   const dispatch = useDispatch();
 
