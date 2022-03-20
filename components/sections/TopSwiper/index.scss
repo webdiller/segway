@@ -122,9 +122,6 @@
   &__item {
     overflow-x: hidden;
     &.accent {
-      @include media('<=768px') {
-        order: -1;
-      }
       .top-swiper__link {
         background-color: rgba(0, 0, 0, 0.2);
         &::before {

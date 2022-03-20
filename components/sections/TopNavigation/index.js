@@ -1,5 +1,4 @@
-import dynamic from 'next/dynamic';
-const Link = dynamic(() => import('next/link'));
+import Link from 'next/link';
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -11,10 +10,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import iconCloseBlack from '@/base/icon-bar.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
+import { useRouter } from 'next/router';
 
 export default function TopNavigation() {
   const dispatch = useDispatch();
+  const router = useRouter();
 
+  const [matchCatalog, matchCatalogSet] = useState(null)
   const [isActiveMenu, setIsActiveMenu] = useState(false);
 
   const { products } = useSelector(state => state.products);
@@ -23,6 +25,13 @@ export default function TopNavigation() {
   const handleSetIsActiveMenu = () => {
     setIsActiveMenu((prev) => !prev);
   };
+
+  useEffect(() => {
+    if (router.asPath.includes('kickscooters') || router.asPath.includes('gocarts')) {
+      const matchedCatalog = router.asPath.split('/')[1];
+      matchCatalogSet(matchedCatalog)
+    }
+  }, [router])
 
   useEffect(() => {
     const closeElementIfClickOutside = (event) => {
@@ -50,23 +59,20 @@ export default function TopNavigation() {
           </button>
 
           <nav className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
-            <Link href="/reviews">
-              <a className="top-nav__item">REVIEWS</a>
+            <Link href="/">
+              <a className="top-nav__item">Home</a>
+            </Link>
+            <Link href={matchCatalog ? `/${matchCatalog}` : `/kickscooters`}>
+              <a className="top-nav__item top-nav__item_mobile">Catalog</a>
             </Link>
             <Link href="/shipping-and-payment">
-              <a className="top-nav__item">SHIPPING AND PAYMENT</a>
+              <a className="top-nav__item">Shipping and payment</a>
             </Link>
             <Link href="/wholesale">
-              <a className="top-nav__item">WHOLESALE</a>
-            </Link>
-            <Link href="/blog">
-              <a className="top-nav__item">BLOG</a>
+              <a className="top-nav__item">Wholesale</a>
             </Link>
             <Link href="/contacts">
-              <a className="top-nav__item">CONTACTS</a>
-            </Link>
-            <Link href="#">
-              <a className="top-nav__item top-nav__item_mobile">CATALOG</a>
+              <a className="top-nav__item">Contacts</a>
             </Link>
           </nav>
 
