@@ -1,8 +1,30 @@
 .top-swiper {
   &__actions {
+    position: fixed;
+    top: 152px;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s ease;
     background-color: #31363b;
-    @include media('<=576px') {
-      border-bottom: 1px solid #323941;
+    z-index: 100;
+
+    &.stik-to-top {
+      top: 48px;
+      @include media('<=991px') {
+        top: 50px;
+      }
+    }
+
+    @include media('<=991px') {
+      top: 50px;
+    }
+  }
+
+  &__actions-separator {
+    margin-top: 48px;
+    @include media('<=991px') {
+      margin-top: 89px;
     }
   }
 
