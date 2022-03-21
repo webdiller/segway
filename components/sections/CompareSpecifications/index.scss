@@ -655,7 +655,7 @@
       span {
         position: relative;
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           top: -10px;
           left: 50%;
@@ -694,19 +694,19 @@
     @include media('<=576px') {
       max-width: 160px;
       position: relative;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 50%;
-          opacity: 1;
-          transform: translateX(-50%);
-          display: block;
-          width: 197px;
-          margin: 0 auto;
-          height: 52px;
-          pointer-events: all;
-        }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        opacity: 1;
+        transform: translateX(-50%);
+        display: block;
+        width: 197px;
+        margin: 0 auto;
+        height: 52px;
+        pointer-events: all;
+      }
     }
   }
 
@@ -754,6 +754,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 1;
     visibility: visible;
+    z-index: 500;
     .compare-modal__wrapper {
       opacity: 1;
       visibility: visible;
@@ -767,14 +768,14 @@
 
   &__wrapper {
     position: relative;
-    padding: 22px 17px 25px 17px;
+    padding: 0 17px 25px 17px;
     background-color: #fff;
     text-align: center;
     align-self: center;
 
     opacity: 0;
     visibility: hidden;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     overflow: hidden;
     transform: scale(0.97);
 
@@ -782,7 +783,7 @@
       display: none;
       content: '';
       position: absolute;
-      top: 310px;
+      top: 360px;
       right: 0;
       left: 0;
       width: calc(100%);
@@ -790,22 +791,41 @@
       background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
       z-index: 10;
       pointer-events: none;
-      @include media('<=576px') {
+      @media screen and (max-width: 576px) {
+        display: block;
+      }
+      @media screen and (max-height: 768px) {
         display: block;
       }
     }
   }
 
   &__wrapper-inner {
-    @include media('<=576px') {
+    margin-top: 89px;
+    @media screen and (max-width: 576px) {
+      max-height: 350px;
+      overflow-y: scroll;
+    }
+    @media screen and (max-height: 768px) {
       max-height: 350px;
       overflow-y: scroll;
     }
   }
 
+  &__top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    height: 89px;
+  }
+
   &__title {
     max-width: 180px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto;
     font-size: 20px;
     line-height: 24px;
   }
@@ -814,7 +834,6 @@
     position: absolute;
     top: 22px;
     right: 17px;
-    transition: all 0.3s ease;
     cursor: pointer;
   }
 

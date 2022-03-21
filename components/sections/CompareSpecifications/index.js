@@ -29,6 +29,7 @@ import { pushProduct } from 'store/slices/productCartSlice';
 import { compareModelsActive, selectModelToCompare } from 'store/slices/modalsSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 
+// FIXME: Исключить несколько моделей в сравнении
 export default function CompareSpecifications({ items, mainSegway }) {
 
   const dispatch = useDispatch();
@@ -666,8 +667,10 @@ export default function CompareSpecifications({ items, mainSegway }) {
           <div onClick={(e) => closeOnClickOutsite(e)} ref={targetScrollElement} className={activeModal ? 'compare-modal active' : 'compare-modal'}>
             <div className="compare-modal__wrapper">
               <div className="compare-modal__wrapper-inner">
-                <p className="title compare-modal__title">select a model to compare</p>
-                <div className="compare-modal__icon-close"><Image onClick={toggleModal(false)} src="/icon-close.svg" alt="icon-close" width="34" height="34" /></div>
+                <div className="compare-modal__top">
+                  <p className="title compare-modal__title">select a model to compare</p>
+                  <div className="compare-modal__icon-close"><Image onClick={toggleModal(false)} src="/icon-close.svg" alt="icon-close" width="34" height="34" /></div>
+                </div>
                 <div className="compare-modal__items">
                   {allModels.map(({ id, shortName, imgPath, excludeForMap }) => {
                     if (!excludeForMap && mainSegway.id !== id) {
