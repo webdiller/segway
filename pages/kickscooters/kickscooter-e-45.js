@@ -86,7 +86,7 @@ export default function ModelPage({ allData }) {
             E45
           </>
         }
-        currentSegway={allData.segways.adultSegways[4]}
+        currentSegway={allData.segways[4]}
       />
       <Tabs
         showApp
@@ -107,7 +107,7 @@ export default function ModelPage({ allData }) {
           tool and more.
         </>}
       />
-      <PackingListDinamic packingListImg={allData.segways.adultSegways[4].packingListImg} />
+      <PackingListDinamic packingListImg={allData.segways[4].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -261,7 +261,7 @@ export default function ModelPage({ allData }) {
       />
 
       <DownloadManualDinamic />
-      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways.adultSegways[4]} />
+      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways[4]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
       <WarrancyPaymentImageDinamic
@@ -284,13 +284,13 @@ export default function ModelPage({ allData }) {
         widthMobile={375}
         heightMobile={354}
         customClass="ks-e-45"
-        item={allData.segways.adultSegways[4]}
+        item={allData.segways[4]}
       />
-      <OtherModelsDinamic items={[...allData.segways.adultSegways, ...allData.segways.kidsSegways]} />
-      <FixedModalDinamic segwayItem={allData.segways.adultSegways[4]} />
+      <OtherModelsDinamic items={allData.segways} />
+      <FixedModalDinamic segwayItem={allData.segways[4]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.segways.adultSegways[4].galleryImages} />
+      <FancyModal images={allData.segways[4].galleryImages} />
     </>
   );
 }

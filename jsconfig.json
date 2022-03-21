@@ -6,6 +6,7 @@
       "@/basic/*": ["components/basic/*"],
       "@/blocks/*": ["components/blocks/*"],
       "@/shared/*": ["components/shared/*"],
+      "@/helpers/*": ["helpers/*"],
       "@/hooks/*": ["components/hooks/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/modals/*": ["components/modals/*"],

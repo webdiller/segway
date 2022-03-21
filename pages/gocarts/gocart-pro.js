@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
-import {data} from '@/base/data';
+import { data } from '@/base/data';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';
-const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr: false});
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), { ssr: false });
 import CustomHead from '@/basic/CustomHead';
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
@@ -22,14 +22,14 @@ import featuresIcon_6 from '@/base/gocart-pro/features-icons/feature-6.svg';
 import featuresIcon_7 from '@/base/gocart-pro/features-icons/feature-7.svg';
 import featuresIcon_8 from '@/base/gocart-pro/features-icons/feature-8.svg';
 const featuresItems = [
-  {icon: featuresIcon_1, title: '96Nm', description: 'Max Torque'},
-  {icon: featuresIcon_2, title: '0.2W LED', description: 'Front LED Lights'},
-  {icon: featuresIcon_3, title: '23 mph', description: 'Max Speed'},
-  {icon: featuresIcon_4, title: '15.5 Miles', description: 'Max Range'},
-  {icon: featuresIcon_5, title: '15%', description: 'Hill Grade'},
-  {icon: featuresIcon_6, title: '220 lbs', description: 'Payload'},
-  {icon: featuresIcon_7, title: 'IPX4', description: 'Water-Resistant'},
-  {icon: featuresIcon_8, title: '432Wh', description: 'Battery'}
+  { icon: featuresIcon_1, title: '96Nm', description: 'Max Torque' },
+  { icon: featuresIcon_2, title: '0.2W LED', description: 'Front LED Lights' },
+  { icon: featuresIcon_3, title: '23 mph', description: 'Max Speed' },
+  { icon: featuresIcon_4, title: '15.5 Miles', description: 'Max Range' },
+  { icon: featuresIcon_5, title: '15%', description: 'Hill Grade' },
+  { icon: featuresIcon_6, title: '220 lbs', description: 'Payload' },
+  { icon: featuresIcon_7, title: 'IPX4', description: 'Water-Resistant' },
+  { icon: featuresIcon_8, title: '432Wh', description: 'Battery' }
 ];
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
 
@@ -57,16 +57,16 @@ const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'))
 const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 
-import {CompareModels, Model} from '@/sections/CompareModels';
+import { CompareModels, Model } from '@/sections/CompareModels';
 
 import FormWarrancy_desktop from '@/base/gocart-pro/form-warrancy-desktop.jpg';
 import FormWarrancy_mobile from '@/base/gocart-pro/form-warrancy-mobile.jpg';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
-const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), {ssr: false});
-const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ssr: false});
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
+const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), { ssr: false });
+const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
-export default function ModelPage({allData}) {
+export default function ModelPage({ allData }) {
 
   return (
     <>
@@ -86,7 +86,7 @@ export default function ModelPage({allData}) {
         }
         currentSegway={allData.gocarts[0]}
       />
-<Tabs
+      <Tabs
         showApp
         tab_4_title={<>APP <br />Controll</>}
         title_4_desktop={<>Access More Features <br /> And Functions Like A Pro</>}
@@ -362,8 +362,8 @@ export default function ModelPage({allData}) {
       <DownloadManualDinamic />
 
       <CompareModels>
-        <Model width={206} height={144} model={allData.gocarts[0]}/>
-        <Model hideIcons={true} width={206} height={144} model={allData.gocarts[1]}/>
+        <Model width={206} height={144} model={allData.gocarts[0]} />
+        <Model hideIcons={true} width={206} height={144} model={allData.gocarts[1]} />
       </CompareModels>
 
       <SegwayProtectDinamic customClass="type-1" />

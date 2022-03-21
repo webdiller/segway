@@ -2,10 +2,10 @@ import dynamic from 'next/dynamic';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';
-const FancyModal = dynamic(() => import('@/modals/FancyModal'), {ssr:false});
+const FancyModal = dynamic(() => import('@/modals/FancyModal'), { ssr: false });
 import CustomHead from '@/basic/CustomHead';
 
-import {data} from '@/base/data';
+import { data } from '@/base/data';
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
 const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));
@@ -23,14 +23,14 @@ import featuresIcon_6 from '@/base/ks-es-1l/features-icons/feature-6.svg';
 import featuresIcon_7 from '@/base/ks-es-1l/features-icons/feature-7.svg';
 import featuresIcon_8 from '@/base/ks-es-1l/features-icons/feature-8.svg';
 const featuresItems = [
-  {icon: featuresIcon_1, title: '8”', description: 'Pneumatic Tires'},
-  {icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights'},
-  {icon: featuresIcon_3, title: '12.4 mph', description: 'Max Speed'},
-  {icon: featuresIcon_4, title: '24.4 Miles', description: 'Max Range'},
-  {icon: featuresIcon_5, title: '7%', description: 'Hill Grade'},
-  {icon: featuresIcon_6, title: '55-220 lbs', description: 'Payload'},
-  {icon: featuresIcon_7, title: 'IPX4', description: 'Water-Resistant'},
-  {icon: featuresIcon_8, title: '5100mAh', description: 'Battery'}
+  { icon: featuresIcon_1, title: '8”', description: 'Pneumatic Tires' },
+  { icon: featuresIcon_2, title: 'LED', description: 'Front LED Lights' },
+  { icon: featuresIcon_3, title: '12.4 mph', description: 'Max Speed' },
+  { icon: featuresIcon_4, title: '24.4 Miles', description: 'Max Range' },
+  { icon: featuresIcon_5, title: '7%', description: 'Hill Grade' },
+  { icon: featuresIcon_6, title: '55-220 lbs', description: 'Payload' },
+  { icon: featuresIcon_7, title: 'IPX4', description: 'Water-Resistant' },
+  { icon: featuresIcon_8, title: '5100mAh', description: 'Battery' }
 ];
 const FeaturesDinamic = dynamic(() => import('@/sections/Features'));
 
@@ -55,7 +55,7 @@ import FeatureSimple_7_mobile from '@/base/ks-es-1l/features/feature-7-mobile.jp
 const FeatureSimpleDinamic = dynamic(() => import('@/sections/Feature/FeatureSimple'));
 
 const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'));
-const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), {ssr: false});
+const CompareSpecificationsDinamic = dynamic(() => import('@/sections/CompareSpecifications'), { ssr: false });
 const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 
@@ -64,11 +64,11 @@ import FormWarrancy_mobile from '@/base/ks-es-1l/form-warrancy-mobile.jpg';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
 
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
-const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), {ssr: false});
-const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ssr: false});
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
+const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), { ssr: false });
+const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
+const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
-export default function ModelPage({allData}) {
+export default function ModelPage({ allData }) {
 
   return (
     <>
@@ -85,9 +85,9 @@ export default function ModelPage({allData}) {
             ES1L
           </>
         }
-        currentSegway={allData.segways.adultSegways[1]}
+        currentSegway={allData.segways[10]}
       />
-<Tabs
+      <Tabs
         showApp
         tab_4_title={<>APP <br />Controll</>}
         title_4_desktop={<>Access More Features <br /> And Functions Like A Pro</>}
@@ -106,7 +106,7 @@ export default function ModelPage({allData}) {
           tool and more.
         </>}
       />
-      <PackingListDinamic packingListImg={allData.segways.adultSegways[1].packingListImg} />
+      <PackingListDinamic packingListImg={allData.segways[10].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -121,12 +121,12 @@ export default function ModelPage({allData}) {
 
       <FeaturesDinamic customClass="ks-max" features={featuresItems} title="IMPRESSIVE FEATURES" />
 
-      <KickScooterOverviewDinamic         titleDesktop={
-          <>
-            OvKickScooter overviewerview <br />
-            Segway Ninebot Kickscooter ES1L
-          </>
-        }
+      <KickScooterOverviewDinamic titleDesktop={
+        <>
+          OvKickScooter overviewerview <br />
+          Segway Ninebot Kickscooter ES1L
+        </>
+      }
         titleMobile={<>KickScooter overview</>}
         subtitle={<>Segway Ninebot Kickscooter ES1L</>} desktopImage={OverviewImgDesktop} mobileImage={OverviewImgMobile} />
 
@@ -312,7 +312,7 @@ export default function ModelPage({allData}) {
       />
 
       <DownloadManualDinamic />
-      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways.adultSegways[1]} />
+      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways[10]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
 
@@ -334,14 +334,14 @@ export default function ModelPage({allData}) {
         widthMobile={375}
         heightMobile={368}
         customClass="ks-e-45"
-        item={allData.segways.adultSegways[1]}
+        item={allData.segways[10]}
       />
 
-      <OtherModelsDinamic items={[...allData.segways.adultSegways, ...allData.segways.kidsSegways]} />
-      <FixedModalDinamic segwayItem={allData.segways.adultSegways[1]} />
+      <OtherModelsDinamic items={allData.segways} />
+      <FixedModalDinamic segwayItem={allData.segways[10]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.segways.adultSegways[1].galleryImages} />
+      <FancyModal images={allData.segways[10].galleryImages} />
     </>
   );
 }

@@ -36,7 +36,7 @@ export default function CompareSpecifications({ items, mainSegway }) {
 
   const { compareModels: { activeModal, selectedModeltoCompare } } = useSelector((state) => state.modals);
 
-  const [allModels] = useState([...items.adultSegways, ...items.kidsSegways]);
+  const [allModels] = useState(items);
 
   const closeOnClickOutsite = (event) => {
     if (activeModal && targetScrollElement.current === event.target) {
