@@ -8,19 +8,19 @@ import TinderCard from 'react-tinder-card';
 
 export default function DidntFindModal({ isWhiteMode = true, }) {
   const [activeModal, setActiveModal] = useState(true);
-  const [whiteModeState, setWhiteModeState] = useState(isWhiteMode);
+  const [whiteModeState, _] = useState(isWhiteMode);
 
   const setActiveModalHandler = () => {
     setActiveModal((prev) => !prev);
     noScroll.toggle();
   };
 
-  const onSwipe = (direction) => {
+  const onSwipe = () => {
     setActiveModal((prev) => !prev);
     noScroll.toggle();
   };
 
-  const onCardLeftScreen = (myIdentifier) => { };
+  const onCardLeftScreen = () => { };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -43,6 +43,7 @@ export default function DidntFindModal({ isWhiteMode = true, }) {
           <img className="didnt-find-modal__question-icon" src="/icon-question.svg" alt="icon-question" width="178" height="266" loading="lazy" />
           <div className="didnt-find-modal__content">
             <p className="title didnt-find-modal__title">Didn’t find a model?</p>
+            
             <p className="text didnt-find-modal__description">Enter your phone number and our manager will call your back in 15 seconds</p>
             <UiInput forForm={true} customClass="didnt-find-modal__input" />
           </div>

@@ -1,15 +1,14 @@
-import dynamic from 'next/dynamic';
-const Link = dynamic(() => import('next/link'));
+import Link from 'next/link'
 
 import { Scrollbar, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import axios from "axios";
+import ReactInputMask from 'react-input-mask';
 
 import circlePlaceholder from '@/base/circle-placeholder.svg';
 import { useInView } from 'react-intersection-observer';
-import UiInput from 'components/shared/UiInput/UiInput';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { disableOtherModelsSlider } from 'store/slices/elementInViewSlice';
@@ -145,7 +144,15 @@ export default function OtherModels({ items }) {
               <p className="text other-models__form-text">
                 Leave your contact details <br /> and we will help you with <br /> the choice
               </p>
-              <UiInput name="formFromOtherModelsPhone" forForm={false} customClass="other-models__form-input" />
+
+              <ReactInputMask
+                name="formFromOtherModelsPhone"
+                placeholder="+1 ___ ___ __ __"
+                mask="+1 999 999 99 99"
+                className='other-models__form-input'
+                required
+              />
+
               <button ref={btnRef} type="submit" className="ui-btn ui-btn_outline other-models__see-more">
                 <span>SEND</span>
               </button>

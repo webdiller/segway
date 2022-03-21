@@ -8,7 +8,7 @@ import arrowLeft from '@/base/icon-arrow-left.svg';
 import arrowRight from '@/base/icon-arrow-right.svg';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { setActive, setPositionSlide } from 'store/slices/fancyModalSlice';
 
@@ -20,6 +20,8 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile }) {
 
   const { currentPosition } = useSelector(state => state.fancyModal);
 
+  const [position, positionSet] = useState(0)
+
   const mainSliderElement = useRef(null);
   const thumbnailSliderElement = useRef(null);
 
@@ -27,6 +29,10 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile }) {
     dispatch(setActive(true));
     dispatch(setPositionSlide(indx));
   };
+
+  useEffect(() => {
+    positionSet(currentPosition)
+  }, [currentPosition])
 
   useEffect(() => {
     const onEventHandler = (event) => {
@@ -146,11 +152,8 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile }) {
               thumbnailSliderElement.current = swiper;
             }}>
             {currentSegway.galleryImages.map((item, id) => {
-              // TODO: Починить серверный сендеринг Localstorage
               let currentClass = 'welcome__thumbnails-img-wrapper';
-              if (typeof window !== 'undefined') {
-                if (currentPosition == id) currentClass = 'welcome__thumbnails-img-wrapper active'
-              }
+              if (position == id) currentClass = 'welcome__thumbnails-img-wrapper active'
               return (
                 <SwiperSlide onClick={setSlideIndexHandler(id)} key={id} className="welcome__thumbnails-item">
                   <div className={currentClass}>

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   preparedProduct: null,
+  preparedProtectionAccessory: null,
   currentPrice: null
 }
 
@@ -27,11 +28,18 @@ export const preparedProductSlice = createSlice({
 
     setCurrentPrice: (state, action) => {
       state.currentPrice = action.payload
+    },
+    setPreparedProtectionAccessory: (state, action) => {
+      const preparedProtection = action.payload;
+      console.log('1: ',preparedProtection);
+      // preparedProtection.quantity = 0;
+      // preparedProtection.price = 0;
+      // state.preparedProtectionAccessory = preparedProtection
     }
 
   }
 
 })
 
-export const { initProduct, setProperties, setCurrentPrice } = preparedProductSlice.actions
+export const { initProduct, setProperties, setCurrentPrice, setPreparedProtectionAccessory } = preparedProductSlice.actions
 export default preparedProductSlice.reducer
