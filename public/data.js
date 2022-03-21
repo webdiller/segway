@@ -124,7 +124,7 @@ export const data = {
   segways: [
     // number:1, index: 0, name: max 
     {
-      id: "id=006&warranty=null&color=null",
+      id: "id=006&warranty=null&color=000000",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -169,6 +169,24 @@ export const data = {
           oldPrice: 1328
         }
       ],
+      colors: [
+        {
+          name: "black",
+          color: "000000",
+          price: 0,
+          url: "/kickscooter-max",
+          urlWithCategory: "/kickscooters/kickscooter-max",
+          imgPath: "/ninebot-kickscooter-max-006.png"
+        },
+        {
+          name: "white",
+          color: "ded5aa",
+          price: 0,
+          url: "/kickscooter-max-white",
+          urlWithCategory: "/kickscooters/kickscooter-max-white",
+          imgPath: "/ninebot-kickscooter-max-007.png"
+        }
+      ],
       imgPath: "/ninebot-kickscooter-max-006.png",
       imgSmallPath: "/ninebot-kickscooter-max-006_small.png",
       imgPathWithCircle: "/ninebot-kickscooter-max-006-circle-default.png",
@@ -181,7 +199,8 @@ export const data = {
 
     // number:1, index: 1, name: max white
     {
-      id: "id=007&warranty=null&color=null",
+      excludeForMap: true,
+      id: "id=007&warranty=null&color=ded5aa",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -224,6 +243,24 @@ export const data = {
           durationYear: 3,
           price: 279,
           oldPrice: 1328
+        }
+      ],
+      colors: [
+        {
+          name: "black",
+          color: "000000",
+          price: 0,
+          url: "/kickscooter-max",
+          urlWithCategory: "/kickscooters/kickscooter-max",
+          imgPath: "/ninebot-kickscooter-max-006.png"
+        },
+        {
+          name: "white",
+          color: "ded5aa",
+          price: 0,
+          url: "/kickscooter-max-white",
+          urlWithCategory: "/kickscooters/kickscooter-max-white",
+          imgPath: "/ninebot-kickscooter-max-007.png"
         }
       ],
       imgPath: "/ninebot-kickscooter-max-007.png",
