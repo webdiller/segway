@@ -141,7 +141,6 @@ export default function ProductModal({ accessoeries }) {
                   const paramsId = new URLSearchParams(id);
                   const currentColor = paramsId.get('color');
                   imgPath = colors.find(el => el.color === currentColor).imgPath;
-                  console.log(imgPath);
                 }
 
                 return (

@@ -302,7 +302,9 @@ export default function ModelPage({ allData }) {
       />
 
       <DownloadManualDinamic />
-      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways[0]} />
+      <CompareSpecificationsDinamic
+        items={allData.segways}
+        mainSegway={allData.segways[0]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
 

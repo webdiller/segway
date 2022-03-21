@@ -7,7 +7,7 @@ import Image from 'next/image';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import { FcPrevious, FcNext } from 'react-icons/fc';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import iconSpeed from '@/base/icon-speed.svg';
 import iconRange from '@/base/icon-range.svg';
@@ -29,15 +29,14 @@ import { pushProduct } from 'store/slices/productCartSlice';
 import { compareModelsActive, selectModelToCompare } from 'store/slices/modalsSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 
-// FIXME: Исключить несколько моделей в сравнении
-export default function CompareSpecifications({ items, mainSegway }) {
+export default function CompareSpecifications({ items, mainSegway, excludeIdsToCompare }) {
 
   const dispatch = useDispatch();
   const targetScrollElement = useRef(null);
 
   const { compareModels: { activeModal, selectedModeltoCompare } } = useSelector((state) => state.modals);
 
-  const [allModels] = useState(items);
+  const [allModels, allModelsSet] = useState(items);
 
   const closeOnClickOutsite = (event) => {
     if (activeModal && targetScrollElement.current === event.target) {
@@ -59,6 +58,13 @@ export default function CompareSpecifications({ items, mainSegway }) {
     dispatch(productModalActiveSet(true));
     dispatch(pushProduct(productItem));
   };
+
+  useEffect(() => {
+    if (excludeIdsToCompare) {
+      const filteredProducts = items.filter(item => !excludeIdsToCompare.includes(item.id));
+      allModelsSet(filteredProducts)
+    }
+  }, [items, excludeIdsToCompare])
 
 
   return (

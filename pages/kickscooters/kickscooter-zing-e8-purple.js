@@ -390,7 +390,10 @@ export default function ModelPage({ allData }) {
       />
 
       <DownloadManualDinamic />
-      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways[12]} />
+      <CompareSpecificationsDinamic
+        excludeIdsToCompare={['id=011&warranty=null&color=6D7DDF', 'id=011&warranty=null&color=FFBFC0']}
+        items={allData.segways}
+        mainSegway={allData.segways[12]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
 
