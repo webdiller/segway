@@ -34,7 +34,7 @@ export default function FancyModalA({ images }) {
   useEffect(() => {
     if (typeof window !== undefined) {
       try {
-        swiperRef.current.slideTo(currentPosition, 600, null);
+        swiperRef.current.slideToLoop(currentPosition, 600, null);
       } catch (error) {
         console.log('Handle error from FancyModal');
       }
@@ -60,7 +60,7 @@ export default function FancyModalA({ images }) {
           className={styles.fancyModal__slider}
           spaceBetween={0}
           slidesPerView={1}
-          loop={false}
+          loop={true}
           onInit={(swiper) => {
             swiperRef.current = swiper;
           }}
