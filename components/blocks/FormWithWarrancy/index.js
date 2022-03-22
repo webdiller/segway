@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import segwayProtect from '@/base/segway-protect.png';
-import { initProduct, setProperties, setCurrentPrice } from 'store/slices/preparedProductSlice';
+import { setProperties, setCurrentPrice } from 'store/slices/preparedProductSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { pushProduct } from 'store/slices/productCartSlice';
 import Colors from './Colors';
@@ -25,15 +25,10 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
   useEffect(() => {
     if (currentWarranty) {
       dispatch(setCurrentPrice(Number(product.price) + Number(product.warranty[currentWarranty - 1].price)))
-
     } else {
       dispatch(setCurrentPrice(Number(product.price)))
     }
   }, [currentWarranty, product, dispatch])
-
-  useEffect(() => {
-    dispatch(initProduct({ product: product, currentPrice: product.price }))
-  }, [dispatch, product])
 
   useEffect(() => {
     const idParams = new URLSearchParams(preparedProduct ? preparedProduct.id : product.id);
@@ -61,7 +56,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
   return (
     <>
       {!mediaQuery && product.colors && (
-        <Colors colors={product.colors} />
+        <Colors productName={product.shortName} colors={product.colors} />
       )}
 
       <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>

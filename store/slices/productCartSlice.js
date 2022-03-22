@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const productCartSlice = createSlice({
-  name: 'user',
+  name: 'productCart',
   initialState,
   reducers: {
 
@@ -26,11 +26,12 @@ export const productCartSlice = createSlice({
     pushProduct: (state, action) => {
       const item = action.payload;
       const product = state.products.find((product) => product.id === item.id)
-      if (product) {
-        product.quantity = ++product.quantity
-      } else {
-        state.products.push(item)
-      }
+
+      /** Если нашли продукт в текущей корзине, то увеличиваем значение */
+      if (product) product.quantity = product.quantity + 1
+      
+      /** Если не нашли продукт в текущей корзине, то добавляем его в корзину */
+      if (!product) state.products.push(item)
 
       const accessories = state.products.filter(product => product.type === 'accessory');
       const models = state.products.filter(product => product.type !== 'accessory');
@@ -43,7 +44,7 @@ export const productCartSlice = createSlice({
       const product = state.products.find((product) => product.id === item.id)
 
       if (product) {
-        if (product.quantity === 1) {
+        if (product.quantity === 1 || product.quantity === 0) {
           state.products = state.products.filter((product) => product.id !== item.id)
         }
         if (product.quantity > 1) {

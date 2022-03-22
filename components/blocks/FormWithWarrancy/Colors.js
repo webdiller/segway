@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import iconCheck from '@/base/icon-color-check.svg'
 import Image from 'next/image'
 
-export default function Colors({ colors }) {
+export default function Colors({ colors, productName }) {
   const router = useRouter()
   return (
     <div className="form-colors">
@@ -12,7 +12,7 @@ export default function Colors({ colors }) {
           Select color
         </p>
         <p className="text form-colors__title-mobile">
-          <b>Select color</b> <br /> <span>KS ZING E8</span>
+          <b>Select color</b> <br /> <span>{productName}</span>
         </p>
         <div className="form-colors__items">
           {colors.map(({ color, urlWithCategory }) => {

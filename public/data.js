@@ -200,7 +200,7 @@ export const data = {
     // number:1, index: 1, name: max white
     {
       excludeForMap: true,
-      id: "id=007&warranty=null&color=ded5aa",
+      id: "id=006&warranty=null&color=ded5aa",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",

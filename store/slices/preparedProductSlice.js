@@ -30,12 +30,9 @@ export const preparedProductSlice = createSlice({
       state.currentPrice = action.payload
     },
     setPreparedProtectionAccessory: (state, action) => {
-      const preparedProtection = action.payload;
-      // preparedProtection.quantity = 0;
-      // preparedProtection.price = 0;
-      // state.preparedProtectionAccessory = preparedProtection
+      let preparedProtection = action.payload;
+      state.preparedProtectionAccessory = preparedProtection
     }
-
   }
 
 })

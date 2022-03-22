@@ -30,7 +30,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  blacklist: ['differentBilling', 'productModal']
+  blacklist: ['differentBilling', 'productModal', 'discountModalSlice']
 }
 
 const rootReducer = combineReducers({
