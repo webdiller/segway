@@ -116,20 +116,7 @@ export const data = {
       imgPathWithCircle: "/accessory-with-circle-9.png",
       imgPathWithBlueCircle: "/accessory-with-blue-circle-9.png",
       quantity: 1
-    },
-    {
-      id: "example-accessory",
-      type: "accessory",
-      name: "EXAMPLE ITEM",
-      nameWrap: "Segway \n Scooter Seat",
-      description: "This scooter seat is designed to work with the MAX. It offers high quality, comfort and safety that is in line with the MAX KickScooter.",
-      price: "119.99",
-      imgPath: "/accessory-9.png",
-      pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-9.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-9.png",
-      quantity: 1
-    },
+    }
   ],
   segways: [
     // number:1, index: 0, name: max 

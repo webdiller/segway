@@ -161,20 +161,16 @@ export default function TopSwiper({ items }) {
                         allowTouchMove: false
                       }
                     }}>
-                    {items.gocarts.map(({ id, name, shortName, imgSmallPath, pageLinkName, pageLinkForMatch }) => {
-                      const currentUrl = router.asPath.split('/')[2];
-                      let isMatch = null
-                      if (currentUrl) {
-                        isMatch = currentUrl.includes(pageLinkForMatch)
-                      }
+                    {items.accessoeries.map(({ id, nameWrap, imgPath }) => {
+                     
                       return (
-                        <SwiperSlide key={id} className={isMatch ? "top-swiper__item accent" : "top-swiper__item"}>
-                          <Link href={`${pageLinkName ? `/gocarts/${pageLinkName}` : '/'}`}>
+                        <SwiperSlide key={id} className="top-swiper__item">
+                          <Link href="/accessoeries">
                             <a className="top-swiper__link">
                               <div className="top-swiper__img-wrapper">
-                                <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                                <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgPath} alt={nameWrap} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                               </div>
-                              <p className="top-swiper__name">{shortName}</p>
+                              <p className="top-swiper__name top-swiper__name_small">Accessory</p>
                             </a>
                           </Link>
                         </SwiperSlide>
