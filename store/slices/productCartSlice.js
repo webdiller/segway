@@ -37,6 +37,14 @@ export const productCartSlice = createSlice({
       /** Если не нашли продукт в текущей корзине, то добавляем его в корзину */
       if (!product) state.products.push(item)
 
+      /** Если в корзине есть продукт и нету защиты, то добавляем ее в корзину */
+      let existAnyProduct = state.products.filter(product => product.type !== 'accessory');
+      let existProtectionAccessory = state.products.filter(product => product.id === 'segway-protective-gear-set');
+      let condition = existAnyProduct.length !== 0 && existProtectionAccessory.length === 0 ? true : false;
+      
+      if (condition) state.products = [...state.products, state.preparedProtectionAccessory]
+
+      /** Сортируем товары в корзине */
       const accessories = state.products.filter(product => product.type === 'accessory');
       const models = state.products.filter(product => product.type !== 'accessory');
       state.products = [...models, ...accessories]
@@ -86,6 +94,7 @@ export const productCartSlice = createSlice({
       state.totalPrice = calculateTotalPrice(state.products)
     },
 
+    /** Инициализуруем продукт для кнопок с быстрым добавлением товара в корзину */
     initProduct: (state, action) => {
       const { product, currentPrice } = action.payload;
       state.preparedProduct = product
@@ -106,6 +115,7 @@ export const productCartSlice = createSlice({
       state.currentPrice = action.payload
     },
     
+    /** Инициализуруем подарок для кнопок с быстрым добавлением товара в корзину */
     setPreparedProtectionAccessory: (state, action) => {
       let preparedProtection = action.payload;
       state.preparedProtectionAccessory = preparedProtection

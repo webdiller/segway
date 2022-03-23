@@ -56,7 +56,6 @@ const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllF
 import FormWarrancy_desktop from '@/base/gocart-kit/form-warrancy-desktop.jpg';
 import FormWarrancy_mobile from '@/base/gocart-kit/form-warrancy-mobile.jpg';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
-const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), {ssr: false});
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), {ssr: false});
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), {ssr: false});
 
@@ -299,7 +298,6 @@ export default function ModelPage({allData}) {
         customClass="ks-e-45"
         item={allData.gocarts[1]}
       />
-      <FixedModalDinamic segwayItem={allData.gocarts[1]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
       <FancyModal images={allData.gocarts[1].galleryImages} />
@@ -310,7 +308,9 @@ export default function ModelPage({allData}) {
 export async function getStaticProps() {
   return {
     props: {
-      allData: data
+      allData: data,
+      product: data.gocarts[1],
+      preparedProtection: data.accessoeries[2]
     }
   };
 }

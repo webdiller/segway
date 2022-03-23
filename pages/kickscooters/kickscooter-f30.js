@@ -64,7 +64,6 @@ import FormWarrancy_mobile from '@/base/ks-f30/form-warrancy-mobile.jpg';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
 
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
-const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), { ssr: false });
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
@@ -414,7 +413,6 @@ export default function ModelPage({ allData }) {
       />
 
       <OtherModelsDinamic items={allData.segways} />
-      <FixedModalDinamic segwayItem={allData.segways[6]} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
       <FancyModal images={allData.segways[6].galleryImages} />
@@ -425,7 +423,9 @@ export default function ModelPage({ allData }) {
 export async function getStaticProps() {
   return {
     props: {
-      allData: data
+      allData: data,
+      product: data.segways[6],
+      preparedProtection: data.accessoeries[2]
     }
   };
 }

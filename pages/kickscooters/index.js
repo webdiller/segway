@@ -30,7 +30,8 @@ export default function HomePage({ allData }) {
 export async function getStaticProps() {
   return {
     props: {
-      allData: data
+      allData: data,
+      preparedProtection: data.accessoeries[2]
     }
   };
 }

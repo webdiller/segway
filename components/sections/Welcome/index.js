@@ -17,7 +17,6 @@ import 'swiper/css/pagination';
 export default function Welcome({ currentSegway, titleDesktop, titleMobile }) {
   const dispatch = useDispatch();
   let mediaQuery = useMediaQuery('(max-width: 768px)');
-  let mediaTitle = useMediaQuery('(max-width: 576px)');
 
   const { currentPosition } = useSelector(state => state.fancyModal);
 

@@ -66,7 +66,7 @@ export default function TopSwiper({ items }) {
     }
   }, [swiperWithAllSegways, inView, topSlider, dispatch]);
 
-  useEffect(()=>{
+  useEffect(() => {
     parentSwiper.current.slideTo(currentPosition, 600, null);
   }, [currentPosition])
 
@@ -82,6 +82,8 @@ export default function TopSwiper({ items }) {
               loop={false}
               allowTouchMove={false}
               onInit={(swiper) => (parentSwiper.current = swiper)}>
+
+              {/* kickscooters */}
               <SwiperSlide className="top-swiper__parent-slide">
                 <div className="top-swiper__main-container">
                   <Swiper
@@ -147,6 +149,73 @@ export default function TopSwiper({ items }) {
                 </div>
               </SwiperSlide>
 
+              {/* gocarts */}
+              <SwiperSlide className="top-swiper__parent-slide">
+                <div className="top-swiper__main-container">
+                  <Swiper
+                    className="top-swiper__swiper"
+                    ref={swiperWithAllSegways}
+                    modules={[Navigation, FreeMode]}
+                    spaceBetween={0}
+                    slidesPerView={4}
+                    loop={false}
+                    freeMode={true}
+                    navigation={{
+                      prevEl: '.top-swiper__nav_prev',
+                      nextEl: '.top-swiper__nav_next'
+                    }}
+                    breakpoints={{
+                      768: {
+                        allowTouchMove: false
+                      }
+                    }}
+                    onInit={(swiper) => swiperWithAllSegways.current = swiper}>
+                    {items.gocarts.map(({ id, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                      if (!excludeForMap) {
+                        const currentUrl = router.asPath.split('/')[2];
+                        let isMatch = null
+                        if (currentUrl) {
+                          isMatch = currentUrl.includes(pageLinkForMatch)
+                        }
+                        return (
+                          <SwiperSlide key={id} className={isMatch ? "top-swiper__item accent" : "top-swiper__item"}>
+                            <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
+                              <a className="top-swiper__link">
+                                <div className="top-swiper__img-wrapper">
+                                  <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                                </div>
+                                <p className="top-swiper__name">{nameWithoutBrand}</p>
+                              </a>
+                            </Link>
+                          </SwiperSlide>
+                        )
+                      }
+                    })}
+
+                    <SwiperSlide key="99999" className={router.asPath === '/accessories' ? "top-swiper__item accent" : "top-swiper__item"}>
+                      <Link href="/accessories">
+                        <a className="top-swiper__link">
+                          <div className="top-swiper__img-wrapper">
+                            <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
+                          </div>
+                          <p className="top-swiper__name">Accessories</p>
+                        </a>
+                      </Link>
+                    </SwiperSlide>
+                  </Swiper>
+
+                  <div className="top-swiper__navigation">
+                    <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
+                      <BsChevronCompactLeft className="top-swiper__icon" />
+                    </button>
+                    <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
+                      <BsChevronCompactRight className="top-swiper__icon" />
+                    </button>
+                  </div>
+                </div>
+              </SwiperSlide>
+              
+              {/* accessoeries */}
               <SwiperSlide className="top-swiper__parent-slide">
                 <div className="top-swiper__main-container">
                   <Swiper
@@ -162,7 +231,7 @@ export default function TopSwiper({ items }) {
                       }
                     }}>
                     {items.accessoeries.map(({ id, nameWrap, imgPath }) => {
-                     
+
                       return (
                         <SwiperSlide key={id} className="top-swiper__item">
                           <Link href="/accessoeries">

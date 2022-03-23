@@ -38,16 +38,13 @@ export const calculateTotalPrice = (products) => {
        * Калькуляция цены. Еысли в корзине имеется защита и один из продуктов
        * Если да, то отнимаем 29 от общей суммы
        */
-      // TODO: Перенести логику в extraReducers
       let existAnyProduct = products.filter(product => product.type !== 'accessory');
       let existProtectionAccessory = products.filter(product => product.id === 'segway-protective-gear-set');
       let excludePriceForGift = existAnyProduct.length > 0 && existProtectionAccessory.length > 0 ? true : false;
 
       if (!excludePriceForGift) {
-        console.log('not match');
         total = total + ((price + warranty + color) * quantity)
       } else {
-        console.log('match');
         total = (total + ((price + warranty + color) * quantity)) - 29.99
       }
 
