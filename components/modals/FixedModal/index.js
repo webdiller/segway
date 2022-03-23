@@ -25,7 +25,7 @@ export default function FixedModal({ product, preparedProtection }) {
 
   return (
     <ModalWrapper mounted={true}>
-      {product && preparedProtection(
+      {product && preparedProtection && (
         <div onClick={addItemToCartAndShowModal} className="fixed-modal">
           <button className="fixed-modal__wrapper">
             <span className="fixed-modal__title">
