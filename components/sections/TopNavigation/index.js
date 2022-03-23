@@ -60,9 +60,6 @@ export default function TopNavigation() {
 
           <nav className={isActiveMenu ? 'top-nav__items active' : 'top-nav__items'}>
             <Link href="/">
-              <a className="top-nav__item">Home</a>
-            </Link>
-            <Link href={matchCatalog ? `/${matchCatalog}` : `/kickscooters`}>
               <a className="top-nav__item top-nav__item_mobile">Catalog</a>
             </Link>
             <Link href="/shipping-and-payment">
