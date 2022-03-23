@@ -87,7 +87,7 @@ export default function ModelPage({ allData }) {
             SEGWAY Ninebot
             <br />
             Kickscooter <br />
-            ES1L
+            AIR t15
           </>
         }
         currentSegway={allData.segways[7]}
