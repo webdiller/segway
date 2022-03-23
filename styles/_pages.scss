@@ -1,4 +1,5 @@
-.categories-page {
+.main-page {
+  overflow-x: hidden;
   &__items {
     padding-top: 41px;
     padding-bottom: 30px;
@@ -22,10 +23,40 @@
       margin-bottom: 25px;
     }
   }
+  &__breadcrumbs {
+    margin: 20px 0 0 0;
+  }
+  &__info-link {
+    margin-top: 48px;
+    margin-bottom: 60px;
+    @include media('<=768px') {
+      margin-top: 37px;
+      margin-bottom: 46px;
+    }
+  }
   &__tabs {
     margin-bottom: 50px;
     @include media('<=576px') {
       margin-bottom: 0;
     }
+  }
+  &__sliders {
+    padding-top: 51px;
+    padding-bottom: 46px;
+    background: linear-gradient(0deg, #EEEEEE 0%, rgba(245, 245, 245, 0.79) 43.81%, rgba(255, 255, 255, 0) 82.46%);
+    @include media('<=768px') {
+      padding-top: 34px;
+      padding-bottom: 37px;
+    }
+  }
+  &__margin-slider {
+    margin-bottom: 60px;
+    @include media('<=768px') {
+      margin-bottom: 47px;
+    }
+  }
+  &__videos {
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
 }

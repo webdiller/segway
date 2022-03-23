@@ -30,7 +30,7 @@ export default function ProductCards({categoryRoute, title, products}) {
           })}
         </div>
         <div className="product-cards__bottom">
-          <Link href="#">
+          <Link href="/">
             <a className="ui-btn product-cards__bottom-link">
               <span>See more</span>
             </a>

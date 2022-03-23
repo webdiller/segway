@@ -10,7 +10,10 @@
 @import '@/sections/PaymentTopNavigation';
 @import '@/sections/Payment';
 @import '@/sections/TopSwiper';
+@import '@/sections/TopCategorySlider';
+@import '@/sections/MainModelSlider';
 @import '@/sections/MiddleNavigation';
+@import '@/sections/InfoLink';
 @import '@/sections/TopStock';
 @import '@/sections/Welcome';
 @import '@/sections/Tabs';
@@ -43,6 +46,10 @@
 @import '@/sections/ControllFromSmartphone';
 @import '@/sections/WarrancyPaymentImage';
 @import '@/sections/Wholesale';
+@import '@/sections/Footer';
+@import '@/sections/CategorySlider';
+@import '@/sections/Breadcrumbs';
+@import '@/sections/Videos';
 
 /** BLOCKS */
 @import '@/blocks/TitleWithDescription';

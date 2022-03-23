@@ -97,7 +97,7 @@ export default function TopNavigation() {
           </div>
 
           <div className="top-nav__actions top-nav__actions_mobile">
-            <Link href="#">
+            <Link href="/">
               <a className="top-nav__action">
                 <div className="top-nav__action-icon-wrapper">
                   <Image src={iconPhoneBlack} alt="icon" />

@@ -1,0 +1,30 @@
+.breadcrumbs {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+  &__link {
+    font-size: 13px;
+    line-height: 120%;
+    color: #999999;
+    text-decoration: none;
+    &::after {
+      content: "»";
+      margin: 0 7px;
+      color: #999999;
+      text-shadow: none;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+    &.begin {
+      color: #009eff;
+      text-shadow: 0 0 1px #009eff;
+    }
+    &.middle {
+      color: #323941;
+    }
+  }
+}

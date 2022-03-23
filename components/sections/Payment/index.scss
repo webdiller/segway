@@ -81,8 +81,20 @@
     line-height: 120%;
     color: rgba(153, 153, 153, 1);
     text-decoration: none;
-    &:not(:last-child) {
-      margin-right: 7px;
+    font-size: 13px;
+    line-height: 120%;
+    color: #999999;
+    text-decoration: none;
+    &::after {
+      content: "»";
+      margin: 0 7px;
+      color: #999999;
+      text-shadow: none;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
     }
   }
 }

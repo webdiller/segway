@@ -17,7 +17,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
 import { disableTopSlider } from 'store/slices/elementInViewSlice';
-import { off } from 'no-scroll';
 
 export default function TopSwiper({ items }) {
   const router = useRouter();
@@ -80,8 +79,12 @@ export default function TopSwiper({ items }) {
     };
   }, []);
 
-  useEffect(()=>{
-    offset > 0 ? topSwiperActionsRoot.current.classList.add('stik-to-top') : topSwiperActionsRoot.current.classList.remove('stik-to-top')
+  useEffect(() => {
+    if (offset > 0) {
+      topSwiperActionsRoot.current.classList.add('stik-to-top')
+    } else {
+      topSwiperActionsRoot.current.classList.remove('stik-to-top')
+    }
   }, [offset])
 
   return (

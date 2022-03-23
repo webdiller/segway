@@ -1,21 +1,32 @@
-import { MainPageItems } from '@/sections/MainPageItems';
 import CustomHead from '@/basic/CustomHead';
-import SegwayProtect from '@/sections/SegwayProtect';
 import Tabs from '@/sections/Tabs';
 import { data } from '@/base/data';
+import MainModelSlider from '@/sections/MainModelSlider';
+import InfoLink from '@/sections/InfoLink';
+import Reviews from '@/sections/Reviews/ReviewsSlider';
+import TopCategorySlider from '@/sections/TopCategorySlider';
+import CategorySlider from '@/sections/CategorySlider';
 
-export default function HomePage({allData}) {
+export default function HomePage({ allData }) {
   return (
     <>
       <CustomHead title="Main page" />
-      <div className="categories-page">
-        <div className="categories-page__items">
-          <MainPageItems />
+      <div className="main-page">
+        <TopCategorySlider/>
+        <MainModelSlider />
+        <div className="main-page__sliders">
+          <CategorySlider title="KICKSCOOTER" products={allData.segways} />
+          <div className="main-page__info-link">
+            <InfoLink label="How to choose a KICKSCOOTER?" />
+          </div>
+          <CategorySlider customClassNames="main-page__margin-slider" title="GOKART" products={allData.gocarts} />
+          <CategorySlider typeScrollBar="white" typeItemName="accessories" title="Accessories" products={allData.accessoeries} />
         </div>
-        <div className="categories-page__protect">
-          <SegwayProtect customClass="type-2" />
+
+        <div className="main-page__reviews">
+          <Reviews />
         </div>
-        <div className="categories-page__tabs">
+        <div className="main-page__tabs">
           <Tabs
             showApp
             tab_4_title={<>APP <br />Controll</>}

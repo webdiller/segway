@@ -13,7 +13,6 @@ export default function MainPageLayout({ title = 'Segway', description = 'Опи
       <CustomHead description={description} title={title} />
       <TopNavigation />
       <MiddleNavigation />
-      <TopStock />
       {children}
       <Footer />
       <ProductModalDinamic accessoeries={allData.accessoeries} />

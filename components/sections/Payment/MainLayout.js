@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Breadcrumbs from './Breadcrumbs';
+import PaymentBreadcrumbs from './PaymentBreadcrumbs';
 import UserCartStatus from './UserCartStatus';
 
 export default function MainLayout({ children }) {
@@ -8,7 +8,7 @@ export default function MainLayout({ children }) {
       <div className="container payment-layout__container">
         <div className="payment-layout__left">
           <div className="hide-991">
-            <Breadcrumbs />
+            <PaymentBreadcrumbs />
           </div>
           {children}
         </div>

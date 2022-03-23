@@ -53,7 +53,7 @@ export default function ReviewsBlock() {
                     KICKSCOOTER <br /> MAX
                   </span>
                 </p>
-                <Link passHref href="#">
+                <Link passHref href="/">
                   <a className="text reviews-block__segway-link">Look this</a>
                 </Link>
               </div>
@@ -85,7 +85,7 @@ export default function ReviewsBlock() {
                     KICKSCOOTER <br /> MAX
                   </span>
                 </p>
-                <Link passHref href="#">
+                <Link passHref href="/">
                   <a className="text reviews-block__segway-link">Look this</a>
                 </Link>
               </div>
@@ -117,7 +117,7 @@ export default function ReviewsBlock() {
                     KICKSCOOTER <br /> MAX
                   </span>
                 </p>
-                <Link passHref href="#">
+                <Link passHref href="/">
                   <a className="text reviews-block__segway-link">Look this</a>
                 </Link>
               </div>
@@ -126,7 +126,7 @@ export default function ReviewsBlock() {
         </div>
 
         <div className="reviews-block__bottom">
-          <Link passHref href="#">
+          <Link passHref href="/">
             <a className="ui-btn reviews-block__bottom-link">
               <span>See more</span>
             </a>

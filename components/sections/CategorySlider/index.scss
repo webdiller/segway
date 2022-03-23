@@ -1,0 +1,225 @@
+$rootClass: '.category-slider';
+
+#{$rootClass} {
+  &__container {
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    text-transform: uppercase;
+    @include media('<=768px') {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+  }
+
+  &__swiper {
+    overflow: visible !important;
+    clip-path: inset(-100vw -100vw -100vw 0);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    width: 172px;
+    flex: 0 0 172px;
+    height: auto;
+
+    &::selection {
+      background-color: transparent;
+    }
+    &:not(:last-child) {
+      margin-right: 72px;
+      @include media('<=768px') {
+        margin-right: 17px;
+      }
+    }
+    @include media('<=768px') {
+      width: 133px;
+      flex: 0 0 133px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 133px;
+      height: 133px;
+      background-color: #eeeeee;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      @include media('<=768px') {
+        width: 128px;
+        height: 128px;
+      }
+    }
+    &::selection {
+      background-color: transparent;
+    }
+    img {
+      &::selection {
+        background-color: transparent;
+      }
+    }
+    @include media('<=768px') {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 12px;
+    &::selection {
+      background-color: transparent;
+    }
+    &_accessory {
+      height: 70px;
+    }
+    @include media('<=768px') {
+      white-space: pre-wrap;
+      font-size: 15px;
+      line-height: 16px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    margin-bottom: auto;
+    padding-bottom: 18px;
+    white-space: nowrap;
+    margin-top: auto;
+  }
+
+  &__price {
+    color: #323941;
+
+    @include media('<=768px') {
+      font-size: 13px;
+      line-height: 16px;
+    }
+    &::selection {
+      background-color: transparent;
+    }
+    &_alt {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #979797;
+
+      span {
+        font-size: 12px;
+        line-height: 12px;
+        @include media('<=768px') {
+          font-size: 9px;
+          line-height: 9px;
+        }
+        &::selection {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &__price-separator {
+    display: inline-block;
+    margin: 0 8px;
+
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 10px;
+    color: #979797;
+    &::selection {
+      background-color: transparent;
+    }
+    @include media('<=768px') {
+      margin: 0 6px;
+      font-size: 8px;
+      line-height: 8px;
+    }
+  }
+
+  &__see-more {
+    margin: 0 auto;
+    max-width: 130px;
+    font-size: 13px;
+    span {
+      &::selection {
+        background-color: transparent;
+      }
+    }
+    @include media('<=768px') {
+      width: 100%;
+      flex: 1 1 auto;
+    }
+  }
+
+  &__scrollbar {
+    margin: 55px 0 0 0;
+    height: 4px;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    &_white {
+      background-color: #fff;
+    }
+    .swiper-scrollbar-drag {
+      background-color: #009eff;
+    }
+    @include media('<=768px') {
+      display: none;
+    }
+  }
+  &.disable-scroll-for-desktop {
+    #{$rootClass} {
+      &__swiper {
+        .swiper-wrapper {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          justify-content: space-between;
+          gap: 30px;
+          @include media('<=991px') {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          @include media('<=768px') {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      }
+
+      &__item {
+        height: auto;
+        margin: 0 auto;
+        &:not(:last-child) {
+          margin-right: auto;
+        }
+      }
+      &__scrollbar {
+        display: none;
+      }
+    }
+  }
+  &.lg-title {
+    #{$rootClass} {
+      &__title {
+        font-size: 58px;
+        @include media('<=768px') {
+          margin-bottom: 40px;
+          font-size: 28px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}

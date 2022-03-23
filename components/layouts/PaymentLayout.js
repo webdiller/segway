@@ -1,6 +1,6 @@
 import CustomHead from '@/basic/CustomHead';
 import Footer from '@/sections/Footer';
-import {Breadcrumbs} from '@/sections/Payment';
+import {PaymentBreadcrumbs} from '@/sections/Payment';
 import MainLayout from '@/sections/Payment/MainLayout';
 import PaymentTopNavigation from '@/sections/PaymentTopNavigation';
 
@@ -12,7 +12,7 @@ export default function PaymentLayout({title = 'Segway', description = 'Опис
         <PaymentTopNavigation />
         <MainLayout>
           <div className="show-block-991">
-            <Breadcrumbs />
+            <PaymentBreadcrumbs />
           </div>
           {children}
         </MainLayout>

@@ -35,7 +35,7 @@ export default function MiddleNavigation({showDirector}) {
             <div className="middle-navigation__director-items">
               <span className="middle-navigation__director-name">JOHN SMITH</span>
               <p className="middle-navigation__director-description">«Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod facilisi pharetra sed nulla massa. </p>
-              <Link href="#">
+              <Link href="/">
                 <a className="middle-navigation__director-link">Ask a question to the director</a>
               </Link>
             </div>

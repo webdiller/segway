@@ -115,7 +115,7 @@ export default function OtherModels({ items }) {
                 return (
                   <SwiperSlide key={id} className="swiper-slide other-models__item">
                     <div className="other-models__item-wrapper">
-                      <Link href="#">
+                      <Link href="/">
                         <a className="other-models__link">
                           <div className="other-models__img-wrapper">
                             <Image quality={100} objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
@@ -126,7 +126,7 @@ export default function OtherModels({ items }) {
                           </div>
                         </a>
                       </Link>
-                      <Link href="#">
+                      <Link href="/">
                         <a className="ui-btn other-models__see-more">
                           <span>SEE MORE</span>
                         </a>
