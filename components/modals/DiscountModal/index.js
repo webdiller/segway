@@ -84,8 +84,8 @@ export default function DiscountModal() {
               onSubmit={onSubmit}
               className="discount-modal__wrapper">
               <div type='button' onClick={setActiveModalHandler} className="discount-modal__close-btn">
-                <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop'><Image src="/icon-close-white.svg" alt="icon-close" width="34" height="34" loading="lazy" /></div>
-                <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile'><Image src="/icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" /></div>
+                <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_desktop'><Image src="/icon-close-white.svg" alt="icon-close" width="34" height="34" loading="eager" /></div>
+                <div className='discount-modal__close-btn-icon discount-modal__close-btn-icon_mobile'><Image src="/icon-close-black.svg" alt="icon-close" width="34" height="34" loading="eager" /></div>
               </div>
               <p className="discount-modal__title">5%</p>
               <div className="discount-modal__content">
