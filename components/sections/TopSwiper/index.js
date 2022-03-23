@@ -23,10 +23,8 @@ export default function TopSwiper({ items }) {
   const dispatch = useDispatch();
 
   const { topSlider } = useSelector(state => state.elementInView);
+  const { currentPosition } = useSelector(state => state.topSwiper);
 
-  const [offset, setOffset] = useState(0);
-
-  const topSwiperActionsRoot = useRef(null);
   const topSwiperActions = useRef(null);
   const swiperWithAllSegways = useRef(null);
   const parentSwiper = useRef(null);
@@ -68,59 +66,22 @@ export default function TopSwiper({ items }) {
     }
   }, [swiperWithAllSegways, inView, topSlider, dispatch]);
 
-
-  useEffect(() => {
-    const onScrollEvent = (e) => {
-      setOffset(window.pageYOffset);
-    };
-    window.addEventListener('scroll', onScrollEvent);
-    return () => {
-      window.removeEventListener('scroll', onScrollEvent);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (offset > 0) {
-      topSwiperActionsRoot.current.classList.add('stik-to-top')
-    } else {
-      topSwiperActionsRoot.current.classList.remove('stik-to-top')
-    }
-  }, [offset])
+  useEffect(()=>{
+    parentSwiper.current.slideTo(currentPosition, 600, null);
+  }, [currentPosition])
 
   return (
     <>
       <div ref={ref} className="top-swiper">
-        <div ref={topSwiperActionsRoot} className="top-swiper__actions">
-          <Swiper
-            className="top-swiper__actions-swiper"
-            modules={[FreeMode]}
-            spaceBetween={0}
-            slidesPerView="auto"
-            freeMode={true}
-            loop={false}
-            breakpoints={{
-              991: {
-                freeMode: false,
-                slidesPerView: 2
-              }
-            }}
-            onInit={(swiper) => (topSwiperActions.current = swiper)}>
-            <SwiperSlide onClick={(event) => slideToHandle(event, 0)} tag="button" className="top-swiper__actions-slide">
-              Ninebot kickscooter
-            </SwiperSlide>
-            <SwiperSlide onClick={(event) => slideToHandle(event, 1)} tag="button" className="top-swiper__actions-slide">
-              Ninebot gokart
-            </SwiperSlide>
-            <SwiperSlide onClick={(event) => slideToHandle(event, 2)} tag="button" className="top-swiper__actions-slide">
-              Accessories
-            </SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="top-swiper__actions-separator"></div>
-
         <div className="top-swiper__all-swipers">
+
           <div className="container top-swiper__container">
-            <Swiper className="top-swiper__parent-swiper" spaceBetween={10} slidesPerView={1} loop={false} allowTouchMove={false} onInit={(swiper) => (parentSwiper.current = swiper)}>
+            <Swiper className="top-swiper__parent-swiper"
+              spaceBetween={10}
+              slidesPerView={1}
+              loop={false}
+              allowTouchMove={false}
+              onInit={(swiper) => (parentSwiper.current = swiper)}>
               <SwiperSlide className="top-swiper__parent-slide">
                 <div className="top-swiper__main-container">
                   <Swiper
@@ -140,9 +101,7 @@ export default function TopSwiper({ items }) {
                         allowTouchMove: false
                       }
                     }}
-                    onInit={(swiper) => {
-                      swiperWithAllSegways.current = swiper;
-                    }}>
+                    onInit={(swiper) => swiperWithAllSegways.current = swiper}>
                     {items.segways.map(({ id, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
@@ -164,6 +123,7 @@ export default function TopSwiper({ items }) {
                         )
                       }
                     })}
+
                     <SwiperSlide key="99999" className={router.asPath === '/accessories' ? "top-swiper__item accent" : "top-swiper__item"}>
                       <Link href="/accessories">
                         <a className="top-swiper__link">
@@ -191,15 +151,11 @@ export default function TopSwiper({ items }) {
                 <div className="top-swiper__main-container">
                   <Swiper
                     className="top-swiper__swiper"
-                    modules={[Navigation, FreeMode]}
+                    modules={[FreeMode]}
                     spaceBetween={0}
                     slidesPerView={4}
                     loop={false}
                     freeMode={true}
-                    navigation={{
-                      prevEl: '.top-swiper__nav_prev',
-                      nextEl: '.top-swiper__nav_next'
-                    }}
                     breakpoints={{
                       768: {
                         allowTouchMove: false
@@ -239,9 +195,9 @@ export default function TopSwiper({ items }) {
 
             </Swiper>
           </div>
+
         </div>
       </div>
-      <div className="top-swiper-separator"></div>
     </>
   );
 }

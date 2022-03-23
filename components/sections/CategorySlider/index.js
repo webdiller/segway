@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar }) {
+export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar, allowTouchMove=true }) {
   return (
     <div className={classNames('category-slider', classNames(customClassNames))}>
       <div className="container category-slider__container">
@@ -24,7 +24,7 @@ export default function CategorySlider({ customClassNames, title, products, type
           freeMode={true}
           loop={false}
           centeredSlides={false}
-          allowTouchMove={false}
+          allowTouchMove={allowTouchMove}
 
           scrollbar={{
             el: '.category-slider__scrollbar',

@@ -1,5 +1,4 @@
 .top-category-slider {
-
   position: fixed;
   top: 152px;
   left: 0;
@@ -19,8 +18,11 @@
   @include media('<=991px') {
     top: 50px;
   }
-  
+
   &__container {
+    @include media('<=991px') {
+      padding: 0;
+    }
   }
 
   &__swiper {
@@ -32,21 +34,49 @@
   }
 
   &__item {
+    position: relative;
     text-align: center;
-    flex: 1 1 auto;
-  }
+    flex-basis: 33.33%;
+    overflow: visible;
 
-  &__link {
     font-weight: 700;
     font-size: 25px;
     line-height: 48px;
+
+    white-space: nowrap;
     text-align: center;
     text-transform: uppercase;
-    color: #ffffff;
-    text-decoration: none;
+    transition: all 0.3s ease;
+
+    @include media('<=991px') {
+      padding: 0 14px;
+      flex-basis: content;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: rgba(0, 158, 255, 0.8);
+    }
+
     @include media('<=768px') {
       font-size: 14px;
       line-height: 40px;
     }
+
+    &.active {
+      background-color: #009eff;
+    }
+
+  }
+}
+
+.top-category-slider-separator {
+  height: 48px;
+  @include media('<=991px') {
+    height: 40px;
   }
 }

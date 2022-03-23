@@ -25,6 +25,7 @@ import {
   elementInViewSlice,
   productModalSlice
 } from './slices/_index'
+import topSwiperSlice from './slices/topSwiperSlice'
 
 const persistConfig = {
   key: 'root',
@@ -35,6 +36,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   profile: profileSlice,
+  topSwiper: topSwiperSlice,
   differentBilling: differentBillingSlice,
   products: productCartSlice,
   modals: modalsSlice,

@@ -20,7 +20,7 @@ export default function HomePage({ allData }) {
             <InfoLink label="How to choose a KICKSCOOTER?" />
           </div>
           <CategorySlider customClassNames="main-page__margin-slider" title="GOKART" products={allData.gocarts} />
-          <CategorySlider typeScrollBar="white" typeItemName="accessories" title="Accessories" products={allData.accessoeries} />
+          <CategorySlider customClassNames={['accessoeries']} typeScrollBar="white" typeItemName="accessories" title="Accessories" products={allData.accessoeries} />
         </div>
 
         <div className="main-page__reviews">

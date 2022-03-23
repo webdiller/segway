@@ -16,7 +16,7 @@ export default function HomePage({ allData }) {
           <Breadcrumbs activeLabelName="Gocarts" />
         </div>
         <div className="main-page__sliders">
-          <CategorySlider customClassNames={['lg-title','disable-scroll-for-desktop']} title="Gocarts" products={allData.segways} />
+          <CategorySlider allowTouchMove={false} customClassNames={['lg-title','disable-scroll-for-desktop']} title="Gocarts" products={allData.segways} />
         </div>
         <div className="main-page__info-link">
           <InfoLink label="How to choose a KICKSCOOTER?" />
