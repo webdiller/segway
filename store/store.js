@@ -19,7 +19,6 @@ import {
   differentBillingSlice,
   productCartSlice,
   modalsSlice,
-  preparedProductSlice,
   discountModalSlice,
   fancyModalSlice,
   elementInViewSlice,
@@ -41,7 +40,6 @@ const rootReducer = combineReducers({
   products: productCartSlice,
   modals: modalsSlice,
   productModal: productModalSlice,
-  preparedProduct: preparedProductSlice,
   discountModal: discountModalSlice,
   fancyModal: fancyModalSlice,
   elementInView: elementInViewSlice

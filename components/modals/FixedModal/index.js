@@ -2,14 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { pushProduct } from 'store/slices/productCartSlice';
 import ModalWrapper from '../ModalWrapper';
-import { initProduct } from 'store/slices/preparedProductSlice';
+import { initProduct } from 'store/slices/productCartSlice';
 import { useEffect } from 'react';
 
 export default function FixedModal({ segwayItem }) {
 
   const dispatch = useDispatch()
 
-  const { preparedProduct, currentPrice, preparedProtectionAccessory } = useSelector(state => state.preparedProduct)
+  const { preparedProduct, currentPrice, preparedProtectionAccessory } = useSelector(state => state.products)
 
   const addItemToCartAndShowModal = () => {
     dispatch(pushProduct(preparedProduct))

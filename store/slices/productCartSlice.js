@@ -3,7 +3,11 @@ import { calculateTotalPrice } from "helpers/calculateTotalPrice";
 
 const initialState = {
   products: [],
-  totalPrice: 0
+  totalPrice: 0,
+
+  preparedProduct: null,
+  preparedProtectionAccessory: null,
+  currentPrice: null
 }
 
 export const productCartSlice = createSlice({
@@ -29,7 +33,7 @@ export const productCartSlice = createSlice({
 
       /** Если нашли продукт в текущей корзине, то увеличиваем значение */
       if (product) product.quantity = product.quantity + 1
-      
+
       /** Если не нашли продукт в текущей корзине, то добавляем его в корзину */
       if (!product) state.products.push(item)
 
@@ -80,10 +84,44 @@ export const productCartSlice = createSlice({
         state.products = filteredProducts
       }
       state.totalPrice = calculateTotalPrice(state.products)
+    },
+
+    initProduct: (state, action) => {
+      const { product, currentPrice } = action.payload;
+      state.preparedProduct = product
+      state.currentPrice = currentPrice
+    },
+
+    setProperties: (state, action) => {
+      const { selectedWarranty, selectedColor } = action.payload;
+
+      const idParams = new URLSearchParams(state.preparedProduct.id);
+      idParams.set('warranty', selectedWarranty)
+      idParams.set('color', selectedColor)
+
+      state.preparedProduct.id = idParams.toString()
+    },
+
+    setCurrentPrice: (state, action) => {
+      state.currentPrice = action.payload
+    },
+    
+    setPreparedProtectionAccessory: (state, action) => {
+      let preparedProtection = action.payload;
+      state.preparedProtectionAccessory = preparedProtection
     }
 
   }
 })
 
-export const { addQuantity, pushProduct, removeProduct, setPropertiesForProduct } = productCartSlice.actions
+export const {
+  addQuantity,
+  pushProduct,
+  removeProduct,
+  setPropertiesForProduct,
+  initProduct,
+  setProperties,
+  setCurrentPrice,
+  setPreparedProtectionAccessory
+} = productCartSlice.actions
 export default productCartSlice.reducer

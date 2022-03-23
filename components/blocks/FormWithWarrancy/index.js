@@ -5,9 +5,8 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import segwayProtect from '@/base/segway-protect.png';
-import { setProperties, setCurrentPrice } from 'store/slices/preparedProductSlice';
+import { setProperties, setCurrentPrice, pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
-import { pushProduct } from 'store/slices/productCartSlice';
 import Colors from './Colors';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
@@ -20,7 +19,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
   const [currentColor, currentColorSet] = useState(null)
 
   const tabWrapper = useRef(null);
-  const { preparedProduct } = useSelector(state => state.preparedProduct)
+  const { preparedProduct } = useSelector(state => state.products)
 
   useEffect(() => {
     if (currentWarranty) {
