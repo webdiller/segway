@@ -44,8 +44,7 @@
     "redux-persist": "^6.0.0",
     "sass": "^1.43.4",
     "sharp": "^0.29.3",
-    "swiper": "^7.2.0",
-    "url-search-params-polyfill": "^8.1.1"
+    "swiper": "^7.2.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",
