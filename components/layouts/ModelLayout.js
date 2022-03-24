@@ -2,12 +2,12 @@ import dynamic from 'next/dynamic';
 
 import TopSwiperLoader from '@/sections/TopSwiper/TopSwiperLoader';
 const TopSwiper = dynamic(() => import('@/sections/TopSwiper'), {
-  loading: () => TopSwiperLoader
+  loading: TopSwiperLoader
 })
 
 import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
 const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
-  loading: () => TopCategoryLoader
+  loading: TopCategoryLoader
 })
 
 import MiddleNavigation from '@/sections/MiddleNavigation';

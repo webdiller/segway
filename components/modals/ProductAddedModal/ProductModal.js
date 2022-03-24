@@ -3,16 +3,18 @@ const Link = dynamic(() => import('next/link'));
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
+
+import { pushProduct } from 'store/slices/productCartSlice';
+import ProductSwiler from './ProductSwiler';
+import Products from './Products';
+
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
-import { BiMinus, BiPlus } from 'react-icons/bi';
-import { useDispatch, useSelector } from 'react-redux';
-import { productModalActiveSet } from 'store/slices/productModalSlice';
-import { addQuantity, pushProduct, removeProduct } from 'store/slices/productCartSlice';
-import { WarrancyToggler, ColorToggler } from './index'
-import ProductSwiler from './ProductSwiler';
 
 export default function ProductModal({ accessoeries }) {
 
@@ -117,7 +119,9 @@ export default function ProductModal({ accessoeries }) {
 
         {/* CONTENT START */}
         <div className='product-modal__content'>
+
           <div className="product-modal__summ-and-products">
+            
             <div className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
               <div onClick={setVisibleProductsToggle} className="product-modal__summ-icon-with-text">
                 <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
@@ -132,63 +136,14 @@ export default function ProductModal({ accessoeries }) {
               <p className="text text_bold product-modal__summ-total">$ {totalPrice.toFixed(2)}</p>
             </div>
 
-            <div className="product-modal__products-area">
-              {products.map((item) => {
-
-                let { id, name, price, imgPath, quantity, colors } = item;
-
-                if (colors && colors.length > 0) {
-                  const paramsId = new URLSearchParams(id);
-                  const currentColor = paramsId.get('color');
-                  imgPath = colors.find(el => el.color === currentColor).imgPath;
-                }
-
-                return (
-                  <div key={id} className="product-modal__product">
-                    <div className="product-modal__product-main-area">
-                      <div className="product-modal__product-img-wrapper">
-                        <Image
-                          layout="fill"
-                          objectFit="contain"
-                          src={imgPath}
-                          alt={name}
-                          className="product-modal__product-img"
-                        />
-                      </div>
-
-                      <div className="product-modal__product-name-and-price">
-                        <p className="product-modal__product-name">{name}</p>
-                        <p className="product-modal__product-price">{quantity} x ${price}</p>
-                        {colors && (
-                          <ColorToggler product={item} />
-                        )}
-                      </div>
-
-                      <div className="product-modal__product-counter">
-                        <button onClick={() => dispatch(removeProduct(item))} className="inline-flex-center product-modal__product-count-minus">
-                          <BiMinus />
-                        </button>
-                        <p className="product-modal__product-count">{quantity}</p>
-                        <button onClick={() => dispatch(addQuantity({ id: item.id }))} className="inline-flex-center product-modal__product-count-plus">
-                          <BiPlus />
-                        </button>
-                      </div>
-                    </div>
-
-                    {item.warranty && (
-                      <div className="product-modal__product-warrancy-area">
-                        <p className="product-modal__product-warrancy-title">Add an extended warranty from Extend</p>
-                        <WarrancyToggler product={item} />
-                      </div>
-                    )}
-
-                  </div>
-                );
-              })}
+            <div className="product-modal__products">
+              <Products products={products} />
             </div>
           </div>
 
-          <ProductSwiler handler={addItemToCartWithAnimation} accessoeries={accessoeries} />
+          <div className="product-modal__product-cart-slider">
+            <ProductSwiler handler={addItemToCartWithAnimation} accessoeries={accessoeries} />
+          </div>
 
           <div className="hide-991 product-modal__top-actions product-modal__top-actions_desktop">
             <button onClick={closeModal} className="ui-btn ui-btn_fill-grey product-modal__top-actions-item">

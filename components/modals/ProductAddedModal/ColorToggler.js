@@ -27,11 +27,16 @@ export default function ColorToggler({ product }) {
   }
 
   return (
-    <div className="product-modal__colors">
-      <p className="product-modal__colors-title">Color: </p>
+    <div className="products__colors">
+      <p className="products__colors-title">Color: </p>
       {product.colors.map(({ name, color, price }) => {
+        const classForItem = selectedColor === color ? "products__color selected" : "products__color";
         return (
-          <button style={{ backgroundColor: `#${color}` }} onClick={(e) => onClickHandler(e, product, color)} key={`${product.id}-${color}`} className={selectedColor === color ? "product-modal__color selected" : "product-modal__color"}></button>
+          <button
+            style={{ backgroundColor: `#${color}` }}
+            onClick={(e) => onClickHandler(e, product, color)}
+            key={`${product.id}-${color}`}
+            className={classForItem}></button>
         )
       })}
     </div>

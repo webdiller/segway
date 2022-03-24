@@ -65,9 +65,14 @@ export const productCartSlice = createSlice({
       }
 
       /** 
-       * Если в корзине не осталось продуктов, и осталась 1 защита, 
-       * возвращаем стейт без защиты
-       * Если удаляем продукт, и осталась больше 1 защиты, то отнимаем количество защиты на 1
+       * Если нету продукта в стейте
+       * и 
+       * Если есть продукт segway-protective-gear-set
+       * и 
+       * Если у segway-protective-gear-set quantity === 1
+       * 
+       * 
+       * 
        */
       // let filteredProducts = state.products.filter(product => product.type !== 'accessory');
       // let filteredProtectionAccessory = state.products.filter(product => product.id === 'segway-protective-gear-set');

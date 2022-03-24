@@ -11,6 +11,7 @@
 
 - ## Баги:
   - Отрефакторить навигацию у topSwiper
+  - Убрать модель Navigation у Fancymodal
 
 - ## SEO
   - Добавить метатег в head

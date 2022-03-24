@@ -9,7 +9,7 @@ import Reviews from '@/sections/Reviews/ReviewsSlider';
 
 import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
 const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
-  loading: () => TopCategoryLoader
+  loading: TopCategoryLoader
 })
 
 import CategorySlider from '@/sections/CategorySlider';

@@ -25,12 +25,12 @@ export default function WarrancyToggler({ product }) {
   }
 
   return (
-    <div className="product-modal__product-warrancy-items">
+    <div className="products__product-warrancy-items">
       {product.warranty.map(({ durationYear, price }) => {
         return (
-          <button onClick={(e) => onClickHandler(e, product, durationYear)} key={`${product.id}-${durationYear}`} className={durationYear == selectedWarranty ? "product-modal__product-warrancy selected" : "product-modal__product-warrancy"}>
-            <span className="product-modal__product-warrancy-year">{durationYear} year</span>
-            <span className="product-modal__product-warrancy-price">${price}</span>
+          <button onClick={(e) => onClickHandler(e, product, durationYear)} key={`${product.id}-${durationYear}`} className={durationYear == selectedWarranty ? "products__product-warrancy selected" : "products__product-warrancy"}>
+            <span className="products__product-warrancy-year">{durationYear} year</span>
+            <span className="products__product-warrancy-price">${price}</span>
           </button>
         )
       })}
