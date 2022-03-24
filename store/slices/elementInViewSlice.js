@@ -1,10 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 /** Если true, то показываем скролл */
 const initialState = {
   topSlider: true,
   accessoriesSlider: true,
-  otherModelsSlider: true
+  otherModelsSlider: true,
+  otherSliders: {
+
+  }
 }
 
 export const elementInViewSlice = createSlice({
@@ -19,9 +22,39 @@ export const elementInViewSlice = createSlice({
     },
     disableOtherModelsSlider: (state, action) => {
       state.otherModelsSlider = action.payload
+    },
+    setCustomSlider: (state, action) => {
+      const { sliderName, payload } = action.payload;
+      // state.otherSliders[sliderName] = payload
+      // console.log('sliderName: ', sliderName);
+      // console.log('payload: ', payload);
+      // console.log(console.log());
+      // const newState = state.otherSliders;
+      // const newEntity = { ...state.otherSliders, sliderName: payload }
+
+      /**
+       * Проверяем ключ.
+       *  Если есть, то обновляем значение
+       * Если нету, то добавляем ключ и занчение
+       */
+      if (sliderName in state.otherSliders) {
+        state.otherSliders[sliderName] = payload
+      } else {
+        state.otherSliders = {
+          ...state.otherSliders,
+          [sliderName]: payload
+        }
+      }
+
+
     }
   }
 })
 
-export const { disableTopSlider, disableAccessoriesSlider, disableOtherModelsSlider } = elementInViewSlice.actions
+export const {
+  disableTopSlider,
+  disableAccessoriesSlider,
+  disableOtherModelsSlider,
+  setCustomSlider
+} = elementInViewSlice.actions
 export default elementInViewSlice.reducer

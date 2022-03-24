@@ -10,27 +10,47 @@ import 'swiper/css/pagination';
 
 import { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { setCustomSlider } from 'store/slices/elementInViewSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar, allowTouchMove = true }) {
+export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar, allowTouchMove = true, keySlider }) {
+
+  const dispatch = useDispatch()
 
   const swiperRef = useRef()
   const { ref, inView } = useInView({ threshold: 0.5 });
 
+  const { otherSliders } = useSelector(state => state.elementInView)
+
   useEffect(() => {
-    if (inView) {
-      console.log(inView);
+    if (otherSliders[keySlider] === undefined) {
+      dispatch(setCustomSlider({ sliderName: keySlider, payload: true }))
+    }
+  }, [otherSliders, keySlider, dispatch])
+
+  useEffect(() => {
+    if (inView && otherSliders[keySlider] && allowTouchMove) {
       try {
         setTimeout(() => {
-          swiperRef.current.slideNext();
+          try {
+            swiperRef.current.slideNext();
+          } catch (error) { }
           setTimeout(() => {
-            swiperRef.current.slidePrev();
+            try {
+              swiperRef.current.slidePrev();
+            } catch (error) { }
+            setTimeout(() => {
+              try {
+                dispatch(setCustomSlider({ sliderName: keySlider, payload: false }))
+              } catch (error) { }
+            }, 700);
           }, 700);
         }, 600);
       } catch (error) {
         console.log('error while handle swipe');
       }
     }
-  }, [inView])
+  }, [inView, otherSliders, keySlider])
 
   return (
     <div ref={ref} className={classNames('category-slider', classNames(customClassNames))}>

@@ -1,6 +1,9 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js'
+
 import { data } from '@/base/data';
 
 import CustomHead from '@/basic/CustomHead';
@@ -38,7 +41,7 @@ export default function PaymentMainPage() {
     zipCode,
     phone
   } = useSelector(state => state.profile);
-  
+
   return (
     <>
       <CustomHead title="Payment main information" />

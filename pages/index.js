@@ -19,15 +19,28 @@ export default function HomePage({ allData }) {
     <>
       <CustomHead title="Main page" />
       <div className="main-page">
-        <TopCategorySlider/>
+        <TopCategorySlider />
         <MainModelSlider />
         <div className="main-page__sliders">
-          <CategorySlider title="KICKSCOOTER" products={allData.segways} />
+          <CategorySlider
+            keySlider="mainPageSliderKickscooters"
+            title="KICKSCOOTER"
+            products={allData.segways} />
           <div className="main-page__info-link">
             <InfoLink label="How to choose a KICKSCOOTER?" />
           </div>
-          <CategorySlider customClassNames="main-page__margin-slider" title="GOKART" products={allData.gocarts} />
-          <CategorySlider customClassNames={['accessoeries']} typeScrollBar="white" typeItemName="accessories" title="Accessories" products={allData.accessoeries} />
+          <CategorySlider
+            keySlider="mainPageSliderGocarts"
+            customClassNames="main-page__margin-slider"
+            title="GOKART"
+            products={allData.gocarts} />
+          <CategorySlider
+            keySlider="mainPageSliderAccessoeries"
+            customClassNames={['accessoeries']}
+            typeScrollBar="white"
+            typeItemName="accessories"
+            title="Accessories"
+            products={allData.accessoeries} />
         </div>
 
         <div className="main-page__reviews">
