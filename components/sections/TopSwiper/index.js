@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { Navigation, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import topSwiperAccessory from '@/base/top-swiper-accessory.png';
@@ -25,24 +25,10 @@ export default function TopSwiper({ items }) {
   const { topSlider } = useSelector(state => state.elementInView);
   const { currentPosition } = useSelector(state => state.topSwiper);
 
-  const topSwiperActions = useRef(null);
   const swiperWithAllSegways = useRef(null);
   const parentSwiper = useRef(null);
 
   const { ref, inView } = useInView({ threshold: 0.5 });
-
-  const slideToHandle = (event, id) => {
-    topSwiperActions.current.slideTo(id, 600, null);
-    parentSwiper.current.slideTo(id, 600, null);
-    const htmlItems = event.target.parentElement.children;
-    for (let item of htmlItems) {
-      item.classList.remove('swiper-slide-active');
-    }
-    event.target.classList.add('swiper-slide-active');
-    window.scrollTo({
-      top: 0
-    });
-  };
 
   useEffect(() => {
     if (window.innerWidth <= 768 && inView && topSlider) {
@@ -234,7 +220,7 @@ export default function TopSwiper({ items }) {
 
                       return (
                         <SwiperSlide key={id} className="top-swiper__item">
-                          <Link href="/accessoeries">
+                          <Link href="/accessories">
                             <a className="top-swiper__link">
                               <div className="top-swiper__img-wrapper">
                                 <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgPath} alt={nameWrap} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />

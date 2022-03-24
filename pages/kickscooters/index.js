@@ -1,7 +1,14 @@
+import dynamic from 'next/dynamic';
+
 import CustomHead from '@/basic/CustomHead';
 import { data } from '@/base/data';
 import InfoLink from '@/sections/InfoLink';
-import TopCategorySlider from '@/sections/TopCategorySlider';
+
+import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
+const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
+  loading: () => TopCategoryLoader
+})
+
 import CategorySlider from '@/sections/CategorySlider';
 import Breadcrumbs from '@/sections/Breadcrumbs';
 import Videos from '@/sections/Videos';

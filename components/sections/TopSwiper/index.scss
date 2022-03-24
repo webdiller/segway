@@ -249,3 +249,16 @@
     color: #009eff;
   }
 }
+
+.top-swiper-loader {
+  background-color: #3d434a;
+  &__container {
+    height: 263px;
+    @include media('<=991px') {
+      height: 261px;
+    }
+    @include media('<=768px') {
+      height: 102px;
+    }
+  }
+}

@@ -1,10 +1,17 @@
+import dynamic from 'next/dynamic';
+
 import CustomHead from '@/basic/CustomHead';
 import Tabs from '@/sections/Tabs';
 import { data } from '@/base/data';
 import MainModelSlider from '@/sections/MainModelSlider';
 import InfoLink from '@/sections/InfoLink';
 import Reviews from '@/sections/Reviews/ReviewsSlider';
-import TopCategorySlider from '@/sections/TopCategorySlider';
+
+import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
+const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
+  loading: () => TopCategoryLoader
+})
+
 import CategorySlider from '@/sections/CategorySlider';
 
 export default function HomePage({ allData }) {

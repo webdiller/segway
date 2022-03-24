@@ -1,8 +1,17 @@
 import dynamic from 'next/dynamic';
-import TopSwiper from '@/sections/TopSwiper';
+
+import TopSwiperLoader from '@/sections/TopSwiper/TopSwiperLoader';
+const TopSwiper = dynamic(() => import('@/sections/TopSwiper'), {
+  loading: () => TopSwiperLoader
+})
+
+import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
+const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
+  loading: () => TopCategoryLoader
+})
+
 import MiddleNavigation from '@/sections/MiddleNavigation';
 import TopNavigation from '@/sections/TopNavigation';
-import TopCategorySlider from '@/sections/TopCategorySlider';
 const FixedModalDinamic = dynamic(() => import('@/modals/FixedModal'), { ssr: false });
 const Footer = dynamic(() => import('@/sections/Footer'))
 

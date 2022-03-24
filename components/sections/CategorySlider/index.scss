@@ -19,6 +19,7 @@ $rootClass: '.category-slider';
   }
 
   &__item {
+    position: relative;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -41,6 +42,10 @@ $rootClass: '.category-slider';
       width: 133px;
       flex: 0 0 133px;
     }
+  }
+
+  &__img-with-content {
+    position: relative;
   }
 
   &__image {
@@ -67,12 +72,6 @@ $rootClass: '.category-slider';
     }
     &::selection {
       background-color: transparent;
-    }
-    &:hover,
-    &:focus {
-      &::before {
-        background-color: #009eff;
-      }
     }
     img {
       &::selection {
@@ -104,6 +103,7 @@ $rootClass: '.category-slider';
 
   &__prices {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-bottom: auto;
     padding-bottom: 18px;
@@ -186,6 +186,23 @@ $rootClass: '.category-slider';
     }
     @include media('<=768px') {
       display: none;
+    }
+  }
+
+  &__overlay-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    &:hover,
+    &:focus {
+      + #{$rootClass}__image {
+        &::before {
+          background-color: #009eff;
+        }
+      }
     }
   }
   &.disable-scroll-for-desktop {

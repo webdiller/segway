@@ -73,13 +73,22 @@
     &.active {
       background-color: #009eff;
     }
-
   }
 }
 
 .top-category-slider-separator {
   height: 48px;
-  @include media('<=991px') {
+  @include media('<=768px') {
     height: 40px;
+  }
+}
+
+.top-category-loader {
+  background-color: #323941;
+  &__container {
+    height: 48px;
+    @include media('<=768px') {
+      height: 40px;
+    }
   }
 }

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper';
+import { FreeMode, Pagination } from 'swiper';
 
 import youtubeicon from '@/base/icon-youtube-alt.svg';
 
@@ -45,12 +45,16 @@ export default function Videos({ customClassNames, title = "Videos" }) {
         <p className='title videos__title'>{title}</p>
         <Swiper
           className="videos__swiper"
-          modules={[FreeMode]}
+          modules={[FreeMode, Pagination]}
           slidesPerView="auto"
           freeMode={true}
           loop={false}
           centeredSlides={false}
           allowTouchMove={true}
+          pagination={{
+            clickable: true,
+            el: '.videos__pagination'
+          }}
         >
           {videosArray.map((video, indx) => {
             return (
@@ -69,6 +73,7 @@ export default function Videos({ customClassNames, title = "Videos" }) {
             )
           })}
         </Swiper>
+        <div className="videos__pagination"></div>
       </div>
     </div>
   )

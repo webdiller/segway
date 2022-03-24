@@ -63,6 +63,21 @@ export const productCartSlice = createSlice({
           product.quantity = --product.quantity
         }
       }
+
+      /** 
+       * Если в корзине не осталось продуктов, и осталась 1 защита, 
+       * возвращаем стейт без защиты
+       * Если удаляем продукт, и осталась больше 1 защиты, то отнимаем количество защиты на 1
+       */
+      // let filteredProducts = state.products.filter(product => product.type !== 'accessory');
+      // let filteredProtectionAccessory = state.products.filter(product => product.id === 'segway-protective-gear-set');
+      // if (filteredProducts.length === 0 && filteredProtectionAccessory.length === 1) {
+      //   console.log(filteredProtectionAccessory.length );
+      //   state.products = state.products.filter(product => product.id !== 'segway-protective-gear-set');
+      // }
+      // console.log('filteredProducts: ', filteredProducts);
+      // console.log('filteredProtectionAccessory: ', filteredProtectionAccessory);
+
       state.totalPrice = calculateTotalPrice(state.products)
     },
 

@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar, allowTouchMove=true }) {
+export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar, allowTouchMove = true }) {
   return (
     <div className={classNames('category-slider', classNames(customClassNames))}>
       <div className="container category-slider__container">
@@ -31,25 +31,37 @@ export default function CategorySlider({ customClassNames, title, products, type
             draggable: true
           }}
         >
-          {products.map(({ id, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory }) => {
+          {products.map(({ id, type, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory }) => {
             const classForName = typeItemName === 'accessories' ? 'category-slider__name category-slider__name_accessory' : 'category-slider__name'
             if (!excludeForMap) {
               return (
                 <SwiperSlide key={id} className="category-slider__item">
-                  <div className="category-slider__image">
-                    <Image
-                      src={imgPath}
-                      quality={100}
-                      objectFit="contain"
-                      layout='fill'
-                      alt="Segway image in slider"
-                    />
-                  </div>
-                  <p className={`text text_25 ${classForName}`}>{nameWithoutBrand || nameWrap}</p>
-                  <div className="text category-slider__prices">
-                    <p className="category-slider__price">$899.99</p>
-                    <span className="category-slider__price-separator">or</span>
-                    <p className="category-slider__price category-slider__price_alt">$7 / <span>month</span></p>
+
+                  <div className="category-slider__img-with-content">
+                    <Link href={pageLinkNameWithCategory || pageLinkName}>
+                      <a className="category-slider__overlay-link"></a>
+                    </Link>
+                    <div className="category-slider__image">
+                      <Image
+                        src={imgPath}
+                        quality={100}
+                        objectFit="contain"
+                        layout='fill'
+                        alt="Segway image in slider"
+                      />
+                    </div>
+                    <p className={`text text_25 ${classForName}`}>{nameWithoutBrand || nameWrap}</p>
+                    {type === 'accessory' ? (
+                      <div className="text category-slider__prices">
+                        <p className="category-slider__price">$899.99</p>
+                      </div>
+                    ) : (
+                      <div className="text category-slider__prices">
+                        <p className="category-slider__price">$899.99</p>
+                        <span className="category-slider__price-separator">or</span>
+                        <p className="category-slider__price category-slider__price_alt">$7 / <span>month</span></p>
+                      </div>
+                    )}
                   </div>
 
                   <Link href={pageLinkNameWithCategory || pageLinkName}>
