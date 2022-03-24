@@ -7,15 +7,14 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 
-import Products from './Products';
-
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
-import { ProductsSwiler } from './index';
+import { ProductsSwiler, Products } from './index';
 
 export default function ProductModal({ accessoeries }) {
+  const dispatch = useDispatch();
 
   const modalWrapperElement = useRef(null);
 
@@ -24,8 +23,6 @@ export default function ProductModal({ accessoeries }) {
 
   const { products, totalPrice } = useSelector((state) => state.products);
   const { activeModal } = useSelector((state) => state.productModal);
-
-  const dispatch = useDispatch();
 
   const closeModal = () => {
     if (window.innerWidth <= 991) {
