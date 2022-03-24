@@ -1,4 +1,3 @@
-import { Navigation } from 'swiper';
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
@@ -30,7 +29,6 @@ export default function FancyModalA({ images }) {
     dispatch(setActive(false));
   };
 
-
   useEffect(() => {
     if (typeof window !== undefined) {
       try {
@@ -56,7 +54,6 @@ export default function FancyModalA({ images }) {
         <div className={styles.fancyModal__closeIcon_desktop}><Image onClick={closeModal} src={iconCloseWhite} alt="icon-close" width={34} height={34} /></div>
         <div className={styles.fancyModal__closeIcon_mobile}><Image onClick={closeModal} src={iconCloseBlack} alt="icon-close" width={34} height={34} /></div>
         <Swiper
-          modules={[Navigation]}
           className={styles.fancyModal__slider}
           spaceBetween={0}
           slidesPerView={1}
@@ -76,10 +73,10 @@ export default function FancyModalA({ images }) {
         </Swiper>
 
         <div className={styles.fancyModal__navigation}>
-          <button onClick={slideToLeft} ref={swipePrevRef} aria-label="swipe to left slider" className={currentSlide === 0 ? `${styles.fancyModal__navigationItem} ${styles.fancyModal__navigationItem_hidden}` : `${styles.fancyModal__navigationItem}`}>
+          <button onClick={slideToLeft} ref={swipePrevRef} aria-label="swipe to left slider" className={styles.fancyModal__navigationItem}>
             <FcPrevious className="top-swiper__icon" />
           </button>
-          <button onClick={slideToRight} ref={swipeNextRef} aria-label="swipe to right slider" className={(currentSlide + 1) === images.length ? `${styles.fancyModal__navigationItem} ${styles.fancyModal__navigationItem_hidden}` : `${styles.fancyModal__navigationItem}`}>
+          <button onClick={slideToRight} ref={swipeNextRef} aria-label="swipe to right slider" className={styles.fancyModal__navigationItem}>
             <FcNext className="top-swiper__icon" />
           </button>
         </div>
