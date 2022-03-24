@@ -4,44 +4,63 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FcPrevious, FcNext } from 'react-icons/fc';
 import imagePlaceholder from '@/base/circle-placeholder.svg';
 import iconCheckForAccesoeriesSlider from '@/base/icon-check-bold.svg'
+import { useDispatch } from 'react-redux';
+import { pushProduct } from 'store/slices/productCartSlice';
+import classNames from 'classnames';
 
-export default function ProductSwiler({ accessoeries, handler }) {
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+export default function ProductSwiler({ customClasses, accessoeries }) {
+
+  const dispatch = useDispatch()
+
+  const addItemToCartWithAnimation = (e, item) => {
+    dispatch(pushProduct(item))
+    e.target.classList.add('added');
+    setTimeout(() => {
+      e.target.classList.remove('added');
+    }, 600);
+  };
+
   return (
-    <div className="product-cart-slider">
+    <div className={classNames('product-cart-slider', classNames(customClasses))}>
       <div className="product-cart-slider__container">
         <p className="text text_25 product-cart-slider__title">Accessories</p>
         <div className="product-cart-slider__swiper-wrapper">
           <div className="product-cart-slider__swiper">
             <Swiper
               modules={[Navigation, FreeMode]}
-              spaceBetween={10}
-              slidesPerView={2}
+              spaceBetween={0}
+              slidesPerView="auto"
               loop={false}
               freeMode={true}
+              allowTouchMove={true}
               navigation={{
                 prevEl: '.product-cart-slider__nav_prev',
                 nextEl: '.product-cart-slider__nav_next'
               }}
-              breakpoints={{
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 16
-                }
-              }}
             >
 
               {accessoeries.map((item) => {
-                const { id, name, nameWrap, description, price, imgPath } = item;
+                const { id, name, price, imgPath } = item;
                 return (
-                  <SwiperSlide onClick={(e) => handler(e, item)} key={id} className="product-cart-slider__item">
+                  <SwiperSlide onClick={(e) => addItemToCartWithAnimation(e, item)} key={id} className="product-cart-slider__item">
                     <div className="product-cart-slider__img-main-wrapper">
                       <div className="product-cart-slider__img-wrapper">
-                        <Image objectFit="contain" width="152" height="155" layout="responsive" src={imgPath} alt={name} className="product-cart-slider__img" placeholder="blur" blurDataURL={imagePlaceholder} />
+                        <Image
+                          objectFit="contain"
+                          layout="fill"
+                          src={imgPath}
+                          alt={name}
+                          placeholder="blur"
+                          blurDataURL={imagePlaceholder}
+                        />
                       </div>
                       <div className="product-cart-slider__overlay">
                         <p className="product-cart-slider__overlay-text">Added to card</p>
                         <div className="product-cart-slider__overlay-icon">
-                          <Image className="product-cart-slider__overlay-icon" src={iconCheckForAccesoeriesSlider} alt="icon" />
+                          <Image src={iconCheckForAccesoeriesSlider} alt="icon" />
                         </div>
                       </div>
                     </div>

@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
+
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 const videosArray = [

@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   topSlider: true,
   accessoriesSlider: true,
-  otherModelsSlider: true,
+  otherModelsSlider: true
 }
 
 export const elementInViewSlice = createSlice({

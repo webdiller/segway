@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { WarrancyToggler, ColorToggler } from './index'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addQuantity, removeProduct } from 'store/slices/productCartSlice';
 
-export default function Products({ products }) {
+export default function Products() {
+  const { products, totalPrice } = useSelector((state) => state.products);
   const dispatch = useDispatch()
 
   return (

@@ -1,11 +1,15 @@
 .payment-layout {
   height: 100%;
+
   &__page {
     // Для страницы
     min-height: 100vh;
     height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    @include media('<=991px') {
+      display: block;
+    }
   }
   &__container {
     display: flex;
@@ -30,10 +34,14 @@
     }
   }
   &__right {
-    padding: 17px 0 17px 0;
+    padding: 17px 0 85px 0;
+    width: 365px;
     flex: 0 0 365px;
     @include media('<=991px') {
       flex: auto;
+      width: 100%;
+      padding-left: 16px;
+      padding-right: 16px;
       padding-bottom: 3px;
     }
   }
@@ -331,7 +339,7 @@
     padding-bottom: 22px;
     border-bottom: 1px solid #e1e1e1;
     @include media('<=991px') {
-      padding: 24px 16px;
+      padding: 24px 0;
       border-top: 1px solid #e1e1e1;
     }
   }

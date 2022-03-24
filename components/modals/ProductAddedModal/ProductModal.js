@@ -7,14 +7,13 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 
-import { pushProduct } from 'store/slices/productCartSlice';
-import ProductSwiler from './ProductSwiler';
 import Products from './Products';
 
 import iconCloseBlack from '@/base/icon-close-black.svg';
 import iconCloseWhite from '@/base/icon-close-white.svg';
 import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
+import { ProductsSwiler } from './index';
 
 export default function ProductModal({ accessoeries }) {
 
@@ -55,14 +54,6 @@ export default function ProductModal({ accessoeries }) {
       setVisibleProducts((prev) => !prev);
     }
   }
-
-  const addItemToCartWithAnimation = (e, item) => {
-    dispatch(pushProduct(item))
-    e.target.classList.add('added');
-    setTimeout(() => {
-      e.target.classList.remove('added');
-    }, 600);
-  };
 
   useEffect(() => {
     const onEventHandler = (event) => {
@@ -121,7 +112,7 @@ export default function ProductModal({ accessoeries }) {
         <div className='product-modal__content'>
 
           <div className="product-modal__summ-and-products">
-            
+
             <div className={visibleProducts ? 'product-modal__summ-area active' : 'product-modal__summ-area'}>
               <div onClick={setVisibleProductsToggle} className="product-modal__summ-icon-with-text">
                 <div className="inline-flex-center product-modal__summ-icon-cart-wrapper">
@@ -137,12 +128,12 @@ export default function ProductModal({ accessoeries }) {
             </div>
 
             <div className="product-modal__products">
-              <Products products={products} />
+              <Products />
             </div>
           </div>
 
           <div className="product-modal__product-cart-slider">
-            <ProductSwiler handler={addItemToCartWithAnimation} accessoeries={accessoeries} />
+            <ProductsSwiler accessoeries={accessoeries} />
           </div>
 
           <div className="hide-991 product-modal__top-actions product-modal__top-actions_desktop">

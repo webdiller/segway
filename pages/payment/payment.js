@@ -1,9 +1,12 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
+
 import CustomHead from '@/basic/CustomHead';
 import { ShippingItem, ShippingList } from '@/shared/ShippingStatus';
 import RadioWrapper from '@/shared/RadioItems/RadioWrapper';
 import Image from 'next/image';
+
+import { data } from '@/base/data';
 
 import paymentsLarge from '@/base/payments-large.jpg'
 import paymentsSmall from '@/base/payments-small.jpg'
@@ -29,7 +32,6 @@ import {
 } from 'store/slices/differentBillingSlice';
 
 export default function PauymentLastPage() {
-
   const {
     email,
     address,
@@ -210,4 +212,12 @@ export default function PauymentLastPage() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      accessoeries: data.accessoeries
+    }
+  };
 }

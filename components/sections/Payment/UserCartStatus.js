@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import { setDiscountCode } from 'store/slices/profileSlice';
 
 export default function UserCartStatus() {
+  
   const { discountCode } = useSelector(state => state.profile);
+  const { totalPrice } = useSelector((state) => state.products);
 
   return (
     <div className="user-cart-status">
@@ -21,7 +23,7 @@ export default function UserCartStatus() {
         </div>
         <div className="user-cart-status__row">
           <p className="user-cart-status__title">Shipping</p>
-          <p className="user-cart-status__text">$949.99</p>
+          <p className="user-cart-status__text">${totalPrice.toFixed(2)}</p>
         </div>
       </div>
 
@@ -30,7 +32,7 @@ export default function UserCartStatus() {
           <p className="user-cart-status__title">Total</p>
           <div>
             <span className="user-cart-status__text-uppercase">usd</span>
-            <span className="user-cart-status__price">$949.99</span>
+            <span className="user-cart-status__price">${totalPrice.toFixed(2)}</span>
           </div>
         </div>
       </div>

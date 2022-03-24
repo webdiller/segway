@@ -1,6 +1,8 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
+import { data } from '@/base/data';
+
 import CustomHead from '@/basic/CustomHead';
 import CustomCheckbox from '@/shared/CustomCheckbox';
 import CustomInput from '@/shared/CustomInput';
@@ -88,4 +90,12 @@ export default function PaymentMainPage() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      accessoeries: data.accessoeries
+    }
+  };
 }

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import {useMediaQuery} from '@/hooks/useMediaQuery';
 
 import arrowLeft from '@/base/icon-arrow-left.svg';
@@ -11,7 +11,6 @@ import mainModelSliderLogo from '@/base/main-model-slider-logo.svg';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
 
 const images = [
   {
@@ -45,15 +44,12 @@ export default function MainModelSlider() {
       <div className="main-model-slider__container">
 
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Navigation, Pagination]}
           className="main-model-slider__slider"
           spaceBetween={0}
           slidesPerView={1}
           speed={600}
           loop={true}
-          autoplay={{
-            delay: 5000
-          }}
           navigation={{
             prevEl: '.main-model-slider__nav_left',
             nextEl: '.main-model-slider__nav_right'

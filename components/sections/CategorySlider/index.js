@@ -6,22 +6,45 @@ import { FreeMode, Scrollbar } from 'swiper';
 import classNames from 'classnames';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
+
+import { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar, allowTouchMove = true }) {
+
+  const swiperRef = useRef()
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
+  useEffect(() => {
+    if (inView) {
+      console.log(inView);
+      try {
+        setTimeout(() => {
+          swiperRef.current.slideNext();
+          setTimeout(() => {
+            swiperRef.current.slidePrev();
+          }, 700);
+        }, 600);
+      } catch (error) {
+        console.log('error while handle swipe');
+      }
+    }
+  }, [inView])
+
   return (
-    <div className={classNames('category-slider', classNames(customClassNames))}>
+    <div ref={ref} className={classNames('category-slider', classNames(customClassNames))}>
       <div className="container category-slider__container">
         <p className="title category-slider__title">{title}</p>
         <Swiper
+          ref={swiperRef}
           className="category-slider__swiper"
 
           modules={[Scrollbar, FreeMode]}
 
           slidesPerView="auto"
           freeMode={true}
+          speed={600}
           loop={false}
           centeredSlides={false}
           allowTouchMove={allowTouchMove}
@@ -30,6 +53,10 @@ export default function CategorySlider({ customClassNames, title, products, type
             el: '.category-slider__scrollbar',
             draggable: true
           }}
+
+          onInit={(swiper => {
+            swiperRef.current = swiper
+          })}
         >
           {products.map(({ id, type, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory }) => {
             const classForName = typeItemName === 'accessories' ? 'category-slider__name category-slider__name_accessory' : 'category-slider__name'

@@ -4,13 +4,13 @@ import {PaymentBreadcrumbs} from '@/sections/Payment';
 import MainLayout from '@/sections/Payment/MainLayout';
 import PaymentTopNavigation from '@/sections/PaymentTopNavigation';
 
-export default function PaymentLayout({title = 'Segway', description = 'Описание', children} = {}) {
+export default function PaymentLayout({title = 'Segway', description = 'Описание', children, accessoeries}) {
   return (
     <>
       <CustomHead description={description} title={title} />
       <div className="payment-layout__page">
         <PaymentTopNavigation />
-        <MainLayout>
+        <MainLayout accessoeries={accessoeries}>
           <div className="show-block-991">
             <PaymentBreadcrumbs />
           </div>

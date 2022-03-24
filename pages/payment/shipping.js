@@ -1,5 +1,8 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
+
+import { data } from '@/base/data';
+
 import CustomHead from '@/basic/CustomHead';
 import { ShippingItem, ShippingList } from '@/shared/ShippingStatus';
 import RadioWrapper from '@/shared/RadioItems/RadioWrapper';
@@ -48,4 +51,12 @@ export default function PaymentShippingPage() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      accessoeries: data.accessoeries
+    }
+  };
 }

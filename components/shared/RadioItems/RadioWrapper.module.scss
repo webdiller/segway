@@ -48,13 +48,13 @@
 
 .secondChildren {
   margin-left: auto;
+  transition: all .3s ease;
   @include media('<=991px') {
     display: none;
   }
 }
 
 .inactive {
-  transition: all .3s ease;
   opacity: .5;
 }
 

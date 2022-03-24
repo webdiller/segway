@@ -182,10 +182,11 @@ $rootClass: '.category-slider';
       background-color: #fff;
     }
     .swiper-scrollbar-drag {
+      height: 100%;
       background-color: #009eff;
     }
     @include media('<=768px') {
-      display: none;
+      margin-top: 16px;
     }
   }
 

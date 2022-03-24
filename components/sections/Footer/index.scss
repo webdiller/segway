@@ -86,6 +86,7 @@ $rootClass: '.footer';
       }
     }
     &_sm {
+      display: none;
       @include media('<=991px') {
         display: block;
       }
