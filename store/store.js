@@ -28,7 +28,7 @@ import topSwiperSlice from './slices/topSwiperSlice'
 
 const persistConfig = {
   key: 'root',
-  version: 1,
+  version: 0.1,
   storage,
   blacklist: ['differentBilling', 'productModal', 'discountModalSlice']
 }

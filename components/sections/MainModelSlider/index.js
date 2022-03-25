@@ -1,16 +1,15 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
-import {useMediaQuery} from '@/hooks/useMediaQuery';
+import { Navigation, Pagination, Autoplay } from 'swiper';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 import arrowLeft from '@/base/icon-arrow-left.svg';
 import arrowRight from '@/base/icon-arrow-right.svg';
 
-import mainModelSliderLogo from '@/base/main-model-slider-logo.svg';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 const images = [
   {
@@ -20,18 +19,18 @@ const images = [
   },
   {
     id: 1,
-    src: '/main-model-slider-1.jpg',
-    srcSmall: '/main-model-slider-1-sm.jpg'
+    src: '/main-model-slider-2.jpg',
+    srcSmall: '/main-model-slider-2-sm.jpg'
   },
   {
     id: 2,
-    src: '/main-model-slider-1.jpg',
-    srcSmall: '/main-model-slider-1-sm.jpg'
+    src: '/main-model-slider-3.jpg',
+    srcSmall: '/main-model-slider-3-sm.jpg'
   },
   {
     id: 3,
-    src: '/main-model-slider-1.jpg',
-    srcSmall: '/main-model-slider-1-sm.jpg'
+    src: '/main-model-slider-4.jpg',
+    srcSmall: '/main-model-slider-4-sm.jpg'
   },
 ]
 
@@ -44,12 +43,15 @@ export default function MainModelSlider() {
       <div className="main-model-slider__container">
 
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           className="main-model-slider__slider"
           spaceBetween={0}
           slidesPerView={1}
           speed={600}
           loop={true}
+          autoplay={{
+            delay: 5000
+          }}
           navigation={{
             prevEl: '.main-model-slider__nav_left',
             nextEl: '.main-model-slider__nav_right'
@@ -66,7 +68,7 @@ export default function MainModelSlider() {
                   src={!mediaQuery ? src : srcSmall}
                   quality={100}
                   width={1376}
-                  height={391}
+                  height={388}
                   objectFit="cover"
                   className="main-model-slider__image"
                   alt="Segway image in slider"
@@ -87,12 +89,13 @@ export default function MainModelSlider() {
           </div>
         </div>
 
-        <div className="container main-model-slider__content">
+        {/* Контент для картинок */}
+        {/* <div className="container main-model-slider__content">
           <div className="main-model-slider__content-logo">
             <Image src={mainModelSliderLogo} alt="Main model slider logo" />
           </div>
           <p className="main-model-slider__content-text">Authorized <br /> reseller</p>
-        </div>
+        </div> */}
 
         <div className="main-model-slider__pagination"></div>
 

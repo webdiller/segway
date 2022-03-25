@@ -23,7 +23,11 @@ export default function CategorySlider({ customClassNames, title, products, type
   const { otherSliders } = useSelector(state => state.elementInView)
 
   useEffect(() => {
-    if (otherSliders[keySlider] === undefined) {
+    try {
+      if (otherSliders[keySlider] === undefined) {
+        dispatch(setCustomSlider({ sliderName: keySlider, payload: true }))
+      }
+    } catch (error) {
       dispatch(setCustomSlider({ sliderName: keySlider, payload: true }))
     }
   }, [otherSliders, keySlider, dispatch])

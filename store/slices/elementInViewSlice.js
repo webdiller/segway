@@ -25,13 +25,6 @@ export const elementInViewSlice = createSlice({
     },
     setCustomSlider: (state, action) => {
       const { sliderName, payload } = action.payload;
-      // state.otherSliders[sliderName] = payload
-      // console.log('sliderName: ', sliderName);
-      // console.log('payload: ', payload);
-      // console.log(console.log());
-      // const newState = state.otherSliders;
-      // const newEntity = { ...state.otherSliders, sliderName: payload }
-
       /**
        * Проверяем ключ.
        *  Если есть, то обновляем значение

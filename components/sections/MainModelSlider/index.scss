@@ -7,8 +7,16 @@
   }
 
   &__slide {
-    min-height: 391px;
     aspect-ratio: 16 / 4.52;
+    @supports not (aspect-ratio: 16 / 4.52) {
+      min-height: 391px;
+    }
+    @include media('<=991px') {
+      aspect-ratio: 16 / 11.66;
+      @supports not (aspect-ratio: 16 / 11.66) {
+        min-height: 450px;
+      }
+    }
     @include media('<=576px') {
       min-height: 273px;
     }
