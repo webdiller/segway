@@ -28,7 +28,7 @@ export default function HomePage({ allData }) {
             allowTouchMove={false}
             customClassNames={['lg-title', 'disable-scroll-for-desktop']}
             title="Gocarts"
-            products={allData.segways} />
+            products={allData.gocarts} />
         </div>
         <div className="main-page__info-link">
           <InfoLink label="How to choose a KICKSCOOTER?" />

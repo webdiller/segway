@@ -14,7 +14,7 @@ import { setActive, setPositionSlide } from 'store/slices/fancyModalSlice';
 
 import 'swiper/css/pagination';
 
-export default function Welcome({ currentSegway, titleDesktop, titleMobile }) {
+export default function Welcome({ currentSegway, titleDesktop, titleMobile, showBundles }) {
   const dispatch = useDispatch();
   let mediaQuery = useMediaQuery('(max-width: 768px)');
 
@@ -64,7 +64,7 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile }) {
               <p className="title welcome__title">{titleDesktop}</p>
             </div>
             <SegwayProtectMobile customClass="welcome__protect" />
-            <FormWithWarrancy product={currentSegway} customClass="welcome__form" />
+            <FormWithWarrancy showBundles={showBundles} product={currentSegway} customClass="welcome__form" />
             <PaymentsMethods customClass="welcome__payments" />
           </div>
 

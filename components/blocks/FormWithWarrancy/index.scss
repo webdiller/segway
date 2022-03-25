@@ -127,6 +127,7 @@
   }
   &__form-button-price {
     pointer-events: none;
+    transition: all .3s ease;
     @include media('<=575px') {
       color: #009eff;
     }
@@ -388,5 +389,94 @@
     right: 0;
     bottom: 0;
     left: 0;
+  }
+}
+
+.bundle-toggler {
+  &__container {
+    margin-bottom: 24px;
+    @include media('<=991px') {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    margin-bottom: 11px;
+    font-weight: 700;
+    @include media('<=768px') {
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 21px;
+    min-height: 130px;
+    @include media('<=991px') {
+      column-gap: 10px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+    border: 1px solid #999999;
+    box-sizing: border-box;
+    height: 100%;
+    color: #323941;
+    transition: all 0.3s ease;
+
+    @include media('<=991px') {
+      padding: 7px;
+    }
+
+    &:hover,
+    &.active {
+      color: #fff;
+      border-color: #009eff;
+      background-color: #009eff;
+      cursor: pointer;
+      .bundle-toggler__price {
+        @include media('<=991px') {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &__img {
+    margin-bottom: 12px;
+    @include media('<=991px') {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__name-with-price {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    line-height: 119%;
+  }
+
+  &__name {
+    margin-right: 5px;
+  }
+
+  &__price {
+    font-weight: 700;
+    transition: all .3s ease;
+    @include media('<=991px') {
+      font-weight: 400;
+      color: #009eff;
+    }
   }
 }

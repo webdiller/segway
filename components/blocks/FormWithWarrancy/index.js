@@ -9,8 +9,9 @@ import { setProperties, setCurrentPrice, pushProduct } from 'store/slices/produc
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import Colors from './Colors';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import Bundles from './Bundles';
 
-export default function FormWithWarrancy({ customClass = 'form-with-warrancy', product }) {
+export default function FormWithWarrancy({ customClass = 'form-with-warrancy', product, showBundles=false }) {
   const dispatch = useDispatch();
 
   let mediaQuery = useMediaQuery('(min-width: 768px)');
@@ -54,12 +55,15 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
   return (
     <>
+
       {!mediaQuery && product.colors && (
         <Colors productName={product.shortName} colors={product.colors} />
       )}
 
       <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>
         <div ref={tabWrapper} className="form-with-warrancy__wrapper">
+
+          {showBundles && <Bundles />}
 
           <div className="form-with-warrancy__top">
 
