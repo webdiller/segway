@@ -966,7 +966,7 @@ export const data = {
     // number:1, index: 13, name:  e8 pink
     {
       id: "id=011&warranty=null&color=FFBFC0",
-      stripeId: "null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing e8",
