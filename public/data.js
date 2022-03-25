@@ -2,6 +2,7 @@ export const data = {
   accessoeries: [
     {
       id: "ninebot-engine-speaker",
+      stripeId: null,
       type: "accessory",
       name: "NineboT Engine Speaker",
       nameWrap: "NineboT \n Engine Speaker",
@@ -15,6 +16,7 @@ export const data = {
     },
     {
       id: "extension-rod",
+      stripeId: null,
       type: "accessory",
       name: "Extension Rod",
       nameWrap: "Extension \n Rod",
@@ -28,6 +30,7 @@ export const data = {
     },
     {
       id: "segway-protective-gear-set",
+      stripeId: null,
       type: "accessory",
       name: "Segway Protective Gear Set",
       nameWrap: "Segway Protective \n Gear Set",
@@ -41,6 +44,7 @@ export const data = {
     },
     {
       id: "ninebot-leisure-backpack",
+      stripeId: null,
       type: "accessory",
       name: "Ninebot Leisure Backpack",
       nameWrap: "Ninebot Leisure \n Backpack",
@@ -54,6 +58,7 @@ export const data = {
     },
     {
       id: "segway-external-battery",
+      stripeId: null,
       type: "accessory",
       name: "Segway External Battery",
       nameWrap: "Segway External \n Battery",
@@ -67,6 +72,7 @@ export const data = {
     },
     {
       id: "segway-charger",
+      stripeId: null,
       type: "accessory",
       name: "Segway Charger",
       nameWrap: "Segway \n Charger",
@@ -80,6 +86,7 @@ export const data = {
     },
     {
       id: "segway-scooter-bag",
+      stripeId: null,
       type: "accessory",
       name: "Segway Scooter Bag",
       nameWrap: "Segway \n Scooter Bag",
@@ -93,6 +100,7 @@ export const data = {
     },
     {
       id: "segway-phone-holder",
+      stripeId: null,
       type: "accessory",
       name: "Segway Phone Holder",
       nameWrap: "Segway \n Phone Holder",
@@ -106,6 +114,7 @@ export const data = {
     },
     {
       id: "segway-scooter-seat",
+      stripeId: null,
       type: "accessory",
       name: "Segway Scooter Seat",
       nameWrap: "Segway \n Scooter Seat",
@@ -122,6 +131,7 @@ export const data = {
     // number:1, index: 0, name: max 
     {
       id: "id=006&warranty=null&color=000000",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -130,7 +140,7 @@ export const data = {
       shortName: "KS MAX",
       shortNameWithoutPrefix: "MAX",
       pageLinkForMatch: "kickscooter-max",
-      pageLinkName: "kickscooter-max", 
+      pageLinkName: "kickscooter-max",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-max",
       price: "949.99",
       oldPrice: "1049",
@@ -199,6 +209,7 @@ export const data = {
     {
       excludeForMap: true,
       id: "id=006&warranty=null&color=ded5aa",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -207,7 +218,7 @@ export const data = {
       shortName: "KS MAX",
       shortNameWithoutPrefix: "MAX",
       pageLinkForMatch: "kickscooter-max-white",
-      pageLinkName: "kickscooter-max-white", 
+      pageLinkName: "kickscooter-max-white",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-max-white",
       price: "949.99",
       oldPrice: "1049",
@@ -275,6 +286,7 @@ export const data = {
     // number:2, index: 2, name: ES4
     {
       id: "id=010&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES4",
@@ -283,7 +295,7 @@ export const data = {
       shortName: "KS ES4",
       shortNameWithoutPrefix: "ES4",
       pageLinkForMatch: "kickscooter-es-4",
-      pageLinkName: "kickscooter-es-4", 
+      pageLinkName: "kickscooter-es-4",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-4",
       price: "799.99",
       oldPrice: "1049",
@@ -333,6 +345,7 @@ export const data = {
     // number:3, index: 3, name: e22 
     {
       id: "id=001&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter E22",
@@ -341,7 +354,7 @@ export const data = {
       shortName: "KS E22",
       shortNameWithoutPrefix: "E22",
       pageLinkForMatch: "kickscooter-e-22",
-      pageLinkName: "kickscooter-e-22", 
+      pageLinkName: "kickscooter-e-22",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-e-22",
       price: "599.99",
       oldPrice: "1049",
@@ -391,6 +404,7 @@ export const data = {
     // number:4, index: 4, name: E45
     {
       id: "id=005&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter E45",
@@ -399,7 +413,7 @@ export const data = {
       shortName: "KS E45",
       shortNameWithoutPrefix: "E45",
       pageLinkForMatch: "kickscooter-e-45",
-      pageLinkName: "kickscooter-e-45", 
+      pageLinkName: "kickscooter-e-45",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-e-45",
       price: "859.99",
       oldPrice: "1049",
@@ -449,6 +463,7 @@ export const data = {
     // number:5, index: 5, name: E12
     {
       id: "id=013&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing E12",
@@ -457,7 +472,7 @@ export const data = {
       shortName: "KS ZING E12",
       shortNameWithoutPrefix: "ZING E12",
       pageLinkForMatch: "kickscooter-zing-e12",
-      pageLinkName: "kickscooter-zing-e12", 
+      pageLinkName: "kickscooter-zing-e12",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e12",
       price: "259.99",
       oldPrice: "1049",
@@ -511,6 +526,7 @@ export const data = {
     // number:6, index: 6, name: F30
     {
       id: "id=004&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot KickScooter F30",
@@ -519,7 +535,7 @@ export const data = {
       shortName: "KS F30",
       shortNameWithoutPrefix: "F30",
       pageLinkForMatch: "kickscooter-f30",
-      pageLinkName: "kickscooter-f30", 
+      pageLinkName: "kickscooter-f30",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-f30",
       price: "649.99",
       oldPrice: "1049",
@@ -569,6 +585,7 @@ export const data = {
     // number:7, index: 7, name: air15
     {
       id: "id=003&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Air T15",
@@ -577,7 +594,7 @@ export const data = {
       shortName: "KS AIR T15",
       shortNameWithoutPrefix: "AIR T15",
       pageLinkForMatch: "kickscooter-air-t15",
-      pageLinkName: "kickscooter-air-t15", 
+      pageLinkName: "kickscooter-air-t15",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-air-t15",
       price: "819.99",
       oldPrice: "1049",
@@ -627,6 +644,7 @@ export const data = {
     // number:8, index: 8, name: ES2
     {
       id: "id=008&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES2",
@@ -635,7 +653,7 @@ export const data = {
       shortName: "KS ES2",
       shortNameWithoutPrefix: "ES2",
       pageLinkForMatch: "kickscooter-es-2",
-      pageLinkName: "kickscooter-es-2", 
+      pageLinkName: "kickscooter-es-2",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-2",
       price: "649.99",
       oldPrice: "1049",
@@ -685,6 +703,7 @@ export const data = {
     // number:9, index: 9, name: es3
     {
       id: "id=009&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES3",
@@ -693,7 +712,7 @@ export const data = {
       shortName: "KS ES3",
       shortNameWithoutPrefix: "ES3",
       pageLinkForMatch: "kickscooter-es-3",
-      pageLinkName: "kickscooter-es-3", 
+      pageLinkName: "kickscooter-es-3",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-3",
       price: "699.99",
       oldPrice: "1049",
@@ -743,6 +762,7 @@ export const data = {
     // number:1, index: 10, name:  ES1L
     {
       id: "id=002&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES1L",
@@ -751,7 +771,7 @@ export const data = {
       shortName: "KS ES1L",
       shortNameWithoutPrefix: "ES1L",
       pageLinkForMatch: "kickscooter-es-1l",
-      pageLinkName: "kickscooter-es-1l", 
+      pageLinkName: "kickscooter-es-1l",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-1l",
       price: "389.99",
       oldPrice: "1049",
@@ -801,6 +821,7 @@ export const data = {
     // number:1, index: 11, name:  E10
     {
       id: "id=012&warranty=null&color=null",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing E10",
@@ -809,7 +830,7 @@ export const data = {
       shortName: "KS ZING E10",
       shortNameWithoutPrefix: "ZING E10",
       pageLinkForMatch: "kickscooter-zing-e10",
-      pageLinkName: "kickscooter-zing-e10", 
+      pageLinkName: "kickscooter-zing-e10",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e10",
       price: "259.99",
       oldPrice: "1049",
@@ -864,6 +885,7 @@ export const data = {
     {
       excludeForMap: true,
       id: "id=011&warranty=null&color=6D7DDF",
+      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing e8",
@@ -872,7 +894,7 @@ export const data = {
       shortName: "KS ZING E8",
       shortNameWithoutPrefix: "ZING E8",
       pageLinkForMatch: "kickscooter-zing-e8",
-      pageLinkName: "kickscooter-zing-e8-purple", 
+      pageLinkName: "kickscooter-zing-e8-purple",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
       price: "249.99",
       oldPrice: "1049",
@@ -944,6 +966,7 @@ export const data = {
     // number:1, index: 13, name:  e8 pink
     {
       id: "id=011&warranty=null&color=FFBFC0",
+      stripeId: "null",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing e8",
@@ -952,7 +975,7 @@ export const data = {
       shortName: "KS ZING E8",
       shortNameWithoutPrefix: "ZING E8",
       pageLinkForMatch: "kickscooter-zing-e8",
-      pageLinkName: "kickscooter-zing-e8-pink", 
+      pageLinkName: "kickscooter-zing-e8-pink",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
       price: "249.99",
       oldPrice: "1049",
@@ -1024,6 +1047,7 @@ export const data = {
   gocarts: [
     {
       id: "id=014&warranty=null&color=null",
+      stripeId: null,
       type: "gocart",
       brandName: "Ninebot",
       name: "Ninebot \n Gocart PRO",
@@ -1031,7 +1055,7 @@ export const data = {
       nameWrap: "Gocart PRO",
       shortName: "Gocart PRO",
       pageLinkForMatch: "gocart-pro",
-      pageLinkName: "gocart-pro", 
+      pageLinkName: "gocart-pro",
       pageLinkNameWithCategory: "/gocarts/gocart-pro",
       price: "999.99",
       oldPrice: "1188",
@@ -1092,6 +1116,7 @@ export const data = {
     },
     {
       id: "id=015&warranty=null&color=null",
+      stripeId: null,
       type: "gocart",
       brandName: "Ninebot",
       name: "Ninebot \n Gocart KIT",
@@ -1099,7 +1124,7 @@ export const data = {
       nameWrap: "Gocart KIT",
       shortName: "Gocart KIT",
       pageLinkForMatch: "gocart-kit",
-      pageLinkName: "gocart-kit", 
+      pageLinkName: "gocart-kit",
       pageLinkNameWithCategory: "/gocarts/gocart-kit",
       price: "999.99",
       oldPrice: "1188",

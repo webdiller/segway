@@ -17,6 +17,8 @@ import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
 import { useSelector } from 'react-redux';
 
+import axios from 'axios';
+
 import { setBillingAddress, setPaymentMethod } from 'store/slices/profileSlice';
 
 import {
@@ -51,10 +53,26 @@ export default function PauymentLastPage() {
     differentPhone,
   } = useSelector(state => state.differentBilling);
 
+  const { products } = useSelector(state => state.products)
+
+  const onSubmitEvent = async (e) => {
+    e.preventDefault();
+
+    let config = {
+      method: "post",
+      url: `/api/checkout`,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      data: products
+    };
+    // const res = await axios(config);
+  }
+
   return (
     <>
       <CustomHead title="Payment main information" />
-      <div className="payment-payment">
+      <form onSubmit={onSubmitEvent} className="payment-payment">
         <div className="payment-payment__status">
           <ShippingList>
             <ShippingItem link="/payment" title="Contact" value={email} />
@@ -204,12 +222,12 @@ export default function PauymentLastPage() {
         />
 
         <div className="payment-payment__action-buttons">
-          <button className="payment__btn payment-payment__action-btn">Pay now</button>
+          <button type="submit" className="payment__btn payment-payment__action-btn">Pay now</button>
           <Link href="/payment">
             <a className="payment__btn payment__btn_transparent payment-payment__action-btn">Return to shipping</a>
           </Link>
         </div>
-      </div>
+      </form>
     </>
   );
 }

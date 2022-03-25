@@ -15,22 +15,26 @@ const images = [
   {
     id: 0,
     src: '/main-model-slider-1.jpg',
-    srcSmall: '/main-model-slider-1-sm.jpg'
+    srcSmall: '/main-model-slider-1-sm.jpg',
+    alt: "authorized reseller"
   },
   {
     id: 1,
     src: '/main-model-slider-2.jpg',
-    srcSmall: '/main-model-slider-2-sm.jpg'
+    srcSmall: '/main-model-slider-2-sm.jpg',
+    alt: "Free 1 day shipping within California."
   },
   {
     id: 2,
     src: '/main-model-slider-3.jpg',
-    srcSmall: '/main-model-slider-3-sm.jpg'
+    srcSmall: '/main-model-slider-3-sm.jpg',
+    alt: "Pay as you ride. Select Affirm for affordable monthly paymants"
   },
   {
     id: 3,
     src: '/main-model-slider-4.jpg',
-    srcSmall: '/main-model-slider-4-sm.jpg'
+    srcSmall: '/main-model-slider-4-sm.jpg',
+    alt: "Segway Protective Gear Set as a gift. The cost of a protection kit when buying a scooter is $ 0 instead of $ $29.99"
   },
 ]
 
@@ -61,18 +65,18 @@ export default function MainModelSlider() {
             el: '.main-model-slider__pagination'
           }}
         >
-          {images.map(({ id, src, srcSmall }) => {
+          {images.map(({ id, src, srcSmall, alt }) => {
             return (
               <SwiperSlide key={id} className="main-model-slider__slide">
                 <Image
                   src={!mediaQuery ? src : srcSmall}
                   quality={100}
-                  width={1376}
-                  height={388}
-                  objectFit="cover"
+                  width={!mediaQuery ? 1376 : 375}
+                  height={!mediaQuery ? 388 : 273}
+                  layout="responsive"
+                  objectFit="contain"
                   className="main-model-slider__image"
-                  alt="Segway image in slider"
-                  layout="fill"
+                  alt={alt}
                 />
               </SwiperSlide>
             )
