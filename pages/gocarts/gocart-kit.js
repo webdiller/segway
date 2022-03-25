@@ -65,7 +65,7 @@ export default function ModelPage({ allData }) {
     <>
       <CustomHead title="SEGWAY Ninebot Gocart Kit" />
       <Welcome
-        showBundles
+        bundles={[allData.bundles[0], allData.bundles[1]]}
         titleDesktop={
           <>
             SEGWAY Ninebot <br /> Gocart Kit

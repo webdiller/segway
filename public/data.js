@@ -1183,6 +1183,20 @@ export const data = {
       quantity: 1
     },
   ],
+  bundles: [
+    {
+      id: "id=016&warranty=null&color=null",
+      name: "Ninebot S MAX",
+      price: "1.099.99",
+      imgPath: "/ninebot-s-max-bundle.png"
+    },
+    {
+      id: "id=017&warranty=null&color=null",
+      name: "Ninebot S",
+      price: "1.099.99",
+      imgPath: "/ninebot-s-bundle.png"
+    }
+  ],
   blog: [
     {
       dateCreated: "28 june 2021",

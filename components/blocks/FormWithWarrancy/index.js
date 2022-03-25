@@ -11,7 +11,7 @@ import Colors from './Colors';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import Bundles from './Bundles';
 
-export default function FormWithWarrancy({ customClass = 'form-with-warrancy', product, showBundles=false }) {
+export default function FormWithWarrancy({ customClass = 'form-with-warrancy', product, bundles }) {
   const dispatch = useDispatch();
 
   let mediaQuery = useMediaQuery('(min-width: 768px)');
@@ -63,7 +63,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>
         <div ref={tabWrapper} className="form-with-warrancy__wrapper">
 
-          {showBundles && <Bundles />}
+          {bundles && <Bundles bundles={bundles}/>}
 
           <div className="form-with-warrancy__top">
 
