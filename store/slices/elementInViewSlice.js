@@ -27,19 +27,21 @@ export const elementInViewSlice = createSlice({
       const { sliderName, payload } = action.payload;
       /**
        * Проверяем ключ.
-       *  Если есть, то обновляем значение
+       * Если есть, то обновляем значение
        * Если нету, то добавляем ключ и занчение
        */
-      if (sliderName in state.otherSliders) {
-        state.otherSliders[sliderName] = payload
-      } else {
-        state.otherSliders = {
-          ...state.otherSliders,
-          [sliderName]: payload
+      try {
+        if (sliderName in state.otherSliders) {
+          state.otherSliders[sliderName] = payload
+        } else {
+          state.otherSliders = {
+            ...state.otherSliders,
+            [sliderName]: payload
+          }
         }
+      } catch (error) {
+        console.log('Handle error in elementInView Slice');
       }
-
-
     }
   }
 })
