@@ -1,10 +1,11 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { calculateTotalPrice } from "helpers/calculateTotalPrice";
 
 const initialState = {
   products: [],
   totalPrice: 0,
 
+  preperedBundle: null,
   preparedProduct: null,
   preparedProtectionAccessory: null,
   currentPrice: null
@@ -41,7 +42,6 @@ export const productCartSlice = createSlice({
       let existAnyProduct = state.products.filter(product => product.type !== 'accessory');
       let existProtectionAccessory = state.products.filter(product => product.id === 'segway-protective-gear-set');
       let condition = existAnyProduct.length !== 0 && existProtectionAccessory.length === 0 ? true : false;
-      
       if (condition) state.products = [...state.products, state.preparedProtectionAccessory]
 
       /** Сортируем товары в корзине */
@@ -53,6 +53,7 @@ export const productCartSlice = createSlice({
 
     removeProduct: (state, action) => {
       const item = action.payload;
+      const previusStateOfProducts = JSON.parse(JSON.stringify(state.products))
       const product = state.products.find((product) => product.id === item.id)
 
       if (product) {
@@ -64,24 +65,37 @@ export const productCartSlice = createSlice({
         }
       }
 
-      /** 
-       * Если нету продукта в стейте
-       * и 
-       * Если есть продукт segway-protective-gear-set
-       * и 
-       * Если у segway-protective-gear-set quantity === 1
+      /*
+       * Удаляем защиту (Отрефакторить с условием на предыддущий стейт)
+       * Если в корзине нет ни одного продукта типа !== 'accessory' &&
+       * Если в корзине есть защита с id === segway-protective-gear-set && 
+       * Если в корзине нет ни одного аксессуара кроме защиты 
+       * Если у данной защиты quantity === 1
        * 
-       * 
-       * 
+       * Уменьшаем защиту (Отрефакторить с условием на предыддущий стейт)
+       * Если в корзине нет ни одного продукта типа !== 'accessory' &&
+       * Если в корзине есть защита с id === segway-protective-gear-set && 
+       * Если в корзине нет ни одного аксессуара кроме защиты 
+       * Если у данной защиты quantity > 2
        */
-      // let filteredProducts = state.products.filter(product => product.type !== 'accessory');
-      // let filteredProtectionAccessory = state.products.filter(product => product.id === 'segway-protective-gear-set');
-      // if (filteredProducts.length === 0 && filteredProtectionAccessory.length === 1) {
-      //   console.log(filteredProtectionAccessory.length );
-      //   state.products = state.products.filter(product => product.id !== 'segway-protective-gear-set');
+      // let filteredProducts;
+      // let protectionAccessory;
+      // let allAccessoeries;
+      // filteredProducts = state.products.filter(product => product.type !== 'accessory');
+      // protectionAccessory = state.products.find(product => product.id === 'segway-protective-gear-set');
+      // allAccessoeries = state.products.filter(accessory => accessory.type === 'accessory')
+
+      // try {
+      //   if (filteredProducts.length === 0 && protectionAccessory && allAccessoeries.length > 2 && protectionAccessory.quantity === 1) {
+      //     console.log('Удаляем защиту');
+      //     // state.products = state.products.filter(item => item.id !== 'segway-protective-gear-set')
+      //   }
+      //   if (filteredProducts.length === 0 && protectionAccessory && allAccessoeries.length > 2 && protectionAccessory.quantity >= 2) {
+      //     console.log('Уменьшаем защиту');
+      //   }
+      // } catch (error) {
+      //   console.log(error);
       // }
-      // console.log('filteredProducts: ', filteredProducts);
-      // console.log('filteredProtectionAccessory: ', filteredProtectionAccessory);
 
       state.totalPrice = calculateTotalPrice(state.products)
     },
@@ -121,6 +135,11 @@ export const productCartSlice = createSlice({
       state.currentPrice = currentPrice
     },
 
+    setPreperedBundle: (state, action) => {
+      const bundle = action.payload
+      state.preperedBundle = bundle;
+    },
+
     setProperties: (state, action) => {
       const { selectedWarranty, selectedColor } = action.payload;
 
@@ -134,7 +153,7 @@ export const productCartSlice = createSlice({
     setCurrentPrice: (state, action) => {
       state.currentPrice = action.payload
     },
-    
+
     /** Инициализуруем подарок для кнопок с быстрым добавлением товара в корзину */
     setPreparedProtectionAccessory: (state, action) => {
       let preparedProtection = action.payload;
@@ -152,6 +171,7 @@ export const {
   initProduct,
   setProperties,
   setCurrentPrice,
-  setPreparedProtectionAccessory
+  setPreparedProtectionAccessory,
+  setPreperedBundle
 } = productCartSlice.actions
 export default productCartSlice.reducer
