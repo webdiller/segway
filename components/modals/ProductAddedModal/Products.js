@@ -5,6 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addQuantity, removeProduct } from 'store/slices/productCartSlice';
 
 export default function Products() {
+
+  /** 
+   * Калькуляция подарка (только отображение)
+   * Если в корзине есть хотябы один продукт, type !== accessory &&
+   * Если у данного товара id === segway-protective-gear-set && quantity === 1
+   * то делаем количество = 0
+   * и цену = 0
+   */
+
   const { products, totalPrice } = useSelector((state) => state.products);
   const dispatch = useDispatch()
 
@@ -22,7 +31,18 @@ export default function Products() {
               const currentColor = paramsId.get('color');
               imgPath = colors.find(el => el.color === currentColor).imgPath;
             }
-            
+
+            /** 
+             * Калькуляция подарка (только отображение)
+             * Если в корзине есть хотябы один продукт, type !== accessory &&
+             * Если у данного товара id === segway-protective-gear-set && quantity === 1
+             * то делаем количество = 0
+             * и цену = 0
+             */
+            const existAnyProductNotTypeAccessory = products.find(product => product.type !== 'accessory') ? true : false;
+            const currentProductIsProtectAndQuantityEqualZero = products.find(product => product.id === 'segway-protective-gear-set' && product?.quantity === 1 && product.id === id) ? true : false;
+            const condition = existAnyProductNotTypeAccessory && currentProductIsProtectAndQuantityEqualZero ? true : false
+
             return (
               <div key={id} className="products__product">
                 <div className="products__product-main-area">
@@ -36,8 +56,8 @@ export default function Products() {
                   </div>
 
                   <div className="products__product-name-and-price">
-                    <p className="products__product-name">{name}</p>
-                    <p className="products__product-price">{quantity} x ${price}</p>
+                    <p className="products__product-name">{condition ? `${name} (as a gift)` : name}</p>
+                    <p className="products__product-price">{quantity} x {condition ? `$0` : `$${price}`}</p>
                     {colors && (
                       <ColorToggler product={item} />
                     )}

@@ -127,9 +127,9 @@
   }
   &__form-button-price {
     pointer-events: none;
-    transition: all .3s ease;
     @include media('<=575px') {
       color: #009eff;
+      transition: all .3s ease;
     }
   }
 

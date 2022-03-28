@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { calculateTotalPrice } from "helpers/calculateTotalPrice";
 
 const initialState = {
@@ -25,6 +25,7 @@ export const productCartSlice = createSlice({
       } else {
         console.log('can"t fint product');
       }
+
       state.totalPrice = calculateTotalPrice(state.products)
     },
 
@@ -48,6 +49,7 @@ export const productCartSlice = createSlice({
       const accessories = state.products.filter(product => product.type === 'accessory');
       const models = state.products.filter(product => product.type !== 'accessory');
       state.products = [...models, ...accessories]
+      
       state.totalPrice = calculateTotalPrice(state.products)
     },
 
@@ -56,6 +58,10 @@ export const productCartSlice = createSlice({
       const previusStateOfProducts = JSON.parse(JSON.stringify(state.products))
       const product = state.products.find((product) => product.id === item.id)
 
+      /* Если есть продукт в стейте
+       * Если количество продукта 1 или 0, то удаляем его из стейта
+       * Если количество продукта больше 1, то уменьшаем количество
+       */
       if (product) {
         if (product.quantity === 1 || product.quantity === 0) {
           state.products = state.products.filter((product) => product.id !== item.id)
@@ -66,36 +72,37 @@ export const productCartSlice = createSlice({
       }
 
       /*
-       * Удаляем защиту (Отрефакторить с условием на предыддущий стейт)
-       * Если в корзине нет ни одного продукта типа !== 'accessory' &&
-       * Если в корзине есть защита с id === segway-protective-gear-set && 
-       * Если в корзине нет ни одного аксессуара кроме защиты 
-       * Если у данной защиты quantity === 1
+       * Удаление защиты и стейта. Если 
+       * в прошлойте стейте был один продукт типа type !== 'accessory && quantity этого продукта был === 1 && (existAnyProductInPreviusState)
+       * в настоящем стейте нет ни одного продукта типа type !== 'accesory' && (existAnyProductInCurrentState)
+       * в настоящем стейте есть продукт(защита) с id === 'segway-protective-gear-set' && у продукта(защита) quantity === 1 (existProtectionAccessory)
        * 
-       * Уменьшаем защиту (Отрефакторить с условием на предыддущий стейт)
-       * Если в корзине нет ни одного продукта типа !== 'accessory' &&
-       * Если в корзине есть защита с id === segway-protective-gear-set && 
-       * Если в корзине нет ни одного аксессуара кроме защиты 
-       * Если у данной защиты quantity > 2
+       * Уменьшение quantity у защиты. Если 
+       * в прошлойте стейте был один продукт типа type !== 'accessory && quantity этого продукта был === 1 && (existAnyProductInPreviusState)
+       * в настоящем стейте нет ни одного продукта типа type !== 'accesory' && (existAnyProductInCurrentState)
+       * в настоящем стейте есть продукт(защита) с id === 'segway-protective-gear-set' && у продукта(защита) quantity >=2 (existProtectionAccessory)
        */
-      // let filteredProducts;
-      // let protectionAccessory;
-      // let allAccessoeries;
-      // filteredProducts = state.products.filter(product => product.type !== 'accessory');
-      // protectionAccessory = state.products.find(product => product.id === 'segway-protective-gear-set');
-      // allAccessoeries = state.products.filter(accessory => accessory.type === 'accessory')
-
-      // try {
-      //   if (filteredProducts.length === 0 && protectionAccessory && allAccessoeries.length > 2 && protectionAccessory.quantity === 1) {
-      //     console.log('Удаляем защиту');
-      //     // state.products = state.products.filter(item => item.id !== 'segway-protective-gear-set')
-      //   }
-      //   if (filteredProducts.length === 0 && protectionAccessory && allAccessoeries.length > 2 && protectionAccessory.quantity >= 2) {
-      //     console.log('Уменьшаем защиту');
-      //   }
-      // } catch (error) {
-      //   console.log(error);
-      // }
+      const existAnyProductInPreviusState = previusStateOfProducts.find(product => product.type !== 'accessory' && product.quantity === 1) ? true : false
+      const existAnyProductInCurrentState = state.products.find(product => product.type !== 'accessory') ? true : false
+      const existProtectionAccessory = state.products.find(product => product.id === 'segway-protective-gear-set');
+      try {
+        if (
+          existAnyProductInPreviusState &&
+          !existAnyProductInCurrentState &&
+          existProtectionAccessory?.quantity === 1
+        ) {
+          state.products = state.products.filter(product => product.id !== 'segway-protective-gear-set');
+        } else if (
+          existAnyProductInPreviusState &&
+          !existAnyProductInCurrentState &&
+          existProtectionAccessory?.quantity >= 2
+        ) {
+          const protectionAccessory = state.products.find(product => product.id === 'segway-protective-gear-set');
+          protectionAccessory.quantity = --protectionAccessory.quantity
+        }
+      } catch (error) {
+        console.log('Handle error: ', error);
+      }
 
       state.totalPrice = calculateTotalPrice(state.products)
     },
@@ -125,6 +132,7 @@ export const productCartSlice = createSlice({
         currentProduct.id = newId.toString()
         state.products = filteredProducts
       }
+
       state.totalPrice = calculateTotalPrice(state.products)
     },
 
