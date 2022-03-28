@@ -20,7 +20,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
   const [currentColor, currentColorSet] = useState(null)
 
   const tabWrapper = useRef(null);
-  const { preparedProduct } = useSelector(state => state.products)
+  const { preparedProduct, preperedBundle } = useSelector(state => state.products)
 
   useEffect(() => {
     if (currentWarranty) {
@@ -49,8 +49,15 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
   }
 
   const addItemToCartAndShowModal = () => {
-    dispatch(pushProduct(preparedProduct))
-    dispatch(productModalActiveSet(true))
+    /** Если есть выбранный банд, то добавялем в корину */
+    if (preperedBundle) {
+      dispatch(pushProduct(preparedProduct))
+      dispatch(pushProduct(preperedBundle))
+      dispatch(productModalActiveSet(true))
+    } else {
+      dispatch(pushProduct(preparedProduct))
+      dispatch(productModalActiveSet(true))
+    }
   }
 
   return (

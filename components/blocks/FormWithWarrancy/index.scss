@@ -129,7 +129,6 @@
     pointer-events: none;
     @include media('<=575px') {
       color: #009eff;
-      transition: all .3s ease;
     }
   }
 
@@ -431,7 +430,7 @@
     box-sizing: border-box;
     height: 100%;
     color: #323941;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
 
     @include media('<=991px') {
       padding: 7px;
@@ -439,20 +438,19 @@
 
     &:hover,
     &.active {
-      color: #fff;
       border-color: #009eff;
       background-color: #009eff;
       cursor: pointer;
-      .bundle-toggler__price {
-        @include media('<=991px') {
-          color: #fff;
-        }
+      .bundle-toggler__price,
+      .bundle-toggler__name {
+        color: #fff;
       }
     }
   }
 
   &__img {
     margin-bottom: 12px;
+    pointer-events: none;
     @include media('<=991px') {
       margin-bottom: 16px;
     }
@@ -465,10 +463,12 @@
     align-items: center;
     font-size: 15px;
     line-height: 119%;
+    pointer-events: none;
   }
 
   &__name {
     margin-right: 5px;
+    transition: all .3s ease;
   }
 
   &__price {

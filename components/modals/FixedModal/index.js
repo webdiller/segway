@@ -9,11 +9,18 @@ export default function FixedModal({ product, preparedProtection }) {
 
   const dispatch = useDispatch()
 
-  const { preparedProduct, currentPrice } = useSelector(state => state.products)
+  const { preparedProduct, currentPrice, preperedBundle } = useSelector(state => state.products)
 
   const addItemToCartAndShowModal = () => {
-    dispatch(pushProduct(preparedProduct))
-    dispatch(productModalActiveSet(true))
+    /** Если есть выбранный банд, то добавялем в корину */
+    if (preperedBundle) {
+      dispatch(pushProduct(preparedProduct))
+      dispatch(pushProduct(preperedBundle))
+      dispatch(productModalActiveSet(true))
+    } else {
+      dispatch(pushProduct(preparedProduct))
+      dispatch(productModalActiveSet(true))
+    }
   }
 
   useEffect(() => {

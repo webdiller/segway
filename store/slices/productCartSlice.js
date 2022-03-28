@@ -33,9 +33,6 @@ export const productCartSlice = createSlice({
       const item = action.payload;
       const product = state.products.find((product) => product.id === item.id)
 
-      /** Если есть выбранный банд, то добавялем в корину */
-      state.preperedBundle && state.products.push(state.preperedBundle)
-
       /** Если нашли продукт в текущей корзине, то увеличиваем значение */
       if (product) product.quantity = product.quantity + 1
 
