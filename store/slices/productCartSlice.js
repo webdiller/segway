@@ -23,7 +23,7 @@ export const productCartSlice = createSlice({
       if (product) {
         product.quantity = product.quantity + count
       } else {
-        console.log('can"t fint product');
+        console.log('Can"t fint product');
       }
 
       state.totalPrice = calculateTotalPrice(state.products)
@@ -32,6 +32,9 @@ export const productCartSlice = createSlice({
     pushProduct: (state, action) => {
       const item = action.payload;
       const product = state.products.find((product) => product.id === item.id)
+
+      /** Если есть выбранный банд, то добавялем в корину */
+      state.preperedBundle && state.products.push(state.preperedBundle)
 
       /** Если нашли продукт в текущей корзине, то увеличиваем значение */
       if (product) product.quantity = product.quantity + 1
