@@ -5,6 +5,7 @@ import CustomHead from '@/basic/CustomHead';
 import { ShippingItem, ShippingList } from '@/shared/ShippingStatus';
 import RadioWrapper from '@/shared/RadioItems/RadioWrapper';
 import Image from 'next/image';
+import prepareProductsForStripe from '@/helpers/prepareProductsForStripe';
 
 import { data } from '@/base/data';
 
@@ -58,15 +59,22 @@ export default function PauymentLastPage() {
   const onSubmitEvent = async (e) => {
     e.preventDefault();
 
+    const line_items = prepareProductsForStripe(products);
+
     let config = {
       method: "post",
-      url: `/api/checkout`,
+      url: `/api/stripe/create-checkout-session`,
       headers: {
         "Content-Type": "application/json"
       },
-      data: products
+      data: {
+        line_items,
+        customer_email: email
+      }
     };
-    // const res = await axios(config);
+
+    const res = await axios(config);
+    console.log(res);
   }
 
   return (

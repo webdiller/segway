@@ -2,12 +2,12 @@ export const data = {
   accessoeries: [
     {
       id: "ninebot-engine-speaker",
-      stripeId: null,
       type: "accessory",
-      name: "NineboT Engine Speaker",
-      nameWrap: "NineboT \n Engine Speaker",
+      name: "Ninebot Engine Speaker",
+      nameWrap: "Ninebot \n Engine Speaker",
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
       price: "149.99",
+      priceId: "price_1Kh3uKCjSg7DmzJgTes6zllB",
       imgPath: "/accessory-1.png",
       pageLinkName: "accessories",
       imgPathWithCircle: "/accessory-with-circle-1.png",
@@ -16,12 +16,12 @@ export const data = {
     },
     {
       id: "extension-rod",
-      stripeId: null,
       type: "accessory",
       name: "Extension Rod",
       nameWrap: "Extension \n Rod",
       description: "The Extension Rod helps you to easily maneuver your scooter, so you no longer need to bend over and push it, making it easier to take with you anywhere.",
       price: "29.99",
+      priceId: "price_1Kh3vHCjSg7DmzJgjOfsEzXH",
       imgPath: "/accessory-2.png",
       pageLinkName: "accessories",
       imgPathWithCircle: "/accessory-with-circle-2.png",
@@ -30,7 +30,6 @@ export const data = {
     },
     {
       id: "segway-protective-gear-set",
-      stripeId: null,
       type: "accessory",
       name: "Segway Protective Gear Set",
       nameWrap: "Segway Protective \n Gear Set",
@@ -44,7 +43,6 @@ export const data = {
     },
     {
       id: "ninebot-leisure-backpack",
-      stripeId: null,
       type: "accessory",
       name: "Ninebot Leisure Backpack",
       nameWrap: "Ninebot Leisure \n Backpack",
@@ -58,7 +56,6 @@ export const data = {
     },
     {
       id: "segway-external-battery",
-      stripeId: null,
       type: "accessory",
       name: "Segway External Battery",
       nameWrap: "Segway External \n Battery",
@@ -72,7 +69,6 @@ export const data = {
     },
     {
       id: "segway-charger",
-      stripeId: null,
       type: "accessory",
       name: "Segway Charger",
       nameWrap: "Segway \n Charger",
@@ -86,7 +82,6 @@ export const data = {
     },
     {
       id: "segway-scooter-bag",
-      stripeId: null,
       type: "accessory",
       name: "Segway Scooter Bag",
       nameWrap: "Segway \n Scooter Bag",
@@ -100,7 +95,6 @@ export const data = {
     },
     {
       id: "segway-phone-holder",
-      stripeId: null,
       type: "accessory",
       name: "Segway Phone Holder",
       nameWrap: "Segway \n Phone Holder",
@@ -114,7 +108,6 @@ export const data = {
     },
     {
       id: "segway-scooter-seat",
-      stripeId: null,
       type: "accessory",
       name: "Segway Scooter Seat",
       nameWrap: "Segway \n Scooter Seat",
@@ -131,7 +124,6 @@ export const data = {
     // number:1, index: 0, name: max 
     {
       id: "id=006&warranty=null&color=000000",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -209,7 +201,6 @@ export const data = {
     {
       excludeForMap: true,
       id: "id=006&warranty=null&color=ded5aa",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -286,7 +277,6 @@ export const data = {
     // number:2, index: 2, name: ES4
     {
       id: "id=010&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES4",
@@ -345,7 +335,6 @@ export const data = {
     // number:3, index: 3, name: e22 
     {
       id: "id=001&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter E22",
@@ -404,7 +393,6 @@ export const data = {
     // number:4, index: 4, name: E45
     {
       id: "id=005&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter E45",
@@ -463,7 +451,6 @@ export const data = {
     // number:5, index: 5, name: E12
     {
       id: "id=013&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing E12",
@@ -526,7 +513,6 @@ export const data = {
     // number:6, index: 6, name: F30
     {
       id: "id=004&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot KickScooter F30",
@@ -585,7 +571,6 @@ export const data = {
     // number:7, index: 7, name: air15
     {
       id: "id=003&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Air T15",
@@ -644,7 +629,6 @@ export const data = {
     // number:8, index: 8, name: ES2
     {
       id: "id=008&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES2",
@@ -703,7 +687,6 @@ export const data = {
     // number:9, index: 9, name: es3
     {
       id: "id=009&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES3",
@@ -762,7 +745,6 @@ export const data = {
     // number:1, index: 10, name:  ES1L
     {
       id: "id=002&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES1L",
@@ -821,7 +803,6 @@ export const data = {
     // number:1, index: 11, name:  E10
     {
       id: "id=012&warranty=null&color=null",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing E10",
@@ -885,7 +866,6 @@ export const data = {
     {
       excludeForMap: true,
       id: "id=011&warranty=null&color=6D7DDF",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing e8",
@@ -897,6 +877,7 @@ export const data = {
       pageLinkName: "kickscooter-zing-e8-purple",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
       price: "249.99",
+      priceId: "price_1Kh59lCjSg7DmzJgdAvEEkQl",
       oldPrice: "1049",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
@@ -922,16 +903,19 @@ export const data = {
         {
           durationYear: 1,
           price: 139,
+          priceId: "price_1Kh5CaCjSg7DmzJgTniRgjmE",
           oldPrice: 1188
         },
         {
           durationYear: 2,
           price: 209,
+          priceId: "price_1Kh5CaCjSg7DmzJgrEidMYwr",
           oldPrice: 1258
         },
         {
           durationYear: 3,
           price: 279,
+          priceId: "price_1Kh5CaCjSg7DmzJgDg95jWgi",
           oldPrice: 1328
         }
       ],
@@ -966,7 +950,6 @@ export const data = {
     // number:1, index: 13, name:  e8 pink
     {
       id: "id=011&warranty=null&color=FFBFC0",
-      stripeId: null,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Zing e8",
@@ -1047,7 +1030,6 @@ export const data = {
   gocarts: [
     {
       id: "id=014&warranty=null&color=null",
-      stripeId: null,
       type: "gocart",
       brandName: "Ninebot",
       name: "Ninebot \n Gocart PRO",
@@ -1116,7 +1098,6 @@ export const data = {
     },
     {
       id: "id=015&warranty=null&color=null",
-      stripeId: null,
       type: "gocart",
       brandName: "Ninebot",
       name: "Ninebot \n Gocart KIT",
