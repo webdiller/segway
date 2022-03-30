@@ -1,8 +1,18 @@
 import { data } from '@/base/data';
 
 import CustomHead from '@/basic/CustomHead';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { clearProducts } from 'store/slices/productCartSlice';
 
+// TODO: Добавить модальное окно
 export default function PaymentSuccessPage() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(clearProducts())
+  }, [dispatch])
 
   return (
     <>

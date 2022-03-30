@@ -1,19 +1,30 @@
 const prepareProductsForStripe = (products) => (
-  products.map(({ id, name, quantity }) => {
+  products.map((product) => {
+    let { id, name, quantity, priceId } = product;
 
-    // TODO: доделать выборку id цены на основании warranty
-    const currentId = new URLSearchParams(currentProduct.id);
-    let currentPriceId;
+    let currentPriceId = null;
+
+    const idParams = new URLSearchParams(id);
+    const warranty = idParams.get('warranty');
+
+    if (warranty == null || warranty == 'null') {
+      currentPriceId = priceId
+    } else {
+      currentPriceId = product.warranty.find(productWarranty => productWarranty.durationYear == warranty).priceId
+    }
 
     return {
+      // price_data: {
+      //   currency: "usd",
+      //   product_data: {
+      //     name: name
+      //   },
+      //   unit_amount: 1000,
+      // },
+      // quantity,
+      
+      price: currentPriceId,
       quantity,
-      price_data: {
-        currency: "usd",
-        unit_amount: 1000, // TODO: Доделать конкретную цену: 4:58:22
-        product_data: {
-          name: name
-        }
-      },
     }
   })
 )

@@ -166,6 +166,11 @@ export const productCartSlice = createSlice({
     setPreparedProtectionAccessory: (state, action) => {
       let preparedProtection = action.payload;
       state.preparedProtectionAccessory = preparedProtection
+    },
+
+    clearProducts: (state, action) => {
+      state.products = [];
+      state.totalPrice = 0;
     }
 
   }
@@ -180,6 +185,7 @@ export const {
   setProperties,
   setCurrentPrice,
   setPreparedProtectionAccessory,
-  setPreperedBundle
+  setPreperedBundle,
+  clearProducts
 } = productCartSlice.actions
 export default productCartSlice.reducer

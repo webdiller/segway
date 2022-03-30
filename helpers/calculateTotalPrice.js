@@ -9,7 +9,6 @@ export const calculateTotalPrice = (products) => {
     else {
       const idParams = new URLSearchParams(product.id);
       let warranty = idParams.get('warranty')
-      let color = idParams.get('color')
       let quantity = Number(product.quantity)
       const price = Number(product.price)
 
@@ -19,19 +18,8 @@ export const calculateTotalPrice = (products) => {
         warranty = Number(warranty.toString())
       }
 
-      if (color.toString() == 'null') {
-        color = 0
-      } else {
-        color = color.toString()
-      }
-
       if (warranty) {
         warranty = Number(product.warranty[warranty - 1].price)
-      }
-
-      if (color) {
-        const colorPrice = product.colors.find(el => el.color === color).price;
-        color = colorPrice;
       }
 
       /** 
@@ -41,11 +29,10 @@ export const calculateTotalPrice = (products) => {
       let existAnyProduct = products.filter(product => product.type !== 'accessory');
       let existProtectionAccessory = products.filter(product => product.id === 'segway-protective-gear-set');
       let excludePriceForGift = existAnyProduct.length > 0 && existProtectionAccessory.length > 0 ? true : false;
-
       if (!excludePriceForGift) {
-        total = total + ((price + warranty + color) * quantity)
+        total = total + ((price + warranty) * quantity)
       } else {
-        total = (total + ((price + warranty + color) * quantity)) - 29.99
+        total = (total + ((price + warranty) * quantity)) - 29.99
       }
 
     }

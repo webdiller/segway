@@ -7,8 +7,6 @@ import RadioWrapper from '@/shared/RadioItems/RadioWrapper';
 import Image from 'next/image';
 import prepareProductsForStripe from '@/helpers/prepareProductsForStripe';
 
-import { data } from '@/base/data';
-
 import paymentsLarge from '@/base/payments-large.jpg'
 import paymentsSmall from '@/base/payments-small.jpg'
 import iconPaypel from '@/base/icon-paypel.svg'
@@ -18,7 +16,6 @@ import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
 import { useSelector } from 'react-redux';
 
-import axios from 'axios';
 
 import { setBillingAddress, setPaymentMethod } from 'store/slices/profileSlice';
 
@@ -34,7 +31,15 @@ import {
   setDifferentPhone
 } from 'store/slices/differentBillingSlice';
 
+import axios from 'axios';
+import { useStripe } from '@stripe/react-stripe-js'
+
+import { data } from '@/base/data';
+
 export default function PauymentLastPage() {
+
+  const stripe = useStripe()
+
   const {
     email,
     address,
@@ -60,6 +65,7 @@ export default function PauymentLastPage() {
     e.preventDefault();
 
     const line_items = prepareProductsForStripe(products);
+    console.log(line_items);
 
     let config = {
       method: "post",
@@ -68,13 +74,17 @@ export default function PauymentLastPage() {
         "Content-Type": "application/json"
       },
       data: {
-        line_items,
+        line_items: line_items,
         customer_email: email
       }
     };
 
-    const res = await axios(config);
-    console.log(res);
+    const response = await axios(config);
+    const { sessionID } = response.data;
+    const { error } = await stripe.redirectToCheckout({ sessionId: sessionID })
+    if (error) {
+      console.log(error);
+    }
   }
 
   return (

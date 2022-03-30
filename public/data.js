@@ -21,7 +21,7 @@ export const data = {
       nameWrap: "Extension \n Rod",
       description: "The Extension Rod helps you to easily maneuver your scooter, so you no longer need to bend over and push it, making it easier to take with you anywhere.",
       price: "29.99",
-      priceId: "price_1Kh3vHCjSg7DmzJgjOfsEzXH",
+      priceId: "price_1Kit55CjSg7DmzJgMCqvQc34",
       imgPath: "/accessory-2.png",
       pageLinkName: "accessories",
       imgPathWithCircle: "/accessory-with-circle-2.png",
@@ -876,8 +876,7 @@ export const data = {
       pageLinkForMatch: "kickscooter-zing-e8",
       pageLinkName: "kickscooter-zing-e8-purple",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
-      price: "249.99",
-      priceId: "price_1Kh59lCjSg7DmzJgdAvEEkQl",
+      price: "299.99",
       oldPrice: "1049",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
@@ -903,19 +902,16 @@ export const data = {
         {
           durationYear: 1,
           price: 139,
-          priceId: "price_1Kh5CaCjSg7DmzJgTniRgjmE",
           oldPrice: 1188
         },
         {
           durationYear: 2,
           price: 209,
-          priceId: "price_1Kh5CaCjSg7DmzJgrEidMYwr",
           oldPrice: 1258
         },
         {
           durationYear: 3,
           price: 279,
-          priceId: "price_1Kh5CaCjSg7DmzJgDg95jWgi",
           oldPrice: 1328
         }
       ],
@@ -960,7 +956,8 @@ export const data = {
       pageLinkForMatch: "kickscooter-zing-e8",
       pageLinkName: "kickscooter-zing-e8-pink",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
-      price: "249.99",
+      price: "299.99",
+      priceId: "price_1KivVyCjSg7DmzJg0ZBabRGN",
       oldPrice: "1049",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
@@ -986,16 +983,19 @@ export const data = {
         {
           durationYear: 1,
           price: 139,
+          priceId: "price_1KivVyCjSg7DmzJgeFCuTAGc",
           oldPrice: 1188
         },
         {
           durationYear: 2,
           price: 209,
+          priceId: "price_1KivVyCjSg7DmzJgPUj59rCT",
           oldPrice: 1258
         },
         {
           durationYear: 3,
           price: 279,
+          priceId: "price_1KivVyCjSg7DmzJgbC7i4Wz5",
           oldPrice: 1328
         }
       ],
