@@ -60,3 +60,10 @@
 
 .dropdownChildren {
 }
+
+.bottomWrapper {
+  transition: all .3s ease;
+  &.inactive {
+    pointer-events: none;
+  }
+}

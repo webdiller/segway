@@ -36,7 +36,7 @@ export default function RadioWrapper({
         {firstChildren && <div className={styles.firstChildren}>{firstChildren}</div>}
         {secondChildren && <div className={value === currentValue ? classNames(styles.secondChildren) : classNames(styles.secondChildren, styles.inactive)}>{secondChildren}</div>}
       </div>
-      {dropdownChildren && <div className={styles.bottomWrapper}>{dropdownChildren}</div>}
+      {dropdownChildren && <div className={value !== currentValue ? classNames(styles.bottomWrapper, styles.inactive) : classNames(styles.bottomWrapper)}>{dropdownChildren}</div>}
     </div>
   );
 }

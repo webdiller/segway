@@ -1,10 +1,15 @@
 import CustomHead from '@/basic/CustomHead';
 import Footer from '@/sections/Footer';
-import {PaymentBreadcrumbs} from '@/sections/Payment';
+import { PaymentBreadcrumbs } from '@/sections/Payment';
 import MainLayout from '@/sections/Payment/MainLayout';
 import PaymentTopNavigation from '@/sections/PaymentTopNavigation';
 
-export default function PaymentLayout({title = 'Segway', description = 'Описание', children, accessoeries}) {
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+
+export default function PaymentLayout({ title = 'Segway', description = 'Описание', children, accessoeries }) {
   return (
     <>
       <CustomHead description={description} title={title} />
@@ -14,7 +19,22 @@ export default function PaymentLayout({title = 'Segway', description = 'Опис
           <div className="show-block-991">
             <PaymentBreadcrumbs />
           </div>
-          {children}
+          <Elements options={{
+            fonts:[
+              {
+                cssSrc: 'http://fonts.cdnfonts.com/css/proxima-nova-2',
+                family: 'Proxima Nova',
+                style: 'normal',
+                weight: '400'
+              }
+            ],
+            appearance: {
+              theme: 'stripe'
+            }
+          }}
+            stripe={stripePromise}>
+            {children}
+          </Elements>
         </MainLayout>
         <Footer />
       </div>

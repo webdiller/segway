@@ -4,9 +4,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor } from '../store/store';
 
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-
 import { StrictMode } from 'react';
 import ModelLayout from './../components/layouts/ModelLayout';
 import PaymentLayout from './../components/layouts/PaymentLayout';
@@ -19,7 +16,6 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 function MyApp({ Component, pageProps, router }) {
   let conditionForModelLayout =
@@ -62,11 +58,9 @@ function MyApp({ Component, pageProps, router }) {
       <StrictMode>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Elements stripe={stripePromise}>
               <PaymentLayout {...pageProps}>
                 <Component {...pageProps} />
               </PaymentLayout>
-            </Elements>
           </PersistGate>
         </Provider>
       </StrictMode>

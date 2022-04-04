@@ -8,15 +8,15 @@ const initialState = {
   lastName: '',
   address: '',
   apartment: '',
-  country: '',
+  country: 'United States',
   city: '',
   state: '',
   zipCode: '',
   phone: '',
   saveThisInfoForNextTime: false,
   shippingMethod: 'economy',
-  paymentMethod: '',
-  billingAddress: ''
+  paymentMethod: 'paymentMethodsCreditCard',
+  billingAddress: 'same'
 }
 
 export const profileSlice = createSlice({

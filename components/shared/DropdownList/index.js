@@ -1,77 +1,108 @@
 import styles from './index.module.scss';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import useToggle from '@/hooks/useToggle';
+
+// Список
+// import useToggle from '@/hooks/useToggle';
+
 import classNames from 'classnames';
-import { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useRef, useState } from 'react';
 
-export default function DropdownList({ customClass, placeholder, data, handler, value }) {
+export default function DropdownList({
+  customClass,
+  topLabel,
+  placeholder,
+  handler,
+  value,
+  route,
+  readOnly
+}) {
 
-  const dispatch = useDispatch();
+  // Список
+  // const { active, setActiveHandler, setInactiveHandler } = useToggle(false);
+  // const [fetchData, fetchDataSet] = useState([])
 
-  const { active, setActiveHandler, setInactiveHandler } = useToggle(false);
-  const inputRef = useRef()
+  const inputRef = useRef();
 
-  const setCurrentValueHandler = (e) => {
-    const value = e.target.innerText;
-    dispatch(handler(value))
-    setInactiveHandler()
-  };
+  // Отображаем список
+  // const setCurrentValueHandler = (item) => {
+  //   handler(item)
+  //   inputValueSet(item)
+  //   setInactiveHandler()
+  // };
 
   const setFocusHandler = () => inputRef.current.focus();
 
-  useEffect(() => {
-    const onEventHandler = (event) => {
-      if (event.keyCode === 27) {
-        inputRef.current.blur();
-        setInactiveHandler();
-      }
-    };
-    document.addEventListener('keydown', onEventHandler);
+  // Отображаем список
+  // const onChangeHandler = (event) => inputValueSet(event.target.value);
 
-    return () => {
-      document.removeEventListener('keydown', onEventHandler);
-    };
-  });
+  const onChangeHandler = (event) => handler(event.target.value);
+
+  // Отображаем список
+  // useEffect(() => {
+  //   const onEventHandler = (event) => {
+  //     if (event.keyCode === 27) {
+  //       inputRef.current.blur();
+  //       setInactiveHandler();
+  //     }
+  //   };
+  //   document.addEventListener('keydown', onEventHandler);
+  //   return () => {
+  //     document.removeEventListener('keydown', onEventHandler);
+  //   };
+  // });
+
+  // Отображаем список
+  // useEffect(() => {
+  //   fetch(route)
+  //     .then(data => data.json())
+  //     .then(data => {
+  //       fetchDataSet(data)
+  //       console.log(data);
+  //     })
+  // }, [route])
 
   return (
     <div className={classNames(styles.group, classNames(customClass))}>
-      <div className={active ? `${styles.overlay} ${styles.active}` : styles.overlay}>
+
+      {/* Отображаем список */}
+      {/* <div className={active ? `${styles.overlay} ${styles.active}` : styles.overlay}>
         <nav className={styles.list}>
-          <button onFocus={setActiveHandler} onBlur={setInactiveHandler} type="button" onClick={setCurrentValueHandler} className={styles.listItem}>
-            Russia
-          </button>
-          <button onFocus={setActiveHandler} onBlur={setInactiveHandler} type="button" onClick={setCurrentValueHandler} className={styles.listItem}>
-            China
-          </button>
-          <button onFocus={setActiveHandler} onBlur={setInactiveHandler} type="button" onClick={setCurrentValueHandler} className={styles.listItem}>
-            United States
-          </button>
-          <button onFocus={setActiveHandler} onBlur={setInactiveHandler} type="button" onClick={setCurrentValueHandler} className={styles.listItem}>
-            India
-          </button>
-          <button onFocus={setActiveHandler} onBlur={setInactiveHandler} type="button" onClick={setCurrentValueHandler} className={styles.listItem}>
-            Canada
-          </button>
-          <button onFocus={setActiveHandler} onBlur={setInactiveHandler} type="button" onClick={setCurrentValueHandler} className={styles.listItem}>
-            Japan
-          </button>
-          <button onFocus={setActiveHandler} onBlur={setInactiveHandler} type="button" onClick={setCurrentValueHandler} className={styles.listItem}>
-            Vengria
-          </button>
+          {
+            fetchData.filter(item => item.toLowerCase().includes(inputValue.toLowerCase()))
+              .map((item, indx) => {
+                return (
+                  <button
+                    key={indx}
+                    onFocus={setActiveHandler}
+                    onBlur={setInactiveHandler}
+                    type="button"
+                    onClick={() => setCurrentValueHandler(item)}
+                    className={styles.listItem}>
+                    {item}
+                  </button>
+                )
+              })
+          }
         </nav>
-      </div>
+      </div> */}
 
       <div className={styles.main}>
         <input
-          ref={inputRef}
+          readOnly={readOnly}
           defaultValue={value}
-          onFocus={setActiveHandler}
-          onBlur={setInactiveHandler}
+          placeholder={placeholder}
+
+          // Список
+          // onFocus={setActiveHandler}
+          // onBlur={setInactiveHandler}
+
+          onChange={onChangeHandler}
           className={styles.input}
           type="text" />
-        <span className={styles.placeholder}>{placeholder}</span>
-        <IoMdArrowDropdown onClick={setFocusHandler} className={styles.icon} />
+
+        {/* Отображаем список */}
+        <span className={styles.topLabel}>{topLabel}</span>
+        {/* <IoMdArrowDropdown onClick={setFocusHandler} className={styles.icon} /> */}
       </div>
     </div>
   );

@@ -8,11 +8,11 @@ import { clearProducts } from 'store/slices/productCartSlice';
 // TODO: Добавить модальное окно
 export default function PaymentSuccessPage() {
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(clearProducts())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(clearProducts())
+  // }, [dispatch])
 
   return (
     <>

@@ -6,7 +6,7 @@ const initialState = {
   differentAddress: '',
   differentApartment: '',
   differentCity: '',
-  differentCountry: '',
+  differentCountry: 'United States',
   differentState: '',
   differentZipCode: '',
   differentPhone: '',

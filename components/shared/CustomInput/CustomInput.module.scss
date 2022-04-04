@@ -33,6 +33,7 @@
       font-weight: 300;
     }
   }
+
   @include media('<=768px') {
     padding-left: 16px;
     padding-right: 16px;
