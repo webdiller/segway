@@ -22,7 +22,8 @@ import {
   discountModalSlice,
   fancyModalSlice,
   elementInViewSlice,
-  productModalSlice
+  productModalSlice,
+  paymentModalSlice
 } from './slices/_index'
 import topSwiperSlice from './slices/topSwiperSlice'
 
@@ -30,7 +31,7 @@ const persistConfig = {
   key: 'root',
   version: 0.2,
   storage,
-  blacklist: ['differentBilling', 'productModal', 'discountModalSlice']
+  blacklist: ['differentBilling', 'productModal', 'discountModalSlice', 'paymentModalSlice']
 }
 
 const rootReducer = combineReducers({
@@ -42,7 +43,8 @@ const rootReducer = combineReducers({
   productModal: productModalSlice,
   discountModal: discountModalSlice,
   fancyModal: fancyModalSlice,
-  elementInView: elementInViewSlice
+  elementInView: elementInViewSlice,
+  paymentModal: paymentModalSlice,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

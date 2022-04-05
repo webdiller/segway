@@ -555,12 +555,6 @@
   background: rgba(255, 0, 0, 0.15);
 
   transition: all 0.3s ease;
-
-  // max-height: 0;
-  // overflow: hidden;
-  // opacity: 0;
-  // pointer-events: none;
-  // z-index: -1;
   display: none;
 
   @include media('<=768px') {
@@ -569,11 +563,6 @@
 
   &.active {
     display: flex;
-    // max-height: 100%;
-    // overflow: visible;
-    // opacity: 1;
-    // pointer-events: all;
-    // z-index: 2;
   }
 
   &__text {
@@ -599,5 +588,104 @@
     align-items: center;
 
     cursor: pointer;
+  }
+}
+
+.success-modal {
+  background-color: #fff;
+
+  &__wrapper {
+    position: relative;
+
+    width: 542px;
+    height: 542px;
+
+    padding: 69px 20px 60px 20px;
+    border: 10px solid #009eff;
+
+    background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+    text-align: center;
+    @include media('<=768px') {
+      border-width: 5px;
+      width: 337px;
+      height: 337px;
+      padding: 37px 10px 41px 10px;
+    }
+  }
+
+  &__close-btn {
+    @include reset-btn();
+    position: absolute;
+    left: calc(100% + 24px);
+    top: -10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 67px;
+    height: 67px;
+    background-color: #009eff;
+    @include media('<=768px') {
+      top: 19px;
+      right: 19px;
+      left: unset;
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+    }
+  }
+
+  &__close-btn-icon {
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_desktop {
+      @include media('<=768px') {
+        display: none;
+      }
+    }
+    &_mobile {
+      display: none;
+      @include media('<=768px') {
+        width: 16px;
+        height: 16px;
+        display: flex;
+      }
+    }
+  }
+
+  &__status-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 60px auto;
+    @include media('<=768px') {
+      width: 183px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 50px;
+    line-height: 104%;
+    @include media('<=768px') {
+      font-size: 27px;
+      line-height: 113%;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: calc(100% - 28px);
+    height: 61px;
+    width: 332px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    @include media('<=768px') {
+      width: 272px;
+    }
   }
 }

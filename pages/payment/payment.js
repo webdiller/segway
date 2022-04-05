@@ -44,6 +44,10 @@ import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import AnimatedModalWrapper from '@/modals/AnimatedModalWrapper';
+import SuccessModal from './success-modal';
+import { isActivePaymentModalSet } from 'store/slices/paymentModalSlice';
+import { clearProducts } from 'store/slices/productCartSlice';
 
 export default function PauymentLastPage() {
 
@@ -68,6 +72,8 @@ export default function PauymentLastPage() {
       }
     }
   }
+
+  const { isActivePaymentModal } = useSelector(state => state.paymentModal)
 
   const {
     differentFirstName,
@@ -111,7 +117,9 @@ export default function PauymentLastPage() {
   const [paymentMessage, paymentMessageSet] = useState({
     active: false,
     message: ''
-  })
+  });
+
+  const [visibleModal, visibleModalSet] = useState(false);
 
   const handleSubmitStripe = async (e) => {
     e.preventDefault();
@@ -137,16 +145,13 @@ export default function PauymentLastPage() {
       },
       data: {
         amount: totalPrice * 100,
-        metadata: {
-          billing_details: {}
-        }
+        metadata: {}
       }
     };
 
     const cardNumber = elements.getElement(CardNumberElement)
 
     let clientSecret = null;
-    let clientError = null;
     if (products.length > 0) {
       try {
         const { data } = await axios(config);
@@ -196,6 +201,8 @@ export default function PauymentLastPage() {
             success: true,
             successMessage: "Success"
           })
+          dispatch(isActivePaymentModalSet(true))
+          dispatch(clearProducts())
         }
       } catch (error) {
         console.log(error);
@@ -322,7 +329,6 @@ export default function PauymentLastPage() {
                 placeholder="Card number">
                 <CardNumberElement
                   className='stripe-element'
-                  onFocus={(e) => console.log(cardNumber)}
                   options={stripeElementOptions}
                   id="card-number-element" />
               </CustomInput>
@@ -527,6 +533,13 @@ export default function PauymentLastPage() {
         </div>
 
       </form>
+
+      <AnimatedModalWrapper
+        handler={() => dispatch(isActivePaymentModalSet(false))}
+        isActive={isActivePaymentModal}>
+        <SuccessModal
+          handler={() => dispatch(isActivePaymentModalSet(false))} />
+      </AnimatedModalWrapper>
     </>
   );
 }
