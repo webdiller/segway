@@ -11,6 +11,8 @@ import MainPageLayout from '@/layouts/MainPageLayout';
 
 import 'nprogress/nprogress.css'; //styles of nprogress
 import '../styles/index.scss';
+import Head from 'next/head';
+import Script from 'next/script';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -58,9 +60,9 @@ function MyApp({ Component, pageProps, router }) {
       <StrictMode>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-              <PaymentLayout {...pageProps}>
-                <Component {...pageProps} />
-              </PaymentLayout>
+            <PaymentLayout {...pageProps}>
+              <Component {...pageProps} />
+            </PaymentLayout>
           </PersistGate>
         </Provider>
       </StrictMode>

@@ -14,15 +14,6 @@ const prepareProductsForStripe = (products) => (
     }
 
     return {
-      // price_data: {
-      //   currency: "usd",
-      //   product_data: {
-      //     name: name
-      //   },
-      //   unit_amount: 1000,
-      // },
-      // quantity,
-      
       price: currentPriceId,
       quantity,
     }

@@ -48,6 +48,7 @@ import AnimatedModalWrapper from '@/modals/AnimatedModalWrapper';
 import SuccessModal from './success-modal';
 import { isActivePaymentModalSet } from 'store/slices/paymentModalSlice';
 import { clearProducts } from 'store/slices/productCartSlice';
+import prepareProductsForAffirm from '@/helpers/prepareProductsForAffirm';
 
 export default function PauymentLastPage() {
 
@@ -106,6 +107,19 @@ export default function PauymentLastPage() {
   const stripe = useStripe();
   const elements = useElements();
 
+  const billing_details = {
+    address: {
+      country: 'US',
+      city: billingAddress == 'same' ? `${city}` : `${differentCity}`,
+      state: billingAddress == 'same' ? `${state}` : `${differentState}`,
+      line1: billingAddress == 'same' ? `${address}` : `${differentAddress}`,
+      postal_code: billingAddress == 'same' ? `${zipCode}` : `${differentZipCode}`,
+    },
+    name: billingAddress == 'same' ? `${firstName} ${lastName}` : `${differentFirstName} ${differentLastName}`,
+    email: email,
+    phone: billingAddress == 'same' ? `${phone}` : `${differentPhone}`
+  }
+
   const [stripeStatus, stripeStatusSet] = useState({
     error: false,
     errorMessage: null,
@@ -119,33 +133,17 @@ export default function PauymentLastPage() {
     message: ''
   });
 
-  const [visibleModal, visibleModalSet] = useState(false);
-
   const handleSubmitStripe = async (e) => {
     e.preventDefault();
 
-    const billing_details = {
-      address: {
-        country: 'US',
-        city: billingAddress == 'same' ? `${city}` : `${differentCity}`,
-        state: billingAddress == 'same' ? `${state}` : `${differentState}`,
-        line1: billingAddress == 'same' ? `${address}` : `${differentAddress}`,
-        postal_code: billingAddress == 'same' ? `${zipCode}` : `${differentZipCode}`,
-      },
-      name: billingAddress == 'same' ? `${firstName} ${lastName}` : `${differentFirstName} ${differentLastName}`,
-      email: email,
-      phone: billingAddress == 'same' ? `${phone}` : `${differentPhone}`
-    }
-
     let config = {
       method: "post",
-      url: `/api/stripe/create-payment-intent`,
+      url: `/api/stripe/create-payment-intent-stripe`,
       headers: {
         "Content-Type": "application/json"
       },
       data: {
-        amount: totalPrice * 100,
-        metadata: {}
+        amount: totalPrice * 100
       }
     };
 
@@ -164,8 +162,7 @@ export default function PauymentLastPage() {
         const { error: createPaymentError, paymentMethod: createPaymentStatus } = await stripe.createPaymentMethod(
           {
             type: 'card',
-            card: cardNumber,
-            billing_details
+            card: cardNumber
           }
         )
 
@@ -219,6 +216,86 @@ export default function PauymentLastPage() {
 
   const handleSubmitAffirm = async e => {
     e.preventDefault();
+
+    let clientSecret = null;
+
+    if (products.length > 0) {
+      try {
+
+        console.log('products: ', prepareProductsForAffirm(products));
+        
+        /* Creating affirm object */
+        const affirm_checkoun = {
+          merchant: {
+            user_confirmation_url: "https://merchantsite.com/confirm",
+            user_cancel_url: "https://merchantsite.com/cancel",
+            user_confirmation_url_action: "POST",
+            name: billing_details.name
+          },
+          shipping: {
+            name: {
+              first: billingAddress == 'same' ? `${firstName}` : `${differentFirstName}`,
+              last: billingAddress == 'same' ? `${lastName}` : `${differentLastName}`
+            },
+            address: {
+              line1: billing_details.address.line1,
+              city: billing_details.address.city,
+              state: billing_details.address.state,
+              zipcode: billing_details.address.postal_code,
+              country: billing_details.address.country
+            },
+            phone_number: billing_details.phone,
+            email: billing_details.email
+          },
+          billing: {
+            name: {
+              first: billingAddress == 'same' ? `${firstName}` : `${differentFirstName}`,
+              last: billingAddress == 'same' ? `${lastName}` : `${differentLastName}`
+            },
+            address: {
+              line1: billing_details.address.line1,
+              city: billing_details.address.city,
+              state: billing_details.address.state,
+              zipcode: billing_details.address.postal_code,
+              country: billing_details.address.country
+            },
+            phone_number: billing_details.phone,
+            email: billing_details.email
+          },
+          items: [
+            {
+              display_name: "Awesome Pants",
+              sku: "ABC-123",
+              unit_price: 1999,
+              qty: 3,
+              item_image_url: "http://merchantsite.com/images/awesome-pants.jpg",
+              item_url: "http://merchantsite.com/products/awesome-pants.html",
+              categories: [
+                ["Home", "Bedroom"],
+                ["Home", "Furniture", "Bed"]
+              ]
+            }
+          ],
+          metadata: {
+            shipping_type: "UPS Ground",
+            mode: "modal"
+          },
+          order_id: "JKLMO4321",
+          currency: "USD",
+          financing_program: "flyus_3z6r12r",
+          shipping_amount: 1000,
+          tax_amount: 500,
+          total: 100000
+        }
+
+      } catch (error) {
+        console.log('error: ', error);
+      }
+
+    } else {
+      paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
+      document.body.scrollIntoView(messageElementRef.current)
+    }
   }
 
   const handleSubmitCoinbase = async (e) => {

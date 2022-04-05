@@ -20,9 +20,9 @@ export default function PaymentLayout({ title = 'Segway', description = 'Опи�
             <PaymentBreadcrumbs />
           </div>
           <Elements options={{
-            fonts:[
+            fonts: [
               {
-                cssSrc: 'http://fonts.cdnfonts.com/css/proxima-nova-2',
+                cssSrc: 'https://fonts.cdnfonts.com/css/proxima-nova-2',
                 family: 'Proxima Nova',
                 style: 'normal',
                 weight: '400'
