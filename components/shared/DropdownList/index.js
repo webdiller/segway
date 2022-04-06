@@ -14,6 +14,7 @@ export default function DropdownList({
   handler,
   value,
   route,
+  requied,
   readOnly
 }) {
 
@@ -88,6 +89,7 @@ export default function DropdownList({
 
       <div className={styles.main}>
         <input
+          required={requied}
           readOnly={readOnly}
           defaultValue={value}
           placeholder={placeholder}
