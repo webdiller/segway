@@ -3,6 +3,8 @@ import { BiMinus, BiPlus } from 'react-icons/bi';
 import { WarrancyToggler, ColorToggler } from './index'
 import { useDispatch, useSelector } from 'react-redux';
 import { addQuantity, removeProduct } from 'store/slices/productCartSlice';
+import { calculatePriceByWarrantyAndColor } from '@/helpers/calculatePriceByWarrantyAndColor';
+import { calculatePriceByColor } from '@/helpers/calculatePriceByColor';
 
 export default function Products() {
 
@@ -57,7 +59,7 @@ export default function Products() {
 
                   <div className="products__product-name-and-price">
                     <p className="products__product-name">{condition ? `${name} (as a gift)` : name}</p>
-                    <p className="products__product-price">{quantity} x {condition ? `$0` : `$${price}`}</p>
+                    <p className="products__product-price">{quantity} x {condition ? `$0` : `$${calculatePriceByColor(item)}`}</p>
                     {colors && (
                       <ColorToggler product={item} />
                     )}
