@@ -929,7 +929,7 @@ export const data = {
         {
           name: "purple",
           color: "6D7DDF",
-          price: 50,
+          price: 0,
           url: "/kickscooter-zing-e8-purple",
           urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
           imgPath: "/ninebot-kickscooter-zing-e8-purple.png"
@@ -937,7 +937,8 @@ export const data = {
         {
           name: "pink",
           color: "FFBFC0",
-          price: 75,
+          price: 100,
+          operator: "plus",
           url: "/kickscooter-zing-e8-pink",
           urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
           imgPath: "/ninebot-kickscooter-zing-e8-pink.png"
@@ -966,7 +967,7 @@ export const data = {
       pageLinkForMatch: "kickscooter-zing-e8",
       pageLinkName: "kickscooter-zing-e8-pink",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
-      price: "299.99",
+      price: "399.99",
       priceId: "price_1KivVyCjSg7DmzJg0ZBabRGN",
       oldPrice: "1049",
       maxSpeed: "8.6 mph",
@@ -1013,7 +1014,8 @@ export const data = {
         {
           name: "purple",
           color: "6D7DDF",
-          price: 50,
+          price: 100,
+          operator: "minus",
           url: "/kickscooter-zing-e8-purple",
           urlWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
           imgPath: "/ninebot-kickscooter-zing-e8-purple.png"
@@ -1021,7 +1023,7 @@ export const data = {
         {
           name: "pink",
           color: "FFBFC0",
-          price: 75,
+          price: 0,
           url: "/kickscooter-zing-e8-pink",
           urlWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
           imgPath: "/ninebot-kickscooter-zing-e8-pink.png"
