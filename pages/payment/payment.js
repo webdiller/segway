@@ -222,16 +222,18 @@ export default function PauymentLastPage() {
     if (products.length > 0) {
       try {
 
-        console.log('products: ', prepareProductsForAffirm(products));
+        const preparedItems = prepareProductsForAffirm(products)
         
         /* Creating affirm object */
         const affirm_checkoun = {
+
           merchant: {
             user_confirmation_url: "https://merchantsite.com/confirm",
             user_cancel_url: "https://merchantsite.com/cancel",
             user_confirmation_url_action: "POST",
             name: billing_details.name
           },
+
           shipping: {
             name: {
               first: billingAddress == 'same' ? `${firstName}` : `${differentFirstName}`,
@@ -247,6 +249,7 @@ export default function PauymentLastPage() {
             phone_number: billing_details.phone,
             email: billing_details.email
           },
+
           billing: {
             name: {
               first: billingAddress == 'same' ? `${firstName}` : `${differentFirstName}`,
@@ -262,31 +265,21 @@ export default function PauymentLastPage() {
             phone_number: billing_details.phone,
             email: billing_details.email
           },
-          items: [
-            {
-              display_name: "Awesome Pants",
-              sku: "ABC-123",
-              unit_price: 1999,
-              qty: 3,
-              item_image_url: "http://merchantsite.com/images/awesome-pants.jpg",
-              item_url: "http://merchantsite.com/products/awesome-pants.html",
-              categories: [
-                ["Home", "Bedroom"],
-                ["Home", "Furniture", "Bed"]
-              ]
-            }
-          ],
-          metadata: {
-            shipping_type: "UPS Ground",
-            mode: "modal"
-          },
-          order_id: "JKLMO4321",
+
+          items: preparedItems,
+
+          // order_id: "JKLMO4321",
+
           currency: "USD",
-          financing_program: "flyus_3z6r12r",
-          shipping_amount: 1000,
-          tax_amount: 500,
-          total: 100000
+          // financing_program: "flyus_3z6r12r",
+          shipping_amount: totalPrice * 100,
+          // tax_amount: 500,
+          total: totalPrice * 100
         }
+
+        // affirm.checkout(affirm_checkoun);
+
+        // affirm.checkout.open()
 
       } catch (error) {
         console.log('error: ', error);

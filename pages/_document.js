@@ -8,7 +8,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en-US" >
-        <Head>
+        <Head/>
+          {/* 
           <script
             async
             dangerouslySetInnerHTML={{
@@ -21,7 +22,7 @@ class MyDocument extends Document {
                 !0;k.src=g[e];p.parentNode.insertBefore(k,p);delete g[e];f(g);m[n]=b})(window,_affirm_config,"affirm","checkout","ui","script","ready","jsReady");
                 `}}
           />
-        </Head>
+        </Head> */}
         <body>
           <Main />
           <NextScript />
