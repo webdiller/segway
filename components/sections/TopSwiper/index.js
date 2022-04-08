@@ -111,17 +111,6 @@ export default function TopSwiper({ items }) {
                         )
                       }
                     })}
-
-                    <SwiperSlide key="99999" className={router.asPath === '/accessories' ? "top-swiper__item accent" : "top-swiper__item"}>
-                      <Link href="/accessories">
-                        <a className="top-swiper__link">
-                          <div className="top-swiper__img-wrapper">
-                            <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                          </div>
-                          <p className="top-swiper__name">Accessories</p>
-                        </a>
-                      </Link>
-                    </SwiperSlide>
                   </Swiper>
 
                   <div className="top-swiper__navigation">
@@ -177,17 +166,6 @@ export default function TopSwiper({ items }) {
                         )
                       }
                     })}
-
-                    <SwiperSlide key="99999" className={router.asPath === '/accessories' ? "top-swiper__item accent" : "top-swiper__item"}>
-                      <Link href="/accessories">
-                        <a className="top-swiper__link">
-                          <div className="top-swiper__img-wrapper">
-                            <Image objectFit="contain" className="top-swiper__img" src={topSwiperAccessory} alt="Accessories" width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                          </div>
-                          <p className="top-swiper__name">Accessories</p>
-                        </a>
-                      </Link>
-                    </SwiperSlide>
                   </Swiper>
 
                   <div className="top-swiper__navigation">

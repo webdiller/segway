@@ -2,7 +2,7 @@ import useResize from '@/hooks/useResize';
 import {useEffect, useRef} from 'react';
 import styles from './CompareModels.module.scss';
 
-export default function CompareModels({title = 'compare specifications', description = 'Add model to compare', children}) {
+export default function CompareModels({title = 'compare specifications', description, children}) {
   const containerRef = useRef();
   const {width, setRef} = useResize();
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function CompareModels({title = 'compare specifications', descrip
       <div ref={containerRef} className={styles.container}>
         <div className={styles.top}>
           <p className={styles.title}>{title}</p>
-          <p className={styles.description}>{description}</p>
+          {description && <p className={styles.description}>{description}</p>}
         </div>
         <div className={styles.items}>{children}</div>
       </div>

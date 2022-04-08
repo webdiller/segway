@@ -1,6 +1,10 @@
 .accessories-slider {
   background-color: #fff;
 
+  .swiper-scrollbar-drag {
+    background-color: #009eff;
+  }
+
   &_hide-other-accessories {
     .swiper-slide:nth-child(9) ~ .swiper-slide {
       display: none;

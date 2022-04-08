@@ -150,6 +150,9 @@
     height: 5px;
     margin-top: 20px;
     background-color: #ebebeb;
+    .swiper-scrollbar-drag {
+      background-color: #009eff;
+    }
     @include media('<=768px') {
       display: block;
       overflow-x: hidden;

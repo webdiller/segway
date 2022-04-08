@@ -40,7 +40,7 @@ export default function Wholesale() {
           </div>
           <ReactInputMask name="formFromOtherModelsName" onChange={(e) => dispatch(setUserName(e.target.value))} value={userName} placeholder="Your name" maxLength={50} className='ui-input wholesale__form-input' />
           <ReactInputMask name="formFromOtherModelsPhone" onChange={(e) => dispatch(setUserPhone(e.target.value))} value={userPhone} placeholder="+1 ___ ___ __ __" mask="+1 999 999 99 99" className='ui-input wholesale__form-input' />
-          <button ref={btnRef} type="submit" className="ui-btn wholesale__form-btn"><span>DOWNLOAD NOW</span></button>
+          <button ref={btnRef} type="submit" className="ui-btn wholesale__form-btn"><span>Send</span></button>
         </form>
       </div >
     </div >
