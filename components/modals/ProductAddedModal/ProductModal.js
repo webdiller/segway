@@ -13,8 +13,13 @@ import iconCartBlue from '@/base/icon-cart-blue.svg';
 import iconArrowTop from '@/base/icon-arrow-top-black.svg';
 import { ProductsSwiler, Products } from './index';
 
+import { FaTrash } from 'react-icons/fa'
+import useProducts from '@/hooks/useProducts';
+
 export default function ProductModal({ accessoeries }) {
   const dispatch = useDispatch();
+
+  const { clearProductsHandler } = useProducts()
 
   const modalWrapperElement = useRef(null);
 
@@ -118,9 +123,13 @@ export default function ProductModal({ accessoeries }) {
                 <p className="product-modal__summ-title">Hide order summary</p>
               </div>
 
+
               <div className="inline-flex-center product-modal__summ-icon-arrow-up-wrapper">
                 <Image src={iconArrowTop} alt="icon" />
               </div>
+
+              {products.length > 0 && <button onClick={clearProductsHandler} className='product-modal__clear'><FaTrash /> Clear cart</button>}
+
               <p className="text text_bold product-modal__summ-total">$ {totalPrice.toFixed(2)}</p>
             </div>
 

@@ -464,10 +464,6 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
                     <span>ADD TO CART</span>
                   </button>
 
-
-                  <Link href="/details-page" scroll={false}>
-                    <a className="main-slide__see-details">See details</a>
-                  </Link>
                 </div>
                 <div className="main-slide__bottom-right">
                   {!selectedModeltoCompare ? (
@@ -479,7 +475,7 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
                       <button onClick={(e) => addItemToCartAndShowModal(e, selectedModeltoCompare)} className="ui-btn main-slide__buy-btn">
                         <span>ADD TO CART</span>
                       </button>
-                      <Link href="/details-page" scroll={false}>
+                      <Link href={selectedModeltoCompare.pageLinkNameWithCategory}>
                         <a className="main-slide__see-details">See details</a>
                       </Link>
                     </>
@@ -532,6 +528,7 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
                 safety,
                 atmosphereLight,
                 imgPath,
+                pageLinkNameWithCategory,
                 links,
                 excludeForMap
               } = item;
@@ -648,7 +645,7 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
                     <button onClick={(e) => addItemToCartAndShowModal(e, item)} className="ui-btn compare-specfications__buy-btn">
                       <span>ADD TO CART</span>
                     </button>
-                    <Link href="/details-page" scroll={false}>
+                    <Link href={pageLinkNameWithCategory}>
                       <a className="compare-specfications__see-details">See details</a>
                     </Link>
                   </SwiperSlide>

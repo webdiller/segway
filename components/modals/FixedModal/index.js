@@ -35,11 +35,11 @@ export default function FixedModal({ product, preparedProtection }) {
       {product && preparedProtection && (
         <div onClick={addItemToCartAndShowModal} className="fixed-modal">
           <button className="fixed-modal__wrapper">
-            <span className="fixed-modal__title">
+            <p className="fixed-modal__title">
               <span className="fixed-modal__title-name">Add to cart</span>
               <span className="fixed-modal__title-price">${currentPrice}</span>
-            </span>
-            <span className="fixed-modal__description">Free 1 day shipping within California</span>
+            </p>
+            <p className="fixed-modal__description">Free 1 day shipping within California</p>
           </button>
         </div>
       )}
