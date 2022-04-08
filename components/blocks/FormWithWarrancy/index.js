@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import segwayProtect from '@/base/segway-protect.png';
-import { setProperties, setCurrentPrice, pushProduct } from 'store/slices/productCartSlice';
+import { setProperties, setCurrentPrice, pushProduct, setPreperedBundle } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import Colors from './Colors';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -21,24 +21,6 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
   const tabWrapper = useRef(null);
   const { preparedProduct, preperedBundle } = useSelector(state => state.products)
-
-  useEffect(() => {
-    if (currentWarranty) {
-      dispatch(setCurrentPrice(Number(product.price) + Number(product.warranty[currentWarranty - 1].price)))
-    } else {
-      dispatch(setCurrentPrice(Number(product.price)))
-    }
-  }, [currentWarranty, product, dispatch])
-
-  useEffect(() => {
-    const idParams = new URLSearchParams(preparedProduct ? preparedProduct.id : product.id);
-    const warranty = idParams.get('warranty').toString()
-    const color = idParams.get('color').toString()
-
-    warranty === 'null' ? currentWarrantySet(null) : currentWarrantySet(Number(warranty))
-    color === 'null' ? currentColorSet(null) : currentColorSet(color)
-
-  }, [preparedProduct, product])
 
   const onChangeWarrantyHandler = (e, selectedWarranty) => {
     if (!e.target.classList.contains('active')) {
@@ -60,6 +42,30 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
     }
   }
 
+  useEffect(() => {
+    if (currentWarranty) {
+      dispatch(setCurrentPrice(Number(product.price) + Number(product.warranty[currentWarranty - 1].price)))
+    } else {
+      dispatch(setCurrentPrice(Number(product.price)))
+    }
+  }, [currentWarranty, product, dispatch])
+
+  useEffect(() => {
+    const idParams = new URLSearchParams(preparedProduct ? preparedProduct.id : product.id);
+    const warranty = idParams.get('warranty').toString()
+    const color = idParams.get('color').toString()
+
+    warranty === 'null' ? currentWarrantySet(null) : currentWarrantySet(Number(warranty))
+    color === 'null' ? currentColorSet(null) : currentColorSet(color)
+
+  }, [preparedProduct, product])
+
+  useEffect(()=>{
+    if (!bundles) {
+      dispatch(setPreperedBundle(null))
+    }
+  }, [dispatch, bundles])
+
   return (
     <>
 
@@ -70,7 +76,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>
         <div ref={tabWrapper} className="form-with-warrancy__wrapper">
 
-          {bundles && <Bundles bundles={bundles}/>}
+          {bundles && <Bundles bundles={bundles} />}
 
           <div className="form-with-warrancy__top">
 
