@@ -15,6 +15,9 @@
       text-shadow: none;
     }
     &:last-child {
+      &::first-letter {
+        text-transform: uppercase;
+      }
       &::after {
         display: none;
       }

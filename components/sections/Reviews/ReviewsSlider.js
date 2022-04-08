@@ -7,14 +7,21 @@ import arrowRight from '@/base/icon-arrow-right.svg';
 
 import { GoStar } from 'react-icons/go';
 
-import Link from "next/link";
-
 const reviews = [
   {
     id: 1,
     stars: [1, 1, 1, 1, 0],
     name: 'Jackie',
     description: <>
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
       The price point for the printer is frankly incredible for the money.
       As far as a beginner printer...I purchased one of these for my niece
       (early teen) and the machine is working with no necessary involvement on my part.
@@ -29,6 +36,15 @@ const reviews = [
       The price point for the printer is frankly incredible for the money.
       As far as a beginner printer...I purchased one of these for my niece
       (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
     </>,
     link: '/'
   },
@@ -40,12 +56,93 @@ const reviews = [
       The price point for the printer is frankly incredible for the money.
       As far as a beginner printer...I purchased one of these for my niece
       (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+    </>,
+    link: '/'
+  },
+  {
+    id: 1,
+    stars: [1, 1, 1, 1, 0],
+    name: 'Jackie',
+    description: <>
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+    </>,
+    link: '/'
+  },
+  {
+    id: 2,
+    stars: [1, 1, 1, 1, 1],
+    name: 'Gagnier',
+    description: <>
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+    </>,
+    link: '/'
+  },
+  {
+    id: 3,
+    stars: [1, 1, 1, 1, 1],
+    name: 'Lakey',
+    description: <>
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
+      The price point for the printer is frankly incredible for the money.
+      As far as a beginner printer...I purchased one of these for my niece
+      (early teen) and the machine is working with no necessary involvement on my part.
     </>,
     link: '/'
   }
 ]
 
 export default function Reviews() {
+
+  const collapseHandler = (e) => {
+    if (e.target.tagName === 'BUTTON') {
+      if (e.target.parentElement.classList.contains('opened')) {
+        e.target.innerText = "Read more"
+        e.target.parentElement.classList.remove('opened')
+      } else {
+        e.target.innerText = "Read less"
+        e.target.parentElement.classList.add('opened')
+      }
+    }
+  }
 
   return (
     <div className="reviews-slider">
@@ -56,7 +153,6 @@ export default function Reviews() {
 
           <Swiper
             modules={[Navigation, Pagination]}
-            loop={true}
             navigation={{
               prevEl: ".reviews-slider__nav_left",
               nextEl: ".reviews-slider__nav_right",
@@ -85,17 +181,24 @@ export default function Reviews() {
               link
             }) => {
               return (
-                <SwiperSlide key={id} className="reviews-slider__item">
-                  <div className="reviews-slider__item-stars">
-                    {stars.map((star, indx) => {
-                      return (
-                        <GoStar key={indx} className={star === 1 ? "reviews-slider__item-star active" : "reviews-slider__item-star"} />
-                      )
-                    })}
+                <SwiperSlide
+                  key={id}
+                  className="reviews-slider__item">
+                  <div
+                    className="reviews-slider__item-wrapper"
+                    onClick={collapseHandler}>
+                    <div
+                      className="reviews-slider__item-stars">
+                      {stars.map((star, indx) => {
+                        return (
+                          <GoStar key={indx} className={star === 1 ? "reviews-slider__item-star active" : "reviews-slider__item-star"} />
+                        )
+                      })}
+                    </div>
+                    <p className="reviews-slider__item-name">{name}</p>
+                    <p className="reviews-slider__item-description">{description}</p>
+                    <button className="reviews-slider__item-link">Read more</button>
                   </div>
-                  <p className="reviews-slider__item-name">{name}</p>
-                  <p className="reviews-slider__item-description">{description}</p>
-                  <Link href={link}><a className="reviews-slider__item-link">Read more</a></Link>
                 </SwiperSlide>
               )
             })}

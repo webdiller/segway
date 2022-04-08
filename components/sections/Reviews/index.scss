@@ -30,7 +30,13 @@
     padding: 24px 20px 23px 24px;
     background-color: #f7f7f7;
     @include media('<=768px') {
-
+    }
+  }
+  &__item-wrapper {
+    &.opened {
+      .reviews-slider__item-description {
+        -webkit-line-clamp: unset;
+      }
     }
   }
   &__item-stars {
@@ -70,11 +76,13 @@
     overflow: hidden;
     text-overflow: clip;
     -webkit-box-orient: vertical;
+
     @include media('<=768px') {
       -webkit-line-clamp: 8;
     }
   }
   &__item-link {
+    @include reset-btn();
     font-size: 14px;
     line-height: 17px;
     color: #009eff;
@@ -82,9 +90,9 @@
 
   &__navigation {
     position: absolute;
-    top: 43%;
+    top: 120px;
     right: 50%;
-    transform: translate(50%, -50%);
+    transform: translateX(50%);
 
     display: block;
     width: calc(100% + 32px + 32px + 80px);
@@ -96,6 +104,9 @@
     justify-content: space-between;
     z-index: 10;
     height: 0;
+
+    transition: all .3s ease;
+    
     @include media('<=1200px') {
       width: calc(100% + 32px + 32px + 45px);
     }
@@ -115,6 +126,10 @@
     }
 
     &_right {
+    }
+    &.swiper-button-disabled {
+      opacity: 0;
+      pointer-events: none;
     }
   }
 

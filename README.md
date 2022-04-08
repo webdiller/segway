@@ -34,4 +34,4 @@ https://docs.affirm.com/developers/reference/the-item-object
 Закончил на подготовке объекта для affirm
 
 Правки трелло:
-16, 20, 21, 26, 32
+1, 16, 20, 21, 26, 32

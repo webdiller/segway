@@ -20,7 +20,7 @@ export default function HomePage({ allData }) {
       <div className="main-page">
         <TopCategorySlider />
         <div className="main-page__breadcrumbs">
-          <Breadcrumbs activeLabelName="Kickscooters" />
+          <Breadcrumbs  middleHref="/kickscooters" activeLabelName="Kickscooters" />
         </div>
         <div className="main-page__sliders">
           <CategorySlider
