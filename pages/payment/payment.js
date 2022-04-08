@@ -296,32 +296,33 @@ export default function PauymentLastPage() {
   }
 
   /** Если у пользователя отсутствую базовые данные, то редирект */
-  useEffect(() => {
-    if (
-      !email ||
-      !firstName ||
-      !lastName ||
-      !address ||
-      !city ||
-      !country ||
-      !state ||
-      !zipCode ||
-      !phone
-    ) {
-      router.push('/payment')
-    }
+  // TODO: Расскоментировать в проде
+  // useEffect(() => {
+  //   if (
+  //     !email ||
+  //     !firstName ||
+  //     !lastName ||
+  //     !address ||
+  //     !city ||
+  //     !country ||
+  //     !state ||
+  //     !zipCode ||
+  //     !phone
+  //   ) {
+  //     router.push('/payment')
+  //   }
 
-  }, [email,
-    firstName,
-    lastName,
-    address,
-    city,
-    country,
-    state,
-    zipCode,
-    phone,
-    router]
-  )
+  // }, [email,
+  //   firstName,
+  //   lastName,
+  //   address,
+  //   city,
+  //   country,
+  //   state,
+  //   zipCode,
+  //   phone,
+  //   router]
+  // )
 
   useEffect(() => {
     try {
