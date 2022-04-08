@@ -68,7 +68,7 @@ export default function PauymentLastPage() {
         lineHeight: mediaQuery ? '40px' : '50px',
         color: '#323941',
         "::placeholder": {
-          color: '#999999'
+          color: '#c9c9c9'
         }
       }
     }
@@ -559,7 +559,6 @@ export default function PauymentLastPage() {
                 topLabel="Country / region"
                 placeholder="Country / region"
                 readOnly
-                requied
               />
             </div>
 
@@ -569,7 +568,6 @@ export default function PauymentLastPage() {
                 value={differentState}
                 topLabel="State"
                 placeholder="State"
-                requied
               />
             </div>
 

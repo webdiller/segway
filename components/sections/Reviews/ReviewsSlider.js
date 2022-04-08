@@ -69,7 +69,7 @@ const reviews = [
     link: '/'
   },
   {
-    id: 1,
+    id: 4,
     stars: [1, 1, 1, 1, 0],
     name: 'Jackie',
     description: <>
@@ -89,7 +89,7 @@ const reviews = [
     link: '/'
   },
   {
-    id: 2,
+    id: 5,
     stars: [1, 1, 1, 1, 1],
     name: 'Gagnier',
     description: <>
@@ -109,7 +109,7 @@ const reviews = [
     link: '/'
   },
   {
-    id: 3,
+    id: 6,
     stars: [1, 1, 1, 1, 1],
     name: 'Lakey',
     description: <>
