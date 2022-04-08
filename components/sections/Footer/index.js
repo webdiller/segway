@@ -64,11 +64,10 @@ export default function Footer({withPaddings}) {
             <div className="footer__columns-item">
               <p className="footer__columns-item-title">About us</p>
               <nav className="footer__website-links">
-                <Link href="/"><a className="footer__website-links-item">REVIEWS</a></Link>
-                <Link href="/"><a className="footer__website-links-item">SHIPPING AND PAYMENT</a></Link>
-                <Link href="/"><a className="footer__website-links-item">WHOLESALE</a></Link>
-                <Link href="/"><a className="footer__website-links-item">BLOG</a></Link>
-                <Link href="/"><a className="footer__website-links-item">CONTACTS</a></Link>
+                <Link href="/"><a className="footer__website-links-item">CATALOG</a></Link>
+                <Link href="/shipping-and-payment"><a className="footer__website-links-item">SHIPPING AND PAYMENT</a></Link>
+                <Link href="/wholesale"><a className="footer__website-links-item">WHOLESALE</a></Link>
+                <Link href="/contacts"><a className="footer__website-links-item">CONTACTS</a></Link>
               </nav>
             </div>
 
