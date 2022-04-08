@@ -1,16 +1,26 @@
 import classNames from 'classnames';
-import dynamic from 'next/dynamic';
-const Link = dynamic(() => import('next/link'));
+import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { pushProduct } from 'store/slices/productCartSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 import styles from './Price.module.scss';
 
-export default function Price({price, link}) {
+export default function Price({model, price, link}) {
+
+  const dispatch = useDispatch()
+  
+  const addItemToCartAndShowModal = () => {
+    dispatch(productModalActiveSet(true));
+    dispatch(pushProduct(model));
+  };
+
   return (
     <div className={styles.item}>
       <p className={classNames(styles.price, classNames('text text_25'))}>${price}</p>
-      <button className={classNames(styles.button, classNames('ui-btn'))}>
+      <button onClick={addItemToCartAndShowModal} className={classNames(styles.button, classNames('ui-btn'))}>
         <span>ADD TO CART</span>
       </button>
-      <Link href={link || '#'}>
+      <Link href={model.pageLinkNameWithCategory}>
         <a className={styles.link}>See details</a>
       </Link>
     </div>

@@ -53,6 +53,8 @@ const DownloadManualDinamic = dynamic(() => import('@/sections/DownloadManual'))
 const SegwayProtectDinamic = dynamic(() => import('@/sections/SegwayProtect'));
 const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllFromSmartphone'));
 
+import { CompareModels, Model } from '@/sections/CompareModels';
+
 import FormWarrancy_desktop from '@/base/gocart-kit/form-warrancy-desktop.jpg';
 import FormWarrancy_mobile from '@/base/gocart-kit/form-warrancy-mobile.jpg';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
@@ -276,6 +278,12 @@ export default function ModelPage({ allData }) {
       />
 
       <DownloadManualDinamic />
+
+      <CompareModels>
+        <Model hideIcons={true} width={206} height={144} model={allData.gocarts[1]} />
+        <Model width={206} height={144} model={allData.gocarts[0]} />
+      </CompareModels>
+
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
 
