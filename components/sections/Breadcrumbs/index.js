@@ -9,7 +9,7 @@ export default function Breadcrumbs({
     <div className={classNames('breadcrumbs')}>
       <div className="container breadcrumbs__container">
         <Link href="/"><a className="breadcrumbs__link begin">Home</a></Link>
-        <Link href={`/${middleHref}`}><a className="breadcrumbs__link middle">Catalog</a></Link>
+        <Link href={`${middleHref}`}><a className="breadcrumbs__link middle">Catalog</a></Link>
         <span className="breadcrumbs__link">{activeLabelName}</span>
       </div>
     </div>
