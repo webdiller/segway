@@ -109,6 +109,9 @@ $rootClass: '.category-slider';
     padding-bottom: 18px;
     white-space: nowrap;
     margin-top: auto;
+    @include media('<=768px') {
+      padding-bottom: 13px;
+    }
   }
 
   &__price {
@@ -123,12 +126,16 @@ $rootClass: '.category-slider';
     }
     &_alt {
       text-transform: uppercase;
-      font-weight: 600;
       color: #979797;
-
+      font-weight: 400;
+      font-size: 18px;
+      @include media('<=768px') {
+        font-size: 13px;
+      }
       span {
         font-size: 12px;
         line-height: 12px;
+        font-weight: 600 !important;
         @include media('<=768px') {
           font-size: 9px;
           line-height: 9px;
@@ -142,12 +149,13 @@ $rootClass: '.category-slider';
 
   &__price-separator {
     display: inline-block;
-    margin: 0 8px;
+    margin: 2px 8px 0 8px;
 
     font-weight: 600;
     font-size: 11px;
     line-height: 10px;
     color: #979797;
+    text-transform: uppercase;
     &::selection {
       background-color: transparent;
     }

@@ -123,7 +123,7 @@ export default function ModelPage({ allData }) {
       <KickScooterOverviewDinamic
         titleDesktop={
           <>
-            OvKickScooter overviewerview <br />
+            KickScooter overview <br />
             Segway Ninebot Kickscooter E10
           </>
         }
@@ -144,10 +144,10 @@ export default function ModelPage({ allData }) {
         }
         textDesktop={
           <>
-            With the uniquely tailored exterior and ergonomic fit, the E10 is <br />
+            With the uniquely tailored exterior and ergonomic fit, the zing E10 is <br />
             a perfect mobility companion for big kids. <br />
             Slim, lightweight, inconspicuous yet dazzling color scheme, <br />
-            dynanic handlebar shape. With the E10 eKickScooter, be the <br />
+            dynanic handlebar shape. With the zing E10 eKickScooter, be the <br />
             coolest kid in town
           </>
         }
@@ -161,10 +161,10 @@ export default function ModelPage({ allData }) {
         textMobile={
           <>
             With the uniquely tailored exterior and ergonomic <br />
-            fit, the E10 is a perfect mobility companion for big <br />
+            fit, the zing E10 is a perfect mobility companion for big <br />
             kids. Slim, lightweight, inconspicuous yet dazzling <br />
             color scheme, dynanic handlebar shape. With the <br />
-            E10 eKickScooter, be the coolest kid in town
+            zing E10 eKickScooter, be the coolest kid in town
           </>
         }
       />

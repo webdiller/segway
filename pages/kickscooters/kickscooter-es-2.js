@@ -124,7 +124,7 @@ export default function ModelPage({ allData }) {
       <KickScooterOverviewDinamic
         titleDesktop={
           <>
-            OvKickScooter overviewerview <br />
+            KickScooter overview <br />
             Segway Ninebot Kickscooter ES2
           </>
         }

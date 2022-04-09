@@ -25,7 +25,6 @@ export default function AccessoriesSlider({ items }) {
       e.target.classList.remove('ui-btn_added');
       e.target.blur();
     }, 3000);
-
   };
 
   const onToggleHiddenOthersetAccessories = () => {

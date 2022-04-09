@@ -125,8 +125,8 @@ export default function ModelPage({ allData }) {
       <KickScooterOverviewDinamic
         titleDesktop={
           <>
-            OvKickScooter overviewerview <br />
-            Segway Ninebot Kickscooter E12
+           KickScooter overview <br />
+           SEGWAY Ninebot Kickscooter ZING e12
           </>
         }
         titleMobile={<>KickScooter overview</>}
@@ -300,7 +300,7 @@ export default function ModelPage({ allData }) {
             Get ready for a smooth ride like no other. In order to <br />
             deliver a comfortable riding experience In order to <br />
             bring a more comfortable riding experience, the ZING <br />
-            E10 is equipped with a spring shock absorption <br />
+            E12 is equipped with a spring shock absorption <br />
             system, which can more effectively absorb the bumps <br />
             from sand, grass, and dirt roads. With the patented <br />
             anti-skid tubeless tires, you can just ride smoothly and <br />
@@ -324,7 +324,7 @@ export default function ModelPage({ allData }) {
             Get ready for a smooth ride like no other. In order <br />
             to deliver a comfortable riding experience In order <br />
             to bring a more comfortable riding experience, the <br />
-            ZING E10 is equipped with a spring shock <br />
+            ZING E12 is equipped with a spring shock <br />
             absorption system, which can more effectively <br />
             absorb the bumps from sand, grass, and dirt roads. <br />
             With the patented anti-skid tubeless tires, you can <br />

@@ -18,6 +18,25 @@ export default function TopCategorySlider() {
   const topSwiperActionsRoot = useRef(null);
   const swiperRef = useRef()
 
+  const slideToHandler = (positionSlideIndex) => (e) => {
+
+    const curentRoute = router.asPath;
+    const condition =
+      curentRoute !== '/'
+      && curentRoute !== '/gocarts'
+      && curentRoute !== '/kickscooters'
+      && curentRoute !== '/shipping-and-payment'
+      && curentRoute !== '/wholesale'
+      && curentRoute !== '/contacts'
+      || curentRoute === '/accessories';
+
+    if (condition) {
+      e.preventDefault();
+      dispatch(setPositionSlide(positionSlideIndex))
+    }
+  }
+
+
   useEffect(() => {
     const currentRoute = router.asPath;
     if (currentRoute.startsWith('/kickscooters')) {
@@ -25,9 +44,6 @@ export default function TopCategorySlider() {
     }
     else if (currentRoute.startsWith('/gocarts')) {
       dispatch(setPositionSlide(1))
-    }
-    else if (currentRoute.startsWith('/accessories')) {
-      dispatch(setPositionSlide(2))
     }
   }, [router, dispatch])
 
@@ -67,16 +83,19 @@ export default function TopCategorySlider() {
               swiperRef.current = swiper
             }}>
 
-            <SwiperSlide className={router.asPath.startsWith('/kickscooters') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
-              <Link href="/kickscooters" passHref >Ninebot kickscooter</Link>
+            <SwiperSlide
+              className={router.asPath.startsWith('/kickscooters') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
+              <Link href="/kickscooters" passHref ><a onClick={slideToHandler(0)}>Ninebot kickscooter</a></Link>
             </SwiperSlide>
 
-            <SwiperSlide className={router.asPath.startsWith('/gocarts') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
-              <Link href="/gocarts" passHref >NINEBOT GOCART</Link>
+            <SwiperSlide
+              className={router.asPath.startsWith('/gocarts') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
+              <Link href="/gocarts" passHref ><a onClick={slideToHandler(1)}>NINEBOT GOCART</a></Link>
             </SwiperSlide>
 
-            <SwiperSlide className={router.asPath.startsWith('/accessories') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
-              <Link href="/accessories" passHref >Accessories</Link>
+            <SwiperSlide
+              className={router.asPath.startsWith('/accessories') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
+              <Link href="/accessories" passHref><a>Accessories</a></Link>
             </SwiperSlide>
 
           </Swiper>

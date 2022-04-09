@@ -124,7 +124,7 @@ export default function ModelPage({ allData, preparedProtection, product }) {
       <KickScooterOverviewDinamic
         titleDesktop={
           <>
-            OvKickScooter overviewerview <br />
+            KickScooter overview <br />
             Segway Ninebot Kickscooter ZING E8
           </>
         }
@@ -146,7 +146,7 @@ export default function ModelPage({ allData, preparedProtection, product }) {
         textDesktop={
           <>
             Vibrant Colors Designed for Children <br />
-            The Ninebot eKickSscooter E8 adopts an exterior design that <br />
+            The Ninebot eKickSscooter zing E8 adopts an exterior design that <br />
             is specifically tailored for children - slim body, vibrant colors <br />
             (blue & pink).
             <br />
@@ -166,7 +166,7 @@ export default function ModelPage({ allData, preparedProtection, product }) {
         textMobile={
           <>
             Vibrant Colors Designed for Children <br />
-            The Ninebot eKickSscooter E8 adopts an exterior <br />
+            The Ninebot eKickSscooter zing E8 adopts an exterior <br />
             design that is specifically tailored for children - <br />
             slim body, vibrant colors (blue & pink).
             <br />
@@ -221,7 +221,7 @@ export default function ModelPage({ allData, preparedProtection, product }) {
         textDesktop={
           <>
             Equipped with internal and external lithium-ion batteries, the <br />
-            Ninebot KickScooter by Segway ES3 allows you to travel farther <br />
+            Ninebot KickScooter by zing E8 allows you to travel farther <br />
             and reach your destination quicker than ever before. The extra <br />
             power comes with controlled acceleration for a smoother ride <br />
             and a cruise control option so you can ride in comfort. Thanks to <br />
@@ -238,7 +238,7 @@ export default function ModelPage({ allData, preparedProtection, product }) {
         textMobile={
           <>
             Equipped with internal and external lithium-ion <br />
-            batteries, the Ninebot KickScooter by Segway ES3 <br />
+            batteries, the Ninebot KickScooter by zing E8 <br />
             allows you to travel farther and reach your <br />
             destination quicker than ever before. The extra <br />
             power comes with controlled acceleration for a <br />

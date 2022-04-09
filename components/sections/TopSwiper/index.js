@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useRef } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
-import topSwiperAccessory from '@/base/top-swiper-accessory.png';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -165,49 +164,6 @@ export default function TopSwiper({ items }) {
                           </SwiperSlide>
                         )
                       }
-                    })}
-                  </Swiper>
-
-                  <div className="top-swiper__navigation">
-                    <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
-                      <BsChevronCompactLeft className="top-swiper__icon" />
-                    </button>
-                    <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
-                      <BsChevronCompactRight className="top-swiper__icon" />
-                    </button>
-                  </div>
-                </div>
-              </SwiperSlide>
-              
-              {/* accessoeries */}
-              <SwiperSlide className="top-swiper__parent-slide">
-                <div className="top-swiper__main-container">
-                  <Swiper
-                    className="top-swiper__swiper"
-                    modules={[FreeMode]}
-                    spaceBetween={0}
-                    slidesPerView={4}
-                    loop={false}
-                    freeMode={true}
-                    breakpoints={{
-                      768: {
-                        allowTouchMove: false
-                      }
-                    }}>
-                    {items.accessoeries.map(({ id, nameWrap, imgPath }) => {
-
-                      return (
-                        <SwiperSlide key={id} className="top-swiper__item">
-                          <Link href="/accessories">
-                            <a className="top-swiper__link">
-                              <div className="top-swiper__img-wrapper">
-                                <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgPath} alt={nameWrap} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
-                              </div>
-                              <p className="top-swiper__name top-swiper__name_small">Accessory</p>
-                            </a>
-                          </Link>
-                        </SwiperSlide>
-                      );
                     })}
                   </Swiper>
 

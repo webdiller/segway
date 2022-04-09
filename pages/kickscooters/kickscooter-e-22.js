@@ -123,7 +123,7 @@ export default function ModelPage({ allData }) {
       <KickScooterOverviewDinamic
         titleDesktop={
           <>
-            OvKickScooter overviewerview <br /> Segway Ninebot Kickscooter E22
+            KickScooter overview <br /> Segway Ninebot Kickscooter E22
           </>
         }
         titleMobile={<>KickScooter overview</>}
