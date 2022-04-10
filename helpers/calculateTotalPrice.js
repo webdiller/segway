@@ -49,22 +49,22 @@ export const calculateTotalPrice = (products) => {
         }
       }
 
-      /** 
-       * Калькуляция цены. Еысли в корзине имеется защита и один из продуктов
-       * Если да, то отнимаем 29 от общей суммы
-       */
-      let existAnyProduct = products.filter(product => product.type !== 'accessory');
-      let existProtectionAccessory = products.filter(product => product.id === 'segway-protective-gear-set');
-      let excludePriceForGift = existAnyProduct.length > 0 && existProtectionAccessory.length > 0 ? true : false;
-      /** Подарка нету */
-      if (!excludePriceForGift) {
-        total = total + ((price + warranty) * quantity)
-        /** Подарок есть */
-      } else {
-        total = (total + ((price + warranty) * quantity)) - 29.99
-      }
-
+      total = total + ((price + warranty) * quantity)
     }
   })
+
+  /** 
+   * Калькуляция цены. Еысли в корзине имеется защита и один из продуктов
+   * Если да, то отнимаем 29 от общей суммы
+   */
+  let existAnyProduct = products.filter(product => product.type !== 'accessory');
+  let existProtectionAccessory = products.filter(product => product.id === 'segway-protective-gear-set');
+  let excludePriceForGift = existAnyProduct.length > 0 && existProtectionAccessory.length > 0 ? true : false;
+  /** Подарок есть */
+  if (excludePriceForGift) {
+    total = total - 29.99
+    console.log('Подарок есть');
+  }
+
   return total;
 };

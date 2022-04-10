@@ -20,7 +20,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
   const [currentColor, currentColorSet] = useState(null)
 
   const tabWrapper = useRef(null);
-  const { preparedProduct, preperedBundle } = useSelector(state => state.products)
+  const { preparedProduct, preperedBundle, currentPrice } = useSelector(state => state.products)
 
   const onChangeWarrantyHandler = (e, selectedWarranty) => {
     if (!e.target.classList.contains('active')) {
@@ -41,15 +41,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       dispatch(productModalActiveSet(true))
     }
   }
-
-  useEffect(() => {
-    if (currentWarranty) {
-      dispatch(setCurrentPrice(Number(product.price) + Number(product.warranty[currentWarranty - 1].price)))
-    } else {
-      dispatch(setCurrentPrice(Number(product.price)))
-    }
-  }, [currentWarranty, product, dispatch])
-
+  
   useEffect(() => {
     const idParams = new URLSearchParams(preparedProduct ? preparedProduct.id : product.id);
     const warranty = idParams.get('warranty').toString()
@@ -60,7 +52,20 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
   }, [preparedProduct, product])
 
-  useEffect(()=>{
+  useEffect(() => {
+    if (currentWarranty && !preperedBundle) {
+      dispatch(setCurrentPrice(Number(product.price) + Number(product.warranty[currentWarranty - 1].price)))
+    } else if (currentWarranty && preperedBundle) {
+      dispatch(setCurrentPrice(Number(product.price) + Number(product.warranty[currentWarranty - 1].price) + Number(preperedBundle.price)))
+    } else if (!currentWarranty && preperedBundle) {
+      dispatch(setCurrentPrice(Number(product.price) + Number(preperedBundle.price)))
+    } else {
+      dispatch(setCurrentPrice(Number(product.price)))
+    }
+  }, [currentWarranty, preperedBundle, product, dispatch])
+
+
+  useEffect(() => {
     if (!bundles) {
       dispatch(setPreperedBundle(null))
     }
@@ -108,18 +113,8 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
           <div className="form-with-warrancy__form-prices-subtitle-image">
             {/* PRICES */}
             <div className="form-with-warrancy__form-prices">
-              <p className="form-with-warrancy__form-price-old">$
-                {currentWarranty !== null
-                  ? Number(product.warranty[currentWarranty - 1].oldPrice)
-                  : product.oldPrice
-                }
-              </p>
-              <p className="form-with-warrancy__form-price-new">$
-                {currentWarranty !== null
-                  ? Number(product.price) + Number(product.warranty[currentWarranty - 1].price)
-                  : product.price
-                }
-              </p>
+              <p className="form-with-warrancy__form-price-old">${`${(currentPrice * 0.9).toFixed(2)}`}</p>
+              <p className="form-with-warrancy__form-price-new">${currentPrice}</p>
             </div>
             <div className="form-with-warrancy__title-with-image">
               <div className="form-with-warrancy__form-img-wrapper">

@@ -53,6 +53,7 @@ export default function useForm({fromWhere}) {
       curentRef.current.innerHTML = "<span>Error while sending</span>";
       setTimeout(() => {
         curentRef.current.innerHTML = "<span>Send</span>";
+        curentRef.current.classList.remove("loading");
       }, 3000);
     } finally {
       loadingSet(false)
