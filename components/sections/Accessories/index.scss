@@ -232,7 +232,6 @@
       margin-bottom: 17px;
     }
     @include media('<=576px') {
-      justify-content: space-between;
       width: 100%;
     }
     @include media('<=480px') {
@@ -456,23 +455,11 @@
       margin-bottom: 17px;
     }
     @include media('<=576px') {
-      justify-content: space-between;
       width: 100%;
     }
     @include media('<=480px') {
       margin-top: auto;
       margin-bottom: 10px;
-    }
-    &-key {
-      display: none;
-      color: #999999;
-      @include media('<=768px') {
-        display: inline-block;
-        margin-right: 10px;
-      }
-      @include media('<=576px') {
-        margin-right: auto;
-      }
     }
     &-value {
       @include media('<=768px') {

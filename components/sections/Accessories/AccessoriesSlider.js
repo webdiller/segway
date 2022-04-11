@@ -90,7 +90,6 @@ export default function AccessoriesSlider({ items }) {
                       <span className="accessories-slider__description-text">{description}</span>
                     </p>
                     <div className="accessories-slider__price">
-                      <p className="text text_16 accessories-slider__price-key">Price:</p>
                       <p className="text text_uppercase accessories-slider__price-value">${price}</p>
                     </div>
                     <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">

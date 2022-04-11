@@ -35,7 +35,6 @@ export default function AccessoriesBlock({ items }) {
                   <p className="text text_25 accessories-block__name">{nameWrap}</p>
                   <p className="text text_13 text_grey2 accessories-block__description">{description}</p>
                   <div className="accessories-block__price">
-                    <p className="text text_16 accessories-block__price-key">Price:</p>
                     <p className="text text_uppercase accessories-block__price-value">${price}</p>
                   </div>
                   <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-block__add-cart">
