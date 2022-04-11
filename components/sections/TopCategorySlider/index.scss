@@ -63,6 +63,9 @@
 
     &:hover {
       background-color: rgba(0, 158, 255, 0.8);
+      @media (hover: none) and (pointer: coarse) {
+        background-color: transparent;
+      }
     }
 
     @include media('<=768px') {

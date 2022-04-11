@@ -33,6 +33,9 @@ export default function TopCategorySlider() {
     if (condition) {
       e.preventDefault();
       dispatch(setPositionSlide(positionSlideIndex))
+      window.scrollTo({
+        top: 0
+      });
     }
   }
 
@@ -85,7 +88,7 @@ export default function TopCategorySlider() {
 
             <SwiperSlide
               className={router.asPath.startsWith('/kickscooters') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
-              <Link href="/kickscooters" passHref ><a onClick={slideToHandler(0)}>Ninebot kickscooter</a></Link>
+              <Link href="/kickscooters" passHref><a onClick={slideToHandler(0)}>Ninebot kickscooter</a></Link>
             </SwiperSlide>
 
             <SwiperSlide

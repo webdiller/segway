@@ -72,7 +72,7 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
       <div className="container compare-specfications__container">
         <p className="title title_fz-20 compare-specfications__title">compare specifications</p>
 
-        <p className="text compare-specfications__text">Add model to compare</p>
+        <p className="show-block-768 text compare-specfications__text">Add model to compare</p>
 
         {/* START HERE */}
         <div className="compare-specfications__main-slide-with-swiper">

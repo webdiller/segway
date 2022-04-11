@@ -34,9 +34,6 @@
       line-height: 120%;
       color: #009eff;
     }
-    @include media('<=576px') {
-      white-space: nowrap;
-    }
   }
 
   &__img-wrapper {

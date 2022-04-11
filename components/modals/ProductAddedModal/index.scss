@@ -251,6 +251,9 @@
     @include media('<=991px') {
       padding-top: 0;
     }
+    @include media('<=576px') {
+      flex-wrap: wrap;
+    }
     &.active {
       .product-modal__summ-icon-arrow-up-wrapper {
         transform: rotate(0);
@@ -279,6 +282,10 @@
         height: 60px;
       }
     }
+    
+    @include media('<=576px') {
+      order: 1;
+    }
   }
 
   &__clear {
@@ -289,6 +296,14 @@
     svg {
       margin-right: 5px;
       color: #ff0000;
+    }
+    @include media('<=576px') {
+      display: block;
+      justify-content: center;
+      flex: 1 1 100%;
+      order: 4;
+      text-align: center;
+      margin: 10px auto 0 auto;
     }
   }
 
@@ -310,11 +325,17 @@
     transform: rotate(180deg);
     transition: all 0.3s ease;
     margin-right: auto;
+    @include media('<=576px') {
+      order: 2;
+    }
   }
 
   &__summ-total {
     font-size: 18px;
     pointer-events: none;
+    @include media('<=576px') {
+      order: 3;
+    }
   }
 
   // start

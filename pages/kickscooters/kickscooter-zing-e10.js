@@ -124,11 +124,11 @@ export default function ModelPage({ allData }) {
         titleDesktop={
           <>
             KickScooter overview <br />
-            Segway Ninebot Kickscooter E10
+            Segway Ninebot Kickscooter zing E10
           </>
         }
         titleMobile={<>KickScooter overview</>}
-        subtitle={<>Segway Ninebot Kickscooter E10</>}
+        subtitle={<>Segway Ninebot Kickscooter zing E10</>}
         desktopImage={OverviewImgDesktop}
         mobileImage={OverviewImgMobile}
       />

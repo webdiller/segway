@@ -30,9 +30,6 @@ export default function HomePage({ allData }) {
             title="Gocarts"
             products={allData.gocarts} />
         </div>
-        <div className="main-page__info-link">
-          <InfoLink label="How to choose a gocart?" />
-        </div>
         <div className="main-page__videos"><Videos /></div>
       </div>
     </>

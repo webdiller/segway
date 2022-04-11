@@ -116,6 +116,7 @@ $rootClass: '.category-slider';
 
   &__price {
     color: #323941;
+    font-weight: 600;
 
     @include media('<=768px') {
       font-size: 13px;
@@ -135,7 +136,7 @@ $rootClass: '.category-slider';
       span {
         font-size: 12px;
         line-height: 12px;
-        font-weight: 600 !important;
+        font-weight: 600;
         @include media('<=768px') {
           font-size: 9px;
           line-height: 9px;
