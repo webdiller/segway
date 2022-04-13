@@ -25,7 +25,7 @@ export default function AccessoriesBlock({ items }) {
         <TitleWithDescription titleText={<>Accessories</>} descriptionText={<>Cо стильными оригинальными аксессуарами Xiaomi и Ninebot вы получите еще больше положительных эмоций от своих поездок.</>} />
         <div className="accessories-block__items">
           {items.map((item) => {
-            const { id, name, nameWrap, description, price, imgPath } = item;
+            const { id, type, name, nameWrap, description, price, imgPath } = item;
             return (
               <div key={id} className="swiper-slide accessories-block__item">
                 <div className="accessories-block__item-wrapper">
@@ -34,9 +34,20 @@ export default function AccessoriesBlock({ items }) {
                   </div>
                   <p className="text text_25 accessories-block__name">{nameWrap}</p>
                   <p className="text text_13 text_grey2 accessories-block__description">{description}</p>
-                  <div className="accessories-block__price">
-                    <p className="text text_uppercase accessories-block__price-value">${price}</p>
-                  </div>
+                  {type === 'accessory' ? (
+                    <div className="accessories-block__prices">
+                      <p className="accessories-block__price-current">$899.99</p>
+                    </div>
+                  ) : (
+                    <div className="accessories-block__prices">
+                      <p className="accessories-block__price-current">$899.99</p>
+                      <span className='accessories-block__price-separator'>or</span>
+                      <div className="accessories-block__price-period">
+                        <p className="accessories-block__price-period-key">$7</p>
+                        <p className="accessories-block__price-period-value">/ month</p>
+                      </div>
+                    </div>)
+                  }
                   <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-block__add-cart">
                     <span>ADD TO CART</span>
                   </button>

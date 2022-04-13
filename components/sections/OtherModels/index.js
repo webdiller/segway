@@ -111,7 +111,7 @@ export default function OtherModels({ items }) {
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {allSegways.map(({ id, name, nameWithoutBrand, price, imgPath, excludeForMap, pageLinkNameWithCategory }) => {
+            {allSegways.map(({ id, type, name, nameWithoutBrand, price, imgPath, excludeForMap, pageLinkNameWithCategory }) => {
               if (!excludeForMap) {
                 return (
                   <SwiperSlide key={id} className="swiper-slide other-models__item">
@@ -122,9 +122,20 @@ export default function OtherModels({ items }) {
                             <Image quality={100} objectFit="contain" className="other-models__img" src={imgPath} alt={name} layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
                           </div>
                           <p className="text text_25 other-models__name">{nameWithoutBrand}</p>
-                          <div className="other-models__price">
-                            <p className="text text_uppercase other-models__price-value">${price}</p>
-                          </div>
+                          {type === 'accessory' ? (
+                            <div className="other-models__prices">
+                              <p className="other-models__price-current">$899.99</p>
+                            </div>
+                          ) : (
+                            <div className="other-models__prices">
+                              <p className="other-models__price-current">$899.99</p>
+                              <span className='other-models__price-separator'>or</span>
+                              <div className="other-models__price-period">
+                                <p className="other-models__price-period-key">$7</p>
+                                <p className="other-models__price-period-value">/ month</p>
+                              </div>
+                            </div>)
+                          }
                         </a>
                       </Link>
                       <Link href={pageLinkNameWithCategory}>

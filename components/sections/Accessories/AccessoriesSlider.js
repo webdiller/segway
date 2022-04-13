@@ -78,7 +78,7 @@ export default function AccessoriesSlider({ items }) {
               swiperRef.current = swiper;
             }}>
             {items.map((item) => {
-              const { id, imgPath, nameWrap, description, price } = item;
+              const { id, type, imgPath, nameWrap, description, price } = item;
               return (
                 <SwiperSlide key={id} className="swiper-slide accessories-slider__item">
                   <div className="accessories-slider__item-wrapper">
@@ -89,9 +89,20 @@ export default function AccessoriesSlider({ items }) {
                     <p className="text text_13 text_grey2 accessories-slider__description">
                       <span className="accessories-slider__description-text">{description}</span>
                     </p>
-                    <div className="accessories-slider__price">
-                      <p className="text text_uppercase accessories-slider__price-value">${price}</p>
-                    </div>
+                    {type === 'accessory' ? (
+                      <div className="accessories-slider__prices">
+                        <p className="accessories-slider__price-current">$899.99</p>
+                      </div>
+                    ) : (
+                      <div className="accessories-slider__prices">
+                        <p className="accessories-slider__price-current">$899.99</p>
+                        <span className='accessories-slider__price-separator'>or</span>
+                        <div className="accessories-slider__price-period">
+                          <p className="accessories-slider__price-period-key">$7</p>
+                          <p className="accessories-slider__price-period-value">/ month</p>
+                        </div>
+                      </div>)
+                    }
                     <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">
                       <span>ADD TO CART</span>
                     </button>

@@ -117,46 +117,53 @@ $rootClass: '.category-slider';
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: auto;
-    padding-bottom: 18px;
+
+    margin: auto 0 18px 0;
     white-space: nowrap;
-    margin-top: auto;
     @include media('<=768px') {
-      padding-bottom: 13px;
+      margin-bottom: 13px;
     }
   }
 
-  &__price {
-    color: #323941;
+  &__price-current {
+    font-size: 18px;
     font-weight: 600;
+    @include media('<=768px') {
+      font-size: 16px;
+    }
+  }
 
+  &__price-plan-number {
+    text-transform: uppercase;
+    color: #979797;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__price-period {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__price-period-key {
+    font-size: 18px;
+    line-height: 22px;
+    color: #979797;
+    text-transform: uppercase;
     @include media('<=768px') {
       font-size: 13px;
-      line-height: 16px;
     }
-    &::selection {
-      background-color: transparent;
-    }
-    &_alt {
-      text-transform: uppercase;
-      color: #979797;
-      font-weight: 400;
-      font-size: 18px;
-      @include media('<=768px') {
-        font-size: 13px;
-      }
-      span {
-        font-size: 12px;
-        line-height: 12px;
-        font-weight: 600;
-        @include media('<=768px') {
-          font-size: 9px;
-          line-height: 9px;
-        }
-        &::selection {
-          background-color: transparent;
-        }
-      }
+  }
+
+  &__price-period-value {
+    margin-bottom: 2px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    color: #979797;
+    text-transform: uppercase;
+    @include media('<=768px') {
+      font-size: 9px;
     }
   }
 
@@ -173,7 +180,7 @@ $rootClass: '.category-slider';
       background-color: transparent;
     }
     @include media('<=768px') {
-      margin: 0 6px;
+      margin: 3px 5px 0 5px;
       font-size: 8px;
       line-height: 8px;
     }

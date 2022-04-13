@@ -115,17 +115,21 @@ export default function CategorySlider({ customClassNames, title, products, type
                       />
                     </div>
                     <p className="text text_25 category-slider__name">{nameWithoutBrand || nameWrap}</p>
+
                     {type === 'accessory' ? (
-                      <div className="text category-slider__prices">
-                        <p className="category-slider__price">$899.99</p>
+                      <div className="category-slider__prices">
+                        <p className="category-slider__price-current">$899.99</p>
                       </div>
                     ) : (
-                      <div className="text category-slider__prices">
-                        <p className="category-slider__price">$899.99</p>
-                        <span className="category-slider__price-separator">or</span>
-                        <p className="category-slider__price category-slider__price_alt">$7 / <span>month</span></p>
-                      </div>
-                    )}
+                      <div className="category-slider__prices">
+                        <p className="category-slider__price-current">$899.99</p>
+                        <span className='category-slider__price-separator'>or</span>
+                        <div className="category-slider__price-period">
+                          <p className="category-slider__price-period-key">$7</p>
+                          <p className="category-slider__price-period-value">/ month</p>
+                        </div>
+                      </div>)
+                    }
                   </div>
 
                   {addToCartOnClick ? (

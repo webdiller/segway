@@ -223,38 +223,79 @@
     }
   }
 
-  &__price {
-    margin-bottom: 14px;
+  &__prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto 0 18px 0;
+    white-space: nowrap;
     @include media('<=768px') {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 17px;
-    }
-    @include media('<=576px') {
-      width: 100%;
-    }
-    @include media('<=480px') {
-      margin-top: auto;
-      margin-bottom: 10px;
-    }
-    &-key {
-      display: none;
-      color: #999999;
-      @include media('<=768px') {
-        display: inline-block;
-        margin-right: 10px;
-      }
-      @include media('<=576px') {
-        margin-right: auto;
-      }
-    }
-    &-value {
-      @include media('<=768px') {
-        font-size: 16px;
-      }
+      margin-bottom: 13px;
     }
   }
+
+  &__price-current {
+    font-size: 18px;
+    font-weight: 600;
+    @include media('<=768px') {
+      font-size: 16px;
+    }
+  }
+
+  &__price-plan-number {
+    text-transform: uppercase;
+    color: #979797;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__price-period {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__price-period-key {
+    font-size: 18px;
+    line-height: 22px;
+    color: #979797;
+    text-transform: uppercase;
+    @include media('<=768px') {
+      font-size: 13px;
+    }
+  }
+
+  &__price-period-value {
+    margin-bottom: 2px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    color: #979797;
+    text-transform: uppercase;
+    @include media('<=768px') {
+      font-size: 9px;
+    }
+  }
+
+  &__price-separator {
+    display: inline-block;
+    margin: 2px 8px 0 8px;
+
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 10px;
+    color: #979797;
+    text-transform: uppercase;
+    &::selection {
+      background-color: transparent;
+    }
+    @include media('<=768px') {
+      margin: 3px 5px 0 5px;
+      font-size: 8px;
+      line-height: 8px;
+    }
+  }
+
   &__add-cart {
     margin: auto auto 0 auto;
     white-space: nowrap;
@@ -426,27 +467,80 @@
       text-align: left;
     }
   }
-  &__price {
-    margin-bottom: 14px;
+  
+  &__prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto 0 18px 0;
+    white-space: nowrap;
     @include media('<=768px') {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 17px;
-    }
-    @include media('<=576px') {
-      width: 100%;
-    }
-    @include media('<=480px') {
-      margin-top: auto;
-      margin-bottom: 10px;
-    }
-    &-value {
-      @include media('<=768px') {
-        font-size: 16px;
-      }
+      margin-bottom: 13px;
     }
   }
+
+  &__price-current {
+    font-size: 18px;
+    font-weight: 600;
+    @include media('<=768px') {
+      font-size: 16px;
+    }
+  }
+
+  &__price-plan-number {
+    text-transform: uppercase;
+    color: #979797;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__price-period {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__price-period-key {
+    font-size: 18px;
+    line-height: 22px;
+    color: #979797;
+    text-transform: uppercase;
+    @include media('<=768px') {
+      font-size: 13px;
+    }
+  }
+
+  &__price-period-value {
+    margin-bottom: 2px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    color: #979797;
+    text-transform: uppercase;
+    @include media('<=768px') {
+      font-size: 9px;
+    }
+  }
+
+  &__price-separator {
+    display: inline-block;
+    margin: 2px 8px 0 8px;
+
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 10px;
+    color: #979797;
+    text-transform: uppercase;
+    &::selection {
+      background-color: transparent;
+    }
+    @include media('<=768px') {
+      margin: 3px 5px 0 5px;
+      font-size: 8px;
+      line-height: 8px;
+    }
+  }
+
   &__add-cart {
     margin: auto auto 0 auto;
     white-space: nowrap;
@@ -458,8 +552,10 @@
       background-color: #6acd68;
     }
 
-    @include media('<=480px') {
+    @include media('<=576px') {
       margin-top: 0;
+      width: 100%;
+      max-width: unset;
     }
   }
 }
