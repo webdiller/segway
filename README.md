@@ -31,4 +31,3 @@
 https://docs.affirm.com/developers/docs/transactions-web
 https://docs.affirm.com/developers/docs/create-a-checkout-object
 https://docs.affirm.com/developers/reference/the-item-object
-Закончил на подготовке объекта для affirm
