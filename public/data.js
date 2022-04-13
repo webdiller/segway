@@ -1086,8 +1086,8 @@ export const data = {
           oldPrice: 1328
         }
       ],
-      imgPath: "/segway-ninebot-kickscooter-e22.png",
-      imgSmallPath: "/segway-ninebot-kickscooter-e22_small.png",
+      imgPath: "/ninebot-segway-gokart-pro.png",
+      imgSmallPath: "/ninebot-segway-gokart-pro.png",
       imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
       imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
       imgForCompare: "/gocart-pro.png",
@@ -1154,8 +1154,8 @@ export const data = {
           oldPrice: 1328
         }
       ],
-      imgPath: "/segway-ninebot-kickscooter-e22.png",
-      imgSmallPath: "/segway-ninebot-kickscooter-e22_small.png",
+      imgPath: "/segway-ninebot-gokart-kit.png",
+      imgSmallPath: "/segway-ninebot-gokart-kit.png",
       imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
       imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
       imgForCompare: "/gocart-kit.png",
