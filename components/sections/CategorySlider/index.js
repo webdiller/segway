@@ -12,10 +12,23 @@ import { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { setCustomSlider } from 'store/slices/elementInViewSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { pushProduct } from 'store/slices/productCartSlice';
+import { productModalActiveSet } from 'store/slices/productModalSlice';
 
-export default function CategorySlider({ customClassNames, title, products, typeItemName, typeScrollBar, allowTouchMove = true, keySlider }) {
+export default function CategorySlider({ customClassNames, title, products, typeScrollBar, allowTouchMove = true, keySlider, addToCartOnClick = false }) {
 
   const dispatch = useDispatch()
+
+  const onClickHandler = (item, e) => {
+    dispatch(pushProduct(item));
+    e.target.classList.add('ui-btn_added');
+    e.target.focus();
+    dispatch(productModalActiveSet(true));
+    setTimeout(() => {
+      e.target.classList.remove('ui-btn_added');
+      e.target.blur();
+    }, 3000);
+  };
 
   const swiperRef = useRef()
   const { ref, inView } = useInView({ threshold: 0.5 });
@@ -54,7 +67,7 @@ export default function CategorySlider({ customClassNames, title, products, type
         console.log('error while handle swipe');
       }
     }
-  }, [inView, otherSliders, keySlider])
+  }, [dispatch, inView, otherSliders, keySlider, allowTouchMove])
 
   return (
     <div ref={ref} className={classNames('category-slider', classNames(customClassNames))}>
@@ -82,11 +95,11 @@ export default function CategorySlider({ customClassNames, title, products, type
             swiperRef.current = swiper
           })}
         >
-          {products.map(({ id, type, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory }) => {
-            const classForName = typeItemName === 'accessories' ? 'category-slider__name category-slider__name_accessory' : 'category-slider__name'
+          {products.map((item) => {
+            const { id, type, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory } = item;
             if (!excludeForMap) {
               return (
-                <SwiperSlide key={id} className="category-slider__item">
+                <SwiperSlide key={id} className={type === 'accessory' ? "category-slider__item category-slider__item_accessory" : "category-slider__item category-slider__item"}>
 
                   <div className="category-slider__img-with-content">
                     <Link href={pageLinkNameWithCategory || pageLinkName}>
@@ -101,7 +114,7 @@ export default function CategorySlider({ customClassNames, title, products, type
                         alt="Segway image in slider"
                       />
                     </div>
-                    <p className={`text text_25 ${classForName}`}>{nameWithoutBrand || nameWrap}</p>
+                    <p className="text text_25 category-slider__name">{nameWithoutBrand || nameWrap}</p>
                     {type === 'accessory' ? (
                       <div className="text category-slider__prices">
                         <p className="category-slider__price">$899.99</p>
@@ -115,11 +128,18 @@ export default function CategorySlider({ customClassNames, title, products, type
                     )}
                   </div>
 
-                  <Link href={pageLinkNameWithCategory || pageLinkName}>
-                    <a className="ui-btn category-slider__see-more">
-                      <span>SEE MORE</span>
-                    </a>
-                  </Link>
+                  {addToCartOnClick ? (
+                    <button onClick={(e) => onClickHandler(item, e)} className="ui-btn category-slider__see-more">
+                      <span>ADD TO CART</span>
+                    </button>
+                  ) : (
+                    <Link href={pageLinkNameWithCategory || pageLinkName}>
+                      <a className="ui-btn category-slider__see-more">
+                        <span>SEE MORE</span>
+                      </a>
+                    </Link>
+                  )}
+
                 </SwiperSlide>
               )
             }

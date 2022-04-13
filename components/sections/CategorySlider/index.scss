@@ -42,6 +42,21 @@ $rootClass: '.category-slider';
       width: 133px;
       flex: 0 0 133px;
     }
+
+    &_accessory {
+      #{$rootClass} {
+        &__image {
+          margin-bottom: 4px;
+        }
+        &__name {
+          height: 70px;
+          margin-bottom: 4px;
+          @include media('<=576px') {
+            height: 50px;
+          }
+        }
+      }
+    }
   }
 
   &__img-with-content {
@@ -89,9 +104,6 @@ $rootClass: '.category-slider';
     margin-bottom: 12px;
     &::selection {
       background-color: transparent;
-    }
-    &_accessory {
-      height: 70px;
     }
     @include media('<=768px') {
       white-space: pre-wrap;
@@ -170,7 +182,7 @@ $rootClass: '.category-slider';
   &__see-more {
     margin: 0 auto;
     max-width: 130px;
-    font-size: 13px;
+    width: 130px;
     span {
       &::selection {
         background-color: transparent;
@@ -215,6 +227,7 @@ $rootClass: '.category-slider';
       }
     }
   }
+
   &.disable-scroll-for-desktop {
     #{$rootClass} {
       &__swiper {
@@ -244,6 +257,7 @@ $rootClass: '.category-slider';
       }
     }
   }
+
   &.lg-title {
     #{$rootClass} {
       &__title {
@@ -256,6 +270,7 @@ $rootClass: '.category-slider';
       }
     }
   }
+
   &.accessoeries {
     #{$rootClass} {
       &__item {

@@ -115,7 +115,6 @@
         margin-right: 70px !important;
       }
       .other-models__see-more {
-        font-size: 13px;
         line-height: 120%;
         margin-top: 0;
         @include media('<=991px') {
@@ -264,7 +263,6 @@
   &__see-more {
     margin-top: auto;
     text-decoration: none;
-    font-size: 13px;
     width: 130px;
     overflow: hidden;
     
@@ -299,13 +297,9 @@
     @include media('<=768px') {
       padding-left: 23px;
       padding-right: 23px;
-      width: 150px;
-      min-height: 37px;
-      font-size: 16px;
     }
     @include media('<=576px') {
       width: 100%;
-      max-width: 150px;
     }
   }
 

@@ -266,18 +266,10 @@
 
   &__buy-btn {
     display: flex;
-    width: 100%;
-    max-width: 187px;
     margin: 0 auto 0 20px;
-    font-size: 18px;
-    font-weight: 600;
     @include media('<=768px') {
-      font-size: 18px;
       white-space: nowrap;
       margin: 0 auto 0 15px;
-    }
-    @include media('<=576px') {
-      max-width: 160px;
     }
   }
 
@@ -629,11 +621,7 @@
 
   &__buy-btn {
     display: flex;
-    width: 100%;
-    max-width: 187px;
     margin: 0 auto 0 20px;
-    font-size: 18px;
-    font-weight: 600;
     &.added {
       pointer-events: none;
       background-color: #6acd68;
@@ -645,13 +633,9 @@
       }
     }
     @include media('<=768px') {
-      font-size: 18px;
-      white-space: nowrap;
       margin: 0 auto 0 15px;
-      min-height: 41px;
     }
     @include media('<=576px') {
-      max-width: 160px;
       span {
         position: relative;
         &::before {
@@ -662,9 +646,7 @@
           opacity: 1;
           transform: translateX(-50%);
           display: block;
-          width: 197px;
           margin: 0 auto;
-          height: 52px;
           pointer-events: all;
         }
       }
@@ -679,7 +661,7 @@
 
     height: 44px;
     width: 100%;
-    max-width: 187px;
+    max-width: 143px;
     margin: 0 auto 0 20px;
 
     font-size: 18px;
@@ -692,7 +674,6 @@
       margin: 0 auto 0 15px;
     }
     @include media('<=576px') {
-      max-width: 160px;
       position: relative;
       &::before {
         content: '';
@@ -702,7 +683,6 @@
         opacity: 1;
         transform: translateX(-50%);
         display: block;
-        width: 197px;
         margin: 0 auto;
         height: 52px;
         pointer-events: all;

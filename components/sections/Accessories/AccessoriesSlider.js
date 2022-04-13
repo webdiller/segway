@@ -95,9 +95,6 @@ export default function AccessoriesSlider({ items }) {
                     <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">
                       <span>ADD TO CART</span>
                     </button>
-                    {/* <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">
-                      <span>ADD TO CART</span>
-                    </button> */}
                   </div>
                 </SwiperSlide>
               );

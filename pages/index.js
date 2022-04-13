@@ -35,6 +35,7 @@ export default function HomePage({ allData }) {
             title="GOKART"
             products={allData.gocarts} />
           <CategorySlider
+            addToCartOnClick
             keySlider="mainPageSliderAccessoeries"
             customClassNames={['accessoeries']}
             typeScrollBar="white"
