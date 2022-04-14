@@ -277,7 +277,7 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic />
+      <DownloadManualDinamic downloadManualHref={allData.gocarts[1].downloadManual} />
 
       <CompareModels>
         <Model hideIcons={true} width={206} height={144} model={allData.gocarts[1]} />

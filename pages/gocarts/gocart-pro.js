@@ -358,7 +358,7 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic />
+      <DownloadManualDinamic downloadManualHref={allData.gocarts[0].downloadManual} />
 
       <CompareModels>
         <Model width={206} height={144} model={allData.gocarts[0]} />

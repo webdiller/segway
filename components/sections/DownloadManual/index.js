@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import {VscFilePdf} from 'react-icons/vsc';
+import { VscFilePdf } from 'react-icons/vsc';
 import UiLink from 'components/shared/UiLink/UiLink';
 import classNames from 'classnames';
 
-export default function DownloadManual({desktopImg, mobileImg, customClass}) {
-  
+export default function DownloadManual({ desktopImg, mobileImg, customClass, downloadManualHref }) {
+  console.log(downloadManualHref);
   return (
     <div className={classNames("download-manual", classNames(customClass))}>
       <div className="container download-manual__container">
         <div className="download-manual__cart">
-          
+
           <picture className="download-manual__picture">
             <source srcSet="/download-manual-desktop.webp" media="(min-width: 480px)" />
             <source srcSet="/download-manual-desktop.png" media="(min-width: 480px)" />
@@ -50,8 +50,14 @@ export default function DownloadManual({desktopImg, mobileImg, customClass}) {
                 </p>
               </div>
             </div>
-
-            <UiLink download={true} target="_blank" href="/download-manual.pdf" classNameLink="ui-btn ui-btn_with-icon download-manual__link" innerText="Download manual" icon={<VscFilePdf className="download-manual__link-icon" />} />
+            <UiLink
+              download={true}
+              target="_blank"
+              href={downloadManualHref}
+              classNameLink="ui-btn ui-btn_with-icon download-manual__link"
+              innerText="Download manual"
+              icon={<VscFilePdf className="download-manual__link-icon" />}
+            />
           </div>
         </div>
       </div>

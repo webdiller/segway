@@ -300,7 +300,7 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic />
+      <DownloadManualDinamic downloadManualHref={allData.segways[0].downloadManual} />
       <CompareSpecificationsDinamic
         items={allData.segways}
         mainSegway={allData.segways[0]} />

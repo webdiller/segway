@@ -10,8 +10,6 @@ export const data = {
       priceId: "price_1Kh3uKCjSg7DmzJgTes6zllB",
       imgPath: "/accessory-1.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-1.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-1.png",
       quantity: 1
     },
     {
@@ -24,8 +22,6 @@ export const data = {
       priceId: "price_1Kit55CjSg7DmzJgMCqvQc34",
       imgPath: "/accessory-2.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-2.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-2.png",
       quantity: 1
     },
     {
@@ -37,8 +33,6 @@ export const data = {
       price: "29.99",
       imgPath: "/accessory-3.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-3.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-3.png",
       quantity: 1
     },
     {
@@ -51,8 +45,6 @@ export const data = {
       priceId: "price_1KjKjwCjSg7DmzJgNsKyg8nN",
       imgPath: "/accessory-4.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-4.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-4.png",
       quantity: 1
     },
     {
@@ -65,8 +57,6 @@ export const data = {
       priceId: "",
       imgPath: "/accessory-5.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-5.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-5.png",
       quantity: 1
     },
     {
@@ -79,8 +69,6 @@ export const data = {
       priceId: "",
       imgPath: "/accessory-6.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-6.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-6.png",
       quantity: 1
     },
     {
@@ -93,8 +81,6 @@ export const data = {
       priceId: "",
       imgPath: "/accessory-7.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-7.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-7.png",
       quantity: 1
     },
     {
@@ -107,8 +93,6 @@ export const data = {
       priceId: "",
       imgPath: "/accessory-8.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-8.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-8.png",
       quantity: 1
     },
     {
@@ -121,8 +105,6 @@ export const data = {
       priceId: "",
       imgPath: "/accessory-9.png",
       pageLinkName: "accessories",
-      imgPathWithCircle: "/accessory-with-circle-9.png",
-      imgPathWithBlueCircle: "/accessory-with-blue-circle-9.png",
       quantity: 1
     }
   ],
@@ -195,12 +177,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-max-006.png",
       imgSmallPath: "/ninebot-kickscooter-max-006_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-max-006-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-max-006-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-max/", "https://store.segway.com/ninebot-kickscooter-max"],
       galleryImages: ["/ks-max/slider/1.jpg", "/ks-max/slider/2.jpg", "/ks-max/slider/3.jpg", "/ks-max/slider/4.jpg", "/ks-max/slider/5.jpg", "/ks-max/slider/6.jpg", "/ks-max/slider/7.jpg"],
       packingListImg: "/packing-1.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-Max-User-Manual.pdf",
     },
 
     // number:1, index: 1, name: max white
@@ -272,12 +253,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-max-007.png",
       imgSmallPath: "/ninebot-kickscooter-max-007_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-max-007-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-max-007-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-g30lp/"],
       galleryImages: ["/ks-max-white/slider/1.jpg", "/ks-max-white/slider/2.jpg", "/ks-max-white/slider/3.jpg", "/ks-max-white/slider/4.jpg", "/ks-max-white/slider/5.jpg", "/ks-max-white/slider/6.jpg"],
       packingListImg: "/packing-1.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-Max-User-Manual.pdf",
     },
 
     // number:2, index: 2, name: ES4
@@ -330,12 +310,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-es4.png",
       imgSmallPath: "/ninebot-kickscooter-es4_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-es4-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-es4-circle-color.png",
       links: ["https://www.segway.com/kickscooter-es4/", "https://store.segway.com/segway-ninebot-kickscooter-es4"],
       galleryImages: ["/ks-es4/slider/1.jpg", "/ks-es4/slider/2.jpg", "/ks-es4/slider/3.jpg", "/ks-es4/slider/4.jpg", "/ks-es4/slider/5.jpg", "/ks-es4/slider/6.jpg"],
       packingListImg: "/packing-2.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/kickscooter-es4-user-manual.pdf",
     },
 
     // number:3, index: 3, name: e22 
@@ -392,12 +371,11 @@ export const data = {
       ],
       imgPath: "/segway-ninebot-kickscooter-e22.png",
       imgSmallPath: "/segway-ninebot-kickscooter-e22_small.png",
-      imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
-      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-e22/", "https://store.segway.com/segway-ninebot-kickscooter-e22"],
       galleryImages: ["/ks-e22/slider/1.jpg", "/ks-e22/slider/2.jpg", "/ks-e22/slider/3.jpg", "/ks-e22/slider/4.jpg", "/ks-e22/slider/5.jpg", "/ks-e22/slider/6.jpg"],
       packingListImg: "/packing-2.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-E22-UserManual.pdf",
     },
 
     // number:4, index: 4, name: E45
@@ -450,12 +428,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-e45.png",
       imgSmallPath: "/ninebot-kickscooter-e45_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-e45-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-e45-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-e45/", "https://store.segway.com/segway-ninebot-kickscooter-e45"],
       galleryImages: ["/ks-e-45/slider/1.jpg", "/ks-e-45/slider/2.jpg", "/ks-e-45/slider/3.jpg", "/ks-e-45/slider/4.jpg", "/ks-e-45/slider/5.jpg", "/ks-e-45/slider/6.jpg"],
       packingListImg: "/packing-2.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-e-series-E45-user-manual.pdf",
     },
 
     // number:5, index: 5, name: E12
@@ -512,12 +489,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-zing-e12.png",
       imgSmallPath: "/ninebot-kickscooter-zing-e12_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-zing-e12-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-zing-e12-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-zing-e12/", "https://store.segway.com/segway-ninebot-kickscooter-zing-e12"],
       galleryImages: ["/ks-zing-e12/slider/1.jpg", "/ks-zing-e12/slider/2.jpg", "/ks-zing-e12/slider/3.jpg", "/ks-zing-e12/slider/4.jpg", "/ks-zing-e12/slider/5.jpg", "/ks-zing-e12/slider/6.jpg"],
       packingListImg: "/packing-5.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-ZING-E12-User-Manual.pdf",
     },
 
     // number:6, index: 6, name: F30
@@ -570,12 +546,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-f30.png",
       imgSmallPath: "/ninebot-kickscooter-f30_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-f30-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-f30-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-f30/", "https://store.segway.com/ninebot-kickscooter-f-series"],
       galleryImages: ["/ks-f30/slider/1.jpg", "/ks-f30/slider/2.jpg", "/ks-f30/slider/3.jpg", "/ks-f30/slider/4.jpg", "/ks-f30/slider/5.jpg", "/ks-f30/slider/6.jpg"],
       packingListImg: "/packing-5.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-F-Series-User-Manual.pdf",
     },
 
     // number:7, index: 7, name: air15
@@ -628,12 +603,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-air-t15.png",
       imgSmallPath: "/ninebot-kickscooter-air-t15_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-air-t15-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-air-t15-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-air-t15/", "https://store.segway.com/ninebot-kickscooter-air-t15"],
       galleryImages: ["/ks-air-t15/slider/1.jpg", "/ks-air-t15/slider/2.jpg", "/ks-air-t15/slider/3.jpg", "/ks-air-t15/slider/4.jpg", "/ks-air-t15/slider/5.jpg", "/ks-air-t15/slider/6.jpg"],
       packingListImg: "/packing-4.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/kickscooter-air-t15-user-manual.pdf",
     },
 
     // number:8, index: 8, name: ES2
@@ -686,12 +660,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-es2.png",
       imgSmallPath: "/ninebot-kickscooter-es2_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-es2-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-es2-circle-color.png",
       links: ["https://www.segway.com/kickscooter-es2/", "https://store.segway.com/segway-ninebot-kickscooter-es2-grey"],
       galleryImages: ["/ks-es2/slider/1.jpg", "/ks-es2/slider/2.jpg", "/ks-es2/slider/3.jpg", "/ks-es2/slider/4.jpg", "/ks-es2/slider/5.jpg", "/ks-es2/slider/6.jpg"],
       packingListImg: "/packing-2.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/kickscooter-es2-user-manual.pdf",
     },
 
     // number:9, index: 9, name: es3
@@ -744,12 +717,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-es3.png",
       imgSmallPath: "/ninebot-kickscooter-es3_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-es3-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-es3-circle-color.png",
       links: ["https://www.segway.com/kickscooter-es3/", "https://store.segway.com/segway-ninebot-kickscooter-es3"],
       galleryImages: ["/ks-es3/slider/1.jpg", "/ks-es3/slider/2.jpg", "/ks-es3/slider/3.jpg", "/ks-es3/slider/4.jpg", "/ks-es3/slider/5.jpg", "/ks-es3/slider/6.jpg", "/ks-es3/slider/7.jpg"],
       packingListImg: "/packing-2.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-ES3-user-manual.pdf",
     },
 
     // number:1, index: 10, name:  ES1L
@@ -802,12 +774,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-es1l.png",
       imgSmallPath: "/ninebot-kickscooter-es1l_small.png",
-      imgPathWithCircle: "/segway-ninebot-kickscooter-es1l-circle-default.png",
-      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-es1l-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-es1l", "https://store.segway.com/ninebot-kickscooter-es1l"],
       galleryImages: ["/ks-es-1l/slider/1.jpg", "/ks-es-1l/slider/2.jpg", "/ks-es-1l/slider/3.jpg", "/ks-es-1l/slider/4.jpg", "/ks-es-1l/slider/5.jpg", "/ks-es-1l/slider/6.jpg"],
       packingListImg: "/packing-3.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-ES1L-user-manual.pdf",
     },
 
     // number:1, index: 11, name:  E10
@@ -864,12 +835,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-zing-e10.png",
       imgSmallPath: "/ninebot-kickscooter-zing-e10_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-zing-e10-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-zing-e10-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-zing-e10/", "https://store.segway.com/segway-ninebot-kickscooter-zing-e10"],
       galleryImages: ["/ks-zing-e10/slider/1.jpg", "/ks-zing-e10/slider/2.jpg", "/ks-zing-e10/slider/3.jpg", "/ks-zing-e10/slider/4.jpg", "/ks-zing-e10/slider/5.jpg", "/ks-zing-e10/slider/6.jpg"],
       packingListImg: "/packing-5.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/KickScooter-ZING-E10-User-Manual.pdf",
     },
 
     // number:1, index: 12, name:  e8 purple
@@ -946,12 +916,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-zing-e8-purple.png",
       imgSmallPath: "/ninebot-kickscooter-zing-e8_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-zing-e8-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-zing-e8-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-zing-e8/", "https://store.segway.com/segway-ninebot-kickscooter-zing-e8"],
       galleryImages: ["/ks-zing-e8/slider/1.jpg", "/ks-zing-e8/slider/2.jpg", "/ks-zing-e8/slider/3.jpg", "/ks-zing-e8/slider/4.jpg", "/ks-zing-e8/slider/5.jpg", "/ks-zing-e8/slider/6.jpg"],
       packingListImg: "/packing-5.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/eKickScooter-ZING-E8-User-Manual.pdf",
     },
 
     // number:1, index: 13, name:  e8 pink
@@ -1031,12 +1000,11 @@ export const data = {
       ],
       imgPath: "/ninebot-kickscooter-zing-e8-pink.png",
       imgSmallPath: "/ninebot-kickscooter-zing-e8_small.png",
-      imgPathWithCircle: "/ninebot-kickscooter-zing-e8-circle-default.png",
-      imgPathWithBlueCircle: "/ninebot-kickscooter-zing-e8-circle-color.png",
       links: ["https://www.segway.com/ninebot-kickscooter-zing-e8/", "https://store.segway.com/segway-ninebot-kickscooter-zing-e8"],
       galleryImages: ["/ks-zing-e8/slider/1.jpg", "/ks-zing-e8/slider/2.jpg", "/ks-zing-e8/slider/3.jpg", "/ks-zing-e8/slider/4.jpg", "/ks-zing-e8/slider/5.jpg", "/ks-zing-e8/slider/6.jpg"],
       packingListImg: "/packing-5.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/eKickScooter-ZING-E8-User-Manual.pdf",
     }
   ],
   gocarts: [
@@ -1088,8 +1056,6 @@ export const data = {
       ],
       imgPath: "/ninebot-segway-gokart-pro.png",
       imgSmallPath: "/ninebot-segway-gokart-pro.png",
-      imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
-      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
       imgForCompare: "/gocart-pro.png",
       galleryImages: [
         "/gocart-pro/slider/1.jpg",
@@ -1106,7 +1072,8 @@ export const data = {
         "/gocart-pro/slider/12.jpg",
       ],
       packingListImg: "/packing-6.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/gokartpro-user-manual.pdf",
     },
     {
       id: "id=015&warranty=null&color=null",
@@ -1156,8 +1123,6 @@ export const data = {
       ],
       imgPath: "/segway-ninebot-gokart-kit.png",
       imgSmallPath: "/segway-ninebot-gokart-kit.png",
-      imgPathWithCircle: "/segway-ninebot-kickscooter-e22-circle-default.png",
-      imgPathWithBlueCircle: "/segway-ninebot-kickscooter-e22-circle-color.png",
       imgForCompare: "/gocart-kit.png",
       galleryImages: [
         "/gocart-kit/slider/1.jpg",
@@ -1173,7 +1138,8 @@ export const data = {
         "/gocart-kit/slider/11.jpg",
       ],
       packingListImg: "/packing-7.png",
-      quantity: 1
+      quantity: 1,
+      downloadManual: "/manuals/gokartkit-user-manual.pdf",
     },
   ],
   bundles: [
