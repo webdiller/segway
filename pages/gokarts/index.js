@@ -16,19 +16,19 @@ import Videos from '@/sections/Videos';
 export default function HomePage({ allData }) {
   return (
     <>
-      <CustomHead title="All gocarts" />
+      <CustomHead title="All gokarts" />
       <div className="main-page">
         <TopCategorySlider />
         <div className="main-page__breadcrumbs">
-          <Breadcrumbs middleHref="/gocarts" activeLabelName="Gocarts" />
+          <Breadcrumbs middleHref="/gokarts" activeLabelName="Gokarts" />
         </div>
         <div className="main-page__sliders">
           <CategorySlider
-            keySlider="categoryPageSliderGocarts"
+            keySlider="categoryPageSliderGokarts"
             allowTouchMove={false}
             customClassNames={['lg-title', 'disable-scroll-for-desktop']}
-            title="Gocarts"
-            products={allData.gocarts} />
+            title="Gokarts"
+            products={allData.gokarts} />
         </div>
         <div className="main-page__videos"><Videos /></div>
       </div>

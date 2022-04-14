@@ -65,22 +65,22 @@ export default function ModelPage({ allData }) {
 
   return (
     <>
-      <CustomHead title="SEGWAY Ninebot Gocart Kit" />
+      <CustomHead title="SEGWAY Ninebot Gokart Kit" />
       <Welcome
         bundles={[allData.bundles[0], allData.bundles[1]]}
         titleDesktop={
           <>
-            SEGWAY Ninebot <br /> Gocart Kit
+            SEGWAY Ninebot <br /> Gokart Kit
           </>
         }
         titleMobile={
           <>
             SEGWAY Ninebot <br />
-            Gocart <br />
+            Gokart <br />
             Kit
           </>
         }
-        currentSegway={allData.gocarts[1]}
+        currentSegway={allData.gokarts[1]}
       />
       <Tabs
         showApp
@@ -102,7 +102,7 @@ export default function ModelPage({ allData }) {
         </>}
       />
 
-      <PackingListDinamic packingListYoutubeEmbedId={allData.gocarts[1].packingListYoutubeEmbedId} packingListImg={allData.gocarts[1].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={allData.gokarts[1].packingListYoutubeEmbedId} packingListImg={allData.gokarts[1].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -127,7 +127,7 @@ export default function ModelPage({ allData }) {
 
       {/* 1 */}
       <FeatureLiteDinamic
-        customClass="gocart-kit"
+        customClass="gokart-kit"
         image={FeatureSimple_1_desktop}
         title={
           <>
@@ -277,11 +277,11 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic downloadManualHref={allData.gocarts[1].downloadManual} />
+      <DownloadManualDinamic downloadManualHref={allData.gokarts[1].downloadManual} />
 
       <CompareModels>
-        <Model hideIcons={true} width={206} height={144} model={allData.gocarts[1]} />
-        <Model width={206} height={144} model={allData.gocarts[0]} />
+        <Model hideIcons={true} width={206} height={144} model={allData.gokarts[1]} />
+        <Model width={206} height={144} model={allData.gokarts[0]} />
       </CompareModels>
 
       <SegwayProtectDinamic customClass="type-1" />
@@ -305,11 +305,11 @@ export default function ModelPage({ allData }) {
         widthMobile={343}
         heightMobile={323}
         customClass="ks-e-45"
-        item={allData.gocarts[1]}
+        item={allData.gokarts[1]}
       />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.gocarts[1].galleryImages} />
+      <FancyModal images={allData.gokarts[1].galleryImages} />
     </>
   );
 }
@@ -318,7 +318,7 @@ export async function getStaticProps() {
   return {
     props: {
       allData: data,
-      product: data.gocarts[1],
+      product: data.gokarts[1],
       preparedProtection: data.accessoeries[2]
     }
   };

@@ -23,7 +23,7 @@ export default function TopCategorySlider() {
     const curentRoute = router.asPath;
     const condition =
       curentRoute !== '/'
-      && curentRoute !== '/gocarts'
+      && curentRoute !== '/gokarts'
       && curentRoute !== '/kickscooters'
       && curentRoute !== '/shipping-and-payment'
       && curentRoute !== '/wholesale'
@@ -45,7 +45,7 @@ export default function TopCategorySlider() {
     if (currentRoute.startsWith('/kickscooters')) {
       dispatch(setPositionSlide(0))
     }
-    else if (currentRoute.startsWith('/gocarts')) {
+    else if (currentRoute.startsWith('/gokarts')) {
       dispatch(setPositionSlide(1))
     }
   }, [router, dispatch])
@@ -92,8 +92,8 @@ export default function TopCategorySlider() {
             </SwiperSlide>
 
             <SwiperSlide
-              className={router.asPath.startsWith('/gocarts') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
-              <Link href="/gocarts" passHref ><a onClick={slideToHandler(1)}>NINEBOT GOCART</a></Link>
+              className={router.asPath.startsWith('/gokarts') ? 'text text_25 top-category-slider__item active' : 'text text_25 top-category-slider__item'}>
+              <Link href="/gokarts" passHref ><a onClick={slideToHandler(1)}>NINEBOT GOKART</a></Link>
             </SwiperSlide>
 
             <SwiperSlide

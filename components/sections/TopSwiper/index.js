@@ -123,7 +123,7 @@ export default function TopSwiper({ items }) {
                 </div>
               </SwiperSlide>
 
-              {/* gocarts */}
+              {/* gokarts */}
               <SwiperSlide className="top-swiper__parent-slide">
                 <div className="top-swiper__main-container">
                   <Swiper
@@ -144,7 +144,7 @@ export default function TopSwiper({ items }) {
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {items.gocarts.map(({ id, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {items.gokarts.map(({ id, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null
@@ -153,7 +153,7 @@ export default function TopSwiper({ items }) {
                         }
                         return (
                           <SwiperSlide key={id} className={isMatch ? "top-swiper__item accent" : "top-swiper__item"}>
-                            <Link href={`${pageLinkName ? `/gocarts/${pageLinkName}` : '/'}`}>
+                            <Link href={`${pageLinkName ? `/gokarts/${pageLinkName}` : '/'}`}>
                               <a className="top-swiper__link">
                                 <div className="top-swiper__img-wrapper">
                                   <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />

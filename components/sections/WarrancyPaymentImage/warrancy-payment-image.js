@@ -5,6 +5,7 @@ import {useMediaQuery} from '@/hooks/useMediaQuery';
 
 export default function WarrancyPaymentImage({widthDesktop, heightDesktop, widthMobile, heightMobile, titleDesktop, titleMobile, imgDesktop, imgMobile, customClass, item}) {
   let mediaQuery = useMediaQuery('(min-width: 900px)');
+  console.log('titleDesktop:',titleDesktop);
   return (
     <div className={customClass ? `form-warrancy form-warrancy_${customClass}` : "form-warrancy"}>
       <div className="container form-warrancy__container">

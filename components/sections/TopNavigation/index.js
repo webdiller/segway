@@ -27,7 +27,7 @@ export default function TopNavigation() {
   };
 
   useEffect(() => {
-    if (router.asPath.includes('kickscooters') || router.asPath.includes('gocarts')) {
+    if (router.asPath.includes('kickscooters') || router.asPath.includes('gokarts')) {
       const matchedCatalog = router.asPath.split('/')[1];
       matchCatalogSet(matchedCatalog)
     }

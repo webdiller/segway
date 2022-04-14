@@ -69,21 +69,21 @@ export default function ModelPage({ allData }) {
 
   return (
     <>
-      <CustomHead title="SEGWAY Ninebot Gocart Pro" />
+      <CustomHead title="SEGWAY Ninebot Gokart Pro" />
       <Welcome
         titleDesktop={
           <>
-            SEGWAY Ninebot <br /> Gocart Pro
+            SEGWAY Ninebot <br /> Gokart Pro
           </>
         }
         titleMobile={
           <>
             SEGWAY Ninebot <br />
-            Gocart <br />
+            Gokart <br />
             Pro
           </>
         }
-        currentSegway={allData.gocarts[0]}
+        currentSegway={allData.gokarts[0]}
       />
       <Tabs
         showApp
@@ -104,7 +104,7 @@ export default function ModelPage({ allData }) {
           tool and more.
         </>}
       />
-      <PackingListDinamic packingListYoutubeEmbedId={allData.gocarts[0].packingListYoutubeEmbedId} packingListImg={allData.gocarts[0].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={allData.gokarts[0].packingListYoutubeEmbedId} packingListImg={allData.gokarts[0].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -358,11 +358,11 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic downloadManualHref={allData.gocarts[0].downloadManual} />
+      <DownloadManualDinamic downloadManualHref={allData.gokarts[0].downloadManual} />
 
       <CompareModels>
-        <Model width={206} height={144} model={allData.gocarts[0]} />
-        <Model hideIcons={true} width={206} height={144} model={allData.gocarts[1]} />
+        <Model width={206} height={144} model={allData.gokarts[0]} />
+        <Model hideIcons={true} width={206} height={144} model={allData.gokarts[1]} />
       </CompareModels>
 
       <SegwayProtectDinamic customClass="type-1" />
@@ -371,12 +371,12 @@ export default function ModelPage({ allData }) {
       <WarrancyPaymentImageDinamic
         titleDesktop={
           <>
-            SEGWAY Ninebot <br /> Kickscooter MAX
+            SEGWAY Ninebot <br /> <b>Gokart pro</b>
           </>
         }
         titleMobile={
           <>
-            SEGWAY Ninebot <br /> Kickscooter <br /> MAX
+            SEGWAY Ninebot <br /> <b>Gokart pro</b> <br />
           </>
         }
         imgDesktop={FormWarrancy_desktop}
@@ -386,11 +386,11 @@ export default function ModelPage({ allData }) {
         widthMobile={375}
         heightMobile={248}
         customClass="ks-e-45"
-        item={allData.gocarts[0]}
+        item={allData.gokarts[0]}
       />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.gocarts[0].galleryImages} />
+      <FancyModal images={allData.gokarts[0].galleryImages} />
     </>
   );
 }
@@ -399,7 +399,7 @@ export async function getStaticProps() {
   return {
     props: {
       allData: data,
-      product: data.gocarts[0],
+      product: data.gokarts[0],
       preparedProtection: data.accessoeries[2]
     }
   };

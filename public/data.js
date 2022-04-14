@@ -1021,18 +1021,18 @@ export const data = {
       packingListYoutubeEmbedId: "oRwQxYd-uGk"
     }
   ],
-  gocarts: [
+  gokarts: [
     {
       id: "id=014&warranty=null&color=null",
-      type: "gocart",
+      type: "gokart",
       brandName: "Ninebot",
-      name: "Ninebot \n Gocart PRO",
-      nameWithoutBrand: "Gocart PRO",
-      nameWrap: "Gocart PRO",
-      shortName: "Gocart PRO",
-      pageLinkForMatch: "gocart-pro",
-      pageLinkName: "gocart-pro",
-      pageLinkNameWithCategory: "/gocarts/gocart-pro",
+      name: "Ninebot \n Gokart PRO",
+      nameWithoutBrand: "Gokart PRO",
+      nameWrap: "Gokart PRO",
+      shortName: "Gokart PRO",
+      pageLinkForMatch: "gokart-pro",
+      pageLinkName: "gokart-pro",
+      pageLinkNameWithCategory: "/gokarts/gokart-pro",
       price: "999.99",
       oldPrice: "1188",
       characteristics: [
@@ -1092,15 +1092,15 @@ export const data = {
     },
     {
       id: "id=015&warranty=null&color=null",
-      type: "gocart",
+      type: "gokart",
       brandName: "Ninebot",
-      name: "Ninebot \n Gocart KIT",
-      nameWithoutBrand: "Gocart KIT",
-      nameWrap: "Gocart KIT",
-      shortName: "Gocart KIT",
-      pageLinkForMatch: "gocart-kit",
-      pageLinkName: "gocart-kit",
-      pageLinkNameWithCategory: "/gocarts/gocart-kit",
+      name: "Ninebot \n Gokart KIT",
+      nameWithoutBrand: "Gokart KIT",
+      nameWrap: "Gokart KIT",
+      shortName: "Gokart KIT",
+      pageLinkForMatch: "gokart-kit",
+      pageLinkName: "gokart-kit",
+      pageLinkNameWithCategory: "/gokarts/gokart-kit",
       price: "999.99",
       oldPrice: "1188",
       characteristics: [

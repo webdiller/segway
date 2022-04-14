@@ -30,10 +30,10 @@ export default function HomePage({ allData }) {
             <InfoLink label="How to choose a KICKSCOOTER?" />
           </div>
           <CategorySlider
-            keySlider="mainPageSliderGocarts"
+            keySlider="mainPageSliderGokarts"
             customClassNames="main-page__margin-slider"
             title="GOKART"
-            products={allData.gocarts} />
+            products={allData.gokarts} />
           <CategorySlider
             addToCartOnClick
             keySlider="mainPageSliderAccessoeries"
