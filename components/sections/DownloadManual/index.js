@@ -4,7 +4,6 @@ import UiLink from 'components/shared/UiLink/UiLink';
 import classNames from 'classnames';
 
 export default function DownloadManual({ desktopImg, mobileImg, customClass, downloadManualHref }) {
-  console.log(downloadManualHref);
   return (
     <div className={classNames("download-manual", classNames(customClass))}>
       <div className="container download-manual__container">

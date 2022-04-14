@@ -90,7 +90,7 @@ export default function ModelPage({ allData }) {
 
       <Tabs />
 
-      <PackingListDinamic packingListImg={allData.segways[0].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={allData.segways[0].packingListYoutubeEmbedId} packingListImg={allData.segways[0].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic

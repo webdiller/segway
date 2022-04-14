@@ -11,7 +11,7 @@ const useFocus = () => {
   return [htmlElRef, setFocus];
 };
 
-export default function PackingList({packingListImg}) {
+export default function PackingList({packingListImg, packingListYoutubeEmbedId}) {
 
   const [overlay, setOverlay] = useState(true);
   const [youtubeRef, setYoutubeFocus] = useFocus();
@@ -26,7 +26,7 @@ export default function PackingList({packingListImg}) {
   };
 
   const YoutubeIframe = () => {
-    return <iframe ref={youtubeRef} className="packing-list__video-iframe" width="560" height="315" src="https://www.youtube.com/embed/Vq0JCR6_YpA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy"></iframe>;
+    return <iframe ref={youtubeRef} className="packing-list__video-iframe" width="560" height="315" src={`https://www.youtube.com/embed/${packingListYoutubeEmbedId}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy"></iframe>;
   };
 
   return (

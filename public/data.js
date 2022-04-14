@@ -182,6 +182,7 @@ export const data = {
       packingListImg: "/packing-1.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-Max-User-Manual.pdf",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM"
     },
 
     // number:1, index: 1, name: max white
@@ -258,6 +259,7 @@ export const data = {
       packingListImg: "/packing-1.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-Max-User-Manual.pdf",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM"
     },
 
     // number:2, index: 2, name: ES4
@@ -315,6 +317,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/kickscooter-es4-user-manual.pdf",
+      packingListYoutubeEmbedId: "jKYFsbrp7H0"
     },
 
     // number:3, index: 3, name: e22 
@@ -376,6 +379,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-E22-UserManual.pdf",
+      packingListYoutubeEmbedId: "hL17U2yuUN8"
     },
 
     // number:4, index: 4, name: E45
@@ -433,6 +437,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-e-series-E45-user-manual.pdf",
+      packingListYoutubeEmbedId: "41nBbYuOBvg"
     },
 
     // number:5, index: 5, name: E12
@@ -494,6 +499,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ZING-E12-User-Manual.pdf",
+      packingListYoutubeEmbedId: "A4xJV9wh44M"
     },
 
     // number:6, index: 6, name: F30
@@ -551,6 +557,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-F-Series-User-Manual.pdf",
+      packingListYoutubeEmbedId: "HUMb2s60Cts"
     },
 
     // number:7, index: 7, name: air15
@@ -608,6 +615,7 @@ export const data = {
       packingListImg: "/packing-4.png",
       quantity: 1,
       downloadManual: "/manuals/kickscooter-air-t15-user-manual.pdf",
+      packingListYoutubeEmbedId: "jS2O8YCBoZs"
     },
 
     // number:8, index: 8, name: ES2
@@ -665,6 +673,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/kickscooter-es2-user-manual.pdf",
+      packingListYoutubeEmbedId: "h-SQ2-Ojk2I"
     },
 
     // number:9, index: 9, name: es3
@@ -722,6 +731,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ES3-user-manual.pdf",
+      packingListYoutubeEmbedId: "vIN5x2QAmQw"
     },
 
     // number:1, index: 10, name:  ES1L
@@ -779,6 +789,7 @@ export const data = {
       packingListImg: "/packing-3.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ES1L-user-manual.pdf",
+      packingListYoutubeEmbedId: "4II9z2qNApE"
     },
 
     // number:1, index: 11, name:  E10
@@ -840,6 +851,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ZING-E10-User-Manual.pdf",
+      packingListYoutubeEmbedId: "bq48_4ErwSo"
     },
 
     // number:1, index: 12, name:  e8 purple
@@ -921,6 +933,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/eKickScooter-ZING-E8-User-Manual.pdf",
+      packingListYoutubeEmbedId: "oRwQxYd-uGk"
     },
 
     // number:1, index: 13, name:  e8 pink
@@ -1005,6 +1018,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/eKickScooter-ZING-E8-User-Manual.pdf",
+      packingListYoutubeEmbedId: "oRwQxYd-uGk"
     }
   ],
   gocarts: [
@@ -1074,6 +1088,7 @@ export const data = {
       packingListImg: "/packing-6.png",
       quantity: 1,
       downloadManual: "/manuals/gokartpro-user-manual.pdf",
+      packingListYoutubeEmbedId: "2a4Q68YL5fg"
     },
     {
       id: "id=015&warranty=null&color=null",
@@ -1140,6 +1155,7 @@ export const data = {
       packingListImg: "/packing-7.png",
       quantity: 1,
       downloadManual: "/manuals/gokartkit-user-manual.pdf",
+      packingListYoutubeEmbedId: "7kTTc1-oGe8"
     },
   ],
   bundles: [

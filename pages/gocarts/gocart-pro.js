@@ -104,7 +104,7 @@ export default function ModelPage({ allData }) {
           tool and more.
         </>}
       />
-      <PackingListDinamic packingListImg={allData.gocarts[0].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={allData.gocarts[0].packingListYoutubeEmbedId} packingListImg={allData.gocarts[0].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
