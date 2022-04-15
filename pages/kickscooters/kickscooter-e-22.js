@@ -193,7 +193,7 @@ export default function ModelPage({ allData }) {
       <FeatureLiteDinamic
         image={FeatureSimple_4_desktop}
         title="One-step Folding Mechanism"
-        text={'Ninebot KickScooter MAX can be easily folded <br/> and carried around in 3 seconds.'.split('<br/>').join('\n')}
+        text={'Ninebot KickScooter E22 can be easily folded <br/> and carried around in 3 seconds.'.split('<br/>').join('\n')}
       />
 
       {/* 5 */}
