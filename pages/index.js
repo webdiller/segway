@@ -8,9 +8,6 @@ import InfoLink from '@/sections/InfoLink';
 import Reviews from '@/sections/Reviews/ReviewsSlider';
 
 import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
-const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
-  loading: TopCategoryLoader
-})
 
 import CategorySlider from '@/sections/CategorySlider';
 
@@ -19,7 +16,6 @@ export default function HomePage({ allData }) {
     <>
       <CustomHead title="Main page" />
       <div className="main-page">
-        <TopCategorySlider />
         <MainModelSlider />
         <div className="main-page__sliders">
           <CategorySlider

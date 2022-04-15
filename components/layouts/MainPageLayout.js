@@ -1,20 +1,25 @@
+import dynamic from 'next/dynamic';
 import CustomHead from '@/basic/CustomHead';
 import Footer from '@/sections/Footer';
 import MiddleNavigation from '@/sections/MiddleNavigation';
 import TopNavigation from '@/sections/TopNavigation';
+import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
+const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), { loading: TopCategoryLoader })
 
-import dynamic from 'next/dynamic';
-const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
+const ProductModalDynamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
+const BreadcrumbsDynamic = dynamic(() => import('@/sections/Breadcrumbs'));
 
-export default function MainPageLayout({ title = 'Segway', description = 'Описание', children, allData}) {
+export default function MainPageLayout({ title = 'Segway', description = 'Описание', children, allData }) {
   return (
     <>
       <CustomHead description={description} title={title} />
       <TopNavigation />
       <MiddleNavigation />
+      <TopCategorySlider />
+      <BreadcrumbsDynamic />
       {children}
       <Footer />
-      <ProductModalDinamic accessoeries={allData.accessoeries} />
+      <ProductModalDynamic accessoeries={allData.accessoeries} />
     </>
   );
 }
