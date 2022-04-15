@@ -31,6 +31,7 @@ $rootClass: '.category-slider';
     &::selection {
       background-color: transparent;
     }
+
     &:not(:last-child) {
       margin-right: 72px;
       @include media('<=768px') {
@@ -225,11 +226,37 @@ $rootClass: '.category-slider';
     bottom: 0;
     left: 0;
     z-index: 5;
-    &:hover,
-    &:focus {
+    &:hover {
       + #{$rootClass}__image {
         &::before {
           background-color: #009eff;
+        }
+      }
+    }
+    &:hover {
+      @media (pointer: coarse) {
+        + #{$rootClass}__image {
+          &::before {
+            background-color: #eeeeee;
+          }
+        }
+      }
+    }
+    &:focus {
+      @media (pointer: coarse) {
+        + #{$rootClass}__image {
+          &::before {
+            background-color: #009eff;
+          }
+        }
+      }
+    }
+    &:active {
+      @media (pointer: coarse) {
+        + #{$rootClass}__image {
+          &::before {
+            background-color: #009eff;
+          }
         }
       }
     }
