@@ -28,7 +28,9 @@ export default function TopCategorySlider() {
       && curentRoute !== '/shipping-and-payment'
       && curentRoute !== '/wholesale'
       && curentRoute !== '/contacts'
-      || curentRoute === '/accessories';
+      && curentRoute !== '/accessories';
+
+      console.log(condition);
 
     if (condition) {
       e.preventDefault();

@@ -22,11 +22,10 @@ function MyApp({ Component, pageProps, router }) {
   let conditionForModelLayout =
     router.pathname.startsWith('/kickscooters/kickscooter') ||
     router.pathname.startsWith('/gokarts/gokart') ||
-    router.pathname.startsWith('/accessories') ||
     router.pathname.startsWith('/blog') ||
     router.pathname.startsWith('/reviews');
 
-  let conditionForMainPageLayout = router.route === '/kickscooters' || router.route === '/' || router.route === '/gokarts';
+  let conditionForMainPageLayout = router.route === '/kickscooters' || router.route === '/' || router.route === '/gokarts' || router.route === '/accessories';
   let conditionForPaymentLayout = router.pathname.startsWith('/payment');
   let conditionForInfoPageLayout = router.route === '/shipping-and-payment' || router.route === '/wholesale' || router.route === '/contacts'
 
