@@ -493,8 +493,8 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
             loop={false}
             allowTouchMove={false}
             navigation={{
-              prevEl: '.compare-specfications__nav_prev',
-              nextEl: '.compare-specfications__nav_next'
+              prevEl: '.compare-specfications__nav-wrapper_prev',
+              nextEl: '.compare-specfications__nav-wrapper_next'
             }}
             breakpoints={{
               768: {
@@ -656,12 +656,16 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
 
           <div
             className="compare-specfications__navigation">
-            <button aria-label="swipe to left slider specifications" className="compare-specfications__nav compare-specfications__nav_prev">
-              <FcPrevious className="compare-specfications__icon" />
+            <button className="compare-specfications__nav-wrapper compare-specfications__nav-wrapper_prev">
+              <div aria-label="swipe to left slider specifications" className="compare-specfications__nav">
+                <FcPrevious className="compare-specfications__icon" />
+              </div>
             </button>
 
-            <button aria-label="swipe to right slider specifications" className="compare-specfications__nav compare-specfications__nav_next">
-              <FcNext className="compare-specfications__icon" />
+            <button className="compare-specfications__nav-wrapper compare-specfications__nav-wrapper_next">
+              <div aria-label="swipe to right slider specifications" className="compare-specfications__nav">
+                <FcNext className="compare-specfications__icon" />
+              </div>
             </button>
           </div>
         </div>

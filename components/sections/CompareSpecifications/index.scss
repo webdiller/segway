@@ -311,7 +311,7 @@
     align-items: center;
     justify-content: space-between;
     z-index: 100;
-    height: 0;
+    height: 100%;
 
     @include media('<=1200px') {
       width: 105%;
@@ -323,6 +323,20 @@
 
     @include media('<=768px') {
       display: none;
+    }
+  }
+
+  &__nav-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    &.swiper-button-disabled {
+      opacity: 0;
+      z-index: -1;
+      pointer-events: none;
     }
   }
 
@@ -349,11 +363,6 @@
       height: 40px;
     }
 
-    &.swiper-button-disabled {
-      opacity: 0;
-      z-index: -1;
-      pointer-events: none;
-    }
   }
 
   &__icon {
