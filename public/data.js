@@ -182,6 +182,7 @@ export const data = {
       packingListImg: "/packing-1.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-Max-User-Manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_MAX.png",
       packingListYoutubeEmbedId: "j0n_ehqjJdM"
     },
 
@@ -259,6 +260,7 @@ export const data = {
       packingListImg: "/packing-1.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-Max-User-Manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_MAX.png",
       packingListYoutubeEmbedId: "j0n_ehqjJdM"
     },
 
@@ -317,6 +319,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/kickscooter-es4-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_ES4.png",
       packingListYoutubeEmbedId: "jKYFsbrp7H0"
     },
 
@@ -379,6 +382,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-E22-UserManual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_E22.png",
       packingListYoutubeEmbedId: "hL17U2yuUN8"
     },
 
@@ -437,6 +441,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-e-series-E45-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_E45.png",
       packingListYoutubeEmbedId: "41nBbYuOBvg"
     },
 
@@ -499,6 +504,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ZING-E12-User-Manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter__ZING_E12.png",
       packingListYoutubeEmbedId: "A4xJV9wh44M"
     },
 
@@ -557,6 +563,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-F-Series-User-Manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_F30.png",
       packingListYoutubeEmbedId: "HUMb2s60Cts"
     },
 
@@ -615,6 +622,7 @@ export const data = {
       packingListImg: "/packing-4.png",
       quantity: 1,
       downloadManual: "/manuals/kickscooter-air-t15-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_AIR_t15.png",
       packingListYoutubeEmbedId: "jS2O8YCBoZs"
     },
 
@@ -673,6 +681,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/kickscooter-es2-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_ES2.png",
       packingListYoutubeEmbedId: "h-SQ2-Ojk2I"
     },
 
@@ -731,6 +740,7 @@ export const data = {
       packingListImg: "/packing-2.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ES3-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_ES3.png",
       packingListYoutubeEmbedId: "vIN5x2QAmQw"
     },
 
@@ -789,6 +799,7 @@ export const data = {
       packingListImg: "/packing-3.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ES1L-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter_ES1l.png",
       packingListYoutubeEmbedId: "4II9z2qNApE"
     },
 
@@ -851,6 +862,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/KickScooter-ZING-E10-User-Manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter__ZING_E10.png",
       packingListYoutubeEmbedId: "bq48_4ErwSo"
     },
 
@@ -933,6 +945,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/eKickScooter-ZING-E8-User-Manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter__ZING_E8.png",
       packingListYoutubeEmbedId: "oRwQxYd-uGk"
     },
 
@@ -1018,6 +1031,7 @@ export const data = {
       packingListImg: "/packing-5.png",
       quantity: 1,
       downloadManual: "/manuals/eKickScooter-ZING-E8-User-Manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_Kickscooter__ZING_E8.png",
       packingListYoutubeEmbedId: "oRwQxYd-uGk"
     }
   ],
@@ -1088,6 +1102,7 @@ export const data = {
       packingListImg: "/packing-6.png",
       quantity: 1,
       downloadManual: "/manuals/gokartpro-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_GoKart_pro.png",
       packingListYoutubeEmbedId: "2a4Q68YL5fg"
     },
     {
@@ -1155,6 +1170,7 @@ export const data = {
       packingListImg: "/packing-7.png",
       quantity: 1,
       downloadManual: "/manuals/gokartkit-user-manual.pdf",
+      manualImgPath: "/SEGWAY_Ninebot_GoKart_KIT.png",
       packingListYoutubeEmbedId: "7kTTc1-oGe8"
     },
   ],
