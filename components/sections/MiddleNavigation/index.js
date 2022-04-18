@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
 
-import logo from '@/base/logo-black-large.svg';
+import logo from '@/base/logo-black.svg';
 import profileImg from '@/base/profile-img.jpg';
 
 import PropTypes from 'prop-types';
