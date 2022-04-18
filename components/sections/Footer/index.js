@@ -68,16 +68,18 @@ export default function Footer({withPaddings}) {
                 <Link href="/shipping-and-payment"><a className="footer__website-links-item">SHIPPING AND PAYMENT</a></Link>
                 <Link href="/wholesale"><a className="footer__website-links-item">WHOLESALE</a></Link>
                 <Link href="/contacts"><a className="footer__website-links-item">CONTACTS</a></Link>
+                <Link href="/terms-and-conditions"><a className="footer__website-links-item">Terms and conditions</a></Link>
+                <Link href="/privacy-policy"><a className="footer__website-links-item">Privacy policy</a></Link>
               </nav>
             </div>
 
             <div className="footer__columns-item">
               <p className="footer__columns-item-title">Contact us</p>
               <nav className="footer__actions">
-                <Link href="/" ><a className="ui-btn footer__actions-item"><span>Call</span></a></Link>
-                <Link href="/" ><a className="ui-btn footer__actions-item"><span>Chat</span></a></Link>
+                <Link href="tel:+18885902694" ><a className="ui-btn footer__actions-item"><span>Call</span></a></Link>
+                <Link href="https://api.whatsapp.com/send?phone=15852135977" ><a className="ui-btn footer__actions-item"><span>Chat</span></a></Link>
               </nav>
-              <p className="footer__description">2637 Fairfax Ave Culver City, <br /> CA 90232</p>
+              <p className="footer__description">8605 Santa Monica Boulevard #58391 <br /> West Hollywood, CA 90069-4109</p>
               <div className="footer__logo-block footer__logo-block_sm">
                 <Link href="/">
                   <a className="footer__logo-link">
@@ -90,11 +92,9 @@ export default function Footer({withPaddings}) {
                   </a>
                 </Link>
               </div>
-              <p className="footer__copyright">Segway  California © 2017</p>
+              <p className="footer__copyright">Segway Ninebot. Cherry Wheel LLC © 2022</p>
             </div>
-
           </div>
-
         </div>
       </footer>
     </>

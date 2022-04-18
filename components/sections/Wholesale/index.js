@@ -22,19 +22,20 @@ export default function Wholesale() {
   return (
     <div className="wholesale">
       <div className="container wholesale__container">
+        {/* TODO: Унифицировать по возможности */}
         <TitleWithDescription
           customClass="wholesale__title-with-description"
           titleDesktop={<>SEGWAY wholesale</>}
           titleMobile={<>SEGWAY wholesale</>}
           textDesktop={
-            <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis tortor eget nulla cursus sit. Aliquet nibh phasellus arcu in. A amet volutpat cursus hac nunc porttitor tristique id.</>
+            <>If you need to purchase a large number of Segway products at once, we can provide you with extremely favorable conditions. Leave your contacts and our manager will contact you shortly and discuss possible options for cooperation.</>
           }
           textMobile={
-            <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis tortor eget nulla cursus sit. Aliquet nibh phasellus arcu in. A amet volutpat cursus hac nunc porttitor tristique id.</>
+            <>If you need to purchase a large number of Segway products at once, we can provide you with extremely favorable conditions. Leave your contacts and our manager will contact you shortly and discuss possible options for cooperation.</>
           }
         />
-        <form onSubmit={onSubmit} className="wholesale__form">
-          <p className="wholesale__form-title">DOWNLOAD <br /> WHOLESALE CATALOG</p>
+        <form onSubmit={onSubmit} className="wholesale__form"> 
+          <p className="wholesale__form-title">Request <br /> Wholesale catalog</p>
           <div className="wholesale__form-img-wrapper">
             <Image objectFit='contain' width={419} height={294} placeholder="blur" src={WholesaleImage} alt="wholesale image for form" />
           </div>

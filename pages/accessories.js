@@ -17,8 +17,7 @@ export default function AccessoriesPage({ allData }) {
         titleMobile={<>Accessories</>}
         textDesktop={
           <>
-            Cо стильными оригинальными аксессуарами Xiaomi и Ninebot вы получите еще <br />
-            больше положительных эмоций от своих поездок. 
+            With stylish original Segway Ninebot accessories, you will get even more positive emotions from your trips. 
           </>
         }
       />

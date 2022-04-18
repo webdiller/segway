@@ -88,8 +88,8 @@ export default function TopNavigation() {
               <span className="top-nav__action-counter">{count}</span>
             </button>
 
-            <Link href="tel:+18888888888">
-              <a className="top-nav__action top-nav__action_phone">+1 (888) 888-88-88</a>
+            <Link href="tel:+18885902694">
+              <a className="top-nav__action top-nav__action_phone">+1 (888) 590-2694</a>
             </Link>
           </div>
 

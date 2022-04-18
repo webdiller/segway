@@ -495,6 +495,15 @@ img {
   }
 }
 
+.text-left {
+  .title-with-description__title {
+    text-align: left !important;
+  }
+  .title-with-description__description {
+    text-align: left !important;
+  }
+}
+
 .mb-0 {
   margin-bottom: 0 !important;
 }
@@ -588,5 +597,31 @@ img {
   border: 1px solid rgba(153, 153, 153, 0.33);
   @include media('<=768px') {
     height: 50px;
+  }
+}
+
+.site-content {
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__description {
+    margin-bottom: 10px;
+  }
+  &__items {
+    
+  }
+  &__item {
+    p {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    }
+    &-title {
+      text-transform: unset;
+      margin-bottom: 5px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
   }
 }

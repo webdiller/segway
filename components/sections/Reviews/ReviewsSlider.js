@@ -13,18 +13,17 @@ const reviews = [
     stars: [1, 1, 1, 1, 0],
     name: 'Jackie',
     description: <>
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
+      I bought two scooters for myself (100 kg) and my girlfriend (67 kg),
+      so the review is about two at once. At the moment, a month and a
+      half I drove 1080 km. On the second, about 500. The most important
+      thing is that I took it out of the box and ride it. The power reserve
+      is impressive. In the average energy recirculation mode in D mode, my
+      record is 52 km (I remind you - 100 kg) (8% left), in S mode - 45 km
+      (4% left). Girlfriend has 38% left, so if your weight is up to 70 kg,
+      it will definitely pull out the declared 65 km on S. Also, in
+      recirculation mode on steep hills or just when you throw gas
+      at high speed, it starts to slow down great (for me personally,
+      it’s very good), preventing it from accelerating and recharging.
     </>,
     link: '/'
   },
@@ -33,18 +32,13 @@ const reviews = [
     stars: [1, 1, 1, 1, 1],
     name: 'Gagnier',
     description: <>
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
+      One of the best urban scooters. The charge is enough for at least 40 kilometers in S mode with a weight of 90.
+      A very convenient folding mechanism, despite the weight, folded can be carried without problems in one hand.
+      The design looks very reliable, there are no backlashes. Excellent materials.
+      The electric motor pulls in any hill.
+      Rides in the rain with no problem.
+      <br />
+      Cool app.
     </>,
     link: '/'
   },
@@ -53,81 +47,33 @@ const reviews = [
     stars: [1, 1, 1, 1, 1],
     name: 'Lakey',
     description: <>
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
+      I have been using it for 10 months, for the first 6 I drove 3080 km, the farthest mileage is 58
+      km with a weight of 82 kg. The scooter pulls any slides, but only in the &apos;SPORT&apos; mode.
+      and pierced the rear wheel, while I pump it up every two days, I don’t want to
+      change the tire. The protection against water is super, though I put an additional
+      one when buying. 3,000 km, the loss in the battery is less than 10%. They were
+      surprised at the store. At this time, with a loss of 30 - 40% of the charge,
+      power is slightly lost and the speed drops to 24 km / h. In general, who wants
+      to ride longer and recommend it around the city. the cobblestone pavement
+      certainly shakes. Someone in the shortcomings writes the weight of the
+      scooter, but when you bought what did you think about?
     </>,
     link: '/'
   },
   {
     id: 4,
     stars: [1, 1, 1, 1, 0],
-    name: 'Jackie',
+    name: 'Alex',
     description: <>
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
+      This is more than a &apos;kickscooter&apos; - it&apos;s a full-fledged sidewalk scooter. Made &apos;monolithically&apos;,
+      eliminated all the shortcomings of previous Ninebot models, while retaining the main advantages. There is a display,
+      but this is a dubious merit, in practice there is no benefit from it, but it can distract with its presence.
+      Convenient charging port with spring-loaded cover - convenient to open blindly and impossible to forget to
+      close. The first product in my experience in which there is nothing to improve, everything is immediately done as it should.
+
     </>,
     link: '/'
   },
-  {
-    id: 5,
-    stars: [1, 1, 1, 1, 1],
-    name: 'Gagnier',
-    description: <>
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-    </>,
-    link: '/'
-  },
-  {
-    id: 6,
-    stars: [1, 1, 1, 1, 1],
-    name: 'Lakey',
-    description: <>
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-      The price point for the printer is frankly incredible for the money.
-      As far as a beginner printer...I purchased one of these for my niece
-      (early teen) and the machine is working with no necessary involvement on my part.
-    </>,
-    link: '/'
-  }
 ]
 
 export default function Reviews() {

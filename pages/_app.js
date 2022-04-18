@@ -27,7 +27,11 @@ function MyApp({ Component, pageProps, router }) {
 
   let conditionForMainPageLayout = router.route === '/kickscooters' || router.route === '/' || router.route === '/gokarts' || router.route === '/accessories';
   let conditionForPaymentLayout = router.pathname.startsWith('/payment');
-  let conditionForInfoPageLayout = router.route === '/shipping-and-payment' || router.route === '/wholesale' || router.route === '/contacts'
+  let conditionForInfoPageLayout = router.route === '/shipping-and-payment' 
+  || router.route === '/terms-and-conditions' 
+  || router.route === '/privacy-policy' 
+  || router.route === '/wholesale' 
+  || router.route === '/contacts'
 
   if (conditionForModelLayout) {
     return (

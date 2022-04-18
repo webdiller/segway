@@ -29,15 +29,13 @@ export default function MiddleNavigation({showDirector}) {
         {showDirector && (
           <div className="middle-navigation__director">
             <div className="middle-navigation__director-img-wrapper">
-              <Image className="middle-navigation__director-img" src={profileImg} alt="JOHN SMITH" layout="responsive" />
+              <Image className="middle-navigation__director-img" src={profileImg} alt="Fedor Savchuk" layout="responsive" />
             </div>
 
             <div className="middle-navigation__director-items">
-              <span className="middle-navigation__director-name">JOHN SMITH</span>
-              <p className="middle-navigation__director-description">«Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod facilisi pharetra sed nulla massa. </p>
-              <Link href="/">
-                <a className="middle-navigation__director-link">Ask a question to the director</a>
-              </Link>
+              <span className="middle-navigation__director-name">Fedor Savchuk</span>
+              <p className="middle-navigation__director-description">If you have any questions or suggestions for the work of our company, please contact me personally.</p>
+              <Link href="/"><a className="middle-navigation__director-link">Get in touch with the director</a></Link>
             </div>
           </div>
         )}

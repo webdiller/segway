@@ -7,16 +7,19 @@ export default function Contacts() {
   return (
     <div className="contacts">
       <div className="container contacts__top-container">
+
         <TitleWithDescription
-        customClass='contacts__title-with-description'
+          customClass='contacts__title-with-description'
           titleDesktop={<>CONTACT</>}
           titleMobile={<>CONTACT</>}
           textDesktop={
-            <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis tortor eget nulla cursus sit. Aliquet nibh phasellus arcu in. A amet volutpat cursus hac nunc porttitor tristique id.</>
+            <>
+              We treat our clients very carefully. For all questions regarding planned purchases, for current orders or cooperation issues, please contact by email <a href="mailto:info@cherry-wheel.com">info@cherry-wheel.com</a> or:
+            </>
           }
-          textMobile={
-            <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis tortor eget nulla cursus sit. Aliquet nibh phasellus arcu in. A amet volutpat cursus hac nunc porttitor tristique id.</>
-          }
+          textMobile={<>
+            We treat our clients very carefully. For all questions regarding planned purchases, for current orders or cooperation issues, please contact by email <a href="mailto:info@cherry-wheel.com">info@cherry-wheel.com</a> or:
+          </>}
         />
         <div className="contacts__items">
           <div className="contacts__item">
@@ -24,8 +27,9 @@ export default function Contacts() {
               <Image alt="Office icon" src={imageMap} objectFit="contain" layout="responsive" />
             </div>
             <div className="contacts__item-content">
-              <p className="text super-accent contacts__item-title">Office</p>
-              <p className="text contacts__item-description">2637 Fairfax Ave Culver City, CA 90232</p>
+              <p className="text super-accent contacts__item-title">Mail:</p>
+              <p className="text contacts__item-description">8605 Santa Monica Boulevard #58391 <br />
+                West Hollywood, <br /> CA 90069-4109</p>
             </div>
           </div>
 
@@ -34,10 +38,11 @@ export default function Contacts() {
               <Image alt="Phone icon" src={imagePhone} objectFit="contain" layout="responsive" />
             </div>
             <div className="contacts__item-content">
-              <p className="text super-accent contacts__item-title">Telephone</p>
-              <p className="text contacts__item-description">All week, 24/7 </p>
-              <a href="tel:+18888888888" className="text contacts__item-link">
-                +1 (888) 888-88-88
+              <p className="text super-accent contacts__item-title">Phone:</p>
+              <p className="text contacts__item-description">All week, 24/7
+              </p>
+              <a href="tel:+18885902694" className="text contacts__item-link">
+                +1 (888) 590-2694
               </a>
             </div>
           </div>
