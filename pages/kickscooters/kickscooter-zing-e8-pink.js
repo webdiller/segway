@@ -388,7 +388,7 @@ export default function ModelPage({ allData, preparedProtection, product }) {
         }
       />
 
-      <DownloadManualDinamic downloadManualHref={allData.segways[13].downloadManual} />
+      <DownloadManualDinamic manualImgPath={allData.segways[13].manualImgPath} downloadManualHref={allData.segways[13].downloadManual} />
       <CompareSpecificationsDinamic
         excludeIdsToCompare={['id=011&warranty=null&color=6D7DDF', 'id=011&warranty=null&color=FFBFC0']}
         items={allData.segways}

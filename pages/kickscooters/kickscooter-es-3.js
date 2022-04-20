@@ -397,7 +397,7 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic downloadManualHref={allData.segways[9].downloadManual} />
+      <DownloadManualDinamic manualImgPath={allData.segways[9].manualImgPath} downloadManualHref={allData.segways[9].downloadManual} />
       <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways[9]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />

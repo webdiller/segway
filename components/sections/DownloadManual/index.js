@@ -2,19 +2,18 @@
 import { VscFilePdf } from 'react-icons/vsc';
 import UiLink from 'components/shared/UiLink/UiLink';
 import classNames from 'classnames';
+import Image from 'next/image';
 
-export default function DownloadManual({ desktopImg, mobileImg, customClass, downloadManualHref }) {
+export default function DownloadManual({ manualImgPath, customClass, downloadManualHref }) {
+  console.log(manualImgPath);
   return (
     <div className={classNames("download-manual", classNames(customClass))}>
       <div className="container download-manual__container">
         <div className="download-manual__cart">
 
-          <picture className="download-manual__picture">
-            <source srcSet="/download-manual-desktop.webp" media="(min-width: 480px)" />
-            <source srcSet="/download-manual-desktop.png" media="(min-width: 480px)" />
-            <source srcSet="/download-manual-mobile.webp" />
-            <img width="762" height="465" className="download-manual__img" src="/download-manual-mobile.png" alt="Download manual" loading="lazy" />
-          </picture>
+          <div className="download-manual__img">
+            <Image objectFit='contain' width={628} height={465} src={manualImgPath} alt="Download manual" />
+          </div>
 
           <div className="download-manual__content">
             <p className="title title_fz-20 download-manual__title">DOWNLOAD manual</p>

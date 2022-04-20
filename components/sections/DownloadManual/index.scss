@@ -31,9 +31,6 @@
     top: 45%;
     left: -20%;
     transform: translateY(-50%);
-    width: 600px;
-    height: auto;
-    object-fit: contain;
     @include media('<=991px') {
       left: 43%;
       top: -40%;

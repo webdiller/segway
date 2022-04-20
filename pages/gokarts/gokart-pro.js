@@ -358,7 +358,7 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic downloadManualHref={allData.gokarts[0].downloadManual} />
+      <DownloadManualDinamic manualImgPath={allData.gokarts[0].manualImgPath} downloadManualHref={allData.gokarts[0].downloadManual} />
 
       <CompareModels>
         <Model width={206} height={144} model={allData.gokarts[0]} />
