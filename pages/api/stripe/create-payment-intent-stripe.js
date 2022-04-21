@@ -2,7 +2,7 @@ const stripeAPI = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export default async function createPaymentIntentStripe(req, res) {
   if (req.method === "POST") {
-    const { amount } = req.body;
+    const { email, phone, amount } = req.body;
 
     if (!amount) {
       return res.status(400).json({ error: 'Missing required session parameters' })
@@ -12,7 +12,8 @@ export default async function createPaymentIntentStripe(req, res) {
       const paymentIntent = await stripeAPI.paymentIntents.create({
         amount,
         currency: "usd",
-        payment_method_types: ['card']
+        payment_method_types: ['card'],
+        description: `Order from ${email} - ${phone}`,
       });
 
       res.status(200).json({ clientSecret: paymentIntent.client_secret })

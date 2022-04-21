@@ -6,8 +6,8 @@ export const data = {
       name: "Ninebot Engine Speaker",
       nameWrap: "Ninebot \n Engine Speaker",
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "149.99",
-      priceId: "price_1Kh3uKCjSg7DmzJgTes6zllB",
+      price: "1",
+      priceId: "price_1KqxfACjSg7DmzJgJSfcFJhi",
       imgPath: "/accessory-1.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -19,7 +19,7 @@ export const data = {
       nameWrap: "Extension \n Rod",
       description: "The Extension Rod helps you to easily maneuver your scooter, so you no longer need to bend over and push it, making it easier to take with you anywhere.",
       price: "29.99",
-      priceId: "price_1Kit55CjSg7DmzJgMCqvQc34",
+      priceId: "",
       imgPath: "/accessory-2.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -42,7 +42,7 @@ export const data = {
       nameWrap: "Ninebot Leisure \n Backpack",
       description: "The Ninebot leisure backpack adopts a stylish gray-yellow color contrast, adding a trendy accessory to your wardrobe.",
       price: "69.99",
-      priceId: "price_1KjKjwCjSg7DmzJgNsKyg8nN",
+      priceId: "",
       imgPath: "/accessory-4.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -122,7 +122,8 @@ export const data = {
       pageLinkForMatch: "kickscooter-max",
       pageLinkName: "kickscooter-max",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-max",
-      price: "949.99",
+      price: 1,
+      priceId: "price_1KqxjTCjSg7DmzJgsTjh6H40",
       oldPrice: "1049",
       maxSpeed: "18.6 mph (30 km/h)",
       rangeByMiles: "Approx. 40.4 miles (65 km)",
@@ -143,17 +144,20 @@ export const data = {
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          priceId: "price_1KqxjTCjSg7DmzJgZsz05x2x",
+          price: 1,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          priceId: "price_1KqxjTCjSg7DmzJgg9rWDDrX",
+          price: 2,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          priceId: "price_1KqxjTCjSg7DmzJgloxJecOw",
+          price: 3,
           oldPrice: 1328
         }
       ],
@@ -963,7 +967,7 @@ export const data = {
       pageLinkName: "kickscooter-zing-e8-pink",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
       price: "399.99",
-      priceId: "price_1KivVyCjSg7DmzJg0ZBabRGN",
+      priceId: "",
       oldPrice: "1049",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
@@ -989,19 +993,19 @@ export const data = {
         {
           durationYear: 1,
           price: 139,
-          priceId: "price_1KivVyCjSg7DmzJgeFCuTAGc",
+          priceId: "",
           oldPrice: 1188
         },
         {
           durationYear: 2,
           price: 209,
-          priceId: "price_1KivVyCjSg7DmzJgPUj59rCT",
+          priceId: "",
           oldPrice: 1258
         },
         {
           durationYear: 3,
           price: 279,
-          priceId: "price_1KivVyCjSg7DmzJgbC7i4Wz5",
+          priceId: "",
           oldPrice: 1328
         }
       ],

@@ -145,6 +145,8 @@ export default function PauymentLastPage() {
       },
       data: {
         amount: totalPrice * 100,
+        email: billing_details.email,
+        phone: billing_details.phone
       }
     };
 
@@ -168,7 +170,7 @@ export default function PauymentLastPage() {
             metadata: {
               phone_number: billing_details.phone,
               appartment: billingAddress == 'same' ? `${apartment}` : `${differentApartment}`
-            }
+            },
           }
         )
 
@@ -187,7 +189,6 @@ export default function PauymentLastPage() {
             successMessage: "Success"
           })
         }
-
         const { error: confirmPaymentError, paymentIntent: confirmPaymentStatus } = await stripe.confirmCardPayment(clientSecret, {
           payment_method: createPaymentStatus.id,
         })
