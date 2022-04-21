@@ -95,6 +95,7 @@ export default function PauymentLastPage() {
     state,
     city,
     zipCode,
+    apartment,
     country,
     phone,
     address,
@@ -143,7 +144,7 @@ export default function PauymentLastPage() {
         "Content-Type": "application/json"
       },
       data: {
-        amount: totalPrice * 100
+        amount: totalPrice * 100,
       }
     };
 
@@ -162,7 +163,12 @@ export default function PauymentLastPage() {
         const { error: createPaymentError, paymentMethod: createPaymentStatus } = await stripe.createPaymentMethod(
           {
             type: 'card',
-            card: cardNumber
+            card: cardNumber,
+            billing_details,
+            metadata: {
+              phone_number: billing_details.phone,
+              appartment: billingAddress == 'same' ? `${apartment}` : `${differentApartment}`
+            }
           }
         )
 
@@ -173,6 +179,7 @@ export default function PauymentLastPage() {
             errorMessage: createPaymentError.message
           })
         }
+        
         if (createPaymentStatus) {
           console.log('createPaymentStatus: ', createPaymentStatus);
           stripeStatusSet({
@@ -182,7 +189,7 @@ export default function PauymentLastPage() {
         }
 
         const { error: confirmPaymentError, paymentIntent: confirmPaymentStatus } = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: createPaymentStatus.id
+          payment_method: createPaymentStatus.id,
         })
 
         if (confirmPaymentError) {
@@ -223,7 +230,7 @@ export default function PauymentLastPage() {
       try {
 
         const preparedItems = prepareProductsForAffirm(products)
-        
+
         /* Creating affirm object */
         const affirm_checkoun = {
 
