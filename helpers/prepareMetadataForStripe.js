@@ -3,7 +3,7 @@ const prepareMetadataForStripe = (products) => {
   const finalObj = {};
 
   let productArray = products.map((product) => {
-    let { id, stripeId, priceId } = product;
+    let { id, quantity, stripeId, priceId } = product;
     indx++;
     let currentPriceId = null;
 
@@ -17,7 +17,7 @@ const prepareMetadataForStripe = (products) => {
     }
 
     return {
-      stripeId,
+      stripeId: `${stripeId} x ${quantity}`,
       priceId: currentPriceId
     }
   })
