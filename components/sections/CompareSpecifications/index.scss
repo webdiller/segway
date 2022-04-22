@@ -266,10 +266,16 @@
 
   &__buy-btn {
     display: flex;
+    width: 100%;
+    max-width: 187px;
     margin: 0 auto 0 20px;
+    font-weight: 600;
     @include media('<=768px') {
       white-space: nowrap;
       margin: 0 auto 0 15px;
+    }
+    @include media('<=576px') {
+      max-width: 160px;
     }
   }
 
@@ -312,6 +318,7 @@
     justify-content: space-between;
     z-index: 100;
     height: 100%;
+    pointer-events: none;
 
     @include media('<=1200px') {
       width: 105%;
@@ -333,6 +340,7 @@
     padding: 0;
     background-color: transparent;
     border: 0;
+    pointer-events: all;
     &.swiper-button-disabled {
       opacity: 0;
       z-index: -1;
@@ -362,7 +370,6 @@
       width: 40px;
       height: 40px;
     }
-
   }
 
   &__icon {
@@ -630,6 +637,8 @@
 
   &__buy-btn {
     display: flex;
+    width: 100%;
+    max-width: 187px;
     margin: 0 auto 0 20px;
     &.added {
       pointer-events: none;
@@ -642,9 +651,11 @@
       }
     }
     @include media('<=768px') {
+      white-space: nowrap;
       margin: 0 auto 0 15px;
     }
     @include media('<=576px') {
+      max-width: 160px;
       span {
         position: relative;
         &::before {
@@ -670,7 +681,7 @@
 
     height: 44px;
     width: 100%;
-    max-width: 143px;
+    max-width: 187px;
     margin: 0 auto 0 20px;
 
     font-size: 18px;
@@ -684,6 +695,7 @@
     }
     @include media('<=576px') {
       position: relative;
+      max-width: 160px;
       &::before {
         content: '';
         position: absolute;
@@ -694,6 +706,7 @@
         display: block;
         margin: 0 auto;
         height: 52px;
+        width: 197px;
         pointer-events: all;
       }
     }
