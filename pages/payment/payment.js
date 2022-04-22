@@ -59,8 +59,40 @@ export default function PauymentLastPage() {
   const router = useRouter();
   const messageElementRef = useRef()
 
-  const stripeElementOptions = {
+  const stripeElementOptionsNumber = {
     placeholder: 'Card number',
+    style: {
+      base: {
+        fontSize: mediaQuery ? '13px' : '16px',
+        fontWeight: '400',
+        fontFamily: 'Proxima Nova',  // set integrated font family
+        lineHeight: mediaQuery ? '40px' : '50px',
+        color: '#323941',
+        "::placeholder": {
+          color: '#c9c9c9'
+        }
+      }
+    }
+  }
+
+  const stripeElementOptionsExpirations = {
+    placeholder: 'Expirations date (MM / YY)',
+    style: {
+      base: {
+        fontSize: mediaQuery ? '13px' : '16px',
+        fontWeight: '400',
+        fontFamily: 'Proxima Nova',  // set integrated font family
+        lineHeight: mediaQuery ? '40px' : '50px',
+        color: '#323941',
+        "::placeholder": {
+          color: '#c9c9c9'
+        }
+      }
+    }
+  }
+
+  const stripeElementOptionsCode = {
+    placeholder: 'Security Code (CVC)',
     style: {
       base: {
         fontSize: mediaQuery ? '13px' : '16px',
@@ -408,7 +440,7 @@ export default function PauymentLastPage() {
                 placeholder="Card number">
                 <CardNumberElement
                   className='stripe-element'
-                  options={stripeElementOptions}
+                  options={stripeElementOptionsNumber}
                   id="card-number-element" />
               </CustomInput>
             </div>
@@ -417,7 +449,7 @@ export default function PauymentLastPage() {
               <CustomInput type="text" placeholder="Expiration date ( MM / YY )">
                 <CardExpiryElement
                   className='stripe-element'
-                  options={stripeElementOptions}
+                  options={stripeElementOptionsExpirations}
                   id="card-expiry" />
               </CustomInput>
             </div>
@@ -425,7 +457,7 @@ export default function PauymentLastPage() {
               <CustomInput showIconQuestion type="text" placeholder="Security Code (CVC)">
                 <CardCvcElement
                   className='stripe-element'
-                  options={stripeElementOptions}
+                  options={stripeElementOptionsCode}
                   id="card-cvv" />
               </CustomInput></div>
           </div>}
@@ -589,6 +621,7 @@ export default function PauymentLastPage() {
 
             <div className="payment-radio__input">
               <CustomInput
+                mask="+1 999 999 99 99"
                 handler={e => dispatch(setDifferentPhone(e.target.value))}
                 value={differentPhone}
                 type="text" placeholder="Phone" />

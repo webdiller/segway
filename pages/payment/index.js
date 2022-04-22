@@ -103,7 +103,7 @@ export default function PaymentMainPage() {
               <CustomInput requied handler={e => dispatch(setZipCode(e.target.value))} value={zipCode} type="text" placeholder="ZIP code" />
             </div>
             <div className="payment-info__form-item">
-              <CustomInput requied handler={e => dispatch(setPhone(e.target.value))} value={phone} type="text" placeholder="Phone" />
+              <CustomInput mask="+1 999 999 99 99" requied handler={e => dispatch(setPhone(e.target.value))} value={phone} type="text" placeholder="Phone" />
             </div>
             <div className="payment-info__form-item">
               <CustomCheckbox handler={e => dispatch(setSaveThisInfoForNextTime(e.target.value))} value={saveThisInfoForNextTime} customClass="payment-info__checkbox-second" text="Save this information for next time" />

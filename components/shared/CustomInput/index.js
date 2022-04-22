@@ -1,6 +1,6 @@
 import styles from './CustomInput.module.scss';
 import classNames from 'classnames';
-
+import ReactInputMask from 'react-input-mask';
 import iconLock from '@/base/icon-lock.svg'
 import iconQuestion from '@/base/icon-quesion-small.svg'
 import Image from 'next/image';
@@ -15,22 +15,14 @@ export default function CustomInput({
   showIconQuestion,
   readOnly,
   requied,
+  mask,
   children
 }) {
 
   return (
     <div className={classNames('custom-input', classNames(customClass))}>
       {!children ?
-        (
-          <input
-            required={requied}
-            readOnly={readOnly}
-            value={value}
-            onChange={handler}
-            placeholder={placeholder}
-            type={type}
-            className="custom-input__input" />
-        )
+        (<ReactInputMask type={type} readOnly={readOnly} required={requied} onChange={handler} value={value} placeholder={placeholder} mask={mask} className="custom-input__input" />)
         :
         (children)}
       {/* <span className={styles.info}>?</span> */}
