@@ -49,6 +49,7 @@ import SuccessModal from './success-modal';
 import { isActivePaymentModalSet } from 'store/slices/paymentModalSlice';
 import { clearProducts } from 'store/slices/productCartSlice';
 import prepareProductsForAffirm from '@/helpers/prepareProductsForAffirm';
+import prepareMetadataForStripe from '@/helpers/prepareMetadataForStripe';
 
 export default function PauymentLastPage() {
 
@@ -136,7 +137,6 @@ export default function PauymentLastPage() {
 
   const handleSubmitStripe = async (e) => {
     e.preventDefault();
-
     let config = {
       method: "post",
       url: `/api/stripe/create-payment-intent-stripe`,
@@ -146,7 +146,8 @@ export default function PauymentLastPage() {
       data: {
         amount: totalPrice * 100,
         email: billing_details.email,
-        phone: billing_details.phone
+        phone: billing_details.phone,
+        metadata: prepareMetadataForStripe(products)
       }
     };
 
@@ -181,7 +182,7 @@ export default function PauymentLastPage() {
             errorMessage: createPaymentError.message
           })
         }
-        
+
         if (createPaymentStatus) {
           console.log('createPaymentStatus: ', createPaymentStatus);
           stripeStatusSet({
@@ -207,7 +208,8 @@ export default function PauymentLastPage() {
             successMessage: "Success"
           })
           dispatch(isActivePaymentModalSet(true))
-          dispatch(clearProducts())
+          // FIXME: на проде вернуть очистку корзины
+          // dispatch(clearProducts())
         }
       } catch (error) {
         console.log(error);
@@ -275,8 +277,6 @@ export default function PauymentLastPage() {
           },
 
           items: preparedItems,
-
-          // order_id: "JKLMO4321",
 
           currency: "USD",
           // financing_program: "flyus_3z6r12r",

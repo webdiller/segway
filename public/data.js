@@ -8,6 +8,7 @@ export const data = {
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
       price: "1",
       priceId: "price_1KqxfACjSg7DmzJgJSfcFJhi",
+      stripeId: "prod_LY3mNmBekSqaLL",
       imgPath: "/accessory-1.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -30,7 +31,9 @@ export const data = {
       name: "Segway Protective Gear Set",
       nameWrap: "Segway Protective \n Gear Set",
       description: "The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.",
-      price: "29.99",
+      price: "1.50",
+      priceId: "price_1KrEeTCjSg7DmzJgg3fdlg6u",
+      stripeId: "prod_LYLLTi4guCYzzD",
       imgPath: "/accessory-3.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -124,6 +127,7 @@ export const data = {
       pageLinkNameWithCategory: "/kickscooters/kickscooter-max",
       price: 1,
       priceId: "price_1KqxjTCjSg7DmzJgsTjh6H40",
+      stripeId: "prod_LY3r1GicevpVN0",
       oldPrice: "1049",
       maxSpeed: "18.6 mph (30 km/h)",
       rangeByMiles: "Approx. 40.4 miles (65 km)",

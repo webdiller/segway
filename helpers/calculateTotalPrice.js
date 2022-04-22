@@ -55,15 +55,15 @@ export const calculateTotalPrice = (products) => {
 
   /** 
    * Калькуляция цены. Еысли в корзине имеется защита и один из продуктов
-   * Если да, то отнимаем 29 от общей суммы
+   * Если да, то отнимаем 29.99 от общей суммы
    */
   let existAnyProduct = products.filter(product => product.type !== 'accessory');
   let existProtectionAccessory = products.filter(product => product.id === 'segway-protective-gear-set');
   let excludePriceForGift = existAnyProduct.length > 0 && existProtectionAccessory.length > 0 ? true : false;
   /** Подарок есть */
   if (excludePriceForGift) {
-    total = total - 29.99
-    console.log('Подарок есть');
+    // FIXME: на проде вернуть прежнюю цену калькулции
+    total = total - 1.50
   }
 
   return total;
