@@ -7,8 +7,8 @@ export const data = {
       nameWrap: "Ninebot \n Engine Speaker",
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
       price: "1",
-      priceId: "price_1KqxfACjSg7DmzJgJSfcFJhi",
-      stripeId: "prod_LY3mNmBekSqaLL",
+      priceId: "price_1KrHVVC3bu2cRJ582nhSHqPI",
+      stripeId: "prod_LYOIAgf3wmLHjn",
       imgPath: "/accessory-1.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -32,8 +32,8 @@ export const data = {
       nameWrap: "Segway Protective \n Gear Set",
       description: "The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.",
       price: "1.50",
-      priceId: "price_1KrEeTCjSg7DmzJgg3fdlg6u",
-      stripeId: "prod_LYLLTi4guCYzzD",
+      priceId: "price_1KrHWuC3bu2cRJ58EdxcFTmS",
+      stripeId: "prod_LYOJ4m94RVvOCf",
       imgPath: "/accessory-3.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -126,8 +126,8 @@ export const data = {
       pageLinkName: "kickscooter-max",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-max",
       price: 1,
-      priceId: "price_1KqxjTCjSg7DmzJgsTjh6H40",
-      stripeId: "prod_LY3r1GicevpVN0",
+      priceId: "price_1KrHa0C3bu2cRJ58eBRukaIa",
+      stripeId: "prod_LYOM1UWVQP0aZy",
       oldPrice: "1049",
       maxSpeed: "18.6 mph (30 km/h)",
       rangeByMiles: "Approx. 40.4 miles (65 km)",
@@ -148,19 +148,19 @@ export const data = {
       warranty: [
         {
           durationYear: 1,
-          priceId: "price_1KqxjTCjSg7DmzJgZsz05x2x",
+          priceId: "price_1KrHa0C3bu2cRJ58vvTtZoqs",
           price: 1,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          priceId: "price_1KqxjTCjSg7DmzJgg9rWDDrX",
+          priceId: "price_1KrHa0C3bu2cRJ58OQWLcUAu",
           price: 2,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          priceId: "price_1KqxjTCjSg7DmzJgloxJecOw",
+          priceId: "price_1KrHa0C3bu2cRJ58Zmb6NKmD",
           price: 3,
           oldPrice: 1328
         }
