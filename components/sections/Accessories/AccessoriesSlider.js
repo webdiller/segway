@@ -91,11 +91,11 @@ export default function AccessoriesSlider({ items }) {
                     </p>
                     {type === 'accessory' ? (
                       <div className="accessories-slider__prices">
-                        <p className="accessories-slider__price-current">$899.99</p>
+                        <p className="accessories-slider__price-current">${price}</p>
                       </div>
                     ) : (
                       <div className="accessories-slider__prices">
-                        <p className="accessories-slider__price-current">$899.99</p>
+                        <p className="accessories-slider__price-current">${price}</p>
                         <span className='accessories-slider__price-separator'>or</span>
                         <div className="accessories-slider__price-period">
                           <p className="accessories-slider__price-period-key">$7</p>

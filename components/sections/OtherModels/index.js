@@ -124,11 +124,11 @@ export default function OtherModels({ items }) {
                           <p className="text text_25 other-models__name">{nameWithoutBrand}</p>
                           {type === 'accessory' ? (
                             <div className="other-models__prices">
-                              <p className="other-models__price-current">$899.99</p>
+                              <p className="other-models__price-current">${price}</p>
                             </div>
                           ) : (
                             <div className="other-models__prices">
-                              <p className="other-models__price-current">$899.99</p>
+                              <p className="other-models__price-current">${price}</p>
                               <span className='other-models__price-separator'>or</span>
                               <div className="other-models__price-period">
                                 <p className="other-models__price-period-key">$7</p>

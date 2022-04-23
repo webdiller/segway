@@ -96,7 +96,7 @@ export default function CategorySlider({ customClassNames, title, products, type
           })}
         >
           {products.map((item) => {
-            const { id, type, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory } = item;
+            const { id, type, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory, price } = item;
             if (!excludeForMap) {
               return (
                 <SwiperSlide key={id} className={type === 'accessory' ? "category-slider__item category-slider__item_accessory" : "category-slider__item category-slider__item"}>
@@ -118,11 +118,11 @@ export default function CategorySlider({ customClassNames, title, products, type
 
                     {type === 'accessory' ? (
                       <div className="category-slider__prices">
-                        <p className="category-slider__price-current">$899.99</p>
+                        <p className="category-slider__price-current">${price}</p>
                       </div>
                     ) : (
                       <div className="category-slider__prices">
-                        <p className="category-slider__price-current">$899.99</p>
+                        <p className="category-slider__price-current">${price}</p>
                         <span className='category-slider__price-separator'>or</span>
                         <div className="category-slider__price-period">
                           <p className="category-slider__price-period-key">$7</p>

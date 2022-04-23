@@ -36,11 +36,11 @@ export default function AccessoriesBlock({ items }) {
                   <p className="text text_13 text_grey2 accessories-block__description">{description}</p>
                   {type === 'accessory' ? (
                     <div className="accessories-block__prices">
-                      <p className="accessories-block__price-current">$899.99</p>
+                      <p className="accessories-block__price-current">${price}</p>
                     </div>
                   ) : (
                     <div className="accessories-block__prices">
-                      <p className="accessories-block__price-current">$899.99</p>
+                      <p className="accessories-block__price-current">${price}</p>
                       <span className='accessories-block__price-separator'>or</span>
                       <div className="accessories-block__price-period">
                         <p className="accessories-block__price-period-key">$7</p>
