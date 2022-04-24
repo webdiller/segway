@@ -233,8 +233,6 @@ export default function PauymentLastPage() {
             success: true,
             successMessage: "Success"
           })
-          submitBtnRef.current.classList.remove('loading')
-          payTextSet('Pay now')
         }
         const { error: confirmPaymentError, paymentIntent: confirmPaymentStatus } = await stripe.confirmCardPayment(clientSecret, {
           payment_method: createPaymentStatus.id,
@@ -267,7 +265,7 @@ export default function PauymentLastPage() {
       }
     } else {
       paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
-      messageElementRef.current.scrollIntoView({block: "start", behavior: "smooth"})
+      messageElementRef.current.scrollIntoView({ block: "start", behavior: "smooth" })
 
       submitBtnRef.current.classList.remove('loading')
       payTextSet('Pay now')
@@ -349,7 +347,7 @@ export default function PauymentLastPage() {
 
     } else {
       paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
-      messageElementRef.current.scrollIntoView({block: "start", behavior: "smooth"})
+      messageElementRef.current.scrollIntoView({ block: "start", behavior: "smooth" })
     }
   }
 
@@ -391,7 +389,7 @@ export default function PauymentLastPage() {
       const { error, errorMessage, errorCode, success, successMessage } = stripeStatus;
       if (errorCode) {
         paymentMessageSet({ active: true, message: errorMessage })
-        messageElementRef.current.scrollIntoView({block: "start", behavior: "smooth"})
+        messageElementRef.current.scrollIntoView({ block: "start", behavior: "smooth" })
       }
     } catch (error) {
 

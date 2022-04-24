@@ -26,7 +26,7 @@ export default function ProductSwiler({ title, customClasses, accessoeries }) {
   return (
     <div className={classNames('product-cart-slider', classNames(customClasses))}>
       <div className="product-cart-slider__container">
-        {title && <p className="text text_25 product-cart-slider__title">{title}</p>}
+        {title ? <p className="text text_25 product-cart-slider__title">{title}</p> : <br/>}
         <div className="product-cart-slider__swiper-wrapper">
           <div className="product-cart-slider__swiper">
             <Swiper
