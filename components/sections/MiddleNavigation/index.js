@@ -35,7 +35,7 @@ export default function MiddleNavigation({showDirector}) {
             <div className="middle-navigation__director-items">
               <span className="middle-navigation__director-name">Fedor Savchuk</span>
               <p className="middle-navigation__director-description">If you have any questions or suggestions for the work of our company, please contact me personally.</p>
-              <Link href="/"><a className="middle-navigation__director-link">Get in touch with the director</a></Link>
+              <Link href="https://api.whatsapp.com/send?phone=15852135977"><a className="middle-navigation__director-link">Get in touch with the director</a></Link>
             </div>
           </div>
         )}

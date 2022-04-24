@@ -373,7 +373,47 @@ img {
       }
     }
   }
+
+  &.loading {
+    position: relative;
+    transition: all 0.3s ease;
+    background-color: #009eff;
+    color: #fff;
+    border-color: transparent;
+    pointer-events: none;
+    overflow-x: hidden;
+    &::before {
+      overflow-x: hidden;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      opacity: 1;
+      background: repeating-linear-gradient(
+      60deg, 
+      transparent, 
+      transparent 0.75rem, 
+      rgba(255,255,255,.1) 0.75rem, 
+      rgba(255,255,255,.1) 1.5rem);
+      animation: load-btn 1s infinite linear;
+      transition: all .3s ease;
+      pointer-events: none;
+    }
+  }
 }
+
+@keyframes load-btn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1.75rem);
+  }
+}
+
+
 
 .ui-glass-link {
 }

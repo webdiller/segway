@@ -33,7 +33,7 @@ export default function PaymentShippingPage() {
             firstChildren={
               <div className="payment-radio__title-text">
                 <span className="payment-radio__title-text-title">Economy</span>
-                <span className="payment-radio__title-text-text">5 to 8 business days</span>
+                <span className="payment-radio__title-text-text">1 to 2 business days</span>
               </div>
             }
             secondChildren={<div className="payment-radio__link">Free</div>}

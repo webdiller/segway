@@ -41,7 +41,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       dispatch(productModalActiveSet(true))
     }
   }
-  
+
   useEffect(() => {
     const idParams = new URLSearchParams(preparedProduct ? preparedProduct.id : product.id);
     const warranty = idParams.get('warranty').toString()
@@ -133,8 +133,16 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
           </div>
 
           <div className="form-with-warrancy__form-actions">
-            <Link href={`/order-product?productId=006`}>
-              <a className="ui-btn ui-btn_lg form-with-warrancy__form-action">
+            <Link href={`/payment`}>
+              <a onClick={() => {
+                /** Если есть выбранный банд, то добавялем в корину */
+                if (preperedBundle) {
+                  dispatch(pushProduct(preparedProduct))
+                  dispatch(pushProduct(preperedBundle))
+                } else {
+                  dispatch(pushProduct(preparedProduct))
+                }
+              }} className="ui-btn ui-btn_lg form-with-warrancy__form-action">
                 <span>BUY IT Now</span>
               </a>
             </Link>

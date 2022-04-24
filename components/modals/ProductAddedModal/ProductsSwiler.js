@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-export default function ProductSwiler({ customClasses, accessoeries }) {
+export default function ProductSwiler({ title, customClasses, accessoeries }) {
 
   const dispatch = useDispatch()
 
@@ -26,7 +26,7 @@ export default function ProductSwiler({ customClasses, accessoeries }) {
   return (
     <div className={classNames('product-cart-slider', classNames(customClasses))}>
       <div className="product-cart-slider__container">
-        <p className="text text_25 product-cart-slider__title">Accessories</p>
+        {title && <p className="text text_25 product-cart-slider__title">{title}</p>}
         <div className="product-cart-slider__swiper-wrapper">
           <div className="product-cart-slider__swiper">
             <Swiper

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 
 export default function DownloadManual({ manualImgPath, customClass, downloadManualHref }) {
-  console.log(manualImgPath);
+
   return (
     <div className={classNames("download-manual", classNames(customClass))}>
       <div className="container download-manual__container">

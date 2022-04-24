@@ -139,7 +139,7 @@ export default function ProductModal({ accessoeries }) {
           </div>
 
           <div className="product-modal__product-cart-slider">
-            <ProductsSwiler accessoeries={accessoeries} />
+            <ProductsSwiler title="Accessories" accessoeries={accessoeries} />
           </div>
 
           <div className="hide-991 product-modal__top-actions product-modal__top-actions_desktop">

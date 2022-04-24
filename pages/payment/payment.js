@@ -58,6 +58,7 @@ export default function PauymentLastPage() {
   const dispatch = useDispatch();
   const router = useRouter();
   const messageElementRef = useRef()
+  const submitBtnRef = useRef()
 
   const stripeElementOptionsNumber = {
     placeholder: 'Card number',
@@ -166,9 +167,11 @@ export default function PauymentLastPage() {
     active: false,
     message: ''
   });
+  const [payText, payTextSet] = useState('Pay now')
 
   const handleSubmitStripe = async (e) => {
     e.preventDefault();
+
     let config = {
       method: "post",
       url: `/api/stripe/create-payment-intent-stripe`,
@@ -190,7 +193,13 @@ export default function PauymentLastPage() {
       try {
         const { data } = await axios(config);
         clientSecret = data.clientSecret
+
+        submitBtnRef.current.classList.add('loading')
+        payTextSet('Loading...')
+
       } catch (error) {
+        submitBtnRef.current.classList.remove('loading')
+        payTextSet('Pay now')
         console.log('error: ', error);
       }
 
@@ -213,6 +222,9 @@ export default function PauymentLastPage() {
             errorCode: createPaymentError.code,
             errorMessage: createPaymentError.message
           })
+
+          submitBtnRef.current.classList.remove('loading')
+          payTextSet('Pay now')
         }
 
         if (createPaymentStatus) {
@@ -221,6 +233,8 @@ export default function PauymentLastPage() {
             success: true,
             successMessage: "Success"
           })
+          submitBtnRef.current.classList.remove('loading')
+          payTextSet('Pay now')
         }
         const { error: confirmPaymentError, paymentIntent: confirmPaymentStatus } = await stripe.confirmCardPayment(clientSecret, {
           payment_method: createPaymentStatus.id,
@@ -232,6 +246,8 @@ export default function PauymentLastPage() {
             error: true,
             errorMessage: confirmPaymentError.message
           })
+          submitBtnRef.current.classList.remove('loading')
+          payTextSet('Pay now')
         }
         if (confirmPaymentStatus) {
           console.log('confirmPaymentStatus: ', confirmPaymentStatus);
@@ -240,15 +256,21 @@ export default function PauymentLastPage() {
             successMessage: "Success"
           })
           dispatch(isActivePaymentModalSet(true))
-          // FIXME: на проде вернуть очистку корзины
-          // dispatch(clearProducts())
+          dispatch(clearProducts())
+          submitBtnRef.current.classList.remove('loading')
+          payTextSet('Pay now');
         }
       } catch (error) {
         console.log(error);
+        submitBtnRef.current.classList.remove('loading')
+        payTextSet('Pay now')
       }
     } else {
       paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
-      document.body.scrollIntoView(messageElementRef.current)
+      messageElementRef.current.scrollIntoView({block: "start", behavior: "smooth"})
+
+      submitBtnRef.current.classList.remove('loading')
+      payTextSet('Pay now')
     }
   };
 
@@ -327,7 +349,7 @@ export default function PauymentLastPage() {
 
     } else {
       paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
-      document.body.scrollIntoView(messageElementRef.current)
+      messageElementRef.current.scrollIntoView({block: "start", behavior: "smooth"})
     }
   }
 
@@ -369,7 +391,7 @@ export default function PauymentLastPage() {
       const { error, errorMessage, errorCode, success, successMessage } = stripeStatus;
       if (errorCode) {
         paymentMessageSet({ active: true, message: errorMessage })
-        document.body.scrollIntoView(messageElementRef.current)
+        messageElementRef.current.scrollIntoView({block: "start", behavior: "smooth"})
       }
     } catch (error) {
 
@@ -522,6 +544,22 @@ export default function PauymentLastPage() {
           </div>}
         />
 
+
+
+        <div className="payment-payment__action-buttons">
+          <button
+            ref={submitBtnRef}
+            disabled={!stripe || !elements}
+            id="submit"
+            type="submit"
+            className="ui-btn payment__btn payment-payment__action-btn">
+            <span id="button-text">{payText}</span>
+          </button>
+          <Link href="/payment">
+            <a className="payment__btn payment__btn_transparent payment-payment__action-btn">Return to shipping</a>
+          </Link>
+        </div>
+
         <div className="payment-payment__head-for-form-second">
           <p className="payment__title payment-payment__title">Billing address</p>
           <p className="payment__description payment-payment__description">Select the address that matches your card or payment method</p>
@@ -628,19 +666,6 @@ export default function PauymentLastPage() {
             </div>
           </div>}
         />
-
-        <div className="payment-payment__action-buttons">
-          <button
-            disabled={!stripe || !elements}
-            id="submit"
-            type="submit"
-            className="payment__btn payment-payment__action-btn">
-            <span id="button-text">Pay now</span>
-          </button>
-          <Link href="/payment">
-            <a className="payment__btn payment__btn_transparent payment-payment__action-btn">Return to shipping</a>
-          </Link>
-        </div>
 
       </form>
 
