@@ -504,6 +504,10 @@ export default function CompareSpecifications({ items, mainSegway, excludeIdsToC
                 slidesPerView: 3
               }
             }}>
+
+            {/* Заглушка */}
+            <SwiperSlide className="compare-specfications__slide compare-specfications__slide_empty"></SwiperSlide>
+            
             {allModels.map((item) => {
               const {
                 id,
