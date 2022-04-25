@@ -19,7 +19,7 @@ export default function HomePage({ allData }) {
           <CategorySlider
             keySlider="mainPageSliderKickscooters"
             title="KICKSCOOTER"
-            products={allData.segways} />
+            products={allData.kickskooters} />
           <div className="main-page__info-link">
             <InfoLink label="How to choose a KICKSCOOTER?" />
           </div>

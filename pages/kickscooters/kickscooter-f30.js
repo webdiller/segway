@@ -84,7 +84,7 @@ export default function ModelPage({ allData }) {
             F30
           </>
         }
-        currentSegway={allData.segways[6]}
+        currentSegway={allData.kickskooters[6]}
       />
       <Tabs
         showApp
@@ -105,7 +105,7 @@ export default function ModelPage({ allData }) {
           tool and more.
         </>}
       />
-      <PackingListDinamic packingListYoutubeEmbedId={allData.segways[6].packingListYoutubeEmbedId} packingListImg={allData.segways[6].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={allData.kickskooters[6].packingListYoutubeEmbedId} packingListImg={allData.kickskooters[6].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -386,8 +386,8 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic manualImgPath={allData.segways[6].manualImgPath} downloadManualHref={allData.segways[6].downloadManual} />
-      <CompareSpecificationsDinamic items={allData.segways} mainSegway={allData.segways[6]} />
+      <DownloadManualDinamic manualImgPath={allData.kickskooters[6].manualImgPath} downloadManualHref={allData.kickskooters[6].downloadManual} />
+      <CompareSpecificationsDinamic items={allData.kickskooters} mainSegway={allData.kickskooters[6]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
 
@@ -409,13 +409,13 @@ export default function ModelPage({ allData }) {
         widthMobile={375}
         heightMobile={354}
         customClass="ks-e-45"
-        item={allData.segways[6]}
+        item={allData.kickskooters[6]}
       />
 
-      <OtherModelsDinamic items={allData.segways} />
+      <OtherModelsDinamic items={allData.kickskooters} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.segways[6].galleryImages} />
+      <FancyModal images={allData.kickskooters[6].galleryImages} />
     </>
   );
 }
@@ -424,7 +424,7 @@ export async function getStaticProps() {
   return {
     props: {
       allData: data,
-      product: data.segways[6],
+      product: data.kickskooters[6],
       preparedProtection: data.accessoeries[2]
     }
   };

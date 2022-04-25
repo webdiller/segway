@@ -111,7 +111,9 @@ export const data = {
       quantity: 1
     }
   ],
-  segways: [
+  // Переименовать файл в products
+  // Возможность менять конт инфу
+  kickskooters: [
     // number:1, index: 0, name: max 
     {
       id: "id=006&warranty=null&color=000000",
@@ -1228,4 +1230,14 @@ export const data = {
       posterSrc: "/blog/blog-4.jpg",
     },
   ],
+  contactInfo: {
+    contacPhone: {
+      label: "+1 (888) 590-2694",
+      href: "tel:+18885902694"
+    },
+    contactWhatsapp: {
+      label: "",
+      href: "https://api.whatsapp.com/send?phone=15852135977"
+    }
+  }
 };

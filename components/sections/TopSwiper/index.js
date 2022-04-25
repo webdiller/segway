@@ -89,7 +89,7 @@ export default function TopSwiper({ items }) {
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {items.segways.map(({ id, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {items.kickskooters.map(({ id, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null

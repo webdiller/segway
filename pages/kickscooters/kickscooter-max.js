@@ -85,12 +85,12 @@ export default function ModelPage({ allData }) {
             MAX
           </>
         }
-        currentSegway={allData.segways[0]}
+        currentSegway={allData.kickskooters[0]}
       />
 
       <Tabs />
 
-      <PackingListDinamic packingListYoutubeEmbedId={allData.segways[0].packingListYoutubeEmbedId} packingListImg={allData.segways[0].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={allData.kickskooters[0].packingListYoutubeEmbedId} packingListImg={allData.kickskooters[0].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -300,10 +300,10 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic manualImgPath={allData.segways[0].manualImgPath} downloadManualHref={allData.segways[0].downloadManual} />
+      <DownloadManualDinamic manualImgPath={allData.kickskooters[0].manualImgPath} downloadManualHref={allData.kickskooters[0].downloadManual} />
       <CompareSpecificationsDinamic
-        items={allData.segways}
-        mainSegway={allData.segways[0]} />
+        items={allData.kickskooters}
+        mainSegway={allData.kickskooters[0]} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
 
@@ -325,12 +325,12 @@ export default function ModelPage({ allData }) {
         widthMobile={375}
         heightMobile={248}
         customClass="wide-image"
-        item={allData.segways[0]}
+        item={allData.kickskooters[0]}
       />
 
-      <OtherModelsDinamic items={allData.segways} />
+      <OtherModelsDinamic items={allData.kickskooters} />
       <DiscountModalDinamic />
-      <FancyModal images={allData.segways[0].galleryImages} />
+      <FancyModal images={allData.kickskooters[0].galleryImages} />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
     </>
   );
@@ -340,7 +340,7 @@ export async function getStaticProps() {
   return {
     props: {
       allData: data,
-      product: data.segways[0],
+      product: data.kickskooters[0],
       preparedProtection: data.accessoeries[2]
     }
   };
