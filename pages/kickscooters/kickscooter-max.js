@@ -79,7 +79,7 @@ export default function ModelPage({ allData }) {
             "@context": "https://schema.org/", 
             "@type": "Product", 
             "name": "Ninebot Kickscooter MAX",
-            "image": "/ninebot-kickscooter-max-006.png",
+            "image": "https://segway.vercel.app/ninebot-kickscooter-max-006.png",
             "description": "Ninebot Kickscooter MAX description",
             "brand": {
               "@type": "Brand",
