@@ -66,12 +66,36 @@ const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPay
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
+import Script from 'next/script'
 
 export default function ModelPage({ allData }) {
 
   return (
     <>
-      <CustomHead title="Kickscooter Max" />
+      <CustomHead title="Kickscooter Max" ></CustomHead>
+      <Script strategy='lazyOnload' id="ks-max-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": "Ninebot Kickscooter MAX",
+          "image": "/ninebot-kickscooter-max-006.png",
+          "description": "Ninebot Kickscooter MAX description",
+          "brand": {
+            "@type": "Brand",
+            "name": "Segway"
+          },
+          "sku": "id=006&warranty=null&color=000000",
+          "review": [{
+            "@type": "Review",
+            "reviewBody": "Very nice product",
+            "author": { "@type": "Person", "name": "Sonya" }
+          }, {
+            "@type": "Review",
+            "reviewBody": "Super good",
+            "author": { "@type": "Person", "name": "Alex" }
+          }]
+        })
+      }} />
       <Welcome
         titleDesktop={
           <>

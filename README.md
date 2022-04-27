@@ -32,6 +32,37 @@ https://docs.affirm.com/developers/docs/transactions-web
 https://docs.affirm.com/developers/docs/create-a-checkout-object
 https://docs.affirm.com/developers/reference/the-item-object
 
-alex-tabuinov
-bestpizzaissalami
-mammamiya@gmail.ru
+extend
+
+Может ли человек оформлять заказ через extend без гарантии для сегвея? Например выбран ks-max-white без гарантии.
+
+
+1. Импорт каталога через API
+2. СОздание контракта
+
+
+I'm attaching a technical presentation and some notes in this email. We can discuss more on Thursday. Focusing mainly on the third slide in this presentation, at a high level the integration steps should look as below:
+
+1) Product Sync - We would like to get your product catalog (Simar included a template in his previous email). This will help us make sure all warrantable products in your catalog have appropriate warranty plans mapped to them on our end. This is important to successfully render offers in step 2. 
+
+2) Offers - You can leverage the offers API to fetch offers on your website, using your store id (available on the merchant portal) and product reference id (unique product identifier in your product catalog. Again, to reiterate, we do need to make sure whichever product you are initially testing with, is actually set up in our system and marked as "warrantable" with plans so you can see offers.
+3) Contracts - Once a customer makes a purchase with a warranty with a product, you can leverage our contract creation API to send over the order information so that we can create a contract in our system and begin coverage for the product. We will also send the customer email with our terms and conditions so please include customer email in this API call. It will be useful to create contracts once a product is fulfilled (the customer actually has it in hand) so that we don't begin warranty coverage too early. We can talk about options for doing this in our next call. 
+
+4) Refunds/Cancellations - If a customer would like to return a warranty they purchased, you will process it as a regular cancellation per your store policy and let us know through our contracts refund endpoint so that we can terminate the contract on our end and make necessary adjustments to the monthly invoice we send you. We will email the customer letting them know their contract is cancelled, so please include customer email in this API call as well.
+
+Let me know if you have any questions as you go through the API documentation as well as this deck.
+
+1. 
+Пользователь посылает запрос на синхронизацию продуктов.
+Посылается запрос с продуктом(ами)
+При успехе, в ответ приходит тот же самый массив
+
+Ребята с extend пока не создали чат, но вот личная почта нашего тех спеца ankita.gupta@extend.com
+
+Можешь написать, что ты от cherry Wheel LLC, и задавать любые вопросы(можно и через Гугл переводчик) думаю поймут все
+
+Flow в идеале сохранить наш, можешь в принципе уточнить насколько возможно, что обязательно к использованию, а что нет, ответят на все вопросы
+
+Т.е. мне нужно вначале узнать как устроен flow на simplyev, чтобы понимать что на клиенте нужно отображать? Т.к. на simplyev я заметил что extended можно отдельно приобретать для 
+
+Hi. I'm John from cherry Wheel LLC as web developer for segway.vercel.app. Now we are now integrating your  'extend' system for our products. We want to make a choice of warranty for the product like on this website: https://simplyev.com. This website has custom flow to choise warranty for products.

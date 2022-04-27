@@ -9,6 +9,7 @@ import paymentClose from '@/base/icons/payment-close.svg'
 
 import paymentsLarge from '@/base/payments-large.jpg'
 import paymentsSmall from '@/base/payments-small.jpg'
+import iconExtend from '@/base/icon-extend.jpg'
 import iconPaypel from '@/base/icon-paypel.svg'
 import iconAffirm from '@/base/icon-affirm.svg'
 import iconCoinbase from '@/base/icon-coinbase.svg'
@@ -50,6 +51,7 @@ import { isActivePaymentModalSet } from 'store/slices/paymentModalSlice';
 import { clearProducts } from 'store/slices/productCartSlice';
 import prepareProductsForAffirm from '@/helpers/prepareProductsForAffirm';
 import prepareMetadataForStripe from '@/helpers/prepareMetadataForStripe';
+import prepareProductsForExtend from '@/helpers/prepareProductsForExtend';
 
 export default function PauymentLastPage() {
 
@@ -272,6 +274,42 @@ export default function PauymentLastPage() {
     }
   };
 
+  const handleSubmitExtend = async (e) => {
+    e.preventDefault();
+
+    let config = {
+      method: "GET",
+      // PRODUCTION
+      // url: `https://api.helloextend.com/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}/products`,
+
+      // DEV
+      url: `https://api-demo.helloextend.com/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}/products`,
+      headers: {
+        'Accept': 'application/json; version=2021-04-01',
+        'Content-Type': 'application/json',
+        'X-Extend-Access-Token': `${process.env.NEXT_PUBLIC_EXTEND_API_ID_DEV}`,
+      },
+    };
+
+    if (products.length > 0) {
+      console.log(prepareProductsForExtend(products));
+      try {
+        const res = await axios(config);
+        console.log(res);
+      } catch (error) {
+        submitBtnRef.current.classList.remove('loading')
+        payTextSet('Pay now')
+        console.log('error: ', error);
+      }
+    } else {
+      paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
+      messageElementRef.current.scrollIntoView({ block: "start", behavior: "smooth" })
+
+      submitBtnRef.current.classList.remove('loading')
+      payTextSet('Pay now')
+    }
+  }
+
   const handleSubmitPaypel = async (e) => {
     e.preventDefault();
   }
@@ -404,10 +442,11 @@ export default function PauymentLastPage() {
         className="payment-payment"
         onSubmit={
           paymentMethod == 'paymentMethodsCreditCard' ? handleSubmitStripe
-            : paymentMethod == 'paymentMethodsPaypel' ? handleSubmitPaypel
-              : paymentMethod == 'paymentMethodsAffirm' ? handleSubmitAffirm
-                : paymentMethod == 'paymentMethodsCoinbase' ? handleSubmitCoinbase
-                  : handleSubmitStripe
+            : paymentMethod == 'paymentMethodsExtend' ? handleSubmitExtend
+              : paymentMethod == 'paymentMethodsPaypel' ? handleSubmitPaypel
+                : paymentMethod == 'paymentMethodsAffirm' ? handleSubmitAffirm
+                  : paymentMethod == 'paymentMethodsCoinbase' ? handleSubmitCoinbase
+                    : handleSubmitStripe
         }>
 
         <div className="payment-payment__status">
@@ -480,6 +519,26 @@ export default function PauymentLastPage() {
                   options={stripeElementOptionsCode}
                   id="card-cvv" />
               </CustomInput></div>
+          </div>}
+        />
+
+        <RadioWrapper
+          currentValue={paymentMethod}
+          handler={setPaymentMethod}
+          radioName="paymentMethod"
+          value="paymentMethodsExtend"
+          id="paymentMethodsExtend"
+
+          hideSecondChildOnBlur
+          customClass="bb-0"
+          firstChildren={
+            <div className="payment-radio__payment-image">
+              <Image width={30} height={30} objectFit="contain" src={iconExtend} alt="Icon payment" />
+            </div>
+          }
+          secondChildren={<div className="payment-radio__description">
+            After clicking “Complete order”, you will be redirected <br />
+            to Extend to complete your purchase securely.
           </div>}
         />
 

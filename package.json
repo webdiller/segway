@@ -22,6 +22,8 @@
     "cuid": "^2.1.8",
     "disable-scroll": "^0.6.0",
     "framer-motion": "^6.2.8",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "inputmask": "^5.0.6",
     "next": "12.1",
     "next-images": "^1.8.4",
