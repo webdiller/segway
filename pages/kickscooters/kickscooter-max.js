@@ -84,17 +84,27 @@ export default function ModelPage({ allData }) {
             "@type": "Brand",
             "name": "Segway"
           },
-          "sku": "id=006&warranty=null&color=000000",
-          "review": [{
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "5",
+            "ratingCount": "1",
+            "reviewCount": "1"
+          },
+          "review": {
             "@type": "Review",
-            "reviewBody": "Very nice product",
-            "author": { "@type": "Person", "name": "Sonya" }
-          }, {
-            "@type": "Review",
-            "reviewBody": "Super good",
-            "author": { "@type": "Person", "name": "Alex" }
-          }]
-        })
+            "name": "Alex",
+            "reviewBody": "Super good product",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5",
+              "worstRating": "5"
+            },
+            "datePublished": "2022-04-19",
+            "author": { "@type": "Person", "name": "John" }
+          })
       }} />
       <Welcome
         titleDesktop={
