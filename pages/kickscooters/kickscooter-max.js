@@ -74,37 +74,40 @@ export default function ModelPage({ allData }) {
     <>
       <CustomHead title="Kickscooter Max" ></CustomHead>
       <Script strategy='lazyOnload' id="ks-max-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org/",
-          "@type": "Product",
-          "name": "Ninebot Kickscooter MAX",
-          "image": "/ninebot-kickscooter-max-006.png",
-          "description": "Ninebot Kickscooter MAX description",
-          "brand": {
-            "@type": "Brand",
-            "name": "Segway"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "worstRating": "5",
-            "ratingCount": "1",
-            "reviewCount": "1"
-          },
-          "review": {
-            "@type": "Review",
-            "name": "Alex",
-            "reviewBody": "Super good product",
-            "reviewRating": {
-              "@type": "Rating",
+        __html: JSON.stringify(
+          {
+            "@context": "https://schema.org/", 
+            "@type": "Product", 
+            "name": "Ninebot Kickscooter MAX",
+            "image": "/ninebot-kickscooter-max-006.png",
+            "description": "Ninebot Kickscooter MAX description",
+            "brand": {
+              "@type": "Brand",
+              "name": "Segway"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
               "ratingValue": "5",
               "bestRating": "5",
-              "worstRating": "5"
+              "worstRating": "5",
+              "ratingCount": "1",
+              "reviewCount": "1"
             },
-            "datePublished": "2022-04-19",
-            "author": { "@type": "Person", "name": "John" }
-          })
+            "review": {
+              "@type": "Review",
+              "name": "Alex",
+              "reviewBody": "Super good product",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5",
+                "worstRating": "5"
+              },
+              "datePublished": "2022-04-19",
+              "author": {"@type": "Person", "name": "John"}
+            }
+          }
+        )
       }} />
       <Welcome
         titleDesktop={
