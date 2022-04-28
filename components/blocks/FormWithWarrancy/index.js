@@ -113,7 +113,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
           <div className="form-with-warrancy__form-prices-subtitle-image">
             {/* PRICES */}
             <div className="form-with-warrancy__form-prices">
-              <p className="form-with-warrancy__form-price-old">${`${(currentPrice * 0.9).toFixed(2)}`}</p>
+              <p className="form-with-warrancy__form-price-old">${`${(currentPrice * 1.1).toFixed(2)}`}</p>
               <p className="form-with-warrancy__form-price-new">${currentPrice}</p>
             </div>
             <div className="form-with-warrancy__title-with-image">

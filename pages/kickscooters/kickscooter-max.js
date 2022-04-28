@@ -124,12 +124,9 @@ export default function ModelPage({ allData }) {
         }
         currentSegway={allData.kickskooters[0]}
       />
-
       <Tabs />
-
       <PackingListDinamic packingListYoutubeEmbedId={allData.kickskooters[0].packingListYoutubeEmbedId} packingListImg={allData.kickskooters[0].packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
-
       <LargeImageDinamic
         desktopWidth={1376}
         desktopHeight={567}
