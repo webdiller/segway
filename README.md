@@ -66,3 +66,11 @@ Flow в идеале сохранить наш, можешь в принципе
 Т.е. мне нужно вначале узнать как устроен flow на simplyev, чтобы понимать что на клиенте нужно отображать? Т.к. на simplyev я заметил что extended можно отдельно приобретать для 
 
 Hi. I'm John from cherry Wheel LLC as web developer for segway.vercel.app. Now we are now integrating your  'extend' system for our products. We want to make a choice of warranty for the product like on this website: https://simplyev.com. This website has custom flow to choise warranty for products.
+
+Пришел ответ:
+
+You should be able to use the Offer API to recreate that modal functionality from simplyev site. Ideally, once we have your product catalog, we map warranty plans to your products so that you can see those offers appear for your products. For development purposes, please see this SDK document in case it's easier for you to use this approach along with API.
+
+https://helloextend.github.io/extend-sdk-client/
+
+Так же назначили в четверг(сегодня уже) созвон с их тех спецом
