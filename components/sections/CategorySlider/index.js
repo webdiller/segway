@@ -103,7 +103,7 @@ export default function CategorySlider({ customClassNames, title, products, type
 
                   <div className="category-slider__img-with-content">
                     <Link href={pageLinkNameWithCategory || pageLinkName}>
-                      <a className="category-slider__overlay-link"></a>
+                      <a href={pageLinkNameWithCategory || pageLinkName} className="category-slider__overlay-link"></a>
                     </Link>
                     <div className="category-slider__image">
                       <Image
@@ -138,7 +138,7 @@ export default function CategorySlider({ customClassNames, title, products, type
                     </button>
                   ) : (
                     <Link href={pageLinkNameWithCategory || pageLinkName}>
-                      <a className="ui-btn category-slider__see-more">
+                      <a href={pageLinkNameWithCategory || pageLinkName} className="ui-btn category-slider__see-more">
                         <span>SEE MORE</span>
                       </a>
                     </Link>
