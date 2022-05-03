@@ -63,7 +63,7 @@ export const calculateTotalPrice = (products) => {
   /** Подарок есть */
   if (excludePriceForGift) {
     // FIXME: на проде вернуть прежнюю цену калькулции
-    total = total - 1.50
+    total = total - 29.99
   }
 
   return total;

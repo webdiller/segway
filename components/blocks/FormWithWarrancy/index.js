@@ -73,7 +73,6 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
   return (
     <>
-
       {!mediaQuery && product.colors && (
         <Colors productName={product.shortName} colors={product.colors} />
       )}
