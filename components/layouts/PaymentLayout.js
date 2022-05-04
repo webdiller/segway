@@ -7,7 +7,7 @@ import PaymentTopNavigation from '@/sections/PaymentTopNavigation';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_DEV)
 
 export default function PaymentLayout({ title = 'Segway', description = 'Описание', children, accessoeries }) {
   return (

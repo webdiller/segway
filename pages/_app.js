@@ -12,6 +12,7 @@ import MainPageLayout from '@/layouts/MainPageLayout';
 import 'nprogress/nprogress.css'; //styles of nprogress
 import '../styles/index.scss';
 import InfoPageLayout from '@/layouts/InfoPageLayout';
+import AdminLayout from '@/layouts/AdminLayout';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -25,13 +26,15 @@ function MyApp({ Component, pageProps, router }) {
     router.pathname.startsWith('/blog') ||
     router.pathname.startsWith('/reviews');
 
+  let conditionForAdminLayout = router.route.startsWith('admin');
   let conditionForMainPageLayout = router.route === '/kickscooters' || router.route === '/' || router.route === '/gokarts' || router.route === '/accessories';
   let conditionForPaymentLayout = router.pathname.startsWith('/payment');
-  let conditionForInfoPageLayout = router.route === '/shipping-and-payment' 
-  || router.route === '/terms-and-conditions' 
-  || router.route === '/privacy-policy' 
-  || router.route === '/wholesale' 
-  || router.route === '/contacts'
+  let conditionForInfoPageLayout =
+    router.route === '/shipping-and-payment'
+    || router.route === '/terms-and-conditions'
+    || router.route === '/privacy-policy'
+    || router.route === '/wholesale'
+    || router.route === '/contacts'
 
   if (conditionForModelLayout) {
     return (
@@ -82,7 +85,9 @@ function MyApp({ Component, pageProps, router }) {
       <StrictMode>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Component {...pageProps} />
+            <AdminLayout {...pageProps}>
+              <Component {...pageProps} />
+            </AdminLayout>
           </PersistGate>
         </Provider>
       </StrictMode>

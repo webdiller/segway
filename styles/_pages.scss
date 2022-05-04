@@ -43,7 +43,7 @@
   &__sliders {
     padding-top: 51px;
     padding-bottom: 46px;
-    background: linear-gradient(0deg, #EEEEEE 0%, rgba(245, 245, 245, 0.79) 43.81%, rgba(255, 255, 255, 0) 82.46%);
+    background: linear-gradient(0deg, #eeeeee 0%, rgba(245, 245, 245, 0.79) 43.81%, rgba(255, 255, 255, 0) 82.46%);
     @include media('<=768px') {
       padding-top: 34px;
       padding-bottom: 37px;
@@ -58,5 +58,47 @@
   &__videos {
     margin-top: 60px;
     margin-bottom: 60px;
+  }
+}
+
+.admin-page {
+  &__container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 30px;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  
+  &__content-item {
+    margin-bottom: 50px;
+  }
+
+  &__subtitle {
+  }
+
+  &__subtitle {
+    font-size: 30px;
+    line-height: 1.35;
+  }
+  &__aside {
+    position: relative;
+    &-nav {
+      position: sticky;
+      top: 30px;
+    }
+
+    &-link {
+      display: block;
+      text-align: left;
+      text-decoration: none;
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  &__content {
   }
 }

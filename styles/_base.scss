@@ -576,9 +576,10 @@ img {
   padding-top: 0 !important;
 }
 
-#__next {
-  overflow-y: hidden;
-}
+// FIXME: Зачем это свойство?
+// #__next {
+//   overflow-y: hidden;
+// }
 
 .custom-input {
   position: relative;
