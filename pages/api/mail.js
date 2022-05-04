@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 export default async function handler(req, res) {
-  
+
   const { fromWhere, formFromOtherModelsName, formFromOtherModelsPhone } = req.body;
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -11,6 +11,17 @@ export default async function handler(req, res) {
       pass: process.env.GMAIL_SERVICE_PASS
     }
   });
+
+  let userAddress;
+  try {
+    const userAddressRes = await fetch('https://api.ipregistry.co/?key=gv4hieouxum6rrfl')
+    userAddress = await userAddressRes.json();
+    userAddress = `${userAddress.location.country.name}, ${userAddress.location.city}`
+  } catch (error) {
+    console.log(error);
+  }
+
+  console.log(userAddress);
 
   await new Promise((resolve, reject) => {
     transporter.verify(function (error, success) {
@@ -33,6 +44,7 @@ export default async function handler(req, res) {
       <p>Вызов из: ${fromWhere}</p>
       <p>Имя пользователя: ${formFromOtherModelsName || 'Не указано'}</p>
       <p>Телефон пользователя: ${formFromOtherModelsPhone}</p>
+      <p>Страна / регион пользователя: ${userAddress || 'Не указано'}</p>
     `
   };
 
