@@ -73,7 +73,8 @@ export default function ModelPage({ allData }) {
   return (
     <>
       <CustomHead title="Kickscooter Max" ></CustomHead>
-      <Script strategy='lazyOnload' id="ks-max-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
+      {/* FIXME: Убрать */}
+      {/* <Script strategy='lazyOnload' id="ks-max-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify(
           {
             "@context": "https://schema.org/", 
@@ -108,7 +109,7 @@ export default function ModelPage({ allData }) {
             }
           }
         )
-      }} />
+      }} /> */}
       <Welcome
         titleDesktop={
           <>
