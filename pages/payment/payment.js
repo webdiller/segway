@@ -293,8 +293,7 @@ export default function PauymentLastPage() {
             // dispatch(clearProducts())
             submitBtnRef.current.classList.remove('loading')
             payTextSet('Pay now');
-
-            /** Отправка письма начало */
+            /** Отправка письма началою Без гарантии */
             try {
               let config = {
                 method: 'post',
@@ -302,7 +301,9 @@ export default function PauymentLastPage() {
                 headers: {
                   'Content-Type': 'application/json',
                 },
-                data: JSON.stringify(products)
+                data: {
+                  products,
+                }
               };
               const { data } = await axios(config)
               console.log(data);
@@ -435,6 +436,26 @@ export default function PauymentLastPage() {
             // dispatch(clearProducts())
             submitBtnRef.current.classList.remove('loading')
             payTextSet('Pay now');
+
+            /** Отправка письма началою С гарантией */
+            try {
+              let config = {
+                method: 'post',
+                url: `/api/mail/sendEmailForPayment`,
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                data: {
+                  products,
+                  contracts
+                }
+              };
+              const { data } = await axios(config)
+              console.log(data);
+            } catch (error) {
+              console.log(error);
+            }
+            /** Отправка письма конец */
           }
         } catch (error) {
           console.log(error);

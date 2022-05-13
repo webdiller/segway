@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 export default async function handler(req, res) {
 
-  const { products } = req.body;
+  const { products, contracts } = req.body;
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -34,19 +34,35 @@ export default async function handler(req, res) {
     });
   });
 
-  const mailData = {
-    from: "eugenefromrus@gmail.com",
-    to: process.env.EMAIL_SEND_TO,
-    subject: `Оплаченные продукты без гарантий`,
-    html: `
-      <h1>Оплаченные продукты без гарантий</h1>
-    `,
-    attachments: [
+  let attachments = []
+  if (contracts && products) {
+    attachments = [
+      {
+        filename: 'products.json',
+        content: JSON.stringify(products)
+      },
+      {
+        filename: 'contracts.json',
+        content: JSON.stringify(contracts)
+      }
+    ]
+  } else {
+    attachments = [
       {
         filename: 'products.json',
         content: JSON.stringify(products)
       }
     ]
+  }
+
+  const mailData = {
+    from: "eugenefromrus@gmail.com",
+    to: process.env.EMAIL_SEND_TO,
+    subject: `Оплаченные продукты`,
+    html: `
+      <h1>Оплаченные продукты</h1>
+    `,
+    attachments: attachments
   };
 
   await new Promise((resolve, reject) => {
