@@ -7,6 +7,7 @@ export default async function createPaymentIntentStripe(req, res) {
     if (!amount && !metadata) {
       return res.status(400).json({ error: 'Missing required session parameters' })
     }
+
     try {
       const paymentIntent = await stripeAPI.paymentIntents.create({
         amount,

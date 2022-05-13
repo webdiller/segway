@@ -83,6 +83,7 @@
     font-size: 30px;
     line-height: 1.35;
   }
+
   &__aside {
     position: relative;
     &-nav {
@@ -99,6 +100,21 @@
       }
     }
   }
+
   &__content {
+  }
+
+  &__form {
+    margin: 20px 0 0 0;
+    padding: 15px 20px;
+    border: 1px solid rgba(153, 153, 153, 0.33);
+    max-width: 500px;
+    &-title {
+      margin-bottom: 10px;
+    }
+    &-group {
+      margin-bottom: 10px;
+    }
+    &-btn {}
   }
 }

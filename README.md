@@ -119,3 +119,10 @@ https://helloextend.github.io/extend-sdk-client/
 3. Проводим оплату
   При успехе, в страйп попадает продукт-контракт
   Иначе продукт-контракт удаляем
+
+
+Team
+vercel.com/segway/segway
+
+Project
+prj_8JH1vIUopgBpMeFZmYYgyHHz6Dei

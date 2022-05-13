@@ -32,8 +32,10 @@ export const data = {
       nameWrap: "Segway Protective \n Gear Set",
       description: "The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.",
       price: "29.99",
-      priceId: "price_1KrHWuC3bu2cRJ58EdxcFTmS",
-      stripeId: "prod_LYOJ4m94RVvOCf",
+      stripeId: "prod_LfYZ3CFV6LewuN",
+      stripeIdFree: "prod_LfYa36j2ZLsh8A",
+      priceIdFree: "price_1KyDTBC3bu2cRJ58p1kGnsAi",
+      priceId: "price_1KyDSWC3bu2cRJ583M8krmam",
       imgPath: "/accessory-3.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -69,7 +71,8 @@ export const data = {
       nameWrap: "Segway \n Charger",
       description: "Whether at home, the office, or on your KickScooter journey, this Ninebot KickScooter by Segway Charger is designed to provide a safe and stable charge anytime, anywhere.",
       price: "79.99",
-      priceId: "",
+      stripeId: "prod_Ldgu0zeLlSZWbL",
+      priceId: "price_1KwPWvC3bu2cRJ58phcDBntF",
       imgPath: "/accessory-6.png",
       pageLinkName: "accessories",
       quantity: 1
@@ -151,19 +154,19 @@ export const data = {
         {
           durationYear: 1,
           priceId: "price_1KrHa0C3bu2cRJ58vvTtZoqs",
-          price: 1,
+          price: 139,
           oldPrice: 1188
         },
         {
           durationYear: 2,
           priceId: "price_1KrHa0C3bu2cRJ58OQWLcUAu",
-          price: 2,
+          price: 209,
           oldPrice: 1258
         },
         {
           durationYear: 3,
           priceId: "price_1KrHa0C3bu2cRJ58Zmb6NKmD",
-          price: 3,
+          price: 279,
           oldPrice: 1328
         }
       ],
@@ -591,6 +594,10 @@ export const data = {
       pageLinkName: "kickscooter-air-t15",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-air-t15",
       price: "819.99",
+
+      stripeId: "prod_LdgsL7q2cWiDxE",
+      priceId: "price_1KwPUJC3bu2cRJ58wtiZT7Y1",
+
       oldPrice: "1049",
       maxSpeed: "Approx. 12.4 mph (20km/h)",
       rangeByMiles: "Approx. 7.5 miles (12km)",
@@ -612,16 +619,19 @@ export const data = {
         {
           durationYear: 1,
           price: 139,
+          priceId: "price_1KwPUJC3bu2cRJ58KbmfEBoo",
           oldPrice: 1188
         },
         {
           durationYear: 2,
           price: 209,
+          priceId: "price_1KwPUJC3bu2cRJ588iuoQnXs",
           oldPrice: 1258
         },
         {
           durationYear: 3,
           price: 279,
+          priceId: "price_1KwPUJC3bu2cRJ58zpk0kEKt",
           oldPrice: 1328
         }
       ],
@@ -880,6 +890,7 @@ export const data = {
     {
       excludeForMap: true,
       id: "id=011&warranty=null&color=6D7DDF",
+      referenceId: "kickscooter-zing-e8-purple",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ZING E8",
@@ -892,6 +903,8 @@ export const data = {
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
       price: "249.99",
       oldPrice: "1049",
+      priceId: "price_1KxnkVC3bu2cRJ584KwlghBU",
+      stripeId: "prod_Lf80Uk3sxnQcY3",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
       rangeByMilesWrap: "6.2 miles",
@@ -915,17 +928,26 @@ export const data = {
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 219.99,     
+          planId: "B9-SGEBK-1y", 
+          planPrice: 219.99,
+          priceId: "price_1KxnkVC3bu2cRJ58odqYXbLI",
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 419.99,  
+          planId: "B9-SGEBK-2y", 
+          planPrice: 419.99, 
+          priceId: "price_1KxnkVC3bu2cRJ58pWG7FEMT",
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 599.99,   
+          planId: "B9-SGEBK-3y", 
+          planPrice: 599.99, 
+          priceId: "price_1KxnkVC3bu2cRJ58nWmN9Szy",
           oldPrice: 1328
         }
       ],
@@ -962,6 +984,7 @@ export const data = {
     // number:1, index: 13, name:  e8 pink
     {
       id: "id=011&warranty=null&color=FFBFC0",
+      referenceId: "kickscooter-zing-e8-pink",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ZING E8",
@@ -973,8 +996,9 @@ export const data = {
       pageLinkName: "kickscooter-zing-e8-pink",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
       price: "249.99",
-      priceId: "",
       oldPrice: "1049",
+      priceId: "price_1KxnnyC3bu2cRJ58G4Ebo9B8",
+      stripeId: "prod_Lf846bQugwiH0I",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
       rangeByMilesWrap: "6.2 miles",
@@ -998,20 +1022,26 @@ export const data = {
       warranty: [
         {
           durationYear: 1,
-          price: 139,
-          priceId: "",
+          price: 219.99,
+          priceId: "price_1KxnnzC3bu2cRJ584y1al0Gw",
+          planId: "B9-SGEBK-1y", 
+          planPrice: 219.99,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
-          priceId: "",
+          price: 419.99,
+          priceId: "price_1KxnnzC3bu2cRJ58NJ2uU6ML",
+          planId: "B9-SGEBK-2y", 
+          planPrice: 419.99,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
-          priceId: "",
+          price: 599.99,
+          priceId: "price_1KxnnzC3bu2cRJ58fIG7PwtP",
+          planId: "B9-SGEBK-3y", 
+          planPrice: 599.99,
           oldPrice: 1328
         }
       ],
@@ -1187,6 +1217,7 @@ export const data = {
   bundles: [
     {
       id: "id=016&warranty=null&color=null",
+      type: "bundle",
       name: "Ninebot S MAX",
       price: "1099.99",
       imgPath: "/ninebot-s-max-bundle.png",
@@ -1194,6 +1225,7 @@ export const data = {
     },
     {
       id: "id=017&warranty=null&color=null",
+      type: "bundle",
       name: "Ninebot S",
       price: "599.99",
       imgPath: "/ninebot-s-bundle.png",

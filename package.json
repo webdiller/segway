@@ -50,7 +50,8 @@
     "sass": "^1.43.4",
     "sharp": "^0.29.3",
     "stripe": "^8.211.0",
-    "swiper": "^7.2.0"
+    "swiper": "^7.2.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "eslint": "7.32.0",

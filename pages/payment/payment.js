@@ -9,7 +9,6 @@ import paymentClose from '@/base/icons/payment-close.svg'
 
 import paymentsLarge from '@/base/payments-large.jpg'
 import paymentsSmall from '@/base/payments-small.jpg'
-import iconExtend from '@/base/icon-extend.jpg'
 import iconPaypel from '@/base/icon-paypel.svg'
 import iconAffirm from '@/base/icon-affirm.svg'
 import iconCoinbase from '@/base/icon-coinbase.svg'
@@ -110,6 +109,13 @@ export default function PauymentLastPage() {
     }
   }
 
+  // Функция, определяющая есть ли в массиве объекты с гарантией
+  const detectProductsWithWarranty = (products) => {
+    const condition = product => product.id.includes('warranty=1') || product.id.includes('warranty=2') || product.id.includes('warranty=3')
+    let withWarranty = products.some(condition) || false;
+    return withWarranty;
+  }
+
   const { isActivePaymentModal } = useSelector(state => state.paymentModal)
 
   const {
@@ -157,6 +163,28 @@ export default function PauymentLastPage() {
     phone: billingAddress == 'same' ? `${phone}` : `${differentPhone}`
   }
 
+  const customerDetailsContractExtended = {
+    customer: {
+      name: billingAddress == 'same' ? `${firstName} ${lastName}` : `${differentFirstName} ${differentLastName}`,
+      email: email,
+      phone: billingAddress == 'same' ? `${phone}` : `${differentPhone}`,
+      billingAddress: {
+        address1: billingAddress == 'same' ? `${address}` : `${differentAddress}`,
+        city: billingAddress == 'same' ? `${city}` : `${differentCity}`,
+        countryCode: "US",
+        postalCode: billingAddress == 'same' ? `${zipCode}` : `${differentZipCode}`,
+        provinceCode: billingAddress == 'same' ? `${state}` : `${differentState}`
+      },
+      shippingAddress: {
+        address1: billingAddress == 'same' ? `${address}` : `${differentAddress}`,
+        city: billingAddress == 'same' ? `${city}` : `${differentCity}`,
+        countryCode: "US",
+        postalCode: billingAddress == 'same' ? `${zipCode}` : `${differentZipCode}`,
+        provinceCode: billingAddress == 'same' ? `${state}` : `${differentState}`
+      }
+    },
+  }
+
   const [stripeStatus, stripeStatusSet] = useState({
     error: false,
     errorMessage: null,
@@ -165,113 +193,263 @@ export default function PauymentLastPage() {
     success: false,
     successMessage: null
   });
+
   const [paymentMessage, paymentMessageSet] = useState({
     active: false,
     message: ''
   });
+
   const [payText, payTextSet] = useState('Pay now')
 
   const handleSubmitStripe = async (e) => {
     e.preventDefault();
+    const withWarranty = detectProductsWithWarranty(products);
 
-    let config = {
-      method: "post",
-      url: `/api/stripe/create-payment-intent-stripe`,
-      headers: {
-        "Content-Type": "application/json"
-      },
-      data: {
-        amount: totalPrice * 100,
-        email: billing_details.email,
-        phone: billing_details.phone,
-        metadata: prepareMetadataForStripe(products)
-      }
-    };
+    if (!withWarranty) {
+      let config = {
+        method: "post",
+        url: `/api/stripe/create-payment-intent-stripe`,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        data: {
+          withWarranty: false,
+          products: products,
+          amount: Number(totalPrice * 100).toFixed(),
+          email: billing_details.email,
+          phone: billing_details.phone,
+          metadata: prepareMetadataForStripe(products)
+        }
+      };
 
-    const cardNumber = elements.getElement(CardNumberElement)
+      const cardNumber = elements.getElement(CardNumberElement)
 
-    let clientSecret = null;
-    if (products.length > 0) {
-      try {
-        const { data } = await axios(config);
-        clientSecret = data.clientSecret
+      let clientSecret = null;
+      if (products.length > 0) {
+        try {
+          const { data } = await axios(config);
+          clientSecret = data.clientSecret
 
-        submitBtnRef.current.classList.add('loading')
-        payTextSet('Loading...')
+          submitBtnRef.current.classList.add('loading')
+          payTextSet('Loading...')
 
-      } catch (error) {
-        submitBtnRef.current.classList.remove('loading')
-        payTextSet('Pay now')
-        console.log('error: ', error);
-      }
+        } catch (error) {
+          submitBtnRef.current.classList.remove('loading')
+          payTextSet('Pay now')
+          console.log('error: ', error);
+        }
 
-      try {
-        const { error: createPaymentError, paymentMethod: createPaymentStatus } = await stripe.createPaymentMethod(
-          {
-            type: 'card',
-            card: cardNumber,
-            billing_details,
-            metadata: {
-              phone_number: billing_details.phone,
-              appartment: billingAddress == 'same' ? `${apartment}` : `${differentApartment}`
-            },
+        try {
+          const { error: createPaymentError, paymentMethod: createPaymentStatus } = await stripe.createPaymentMethod(
+            {
+              type: 'card',
+              card: cardNumber,
+              billing_details,
+              metadata: {
+                phone_number: billing_details.phone,
+                appartment: billingAddress == 'same' ? `${apartment}` : `${differentApartment}`
+              },
+            }
+          )
+
+          if (createPaymentError) {
+            stripeStatusSet({
+              error: true,
+              errorCode: createPaymentError.code,
+              errorMessage: createPaymentError.message
+            })
+
+            submitBtnRef.current.classList.remove('loading')
+            payTextSet('Pay now')
           }
-        )
 
-        if (createPaymentError) {
-          stripeStatusSet({
-            error: true,
-            errorCode: createPaymentError.code,
-            errorMessage: createPaymentError.message
+          if (createPaymentStatus) {
+            console.log('createPaymentStatus: ', createPaymentStatus);
+            stripeStatusSet({
+              success: true,
+              successMessage: "Success"
+            })
+          }
+          const { error: confirmPaymentError, paymentIntent: confirmPaymentStatus } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: createPaymentStatus.id,
           })
 
+          if (confirmPaymentError) {
+            console.log('confirmPaymentError: ', confirmPaymentError);
+            stripeStatusSet({
+              error: true,
+              errorMessage: confirmPaymentError.message
+            })
+            submitBtnRef.current.classList.remove('loading')
+            payTextSet('Pay now')
+          }
+          if (confirmPaymentStatus) {
+            console.log('confirmPaymentStatus: ', confirmPaymentStatus);
+            stripeStatusSet({
+              success: true,
+              successMessage: "Success"
+            })
+            dispatch(isActivePaymentModalSet(true))
+            // dispatch(clearProducts())
+            submitBtnRef.current.classList.remove('loading')
+            payTextSet('Pay now');
+
+            /** Отправка письма начало */
+            try {
+              let config = {
+                method: 'post',
+                url: `/api/mail/sendEmailForPayment`,
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                data: JSON.stringify(products)
+              };
+              const { data } = await axios(config)
+              console.log(data);
+            } catch (error) {
+              console.log(error);
+            }
+            /** Отправка письма конец */
+          }
+        } catch (error) {
+          console.log(error);
           submitBtnRef.current.classList.remove('loading')
           payTextSet('Pay now')
         }
+      } else {
+        paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
+        messageElementRef.current.scrollIntoView({ block: "start", behavior: "smooth" })
 
-        if (createPaymentStatus) {
-          console.log('createPaymentStatus: ', createPaymentStatus);
-          stripeStatusSet({
-            success: true,
-            successMessage: "Success"
-          })
-        }
-        const { error: confirmPaymentError, paymentIntent: confirmPaymentStatus } = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: createPaymentStatus.id,
-        })
-
-        if (confirmPaymentError) {
-          console.log('confirmPaymentError: ', confirmPaymentError);
-          stripeStatusSet({
-            error: true,
-            errorMessage: confirmPaymentError.message
-          })
-          submitBtnRef.current.classList.remove('loading')
-          payTextSet('Pay now')
-        }
-        if (confirmPaymentStatus) {
-          console.log('confirmPaymentStatus: ', confirmPaymentStatus);
-          stripeStatusSet({
-            success: true,
-            successMessage: "Success"
-          })
-          dispatch(isActivePaymentModalSet(true))
-          dispatch(clearProducts())
-          submitBtnRef.current.classList.remove('loading')
-          payTextSet('Pay now');
-        }
-      } catch (error) {
-        console.log(error);
         submitBtnRef.current.classList.remove('loading')
         payTextSet('Pay now')
+
       }
     } else {
-      paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
-      messageElementRef.current.scrollIntoView({ block: "start", behavior: "smooth" })
+      const parseProducts = prepareProductsForExtend({ products: products, customer: customerDetailsContractExtended });
+      let config = {
+        method: "post",
+        url: `/api/stripe/create-payment-intent-stripe`,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        data: {
+          withWarranty: true,
+          amount: Number(totalPrice * 100).toFixed(),
+          email: billing_details.email,
+          phone: billing_details.phone,
+          metadata: prepareMetadataForStripe(products)
+        }
+      };
 
-      submitBtnRef.current.classList.remove('loading')
-      payTextSet('Pay now')
+      const cardNumber = elements.getElement(CardNumberElement)
+
+      let clientSecret = null;
+      if (products.length > 0) {
+        try {
+          const { data } = await axios(config);
+          clientSecret = data.clientSecret
+
+          submitBtnRef.current.classList.add('loading')
+          payTextSet('Loading...')
+
+        } catch (error) {
+          submitBtnRef.current.classList.remove('loading')
+          payTextSet('Pay now')
+          console.log('error: ', error);
+        }
+
+        try {
+          const { error: createPaymentError, paymentMethod: createPaymentStatus } = await stripe.createPaymentMethod(
+            {
+              type: 'card',
+              card: cardNumber,
+              billing_details,
+              metadata: {
+                phone_number: billing_details.phone,
+                appartment: billingAddress == 'same' ? `${apartment}` : `${differentApartment}`
+              },
+            }
+          )
+
+          if (createPaymentError) {
+            stripeStatusSet({
+              error: true,
+              errorCode: createPaymentError.code,
+              errorMessage: createPaymentError.message
+            })
+
+            submitBtnRef.current.classList.remove('loading')
+            payTextSet('Pay now')
+          }
+
+          if (createPaymentStatus) {
+            console.log('createPaymentStatus: ', createPaymentStatus);
+            stripeStatusSet({
+              success: true,
+              successMessage: "Success"
+            })
+          }
+          const { error: confirmPaymentError, paymentIntent: confirmPaymentStatus } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: createPaymentStatus.id,
+          })
+
+          if (confirmPaymentError) {
+            console.log('confirmPaymentError: ', confirmPaymentError);
+            stripeStatusSet({
+              error: true,
+              errorMessage: confirmPaymentError.message
+            })
+            submitBtnRef.current.classList.remove('loading')
+            payTextSet('Pay now')
+          }
+          if (confirmPaymentStatus) {
+            /*
+              Создаем контракты
+              Посылаем файл на почту
+            */
+            const contracts = parseProducts.filter(prod => prod.plan)
+
+            try {
+              let config = {
+                method: "post",
+                url: `/api/extend/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}/contracts`,
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                data: {
+                  products: parseProducts,
+                  contracts: contracts
+                }
+              };
+              const { data } = await axios(config);
+              console.log(data);
+            } catch (error) {
+              console.log(error);
+            }
+            console.log('confirmPaymentStatus: ', confirmPaymentStatus);
+            stripeStatusSet({
+              success: true,
+              successMessage: "Success"
+            })
+            dispatch(isActivePaymentModalSet(true))
+            // dispatch(clearProducts())
+            submitBtnRef.current.classList.remove('loading')
+            payTextSet('Pay now');
+          }
+        } catch (error) {
+          console.log(error);
+          submitBtnRef.current.classList.remove('loading')
+          payTextSet('Pay now')
+        }
+      } else {
+        paymentMessageSet({ active: true, message: 'Your shopping cart is empty' })
+        messageElementRef.current.scrollIntoView({ block: "start", behavior: "smooth" })
+
+        submitBtnRef.current.classList.remove('loading')
+        payTextSet('Pay now')
+      }
     }
+
   };
 
   const handleSubmitExtend = async (e) => {
@@ -292,7 +470,6 @@ export default function PauymentLastPage() {
     };
 
     if (products.length > 0) {
-      console.log(prepareProductsForExtend(products));
       try {
         const res = await axios(config);
         console.log(res);
@@ -442,11 +619,10 @@ export default function PauymentLastPage() {
         className="payment-payment"
         onSubmit={
           paymentMethod == 'paymentMethodsCreditCard' ? handleSubmitStripe
-            : paymentMethod == 'paymentMethodsExtend' ? handleSubmitExtend
-              : paymentMethod == 'paymentMethodsPaypel' ? handleSubmitPaypel
-                : paymentMethod == 'paymentMethodsAffirm' ? handleSubmitAffirm
-                  : paymentMethod == 'paymentMethodsCoinbase' ? handleSubmitCoinbase
-                    : handleSubmitStripe
+            : paymentMethod == 'paymentMethodsPaypel' ? handleSubmitPaypel
+              : paymentMethod == 'paymentMethodsAffirm' ? handleSubmitAffirm
+                : paymentMethod == 'paymentMethodsCoinbase' ? handleSubmitCoinbase
+                  : handleSubmitStripe
         }>
 
         <div className="payment-payment__status">
@@ -526,26 +702,6 @@ export default function PauymentLastPage() {
           currentValue={paymentMethod}
           handler={setPaymentMethod}
           radioName="paymentMethod"
-          value="paymentMethodsExtend"
-          id="paymentMethodsExtend"
-
-          hideSecondChildOnBlur
-          customClass="bb-0"
-          firstChildren={
-            <div className="payment-radio__payment-image">
-              <Image width={30} height={30} objectFit="contain" src={iconExtend} alt="Icon payment" />
-            </div>
-          }
-          secondChildren={<div className="payment-radio__description">
-            After clicking “Complete order”, you will be redirected <br />
-            to Extend to complete your purchase securely.
-          </div>}
-        />
-
-        <RadioWrapper
-          currentValue={paymentMethod}
-          handler={setPaymentMethod}
-          radioName="paymentMethod"
           value="paymentMethodsPaypel"
           id="paymentMethodsPaypel"
 
@@ -600,8 +756,6 @@ export default function PauymentLastPage() {
             to PayPal to complete your purchase securely.
           </div>}
         />
-
-
 
         <div className="payment-payment__action-buttons">
           <button

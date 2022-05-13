@@ -16,11 +16,11 @@ module.exports = withBundleAnalyzer({
   },
   async redirects() {
     return [
-      {
-        source: '/admin',
-        destination: '/',
-        permanent: true,
-      },
+      // {
+      //   source: '/admin',
+      //   destination: '/',
+      //   permanent: true,
+      // },
     ]
   },
 })

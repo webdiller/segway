@@ -1,6 +1,7 @@
 import { data } from '@/base/data';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import ReactInputMask from 'react-input-mask';
 
 export default function HomePage({ allData }) {
 
@@ -60,14 +61,18 @@ export default function HomePage({ allData }) {
       }
     }
 
-    try {
-      const { data: { id, deleted }, status } = await axios(config);
-      if (deleted) {
-        stripeProductsSet([...stripeProducts].filter(product => product.id !== id))
+    const isConfirm = confirm('Подтвердить удаление?')
+    if (isConfirm) {
+      try {
+        const { data: { id, deleted }, status } = await axios(config);
+        if (deleted) {
+          stripeProductsSet([...stripeProducts].filter(product => product.id !== id))
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
+
   }
 
   useEffect(() => {
@@ -94,22 +99,26 @@ export default function HomePage({ allData }) {
 
             <div className='admin-page__content-item' id="products">
               <p className="title title_fz-20 admin-page__subtitle">All Products</p>
-              <p>Добавить продукт в страйп</p>
-              <form onSubmit={addProductHandler}>
-                <input name="productName" type="text" /><br />
-                <button>Добавить</button>
+
+              <form className='admin-page__form' onSubmit={addProductHandler}>
+                <p className='admin-page__form-title'>Добавить продукт в страйп</p>
+                <div className="custom-input admin-page__form-group">
+                  <ReactInputMask name="productName" type="text" placeholder="Введите название продукта" className="custom-input__input" />
+                </div>
+                <button className='ui-btn admin-page__form-btn'><span>Добавить</span></button>
               </form>
               <br />
               <br />
 
               <div>
-                {stripeProducts.map(({ id, name, images }) => {
+                {stripeProducts.map((product) => {
+                  const { id, name, images } = product;
                   let img = null;
                   if (images && images.length > 0) img = images[0];
                   return (
                     <div key={id}>
                       {img && <img width="50" src={img} alt={name} />}
-                      <p>Name: {name}</p>
+                      <p>{name}</p>
                       <button onClick={() => removeProductHandler(id)}>Delete</button>
                       <br />
                       <br />

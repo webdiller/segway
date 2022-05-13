@@ -1,4 +1,5 @@
 import CustomInput from '@/shared/CustomInput';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDiscountCode } from 'store/slices/profileSlice';
 
