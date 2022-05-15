@@ -19,8 +19,8 @@ const prepareProductsForExtend = ({ products, customer }) => {
         /** Если подарок */
         productArray.push({
           id: product.id,
-          stripeId: product.stripeId,
-          priceId: product.priceId,
+          stripeId: product.stripeIdFree,
+          priceId: product.priceIdFree,
           name: product.name,
           quantity: product.quantity,
           price: 0

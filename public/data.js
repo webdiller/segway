@@ -33,9 +33,10 @@ export const data = {
       description: "The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.",
       price: "29.99",
       stripeId: "prod_LfYZ3CFV6LewuN",
+      priceId: "price_1KyDSWC3bu2cRJ583M8krmam",
+
       stripeIdFree: "prod_LfYa36j2ZLsh8A",
       priceIdFree: "price_1KyDTBC3bu2cRJ58p1kGnsAi",
-      priceId: "price_1KyDSWC3bu2cRJ583M8krmam",
       imgPath: "/accessory-3.png",
       pageLinkName: "accessories",
       quantity: 1
