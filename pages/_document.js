@@ -38,9 +38,6 @@ class MyDocument extends Document {
           />)}
         </Head>
         <body>
-          <Main />
-          <NextScript />
-          <div id="modal-root"></div>
           {isProduction && (<noscript
             async
             dangerouslySetInnerHTML={{
@@ -51,6 +48,9 @@ class MyDocument extends Document {
               <!-- End Google Tag Manager (noscript) -->
                 `}}
           />)}
+          <Main />
+          <NextScript />
+          <div id="modal-root"></div>
         </body>
       </Html>
     );
