@@ -23,7 +23,7 @@ class MyDocument extends Document {
                 !0;k.src=g[e];p.parentNode.insertBefore(k,p);delete g[e];f(g);m[n]=b})(window,_affirm_config,"affirm","checkout","ui","script","ready","jsReady");
                 `}}
           /> */}
-          {!isProduction && (<script
+          {isProduction && (<script
             async
             dangerouslySetInnerHTML={{
               __html: `
@@ -41,7 +41,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <div id="modal-root"></div>
-          {!isProduction && (<noscript
+          {isProduction && (<noscript
             async
             dangerouslySetInnerHTML={{
               __html: `
