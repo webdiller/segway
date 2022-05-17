@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 
 import CustomHead from '@/basic/CustomHead';
 import Tabs from '@/sections/Tabs';
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 import MainModelSlider from '@/sections/MainModelSlider';
 import InfoLink from '@/sections/InfoLink';
 import Reviews from '@/sections/Reviews/ReviewsSlider';

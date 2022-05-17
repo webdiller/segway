@@ -5,7 +5,7 @@ import Tabs from '@/sections/Tabs';
 const FancyModal = dynamic(() => import('@/modals/FancyModal'), { ssr: false });
 import CustomHead from '@/basic/CustomHead';
 
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
 const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));

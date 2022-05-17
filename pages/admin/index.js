@@ -1,4 +1,4 @@
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactInputMask from 'react-input-mask';

@@ -1,5 +1,5 @@
 import Contacts from '@/sections/Contacts';
-import {data} from '@/base/data';
+import {data} from '@/base/data-test';
 import CustomHead from '@/basic/CustomHead';
 
 import dynamic from 'next/dynamic';

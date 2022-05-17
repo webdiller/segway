@@ -1,5 +1,5 @@
 import AccessoriesBlock from '@/sections/Accessories/AccessoriesBlock';
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 import CustomHead from '@/basic/CustomHead';
 import TitleWithDescription from '@/blocks/TitleWithDescription';
 

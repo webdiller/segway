@@ -1,5 +1,5 @@
 import CustomHead from '@/basic/CustomHead';
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 
 import dynamic from 'next/dynamic';
 import TitleWithDescription from '@/blocks/TitleWithDescription';

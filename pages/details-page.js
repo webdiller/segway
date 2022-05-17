@@ -1,4 +1,4 @@
-import {data} from '@/base/data';
+import {data} from '@/base/data-test';
 import CustomHead from '@/basic/CustomHead';
 
 export default function UserCart({allData}) {

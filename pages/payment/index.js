@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 
 import CustomHead from '@/basic/CustomHead';
 import CustomCheckbox from '@/shared/CustomCheckbox';

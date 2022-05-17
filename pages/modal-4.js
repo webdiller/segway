@@ -1,5 +1,5 @@
 import {RemainTimeModalWithTimer} from '@/modals/RemainTimeModal';
-import {data} from '@/base/data';
+import {data} from '@/base/data-test';
 import CustomHead from '@/basic/CustomHead';
 
 export default function Modal4({allData}) {

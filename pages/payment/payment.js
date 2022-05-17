@@ -30,7 +30,7 @@ import {
   setDifferentPhone
 } from 'store/slices/differentBillingSlice';
 
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 
 import {
   useStripe,

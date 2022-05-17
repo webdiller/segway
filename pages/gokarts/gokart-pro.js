@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';

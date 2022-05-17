@@ -1,5 +1,5 @@
 import CustomHead from '@/basic/CustomHead';
-import {data} from '@/base/data';
+import {data} from '@/base/data-test';
 import ShippingAndPayment from '@/sections/ShippingAndPayment';
 
 import dynamic from 'next/dynamic';

@@ -6,12 +6,13 @@ export const data = {
       name: "Ninebot Engine Speaker",
       nameWrap: "Ninebot \n Engine Speaker",
       description: "The built-in engine sound simulation system can simulate the realistic engine roar based on the vehicle's accelerator, brake, speed, and other signals",
-      price: "149.99",
-      priceId: "price_1KrHVVC3bu2cRJ582nhSHqPI",
-      stripeId: "prod_LYOIAgf3wmLHjn",
       imgPath: "/accessory-1.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "149.99",
+      priceId: "price_1L0AfRC3bu2cRJ58vJ3jNE7E",
+      stripeId: "prod_LhZpiK2c04QF2z",
     },
     {
       id: "extension-rod",
@@ -19,11 +20,13 @@ export const data = {
       name: "Extension Rod",
       nameWrap: "Extension \n Rod",
       description: "The Extension Rod helps you to easily maneuver your scooter, so you no longer need to bend over and push it, making it easier to take with you anywhere.",
-      price: "29.99",
-      priceId: "",
       imgPath: "/accessory-2.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "29.99",
+      priceId: "price_1L0AfIC3bu2cRJ58PheNLL5i",
+      stripeId: "prod_LhZoMH9PyBwwIu",
     },
     {
       id: "segway-protective-gear-set",
@@ -31,15 +34,16 @@ export const data = {
       name: "Segway Protective Gear Set",
       nameWrap: "Segway Protective \n Gear Set",
       description: "The curved, streamlined design of the helmet shell, coupled with the thick, high-quality fabrics create a helmet that is stylish, protective and comfortable to wear.",
-      price: "29.99",
-      stripeId: "prod_LfYZ3CFV6LewuN",
-      priceId: "price_1KyDSWC3bu2cRJ583M8krmam",
-
-      stripeIdFree: "prod_LfYa36j2ZLsh8A",
-      priceIdFree: "price_1KyDTBC3bu2cRJ58p1kGnsAi",
       imgPath: "/accessory-3.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "29.99",
+      priceId: "price_1L0AgxC3bu2cRJ58549pVyph",
+      stripeId: "prod_LhZqQ5rb3MUNRU",
+
+      priceIdFree: "price_1L0AflC3bu2cRJ58VVJY0eW9",
+      stripeIdFree: "prod_LhZp5eP6xsEs0p",
     },
     {
       id: "ninebot-leisure-backpack",
@@ -47,11 +51,13 @@ export const data = {
       name: "Ninebot Leisure Backpack",
       nameWrap: "Ninebot Leisure \n Backpack",
       description: "The Ninebot leisure backpack adopts a stylish gray-yellow color contrast, adding a trendy accessory to your wardrobe.",
-      price: "69.99",
-      priceId: "",
       imgPath: "/accessory-4.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "69.99",
+      priceId: "price_1L0Af7C3bu2cRJ58A29IdnoG",
+      stripeId: "prod_LhZoKtswIyFNcP"
     },
     {
       id: "segway-external-battery",
@@ -59,11 +65,13 @@ export const data = {
       name: "Segway External Battery",
       nameWrap: "Segway External \n Battery",
       description: "It is easy to install and increases the range of the ES1, ES2 & E22 to 27.9, 28 and 27 miles respectively and It also increases the speed",
-      price: "249.99",
-      priceId: "",
       imgPath: "/accessory-5.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "249.99",
+      priceId: "price_1L0AeiC3bu2cRJ58AwYhYdsh",
+      stripeId: "prod_LhZoKk5s1yo7JN"
     },
     {
       id: "segway-charger",
@@ -71,12 +79,13 @@ export const data = {
       name: "Segway Charger",
       nameWrap: "Segway \n Charger",
       description: "Whether at home, the office, or on your KickScooter journey, this Ninebot KickScooter by Segway Charger is designed to provide a safe and stable charge anytime, anywhere.",
-      price: "79.99",
-      stripeId: "prod_Ldgu0zeLlSZWbL",
-      priceId: "price_1KwPWvC3bu2cRJ58phcDBntF",
       imgPath: "/accessory-6.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "79.99",
+      priceId: "price_1L0AhDC3bu2cRJ58Q9PjNDZM",
+      stripeId: "prod_LhZq72ZvXCXtEL",
     },
     {
       id: "segway-scooter-bag",
@@ -84,11 +93,13 @@ export const data = {
       name: "Segway Scooter Bag",
       nameWrap: "Segway \n Scooter Bag",
       description: "Tough EVA material, suitable for the entire Ninebot KickScooter by Segway line. 3L capacity gives you plenty of room to carry your phone, charger, bottled water, and other personal items.",
-      price: "49.99",
-      priceId: "",
       imgPath: "/accessory-7.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "49.99",
+      priceId: "price_1L0AeXC3bu2cRJ58sye6WTZU",
+      stripeId: "prod_LhZoNIhaJQEHwL"
     },
     {
       id: "segway-phone-holder",
@@ -96,11 +107,16 @@ export const data = {
       name: "Segway Phone Holder",
       nameWrap: "Segway \n Phone Holder",
       description: "The dual screw, non-slip design offers ultimate security and versatility. The phone holder is applicable to multiple vehicle series.",
-      price: "29.99",
-      priceId: "",
       imgPath: "/accessory-8.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "29.99",
+      priceId: "price_1L0AeGC3bu2cRJ58ZpFws1Ct",
+      stripeId: "prod_LhZnLbyVBddMlL",
+
+      priceIdFree: "price_1L0Ae5C3bu2cRJ58EPda3ueb",
+      stripeIdFree: "prod_LhZnr9rwRW9phl",
     },
     {
       id: "segway-scooter-seat",
@@ -108,19 +124,21 @@ export const data = {
       name: "Segway Scooter Seat",
       nameWrap: "Segway \n Scooter Seat",
       description: "This scooter seat is designed to work with the MAX. It offers high quality, comfort and safety that is in line with the MAX KickScooter.",
-      price: "119.99",
-      priceId: "",
       imgPath: "/accessory-9.png",
       pageLinkName: "accessories",
-      quantity: 1
+      quantity: 1,
+
+      price: "119.99",
+      priceId: "price_1L0AePC3bu2cRJ588lCLN6Nj",
+      stripeId: "prod_LhZoY4GBGztrkC",
     }
   ],
-  // Переименовать файл в products
-  // Возможность менять конт инфу
+
   kickskooters: [
     // number:1, index: 0, name: max 
     {
       id: "id=006&warranty=null&color=000000",
+      referenceId: "kickscooter-max",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -131,9 +149,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-max",
       pageLinkName: "kickscooter-max",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-max",
-      price: "949.99",
-      priceId: "price_1KrHa0C3bu2cRJ58eBRukaIa",
-      stripeId: "prod_LYOM1UWVQP0aZy",
       oldPrice: "1049",
       maxSpeed: "18.6 mph (30 km/h)",
       rangeByMiles: "Approx. 40.4 miles (65 km)",
@@ -151,23 +166,33 @@ export const data = {
       shockAbsorption: "N/A",
       safety: "LED rear light",
       atmosphereLight: "N/A",
+
+      price: "999.99",
+      priceId: "price_1L0AihC3bu2cRJ58zhTBYVXC",
+      stripeId: "prod_LhZs66Vm5pNWrS",
       warranty: [
         {
           durationYear: 1,
-          priceId: "price_1KrHa0C3bu2cRJ58vvTtZoqs",
-          price: 139,
+          priceId: "price_1L0AihC3bu2cRJ58oNPCXvcw",
+          price: 64.99,
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          priceId: "price_1KrHa0C3bu2cRJ58OQWLcUAu",
-          price: 209,
+          priceId: "price_1L0AihC3bu2cRJ58c4zjSXoG",
+          price: 89.99,
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          priceId: "price_1KrHa0C3bu2cRJ58Zmb6NKmD",
-          price: 279,
+          priceId: "price_1L0AihC3bu2cRJ58JhQdhQEr",
+          price: 119.00,
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
           oldPrice: 1328
         }
       ],
@@ -202,8 +227,9 @@ export const data = {
 
     // number:1, index: 1, name: max white
     {
-      excludeForMap: true,
       id: "id=006&warranty=null&color=ded5aa",
+      referenceId: "kickscooter-max-white",
+      excludeForMap: true,
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter MAX",
@@ -214,7 +240,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-max-white",
       pageLinkName: "kickscooter-max-white",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-max-white",
-      price: "949.99",
       oldPrice: "1049",
       maxSpeed: "Approx. 18.6 mph (30 km/h)",
       rangeByMiles: "Approx. 24.9 miles (40 km)",
@@ -232,20 +257,33 @@ export const data = {
       shockAbsorption: "N/A",
       safety: "LED rear light",
       atmosphereLight: "N/A",
+
+      price: "999.99",
+      priceId: "price_1L0AipC3bu2cRJ58NbY0xdQP",
+      stripeId: "prod_LhZsDrBNiniggD",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 64.99,
+          priceId: "price_1L0AipC3bu2cRJ585faDECfD",
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 89.99,
+          priceId: "price_1L0AipC3bu2cRJ58fBuGk882",
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 119.00,
+          priceId: "price_1L0AipC3bu2cRJ58P3WYzMfi",
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
           oldPrice: 1328
         }
       ],
@@ -281,6 +319,7 @@ export const data = {
     // number:2, index: 2, name: ES4
     {
       id: "id=010&warranty=null&color=null",
+      referenceId: "kickscooter-es-4",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES4",
@@ -291,7 +330,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-es-4",
       pageLinkName: "kickscooter-es-4",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-4",
-      price: "799.99",
       oldPrice: "1049",
       maxSpeed: "18.6 mph (30 km/h)",
       rangeByMiles: "28.0 miles (45 km)",
@@ -309,20 +347,32 @@ export const data = {
       shockAbsorption: "front & rear",
       safety: "LED rear light",
       atmosphereLight: "Customizable color",
+      price: "799.99",
+      priceId: "price_1L0Aj3C3bu2cRJ58A4OCg9lh",
+      stripeId: "prod_LhZs5xo7DDcmQh",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 54.99,
+          priceId: "price_1L0Aj3C3bu2cRJ58oPYeSvaO",
+          planId: "B9-SGEBK-1y",
+          planPrice: 5499,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 79.99,
+          priceId: "price_1L0Aj3C3bu2cRJ581xWaj7nv",
+          planId: "B9-SGEBK-2y",
+          planPrice: 7999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 99.99,
+          priceId: "price_1L0Aj3C3bu2cRJ58CNcRwPGX",
+          planId: "B9-SGEBK-3y",
+          planPrice: 9999,
           oldPrice: 1328
         }
       ],
@@ -340,6 +390,7 @@ export const data = {
     // number:3, index: 3, name: e22 
     {
       id: "id=001&warranty=null&color=null",
+      referenceId: "kickscooter-e-22",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter E22",
@@ -350,8 +401,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-e-22",
       pageLinkName: "kickscooter-e-22",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-e-22",
-      price: "599.99",
-      priceId: "",
       oldPrice: "1049",
       maxSpeed: "Approx. 12.4 mph (20km/h)",
       rangeByMiles: "Approx. 13.7 miles (22km)",
@@ -369,23 +418,32 @@ export const data = {
       shockAbsorption: "N/A",
       safety: "LED rear light",
       atmosphereLight: "N/A",
+      price: "629.99",
+      priceId: "price_1L0AjEC3bu2cRJ58tm7bJ5kA",
+      stripeId: "prod_LhZtZCm1czF6We",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
-          priceId: "",
+          price: 42.99,
+          priceId: "price_1L0AjEC3bu2cRJ58iF8HNF22",
+          planId: "B9-SGEBK-1y",
+          planPrice: 4299,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
-          priceId: "",
+          price: 84.99,
+          priceId: "price_1L0AjEC3bu2cRJ58DZ88iWj0",
+          planId: "B9-SGEBK-2y",
+          planPrice: 8499,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
-          priceId: "",
+          price: 119.00,
+          priceId: "price_1L0AjEC3bu2cRJ588tasob0c",
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
           oldPrice: 1328
         }
       ],
@@ -403,6 +461,7 @@ export const data = {
     // number:4, index: 4, name: E45
     {
       id: "id=005&warranty=null&color=null",
+      referenceId: "kickscooter-e-45",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter E45",
@@ -413,7 +472,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-e-45",
       pageLinkName: "kickscooter-e-45",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-e-45",
-      price: "859.99",
       oldPrice: "1049",
       maxSpeed: "18.6 mph (30 km/h)",
       rangeByMiles: "28.0 miles (45 km)",
@@ -431,20 +489,32 @@ export const data = {
       shockAbsorption: "Front",
       safety: "LED rear light",
       atmosphereLight: "Customizable color",
+      price: "849.99",
+      priceId: "price_1L0AjWC3bu2cRJ58L8ShuEJi",
+      stripeId: "prod_LhZti1LkHw7dkw",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 59.99,
+          priceId: "price_1L0AjWC3bu2cRJ58eY72tSzJ",
+          planId: "B9-SGEBK-1y",
+          planPrice: 5999,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 79.99,
+          priceId: "price_1L0AjWC3bu2cRJ58dUjxJDHy",
+          planId: "B9-SGEBK-2y",
+          planPrice: 7999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 109.00,
+          priceId: "price_1L0AjWC3bu2cRJ58l5PhQ0nH",
+          planId: "B9-SGEBK-3y",
+          planPrice: 10900,
           oldPrice: 1328
         }
       ],
@@ -462,6 +532,7 @@ export const data = {
     // number:5, index: 5, name: E12
     {
       id: "id=013&warranty=null&color=null",
+      referenceId: "kickscooter-zing-e12",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ZING E12",
@@ -472,7 +543,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-zing-e12",
       pageLinkName: "kickscooter-zing-e12",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e12",
-      price: "259.99",
       oldPrice: "1049",
       maxSpeed: "11.2 mph",
       rangeByMiles: "6.2 miles",
@@ -494,20 +564,32 @@ export const data = {
       requiredHeight: "4’3”–5’3” (130–160 cm)",
       frameMaterial: "Alluminum-alloy",
       shockAbsorption: "Spring damper",
+      price: "259.99",
+      priceId: "price_1L0AjfC3bu2cRJ58L9SSOiya",
+      stripeId: "prod_LhZtrK0HugqJ0X",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 22.99,
+          priceId: "price_1L0AjfC3bu2cRJ58HGocF9qa",
+          planId: "B9-SGEBK-1y",
+          planPrice: 2299,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 42.99,
+          priceId: "price_1L0AjeC3bu2cRJ587ot8dqj1",
+          planId: "B9-SGEBK-2y",
+          planPrice: 4299,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 59.99,
+          priceId: "price_1L0AjeC3bu2cRJ58ScHIJWho",
+          planId: "B9-SGEBK-3y",
+          planPrice: 5999,
           oldPrice: 1328
         }
       ],
@@ -525,6 +607,7 @@ export const data = {
     // number:6, index: 6, name: F30
     {
       id: "id=004&warranty=null&color=null",
+      referenceId: "kickscooter-f30",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot KickScooter F30",
@@ -535,7 +618,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-f30",
       pageLinkName: "kickscooter-f30",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-f30",
-      price: "649.99",
       oldPrice: "1049",
       maxSpeed: "Approx. 15.5 mph (25 km/h)",
       rangeByMiles: "Approx. 18.6 miles (30 km)",
@@ -553,20 +635,32 @@ export const data = {
       shockAbsorption: "N/A",
       safety: "LED rear light",
       atmosphereLight: "N/A",
+      price: "649.99",
+      priceId: "price_1L0AjmC3bu2cRJ58pKt0awvv",
+      stripeId: "prod_LhZtmTYAzoJkdR",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 45.99,
+          priceId: "price_1L0AjmC3bu2cRJ58bUGL6LY8",
+          planId: "B9-SGEBK-1y",
+          planPrice: 4599,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 89.99,
+          priceId: "price_1L0AjmC3bu2cRJ58dGTYucuP",
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 129.00,
+          priceId: "price_1L0AjmC3bu2cRJ58BsLqHFDZ",
+          planId: "B9-SGEBK-3y",
+          planPrice: 12900,
           oldPrice: 1328
         }
       ],
@@ -584,6 +678,7 @@ export const data = {
     // number:7, index: 7, name: air15
     {
       id: "id=003&warranty=null&color=null",
+      referenceId: "kickscooter-air-t15",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter Air T15",
@@ -594,10 +689,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-air-t15",
       pageLinkName: "kickscooter-air-t15",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-air-t15",
-      price: "819.99",
-
-      stripeId: "prod_LdgsL7q2cWiDxE",
-      priceId: "price_1KwPUJC3bu2cRJ58wtiZT7Y1",
 
       oldPrice: "1049",
       maxSpeed: "Approx. 12.4 mph (20km/h)",
@@ -616,23 +707,33 @@ export const data = {
       shockAbsorption: "N/A",
       safety: "LED rear light",
       atmosphereLight: "N/A",
+
+      price: "819.99",
+      priceId: "price_1L0Aj3C3bu2cRJ58A4OCg9lh",
+      stripeId: "prod_LhZs5xo7DDcmQh",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
-          priceId: "price_1KwPUJC3bu2cRJ58KbmfEBoo",
+          price: 54.99,
+          priceId: "price_1L0Aj3C3bu2cRJ58oPYeSvaO",
+          planId: "B9-SGEBK-1y",
+          planPrice: 5499,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
-          priceId: "price_1KwPUJC3bu2cRJ588iuoQnXs",
+          price: 79.99,
+          priceId: "price_1L0Aj3C3bu2cRJ581xWaj7nv",
+          planId: "B9-SGEBK-2y",
+          planPrice: 7999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
-          priceId: "price_1KwPUJC3bu2cRJ58zpk0kEKt",
+          price: 109.00,
+          priceId: "price_1L0Aj3C3bu2cRJ58CNcRwPGX",
+          planId: "B9-SGEBK-3y",
+          planPrice: 10900,
           oldPrice: 1328
         }
       ],
@@ -650,6 +751,7 @@ export const data = {
     // number:8, index: 8, name: ES2
     {
       id: "id=008&warranty=null&color=null",
+      referenceId: "kickscooter-es-2",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES2",
@@ -660,7 +762,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-es-2",
       pageLinkName: "kickscooter-es-2",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-2",
-      price: "649.99",
       oldPrice: "1049",
       maxSpeed: "15.5 mph (25 km/h)",
       rangeByMiles: "15.5 miles (25 km)",
@@ -678,20 +779,33 @@ export const data = {
       shockAbsorption: "front & rear",
       safety: "LED rear light",
       atmosphereLight: "Customizable color",
+
+      price: "649.99",
+      priceId: "price_1L0AjuC3bu2cRJ58J8iTbmLQ",
+      stripeId: "prod_LhZtNLWt8W7zEo",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 49.99,
+          priceId: "price_1L0AjuC3bu2cRJ58XiakMtov",
+          planId: "B9-SGEBK-1y",
+          planPrice: 4999,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 89.99,
+          priceId: "price_1L0AjuC3bu2cRJ58lkcHKE3w",
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 129.00,
+          priceId: "price_1L0AjuC3bu2cRJ58pcKqBNIf",
+          planId: "B9-SGEBK-3y",
+          planPrice: 12900,
           oldPrice: 1328
         }
       ],
@@ -709,6 +823,7 @@ export const data = {
     // number:9, index: 9, name: es3
     {
       id: "id=009&warranty=null&color=null",
+      referenceId: "kickscooter-es-3",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES3",
@@ -719,7 +834,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-es-3",
       pageLinkName: "kickscooter-es-3",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-3",
-      price: "699.99",
       oldPrice: "1049",
       maxSpeed: "15.5 mph (25 km/h)",
       rangeByMiles: "28.0 miles (45 km)",
@@ -737,20 +851,33 @@ export const data = {
       shockAbsorption: "N/A",
       safety: "LED headlight, side and rear reflector",
       atmosphereLight: "N/A",
+
+      price: "699.99",
+      priceId: "price_1L0Ak3C3bu2cRJ5864LWZFnG",
+      stripeId: "prod_LhZtGBNGmEHULV",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 45.99,
+          priceId: "price_1L0Ak3C3bu2cRJ587G5i2bHk",
+          planId: "B9-SGEBK-1y",
+          planPrice: 4599,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 89.99,
+          priceId: "price_1L0Ak3C3bu2cRJ58EIcg7KJa",
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 129.00,
+          priceId: "price_1L0Ak3C3bu2cRJ58zHUijZ14",
+          planId: "B9-SGEBK-3y",
+          planPrice: 12900,
           oldPrice: 1328
         }
       ],
@@ -768,6 +895,7 @@ export const data = {
     // number:1, index: 10, name:  ES1L
     {
       id: "id=002&warranty=null&color=null",
+      referenceId: "kickscooter-es-1l",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ES1L",
@@ -778,7 +906,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-es-1l",
       pageLinkName: "kickscooter-es-1l",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-es-1l",
-      price: "389.99",
       oldPrice: "1049",
       maxSpeed: "Approx. 12.4 mph (20km/h)",
       rangeByMiles: "Approx. 12.4 miles (20km)",
@@ -796,20 +923,33 @@ export const data = {
       shockAbsorption: "Front",
       safety: "N/A",
       atmosphereLight: "N/A",
+
+      price: "489.99",
+      priceId: "price_1L0AkCC3bu2cRJ58rzWDHyNH",
+      stripeId: "prod_LhZuEnRoijmKV7",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 34.99,
+          priceId: "price_1L0AkCC3bu2cRJ58q4oml1tr",
+          planId: "B9-SGEBK-1y",
+          planPrice: 3499,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 69.99,
+          priceId: "price_1L0AkCC3bu2cRJ583ies9KQc",
+          planId: "B9-SGEBK-2y",
+          planPrice: 6999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 94.99,
+          priceId: "price_1L0AkCC3bu2cRJ58kNO1dVNs",
+          planId: "B9-SGEBK-3y",
+          planPrice: 9499,
           oldPrice: 1328
         }
       ],
@@ -827,6 +967,7 @@ export const data = {
     // number:1, index: 11, name:  E10
     {
       id: "id=012&warranty=null&color=null",
+      referenceId: "kickscooter-zing-e10",
       type: "kickscooter",
       brandName: "Ninebot",
       name: "Ninebot Kickscooter ZING E10",
@@ -837,7 +978,6 @@ export const data = {
       pageLinkForMatch: "kickscooter-zing-e10",
       pageLinkName: "kickscooter-zing-e10",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e10",
-      price: "259.99",
       oldPrice: "1049",
       maxSpeed: "10 mph",
       rangeByMiles: "6.2 miles",
@@ -859,20 +999,33 @@ export const data = {
       requiredHeight: "4'3 - 5'3 (130-160 cm)",
       frameMaterial: "Alluminum-alloy",
       shockAbsorption: "Spring damper",
+
+      price: "259.99",
+      priceId: "price_1L0AkMC3bu2cRJ58cI4DcXpd",
+      stripeId: "prod_LhZu382cDG3jXY",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 29.99,
+          priceId: "price_1L0AkMC3bu2cRJ58kMN9gJEv",
+          planId: "B9-SGEBK-1y",
+          planPrice: 2999,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 42.99,
+          priceId: "price_1L0AkMC3bu2cRJ58Rk3QVHKN",
+          planId: "B9-SGEBK-2y",
+          planPrice: 4299,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 59.99,
+          priceId: "price_1L0AkMC3bu2cRJ58fdQBU5fM",
+          planId: "B9-SGEBK-3y",
+          planPrice: 5999,
           oldPrice: 1328
         }
       ],
@@ -902,10 +1055,7 @@ export const data = {
       pageLinkForMatch: "kickscooter-zing-e8",
       pageLinkName: "kickscooter-zing-e8-purple",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-purple",
-      price: "249.99",
       oldPrice: "1049",
-      priceId: "price_1KxnkVC3bu2cRJ584KwlghBU",
-      stripeId: "prod_Lf80Uk3sxnQcY3",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
       rangeByMilesWrap: "6.2 miles",
@@ -926,29 +1076,33 @@ export const data = {
       requiredHeight: "3’9”–4’9” (115–145 cm)",
       frameMaterial: "Alluminum-alloy",
       shockAbsorption: "Spring damper",
+
+      price: "279.99",
+      priceId: "price_1L0AiDC3bu2cRJ58AQLVtzk6",
+      stripeId: "prod_LhZrve7lJ1bRr0",
       warranty: [
         {
           durationYear: 1,
-          price: 219.99,     
-          planId: "B9-SGEBK-1y", 
-          planPrice: 219.99,
-          priceId: "price_1KxnkVC3bu2cRJ58odqYXbLI",
+          price: 21.99,
+          priceId: "price_1L0AiDC3bu2cRJ58My2VyxvQ",
+          planId: "B9-SGEBK-1y",
+          planPrice: 2199,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 419.99,  
-          planId: "B9-SGEBK-2y", 
-          planPrice: 419.99, 
-          priceId: "price_1KxnkVC3bu2cRJ58pWG7FEMT",
+          price: 41.99,
+          priceId: "price_1L0AiDC3bu2cRJ58Gg6bvyPJ",
+          planId: "B9-SGEBK-2y",
+          planPrice: 4199,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 599.99,   
-          planId: "B9-SGEBK-3y", 
-          planPrice: 599.99, 
-          priceId: "price_1KxnkVC3bu2cRJ58nWmN9Szy",
+          price: 59.99,
+          priceId: "price_1L0AiDC3bu2cRJ58Wf2RKcXT",
+          planId: "B9-SGEBK-3y",
+          planPrice: 5999,
           oldPrice: 1328
         }
       ],
@@ -996,10 +1150,7 @@ export const data = {
       pageLinkForMatch: "kickscooter-zing-e8",
       pageLinkName: "kickscooter-zing-e8-pink",
       pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-e8-pink",
-      price: "249.99",
       oldPrice: "1049",
-      priceId: "price_1KxnnyC3bu2cRJ58G4Ebo9B8",
-      stripeId: "prod_Lf846bQugwiH0I",
       maxSpeed: "8.6 mph",
       rangeByMiles: "6.2 miles",
       rangeByMilesWrap: "6.2 miles",
@@ -1020,29 +1171,34 @@ export const data = {
       requiredHeight: "3’9”–4’9” (115–145 cm)",
       frameMaterial: "Alluminum-alloy",
       shockAbsorption: "Spring damper",
+
+      price: "279.99",
+      priceId: "price_1L0BTPC3bu2cRJ588tU3evOG",
+      stripeId: "prod_Lhae82464X7Mb5",
+
       warranty: [
         {
           durationYear: 1,
-          price: 219.99,
-          priceId: "price_1KxnnzC3bu2cRJ584y1al0Gw",
-          planId: "B9-SGEBK-1y", 
-          planPrice: 219.99,
+          price: 21.99,
+          priceId: "price_1L0BTPC3bu2cRJ58cpMmFiwA",
+          planId: "B9-SGEBK-1y",
+          planPrice: 2199,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 419.99,
-          priceId: "price_1KxnnzC3bu2cRJ58NJ2uU6ML",
-          planId: "B9-SGEBK-2y", 
-          planPrice: 419.99,
+          price: 41.99,
+          priceId: "price_1L0BTPC3bu2cRJ583ZkuofEM",
+          planId: "B9-SGEBK-2y",
+          planPrice: 4199,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 599.99,
-          priceId: "price_1KxnnzC3bu2cRJ58fIG7PwtP",
-          planId: "B9-SGEBK-3y", 
-          planPrice: 599.99,
+          price: 59.99,
+          priceId: "price_1L0BTPC3bu2cRJ58eBOCHaZ3",
+          planId: "B9-SGEBK-3y",
+          planPrice: 5999,
           oldPrice: 1328
         }
       ],
@@ -1079,6 +1235,7 @@ export const data = {
   gokarts: [
     {
       id: "id=014&warranty=null&color=null",
+      referenceId: "gokart-pro",
       type: "gokart",
       brandName: "Ninebot",
       name: "Ninebot \n Gokart PRO",
@@ -1088,7 +1245,6 @@ export const data = {
       pageLinkForMatch: "gokart-pro",
       pageLinkName: "gokart-pro",
       pageLinkNameWithCategory: "/gokarts/gokart-pro",
-      price: "2199.99",
       oldPrice: "1188",
       characteristics: [
         { title: "Speed limit", slug: "speedLimit", value: "23 mph \n (37 km/h)", iconSrc: "/gocart-pro/characteristics/icon-1.svg" },
@@ -1106,20 +1262,32 @@ export const data = {
         { title: "Tires type", slug: "tiresType", value: "Hollow solid tire", iconSrc: "/gocart-kit/characteristics/icon-13.svg" },
         { title: "Light", slug: "light", value: "Headlight, Status \n indicator & Taillights", iconSrc: "/gocart-pro/characteristics/icon-14.svg" },
       ],
+      price: "2299.99",
+      priceId: "price_1L0AkgC3bu2cRJ5828MJdIqN",
+      stripeId: "prod_LhZuVQCRuUnNke",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 99.99,
+          priceId: "price_1L0AkgC3bu2cRJ58GyYMmgNp",
+          planId: "B9-SGEBK-1y",
+          planPrice: 9999,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 199.00,
+          priceId: "price_1L0AkgC3bu2cRJ58YTOCSWgv",
+          planId: "B9-SGEBK-2y",
+          planPrice: 19900,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 269.00,
+          priceId: "price_1L0AkgC3bu2cRJ58OUL6YKBO",
+          planId: "B9-SGEBK-3y",
+          planPrice: 26900,
           oldPrice: 1328
         }
       ],
@@ -1148,6 +1316,7 @@ export const data = {
     },
     {
       id: "id=015&warranty=null&color=null",
+      referenceId: "gokart-kit",
       type: "gokart",
       brandName: "Ninebot",
       name: "Ninebot \n Gokart KIT",
@@ -1157,7 +1326,6 @@ export const data = {
       pageLinkForMatch: "gokart-kit",
       pageLinkName: "gokart-kit",
       pageLinkNameWithCategory: "/gokarts/gokart-kit",
-      price: "969.99",
       oldPrice: "1188",
       characteristics: [
         { title: "Speed limit", slug: "speedLimit", value: "15 mph (24 km/h)", iconSrc: "/gocart-kit/characteristics/icon-1.svg" },
@@ -1175,20 +1343,32 @@ export const data = {
         { title: "Tires type", slug: "tiresType", value: "Non-inflatable \n hollow tire", iconSrc: "/gocart-kit/characteristics/icon-13.svg" },
         { title: "Light", slug: "light", value: "Headlight & \n Status indicator", iconSrc: "/gocart-kit/characteristics/icon-14.svg" },
       ],
+      price: "999.99",
+      priceId: "price_1L0AkWC3bu2cRJ58EExIlAU3",
+      stripeId: "prod_LhZuODlQ6dhZlb",
       warranty: [
         {
           durationYear: 1,
-          price: 139,
+          price: 64.99,
+          priceId: "price_1L0AkWC3bu2cRJ58cfzV2mcW",
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
           oldPrice: 1188
         },
         {
           durationYear: 2,
-          price: 209,
+          price: 89.99,
+          priceId: "price_1L0AkWC3bu2cRJ58Iee7qAFF",
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
           oldPrice: 1258
         },
         {
           durationYear: 3,
-          price: 279,
+          price: 129.00,
+          priceId: "price_1L0AkWC3bu2cRJ58DQ78Po5j",
+          planId: "B9-SGEBK-3y",
+          planPrice: 12900,
           oldPrice: 1328
         }
       ],
@@ -1220,16 +1400,20 @@ export const data = {
       id: "id=016&warranty=null&color=null",
       type: "bundle",
       name: "Ninebot S MAX",
-      price: "1099.99",
       imgPath: "/ninebot-s-max-bundle.png",
+      price: "1049.99",
+      priceId: "prod_LhZuaQxn3UdAXI",
+      stripeId: "price_1L0AkpC3bu2cRJ58bVGGsDIm",
       quantity: 1
     },
     {
       id: "id=017&warranty=null&color=null",
       type: "bundle",
       name: "Ninebot S",
-      price: "599.99",
       imgPath: "/ninebot-s-bundle.png",
+      price: "599.99",
+      priceId: "price_1L0AkxC3bu2cRJ58Rq6xQTkh",
+      stripeId: "prod_LhZuD3NhC51J8Y",
       quantity: 1
     }
   ],

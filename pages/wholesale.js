@@ -1,6 +1,6 @@
 import CustomHead from '@/basic/CustomHead';
 import Wholesale from '@/sections/Wholesale';
-import { data } from '@/base/data';
+import { data } from '@/base/data-test';
 
 import dynamic from 'next/dynamic';
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
