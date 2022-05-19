@@ -36,9 +36,11 @@ export default function WarrancyPaymentImage({ widthDesktop, heightDesktop, widt
             <div className="form-warrancy__form">
               <FormWithWarrancy product={item} customClass="segway-ninebot__form" />
             </div>
-            <div className="form-warrancy__payment">
-              <PaymentsMethods customClass="form-warrancy__payments-wrapper" />
-            </div>
+            {status !== 'out-of-stock' && (
+              <div className="form-warrancy__payment">
+                <PaymentsMethods customClass="form-warrancy__payments-wrapper" />
+              </div>
+            )}
           </div>
           <div className="form-warrancy__right">
             {mediaQuery ? (

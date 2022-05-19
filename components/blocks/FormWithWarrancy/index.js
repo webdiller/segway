@@ -42,6 +42,14 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       dispatch(productModalActiveSet(true))
     }
   }
+  let rootClass = "form-with-warrancy";
+  if (customClass && status !== 'out-of-stock') {
+    rootClass = `form-with-warrancy ${customClass}`
+  } else if (customClass && status == 'out-of-stock') {
+    rootClass = `form-with-warrancy ${customClass} form-with-warrancy_preorder`
+  } else {
+    rootClass = `form-with-warrancy`
+  }
 
   useEffect(() => {
     const idParams = new URLSearchParams(preparedProduct ? preparedProduct.id : product.id);
@@ -72,19 +80,18 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
     }
   }, [dispatch, bundles])
 
-  // FIXME: Реализовать out-of-stock
   return (
     <>
       {!mediaQuery && product.colors && (
         <Colors productName={product.shortName} colors={product.colors} />
       )}
 
-      <div className={customClass ? `form-with-warrancy ${customClass}` : 'form-with-warrancy'}>
+      <div className={rootClass}>
         <div ref={tabWrapper} className="form-with-warrancy__wrapper">
 
           {bundles && <Bundles bundles={bundles} />}
 
-          {status !== 'preorder' && (
+          {status !== 'preorder' && status !== 'out-of-stock' && (
             <div className="form-with-warrancy__top">
               {mediaQuery && product.colors && (
                 <Colors colors={product.colors} />
@@ -112,34 +119,35 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
             </div>
           )}
 
-
-
           <div className="form-with-warrancy__form-prices-subtitle-image">
-            {/* PRICES */}
             <div className="form-with-warrancy__form-prices">
               <p className="form-with-warrancy__form-price-old">${`${(currentPrice * 1.1).toFixed(2)}`}</p>
               <p className="form-with-warrancy__form-price-new">${currentPrice}</p>
             </div>
-            <div className="form-with-warrancy__title-with-image">
-              <div className="form-with-warrancy__form-img-wrapper">
-                <Image className="form-with-warrancy__form-img" src={segwayProtect} alt="Segway Protective Gear Set as a gift" layout="fill" objectFit="contain" />
+
+            {/* FIXME: Заменить изображение */}
+            {status !== 'out-of-stock' && (
+              <div className="form-with-warrancy__title-with-image">
+                <div className="form-with-warrancy__form-img-wrapper">
+                  <Image className="form-with-warrancy__form-img" src={segwayProtect} alt="Segway Protective Gear Set as a gift" layout="fill" objectFit="contain" />
+                </div>
+                {/* TITLE */}
+                <div className="form-with-warrancy__form-subtitle">
+                  <p className="hide-991">
+                    Segway Protective Gear Set <span>as a gift</span>
+                  </p>
+                  <p className="show-block-991">
+                    Segway <br /> Protective <br /> Gear Set <span>as a gift</span>
+                  </p>
+                </div>
               </div>
-              {/* TITLE */}
-              <div className="form-with-warrancy__form-subtitle">
-                <p className="hide-991">
-                  Segway Protective Gear Set <span>as a gift</span>
-                </p>
-                <p className="show-block-991">
-                  Segway <br /> Protective <br /> Gear Set <span>as a gift</span>
-                </p>
-              </div>
-            </div>
+            )}
+
           </div>
 
           <div className="form-with-warrancy__form-actions">
-            {
-              // Обычная модалка
-              status == 'in-stock' ? (<>
+            {status == 'in-stock' ?
+              (<>
                 <Link href={`/payment`}>
                   <a onClick={() => {
                     /** Если есть выбранный банд, то добавялем в корину */
@@ -157,31 +165,37 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
                   <span> ADD TO CART </span>
                 </button>
               </>)
-                // Обычная модалка
-                : status == 'preorder' ? (
-                  <>
-                    <button onClick={addItemToCartAndShowModal} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
-                      <span> PREORDER NOW </span>
-                    </button>
-                  </>
-                )
-                  : (<>
-                    <Link href={`/payment`}>
-                      <a onClick={() => {
-                        /** Если есть выбранный банд, то добавялем в корину */
-                        if (preperedBundle) {
-                          dispatch(pushProduct(preparedProduct))
-                          dispatch(pushProduct(preperedBundle))
-                        } else {
-                          dispatch(pushProduct(preparedProduct))
-                        }
-                      }} className="ui-btn ui-btn_lg form-with-warrancy__form-action">
-                        <span>BUY IT Now</span>
-                      </a>
-                    </Link>
-                    <button onClick={addItemToCartAndShowModal} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
-                      <span> ADD TO CART </span>
-                    </button></>)
+              : status == 'preorder' ? (
+                <>
+                  <button onClick={addItemToCartAndShowModal} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
+                    <span> PREORDER NOW </span>
+                  </button>
+                </>
+              )
+                : status == 'out-of-stock' ? (<>
+                  <button onClick={addItemToCartAndShowModal} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
+                    <span> Request Stock Alert </span>
+                  </button>
+                </>)
+                  : (
+                    <>
+                      <Link href={`/payment`}>
+                        <a onClick={() => {
+                          /** Если есть выбранный банд, то добавялем в корину */
+                          if (preperedBundle) {
+                            dispatch(pushProduct(preparedProduct))
+                            dispatch(pushProduct(preperedBundle))
+                          } else {
+                            dispatch(pushProduct(preparedProduct))
+                          }
+                        }} className="ui-btn ui-btn_lg form-with-warrancy__form-action">
+                          <span>BUY IT Now</span>
+                        </a>
+                      </Link>
+                      <button onClick={addItemToCartAndShowModal} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
+                        <span> ADD TO CART </span>
+                      </button>
+                    </>)
             }
           </div>
         </div>

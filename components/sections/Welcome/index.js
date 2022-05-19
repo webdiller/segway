@@ -79,7 +79,9 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile, bund
             </div>
             <SegwayProtectMobile customClass="welcome__protect" />
             <FormWithWarrancy bundles={bundles} product={currentSegway} customClass="welcome__form" />
-            <PaymentsMethods customClass="welcome__payments" />
+            {status !== 'out-of-stock' && (
+              <PaymentsMethods customClass="welcome__payments" />
+            )}
           </div>
 
           <div className="welcome__swiper">

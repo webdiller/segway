@@ -304,6 +304,25 @@
       padding: 0 5px;
     }
   }
+  &_preorder {
+    .form-with-warrancy__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include media('<=576px') {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .form-with-warrancy__form-prices-subtitle-image {
+      margin-bottom: 0;
+    }
+    .form-with-warrancy__form-actions {
+      @include media('<=576px') {
+        align-self: stretch;
+      }
+    }
+  }
 }
 
 .form-colors {
