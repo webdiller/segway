@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
-
+import { useRouter } from 'next/router';
 import { data } from '@/base/data-test';
 
 import CustomHead from '@/basic/CustomHead';
@@ -8,9 +8,52 @@ import { ShippingItem, ShippingList } from '@/shared/ShippingStatus';
 import RadioWrapper from '@/shared/RadioItems/RadioWrapper';
 import { useSelector } from 'react-redux';
 import { setShippingMethod } from 'store/slices/profileSlice';
+import { useEffect } from 'react';
 
 export default function PaymentShippingPage() {
-  const { email, address, shippingMethod } = useSelector(state => state.profile);
+  
+  const router = useRouter();
+
+  const {
+    firstName,
+    lastName,
+    email,
+    state,
+    city,
+    zipCode,
+    country,
+    phone,
+    address,
+    shippingMethod
+  } = useSelector(state => state.profile);
+
+  useEffect(() => {
+    if (
+      !email ||
+      !firstName ||
+      !lastName ||
+      !address ||
+      !city ||
+      !country ||
+      !state ||
+      !zipCode ||
+      !phone
+    ) {
+      router.push('/payment')
+    }
+
+  }, [email,
+    firstName,
+    lastName,
+    address,
+    city,
+    country,
+    state,
+    zipCode,
+    phone,
+    router]
+  )
+
   return (
     <>
       <CustomHead title="Payment shipping" />

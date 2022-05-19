@@ -29,9 +29,6 @@ export default function TopCategorySlider() {
       && curentRoute !== '/wholesale'
       && curentRoute !== '/contacts'
       && curentRoute !== '/accessories';
-
-      console.log(condition);
-
     if (condition) {
       e.preventDefault();
       dispatch(setPositionSlide(positionSlideIndex))

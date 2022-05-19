@@ -21,8 +21,12 @@ export default function CategorySlider({ customClassNames, title, products, type
 
   const onClickHandler = (item, e) => {
     dispatch(pushProduct(item));
-    e.target.classList.add('ui-btn_added');
-    e.target.focus();
+    
+    if (e.target.tagName !== 'DIV') {
+      e.target.classList.add('ui-btn_added');
+      e.target.focus();
+    }
+
     dispatch(productModalActiveSet(true));
     setTimeout(() => {
       e.target.classList.remove('ui-btn_added');
@@ -102,9 +106,13 @@ export default function CategorySlider({ customClassNames, title, products, type
                 <SwiperSlide key={id} className={type === 'accessory' ? "category-slider__item category-slider__item_accessory" : "category-slider__item category-slider__item"}>
 
                   <div className="category-slider__img-with-content">
-                    <Link href={pageLinkNameWithCategory || pageLinkName}>
-                      <a href={pageLinkNameWithCategory || pageLinkName} className="category-slider__overlay-link"></a>
-                    </Link>
+                    {addToCartOnClick ? (
+                      <div onClick={(e) => onClickHandler(item, e)} className="category-slider__overlay-link"></div>
+                    ) : (
+                      <Link href={pageLinkNameWithCategory || pageLinkName}>
+                        <a href={pageLinkNameWithCategory || pageLinkName} className="category-slider__overlay-link"></a>
+                      </Link>
+                    )}
                     <div className="category-slider__image">
                       <Image
                         src={imgPath}

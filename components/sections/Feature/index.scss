@@ -38,6 +38,8 @@
     white-space: pre-line;
     text-align: left;
     color: #ffffff;
+    padding-top: 5%;
+    padding-bottom: 5%;
     @include media('<=576px') {
       padding-bottom: 10%;
     }

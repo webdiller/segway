@@ -78,9 +78,11 @@ export default function AccessoriesSlider({ items }) {
               swiperRef.current = swiper;
             }}>
             {items.map((item) => {
-              const { id, type, imgPath, nameWrap, description, price } = item;
+              const { id, status, type, imgPath, nameWrap, description, price } = item;
+              let itemClass = "swiper-slide accessories-slider__item";
+              if (status == 'out-of-stock') itemClass = "swiper-slide accessories-slider__item blackout"
               return (
-                <SwiperSlide key={id} className="swiper-slide accessories-slider__item">
+                <SwiperSlide key={id} className={itemClass}>
                   <div className="accessories-slider__item-wrapper">
                     <div className="accessories-slider__img-wrapper">
                       <Image objectFit="contain" className="accessories-slider__img" src={imgPath} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />
@@ -103,9 +105,16 @@ export default function AccessoriesSlider({ items }) {
                         </div>
                       </div>)
                     }
-                    <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">
-                      <span>ADD TO CART</span>
-                    </button>
+                    {/* FIXME: Добавить вызов модалки */}
+                    {status == 'out-of-stock' ? (
+                      <button onClick={(e) => onClickHandler(item, e)} className="ui-btn ui-btn_fill-black accessories-slider__add-cart">
+                        <span>REQUEST</span>
+                      </button>
+                    ) : (
+                      <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-slider__add-cart">
+                        <span>ADD TO CART</span>
+                      </button>
+                    )}
                   </div>
                 </SwiperSlide>
               );

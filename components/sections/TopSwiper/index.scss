@@ -2,22 +2,10 @@
   &__all-swipers {
     position: relative;
     background-color: #3d434a;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      height: 1px;
-      width: 100%;
-      z-index: 10;
-      background-color: #474d54;
-      @include media('<=768px') {
-        display: none;
-      }
-    }
   }
 
   &__container {
+    position: relative;
     @include media('<=768px') {
       overflow: hidden;
       max-height: 103px;
@@ -43,21 +31,21 @@
     }
     .swiper-slide {
       transition: all 0.3s ease;
-      flex: 0 1 calc(100% / 7);
-      @include media('<=768px') {
-        flex: 0 0 auto;
-      }
     }
 
     .swiper-wrapper {
-      flex-wrap: wrap;
-      @include media('<=768px') {
-        flex-wrap: nowrap;
-      }
+     
     }
   }
 
   &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    height: auto;
+    text-align: center;
     overflow-x: hidden;
     &.accent {
       .top-swiper__link {
@@ -156,6 +144,10 @@
     @include media('<=768px') {
       padding: 10px 0 7px 0;
     }
+
+    &_blackout {
+      opacity: .3;
+    }
   }
 
   &__name {
@@ -165,7 +157,7 @@
     margin-top: 5px;
     font-size: 18px;
     line-height: 22px;
-    color: #53595f;
+    color: #B1B4B7;
     font-weight: 600;
     z-index: 2;
     pointer-events: none;
@@ -213,9 +205,12 @@
     z-index: 10;
     height: 0;
 
-    display: none;
-    @include media('<=768px') {
-      display: flex;
+    display: flex;
+
+    transition: all .3s ease;
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
     &.disabled {
       .top-swiper__nav_prev {

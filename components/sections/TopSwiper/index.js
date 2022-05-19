@@ -11,15 +11,21 @@ import segwayPlaceholder from '@/base/segway-placeholder.png';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
 
+import iconLeftLg from '@/base/icons/icon-arrow-left-grey.svg';
+import iconRightLg from '@/base/icons/icon-arrow-right-grey.svg';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
 import { disableTopSlider } from 'store/slices/elementInViewSlice';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function TopSwiper({ items }) {
   const router = useRouter();
   const dispatch = useDispatch();
+
+  let isMobile = useMediaQuery('(max-width: 768px)');
 
   const { topSlider } = useSelector(state => state.elementInView);
   const { currentPosition } = useSelector(state => state.topSwiper);
@@ -62,7 +68,7 @@ export default function TopSwiper({ items }) {
 
           <div className="container top-swiper__container">
             <Swiper className="top-swiper__parent-swiper"
-              spaceBetween={10}
+              spaceBetween={0}
               slidesPerView={1}
               loop={false}
               allowTouchMove={false}
@@ -77,29 +83,34 @@ export default function TopSwiper({ items }) {
                     modules={[Navigation, FreeMode]}
                     spaceBetween={0}
                     slidesPerView={4}
-                    loop={false}
+                    allowTouchMove={true}
+                    draggable={true}
                     freeMode={true}
                     navigation={{
-                      prevEl: '.top-swiper__nav_prev',
-                      nextEl: '.top-swiper__nav_next'
+                      prevEl: '.top-swiper__navigation .top-swiper__nav_prev',
+                      nextEl: '.top-swiper__navigation .top-swiper__nav_next'
                     }}
                     breakpoints={{
-                      768: {
-                        allowTouchMove: false
+                      '991': {
+                        slidesPerView: 7
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {items.kickskooters.map(({ id, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {items.kickskooters.map(({ id, status, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null
+                        let currentLinkClass =
+                          status == 'in-stock' ? 'top-swiper__link'
+                          : status == 'out-of-stock' ? 'top-swiper__link top-swiper__link_blackout'
+                          : 'top-swiper__link';
                         if (currentUrl) {
                           isMatch = currentUrl.includes(pageLinkForMatch)
                         }
                         return (
                           <SwiperSlide key={id} className={isMatch ? "top-swiper__item accent" : "top-swiper__item"}>
                             <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
-                              <a className="top-swiper__link">
+                              <a className={currentLinkClass}>
                                 <div className="top-swiper__img-wrapper">
                                   <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                                 </div>
@@ -111,15 +122,6 @@ export default function TopSwiper({ items }) {
                       }
                     })}
                   </Swiper>
-
-                  <div className="top-swiper__navigation">
-                    <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
-                      <BsChevronCompactLeft className="top-swiper__icon" />
-                    </button>
-                    <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
-                      <BsChevronCompactRight className="top-swiper__icon" />
-                    </button>
-                  </div>
                 </div>
               </SwiperSlide>
 
@@ -129,32 +131,32 @@ export default function TopSwiper({ items }) {
                   <Swiper
                     className="top-swiper__swiper"
                     ref={swiperWithAllSegways}
-                    modules={[Navigation, FreeMode]}
                     spaceBetween={0}
                     slidesPerView={4}
-                    loop={false}
+                    allowTouchMove={true}
+                    draggable={true}
                     freeMode={true}
-                    navigation={{
-                      prevEl: '.top-swiper__nav_prev',
-                      nextEl: '.top-swiper__nav_next'
-                    }}
                     breakpoints={{
-                      768: {
-                        allowTouchMove: false
+                      '991': {
+                        slidesPerView: 7
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {items.gokarts.map(({ id, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {items.gokarts.map(({ id, status, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null
+                        let currentLinkClass =
+                          status == 'in-stock' ? 'top-swiper__link'
+                          : status == 'out-of-stock' ? 'top-swiper__link top-swiper__link_blackout'
+                          : 'top-swiper__link';
                         if (currentUrl) {
                           isMatch = currentUrl.includes(pageLinkForMatch)
                         }
                         return (
                           <SwiperSlide key={id} className={isMatch ? "top-swiper__item accent" : "top-swiper__item"}>
                             <Link href={`${pageLinkName ? `/gokarts/${pageLinkName}` : '/'}`}>
-                              <a className="top-swiper__link">
+                              <a className={currentLinkClass}>
                                 <div className="top-swiper__img-wrapper">
                                   <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                                 </div>
@@ -166,20 +168,22 @@ export default function TopSwiper({ items }) {
                       }
                     })}
                   </Swiper>
-
-                  <div className="top-swiper__navigation">
-                    <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
-                      <BsChevronCompactLeft className="top-swiper__icon" />
-                    </button>
-                    <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
-                      <BsChevronCompactRight className="top-swiper__icon" />
-                    </button>
-                  </div>
                 </div>
               </SwiperSlide>
 
             </Swiper>
+
+            <div className={currentPosition == 0 ? "top-swiper__navigation" : "top-swiper__navigation hidden"}>
+              <button aria-label="swipe to left slider" className="top-swiper__nav top-swiper__nav_prev">
+                {!isMobile ? <Image alt='slide to left' src={iconLeftLg} /> : <BsChevronCompactLeft className="top-swiper__icon" />}
+              </button>
+              <button aria-label="swipe to right slider" className="top-swiper__nav top-swiper__nav_next">
+                {!isMobile ? <Image alt='slide to right' src={iconRightLg} /> : <BsChevronCompactRight className="top-swiper__icon" />}
+              </button>
+            </div>
           </div>
+
+
 
         </div>
       </div>

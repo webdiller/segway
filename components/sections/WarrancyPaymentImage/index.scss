@@ -78,6 +78,14 @@ $rootClass: '.form-warrancy';
     @include media('<=576px') {
       margin-bottom: 39px;
     }
+    &_out-of-stock {
+      border: 2px solid #FF3A44;
+      color: #FF3A44;
+    }
+    &_preorder {
+      border: 2px solid #F79E1B;
+      color: #F79E1B;
+    }
   }
 
   &__title {

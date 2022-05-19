@@ -12,7 +12,6 @@ const prepareProductsForExtend = ({ products, customer }) => {
     const idParams = new URLSearchParams(id);
     const warranty = idParams.get('warranty');
 
-    /** Остановился на вычислении цены для продукта */
     /** Если аксессуар, то 2 условия. Подарок или нет */
     if (type === 'accessory') {
       if (id === 'segway-protective-gear-set' && quantity == 1 && products.some(item => (item.type !== 'accessory' && item.type !== 'bundle'))) {

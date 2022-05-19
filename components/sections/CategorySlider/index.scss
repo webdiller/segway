@@ -227,6 +227,7 @@ $rootClass: '.category-slider';
     left: 0;
     z-index: 5;
     &:hover {
+      cursor: pointer;
       + #{$rootClass}__image {
         &::before {
           background-color: #009eff;

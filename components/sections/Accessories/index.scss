@@ -107,6 +107,9 @@
         bottom: -2px !important;
       }
     }
+    &.blackout {
+      opacity: .5;
+    }
   }
 
   &__item-wrapper {
@@ -375,6 +378,9 @@
       @include media('<=768px') {
         bottom: -2px !important;
       }
+    }
+    &.blackout {
+      opacity: .5;
     }
   }
 

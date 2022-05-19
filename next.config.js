@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   env: {
     // FIXME: Уточнить хост
-    HOST: process.env.NODE_ENV === 'production' ? 'https://segway-ninebot.us' : 'http://localhost:3000'
+    HOST: process.env.NODE_ENV === 'production' ? 'https://segway.vercel.app/' : 'http://localhost:3000'
   },
   swcMinify: true,
   reactStrictMode: false,
@@ -16,8 +16,13 @@ module.exports = withBundleAnalyzer({
   },
   async redirects() {
     return [
+      {
+        source: '/admin',
+        destination: '/',
+        permanent: true,
+      },
       // {
-      //   source: '/admin',
+      //   source: '/kickscooters/kickscooter-zing-c8',
       //   destination: '/',
       //   permanent: true,
       // },

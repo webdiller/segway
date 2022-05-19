@@ -2,6 +2,7 @@ export const data = {
   accessoeries: [
     {
       id: "ninebot-engine-speaker",
+      status: "out-of-stock",
       type: "accessory",
       name: "Ninebot Engine Speaker",
       nameWrap: "Ninebot \n Engine Speaker",
@@ -16,6 +17,7 @@ export const data = {
     },
     {
       id: "extension-rod",
+      status: "in-stock",
       type: "accessory",
       name: "Extension Rod",
       nameWrap: "Extension \n Rod",
@@ -30,6 +32,7 @@ export const data = {
     },
     {
       id: "segway-protective-gear-set",
+      status: "in-stock",
       type: "accessory",
       name: "Segway Protective Gear Set",
       nameWrap: "Segway Protective \n Gear Set",
@@ -47,6 +50,7 @@ export const data = {
     },
     {
       id: "ninebot-leisure-backpack",
+      status: "in-stock",
       type: "accessory",
       name: "Ninebot Leisure Backpack",
       nameWrap: "Ninebot Leisure \n Backpack",
@@ -61,6 +65,7 @@ export const data = {
     },
     {
       id: "segway-external-battery",
+      status: "in-stock",
       type: "accessory",
       name: "Segway External Battery",
       nameWrap: "Segway External \n Battery",
@@ -75,6 +80,7 @@ export const data = {
     },
     {
       id: "segway-charger",
+      status: "in-stock",
       type: "accessory",
       name: "Segway Charger",
       nameWrap: "Segway \n Charger",
@@ -89,6 +95,7 @@ export const data = {
     },
     {
       id: "segway-scooter-bag",
+      status: "in-stock",
       type: "accessory",
       name: "Segway Scooter Bag",
       nameWrap: "Segway \n Scooter Bag",
@@ -103,6 +110,7 @@ export const data = {
     },
     {
       id: "segway-phone-holder",
+      status: "in-stock",
       type: "accessory",
       name: "Segway Phone Holder",
       nameWrap: "Segway \n Phone Holder",
@@ -114,12 +122,13 @@ export const data = {
       price: "29.99",
       priceId: "price_1L06EjC3bu2cRJ58U0i7BX6Q",
       stripeId: "prod_LhVFkcKCLioL34",
-	  
+
       priceIdFree: "price_1L06FpC3bu2cRJ58oWO59UVt",
       stripeIdFree: "prod_LhVGypmUO5ZAao",
     },
     {
       id: "segway-scooter-seat",
+      status: "in-stock",
       type: "accessory",
       name: "Segway Scooter Seat",
       nameWrap: "Segway \n Scooter Seat",
@@ -138,6 +147,7 @@ export const data = {
     // number:1, index: 0, name: max 
     {
       id: "id=006&warranty=null&color=000000",
+      status: "in-stock",
       referenceId: "kickscooter-max",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -228,6 +238,7 @@ export const data = {
     // number:1, index: 1, name: max white
     {
       id: "id=006&warranty=null&color=ded5aa",
+      status: "in-stock",
       referenceId: "kickscooter-max-white",
       excludeForMap: true,
       type: "kickscooter",
@@ -319,6 +330,7 @@ export const data = {
     // number:2, index: 2, name: ES4
     {
       id: "id=010&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-es-4",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -390,6 +402,7 @@ export const data = {
     // number:3, index: 3, name: e22 
     {
       id: "id=001&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-e-22",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -461,6 +474,7 @@ export const data = {
     // number:4, index: 4, name: E45
     {
       id: "id=005&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-e-45",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -532,6 +546,7 @@ export const data = {
     // number:5, index: 5, name: E12
     {
       id: "id=013&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-zing-e12",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -607,6 +622,7 @@ export const data = {
     // number:6, index: 6, name: F30
     {
       id: "id=004&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-f30",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -678,6 +694,7 @@ export const data = {
     // number:7, index: 7, name: air15
     {
       id: "id=003&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-air-t15",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -751,6 +768,7 @@ export const data = {
     // number:8, index: 8, name: ES2
     {
       id: "id=008&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-es-2",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -823,6 +841,7 @@ export const data = {
     // number:9, index: 9, name: es3
     {
       id: "id=009&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-es-3",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -892,9 +911,10 @@ export const data = {
       packingListYoutubeEmbedId: "vIN5x2QAmQw"
     },
 
-    // number:1, index: 10, name:  ES1L
+    // number:10, index: 10, name:  ES1L
     {
       id: "id=002&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-es-1l",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -964,9 +984,10 @@ export const data = {
       packingListYoutubeEmbedId: "4II9z2qNApE"
     },
 
-    // number:1, index: 11, name:  E10
+    // number:11, index: 11, name:  E10
     {
       id: "id=012&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "kickscooter-zing-e10",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -1040,10 +1061,11 @@ export const data = {
       packingListYoutubeEmbedId: "bq48_4ErwSo"
     },
 
-    // number:1, index: 12, name:  e8 purple
+    // number:12, index: 12, name:  e8 purple
     {
       excludeForMap: true,
       id: "id=011&warranty=null&color=6D7DDF",
+      status: "in-stock",
       referenceId: "kickscooter-zing-e8-purple",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -1136,9 +1158,10 @@ export const data = {
       packingListYoutubeEmbedId: "oRwQxYd-uGk"
     },
 
-    // number:1, index: 13, name:  e8 pink
+    // number:13, index: 13, name:  e8 pink
     {
       id: "id=011&warranty=null&color=FFBFC0",
+      status: "in-stock",
       referenceId: "kickscooter-zing-e8-pink",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -1171,7 +1194,7 @@ export const data = {
       requiredHeight: "3’9”–4’9” (115–145 cm)",
       frameMaterial: "Alluminum-alloy",
       shockAbsorption: "Spring damper",
-      
+
       price: "279.99",
       priceId: "price_1KxnnyC3bu2cRJ58G4Ebo9B8",
       stripeId: "prod_Lf846bQugwiH0I",
@@ -1230,11 +1253,457 @@ export const data = {
       downloadManual: "/manuals/eKickScooter-ZING-E8-User-Manual.pdf",
       manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_ZING_E8.png",
       packingListYoutubeEmbedId: "oRwQxYd-uGk"
+    },
+
+    // number:14, index: 14, name:  zing-c8
+    {
+      id: "id=018&warranty=null&color=null",
+      status: "preorder",
+      referenceId: "zing-c8",
+      type: "kickscooter",
+      brandName: "Ninebot",
+      name: "Ninebot Kickscooter Zing C8",
+      nameWithoutBrand: "Kickscooter\nZing C8",
+      nameWrap: "Ninebot\nKickscooter\nZing C8",
+      shortName: "KS Zing C8",
+      shortNameWithoutPrefix: "Zing C8",
+      pageLinkForMatch: "kickscooter-zing-c8",
+      pageLinkName: "kickscooter-zing-c8",
+      pageLinkNameWithCategory: "/kickscooters/kickscooter-zing-c8",
+      oldPrice: "1049",
+      maxSpeed: "18.6 mph (30 km/h)",
+      rangeByMiles: "Approx. 40.4 miles (65 km)",
+      rangeByMilesWrap: "Approx. 40.4 miles \n (65 km)",
+      batteryCapacity: "551 Wh",
+      netWeight: "Approx. 41.2 lbs (18.7 kg)",
+      netWeightWrap: "Approx. 41.2 lbs \n (18.7 kg)",
+      payload: "66.1-220.5 lbs (30.0-100.0 kg)",
+      payloadWrap: "66.1-220.5 lbs \n (30.0-100.0 kg)",
+      charginTime: "~ 6 h",
+      numberOfBatteries: "1 Build-in",
+      motorPower: "Nominal 350W",
+      powerOutput: "121 W",
+      maxIncline: "20%",
+      shockAbsorption: "N/A",
+      safety: "LED rear light",
+      atmosphereLight: "N/A",
+
+      // FIXME: Указать цены
+      price: "949.99",
+      priceId: "",
+      stripeId: "",
+      imgPath: "/ninebot-zing-c8.png",
+      imgSmallPath: "/ninebot-zing-c8_small.png",
+      links: ["https://www.segway.com/ninebot-zing-c8/", "https://store.segway.com/ninebot-zing-c8"],
+      galleryImages: ["/ks-zing-c8/slider/1.jpg", "/ks-zing-c8/slider/2.jpg", "/ks-zing-c8/slider/3.jpg", "/ks-zing-c8/slider/4.jpg", "/ks-zing-c8/slider/5.jpg", "/ks-zing-c8/slider/6.jpg"],
+      packingListImg: "/packing-8.png",
+      quantity: 1,
+      downloadManual: "/manuals/ks-zing-c8-User-Manual.pdf",
+      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      packingListYoutubeEmbedId: "",
+      warranty: [
+        {
+          durationYear: 1,
+          priceId: "price_1L07vYC3bu2cRJ58JkIOUnpl",
+          price: 64.99,
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
+          oldPrice: 1188
+        },
+        {
+          durationYear: 2,
+          priceId: "price_1L07vqC3bu2cRJ58JTnTTgLL",
+          price: 89.99,
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
+          oldPrice: 1258
+        },
+        {
+          durationYear: 3,
+          priceId: "price_1L07wBC3bu2cRJ58gaPYeYXu",
+          price: 119.00,
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
+          oldPrice: 1328
+        }
+      ]
+    },
+
+    // number:15, index: 15, name:  e-25a
+    {
+      id: "id=019&warranty=null&color=null",
+      status: "preorder",
+      referenceId: "e-25a",
+      type: "kickscooter",
+      brandName: "Ninebot",
+      name: "Ninebot Kickscooter E25A",
+      nameWithoutBrand: "Kickscooter\nE25A",
+      nameWrap: "Ninebot\nKickscooter\nE25A",
+      shortName: "KS E25A",
+      shortNameWithoutPrefix: "E25A",
+      pageLinkForMatch: "kickscooter-e-25a",
+      pageLinkName: "kickscooter-e-25a",
+      pageLinkNameWithCategory: "/kickscooters/kickscooter-e-25a",
+      oldPrice: "1049",
+      maxSpeed: "18.6 mph (30 km/h)",
+      rangeByMiles: "Approx. 40.4 miles (65 km)",
+      rangeByMilesWrap: "Approx. 40.4 miles \n (65 km)",
+      batteryCapacity: "551 Wh",
+      netWeight: "Approx. 41.2 lbs (18.7 kg)",
+      netWeightWrap: "Approx. 41.2 lbs \n (18.7 kg)",
+      payload: "66.1-220.5 lbs (30.0-100.0 kg)",
+      payloadWrap: "66.1-220.5 lbs \n (30.0-100.0 kg)",
+      charginTime: "~ 6 h",
+      numberOfBatteries: "1 Build-in",
+      motorPower: "Nominal 350W",
+      powerOutput: "121 W",
+      maxIncline: "20%",
+      shockAbsorption: "N/A",
+      safety: "LED rear light",
+      atmosphereLight: "N/A",
+
+      // FIXME: Указать цены
+      price: "949.99",
+      priceId: "",
+      stripeId: "",
+      imgPath: "/ninebot-e-25a.png",
+      imgSmallPath: "/ninebot-e-25a_small.png",
+      links: ["https://www.segway.com/ninebot-e-25a/", "https://store.segway.com/ninebot-e-25a"],
+      galleryImages: ["/ks-e25a/slider/1.jpg", "/ks-e25a/slider/2.jpg", "/ks-e25a/slider/3.jpg", "/ks-e25a/slider/4.jpg", "/ks-e25a/slider/5.jpg", "/ks-e25a/slider/6.jpg"],
+      packingListImg: "/packing-9.png",
+      quantity: 1,
+      downloadManual: "/manuals/ks-e-25a-User-Manual.pdf",
+      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      packingListYoutubeEmbedId: "",
+      warranty: [
+        {
+          durationYear: 1,
+          priceId: "price_1L07vYC3bu2cRJ58JkIOUnpl",
+          price: 64.99,
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
+          oldPrice: 1188
+        },
+        {
+          durationYear: 2,
+          priceId: "price_1L07vqC3bu2cRJ58JTnTTgLL",
+          price: 89.99,
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
+          oldPrice: 1258
+        },
+        {
+          durationYear: 3,
+          priceId: "price_1L07wBC3bu2cRJ58gaPYeYXu",
+          price: 119.00,
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
+          oldPrice: 1328
+        }
+      ]
+    },
+
+    // number:16, index: 16, name:  p65
+    {
+      id: "id=20&warranty=null&color=null",
+      status: "preorder",
+      referenceId: "p65",
+      type: "kickscooter",
+      brandName: "Ninebot",
+      name: "Ninebot Kickscooter P65",
+      nameWithoutBrand: "Kickscooter\nP65",
+      nameWrap: "Ninebot\nKickscooter\nP65",
+      shortName: "KS P65",
+      shortNameWithoutPrefix: "P65",
+      pageLinkForMatch: "kickscooter-p65",
+      pageLinkName: "kickscooter-p65",
+      pageLinkNameWithCategory: "/kickscooters/kickscooter-p65",
+      oldPrice: "1049",
+      maxSpeed: "18.6 mph (30 km/h)",
+      rangeByMiles: "Approx. 40.4 miles (65 km)",
+      rangeByMilesWrap: "Approx. 40.4 miles \n (65 km)",
+      batteryCapacity: "551 Wh",
+      netWeight: "Approx. 41.2 lbs (18.7 kg)",
+      netWeightWrap: "Approx. 41.2 lbs \n (18.7 kg)",
+      payload: "66.1-220.5 lbs (30.0-100.0 kg)",
+      payloadWrap: "66.1-220.5 lbs \n (30.0-100.0 kg)",
+      charginTime: "~ 6 h",
+      numberOfBatteries: "1 Build-in",
+      motorPower: "Nominal 350W",
+      powerOutput: "121 W",
+      maxIncline: "20%",
+      shockAbsorption: "N/A",
+      safety: "LED rear light",
+      atmosphereLight: "N/A",
+
+      // FIXME: Указать цены
+      price: "949.99",
+      priceId: "",
+      stripeId: "",
+      imgPath: "/ninebot-p65.png",
+      imgSmallPath: "/ninebot-p65_small.png",
+      links: ["https://www.segway.com/ninebot-p65/", "https://store.segway.com/ninebot-p65"],
+      galleryImages: ["/ks-p65/slider/1.jpg"],
+      packingListImg: "/packing-10.png",
+      quantity: 1,
+      downloadManual: "/manuals/ks-p65-User-Manual.pdf",
+      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      packingListYoutubeEmbedId: "",
+      warranty: [
+        {
+          durationYear: 1,
+          priceId: "price_1L07vYC3bu2cRJ58JkIOUnpl",
+          price: 64.99,
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
+          oldPrice: 1188
+        },
+        {
+          durationYear: 2,
+          priceId: "price_1L07vqC3bu2cRJ58JTnTTgLL",
+          price: 89.99,
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
+          oldPrice: 1258
+        },
+        {
+          durationYear: 3,
+          priceId: "price_1L07wBC3bu2cRJ58gaPYeYXu",
+          price: 119.00,
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
+          oldPrice: 1328
+        }
+      ]
+    },
+
+    // number:17, index: 17, name:  p100
+    {
+      id: "id=21&warranty=null&color=null",
+      status: "preorder",
+      referenceId: "p100",
+      type: "kickscooter",
+      brandName: "Ninebot",
+      name: "Ninebot Kickscooter P100",
+      nameWithoutBrand: "Kickscooter\nP100",
+      nameWrap: "Ninebot\nKickscooter\nP100",
+      shortName: "KS P100",
+      shortNameWithoutPrefix: "P100",
+      pageLinkForMatch: "kickscooter-p100",
+      pageLinkName: "kickscooter-p100",
+      pageLinkNameWithCategory: "/kickscooters/kickscooter-p100",
+      oldPrice: "1049",
+      maxSpeed: "18.6 mph (30 km/h)",
+      rangeByMiles: "Approx. 40.4 miles (65 km)",
+      rangeByMilesWrap: "Approx. 40.4 miles \n (65 km)",
+      batteryCapacity: "551 Wh",
+      netWeight: "Approx. 41.2 lbs (18.7 kg)",
+      netWeightWrap: "Approx. 41.2 lbs \n (18.7 kg)",
+      payload: "66.1-220.5 lbs (30.0-100.0 kg)",
+      payloadWrap: "66.1-220.5 lbs \n (30.0-100.0 kg)",
+      charginTime: "~ 6 h",
+      numberOfBatteries: "1 Build-in",
+      motorPower: "Nominal 350W",
+      powerOutput: "121 W",
+      maxIncline: "20%",
+      shockAbsorption: "N/A",
+      safety: "LED rear light",
+      atmosphereLight: "N/A",
+
+      // FIXME: Указать цены
+      price: "949.99",
+      priceId: "",
+      stripeId: "",
+      imgPath: "/ninebot-p100.png",
+      imgSmallPath: "/ninebot-p100_small.png",
+      links: ["https://www.segway.com/ninebot-p100/", "https://store.segway.com/ninebot-p100"],
+      galleryImages: ["/ks-p100/slider/1.jpg"],
+      packingListImg: "/packing-10.png",
+      quantity: 1,
+      downloadManual: "/manuals/ks-p100-User-Manual.pdf",
+      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      packingListYoutubeEmbedId: "",
+      warranty: [
+        {
+          durationYear: 1,
+          priceId: "price_1L07vYC3bu2cRJ58JkIOUnpl",
+          price: 64.99,
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
+          oldPrice: 1188
+        },
+        {
+          durationYear: 2,
+          priceId: "price_1L07vqC3bu2cRJ58JTnTTgLL",
+          price: 89.99,
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
+          oldPrice: 1258
+        },
+        {
+          durationYear: 3,
+          priceId: "price_1L07wBC3bu2cRJ58gaPYeYXu",
+          price: 119.00,
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
+          oldPrice: 1328
+        }
+      ]
+    },
+
+    // number:18, index: 18, name:  gt1
+    {
+      id: "id=22&warranty=null&color=null",
+      status: "out-of-stock",
+      referenceId: "gt1",
+      type: "kickscooter",
+      brandName: "Ninebot",
+      name: "Ninebot Kickscooter GT1",
+      nameWithoutBrand: "Kickscooter\nGT1",
+      nameWrap: "Ninebot\nKickscooter\nGT1",
+      shortName: "KS GT1",
+      shortNameWithoutPrefix: "GT1",
+      pageLinkForMatch: "kickscooter-gt1",
+      pageLinkName: "kickscooter-gt1",
+      pageLinkNameWithCategory: "/kickscooters/kickscooter-gt1",
+      oldPrice: "1049",
+      maxSpeed: "18.6 mph (30 km/h)",
+      rangeByMiles: "Approx. 40.4 miles (65 km)",
+      rangeByMilesWrap: "Approx. 40.4 miles \n (65 km)",
+      batteryCapacity: "551 Wh",
+      netWeight: "Approx. 41.2 lbs (18.7 kg)",
+      netWeightWrap: "Approx. 41.2 lbs \n (18.7 kg)",
+      payload: "66.1-220.5 lbs (30.0-100.0 kg)",
+      payloadWrap: "66.1-220.5 lbs \n (30.0-100.0 kg)",
+      charginTime: "~ 6 h",
+      numberOfBatteries: "1 Build-in",
+      motorPower: "Nominal 350W",
+      powerOutput: "121 W",
+      maxIncline: "20%",
+      shockAbsorption: "N/A",
+      safety: "LED rear light",
+      atmosphereLight: "N/A",
+
+      // FIXME: Указать цены
+      price: "949.99",
+      priceId: "",
+      stripeId: "",
+      imgPath: "/ninebot-gt1.png",
+      imgSmallPath: "/ninebot-gt1_small.png",
+      links: ["https://www.segway.com/ninebot-gt1/", "https://store.segway.com/ninebot-gt1"],
+      galleryImages: ["/ks-gt1/slider/1.jpg"],
+      packingListImg: "/packing-10.png",
+      quantity: 1,
+      downloadManual: "/manuals/ks-gt1-User-Manual.pdf",
+      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      packingListYoutubeEmbedId: "",
+      warranty: [
+        {
+          durationYear: 1,
+          priceId: "price_1L07vYC3bu2cRJ58JkIOUnpl",
+          price: 64.99,
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
+          oldPrice: 1188
+        },
+        {
+          durationYear: 2,
+          priceId: "price_1L07vqC3bu2cRJ58JTnTTgLL",
+          price: 89.99,
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
+          oldPrice: 1258
+        },
+        {
+          durationYear: 3,
+          priceId: "price_1L07wBC3bu2cRJ58gaPYeYXu",
+          price: 119.00,
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
+          oldPrice: 1328
+        }
+      ]
+    },
+
+    // number:19, index: 19, name:  gt2
+    {
+      id: "id=23&warranty=null&color=null",
+      status: "preorder",
+      referenceId: "gt2",
+      type: "kickscooter",
+      brandName: "Ninebot",
+      name: "Ninebot Kickscooter GT2",
+      nameWithoutBrand: "Kickscooter\nGT2",
+      nameWrap: "Ninebot\nKickscooter\nGT2",
+      shortName: "KS GT2",
+      shortNameWithoutPrefix: "GT2",
+      pageLinkForMatch: "kickscooter-gt2",
+      pageLinkName: "kickscooter-gt2",
+      pageLinkNameWithCategory: "/kickscooters/kickscooter-gt2",
+      oldPrice: "1049",
+      maxSpeed: "18.6 mph (30 km/h)",
+      rangeByMiles: "Approx. 40.4 miles (65 km)",
+      rangeByMilesWrap: "Approx. 40.4 miles \n (65 km)",
+      batteryCapacity: "551 Wh",
+      netWeight: "Approx. 41.2 lbs (18.7 kg)",
+      netWeightWrap: "Approx. 41.2 lbs \n (18.7 kg)",
+      payload: "66.1-220.5 lbs (30.0-100.0 kg)",
+      payloadWrap: "66.1-220.5 lbs \n (30.0-100.0 kg)",
+      charginTime: "~ 6 h",
+      numberOfBatteries: "1 Build-in",
+      motorPower: "Nominal 350W",
+      powerOutput: "121 W",
+      maxIncline: "20%",
+      shockAbsorption: "N/A",
+      safety: "LED rear light",
+      atmosphereLight: "N/A",
+
+      // FIXME: Указать цены
+      price: "949.99",
+      priceId: "",
+      stripeId: "",
+      imgPath: "/ninebot-gt2.png",
+      imgSmallPath: "/ninebot-gt2_small.png",
+      links: ["https://www.segway.com/ninebot-gt2/", "https://store.segway.com/ninebot-gt2"],
+      galleryImages: ["/ks-gt2/slider/1.jpg"],
+      packingListImg: "/packing-10.png",
+      quantity: 1,
+      downloadManual: "/manuals/ks-gt2-User-Manual.pdf",
+      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      packingListYoutubeEmbedId: "",
+      warranty: [
+        {
+          durationYear: 1,
+          priceId: "price_1L07vYC3bu2cRJ58JkIOUnpl",
+          price: 64.99,
+          planId: "B9-SGEBK-1y",
+          planPrice: 6499,
+          oldPrice: 1188
+        },
+        {
+          durationYear: 2,
+          priceId: "price_1L07vqC3bu2cRJ58JTnTTgLL",
+          price: 89.99,
+          planId: "B9-SGEBK-2y",
+          planPrice: 8999,
+          oldPrice: 1258
+        },
+        {
+          durationYear: 3,
+          priceId: "price_1L07wBC3bu2cRJ58gaPYeYXu",
+          price: 119.00,
+          planId: "B9-SGEBK-3y",
+          planPrice: 11900,
+          oldPrice: 1328
+        }
+      ]
     }
   ],
+
   gokarts: [
     {
       id: "id=014&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "gokart-pro",
       type: "gokart",
       brandName: "Ninebot",
@@ -1316,6 +1785,7 @@ export const data = {
     },
     {
       id: "id=015&warranty=null&color=null",
+      status: "in-stock",
       referenceId: "gokart-kit",
       type: "gokart",
       brandName: "Ninebot",
@@ -1398,6 +1868,7 @@ export const data = {
   bundles: [
     {
       id: "id=016&warranty=null&color=null",
+      status: "in-stock",
       type: "bundle",
       name: "Ninebot S MAX",
       imgPath: "/ninebot-s-max-bundle.png",
@@ -1408,6 +1879,7 @@ export const data = {
     },
     {
       id: "id=017&warranty=null&color=null",
+      status: "in-stock",
       type: "bundle",
       name: "Ninebot S",
       imgPath: "/ninebot-s-bundle.png",

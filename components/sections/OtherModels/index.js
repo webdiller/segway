@@ -13,7 +13,10 @@ import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
 import { disableOtherModelsSlider } from 'store/slices/elementInViewSlice';
 
-export default function OtherModels({ items }) {
+export default function OtherModels({
+  title = "Other kickscooters",
+  description = "Check out the entire line of Segway scooter",
+  items }) {
 
   const swiperRef = useRef(null);
   const [allSegways] = useState(items)
@@ -84,8 +87,8 @@ export default function OtherModels({ items }) {
   return (
     <div ref={ref} className="other-models">
       <div className="container other-models__container">
-        <p className="title title_fz-20 other-models__title">Other kickscooters</p>
-        <div className="other-models__subtitle">Check out the entire line of Segway scooters</div>
+        <p className="title title_fz-20 other-models__title">{title}</p>
+        <div className="other-models__subtitle">{description}</div>
         <div className="other-models__swiper">
           <Swiper
             ref={swiperRef}

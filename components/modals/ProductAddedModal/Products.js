@@ -76,7 +76,7 @@ export default function Products() {
                   </div>
                 </div>
 
-                {item.warranty && (
+                {item.warranty && item.status !== 'preorder' && (
                   <div className="products__product-warrancy-area">
                     <p className="products__product-warrancy-title">Add an extended warranty from Extend</p>
                     <WarrancyToggler product={item} />

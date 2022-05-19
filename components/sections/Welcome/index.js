@@ -16,6 +16,7 @@ import 'swiper/css/pagination';
 
 export default function Welcome({ currentSegway, titleDesktop, titleMobile, bundles }) {
   const dispatch = useDispatch();
+  const { status } = currentSegway;
   let mediaQuery = useMediaQuery('(max-width: 768px)');
 
   const { currentPosition } = useSelector(state => state.fancyModal);
@@ -29,6 +30,19 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile, bund
     dispatch(setActive(true));
     dispatch(setPositionSlide(indx));
   };
+
+  const CurrentStatus = (status) => {
+    switch (status) {
+      case 'in-stock':
+        return (<p className="welcome__stock">In stock</p>)
+      case 'out-of-stock':
+        return (<p className="welcome__stock welcome__stock_out-of-stock">Out of stock</p>)
+      case 'preorder':
+        return (<p className="welcome__stock welcome__stock_preorder">Pre order</p>)
+      default:
+        return (<p className="welcome__stock">In stock</p>)
+    }
+  }
 
   useEffect(() => {
     positionSet(currentPosition)
@@ -50,7 +64,7 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile, bund
     <div className="welcome">
       <div className="container welcome__container">
         <div className="welcome__stock-with-title welcome__stock-with-title_mobile">
-          <p className="welcome__stock">In stock</p>
+          {CurrentStatus(status)}
           <p className="welcome__title">
             <span className="hide-576">{titleDesktop}</span>
             <span className="show-block-576">{titleMobile}</span>
@@ -60,7 +74,7 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile, bund
         <div className="welcome__content-with-swiper">
           <div className="welcome__content">
             <div className="welcome__stock-with-title welcome__stock-with-title_desktop">
-              <p className="welcome__stock">In stock</p>
+              {CurrentStatus(status)}
               <p className="title welcome__title">{titleDesktop}</p>
             </div>
             <SegwayProtectMobile customClass="welcome__protect" />

@@ -25,7 +25,9 @@ export default function AccessoriesBlock({ items }) {
         <TitleWithDescription titleText={<>Accessories</>} descriptionText={<>Cо стильными оригинальными аксессуарами Xiaomi и Ninebot вы получите еще больше положительных эмоций от своих поездок.</>} />
         <div className="accessories-block__items">
           {items.map((item) => {
-            const { id, type, name, nameWrap, description, price, imgPath } = item;
+            const { id, status, type, name, nameWrap, description, price, imgPath } = item;
+            let itemClass = "swiper-slide accessories-block__item";
+            if (status == 'out-of-stock') itemClass = "swiper-slide accessories-block__item blackout"
             return (
               <div key={id} className="swiper-slide accessories-block__item">
                 <div className="accessories-block__item-wrapper">
@@ -48,9 +50,18 @@ export default function AccessoriesBlock({ items }) {
                       </div>
                     </div>)
                   }
-                  <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-block__add-cart">
-                    <span>ADD TO CART</span>
-                  </button>
+                  
+                  {/* FIXME: Добавить вызов модалки */}
+                  {status == 'out-of-stock' ? (
+                    <button onClick={(e) => onClickHandler(item, e)} className="ui-btn ui-btn_fill-black accessories-block__add-cart">
+                      <span>REQUEST</span>
+                    </button>
+                  ) : (
+                    <button onClick={(e) => onClickHandler(item, e)} className="ui-btn accessories-block__add-cart">
+                      <span>ADD TO CART</span>
+                    </button>
+                  )}
+
                 </div>
               </div>
             );

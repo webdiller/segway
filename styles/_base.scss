@@ -261,6 +261,7 @@ img {
     }
   }
 
+  // FIXME: Убрать лишний класс
   &:active {
     background-color: #fff;
     color: #009eff;
@@ -342,6 +343,20 @@ img {
     &:active,
     &:focus {
       color: #323941;
+    }
+  }
+
+  &_fill-black {
+    background-color: #999999;
+    &::before {
+      background: linear-gradient(180deg, #999999 0%, #171b1f 100%);
+    }
+    &::after {
+      border: 3px solid #999999;
+    }
+    &:active,
+    &:focus {
+      color: #999999;
     }
   }
 
