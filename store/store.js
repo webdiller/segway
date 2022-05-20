@@ -20,6 +20,7 @@ import {
   productCartSlice,
   modalsSlice,
   discountModalSlice,
+  preorderModalSlice,
   fancyModalSlice,
   elementInViewSlice,
   productModalSlice,
@@ -31,7 +32,7 @@ const persistConfig = {
   key: 'root',
   version: 0.2,
   storage,
-  blacklist: ['differentBilling', 'productModal', 'discountModalSlice', 'paymentModalSlice']
+  blacklist: ['differentBilling', 'productModal', 'discountModalSlice', 'preorderModalSlice', 'paymentModalSlice']
 }
 
 const rootReducer = combineReducers({
@@ -42,6 +43,7 @@ const rootReducer = combineReducers({
   modals: modalsSlice,
   productModal: productModalSlice,
   discountModal: discountModalSlice,
+  preorderModal: preorderModalSlice,
   fancyModal: fancyModalSlice,
   elementInView: elementInViewSlice,
   paymentModal: paymentModalSlice,

@@ -149,12 +149,12 @@
   }
 
   &__input {
-    font-size: 25px;
+    font-size: 20px;
     color: #c4c4c4;
     @include media("<=768px") {
     }
     &::placeholder {
-      font-size: 25px;
+      font-size: 20px;
       color: #c4c4c4;
     }
   }

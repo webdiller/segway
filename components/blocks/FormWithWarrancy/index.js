@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
+import { setActive } from 'store/slices/preorderModalSlice';
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -30,6 +31,8 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       dispatch(setProperties({ selectedWarranty: null, selectedColor: currentColor }))
     }
   }
+
+  const requestAModalHandler = () => dispatch(setActive(true))
 
   const addItemToCartAndShowModal = () => {
     /** Если есть выбранный банд, то добавялем в корину */
@@ -173,7 +176,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
                 </>
               )
                 : status == 'out-of-stock' ? (<>
-                  <button onClick={addItemToCartAndShowModal} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
+                  <button onClick={requestAModalHandler} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
                     <span> Request Stock Alert </span>
                   </button>
                 </>)

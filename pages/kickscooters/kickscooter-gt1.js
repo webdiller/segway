@@ -62,6 +62,7 @@ const ControllFromSmartphoneDinamic = dynamic(() => import('@/sections/ControllF
 
 import FormWarrancy_desktop from '@/base/ks-gt1/form-warrancy-desktop.jpg';
 import FormWarrancy_mobile from '@/base/ks-gt1/form-warrancy-mobile.jpg';
+import PreorderModal from '../../components/modals/PreorderModal';
 const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPaymentImage/warrancy-payment-image'));
 
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
@@ -782,6 +783,7 @@ export default function ModelPage({ allData }) {
       <DiscountModalDinamic />
       <FancyModal images={allData.kickskooters[18].galleryImages} />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
+      <PreorderModal />
     </>
   );
 }
