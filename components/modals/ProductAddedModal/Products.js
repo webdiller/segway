@@ -3,8 +3,9 @@ import { BiMinus, BiPlus } from 'react-icons/bi';
 import { WarrancyToggler, ColorToggler } from './index'
 import { useDispatch, useSelector } from 'react-redux';
 import { addQuantity, removeProduct } from 'store/slices/productCartSlice';
-import { calculatePriceByWarrantyAndColor } from '@/helpers/calculatePriceByWarrantyAndColor';
 import { calculatePriceByColor } from '@/helpers/calculatePriceByColor';
+import Link from 'next/link';
+import extendImage from '@/base/icons/extend-icon.svg'
 
 export default function Products() {
 
@@ -78,7 +79,11 @@ export default function Products() {
 
                 {item.warranty && item.status !== 'preorder' && (
                   <div className="products__product-warrancy-area">
-                    <p className="products__product-warrancy-title">Add an extended warranty from Extend</p>
+                    <p className="products__product-warrancy-title">Add an extended warranty from
+                      <Link href={`https://customers.extend.com/plan_details/B9-SGEBK-1y?storeId=${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}`}>
+                        <a className='form-with-warrancy__form-link'><Image alt="Extend icon" src={extendImage} /><span>What&apos;s covered?</span></a>
+                      </Link>
+                    </p>
                     <WarrancyToggler product={item} />
                   </div>
                 )}

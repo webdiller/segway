@@ -10,6 +10,7 @@ import Colors from './Colors';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import Bundles from './Bundles';
 import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
+import extendImage from '@/base/icons/extend-icon.svg'
 
 export default function FormWithWarrancy({ customClass = 'form-with-warrancy', product, bundles }) {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       dispatch(setProperties({ selectedWarranty: null, selectedColor: currentColor }))
     }
   }
-  
+
   const { requestAPreorderModalHandler } = UsePreorderModalHook()
 
   const addItemToCartAndShowModal = () => {
@@ -44,6 +45,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
       dispatch(productModalActiveSet(true))
     }
   }
+
   let rootClass = "form-with-warrancy";
   if (customClass && status !== 'out-of-stock') {
     rootClass = `form-with-warrancy ${customClass}`
@@ -101,7 +103,10 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
               <div className="form-with-warrancy__title-with-buttons">
                 <p className="form-with-warrancy__form-title">
-                  Add an extended warranty from <span>Extend</span>
+                  Add an extended warranty from 
+                  <Link href={`https://customers.extend.com/plan_details/B9-SGEBK-1y?storeId=${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}`}>
+                    <a className='form-with-warrancy__form-link'><Image alt="Extend icon" src={extendImage}/><span>What&apos;s covered?</span></a>
+                  </Link>
                 </p>
                 <div className="form-with-warrancy__form-buttons">
                   {product.warranty.map(({ durationYear, price }) => {
@@ -175,7 +180,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
                 </>
               )
                 : status == 'out-of-stock' ? (<>
-                  <button onClick={()=>{
+                  <button onClick={() => {
                     requestAPreorderModalHandler(product.name, product.pageLinkNameWithCategory)
                   }} className='ui-btn ui-btn_lg form-with-warrancy__form-action'>
                     <span> Request Stock Alert </span>
