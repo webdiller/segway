@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import Welcome from '@/sections/Welcome';
+const PreorderModalDynamic = dynamic(() => import('@/modals/PreorderModal'));
 
 import Tabs from '@/sections/Tabs';
 const FancyModal = dynamic(() => import('@/modals/FancyModal'), { ssr: false });
@@ -422,6 +423,7 @@ export default function ModelPage({ allData }) {
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
       <FancyModal images={allData.kickskooters[8].galleryImages} />
+      <PreorderModalDynamic />
     </>
   );
 }

@@ -28,8 +28,9 @@ export default function AccessoriesBlock({ items }) {
             const { id, status, type, name, nameWrap, description, price, imgPath } = item;
             let itemClass = "swiper-slide accessories-block__item";
             if (status == 'out-of-stock') itemClass = "swiper-slide accessories-block__item blackout"
+            // FIXME: Доделать
             return (
-              <div key={id} className="swiper-slide accessories-block__item">
+              <div key={id} className={itemClass}>
                 <div className="accessories-block__item-wrapper">
                   <div className="accessories-block__img-wrapper">
                     <Image objectFit="contain" className="accessories-block__img" src={imgPath} alt="NineboT Engine Speaker" layout="fill" placeholder="blur" blurDataURL={circlePlaceholder} />

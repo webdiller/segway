@@ -17,7 +17,7 @@ export const data = {
     },
     {
       id: "extension-rod",
-      status: "in-stock",
+      status: "out-of-stock",
       type: "accessory",
       name: "Extension Rod",
       nameWrap: "Extension \n Rod",
@@ -330,7 +330,7 @@ export const data = {
     // number:2, index: 2, name: ES4
     {
       id: "id=010&warranty=null&color=null",
-      status: "in-stock",
+      status: "out-of-stock",
       referenceId: "kickscooter-es-4",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -546,7 +546,7 @@ export const data = {
     // number:5, index: 5, name: E12
     {
       id: "id=013&warranty=null&color=null",
-      status: "in-stock",
+      status: "out-of-stock",
       referenceId: "kickscooter-zing-e12",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -694,7 +694,7 @@ export const data = {
     // number:7, index: 7, name: air15
     {
       id: "id=003&warranty=null&color=null",
-      status: "in-stock",
+      status: "out-of-stock",
       referenceId: "kickscooter-air-t15",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -768,7 +768,7 @@ export const data = {
     // number:8, index: 8, name: ES2
     {
       id: "id=008&warranty=null&color=null",
-      status: "in-stock",
+      status: "out-of-stock",
       referenceId: "kickscooter-es-2",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -841,7 +841,7 @@ export const data = {
     // number:9, index: 9, name: es3
     {
       id: "id=009&warranty=null&color=null",
-      status: "in-stock",
+      status: "out-of-stock",
       referenceId: "kickscooter-es-3",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -914,7 +914,7 @@ export const data = {
     // number:10, index: 10, name:  ES1L
     {
       id: "id=002&warranty=null&color=null",
-      status: "in-stock",
+      status: "out-of-stock",
       referenceId: "kickscooter-es-1l",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -987,7 +987,7 @@ export const data = {
     // number:11, index: 11, name:  E10
     {
       id: "id=012&warranty=null&color=null",
-      status: "in-stock",
+      status: "out-of-stock",
       referenceId: "kickscooter-zing-e10",
       type: "kickscooter",
       brandName: "Ninebot",
