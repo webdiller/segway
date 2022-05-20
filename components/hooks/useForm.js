@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function useForm({fromWhere}) {
+export default function useForm({ additionFields, fromWhere, endpoint = "/api/mail" }) {
 
   const [curentRef, curentRefSet] = useState(null)
   const [loading, loadingSet] = useState(false)
@@ -16,11 +16,11 @@ export default function useForm({fromWhere}) {
       if (!field.name) return;
       formData[field.name] = field.value;
     });
-    formData = {...formData, fromWhere}
+    formData = { ...additionFields, ...formData, fromWhere }
 
     let config = {
       method: "post",
-      url: `/api/mail`,
+      url: endpoint,
       headers: {
         "Content-Type": "application/json"
       },
@@ -39,12 +39,16 @@ export default function useForm({fromWhere}) {
         curentRef.current.classList.remove("loading");
 
         setTimeout(() => {
-          curentRef.current.innerHTML = "<span>Send</span>";
-        }, 3000);
+          try {
+            curentRef.current.innerHTML = "<span>Send</span>";
+          } catch (error) {
+            console.log('error: ', error);
+          }
+        }, 1500);
 
         setTimeout(() => {
           successSet(true)
-        }, 1500);
+        }, 3000);
 
       }
     } catch (error) {
@@ -58,7 +62,7 @@ export default function useForm({fromWhere}) {
     } finally {
       loadingSet(false)
     }
-    
+
   };
 
   return {

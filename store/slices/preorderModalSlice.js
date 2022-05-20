@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isActive: true,
+  isActive: false,
   userEmail: "",
-  userName: "",
-  userPhone: ""
+  productName: "",
+  productLink: "",
 }
 
 export const preorderModalSlice = createSlice({
@@ -20,17 +20,17 @@ export const preorderModalSlice = createSlice({
         document.body.classList.remove('disabled')
       }
     },
-    setUserName: (state, action) => {
-      state.userName = action.payload;
-    },
-    setUserPhone: (state, action) => {
-      state.userPhone = action.payload;
-    },
     setUserEmail: (state, action) => {
       state.userEmail = action.payload;
-    }
+    },
+    setProductName: (state, action) => {
+      state.productName = action.payload;
+    },
+    setProductLink: (state, action) => {
+      state.productLink = action.payload;
+    },
   }
 })
 
-export const { setActive, setUserName, setUserPhone, setUserEmail } = preorderModalSlice.actions
+export const { setActive, setUserEmail, setProductName, setProductLink } = preorderModalSlice.actions
 export default preorderModalSlice.reducer

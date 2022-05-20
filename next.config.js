@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   env: {
     // FIXME: Уточнить хост
-    HOST: process.env.NODE_ENV === 'production' ? 'https://segway.vercel.app/' : 'http://localhost:3000'
+    HOST: process.env.NODE_ENV === 'production' ? 'https://segway.vercel.app' : 'http://localhost:3000'
   },
   swcMinify: true,
   reactStrictMode: false,

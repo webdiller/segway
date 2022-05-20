@@ -20,6 +20,7 @@ export default function DiscountModal() {
   const { compareModels } = useSelector((state) => state.modals);
   const { activeModal: productModal } = useSelector((state) => state.productModal);
   const { isActive: isActiveDiscount } = useSelector(state => state.discountModal);
+  const { isActive: isActivePreorder } = useSelector(state => state.preorderModal);
   const { isActive: isActiveFancy } = useSelector(state => state.fancyModal);
 
   const setActiveModalHandler = () => {
@@ -37,9 +38,9 @@ export default function DiscountModal() {
     let secondInterval = null;
 
     firstInterval = setInterval((_first) => {
-      if (window.localStorage.isFirstVisit == undefined && !productModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
+      if (window.localStorage.isFirstVisit == undefined && !productModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount && !isActivePreorder) {
         secondInterval = setInterval((_second) => {
-          if (window.localStorage.isFirstVisit == undefined && !productModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount) {
+          if (window.localStorage.isFirstVisit == undefined && !productModal && !compareModels.activeModal && !isActiveFancy && !isActiveDiscount && !isActivePreorder) {
             readyToInteractiveWithModalSet(false)
             dispatch(setActive(true))
             window.localStorage.setItem('isFirstVisit', 'false');

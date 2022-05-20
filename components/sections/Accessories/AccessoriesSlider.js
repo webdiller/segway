@@ -8,10 +8,13 @@ import { useInView } from 'react-intersection-observer';
 import { pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { disableAccessoriesSlider } from 'store/slices/elementInViewSlice';
+import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
 
 export default function AccessoriesSlider({ items }) {
   const dispatch = useDispatch();
   const { accessoriesSlider } = useSelector(state => state.elementInView)
+  
+  const { requestAPreorderModalHandler } = UsePreorderModalHook()
 
   const buttonElement = useRef(null);
   const [hidenOtherAccessories, setHiddenOtherAccessories] = useState(true);
@@ -105,9 +108,8 @@ export default function AccessoriesSlider({ items }) {
                         </div>
                       </div>)
                     }
-                    {/* FIXME: Добавить вызов модалки */}
                     {status == 'out-of-stock' ? (
-                      <button onClick={(e) => onClickHandler(item, e)} className="ui-btn ui-btn_fill-black accessories-slider__add-cart">
+                      <button onClick={(e) => requestAPreorderModalHandler(item.name, item.pageLinkNameWithCategory)} className="ui-btn ui-btn_fill-black accessories-slider__add-cart">
                         <span>REQUEST</span>
                       </button>
                     ) : (

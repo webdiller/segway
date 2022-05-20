@@ -135,7 +135,7 @@ $rootElement: '.discount-modal';
   }
 
   &__btn {
-    position: absolute;
+    position: absolute !important;
     top: calc(100% - 28px);
     height: 61px;
     width: 234px;

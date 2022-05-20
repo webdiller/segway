@@ -13,9 +13,9 @@ export default function PreorderModal() {
   const elRef = useRef(null);
   const btnRef = useRef(null);
 
-  const { onSubmit, curentRefSet, loading, success } = useForm({ fromWhere: "Модального окна" })
+  const { isActive, userEmail, productName, productLink } = useSelector((state) => state.preorderModal);
 
-  const { isActive, userEmail } = useSelector((state) => state.preorderModal);
+  const { onSubmit, curentRefSet, loading, success } = useForm({ additionFields: { productName, productLink }, fromWhere: "Модального окна preorder", endpoint: "/api/mail/preorder" })
 
   const setActiveModalHandler = () => {
     dispatch(setActive(false))
@@ -30,10 +30,6 @@ export default function PreorderModal() {
   useEffect(() => {
     curentRefSet(btnRef)
   }, [btnRef, curentRefSet])
-
-  useEffect(() => {
-    console.log('isActive: ', isActive);
-  }, [isActive])
 
   useEffect(() => {
     success === true && dispatch(setActive(false))
@@ -53,7 +49,7 @@ export default function PreorderModal() {
             <motion.form
               animate={{ top: 0, opacity: 1, scale: 1 }}
               initial={{ top: -20, opacity: 0, scale: .9 }}
-              exit={{  top: 20, scale: .9 }}
+              exit={{ top: 20, scale: .9 }}
               onSubmit={onSubmit}
               className="preorder-modal__wrapper">
               <div className="preorder-modal__image-wrapper">
