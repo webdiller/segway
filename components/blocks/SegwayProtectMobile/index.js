@@ -1,5 +1,5 @@
 import Image from "next/image";
-import segwayProtectMobile from "@/base/segway-protect-mobile.png";
+import segwayPhoneHolderIcon from '@/base/segway-phone-holder.png';
 
 export default function SegwayProtectMobile({ customClass }) {
   return (
@@ -15,10 +15,10 @@ export default function SegwayProtectMobile({ customClass }) {
           <div className="segway-protect-mobile__content">
             <p className="title title_fz-20 segway-protect-mobile__title">
               <span className="hide-576">
-                Segway Protective Gear Set <span className="accent-color">as a gift</span>
+              Segway Phone holder <span className="accent-color">as a gift</span>
               </span>
               <span className="show-block-576">
-                Segway Protective <br /> Gear Set <span className="accent-color">as a gift</span>
+              Segway Phone <br /> holder <span className="accent-color">as a gift</span>
               </span>
             </p>
             <p className="text segway-protect__text">
@@ -35,8 +35,8 @@ export default function SegwayProtectMobile({ customClass }) {
           <div className="segway-protect-mobile__img-wrapper">
             <Image
               className="segway-protect-mobile__img"
-              src={segwayProtectMobile}
-              alt="Segway Protective Gear Set as a gift"
+              src={segwayPhoneHolderIcon}
+              alt="Segway Phone holder as a gift"
               layout="responsive"
               objectFit="contain"
               width={87}

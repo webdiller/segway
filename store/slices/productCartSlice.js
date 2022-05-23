@@ -41,7 +41,7 @@ export const productCartSlice = createSlice({
 
       /** Если в корзине есть продукт и нету защиты, то добавляем ее в корзину */
       let existAnyProduct = state.products.filter(product => product.type !== 'accessory');
-      let existProtectionAccessory = state.products.filter(product => product.id === 'segway-protective-gear-set');
+      let existProtectionAccessory = state.products.filter(product => product.id === 'segway-phone-holder');
       let condition = existAnyProduct.length !== 0 && existProtectionAccessory.length === 0 ? true : false;
       if (condition) state.products = [...state.products, state.preparedProtectionAccessory]
 
@@ -75,29 +75,29 @@ export const productCartSlice = createSlice({
        * Удаление защиты и стейта. Если 
        * в прошлойте стейте был один продукт типа type !== 'accessory && quantity этого продукта был === 1 && (existAnyProductInPreviusState)
        * в настоящем стейте нет ни одного продукта типа type !== 'accesory' && (existAnyProductInCurrentState)
-       * в настоящем стейте есть продукт(защита) с id === 'segway-protective-gear-set' && у продукта(защита) quantity === 1 (existProtectionAccessory)
+       * в настоящем стейте есть продукт(подарок) с id === 'segway-phone-holder' && у продукта(подарок) quantity === 1 (existProtectionAccessory)
        * 
        * Уменьшение quantity у защиты. Если 
        * в прошлойте стейте был один продукт типа type !== 'accessory && quantity этого продукта был === 1 && (existAnyProductInPreviusState)
        * в настоящем стейте нет ни одного продукта типа type !== 'accesory' && (existAnyProductInCurrentState)
-       * в настоящем стейте есть продукт(защита) с id === 'segway-protective-gear-set' && у продукта(защита) quantity >=2 (existProtectionAccessory)
+       * в настоящем стейте есть продукт(подарок) с id === 'segway-phone-holder' && у продукта(подарок) quantity >=2 (existProtectionAccessory)
        */
       const existAnyProductInPreviusState = previusStateOfProducts.find(product => product.type !== 'accessory' && product.quantity === 1) ? true : false
       const existAnyProductInCurrentState = state.products.find(product => product.type !== 'accessory') ? true : false
-      const existProtectionAccessory = state.products.find(product => product.id === 'segway-protective-gear-set');
+      const existProtectionAccessory = state.products.find(product => product.id === 'segway-phone-holder');
       try {
         if (
           existAnyProductInPreviusState &&
           !existAnyProductInCurrentState &&
           existProtectionAccessory?.quantity === 1
         ) {
-          state.products = state.products.filter(product => product.id !== 'segway-protective-gear-set');
+          state.products = state.products.filter(product => product.id !== 'segway-phone-holder');
         } else if (
           existAnyProductInPreviusState &&
           !existAnyProductInCurrentState &&
           existProtectionAccessory?.quantity >= 2
         ) {
-          const protectionAccessory = state.products.find(product => product.id === 'segway-protective-gear-set');
+          const protectionAccessory = state.products.find(product => product.id === 'segway-phone-holder');
           protectionAccessory.quantity = --protectionAccessory.quantity
         }
       } catch (error) {

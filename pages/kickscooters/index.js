@@ -31,7 +31,7 @@ export async function getStaticProps() {
   return {
     props: {
       allData: data,
-      preparedProtection: data.accessoeries[2]
+      preparedProtection: data.accessoeries[7]
     }
   };
 }

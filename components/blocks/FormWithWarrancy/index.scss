@@ -286,6 +286,9 @@
     @include media('<=576px') {
       // display: none;
     }
+    span {
+      transform: scale(1.2);
+    }
   }
 
   &__form-img {

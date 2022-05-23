@@ -14,7 +14,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
 
     /** Если аксессуар, то 2 условия. Подарок или нет */
     if (type === 'accessory') {
-      if (id === 'segway-protective-gear-set' && quantity == 1 && products.some(item => (item.type !== 'accessory' && item.type !== 'bundle'))) {
+      if (id === 'segway-phone-holder' && quantity == 1 && products.some(item => (item.type !== 'accessory' && item.type !== 'bundle'))) {
         /** Если подарок */
         productArray.push({
           id: product.id,

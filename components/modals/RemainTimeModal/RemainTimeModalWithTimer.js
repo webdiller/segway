@@ -35,10 +35,10 @@ export default function RemainTimeModalTimer() {
             <img className="remain-time-modal__close-btn-icon remain-time-modal__close-btn-icon_mobile" src="/icon-close-black.svg" alt="icon-close" width="34" height="34" loading="lazy" />
           </button>
           <div className="remain-time-modal__bg-wrapper">
-            <Image src={bgImage} alt="Segway protective gear set as a gift" />
+            <Image src={bgImage} alt="Segway phone holder as a gift" />
           </div>
           <div className="remain-time-modal__content">
-            <p className="title remain-time-modal__title">Segway protective gear set as a gift</p>
+            <p className="title remain-time-modal__title">Segway phone holder as a gift</p>
             <p className="text remain-time-modal__description">Only until December 12</p>
           </div>
           <div className="remain-time-modal__timer">

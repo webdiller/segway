@@ -3,7 +3,7 @@ const Link = dynamic(() => import('next/link'));
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import segwayProtect from '@/base/segway-protect.png';
+import segwayPhoneHolder from '@/base/segway-phone-holder.png';
 import { setProperties, setCurrentPrice, pushProduct, setPreperedBundle } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import Colors from './Colors';
@@ -103,9 +103,9 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
 
               <div className="form-with-warrancy__title-with-buttons">
                 <p className="form-with-warrancy__form-title">
-                  Add an extended warranty from 
+                  Add an extended warranty from
                   <Link href={`https://customers.extend.com/plan_details/B9-SGEBK-1y?storeId=${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}`}>
-                    <a className='form-with-warrancy__form-link'><Image alt="Extend icon" src={extendImage}/><span>What&apos;s covered?</span></a>
+                    <a className='form-with-warrancy__form-link'><Image alt="Extend icon" src={extendImage} /><span>What&apos;s covered?</span></a>
                   </Link>
                 </p>
                 <div className="form-with-warrancy__form-buttons">
@@ -136,15 +136,16 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
             {status !== 'out-of-stock' && (
               <div className="form-with-warrancy__title-with-image">
                 <div className="form-with-warrancy__form-img-wrapper">
-                  <Image className="form-with-warrancy__form-img" src={segwayProtect} alt="Segway Protective Gear Set as a gift" layout="fill" objectFit="contain" />
+                  <Image className="form-with-warrancy__form-img" src={segwayPhoneHolder} alt="Segway Phone holder as a gift" layout="fill" objectFit="contain" />
                 </div>
                 {/* TITLE */}
                 <div className="form-with-warrancy__form-subtitle">
                   <p className="hide-991">
-                    Segway Protective Gear Set <span>as a gift</span>
+                    Segway Phone
+                    holder <span>as a gift</span>
                   </p>
                   <p className="show-block-991">
-                    Segway <br /> Protective <br /> Gear Set <span>as a gift</span>
+                    Segway  <br /> Phone <br /> holder <span>as a gift</span>
                   </p>
                 </div>
               </div>

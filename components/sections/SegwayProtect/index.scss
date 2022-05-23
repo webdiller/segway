@@ -101,16 +101,21 @@ $rootClass: '.segway-protect';
     margin-right: 55px;
     width: 278px;
     flex: 0 0 278px;
+    span {
+      transform: scale(1.5);
+    }
     @include media('<=991px') {
       width: 200px;
       flex: 0 0 200px;
     }
     @include media('<=768px') {
       margin-right: 0;
-      transform: rotate(90deg);
       flex: 0 0 140px;
       width: 140px;
       height: 140px;
+      span {
+        transform: scale(1);
+      }
     }
     @include media('<=576px') {
       width: auto;

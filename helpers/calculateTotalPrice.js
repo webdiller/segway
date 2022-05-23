@@ -58,7 +58,7 @@ export const calculateTotalPrice = (products) => {
    * Если да, то отнимаем 29.99 от общей суммы
    */
   let existAnyProduct = products.filter(product => product.type !== 'accessory');
-  let existProtectionAccessory = products.filter(product => product.id === 'segway-protective-gear-set');
+  let existProtectionAccessory = products.filter(product => product.id === 'segway-phone-holder');
   let excludePriceForGift = existAnyProduct.length > 0 && existProtectionAccessory.length > 0 ? true : false;
   /** Подарок есть */
   if (excludePriceForGift) {

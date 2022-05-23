@@ -43,10 +43,7 @@ export const data = {
 
       price: "29.99",
       priceId: "price_1KyDSWC3bu2cRJ583M8krmam",
-      stripeId: "prod_LfYZ3CFV6LewuN",
-
-      priceIdFree: "price_1KyDTBC3bu2cRJ58p1kGnsAi",
-      stripeIdFree: "prod_LfYa36j2ZLsh8A",
+      stripeId: "prod_LfYZ3CFV6LewuN"
     },
     {
       id: "ninebot-leisure-backpack",

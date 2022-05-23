@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import segwayProtectImg from '@/base/segway-protect.png';
+import segwayPhoneHolderImg from '@/base/segway-phone-holder.png';
 import PropTypes from 'prop-types';
 
 SegwayProtect.propTypes = {
@@ -11,8 +11,8 @@ SegwayProtect.propTypes = {
 }
 
 SegwayProtect.defaultProps = {
-  titleDesktop: (<>Segway Protective <br /> Gear Set <b>as a gift</b> </>),
-  titleMobile: (<> Segway Protective <br /> Gear Set <b>as a gift</b></>),
+  titleDesktop: (<>Segway Phone holder <br /><b>as a gift</b> </>),
+  titleMobile: (<> Segway Phone holder <br /> <b>as a gift</b></>),
   textDesktop: (<>The cost of a protection kit when buying <br /> a scooter is $0 instead of $29.99</>),
   textMobile: (<>The cost of a protection kit <br />  when buying a scooter is <br /> $0 instead of $29.99</>),
 };
@@ -35,7 +35,7 @@ export default function SegwayProtect({titleDesktop,titleMobile,textDesktop,text
       <div className="container segway-protect__container">
         <div className="segway-protect__cart">
           <div className="segway-protect__img-wrapper">
-            <Image className="segway-protect__img" src={segwayProtectImg} alt="Segway Protective Gear Set as a gift" layout="fill" objectFit="contain" />
+            <Image className="segway-protect__img" src={segwayPhoneHolderImg} alt="Segway Phone Holder as a gift" layout="fill" objectFit="contain" />
           </div>
 
           <div className="segway-protect__content">

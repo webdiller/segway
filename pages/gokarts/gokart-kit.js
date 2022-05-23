@@ -319,7 +319,7 @@ export async function getStaticProps() {
     props: {
       allData: data,
       product: data.gokarts[1],
-      preparedProtection: data.accessoeries[2]
+      preparedProtection: data.accessoeries[7]
     }
   };
 }

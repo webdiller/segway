@@ -12,7 +12,7 @@ export default function Products() {
   /** 
    * Калькуляция подарка (только отображение)
    * Если в корзине есть хотябы один продукт, type !== accessory &&
-   * Если у данного товара id === segway-protective-gear-set && quantity === 1
+   * Если у данного товара id === segway-phone-holder && quantity === 1
    * то делаем количество = 0
    * и цену = 0
    */
@@ -38,12 +38,12 @@ export default function Products() {
             /** 
              * Калькуляция подарка (только отображение)
              * Если в корзине есть хотябы один продукт, type !== accessory &&
-             * Если у данного товара id === segway-protective-gear-set && quantity === 1
+             * Если у данного товара id === segway-phone-holder && quantity === 1
              * то делаем количество = 0
              * и цену = 0
              */
             const existAnyProductNotTypeAccessory = products.find(product => product.type !== 'accessory') ? true : false;
-            const currentProductIsProtectAndQuantityEqualZero = products.find(product => product.id === 'segway-protective-gear-set' && product?.quantity === 1 && product.id === id) ? true : false;
+            const currentProductIsProtectAndQuantityEqualZero = products.find(product => product.id === 'segway-phone-holder' && product?.quantity === 1 && product.id === id) ? true : false;
             const condition = existAnyProductNotTypeAccessory && currentProductIsProtectAndQuantityEqualZero ? true : false
 
             return (
