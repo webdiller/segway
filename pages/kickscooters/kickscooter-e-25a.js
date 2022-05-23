@@ -361,18 +361,7 @@ export default function ModelPage({ allData }) {
         item={allData.kickskooters[15]}
       />
 
-      <OtherModelsDinamic
-        title={<>Other Self-Balancing</>}
-        description={<>Check out the entire line of Segway scooters</>}
-        items={[
-          data.kickskooters[14],
-          data.kickskooters[15],
-          data.kickskooters[16],
-          data.kickskooters[17],
-          data.kickskooters[18],
-          data.kickskooters[19],
-        ]}
-      />
+      <OtherModelsDinamic items={allData.kickskooters} />
       <DiscountModalDinamic />
       <FancyModal images={allData.kickskooters[15].galleryImages} />
       <ProductModalDinamic accessoeries={allData.accessoeries} />

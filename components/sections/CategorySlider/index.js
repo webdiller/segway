@@ -8,13 +8,14 @@ import classNames from 'classnames';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { setCustomSlider } from 'store/slices/elementInViewSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
+import { filterProductByStatus } from '@/helpers/filterProductByStatus';
 
 export default function CategorySlider({ customClassNames, title, products, typeScrollBar, allowTouchMove = true, keySlider, addToCartOnClick = false }) {
 
@@ -36,6 +37,8 @@ export default function CategorySlider({ customClassNames, title, products, type
       e.target.blur();
     }, 3000);
   };
+
+  const [sortedProducts, sortedProductsSet] = useState([])
 
   const swiperRef = useRef()
   const { ref, inView } = useInView({ threshold: 0.5 });
@@ -76,6 +79,11 @@ export default function CategorySlider({ customClassNames, title, products, type
     }
   }, [dispatch, inView, otherSliders, keySlider, allowTouchMove])
 
+  useEffect(()=>{
+    const currentArr = JSON.parse(JSON.stringify(products))
+    sortedProductsSet(currentArr.sort(filterProductByStatus))
+  }, [products])
+
   return (
     <div ref={ref} className={classNames('category-slider', classNames(customClassNames))}>
       <div className="container category-slider__container">
@@ -102,7 +110,7 @@ export default function CategorySlider({ customClassNames, title, products, type
             swiperRef.current = swiper
           })}
         >
-          {products.map((item) => {
+          {sortedProducts.map((item) => {
             const { id, type, status, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory, price } = item;
             let currentClass = "category-slider__item";
             if (type == 'accessory') currentClass += " category-slider__item_accessory"

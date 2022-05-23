@@ -12,6 +12,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { disableOtherModelsSlider } from 'store/slices/elementInViewSlice';
+import { filterProductByStatus } from '@/helpers/filterProductByStatus';
 
 export default function OtherModels({
   title = "Other kickscooters",
@@ -68,6 +69,12 @@ export default function OtherModels({
 
   };
 
+  const [sortedProducts, sortedProductsSet] = useState([])
+  useEffect(()=>{
+    const currentArr = JSON.parse(JSON.stringify(allSegways))
+    sortedProductsSet(currentArr.sort(filterProductByStatus))
+  }, [allSegways])
+
   useEffect(() => {
     if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && otherModelsSlider) {
       try {
@@ -114,10 +121,12 @@ export default function OtherModels({
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {allSegways.map(({ id, type, name, nameWithoutBrand, price, imgPath, excludeForMap, pageLinkNameWithCategory }) => {
+            {sortedProducts.map(({ id, type, status, name, nameWithoutBrand, price, imgPath, excludeForMap, pageLinkNameWithCategory }) => {
+              let currentClass = "swiper-slide other-models__item";
+              if (status == 'out-of-stock') currentClass += " blackout";
               if (!excludeForMap) {
                 return (
-                  <SwiperSlide key={id} className="swiper-slide other-models__item">
+                  <SwiperSlide key={id} className={currentClass}>
                     <div className="other-models__item-wrapper">
                       <Link href={pageLinkNameWithCategory}>
                         <a className="other-models__link">

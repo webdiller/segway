@@ -150,11 +150,23 @@
     margin-top: 20px;
     background-color: #ebebeb;
     .swiper-scrollbar-drag {
+      position: relative;
+      height: 100%;
       background-color: #009eff;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        height: 50px;
+        width: 100%;
+        @include media('<=768px') {
+          top: -30px;
+          height: 30px;
+        }
+      }
     }
     @include media('<=768px') {
       display: block;
-      overflow-x: hidden;
       border-radius: 10px;
     }
   }
@@ -164,6 +176,9 @@
       opacity: 0;
       z-index: -1;
       visibility: hidden;
+    }
+    &.blackout {
+      opacity: .5;
     }
   }
 

@@ -2,7 +2,20 @@
   background-color: #fff;
 
   .swiper-scrollbar-drag {
+    position: relative;
+    height: 100%;
     background-color: #009eff;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      height: 50px;
+      width: 100%;
+      @include media('<=768px') {
+        top: -30px;
+        height: 30px;
+      }
+    }
   }
 
   &_hide-other-accessories {
@@ -85,7 +98,6 @@
     background-color: #ebebeb;
     @include media('<=768px') {
       display: block;
-      overflow-x: hidden;
       border-radius: 10px;
     }
   }

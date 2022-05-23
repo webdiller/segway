@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { Navigation, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import segwayPlaceholder from '@/base/segway-placeholder.png';
 import { useInView } from 'react-intersection-observer';
@@ -20,6 +20,7 @@ import 'swiper/css/scrollbar';
 
 import { disableTopSlider } from 'store/slices/elementInViewSlice';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { filterProductByStatus } from '@/helpers/filterProductByStatus';
 
 export default function TopSwiper({ items }) {
   const router = useRouter();
@@ -30,10 +31,23 @@ export default function TopSwiper({ items }) {
   const { topSlider } = useSelector(state => state.elementInView);
   const { currentPosition } = useSelector(state => state.topSwiper);
 
+  const [kickskooters, kickskootersSet] = useState([])
+  const [gokarts, gokartsSet] = useState([])
+
   const swiperWithAllSegways = useRef(null);
   const parentSwiper = useRef(null);
 
   const { ref, inView } = useInView({ threshold: 0.5 });
+
+  useEffect(()=>{
+    const currentArr = JSON.parse(JSON.stringify(items.kickskooters))
+    kickskootersSet(currentArr.sort(filterProductByStatus))
+  }, [items.kickskooters])
+
+  useEffect(()=>{
+    const currentArr = JSON.parse(JSON.stringify(items.gokarts))
+    gokartsSet(currentArr.sort(filterProductByStatus))
+  }, [items.gokarts])
 
   useEffect(() => {
     if (window.innerWidth <= 768 && inView && topSlider) {
@@ -96,27 +110,29 @@ export default function TopSwiper({ items }) {
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {items.kickskooters.map(({ id, status, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {kickskooters.map(({ id, status, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null
-                        let currentLinkClass =
-                          status == 'in-stock' ? 'top-swiper__link'
-                          : status == 'out-of-stock' ? 'top-swiper__link top-swiper__link_blackout'
-                          : 'top-swiper__link';
                         if (currentUrl) {
                           isMatch = currentUrl.includes(pageLinkForMatch)
                         }
+
+                        let currentMainClass = "top-swiper__item";
+                        if (isMatch) currentMainClass += " accent";
+                        if (status == "out-of-stock") currentMainClass += " blackout";
+                        
                         return (
-                          <SwiperSlide key={id} className={isMatch ? "top-swiper__item accent" : "top-swiper__item"}>
+                          <SwiperSlide key={id} className={currentMainClass}>
                             <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
-                              <a className={currentLinkClass}>
+                              <a className="top-swiper__link">
                                 <div className="top-swiper__img-wrapper">
                                   <Image quality={40} objectFit="contain" className="top-swiper__img" src={imgSmallPath} alt={name} width={80} height={80} layout="responsive" placeholder="blur" blurDataURL={segwayPlaceholder} />
                                 </div>
                                 <p className="top-swiper__name">{shortNameWithoutPrefix}</p>
                               </a>
                             </Link>
+                            {status == "out-of-stock" && (<span className="top-swiper__out">out-of-stock</span>)}
                           </SwiperSlide>
                         )
                       }
@@ -142,14 +158,14 @@ export default function TopSwiper({ items }) {
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {items.gokarts.map(({ id, status, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {gokarts.map(({ id, status, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null
                         let currentLinkClass =
                           status == 'in-stock' ? 'top-swiper__link'
-                          : status == 'out-of-stock' ? 'top-swiper__link top-swiper__link_blackout'
-                          : 'top-swiper__link';
+                            : status == 'out-of-stock' ? 'top-swiper__link top-swiper__link_blackout'
+                              : 'top-swiper__link';
                         if (currentUrl) {
                           isMatch = currentUrl.includes(pageLinkForMatch)
                         }
