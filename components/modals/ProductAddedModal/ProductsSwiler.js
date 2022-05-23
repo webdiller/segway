@@ -7,13 +7,17 @@ import iconCheckForAccesoeriesSlider from '@/base/icon-check-bold.svg'
 import { useDispatch } from 'react-redux';
 import { pushProduct } from 'store/slices/productCartSlice';
 import classNames from 'classnames';
+import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+// FIXME: Опечатка в именовании компонента
 export default function ProductSwiler({ title, customClasses, accessoeries }) {
 
   const dispatch = useDispatch()
+
+  const { requestAPreorderModalHandler } = UsePreorderModalHook()
 
   const addItemToCartWithAnimation = (e, item) => {
     dispatch(pushProduct(item))
@@ -26,7 +30,7 @@ export default function ProductSwiler({ title, customClasses, accessoeries }) {
   return (
     <div className={classNames('product-cart-slider', classNames(customClasses))}>
       <div className="product-cart-slider__container">
-        {title ? <p className="text text_25 product-cart-slider__title">{title}</p> : <br/>}
+        {title ? <p className="text text_25 product-cart-slider__title">{title}</p> : <br />}
         <div className="product-cart-slider__swiper-wrapper">
           <div className="product-cart-slider__swiper">
             <Swiper
@@ -43,9 +47,10 @@ export default function ProductSwiler({ title, customClasses, accessoeries }) {
             >
 
               {accessoeries.map((item) => {
-                const { id, name, price, imgPath } = item;
+                const { id, status, name, price, imgPath } = item;
+                let elementClass = status == 'out-of-stock' ? "product-cart-slider__item blackout" : "product-cart-slider__item"
                 return (
-                  <SwiperSlide onClick={(e) => addItemToCartWithAnimation(e, item)} key={id} className="product-cart-slider__item">
+                  <SwiperSlide onClick={(e) => status == 'out-of-stock' ? (requestAPreorderModalHandler(item.name, item.pageLinkNameWithCategory)) : (addItemToCartWithAnimation(e, item))} key={id} className={elementClass}>
                     <div className="product-cart-slider__img-main-wrapper">
                       <div className="product-cart-slider__img-wrapper">
                         <Image

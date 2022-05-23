@@ -13,7 +13,7 @@ import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
 export default function AccessoriesSlider({ items }) {
   const dispatch = useDispatch();
   const { accessoriesSlider } = useSelector(state => state.elementInView)
-  
+
   const { requestAPreorderModalHandler } = UsePreorderModalHook()
 
   const buttonElement = useRef(null);

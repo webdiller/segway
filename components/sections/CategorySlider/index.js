@@ -14,14 +14,17 @@ import { setCustomSlider } from 'store/slices/elementInViewSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
+import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
 
 export default function CategorySlider({ customClassNames, title, products, typeScrollBar, allowTouchMove = true, keySlider, addToCartOnClick = false }) {
 
   const dispatch = useDispatch()
 
+  const { requestAPreorderModalHandler } = UsePreorderModalHook()
+
   const onClickHandler = (item, e) => {
     dispatch(pushProduct(item));
-    
+
     if (e.target.tagName !== 'DIV') {
       e.target.classList.add('ui-btn_added');
       e.target.focus();
@@ -100,11 +103,13 @@ export default function CategorySlider({ customClassNames, title, products, type
           })}
         >
           {products.map((item) => {
-            const { id, type, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory, price } = item;
+            const { id, type, status, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory, price } = item;
+            let currentClass = "category-slider__item";
+            if (type == 'accessory') currentClass += " category-slider__item_accessory"
+            if (status == 'out-of-stock') currentClass += " blackout"
             if (!excludeForMap) {
               return (
-                <SwiperSlide key={id} className={type === 'accessory' ? "category-slider__item category-slider__item_accessory" : "category-slider__item category-slider__item"}>
-
+                <SwiperSlide key={id} className={currentClass}>
                   <div className="category-slider__img-with-content">
                     {addToCartOnClick ? (
                       <div onClick={(e) => onClickHandler(item, e)} className="category-slider__overlay-link"></div>
@@ -140,17 +145,26 @@ export default function CategorySlider({ customClassNames, title, products, type
                     }
                   </div>
 
-                  {addToCartOnClick ? (
-                    <button onClick={(e) => onClickHandler(item, e)} className="ui-btn category-slider__see-more">
-                      <span>ADD TO CART</span>
-                    </button>
-                  ) : (
-                    <Link href={pageLinkNameWithCategory || pageLinkName}>
-                      <a href={pageLinkNameWithCategory || pageLinkName} className="ui-btn category-slider__see-more">
-                        <span>SEE MORE</span>
-                      </a>
-                    </Link>
-                  )}
+                  {addToCartOnClick ?
+                    status == 'out-of-stock' ? (
+                      (
+                        <button onClick={(e) => requestAPreorderModalHandler(item.name, item.pageLinkNameWithCategory)} className={status == 'out-of-stock' ? "ui-btn ui-btn_fill-black category-slider__see-more" : "ui-btn category-slider__see-more"}>
+                          <span>REQUEST</span>
+                        </button>
+                      )
+                    ) : (
+                      (
+                        <button onClick={(e) => onClickHandler(item, e)} className="ui-btn category-slider__see-more">
+                          <span>ADD TO CART</span>
+                        </button>
+                      )
+                    ) : (
+                      <Link href={pageLinkNameWithCategory || pageLinkName}>
+                        <a href={pageLinkNameWithCategory || pageLinkName} className="ui-btn category-slider__see-more">
+                          <span>SEE MORE</span>
+                        </a>
+                      </Link>
+                    )}
 
                 </SwiperSlide>
               )

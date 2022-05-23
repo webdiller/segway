@@ -1875,7 +1875,33 @@ export const data = {
       price: "1049.99",
       priceId: "prod_LhV7qLdBKY8qES",
       stripeId: "price_1L0674C3bu2cRJ58XM6SbNtJ",
-      quantity: 1
+      quantity: 1,
+      warranty: [
+        {
+          durationYear: 1,
+          price: 0,
+          priceId: "",
+          planId: "",
+          planPrice: 0,
+          oldPrice: 0
+        },
+        {
+          durationYear: 2,
+          price: 0,
+          priceId: "",
+          planId: "",
+          planPrice: 0,
+          oldPrice: 0
+        },
+        {
+          durationYear: 3,
+          price: 0,
+          priceId: "",
+          planId: "",
+          planPrice: 0,
+          oldPrice: 0
+        }
+      ],
     },
     {
       id: "id=017&warranty=null&color=null",
@@ -1886,7 +1912,33 @@ export const data = {
       price: "599.99",
       priceId: "price_1L065YC3bu2cRJ582z4s48BJ",
       stripeId: "prod_LhV5vPjYwO4Uin",
-      quantity: 1
+      quantity: 1,
+      warranty: [
+        {
+          durationYear: 1,
+          price: 0,
+          priceId: "",
+          planId: "",
+          planPrice: 0,
+          oldPrice: 0
+        },
+        {
+          durationYear: 2,
+          price: 0,
+          priceId: "",
+          planId: "",
+          planPrice: 0,
+          oldPrice: 0
+        },
+        {
+          durationYear: 3,
+          price: 0,
+          priceId: "",
+          planId: "",
+          planPrice: 0,
+          oldPrice: 0
+        }
+      ],
     }
   ],
   blog: [

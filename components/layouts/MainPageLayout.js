@@ -5,6 +5,7 @@ import MiddleNavigation from '@/sections/MiddleNavigation';
 import TopNavigation from '@/sections/TopNavigation';
 import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
 const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), { loading: TopCategoryLoader })
+const PreorderModalDynamic = dynamic(() => import('@/modals/PreorderModal'));
 
 const ProductModalDynamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 const BreadcrumbsDynamic = dynamic(() => import('@/sections/Breadcrumbs'));
@@ -20,6 +21,7 @@ export default function MainPageLayout({ title = 'Segway', description = 'Опи
       {children}
       <Footer />
       <ProductModalDynamic accessoeries={allData.accessoeries} />
+      <PreorderModalDynamic />
     </>
   );
 }

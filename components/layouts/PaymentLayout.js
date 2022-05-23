@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import CustomHead from '@/basic/CustomHead';
 import Footer from '@/sections/Footer';
 import { PaymentBreadcrumbs } from '@/sections/Payment';
@@ -6,6 +7,7 @@ import PaymentTopNavigation from '@/sections/PaymentTopNavigation';
 
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+const PreorderModalDynamic = dynamic(() => import('@/modals/PreorderModal'));
 
 let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_DEV)
 
@@ -38,6 +40,7 @@ export default function PaymentLayout({ title = 'Segway', description = 'Опи�
         </MainLayout>
         <Footer />
       </div>
+      <PreorderModalDynamic />
     </>
   );
 }

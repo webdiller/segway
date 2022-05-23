@@ -58,6 +58,10 @@ $rootClass: '.category-slider';
         }
       }
     }
+
+    &.blackout {
+      opacity: .5;
+    }
   }
 
   &__img-with-content {
@@ -211,8 +215,20 @@ $rootClass: '.category-slider';
       background-color: #fff;
     }
     .swiper-scrollbar-drag {
+      position: relative;
       height: 100%;
       background-color: #009eff;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        height: 30px;
+        width: 100%;
+        @include media('<=768px') {
+          top: -15px;
+          height: 15px;
+        }
+      }
     }
     @include media('<=768px') {
       margin-top: 16px;

@@ -38,7 +38,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
 
     }
 
-    if (type !== 'accessory' && type !== 'bundle') {
+    if (type !== 'accessory') {
       const clearId = new URLSearchParams(id);
       const currentId = new URLSearchParams(id);
       let clearIdString;

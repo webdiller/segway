@@ -52,7 +52,6 @@
     transition: all 0.3s ease;
 
     @include media('<=991px') {
-      padding: 0 14px;
       flex-basis: content;
     }
 
@@ -62,6 +61,9 @@
       align-items: center;
       color: #ffffff;
       text-decoration: none;
+      @include media('<=991px') {
+        padding: 0 14px;
+      }
     }
 
     &:hover {

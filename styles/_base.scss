@@ -261,18 +261,6 @@ img {
     }
   }
 
-  // FIXME: Убрать лишний класс
-  &:active {
-    background-color: #fff;
-    color: #009eff;
-    &::before {
-      opacity: 0;
-    }
-    &::after {
-      opacity: 1;
-    }
-  }
-
   &:active {
     outline: none;
     border: none;
@@ -342,7 +330,7 @@ img {
     }
     &:active,
     &:focus {
-      color: #323941;
+      color: #fff;
     }
   }
 
@@ -354,9 +342,13 @@ img {
     &::after {
       border: 3px solid #999999;
     }
-    &:active,
+    &:active {
+      span {
+        color: #999999;
+      }
+    }
     &:focus {
-      color: #999999;
+      color: #fff;
     }
   }
 

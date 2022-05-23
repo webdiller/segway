@@ -41,7 +41,7 @@ export default function PreorderModal() {
         <>
           <motion.div
             initial={false}
-            animate={{ zIndex: 1000, backdropFilter: 'blur(5px)' }}
+            animate={{ zIndex: 2000, backdropFilter: 'blur(5px)' }}
             exit={{ opacity: 0 }}
             onClick={(e) => onClickWrapper(e)}
             ref={elRef}

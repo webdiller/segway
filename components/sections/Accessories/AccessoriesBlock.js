@@ -4,6 +4,7 @@ import TitleWithDescription from '@/blocks/TitleWithDescription';
 import { useDispatch } from 'react-redux';
 import { pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
+import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
 
 export default function AccessoriesBlock({ items }) {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export default function AccessoriesBlock({ items }) {
     }, 3000);
   };
 
+  const { requestAPreorderModalHandler } = UsePreorderModalHook()
+
   return (
     <div className="accessories-block">
       <div className="container accessories-block__container">
@@ -28,7 +31,7 @@ export default function AccessoriesBlock({ items }) {
             const { id, status, type, name, nameWrap, description, price, imgPath } = item;
             let itemClass = "swiper-slide accessories-block__item";
             if (status == 'out-of-stock') itemClass = "swiper-slide accessories-block__item blackout"
-            // FIXME: Доделать
+            
             return (
               <div key={id} className={itemClass}>
                 <div className="accessories-block__item-wrapper">
@@ -54,7 +57,7 @@ export default function AccessoriesBlock({ items }) {
                   
                   {/* FIXME: Добавить вызов модалки */}
                   {status == 'out-of-stock' ? (
-                    <button onClick={(e) => onClickHandler(item, e)} className="ui-btn ui-btn_fill-black accessories-block__add-cart">
+                    <button onClick={(e) => requestAPreorderModalHandler(item.name, item.pageLinkNameWithCategory)} className="ui-btn ui-btn_fill-black accessories-block__add-cart">
                       <span>REQUEST</span>
                     </button>
                   ) : (

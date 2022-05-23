@@ -4,6 +4,7 @@ import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
 const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
   loading: TopCategoryLoader
 })
+const PreorderModalDynamic = dynamic(() => import('@/modals/PreorderModal'));
 const BreadcrumbsDynamic = dynamic(() => import('@/sections/Breadcrumbs'));
 
 import MiddleNavigation from '@/sections/MiddleNavigation';
@@ -21,6 +22,7 @@ export default function InfoPageLayout({ children, product, preparedProtection }
       {children}
       <Footer withPaddings />
       <FixedModalDinamic product={product} preparedProtection={preparedProtection} />
+      <PreorderModalDynamic />
     </>
   );
 }

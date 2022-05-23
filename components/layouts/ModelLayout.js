@@ -4,6 +4,7 @@ import TopSwiperLoader from '@/sections/TopSwiper/TopSwiperLoader';
 const TopSwiper = dynamic(() => import('@/sections/TopSwiper'), {
   loading: TopSwiperLoader
 })
+const PreorderModalDynamic = dynamic(() => import('@/modals/PreorderModal'));
 
 import TopCategoryLoader from '@/sections/TopCategorySlider/TopCategoryLoader';
 const TopCategorySlider = dynamic(() => import('@/sections/TopCategorySlider'), {
@@ -27,6 +28,7 @@ export default function ModelLayout({ children, allData, product, preparedProtec
       {children}
       <Footer withPaddings />
       <FixedModalDinamic product={product} preparedProtection={preparedProtection} />
+      <PreorderModalDynamic />
     </>
   );
 }

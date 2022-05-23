@@ -2,14 +2,14 @@ import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
 /** Отображаем все модели определенной категории */
-export default function ProductCards({categoryRoute, title, products}) {
+export default function ProductCards({ categoryRoute, title, products }) {
   return (
     <div className="product-cards">
       <div className="container product-cards__container">
         <p className="title product-cards__title">{title}</p>
 
         <div className="product-cards__items">
-          {products.map(({id, shortName, pageLinkName, excludeForMap }) => {
+          {products.map(({ id, shortName, pageLinkName, excludeForMap }) => {
             if (!excludeForMap) {
               return (
                 <div key={id} className="product-cards__item">
