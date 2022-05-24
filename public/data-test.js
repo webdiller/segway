@@ -1255,7 +1255,7 @@ export const data = {
     // number:14, index: 14, name:  zing-c8
     {
       id: "id=018&warranty=null&color=null",
-      status: "preorder",
+      status: "in-stock",
       referenceId: "zing-c8",
       type: "kickscooter",
       brandName: "Ninebot",
@@ -1329,7 +1329,7 @@ export const data = {
     // number:15, index: 15, name:  e-25a
     {
       id: "id=019&warranty=null&color=null",
-      status: "preorder",
+      status: "in-stock",
       referenceId: "e-25a",
       type: "kickscooter",
       brandName: "Ninebot",
