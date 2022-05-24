@@ -4,6 +4,8 @@ const prepareProductsForExtend = ({ products, customer }) => {
 
   let productArray = [];
   console.log(customer.customer);
+  
+  let transactionId = uuidv4()
 
   products.forEach((product, indx, array) => {
     let { id, type, stripeId, priceId, name, quantity } = product;
@@ -59,7 +61,6 @@ const prepareProductsForExtend = ({ products, customer }) => {
             let purchasePrice = Number(currentWarrantyObj.planPrice.toFixed());
             let referenceId = product.referenceId;
             let transactionDate = new Date().getTime()
-            let transactionId = uuidv4()
             let transactionTotal = Number(currentWarrantyObj.planPrice.toFixed())
 
             productArray.push({
@@ -103,7 +104,6 @@ const prepareProductsForExtend = ({ products, customer }) => {
             let purchasePrice = Number(currentWarrantyObj.planPrice.toFixed());
             let referenceId = product.referenceId;
             let transactionDate = new Date().getTime()
-            let transactionId = uuidv4()
             let transactionTotal = Number(currentWarrantyObj.planPrice.toFixed())
 
             productArray.push({

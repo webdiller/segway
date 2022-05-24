@@ -1295,8 +1295,8 @@ export const data = {
       galleryImages: ["/ks-zing-c8/slider/1.jpg", "/ks-zing-c8/slider/2.jpg", "/ks-zing-c8/slider/3.jpg", "/ks-zing-c8/slider/4.jpg", "/ks-zing-c8/slider/5.jpg", "/ks-zing-c8/slider/6.jpg"],
       packingListImg: "/packing-8.png",
       quantity: 1,
-      downloadManual: "/manuals/ks-zing-c8-User-Manual.pdf",
-      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      downloadManual: "/manuals/ekickscooter_zing_c8.pdf",
+      manualImgPath: "/manuals/SEGWAY_Zing_C8.png",
       packingListYoutubeEmbedId: "",
       warranty: [
         {
@@ -1369,8 +1369,8 @@ export const data = {
       galleryImages: ["/ks-e25a/slider/1.jpg", "/ks-e25a/slider/2.jpg", "/ks-e25a/slider/3.jpg", "/ks-e25a/slider/4.jpg", "/ks-e25a/slider/5.jpg", "/ks-e25a/slider/6.jpg"],
       packingListImg: "/packing-9.png",
       quantity: 1,
-      downloadManual: "/manuals/ks-e-25a-User-Manual.pdf",
-      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      downloadManual: "/manuals/ninebot_kickscooter_e22_series.pdf",
+      manualImgPath: "/manuals/SEGWAY_E25A.png",
       packingListYoutubeEmbedId: "",
       warranty: [
         {

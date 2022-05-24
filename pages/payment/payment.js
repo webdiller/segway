@@ -14,6 +14,7 @@ import iconAffirm from '@/base/icon-affirm.svg'
 import iconCoinbase from '@/base/icon-coinbase.svg'
 import CustomInput from '@/shared/CustomInput';
 import DropdownList from '@/shared/DropdownList';
+import { FiAlertTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setBillingAddress, setPaymentMethod } from 'store/slices/profileSlice';
@@ -776,6 +777,14 @@ export default function PauymentLastPage() {
             to PayPal to complete your purchase securely.
           </div>}
         />
+        {(paymentMethod == 'paymentMethodsPaypel' || paymentMethod == 'paymentMethodsAffirm' || paymentMethod == 'paymentMethodsCoinbase') && (
+            <div className="payment-payment__payment-method-info">
+              <p className="payment-payment__payment-method-info-title">This payment method is not available</p>
+              <p className="payment-payment__payment-method-info-text">Please try another method or try again later</p>
+              <FiAlertTriangle className="payment-payment__payment-method-info-icon" />
+            </div>
+          )
+        }
 
         <div className="payment-payment__action-buttons">
           <button
