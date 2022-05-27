@@ -66,50 +66,12 @@ const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPay
 const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
-import Script from 'next/script'
 
-export default function ModelPage({ allData }) {
+export default function ModelPage({ allData, product }) {
 
   return (
     <>
       <CustomHead title="Kickscooter Max" ></CustomHead>
-      {/* FIXME: Убрать */}
-      {/* <Script strategy='lazyOnload' id="ks-max-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify(
-          {
-            "@context": "https://schema.org/", 
-            "@type": "Product", 
-            "name": "Ninebot Kickscooter MAX",
-            "image": "https://segway.vercel.app/ninebot-kickscooter-max-006.png",
-            "description": "Ninebot Kickscooter MAX description",
-            "brand": {
-              "@type": "Brand",
-              "name": "Segway"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5",
-              "bestRating": "5",
-              "worstRating": "5",
-              "ratingCount": "1",
-              "reviewCount": "1"
-            },
-            "review": {
-              "@type": "Review",
-              "name": "Alex",
-              "reviewBody": "Super good product",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5",
-                "worstRating": "5"
-              },
-              "datePublished": "2022-04-19",
-              "author": {"@type": "Person", "name": "John"}
-            }
-          }
-        )
-      }} /> */}
       <Welcome
         titleDesktop={
           <>
@@ -123,10 +85,10 @@ export default function ModelPage({ allData }) {
             MAX
           </>
         }
-        currentSegway={allData.kickskooters[0]}
+        currentSegway={product}
       />
       <Tabs />
-      <PackingListDinamic packingListYoutubeEmbedId={allData.kickskooters[0].packingListYoutubeEmbedId} packingListImg={allData.kickskooters[0].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={product.packingListYoutubeEmbedId} packingListImg={product.packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
       <LargeImageDinamic
         desktopWidth={1376}
@@ -335,10 +297,10 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic manualImgPath={allData.kickskooters[0].manualImgPath} downloadManualHref={allData.kickskooters[0].downloadManual} />
+      <DownloadManualDinamic manualImgPath={product.manualImgPath} downloadManualHref={product.downloadManual} />
       <CompareSpecificationsDinamic
         items={allData.kickskooters}
-        mainSegway={allData.kickskooters[0]} />
+        mainSegway={product} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
 
@@ -360,22 +322,23 @@ export default function ModelPage({ allData }) {
         widthMobile={375}
         heightMobile={248}
         customClass="wide-image"
-        item={allData.kickskooters[0]}
+        item={product}
       />
 
       <OtherModelsDinamic items={allData.kickskooters} />
       <DiscountModalDinamic />
-      <FancyModal images={allData.kickskooters[0].galleryImages} />
+      <FancyModal images={product.galleryImages} />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
     </>
   );
 }
 
 export async function getStaticProps() {
+  const currentProduct = data.kickskooters.find(({ id }) => id == 'id=006&warranty=null&color=000000');
   return {
     props: {
       allData: data,
-      product: data.kickskooters[0],
+      product: currentProduct,
       preparedProtection: data.accessoeries[7]
     }
   };

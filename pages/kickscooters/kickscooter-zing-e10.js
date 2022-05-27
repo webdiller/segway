@@ -67,7 +67,7 @@ const OtherModelsDinamic = dynamic(() => import('@/sections/OtherModels'));
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
-export default function ModelPage({ allData }) {
+export default function ModelPage({ allData, product }) {
   return (
     <>
       <CustomHead title="Kickscooter ZING E10" />
@@ -84,7 +84,7 @@ export default function ModelPage({ allData }) {
             Zing e10
           </>
         }
-        currentSegway={allData.kickskooters[11]}
+        currentSegway={product}
       />
       <Tabs
         showApp
@@ -105,7 +105,7 @@ export default function ModelPage({ allData }) {
           tool and more.
         </>}
       />
-      <PackingListDinamic packingListYoutubeEmbedId={allData.kickskooters[11].packingListYoutubeEmbedId} packingListImg={allData.kickskooters[11].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={product.packingListYoutubeEmbedId} packingListImg={product.packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -401,8 +401,8 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic manualImgPath={allData.kickskooters[11].manualImgPath} downloadManualHref={allData.kickskooters[11].downloadManual} />
-      <CompareSpecificationsDinamic items={allData.kickskooters} mainSegway={allData.kickskooters[11]} />
+      <DownloadManualDinamic manualImgPath={product.manualImgPath} downloadManualHref={product.downloadManual} />
+      <CompareSpecificationsDinamic items={allData.kickskooters} mainSegway={product} />
       <SegwayProtectDinamic customClass="type-1" />
       <ControllFromSmartphoneDinamic />
       <WarrancyPaymentImageDinamic
@@ -423,21 +423,22 @@ export default function ModelPage({ allData }) {
         widthMobile={375}
         heightMobile={354}
         customClass="ks-e-45"
-        item={allData.kickskooters[11]}
+        item={product}
       />
       <OtherModelsDinamic items={allData.kickskooters} />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.kickskooters[11].galleryImages} />
+      <FancyModal images={product.galleryImages} />
     </>
   );
 }
 
 export async function getStaticProps() {
+  const currentProduct = data.kickskooters.find(({ id }) => id == 'id=012&warranty=null&color=null');
   return {
     props: {
       allData: data,
-      product: data.kickskooters[11],
+      product: currentProduct,
       preparedProtection: data.accessoeries[7]
     }
   };

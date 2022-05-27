@@ -17,7 +17,7 @@ const prepareMetadataForStripe = (products) => {
 
   let productArray = [];
   products.forEach((product, indx, array) => {
-    let { id, quantity, stripeId, priceId } = product;
+    let { id, quantity, stripeId, priceId, priceIdFree } = product;
     let currentPriceId = null;
 
     const idParams = new URLSearchParams(id);
@@ -28,6 +28,12 @@ const prepareMetadataForStripe = (products) => {
     } else {
       currentPriceId = product.warranty.find(productWarranty => productWarranty.durationYear == warranty).priceId
     }
+
+    /*
+     * Продумать условие с подарком
+     * Если есть хотя бы 1 продукт, и 1 phone-holder, то FREE
+     * Если есть хотя бы 1 продукт, и 1 phone-holder, то FREE + PRICE 
+     */
 
     productArray.push({
       id,

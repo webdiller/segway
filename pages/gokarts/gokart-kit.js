@@ -62,7 +62,7 @@ const WarrancyPaymentImageDinamic = dynamic(() => import('@/sections/WarrancyPay
 const DiscountModalDinamic = dynamic(() => import('@/modals/DiscountModal'), { ssr: false });
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });
 
-export default function ModelPage({ allData }) {
+export default function ModelPage({ allData, product }) {
 
   return (
     <>
@@ -81,7 +81,7 @@ export default function ModelPage({ allData }) {
             Kit
           </>
         }
-        currentSegway={allData.gokarts[1]}
+        currentSegway={product}
       />
       <Tabs
         showApp
@@ -103,7 +103,7 @@ export default function ModelPage({ allData }) {
         </>}
       />
 
-      <PackingListDinamic packingListYoutubeEmbedId={allData.gokarts[1].packingListYoutubeEmbedId} packingListImg={allData.gokarts[1].packingListImg} />
+      <PackingListDinamic packingListYoutubeEmbedId={product.packingListYoutubeEmbedId} packingListImg={product.packingListImg} />
       <AccessoriesSliderDinamic items={allData.accessoeries} />
 
       <LargeImageDinamic
@@ -288,10 +288,10 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      <DownloadManualDinamic manualImgPath={allData.gokarts[1].manualImgPath} downloadManualHref={allData.gokarts[1].downloadManual} />
+      <DownloadManualDinamic manualImgPath={product.manualImgPath} downloadManualHref={product.downloadManual} />
 
       <CompareModels>
-        <Model hideIcons={true} width={206} height={144} model={allData.gokarts[1]} />
+        <Model hideIcons={true} width={206} height={144} model={product} />
         <Model width={206} height={144} model={allData.gokarts[0]} />
       </CompareModels>
 
@@ -316,20 +316,21 @@ export default function ModelPage({ allData }) {
         widthMobile={343}
         heightMobile={323}
         customClass="ks-e-45"
-        item={allData.gokarts[1]}
+        item={product}
       />
       <DiscountModalDinamic />
       <ProductModalDinamic accessoeries={allData.accessoeries} />
-      <FancyModal images={allData.gokarts[1].galleryImages} />
+      <FancyModal images={product.galleryImages} />
     </>
   );
 }
 
 export async function getStaticProps() {
+  const currentProduct = data.gokarts.find(({ id }) => id == 'id=015&warranty=null&color=null');
   return {
     props: {
       allData: data,
-      product: data.gokarts[1],
+      product: currentProduct,
       preparedProtection: data.accessoeries[7]
     }
   };
