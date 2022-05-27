@@ -1443,8 +1443,8 @@ export const data = {
       galleryImages: ["/ks-p65/slider/1.jpg"],
       packingListImg: "/packing-10.png",
       quantity: 1,
-      downloadManual: "/manuals/ks-p65-User-Manual.pdf",
-      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      downloadManual: "",
+      manualImgPath: "",
       packingListYoutubeEmbedId: "",
       warranty: [
         {
@@ -1517,8 +1517,8 @@ export const data = {
       galleryImages: ["/ks-p100/slider/1.jpg"],
       packingListImg: "/packing-10.png",
       quantity: 1,
-      downloadManual: "/manuals/ks-p100-User-Manual.pdf",
-      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      downloadManual: "",
+      manualImgPath: "",
       packingListYoutubeEmbedId: "",
       warranty: [
         {
@@ -1591,8 +1591,8 @@ export const data = {
       galleryImages: ["/ks-gt1/slider/1.jpg"],
       packingListImg: "/packing-10.png",
       quantity: 1,
-      downloadManual: "/manuals/ks-gt1-User-Manual.pdf",
-      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      downloadManual: "",
+      manualImgPath: "",
       packingListYoutubeEmbedId: "",
       warranty: [
         {
@@ -1665,8 +1665,8 @@ export const data = {
       galleryImages: ["/ks-gt2/slider/1.jpg"],
       packingListImg: "/packing-10.png",
       quantity: 1,
-      downloadManual: "/manuals/ks-gt2-User-Manual.pdf",
-      manualImgPath: "/manuals/SEGWAY_Ninebot_Kickscooter_MAX.png",
+      downloadManual: "",
+      manualImgPath: "",
       packingListYoutubeEmbedId: "",
       warranty: [
         {

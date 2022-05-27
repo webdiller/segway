@@ -737,9 +737,10 @@ export default function ModelPage({ allData }) {
         }
       />
 
-
-      {/* FIXME: Добавить мануал */}
-      <DownloadManualDinamic manualImgPath={allData.kickskooters[18].manualImgPath} downloadManualHref={allData.kickskooters[18].downloadManual} />
+      {allData.kickskooters[18].downloadManual && (
+        <DownloadManualDinamic manualImgPath={allData.kickskooters[18].manualImgPath} downloadManualHref={allData.kickskooters[18].downloadManual} />
+      )}
+      
       <CompareSpecificationsDinamic
         items={allData.kickskooters}
         mainSegway={allData.kickskooters[18]} />
