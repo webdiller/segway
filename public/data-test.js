@@ -1297,7 +1297,7 @@ export const data = {
       quantity: 1,
       downloadManual: "/manuals/ekickscooter_zing_c8.pdf",
       manualImgPath: "/manuals/SEGWAY_Zing_C8.png",
-      packingListYoutubeEmbedId: "",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM", // Рандомный
       warranty: [
         {
           durationYear: 1,
@@ -1371,7 +1371,7 @@ export const data = {
       quantity: 1,
       downloadManual: "/manuals/ninebot_kickscooter_e22_series.pdf",
       manualImgPath: "/manuals/SEGWAY_E25A.png",
-      packingListYoutubeEmbedId: "",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM", // Рандомный
       warranty: [
         {
           durationYear: 1,
@@ -1445,7 +1445,7 @@ export const data = {
       quantity: 1,
       downloadManual: "",
       manualImgPath: "",
-      packingListYoutubeEmbedId: "",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM", // Рандомный
       warranty: [
         {
           durationYear: 1,
@@ -1519,7 +1519,7 @@ export const data = {
       quantity: 1,
       downloadManual: "",
       manualImgPath: "",
-      packingListYoutubeEmbedId: "",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM", // Рандомный
       warranty: [
         {
           durationYear: 1,
@@ -1593,7 +1593,7 @@ export const data = {
       quantity: 1,
       downloadManual: "",
       manualImgPath: "",
-      packingListYoutubeEmbedId: "",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM", // Рандомный
       warranty: [
         {
           durationYear: 1,
@@ -1667,7 +1667,7 @@ export const data = {
       quantity: 1,
       downloadManual: "",
       manualImgPath: "",
-      packingListYoutubeEmbedId: "",
+      packingListYoutubeEmbedId: "j0n_ehqjJdM", // Рандомный
       warranty: [
         {
           durationYear: 1,

@@ -20,9 +20,14 @@ export default function HomePage({ allData }) {
             keySlider="mainPageSliderKickscooters"
             title="KICKSCOOTER"
             products={allData.kickskooters} />
-          <div className="main-page__info-link">
+
+          <br /><br />
+
+          {/* Расскоментировать при необходимости */}
+          {/* <div className="main-page__info-link">
             <InfoLink label="How to choose a KICKSCOOTER?" />
-          </div>
+          </div> */}
+
           <CategorySlider
             keySlider="mainPageSliderGokarts"
             customClassNames="main-page__margin-slider"

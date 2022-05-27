@@ -1,17 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
-import {useRef, useState} from 'react';
+import { useRef, useState } from 'react';
 import posterImage from '@/base/packing-list-poster.jpg';
 
 const useFocus = () => {
   const htmlElRef = useRef(null);
   const setFocus = () => {
-    if (htmlElRef.current) {htmlElRef.current.src += '?rel=0&showinfo=0&autoplay=1'}
+    if (htmlElRef.current) { htmlElRef.current.src += '?rel=0&showinfo=0&autoplay=1' }
   };
   return [htmlElRef, setFocus];
 };
 
-export default function PackingList({packingListImg, packingListYoutubeEmbedId}) {
+export default function PackingList({ packingListImg, packingListYoutubeEmbedId }) {
 
   const [overlay, setOverlay] = useState(true);
   const [youtubeRef, setYoutubeFocus] = useFocus();
@@ -39,7 +39,13 @@ export default function PackingList({packingListImg, packingListYoutubeEmbedId})
 
           <div onClick={removeOverlayForVideo} className="packing-list__video-wrapper">
             <div className={overlay ? 'packing-list__video-poster-wrapper' : 'packing-list__video-poster-wrapper disabled'}>
-              <Image layout="fill" objectFit="cover" className="packing-list__video-poster-img" alt="YouTube video player" src={posterImage} />
+              <Image
+                layout="fill"
+                objectFit="cover"
+                className="packing-list__video-poster-img"
+                alt="YouTube video player"
+                src={packingListYoutubeEmbedId ? `https://i.ytimg.com/vi/${packingListYoutubeEmbedId}/hqdefault.jpg`
+                  : posterImage} />
             </div>
             <div className={overlay ? 'packing-list__video-button' : 'packing-list__video-button disabled'}>
               <svg className="packing-list__video-icon" height="100%" version="1.1" viewBox="0 0 68 48" width="100%">

@@ -8,6 +8,9 @@ module.exports = withBundleAnalyzer({
     // FIXME: Уточнить хост
     HOST: process.env.NODE_ENV === 'production' ? 'https://segway.vercel.app' : 'http://localhost:3000'
   },
+  images: {
+    domains: ['i.ytimg.com'],
+  },
   swcMinify: true,
   reactStrictMode: false,
   productionBrowserSourceMaps: false,

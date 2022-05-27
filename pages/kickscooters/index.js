@@ -18,9 +18,12 @@ export default function HomePage({ allData }) {
             title="KICKSCOOTER"
             products={allData.kickskooters} />
         </div>
-        <div className="main-page__info-link">
+
+        {/* Расскоментировать при необходимости */}
+        {/* <div className="main-page__info-link">
           <InfoLink label="How to choose a KICKSCOOTER?" />
-        </div>
+        </div> */}
+
         <div className="main-page__videos"><Videos /></div>
       </div>
     </>
