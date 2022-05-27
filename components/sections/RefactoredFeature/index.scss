@@ -6,10 +6,15 @@ $mainClass: '.refactored-feature';
   overflow: hidden;
   &__main-image {
     > span {
-      // Устанавливаем максимальную высоту для картинок, чтобы на больших экранах не расползалась
-      max-height: 750px;
-      @include media('<=576px') {
-        max-height: unset;
+      min-height: 700px;
+      @include media('<=1200px') {
+        min-height: 500px;
+      }
+      @include media('<=991px') {
+        min-height: 450px;
+      }
+      @include media('<=768px') {
+        min-height: 400px;
       }
     }
   }
@@ -84,6 +89,32 @@ $mainClass: '.refactored-feature';
       font-size: 11px;
       line-height: 18px;
       color: #aaaaaa;
+    }
+  }
+
+  &.lg-img-medium {
+    #{$mainClass} {
+      &__main-image {
+        > span {
+          min-height: 500px;
+          @include media('<=991px') {
+            min-height: 450px;
+          }
+          @include media('<=768px') {
+            min-height: 400px;
+          }
+        }
+      }
+    }
+  }
+
+  &.lg-img-auto {
+    #{$mainClass} {
+      &__main-image {
+        > span {
+          min-height: unset;
+        }
+      }
     }
   }
 

@@ -12,6 +12,7 @@ const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/Ac
 import FeaturesDesktopImage from '@/base/gocart-pro/large-image-desktop.jpg';
 import FeaturesMobileImage from '@/base/gocart-pro/large-image-mobile.jpg';
 const LargeImageDinamic = dynamic(() => import('@/sections/LargeImage'));
+const RefactoredFeatureDinamic = dynamic(() => import('@/sections/RefactoredFeature'));
 
 import featuresIcon_1 from '@/base/gocart-pro/features-icons/feature-1.svg';
 import featuresIcon_2 from '@/base/gocart-pro/features-icons/feature-2.svg';
@@ -227,8 +228,18 @@ export default function ModelPage({ allData }) {
       />
 
       {/* 4 */}
-      <FeatureSimpleDinamic
-        customClass="type-11"
+      <RefactoredFeatureDinamic
+        additionalClasses={[
+          'lg-img-medium',
+          'lg-justify-content-center',
+          'lg-align-items-end',
+          'lg-text-left',
+          'lg-content-black',
+
+          'sm-justify-content-start',
+          'sm-align-items-center',
+          'sm-text-center',
+        ]}
         titleDesktop={
           <>
             Special <br /> Drifting TPE <br /> Rear Tires
@@ -296,8 +307,18 @@ export default function ModelPage({ allData }) {
       />
 
       {/* 6 */}
-      <FeatureSimpleDinamic
-        customClass="type-11"
+      <RefactoredFeatureDinamic
+        additionalClasses={[
+          'lg-img-medium',
+          'lg-justify-content-center',
+          'lg-align-items-end',
+          'lg-text-left',
+          'lg-content-black',
+
+          'sm-justify-content-start',
+          'sm-align-items-center',
+          'sm-text-center',
+        ]}
         titleDesktop={
           <>
             High-Traction <br /> Steering <br /> Wheel

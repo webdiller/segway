@@ -12,6 +12,7 @@ const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/Ac
 import FeaturesDesktopImage from '@/base/gocart-kit/large-image-desktop.jpg';
 import FeaturesMobileImage from '@/base/gocart-kit/large-image-mobile.jpg';
 const LargeImageDinamic = dynamic(() => import('@/sections/LargeImage'));
+const RefactoredFeatureDinamic = dynamic(() => import('@/sections/RefactoredFeature'));
 
 import featuresIcon_1 from '@/base/gocart-kit/features-icons/feature-1.svg';
 import featuresIcon_2 from '@/base/gocart-kit/features-icons/feature-2.svg';
@@ -245,9 +246,19 @@ export default function ModelPage({ allData }) {
         }
       />
 
-      {/* 5 */}
-      <FeatureSimpleDinamic
-        customClass="type-8"
+      {/* 4 */}
+      <RefactoredFeatureDinamic
+        additionalClasses={[
+          'lg-img-auto',
+          'lg-justify-content-center',
+          'lg-align-items-end',
+          'lg-text-left',
+          'lg-content-white',
+
+          'sm-justify-content-start',
+          'sm-align-items-center',
+          'sm-text-center',
+        ]}
         titleDesktop={
           <>
             Convenient <br />
