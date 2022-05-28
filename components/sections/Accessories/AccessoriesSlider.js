@@ -9,6 +9,7 @@ import { pushProduct } from 'store/slices/productCartSlice';
 import { productModalActiveSet } from 'store/slices/productModalSlice';
 import { disableAccessoriesSlider } from 'store/slices/elementInViewSlice';
 import UsePreorderModalHook from 'store/hooks/UsePreorderModalHook';
+import { filterProductByStatus } from '@/helpers/filterProductByStatus';
 
 export default function AccessoriesSlider({ items }) {
   const dispatch = useDispatch();
@@ -80,7 +81,7 @@ export default function AccessoriesSlider({ items }) {
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {items.map((item) => {
+            {filterProductByStatus(items).map((item) => {
               const { id, status, type, imgPath, nameWrap, description, price } = item;
               let itemClass = "swiper-slide accessories-slider__item";
               if (status == 'out-of-stock') itemClass = "swiper-slide accessories-slider__item blackout"

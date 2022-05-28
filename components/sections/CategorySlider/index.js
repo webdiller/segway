@@ -38,8 +38,6 @@ export default function CategorySlider({ customClassNames, title, products, type
     }, 3000);
   };
 
-  const [sortedProducts, sortedProductsSet] = useState([])
-
   const swiperRef = useRef()
   const { ref, inView } = useInView({ threshold: 0.5 });
 
@@ -79,11 +77,6 @@ export default function CategorySlider({ customClassNames, title, products, type
     }
   }, [dispatch, inView, otherSliders, keySlider, allowTouchMove])
 
-  useEffect(()=>{
-    const currentArr = JSON.parse(JSON.stringify(products))
-    sortedProductsSet(currentArr.sort(filterProductByStatus))
-  }, [products])
-
   return (
     <div ref={ref} className={classNames('category-slider', classNames(customClassNames))}>
       <div className="container category-slider__container">
@@ -110,7 +103,7 @@ export default function CategorySlider({ customClassNames, title, products, type
             swiperRef.current = swiper
           })}
         >
-          {sortedProducts.map((item) => {
+          {filterProductByStatus(products).map((item) => {
             const { id, type, status, excludeForMap, nameWrap, nameWithoutBrand, imgPath, pageLinkName, pageLinkNameWithCategory, price } = item;
             let currentClass = "category-slider__item";
             if (type == 'accessory') currentClass += " category-slider__item_accessory"

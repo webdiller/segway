@@ -31,23 +31,10 @@ export default function TopSwiper({ items }) {
   const { topSlider } = useSelector(state => state.elementInView);
   const { currentPosition } = useSelector(state => state.topSwiper);
 
-  const [kickskooters, kickskootersSet] = useState([])
-  const [gokarts, gokartsSet] = useState([])
-
   const swiperWithAllSegways = useRef(null);
   const parentSwiper = useRef(null);
 
   const { ref, inView } = useInView({ threshold: 0.5 });
-
-  useEffect(()=>{
-    const currentArr = JSON.parse(JSON.stringify(items.kickskooters))
-    kickskootersSet(currentArr.sort(filterProductByStatus))
-  }, [items.kickskooters])
-
-  useEffect(()=>{
-    const currentArr = JSON.parse(JSON.stringify(items.gokarts))
-    gokartsSet(currentArr.sort(filterProductByStatus))
-  }, [items.gokarts])
 
   useEffect(() => {
     if (window.innerWidth <= 768 && inView && topSlider) {
@@ -110,7 +97,7 @@ export default function TopSwiper({ items }) {
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {kickskooters.map(({ id, status, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {filterProductByStatus(items.kickskooters).map(({ id, status, name, shortNameWithoutPrefix, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null
@@ -121,7 +108,7 @@ export default function TopSwiper({ items }) {
                         let currentMainClass = "top-swiper__item";
                         if (isMatch) currentMainClass += " accent";
                         if (status == "out-of-stock") currentMainClass += " blackout";
-                        
+
                         return (
                           <SwiperSlide key={id} className={currentMainClass}>
                             <Link href={`${pageLinkName ? `/kickscooters/${pageLinkName}` : '/'}`}>
@@ -158,7 +145,7 @@ export default function TopSwiper({ items }) {
                       }
                     }}
                     onInit={(swiper) => swiperWithAllSegways.current = swiper}>
-                    {gokarts.map(({ id, status, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
+                    {filterProductByStatus(items.gokarts).map(({ id, status, name, nameWithoutBrand, imgSmallPath, pageLinkName, excludeForMap, pageLinkForMatch }) => {
                       if (!excludeForMap) {
                         const currentUrl = router.asPath.split('/')[2];
                         let isMatch = null

@@ -69,12 +69,6 @@ export default function OtherModels({
 
   };
 
-  const [sortedProducts, sortedProductsSet] = useState([])
-  useEffect(()=>{
-    const currentArr = JSON.parse(JSON.stringify(allSegways))
-    sortedProductsSet(currentArr.sort(filterProductByStatus))
-  }, [allSegways])
-
   useEffect(() => {
     if (document.readyState === 'complete' && window.innerWidth <= 768 && inView && otherModelsSlider) {
       try {
@@ -121,7 +115,7 @@ export default function OtherModels({
             onInit={(swiper) => {
               swiperRef.current = swiper;
             }}>
-            {sortedProducts.map(({ id, type, status, name, nameWithoutBrand, price, imgPath, excludeForMap, pageLinkNameWithCategory }) => {
+            {filterProductByStatus(items).map(({ id, type, status, name, nameWithoutBrand, price, imgPath, excludeForMap, pageLinkNameWithCategory }) => {
               let currentClass = "swiper-slide other-models__item";
               if (status == 'out-of-stock') currentClass += " blackout";
               if (!excludeForMap) {

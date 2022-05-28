@@ -1,12 +1,17 @@
-export function filterProductByStatus(a) {
-  if (a.status == 'preorder') {
-    return -1;
+export function filterProductByStatus(products) {
+  let newArr = [];
+  
+  for (const product of products) {
+    if (product.status == "in-stock") newArr.push(product);
   }
-  if (a.status == 'in-stock') {
-    return -1;
+
+  for (const product of products) {
+    if (product.status == "preorder") newArr.push(product);
   }
-  if (a.status == 'out-of-stock') {
-    return 1;
+
+  for (const product of products) {
+    if (product.status == "out-of-stock") newArr.push(product);
   }
-  return 0;
+
+  return newArr
 }
