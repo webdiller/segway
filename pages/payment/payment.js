@@ -303,6 +303,7 @@ export default function PauymentLastPage() {
                   'Content-Type': 'application/json',
                 },
                 data: {
+                  userdata: billing_details,
                   products,
                 }
               };
@@ -328,6 +329,7 @@ export default function PauymentLastPage() {
       }
     } else {
       const parseProducts = prepareProductsForExtend({ products: products, customer: customerDetailsContractExtended });
+      
       let config = {
         method: "post",
         url: `/api/stripe/create-payment-intent-stripe`,
@@ -447,6 +449,7 @@ export default function PauymentLastPage() {
                   'Content-Type': 'application/json',
                 },
                 data: {
+                  userdata: billing_details,
                   products,
                   contracts
                 }
@@ -522,7 +525,7 @@ export default function PauymentLastPage() {
       try {
 
         const preparedItems = prepareProductsForAffirm(products)
-
+        
         /* Creating affirm object */
         const affirm_checkoun = {
 
@@ -778,12 +781,12 @@ export default function PauymentLastPage() {
           </div>}
         />
         {(paymentMethod == 'paymentMethodsPaypel' || paymentMethod == 'paymentMethodsAffirm' || paymentMethod == 'paymentMethodsCoinbase') && (
-            <div className="payment-payment__payment-method-info">
-              <p className="payment-payment__payment-method-info-title">This payment method is not available</p>
-              <p className="payment-payment__payment-method-info-text">Please try another method or try again later</p>
-              <FiAlertTriangle className="payment-payment__payment-method-info-icon" />
-            </div>
-          )
+          <div className="payment-payment__payment-method-info">
+            <p className="payment-payment__payment-method-info-title">This payment method is not available</p>
+            <p className="payment-payment__payment-method-info-text">Please try another method or try again later</p>
+            <FiAlertTriangle className="payment-payment__payment-method-info-icon" />
+          </div>
+        )
         }
 
         <div className="payment-payment__action-buttons">

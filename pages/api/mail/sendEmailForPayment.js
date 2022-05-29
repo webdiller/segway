@@ -1,7 +1,18 @@
 import nodemailer from "nodemailer";
+const hbs = require('nodemailer-express-handlebars')
+const path = require('path')
+
 export default async function handler(req, res) {
 
-  const { products, contracts } = req.body;
+  const handlebarOptions = {
+    viewEngine: {
+      partialsDir: path.resolve('./components/emailviews/'),
+      defaultLayout: false,
+    },
+    viewPath: path.resolve('./components/emailviews/'),
+  };
+
+  const { userdata, products, contracts } = req.body;
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -12,6 +23,8 @@ export default async function handler(req, res) {
       pass: process.env.GMAIL_SERVICE_PASS
     }
   });
+
+  transporter.use('compile', hbs(handlebarOptions))
 
   let userAddress;
   try {
@@ -58,10 +71,23 @@ export default async function handler(req, res) {
   const mailData = {
     from: "eugenefromrus@gmail.com",
     to: process.env.EMAIL_SEND_TO,
-    subject: `Оплаченные продукты`,
-    html: `
-      <h1>Оплаченные продукты</h1>
-    `,
+    subject: `New order #1023`,
+    context: {
+      name: userdata.name,
+      email: userdata.email,
+      phone: userdata.phone,
+      products: products,
+      contracts: contracts,
+      shippingAddress: `
+        ${userdata.name}, 
+        ${userdata.address.country} 
+        ${userdata.address.city} 
+        ${userdata.address.state}, 
+        ${userdata.address.postal_code},
+        ${userdata.phone}
+        `
+    },
+    template: 'email',
     attachments: attachments
   };
 

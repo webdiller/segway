@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       <p>Имя пользователя: ${formFromOtherModelsName || 'Не указано'}</p>
       <p>Телефон пользователя: ${formFromOtherModelsPhone}</p>
       <p>Страна / регион пользователя: ${userAddress || 'Не указано'}</p>
-    `
+      `
   };
 
   await new Promise((resolve, reject) => {

@@ -24,7 +24,8 @@ const prepareProductsForExtend = ({ products, customer }) => {
           priceId: product.priceIdFree,
           name: product.name,
           quantity: product.quantity,
-          price: 0
+          price: 0,
+          priceForEmail: 0
         })
       } else {
         /** Если не подарок */
@@ -34,7 +35,8 @@ const prepareProductsForExtend = ({ products, customer }) => {
           priceId: product.priceId,
           name: product.name,
           quantity: product.quantity,
-          price: Number(Number(product.price).toFixed())
+          price: Number(Number(product.price).toFixed()),
+          priceForEmail: Number(currentWarrantyObj.planPrice) * 0.01
         })
       }
 
@@ -62,6 +64,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
             let referenceId = product.referenceId;
             let transactionDate = new Date().getTime()
             let transactionTotal = Number(currentWarrantyObj.planPrice.toFixed())
+            let priceForEmail = Number(currentWarrantyObj.planPrice) * 0.01
 
             productArray.push({
               ...customer,
@@ -80,6 +83,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
               transactionDate,
               transactionId,
               transactionTotal,
+              priceForEmail,
               currency: "USD"
             })
           })
@@ -105,6 +109,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
             let referenceId = product.referenceId;
             let transactionDate = new Date().getTime()
             let transactionTotal = Number(currentWarrantyObj.planPrice.toFixed())
+            let priceForEmail = Number(currentWarrantyObj.planPrice) * 0.01
 
             productArray.push({
               ...customer,
@@ -123,6 +128,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
               transactionDate,
               transactionId,
               transactionTotal,
+              priceForEmail,
               currency: "USD"
             })
           })

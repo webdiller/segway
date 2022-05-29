@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv='x-ua-compatible' content='ie=edge' />
+    <title><h1>New order #1023 on Segway.cherry-wheel.com</h1></title>
+    <style>
+      table { font-family: arial, sans-serif; border-collapse: collapse; width: 100%; } td, th { border: 1px solid #dddddd; text-align: left; padding: 8px; } tr:nth-child(even) { background-color:
+      #dddddd; }
+    </style>
+  </head>
+  {{! 
+    name
+    email
+    phone
+    products
+      title
+      price
+    contracts
+    shippingAddress
+    paymentMethod
+   }}
+  <body>
+    <h1>New order on Segway.cherry-wheel.com</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>{{name}}</th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <th>{{email}}</th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Tel</th>
+        <th>{{phone}}</th>
+        <th></th>
+      </tr>
+      {{#each products as |value key|}}
+        <tr>
+          <td>Product</td>
+          <td>{{value.name}}</td>
+          <td>${{value.price}}</td>
+        </tr>
+      {{/each}}
+
+      {{#each contracts as |value key|}}
+        <tr>
+          <td>Contract</td>
+          <td>{{value.name}}</td>
+          <td>${{value.priceForEmail}}</td>
+        </tr>
+      {{/each}}
+      <tr>
+        <th>Shipping adress</th>
+        <th>{{shippingAddress}}</th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Payment Method</th>
+        <th>Credit cart Stripe</th>
+        <th></th>
+      </tr>
+    </table>
+  </body>
+</html>
