@@ -107,6 +107,7 @@ export const productCartSlice = createSlice({
       state.totalPrice = calculateTotalPrice(state.products)
     },
 
+    // Остановился на вычислении названия продукта, при смене цвета
     setPropertiesForProduct: (state, action) => {
       const { currentProduct, selectedWarranty, selectedColor } = action.payload;
 
