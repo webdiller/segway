@@ -36,7 +36,7 @@ export default function Footer({withPaddings}) {
           <div className="footer__columns">
 
             <div className="footer__columns-item">
-              <p className="footer__columns-item-title">Social media</p>
+              <p className="footer__columns-item-title">Social media new design</p>
               <nav className="footer__socials">
                 {socials.map(({ id, alt, src }) => (
                   <Link key={id} href="/">
