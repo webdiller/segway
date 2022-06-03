@@ -1,7 +1,7 @@
 import CustomInput from '@/shared/CustomInput';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDiscountCode } from 'store/slices/profileSlice';
+import { discountCode } from 'store/slices/profileSlice';
 
 export default function UserCartStatus() {
 
@@ -9,12 +9,16 @@ export default function UserCartStatus() {
 
   const { discountCode } = useSelector(state => state.profile);
   const { totalPrice } = useSelector((state) => state.products);
+  const couponHandler = (e) => {
+    e.preventDefault();
+    console.log(discountCode);
+  }
 
   return (
     <div className="user-cart-status">
-      <form className="user-cart-status__input-with-btn">
+      <form onSubmit={couponHandler} className="user-cart-status__input-with-btn">
         <CustomInput handler={(e) => dispatch(setDiscountCode(e.target.value))} value={discountCode} customClass="user-cart-status__input" placeholder="Discount code" />
-        <button type="button" className="user-cart-status__btn">
+        <button type="submit" className="user-cart-status__btn">
           Apply
         </button>
       </form>

@@ -16,6 +16,10 @@ const prepareProductsForExtend = ({ products, customer }) => {
 
     /** Если аксессуар, то 2 условия. Подарок или нет */
     if (type === 'accessory') {
+      /** 
+       * Если это phone holder
+       * Если в 1 количестве
+       */
       if (id === 'segway-phone-holder' && quantity == 1 && products.some(item => (item.type !== 'accessory' && item.type !== 'bundle'))) {
         /** Если подарок */
         productArray.push({

@@ -227,12 +227,11 @@ export default function PauymentLastPage() {
 
       let clientSecret = null;
       if (products.length > 0) {
+        submitBtnRef.current.classList.add('loading')
+        payTextSet('Loading...')
         try {
           const { data } = await axios(config);
           clientSecret = data.clientSecret
-
-          submitBtnRef.current.classList.add('loading')
-          payTextSet('Loading...')
 
         } catch (error) {
           submitBtnRef.current.classList.remove('loading')
@@ -349,12 +348,12 @@ export default function PauymentLastPage() {
 
       let clientSecret = null;
       if (products.length > 0) {
+        submitBtnRef.current.classList.add('loading')
+        payTextSet('Loading...')
         try {
           const { data } = await axios(config);
           clientSecret = data.clientSecret
 
-          submitBtnRef.current.classList.add('loading')
-          payTextSet('Loading...')
 
         } catch (error) {
           submitBtnRef.current.classList.remove('loading')
@@ -426,7 +425,7 @@ export default function PauymentLastPage() {
                 }
               };
               const { data } = await axios(config);
-              console.log(data);
+              console.log('extend: ', data);
             } catch (error) {
               console.log(error);
             }

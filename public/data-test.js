@@ -205,6 +205,7 @@ export const data = {
       ],
       colors: [
         {
+          nameModel: "Ninebot Kickscooter MAX",
           name: "black",
           color: "000000",
           price: 0,
@@ -213,6 +214,7 @@ export const data = {
           imgPath: "/ninebot-kickscooter-max-006.png"
         },
         {
+          nameModel: "Ninebot Kickscooter MAX White",
           name: "white",
           color: "ded5aa",
           price: 0,
@@ -297,6 +299,7 @@ export const data = {
       ],
       colors: [
         {
+          nameModel: "Ninebot Kickscooter MAX",
           name: "black",
           color: "000000",
           price: 0,
@@ -305,6 +308,7 @@ export const data = {
           imgPath: "/ninebot-kickscooter-max-006.png"
         },
         {
+          nameModel: "Ninebot Kickscooter MAX White",
           name: "white",
           color: "ded5aa",
           price: 0,
@@ -1127,6 +1131,7 @@ export const data = {
       ],
       colors: [
         {
+          nameModel: "Ninebot Kickscooter ZING E8 purple",
           name: "purple",
           color: "6D7DDF",
           price: 0,
@@ -1135,6 +1140,7 @@ export const data = {
           imgPath: "/ninebot-kickscooter-zing-e8-purple.png"
         },
         {
+          nameModel: "Ninebot Kickscooter ZING E8 pink",
           name: "pink",
           color: "FFBFC0",
           price: 100,
@@ -1224,6 +1230,7 @@ export const data = {
       ],
       colors: [
         {
+          nameModel: "Ninebot Kickscooter ZING E8 purple",
           name: "purple",
           color: "6D7DDF",
           price: 100,
@@ -1233,6 +1240,7 @@ export const data = {
           imgPath: "/ninebot-kickscooter-zing-e8-purple.png"
         },
         {
+          nameModel: "Ninebot Kickscooter ZING E8 pink",
           name: "pink",
           color: "FFBFC0",
           price: 0,
