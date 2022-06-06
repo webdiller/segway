@@ -1,6 +1,6 @@
 import CustomHead from '@/basic/CustomHead';
 import { BlogPost } from '@/sections/Blog';
-import { data } from '@/base/data-test';
+const { data } = process.env.NODE_ENV === 'development' ? require('@/base/data-test') : require('@/base/data-prod');
 
 import dynamic from 'next/dynamic';
 const ProductModalDinamic = dynamic(() => import('@/modals/ProductAddedModal/ProductModal'), { ssr: false });

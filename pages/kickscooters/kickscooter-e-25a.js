@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { data } from '@/base/data-test';
+const { data } = process.env.NODE_ENV === 'development' ? require('@/base/data-test') : require('@/base/data-prod');
 import Welcome from '@/sections/Welcome';
 
 import Tabs from '@/sections/Tabs';

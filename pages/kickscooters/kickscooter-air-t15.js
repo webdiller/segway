@@ -5,7 +5,7 @@ import Tabs from '@/sections/Tabs';
 const FancyModal = dynamic(() => import('@/modals/FancyModal'), { ssr: false });
 import CustomHead from '@/basic/CustomHead';
 
-import { data } from '@/base/data-test';
+const { data } = process.env.NODE_ENV === 'development' ? require('@/base/data-test') : require('@/base/data-prod');
 
 const PackingListDinamic = dynamic(() => import('@/sections/PackingList'));
 const AccessoriesSliderDinamic = dynamic(() => import('@/sections/Accessories/AccessoriesSlider'));

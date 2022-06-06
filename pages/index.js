@@ -2,7 +2,8 @@ import dynamic from 'next/dynamic';
 
 import CustomHead from '@/basic/CustomHead';
 import Tabs from '@/sections/Tabs';
-import { data } from '@/base/data-test';
+const { data } = process.env.NODE_ENV === 'development' ? require('@/base/data-test') : require('@/base/data-prod');
+
 import MainModelSlider from '@/sections/MainModelSlider';
 import InfoLink from '@/sections/InfoLink';
 import Reviews from '@/sections/Reviews/ReviewsSlider';

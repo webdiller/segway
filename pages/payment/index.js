@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 const Link = dynamic(() => import('next/link'));
 
-import { data } from '@/base/data-test';
+const { data } = process.env.NODE_ENV === 'development' ? require('@/base/data-test') : require('@/base/data-prod');
 
 import CustomHead from '@/basic/CustomHead';
 import CustomCheckbox from '@/shared/CustomCheckbox';

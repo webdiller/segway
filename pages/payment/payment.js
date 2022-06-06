@@ -31,7 +31,7 @@ import {
   setDifferentPhone
 } from 'store/slices/differentBillingSlice';
 
-import { data } from '@/base/data-test';
+const { data } = process.env.NODE_ENV === 'development' ? require('@/base/data-test') : require('@/base/data-prod');
 
 import {
   useStripe,
