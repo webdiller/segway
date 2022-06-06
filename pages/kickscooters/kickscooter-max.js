@@ -71,7 +71,7 @@ export default function ModelPage({ allData, product }) {
 
   return (
     <>
-      <CustomHead title="Kickscooter Max" ></CustomHead>
+      <CustomHead title="Kickscooter Max" description='Kickscooter MAX description' keywords="Kickscooter MAX keywords"></CustomHead>
       <Welcome
         titleDesktop={
           <>

@@ -75,7 +75,7 @@ export default function Welcome({ currentSegway, titleDesktop, titleMobile, bund
           <div className="welcome__content">
             <div className="welcome__stock-with-title welcome__stock-with-title_desktop">
               {CurrentStatus(status)}
-              <p className="title welcome__title">{titleDesktop}</p>
+              <h1 className="title welcome__title">{titleDesktop}</h1>
             </div>
             <SegwayProtectMobile customClass="welcome__protect" />
             <FormWithWarrancy bundles={bundles} product={currentSegway} customClass="welcome__form" />
