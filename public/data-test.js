@@ -1704,7 +1704,6 @@ export const data = {
       ]
     }
   ],
-
   gokarts: [
     {
       id: "id=014&warranty=null&color=null",
