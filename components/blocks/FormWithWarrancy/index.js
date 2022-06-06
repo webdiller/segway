@@ -104,7 +104,7 @@ export default function FormWithWarrancy({ customClass = 'form-with-warrancy', p
               <div className="form-with-warrancy__title-with-buttons">
                 <p className="form-with-warrancy__form-title">
                   Add an extended warranty from
-                  <Link href={`https://customers.extend.com/plan_details/B9-SGEBK-1y?storeId=${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}`}>
+                  <Link href={`https://customers.extend.com/plan_details/B9-SGEBK-1y?storeId=${process.env.NEXT_PUBLIC_EXTEND_STORE_ID}`}>
                     {/* FIXME: Проверить БЭМ */}
                     <a className='form-with-warrancy__form-link'><Image alt="Extend icon" src={extendImage} /><span className='form-with-warrancy__form-link-question'>?</span></a>
                   </Link>

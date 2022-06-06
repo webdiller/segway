@@ -328,7 +328,7 @@ export default function PauymentLastPage() {
       }
     } else {
       const parseProducts = prepareProductsForExtend({ products: products, customer: customerDetailsContractExtended });
-      
+
       let config = {
         method: "post",
         url: `/api/stripe/create-payment-intent-stripe`,
@@ -415,7 +415,7 @@ export default function PauymentLastPage() {
             try {
               let config = {
                 method: "post",
-                url: `/api/extend/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}/contracts`,
+                url: `/api/extend/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID}/contracts`,
                 headers: {
                   "Content-Type": "application/json",
                 },
@@ -482,14 +482,14 @@ export default function PauymentLastPage() {
     let config = {
       method: "GET",
       // PRODUCTION
-      // url: `https://api.helloextend.com/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}/products`,
+      // url: `https://api.helloextend.com/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID}/products`,
 
       // DEV
-      url: `https://api-demo.helloextend.com/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}/products`,
+      url: `https://api-demo.helloextend.com/stores/${process.env.NEXT_PUBLIC_EXTEND_STORE_ID}/products`,
       headers: {
         'Accept': 'application/json; version=2021-04-01',
         'Content-Type': 'application/json',
-        'X-Extend-Access-Token': `${process.env.NEXT_PUBLIC_EXTEND_API_ID_DEV}`,
+        'X-Extend-Access-Token': `${process.env.NEXT_PUBLIC_EXTEND_API_ID}`,
       },
     };
 
