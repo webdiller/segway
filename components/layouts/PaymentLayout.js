@@ -9,7 +9,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 const PreorderModalDynamic = dynamic(() => import('@/modals/PreorderModal'));
 
-let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_DEV)
+let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 export default function PaymentLayout({ title = 'Segway', description = 'Описание', children, accessoeries }) {
   return (

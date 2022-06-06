@@ -80,7 +80,7 @@ export default function Products() {
                 {item.warranty && item.status !== 'preorder' && (
                   <div className="products__product-warrancy-area">
                     <p className="products__product-warrancy-title">Add an extended warranty from
-                      <Link href={`https://customers.extend.com/plan_details/B9-SGEBK-1y?storeId=${process.env.NEXT_PUBLIC_EXTEND_STORE_ID_DEV}`}>
+                      <Link href={`https://customers.extend.com/plan_details/B9-SGEBK-1y?storeId=${process.env.NEXT_PUBLIC_EXTEND_STORE_ID}`}>
                         <a className='form-with-warrancy__form-link'><Image alt="Extend icon" src={extendImage} /><span className='form-with-warrancy__form-link-question'>?</span></a>
                       </Link>
                     </p>

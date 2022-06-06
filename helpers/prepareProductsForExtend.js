@@ -75,7 +75,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
               id,
               name,
               title: "Extend Protection Plan - Electric Mobility",
-              isTest: true,
+              isTest: process.env.NODE_ENV === 'development' ? true : false,
               plan: {
                 planId,
                 purchasePrice
@@ -120,7 +120,7 @@ const prepareProductsForExtend = ({ products, customer }) => {
               id,
               name,
               title: "Extend Protection Plan - Electric Mobility",
-              isTest: true,
+              isTest: process.env.NODE_ENV === 'development' ? true : false,
               plan: {
                 planId,
                 purchasePrice
