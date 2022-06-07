@@ -74,6 +74,18 @@ export default function HomePage({ allData }) {
 }
 
 export async function getStaticProps() {
+  console.log(process.env.NODE_ENV);
+  console.log('---');
+  console.log('GMAIL_SERVICE_PASS: ', process.env.GMAIL_SERVICE_PASS)
+  console.log('EMAIL_SEND_TO: ', process.env.EMAIL_SEND_TO)
+  console.log('STRIPE_SECRET_KEY: ', process.env.STRIPE_SECRET_KEY)
+  console.log('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ', process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+  console.log('AFFIRM_PRIVATE_KEY: ', process.env.AFFIRM_PRIVATE_KEY)
+  console.log('NEXT_PUBLIC_AFFIRM_PUBLIC_KEY: ', process.env.NEXT_PUBLIC_AFFIRM_PUBLIC_KEY)
+  console.log('NEXT_PUBLIC_PAYPAL_CLIENT_ID: ', process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID)
+  console.log('NEXT_PUBLIC_EXTEND_STORE_ID: ', process.env.NEXT_PUBLIC_EXTEND_STORE_ID)
+  console.log('NEXT_PUBLIC_EXTEND_API_ID: ', process.env.NEXT_PUBLIC_EXTEND_API_ID)
+  
   return {
     props: {
       allData: data
